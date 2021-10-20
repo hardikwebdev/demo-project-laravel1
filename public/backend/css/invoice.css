@@ -1,0 +1,68 @@
+html, body{
+    margin: 0;
+    padding: 0;
+}
+body { 
+    font-family: Arial;
+    background-color: #444444;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+}
+@page {
+    size: 21cm 29.7cm;
+    margin: 0mm;
+}
+table {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+td, th {
+    vertical-align: top;
+}
+.color-white {
+    color: #fefefe;
+}
+.color-gray {
+    color: #D3D3D3;
+}
+.heading-gold { 
+    color: #F4D68C;
+    text-align: right;
+    padding-right: 40px;
+}
+@media print {
+    .color-white {
+        color: rgba(0, 0, 0, 0);
+        text-shadow: 0 0 0 #fefefe;
+        -webkit-print-color-adjust: exact;
+    }
+    .color-gray {
+        color: rgba(0, 0, 0, 0);
+        text-shadow: 0 0 0 #D3D3D3;
+    }
+    .heading-gold { 
+        color: rgba(0, 0, 0, 0);
+        text-shadow: 0 0 0 #F4D68C;
+    }
+    #btn_print {
+        display: none;
+    }
+
+    @media print and (-webkit-min-device-pixel-ratio:0) {
+        .color-white {
+            color: #fefefe;
+            -webkit-print-color-adjust: exact;
+        }
+        .color-gray {
+            color: #D3D3D3;
+            -webkit-print-color-adjust: exact;
+        }
+        .heading-gold { 
+            color: #F4D68C;
+            -webkit-print-color-adjust: exact;
+        }
+    }
+}   
