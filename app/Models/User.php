@@ -85,7 +85,12 @@ class User extends Authenticatable
     }
 
     //userAgreement
-    public function UserAgreement() {
-        return $this->belongsTo(UserBank::class, 'id', 'user_id');
+    public function user_agreement() {
+        return $this->belongsTo(UserAgreement::class, 'id', 'user_id');
+    }
+
+    //user wallet
+    public function userwallet() {
+        return $this->belongsTo(UserWallet::class, 'id', 'user_id');
     }
 }

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\NewsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,7 +41,10 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 
         Route::middleware(['auth:admin'])->group(function () {
             Route::get('dashboard', [App\Http\Controllers\Backend\DashboardController::class, 'index'])->name('admin.dashboard');
+            // user crud
             Route::resource('user', UserController::class);
+            // news crud
+            Route::resource('news', NewsController::class);
         });
      
     });
