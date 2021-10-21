@@ -18,6 +18,7 @@ class CreateUserAgreementsTable extends Migration
             $table->integer('user_id')->nullable()->default(0);
             $table->string('aml_policy_statement')->nullable()->default(1);
             $table->string('risk_disclosure_statement')->nullable()->default(1);
+            $table->string('user_agreement')->nullable()->default(1);
             $table->string('poa')->nullable()->default(1);
             $table->string('user_signature')->nullable()->default(1);
             $table->date('date_of_registration')->nullable();

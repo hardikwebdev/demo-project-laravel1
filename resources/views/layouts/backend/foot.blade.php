@@ -1,4 +1,8 @@
 <!-- Mainly scripts -->
+<script>
+    var icNumberDuplication = "{{route('icNumberDuplication')}}";
+    var icNumberDuplicationEdit  = "{{route('icNumberDuplicationedit')}}";
+</script>
 <script src="{{asset('backend/js/jquery-3.1.1.min.js')}}"></script>
 <script src="{{asset('backend/js/jquery.timeago.js')}}"></script>
 <script src="{{asset('backend/js/moment.min.js')}}"></script>
