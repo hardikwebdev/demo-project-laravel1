@@ -15,6 +15,8 @@ class CreateStackingPoolsTable extends Migration
     {
         Schema::create('stacking_pools', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id'); 
+            $table->integer('stacking_pool_package_id'); 
             $table->double('amount',12,2)->default(0.00);
             $table->double('percent',12,2)->default(0.00);
             $table->string('stacking_period');
