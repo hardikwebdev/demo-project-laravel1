@@ -128,6 +128,20 @@
                    </span> 
                 </a>
             </div> --}}
+            <li class="@if(\Request::is('admin/packages') || \Request::is('admin/packages/*') || \Request::is('admin/pool-packages') || \Request::is('admin/pool-packages/*')) {{'active'}} @endif">
+                <a href="#">
+                    <img src="{{asset('images/Wallet.png')}}" class="side-icon-size">
+                    <span class="nav-label">Staking Pools</span><span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level collapse" style="">
+                    <li class="@if(\Request::is('admin/pool-packages') || \Request::is('admin/pool-packages/*')) {{'active'}} @endif">
+                        <a href="{{ route('pool-packages.index')}}" title=""> <span class="cus-sub-menu">Pool Packages</span><span class="label label-info pull-right"></span></a>
+                    </li>
+                    <li class="@if(\Request::is('admin/packages') || \Request::is('admin/packages/*')) {{'active'}} @endif">
+                        <a href="{{ route('packages.index')}}" title=""> <span class="cus-sub-menu">Packages</span></a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </div>
 </nav>

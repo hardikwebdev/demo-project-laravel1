@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Skydash Admin</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="css/custom/feather.css">
+  <link rel="stylesheet" href="css/custom/themify-icons.css">
+  <link rel="stylesheet" href="css/vertical-layout-light/style.css">
+  <link rel="stylesheet" href="css/custom/index.css">
+  <link rel="stylesheet" href="css/custom/slick.min.css">
+  <link rel="stylesheet" href="css/custom/slick-theme.min.css">
+</head>
+<body>
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row shadow-none">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        <a class="navbar-brand brand-logo p-4" href="index.html"><img src="images/assets/Dashboard/Group1030.png" class="img-fluid h-auto" alt="logo"/></a>
+        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/assets/Dashboard/Group1030.png" alt="logo"/></a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-end justify-content-end justify-content-md-between">
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+          <span class="icon-menu"></span>
+        </button>
+
+        <div class="ml-4 d-none d-md-block">
+          <h2 class="text-warning font-weight-bold">Sell NFT</h2>
+          <p class="text-white">Hi, Andy welcome back to Defix Finance Dashboard.</p>
+        </div>
+        <ul class="navbar-nav navbar-nav-right">
+          <li class="nav-item nav-profile dropdown align-self-md-end">
+            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+              <img src="images/assets/Dashboard/Group853.png" alt="">
+            </a>
+            <div class="ml-2">
+              <h4 class="text-warning font-weight-bold mb-0">Andy John</h4>
+              <span>Active</span>
+            </div>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+              <a class="dropdown-item">
+                <i class="ti-settings text-primary"></i>
+                Settings
+              </a>
+              <a class="dropdown-item">
+                <i class="ti-power-off text-primary"></i>
+                Logout
+              </a>
+            </div>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+              <span class="icon-menu"></span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <img src="images/assets/Dashboard/Group848.png" class="cus-sidebar-icon" alt="">
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="stacking_pools.html">
+              <img src="images/assets/Dashboard/Group955.png" class="cus-sidebar-icon" alt="">
+              <span class="menu-title">Staking Pools</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link collapsed" data-toggle="collapse" href="#node" aria-expanded="false" aria-controls="tables">
+              <img src="images/assets/Dashboard/Group953.png" class="cus-sidebar-icon" alt="">
+              <span class="menu-title">Nodes Management</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="node">
+              <ul class="nav flex-column sub-menu rounded-bottom">
+                <li class="nav-item"> 
+                  <a class="nav-link pl-0" href="node_register.html">Register</a>
+                </li>
+                <li class="nav-item"> 
+                  <a class="nav-link pl-0" href="node_management.html">Nodes</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link collapsed" data-toggle="collapse" href="#wallets" aria-expanded="false" aria-controls="tables">
+              <img src="images/assets/Dashboard/Group952.png" class="cus-sidebar-icon" alt="">
+              <span class="menu-title">Wallets</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="wallets">
+              <ul class="nav flex-column sub-menu rounded-bottom">
+                <li class="nav-item"> 
+                  <a class="nav-link pl-0" href="crypto_wallets.html">Crypto Wallet</a>
+                </li>
+                <li class="nav-item"> 
+                  <a class="nav-link pl-0" href="yield_wallet.html">Yield Wallet</a>
+                </li>
+                <li class="nav-item"> 
+                  <a class="nav-link pl-0" href="commission_wallet.html">Commission  Wallet</a>
+                </li>
+                <li class="nav-item"> 
+                  <a class="nav-link pl-0" href="NFT_wallet.html">NFT Wallet</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="NFT_marketplace.html">
+              <img src="images/assets/Dashboard/Group951.png" class="cus-sidebar-icon" alt="">
+              <span class="menu-title">NFT Marketplace </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="withdrawal.html">
+              <img src="images/assets/Dashboard/Group850.png" class="cus-sidebar-icon" alt="">
+              <span class="menu-title">Withdrawals</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ledger.html">
+              <img src="images/assets/Dashboard/Group956.png" class="cus-sidebar-icon" alt="">
+              <span class="menu-title">Ledger</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link collapsed" data-toggle="collapse" href="#account" aria-expanded="false" aria-controls="tables">
+              <img src="images/assets/Dashboard/Group851.png" class="cus-sidebar-icon" alt="">
+              <span class="menu-title">Account</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="account">
+              <ul class="nav flex-column sub-menu rounded-bottom">
+                <li class="nav-item"> 
+                  <a class="nav-link pl-0" href="account.html">My Account</a>
+                </li>
+                <li class="nav-item"> 
+                  <a class="nav-link pl-0" href="my_collection.html">My Collection</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="help_support.html">
+              <img src="images/assets/Dashboard/Path1214.png" class="cus-sidebar-icon" alt="">
+              <span class="menu-title">Help & Support</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row mt-5 pt-5">
+            <div class="col-12 col-md-6 col-xl-3">
+              <div class="bg-white p-3 rounded mx-2" data-toggle="modal" data-target="#bullKongModal">
+                <div class="position-relative overflow-hidden">
+                  <img src="images/assets/NFT_Marketplace/Group1044.png" class="img-fluid w-100" alt="">
+                  <span class="sale-label">ON SALE</span>
+                </div>
+                <div class="mt-3">
+                  <h4 class="text-blue font-weight-bold">BULL KONG #7097</h4>
+                  <h3 class="text-black font-weight-bold">$20,000</h3>
+                  <span class="text-secondary">03/8/2021</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-3 mt-4 mt-md-0">
+              <div class="bg-white p-3 rounded mx-2" data-toggle="modal" data-target="#bullKongModal">
+                <img src="images/assets/NFT_Marketplace/Group1045.png" class="img-fluid w-100" alt="">
+                <div class="mt-3">
+                  <h4 class="text-blue font-weight-bold">KONG #7097</h4>
+                  <h3 class="text-black font-weight-bold">$20,000</h3>
+                  <span class="text-secondary">03/8/2021</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-3 mt-4 mt-xl-0">
+              <div class="bg-white p-3 rounded mx-2" data-toggle="modal" data-target="#bullKongModal">
+                <div class="position-relative overflow-hidden">
+                  <img src="images/assets/NFT_Marketplace/Group1046.png" class="img-fluid w-100" alt="">
+                  <span class="sale-label">ON SALE</span>
+                </div>
+                <div class="mt-3">
+                  <h4 class="text-blue font-weight-bold">KONG BOSS#7097</h4>
+                  <h3 class="text-black font-weight-bold">$20,000</h3>
+                  <span class="text-secondary">03/8/2021</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-3 mt-4 mt-xl-0">
+              <div class="bg-white p-3 rounded mx-2" data-toggle="modal" data-target="#bullKongModal">
+                <img src="images/assets/NFT_Marketplace/Group1047.png" class="img-fluid w-100" alt="">
+                <div class="mt-3">
+                  <h4 class="text-blue font-weight-bold">BULL KONG #7097</h4>
+                  <h3 class="text-black font-weight-bold">$20,000</h3>
+                  <span class="text-secondary">03/8/2021</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-5">
+            <div class="col-12">
+              <div>
+                <p class="text-white pb-3">Sale History</p>
+              </div>
+              <table class="table table-dark trading-table text-center table-responsive-sm">
+                <thead class="table-gradient">
+                  <tr>
+                    <th>NFT</th>
+                    <th>NAME</th>
+                    <th>AMOUNT</th>
+                    <th>ORDER ID</th>
+                    <th>DATE</th>
+                    <th>STATUS</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <img src="images/assets/Sell_NFT/Group553.png" class="img-fluid rounded-0 w-auto h-auto" alt="">
+                    </td>
+                    <td>BULL KONG #7097</td>
+                    <td>$30,000.00</td>
+                    <td>39475910</td>
+                    <td>3/02/2021</td>
+                    <td class="text-warning">SOLD</td>
+                    <td>
+                      <img src="images/assets/Sell_NFT/Group554.png" class="img-fluid rounded-0 w-auto h-auto" alt="">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img src="images/assets/Sell_NFT/Group559.png" class="img-fluid rounded-0 w-auto h-auto" alt="">
+                    </td>
+                    <td>BULL KONG #7097</td>
+                    <td>$30,000.00</td>
+                    <td>39475910</td>
+                    <td>3/02/2021</td>
+                    <td class="text-info">PENDING</td>
+                    <td>
+                      <img src="images/assets/Sell_NFT/Group554.png" class="img-fluid rounded-0 w-auto h-auto" alt="">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img src="images/assets/Sell_NFT/Group553.png" class="img-fluid rounded-0 w-auto h-auto" alt="">
+                    </td>
+                    <td>BULL KONG #7097</td>
+                    <td>$30,000.00</td>
+                    <td>39475910</td>
+                    <td>3/02/2021</td>
+                    <td class="text-warning">SOLD</td>
+                    <td>
+                      <img src="images/assets/Sell_NFT/Group554.png" class="img-fluid rounded-0 w-auto h-auto" alt="">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img src="images/assets/Sell_NFT/Group559.png" class="img-fluid rounded-0 w-auto h-auto" alt="">
+                    </td>
+                    <td>BULL KONG #7097</td>
+                    <td>$30,000.00</td>
+                    <td>39475910</td>
+                    <td>3/02/2021</td>
+                    <td class="text-danger">REJECT</td>
+                    <td>
+                      <img src="images/assets/Sell_NFT/Group554.png" class="img-fluid rounded-0 w-auto h-auto" alt="">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img src="images/assets/Sell_NFT/Group553.png" class="img-fluid rounded-0 w-auto h-auto" alt="">
+                    </td>
+                    <td>BULL KONG #7097</td>
+                    <td>$30,000.00</td>
+                    <td>39475910</td>
+                    <td>3/02/2021</td>
+                    <td class="text-warning">SOLD</td>
+                    <td>
+                      <img src="images/assets/Sell_NFT/Group554.png" class="img-fluid rounded-0 w-auto h-auto" alt="">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img src="images/assets/Sell_NFT/Group559.png" class="img-fluid rounded-0 w-auto h-auto" alt="">
+                    </td>
+                    <td>BULL KONG #7097</td>
+                    <td>$30,000.00</td>
+                    <td>39475910</td>
+                    <td>3/02/2021</td>
+                    <td class="text-info">PENDING</td>
+                    <td>
+                      <img src="images/assets/Sell_NFT/Group554.png" class="img-fluid rounded-0 w-auto h-auto" alt="">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img src="images/assets/Sell_NFT/Group553.png" class="img-fluid rounded-0 w-auto h-auto" alt="">
+                    </td>
+                    <td>BULL KONG #7097</td>
+                    <td>$30,000.00</td>
+                    <td>39475910</td>
+                    <td>3/02/2021</td>
+                    <td class="text-danger">REJECT</td>
+                    <td>
+                      <img src="images/assets/Sell_NFT/Group554.png" class="img-fluid rounded-0 w-auto h-auto" alt="">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img src="images/assets/Sell_NFT/Group559.png" class="img-fluid rounded-0 w-auto h-auto" alt="">
+                    </td>
+                    <td>BULL KONG #7097</td>
+                    <td>$30,000.00</td>
+                    <td>39475910</td>
+                    <td>3/02/2021</td>
+                    <td class="text-warning">SOLD</td>
+                    <td>
+                      <img src="images/assets/Sell_NFT/Group554.png" class="img-fluid rounded-0 w-auto h-auto" alt="">
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="row align-items-center mt-5">
+            <div class="col-12 text-right">
+              <div class="text-secondary">
+                <img src="images/assets/Sell_NFT/Path599.png" class="img-fluid rotate-180" alt="">
+                <span class="font-12 mx-1">1</span>
+                <span class="font-12 mx-1 bg-warning px-1">2</span>
+                <span class="font-12 mx-1">3</span>
+                <span class="font-12 mx-1">4</span>
+                <span class="font-12 mx-1">5</span>
+                <span class="font-12 mx-1">6</span>
+                <span class="font-12 mx-1">7</span>
+                <span class="font-12 mx-1">8</span>
+                <span class="font-12 mx-1">9</span>
+                <span class="font-12 mx-1">10</span>
+                <img src="images/assets/Sell_NFT/Path599.png" class="img-fluid " alt="">
+              </div>
+            </div>
+        <!----------------------------------------------- modal------------------------------------------------->
+
+          <div class="modal fade" id="bullKongModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+              <div class="modal-content border-0 bg-transparent">
+                <div class="modal-body">
+                  <div class="row align-items-center">
+                    <div class="col-12 col-lg-6">
+                      <img src="images/assets/Sell_NFT/Group506.png" class="img-fluid rounded-top" alt="">
+                    </div>
+                    <div class="col-12 col-lg-6 text-white mt-4 mt-lg-0">
+                      <h2>BULL KONG #7097</h2>
+                      <p class="font-12 w-75 mt-3 cus-lighn-height">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id mi imperdiet,
+                        tempus est ut, efficitur enim. Vivamus mattis ante non risus sollicitudin
+                        consectetur. Quisque dapibus tortor non lectus luctus, volutpat faucibus nulla
+                        ullamcorper</p>
+                      <div class="row justfy-content-between align-items-center mt-4">
+                        <div class="col-12 col-xl-6 pr-xl-0">
+                          <input type="text" class="py-3 form-control grey-ph h-auto py-4" placeholder="Amount">
+                        </div>
+                        <div class="col-12 col-xl-6 mt-4 mt-xl-0">
+                          <input type="text" class="py-3 form-control grey-ph h-auto py-4" placeholder="Security Password">
+                        </div>
+                        <div class="col-12 col-xl-6 mt-4">
+                          <button class="btn bg-warning text-white p-4 px-5 rounded-0">SELL NOW</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <footer class="footer bg-transparent px-0 mt-5">
+          <div class="border-top border-secondary">
+            <h4 class="text-white text-right pt-5">©Copyright 2021 Defix Finance. All Rights Reserved.</h4>
+          </div>
+        </footer> 
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>   
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+
+  <!-- plugins:js -->
+  <script src="js/custom/vendor.bundle.base.js"></script>
+  <script src="js/template.js"></script>
+  <script src="js/custom/slick.min.js"></script>
+  <script src="js/custom/custom.js"></script>
+</body>
+
+</html>
+

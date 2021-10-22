@@ -23,6 +23,8 @@ class CreateUserWalletsTable extends Migration
             $table->double('pairing_commission',12,2)->default(0.00);
             $table->double('referral_commission',12,2)->default(0.00);
             $table->double('withdrawal_balance',12,2)->default(0.00);
+            $table->double('stacking_pool',12,2)->default(0.00);
+
             $table->timestamps();
         });
     }

@@ -35,10 +35,10 @@ class CreateUsersTable extends Migration
             $table->integer('package_id')->default(0);
             $table->integer('invest_id')->nullable();
             $table->enum('status', ['active','inactive']);
-            $table->softDeletes();
             $table->unique(["email", "deleted_at"]);
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

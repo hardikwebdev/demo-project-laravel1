@@ -5,9 +5,13 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\NewsController;
 use App\Http\Controllers\Backend\AdminSupportController;
+
 use App\Http\Controllers\Backend\RankController;
 use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\AdminWithdrawalRequest;
+use App\Http\Controllers\Backend\PackageController;
+use App\Http\Controllers\Backend\PoolPackageController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -59,6 +63,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             Route::get('support-ticket/{slug}', [AdminSupportController::class, 'index1'])->name('support_ticket.index1');
             Route::resource('support_ticket', AdminSupportController::class);
 
+
             // Rank-setting
             Route::resource('rank_setting', RankController::class);
 
@@ -69,6 +74,11 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
              Route::resource('withdrawal_request', AdminWithdrawalRequest::class);
              Route::post('bankproof',  [AdminWithdrawalRequest::class, 'bank_proofs'])->name('user.bank_proofs');
              Route::any('withdrawal-request-export',[AdminWithdrawalRequest::class, 'exportData'])->name('withdrawal_request.export');
+
+            // package crud
+            Route::resource('packages', PackageController::class);
+            Route::resource('pool-packages', PoolPackageController::class);
+
         });
     });
 
