@@ -43,7 +43,7 @@ $('.verify-sponser').on('click',function(){
         function(value) {
             return Number(value) > 0;
         },
-        'Amount must be greater than 0'
+        'Value must be greater than 0'
     );
     $.validator.addMethod("regex", function(value, element, regexpr) {          
      return regexpr.test(value);
@@ -1131,3 +1131,317 @@ $("#product-form").validate({
 
 });
 /*Product Mangement*/
+// Packages add form
+$.validator.addMethod('min_stacking_actual12',function(v,el){
+    // if (this.optional(el)){
+    //     return true;
+    // }
+    if($("input[name=stacking_actual12_start]").val() == ''){
+        return true;
+    }
+    if($("input[name=stacking_actual12_end]").val() == ''){
+        return true;
+    }
+    var stacking_actual12_end = $("input[name=stacking_actual12_end]").val();
+
+    var stacking_actual12_start = $(el).val();
+    return parseFloat(stacking_actual12_end) > parseFloat(stacking_actual12_start);
+}, 'Period (12 Month) Start must be less then Period (12 Month) End');
+
+$.validator.addMethod('max_stacking_actual12',function(v,el){
+    if (this.optional(el)){
+        return true;
+    }
+    if($("input[name=stacking_actual12_start]").val() == ''){
+        return false;
+    }
+    var stacking_actual12_end = $("input[name=stacking_actual12_end]").val();
+
+    var stacking_actual12_start = $("input[name=stacking_actual12_start]").val();
+    return parseFloat(stacking_actual12_end) > parseFloat(stacking_actual12_start);
+}, 'Period (12 Month) End must be greater then  Period (12 Month) Start');
+
+$.validator.addMethod('min_stacking_actual24',function(v,el){
+    // if (this.optional(el)){
+    //     return true;
+    // }
+    if($("input[name=stacking_actual24_start]").val() == ''){
+        return true;
+    }
+    if($("input[name=stacking_actual24_end]").val() == ''){
+        return true;
+    }
+    var stacking_actual24_end = $("input[name=stacking_actual24_end]").val();
+
+    var stacking_actual24_start = $(el).val();
+    return parseFloat(stacking_actual24_end) > parseFloat(stacking_actual24_start);
+}, 'Period (24 Month) Start must be less then Period (24 Month) End');
+
+$.validator.addMethod('max_stacking_actual24',function(v,el){
+    if (this.optional(el)){
+        return true;
+    }
+    if($("input[name=stacking_actual24_start]").val() == ''){
+        return false;
+    }
+    var stacking_actual24_end = $("input[name=stacking_actual24_end]").val();
+
+    var stacking_actual24_start = $("input[name=stacking_actual24_start]").val();
+    return parseFloat(stacking_actual24_end) > parseFloat(stacking_actual24_start);
+}, 'Period (24 Month) End must be greater then  Period (24 Month) Start');
+$.validator.addMethod('min_stacking_display',function(v,el){
+    // if (this.optional(el)){
+    //     return true;
+    // }
+    if($("input[name=stacking_display_start]").val() == ''){
+        return true;
+    }
+    if($("input[name=stacking_display_end]").val() == ''){
+        return true;
+    }
+    var stacking_display_end = $("input[name=stacking_display_end]").val();
+
+    var stacking_display_start = $(el).val();
+    return parseFloat(stacking_display_end) > parseFloat(stacking_display_start);
+}, 'Staking Dispaly Start must be less then Staking Dispaly End');
+
+$.validator.addMethod('max_stacking_display',function(v,el){
+    if (this.optional(el)){
+        return true;
+    }
+    if($("input[name=stacking_display_start]").val() == ''){
+        return false;
+    }
+    var stacking_display_end = $("input[name=stacking_display_end]").val();
+
+    var stacking_display_start = $("input[name=stacking_display_start]").val();
+    return parseFloat(stacking_display_end) > parseFloat(stacking_display_start);
+}, 'Staking Dispaly End must be greater then  Staking Dispaly Start');
+$("#package_create").validate({
+    rules: {
+         name: {
+            required: true,
+            maxlength:255
+         },
+         amount: {
+            required: true,
+            number:true,
+            positiveNumber :true
+         },
+         stacking_actual12_start: {
+            required: true,
+            number:true,
+            positiveNumber :true,
+            min_stacking_actual12 :true
+         },
+         stacking_actual12_end:{
+            required: true,
+            number:true,
+            positiveNumber :true,
+            max_stacking_actual12:true
+         },
+         stacking_actual24_start:{
+            required: true,
+            number:true,
+            positiveNumber :true,
+            min_stacking_actual24 :true
+         },
+         stacking_actual24_end:{
+            required: true,
+            number:true,
+            positiveNumber :true,
+            max_stacking_actual24:true
+         },
+         direct_refferal:{
+            required: true,
+            number:true,
+            positiveNumber :true
+         },
+         network_pairing:{
+            required: true,
+            number:true,
+            positiveNumber :true
+         },
+         daily_limit:{
+            required: true,
+            number:true,
+            positiveNumber :true
+         }         
+    },
+    messages:{
+        name: {
+            required: 'Please enter name',
+        },       
+        amount: {
+            required: 'Please enter amount',
+        },
+        stacking_actual12_start: {
+            required: 'Please enter staking period (12 month) start',
+        },
+        stacking_actual12_end: {
+            required: 'Please enter staking period (12 month) end',
+        },
+        stacking_actual24_start: {
+            required: 'Please enter staking period (24 month) start',
+        },
+        stacking_actual24_end: {
+            required: 'Please enter staking period (24 month) end',
+        },
+        direct_refferal: {
+            required: 'Please enter direct refferal',
+        },
+        network_pairing: {
+            required: 'Please enter network pairing',
+        },
+        daily_limit: {
+            required: 'Please enter daily limit',
+        },
+    },
+
+});
+$("#package_edit").validate({
+    rules: {
+         name: {
+            required: true,
+            maxlength:255
+         },
+         amount: {
+            required: true,
+            number:true,
+            positiveNumber :true
+         },
+         stacking_actual12_start: {
+            required: true,
+            number:true,
+            positiveNumber :true,
+            min_stacking_actual12 :true
+         },
+         stacking_actual12_end:{
+            required: true,
+            number:true,
+            positiveNumber :true,
+            max_stacking_actual12:true
+         },
+         stacking_actual24_start:{
+            required: true,
+            number:true,
+            positiveNumber :true,
+            min_stacking_actual24 :true
+         },
+         stacking_actual24_end:{
+            required: true,
+            number:true,
+            positiveNumber :true,
+            max_stacking_actual24:true
+         },
+         direct_refferal:{
+            required: true,
+            number:true,
+            positiveNumber :true
+         },
+         network_pairing:{
+            required: true,
+            number:true,
+            positiveNumber :true
+         },
+         daily_limit:{
+            required: true,
+            number:true,
+            positiveNumber :true
+         }         
+    },
+    messages:{
+        name: {
+            required: 'Please enter name',
+        },       
+        amount: {
+            required: 'Please enter amount',
+        },
+        stacking_actual12_start: {
+            required: 'Please enter staking period (12 month) start',
+        },
+        stacking_actual12_end: {
+            required: 'Please enter staking period (12 month) end',
+        },
+        stacking_actual24_start: {
+            required: 'Please enter staking period (24 month) start',
+        },
+        stacking_actual24_end: {
+            required: 'Please enter staking period (24 month) end',
+        },
+        direct_refferal: {
+            required: 'Please enter direct refferal',
+        },
+        network_pairing: {
+            required: 'Please enter network pairing',
+        },
+        daily_limit: {
+            required: 'Please enter daily limit',
+        },
+    },
+
+});
+$("#pool_package_create").validate({
+    rules: {
+         name: {
+            required: true,
+            maxlength:255
+         },
+         stacking_display_start: {
+            required: true,
+            number:true,
+            positiveNumber :true,
+            min_stacking_display :true
+         },
+         stacking_display_end:{
+            required: true,
+            number:true,
+            positiveNumber :true,
+            max_stacking_display:true
+         }         
+    },
+    messages:{
+        name: {
+            required: 'Please enter name',
+        },
+        stacking_display_start: {
+            required: 'Please enter stacking display start',
+        },
+        stacking_display_end: {
+            required: 'Please enter stacking display end',
+        }
+    },
+
+});
+$("#pool_package_edit").validate({
+    rules: {
+         name: {
+            required: true,
+            maxlength:255
+         },
+         stacking_display_start: {
+            required: true,
+            number:true,
+            positiveNumber :true,
+            min_stacking_display :true
+         },
+         stacking_display_end:{
+            required: true,
+            number:true,
+            positiveNumber :true,
+            max_stacking_display:true
+         }         
+    },
+    messages:{
+        name: {
+            required: 'Please enter name',
+        },
+        stacking_display_start: {
+            required: 'Please enter stacking display start',
+        },
+        stacking_display_end: {
+            required: 'Please enter stacking display end',
+        }
+    },
+
+});

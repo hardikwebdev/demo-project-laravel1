@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\NewsController;
 use App\Http\Controllers\Backend\AdminSupportController;
+use App\Http\Controllers\Backend\PackageController;
+use App\Http\Controllers\Backend\PoolPackageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,6 +53,9 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
              // support-ticket
             Route::get('support-ticket/{slug}', [App\Http\Controllers\Backend\AdminSupportController::class, 'index1'])->name('support_ticket.index1');
             Route::resource('support_ticket', AdminSupportController::class);
+            // package crud
+            Route::resource('packages', PackageController::class);
+            Route::resource('pool-packages', PoolPackageController::class);
         });
      
     });
