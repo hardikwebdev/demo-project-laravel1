@@ -9,4 +9,8 @@ class Package extends Model
 {
     use HasFactory;
     protected $table = "packages";
+
+    protected $fillable = [
+        'is_deleted'
+    ];
 }
