@@ -76,6 +76,22 @@
 				'X-CSRF-TOKEN': "{{csrf_token()}}"
 			}
 		});
+		$( "input[name=start]" ).datepicker({
+			changeMonth: true,
+			changeYear: true,
+			minDate: 0,
+			onClose: function( selectedDate ) {
+				$	( "input[name=end]" ).datepicker( "option", "minDate", selectedDate );
+			}
+		});
+		$( "input[name=end]" ).datepicker({
+			changeMonth: true,
+			changeYear: true,
+			minDate: 0,
+			onClose: function( selectedDate ) {
+				$( "input[name=start]" ).datepicker( "option", "maxDate", selectedDate );
+			}
+		});
 	</script>
 	<script src="{{asset('backend/js/custom.js')}}"></script>
 </body>

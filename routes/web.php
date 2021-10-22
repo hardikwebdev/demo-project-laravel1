@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\NewsController;
 use App\Http\Controllers\Backend\AdminSupportController;
+use App\Http\Controllers\Backend\RankController;
+use App\Http\Controllers\Backend\SettingController;
+use App\Http\Controllers\Backend\AdminWithdrawalRequest;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,6 +23,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/admin', function(){
+    return redirect()->route('admin.login');
+});
 
 Route::group(['middleware' => 'prevent-back-history'],function(){
 
@@ -28,6 +34,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 
     /*check sponsor username exits*/
     Route::post('/sponsor-username-exits', [App\Http\Controllers\CommonController::class, 'sponsorUsernameExists'])->name('sponsorUsernameExits');
+    Route::post('/username-exits', [App\Http\Controllers\CommonController::class, 'usernameExits'])->name('usernameExits');
     /**Icnumber duplicatioan check */
     Route::any('ic-number-duplication/', [App\Http\Controllers\CommonController::class, 'icNumberDuplication'])->name('icNumberDuplication');
     Route::any('ic-number-duplication-edit/', [App\Http\Controllers\CommonController::class, 'icNumberDuplicationedit'])->name('icNumberDuplicationedit');
@@ -42,17 +49,27 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 
         Route::middleware(['auth:admin'])->group(function () {
             Route::get('dashboard', [App\Http\Controllers\Backend\DashboardController::class, 'index'])->name('admin.dashboard');
-            // user crud
+            // User Crud
             Route::resource('user', UserController::class);
-            // news crud
+            // News Crud
             Route::resource('news', NewsController::class);
 
 
-             // support-ticket
-            Route::get('support-ticket/{slug}', [App\Http\Controllers\Backend\AdminSupportController::class, 'index1'])->name('support_ticket.index1');
+            // Support Ticket
+            Route::get('support-ticket/{slug}', [AdminSupportController::class, 'index1'])->name('support_ticket.index1');
             Route::resource('support_ticket', AdminSupportController::class);
+
+            // Rank-setting
+            Route::resource('rank_setting', RankController::class);
+
+            // General Setting
+            Route::resource('setting', SettingController::class);
+
+            // Withdrawal Request 
+             Route::resource('withdrawal_request', AdminWithdrawalRequest::class);
+             Route::post('bankproof',  [AdminWithdrawalRequest::class, 'bank_proofs'])->name('user.bank_proofs');
+             Route::any('withdrawal-request-export',[AdminWithdrawalRequest::class, 'exportData'])->name('withdrawal_request.export');
         });
-     
     });
 
    

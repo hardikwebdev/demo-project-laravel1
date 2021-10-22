@@ -24,10 +24,10 @@
                     <li class=" @if(strstr(\Request::route()->getName(),'payment_history')) {{'active'}} @endif">
                         <a href="{{route('payment_history.index')}}" title="Payment History"><span class="cus-sub-menu">Payment History</span></a>
                     </li>
-                    @php $count = Helper::getUnreadCount() @endphp
+                    @php $count = Helper::getUnreadCount() @endphp--}}
                     <li class=" @if(strstr(\Request::route()->getName(),'support_ticket')) {{'active'}} @endif">
-                        <a href="{{route('support_ticket.index1','all')}}" title="Support"><span class="cus-sub-menu">Support</span><span class="label label-info pull-right">{{$count}}</span></a>
-                    </li> --}}
+                        <a href="{{route('support_ticket.index1','all')}}" title="Support"><span class="cus-sub-menu">Support</span></a>
+                    </li>
                     {{-- <!-- <li class=" @if(strstr(\Request::route()->getName(),'ticket_request2') || strstr(\Request::route()->getName(),'ticket_request')) {{'active'}} @endif">                     -->
                     @role('admin')
                         <li class=" @if(strstr(\Request::route()->getName(),'support_ticket')) {{'active'}} @endif">
@@ -37,23 +37,23 @@
                     <!-- </li> -->
                 </ul>
             </li>        
-            {{-- <li class=" @if(\Request::is('admin/admin_fund_wallet') || \Request::is('admin/withdrawal_request') || \Request::is('admin/withdrawal_request/*') || \Request::is('admin/mt4-wallet-withdrawl-requests') || \Request::route()->getName() =='admin_pips_rebate.index' || \Request::route()->getName()=='admin_pips_rebate.import' || strstr(\Request::route()->getName(),'profit_sharing')) {{'active'}} @endif">
+            <li class=" @if(\Request::is('admin/admin_fund_wallet') || \Request::is('admin/withdrawal_request') || \Request::is('admin/withdrawal_request/*') || \Request::is('admin/mt4-wallet-withdrawl-requests') || \Request::route()->getName() =='admin_pips_rebate.index' || \Request::route()->getName()=='admin_pips_rebate.import' || strstr(\Request::route()->getName(),'profit_sharing')) {{'active'}} @endif">
                 <a href="#">
                     <img src="{{asset('images/Wallet.png')}}" class="side-icon-size">
                     <span class="nav-label">Wallet</span><span class="fa arrow"></span>
                 </a>
                 <ul class="nav nav-second-level collapse" style="">
-                    @php $requests = Helper::getPendingBankCreditRequestCount() @endphp
+                    {{-- @php $requests = Helper::getPendingBankCreditRequestCount() @endphp
                     <li class=" @if(\Request::is('admin/admin_fund_wallet')) {{'active'}} @endif">
                         <a href="{{route('admin_fund_wallet.index')}}" title="Bank Credits Requests"> <span class="cus-sub-menu">Bank Credits Requests</span><span class="label label-info pull-right">{{$requests}}</span></a>
-                    </li>
-                    <li class=" @if(\Request::is('admin/withdrawal_request') || \Request::is('admin/withdrawal_request/*')) {{'active'}} @endif">
+                    </li> --}}
+                    {{-- <li class=" @if(\Request::is('admin/withdrawal_request') || \Request::is('admin/withdrawal_request/*')) {{'active'}} @endif">
                         <a href="{{route('capital_request')}}" title="Capital Withdrawal Requests"> <span class="cus-sub-menu">Capital Withdrawal Requests</span></a>
-                    </li>
+                    </li> --}}
                     <li class=" @if(\Request::is('admin/withdrawal_request') || \Request::is('admin/withdrawal_request/*')) {{'active'}} @endif">
                         <a href="{{route('withdrawal_request.index')}}" title="Withdrawal Requests"> <span class="cus-sub-menu">Withdrawal Requests</span></a>
                     </li>
-                    @role('admin')
+                    {{-- @role('admin')
                     <li class=" @if(\Request::is('admin/mt4-wallet-withdrawl-requests')) {{'active'}} @endif">
                         <a href="{{route('mt4_withdrawal_requests')}}" title="MT5 Withdrawal Requests"><span class="cus-sub-menu">MT5 Withdrawal Requests</span></a>
                     </li>
@@ -63,9 +63,9 @@
                     <li class=" @if(strstr(\Request::route()->getName(),'profit_sharing')) {{'active'}} @endif">
                         <a href="{{route('profit_sharing.index')}}" title="MT4 Top-up Requests"><span class="cus-sub-menu">Profit Sharing</span></a>
                     </li>
-                    @endrole
+                    @endrole --}}
                 </ul>
-            </li>  --}}
+            </li> 
             {{-- <li class=" @if(strstr(\Request::route()->getName(),'report.user') || strstr(\Request::route()->getName(),'report.show') || strstr(\Request::route()->getName(),'report.fund_withdrawal_report') ||  strstr(\Request::route()->getName(),'report.leader_bonus')||  strstr(\Request::route()->getName(),'report.payout') ||  strstr(\Request::route()->getName(),'report.profit')) {{'active'}} @endif">
                 <a href="#">
                     <img src="{{asset('images/Report.png')}}" class="side-icon-size">
@@ -92,17 +92,17 @@
                     </li>
                 </ul>
             </li>             --}}
-            {{-- <li class=" @if(\Request::is('admin/package_setting') || \Request::is('admin/rank_setting')|| \Request::is('admin/setting') || \Request::is('admin/package_setting/*') || \Request::is('admin/rank_setting/*')|| \Request::is('admin/general_setting/*') || strstr(\Request::route()->getName(),'investment-plans')) {{'active'}} @endif">
+            <li class=" @if(\Request::is('admin/package_setting') || \Request::is('admin/rank_setting')|| \Request::is('admin/setting') || \Request::is('admin/package_setting/*') || \Request::is('admin/rank_setting/*')|| \Request::is('admin/general_setting/*') || strstr(\Request::route()->getName(),'investment-plans')) {{'active'}} @endif">
                 <a href="#">
                     <img src="{{asset('images/Settings.png')}}" class="side-icon-size">
                     <span class="nav-label">Settings</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse" style="">
                     <li class=" @if(\Request::is('admin/setting')) {{'active'}} @endif"><a href="{{route('setting.index')}}"><span class="cus-sub-menu">General Setting</span></a></li>
-                    <li class=" @if(\Request::is('admin/package_setting') || \Request::is('admin/package_setting/*')) {{'active'}} @endif"><a href="{{route('package_setting.index')}}"><span class="cus-sub-menu">Package Setting</span></a></li>
+                    {{-- <li class=" @if(\Request::is('admin/package_setting') || \Request::is('admin/package_setting/*')) {{'active'}} @endif"><a href="{{route('package_setting.index')}}"><span class="cus-sub-menu">Package Setting</span></a></li> --}}
                     <li class=" @if(\Request::is('admin/rank_setting')|| \Request::is('admin/rank_setting/*')) {{'active'}} @endif"><a href="{{route('rank_setting.index')}}"><span class="cus-sub-menu">Rank Setting</span></a></li>
-                    <li class=" @if(\Request::is('admin/investment-plans')|| \Request::is('admin/investment-plans/*')) {{'active'}} @endif"><a href="{{route('investment-plans.index')}}"><span class="cus-sub-menu">Investment Plans</span></a></li>
+                    {{-- <li class=" @if(\Request::is('admin/investment-plans')|| \Request::is('admin/investment-plans/*')) {{'active'}} @endif"><a href="{{route('investment-plans.index')}}"><span class="cus-sub-menu">Investment Plans</span></a></li> --}}
                 </ul>
-            </li> --}}
+            </li>
             <li class="@if(\Request::is('admin/news') || \Request::is('admin/news/*') || \Request::is('admin/announcement') || \Request::is('admin/announcement/*') || \Request::is('admin/slider') || \Request::is('admin/slider/*') ||   \Request::is('admin/ticket') ||   \Request::is('admin/ticket/*') ||   \Request::is('admin/product') ||   \Request::is('admin/product/*') ) {{'active'}} @endif">
                 <a href="#">
                     <img src="{{asset('images/content.png')}}" class="side-icon-size">
