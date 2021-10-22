@@ -103,7 +103,7 @@
                     <li class=" @if(\Request::is('admin/investment-plans')|| \Request::is('admin/investment-plans/*')) {{'active'}} @endif"><a href="{{route('investment-plans.index')}}"><span class="cus-sub-menu">Investment Plans</span></a></li>
                 </ul>
             </li> --}}
-            {{-- <li class="@if(\Request::is('admin/news') || \Request::is('admin/news/*') || \Request::is('admin/announcement') || \Request::is('admin/announcement/*') || \Request::is('admin/slider') || \Request::is('admin/slider/*') ||   \Request::is('admin/ticket') ||   \Request::is('admin/ticket/*') ||   \Request::is('admin/product') ||   \Request::is('admin/product/*') ) {{'active'}} @endif">
+            <li class="@if(\Request::is('admin/news') || \Request::is('admin/news/*') || \Request::is('admin/announcement') || \Request::is('admin/announcement/*') || \Request::is('admin/slider') || \Request::is('admin/slider/*') ||   \Request::is('admin/ticket') ||   \Request::is('admin/ticket/*') ||   \Request::is('admin/product') ||   \Request::is('admin/product/*') ) {{'active'}} @endif">
                 <a href="#">
                     <img src="{{asset('images/content.png')}}" class="side-icon-size">
                     <span class="nav-label">CMS</span><span class="fa arrow"></span></a>
@@ -111,14 +111,14 @@
                     <li class=" @if(\Request::is('admin/news') || \Request::is('admin/news/*')) {{'active'}} @endif">
                         <a href="{{route('news.index')}}"><span class="cus-sub-menu"> News</span></a>               
                     </li>
-                    <li class=" @if( \Request::is('admin/announcement') || \Request::is('admin/announcement/*')) {{'active'}} @endif">
+                    {{-- <li class=" @if( \Request::is('admin/announcement') || \Request::is('admin/announcement/*')) {{'active'}} @endif">
                         <a href="{{route('announcement.index')}}"><span class="cus-sub-menu"> Announcement</span></a>               
-                    </li>    
-                     <li class=" @if( \Request::is('admin/slider') || \Request::is('admin/slider/*')) {{'active'}} @endif">
+                    </li>     --}}
+                     {{-- <li class=" @if( \Request::is('admin/slider') || \Request::is('admin/slider/*')) {{'active'}} @endif">
                         <a href="{{route('slider.index')}}"><span class="cus-sub-menu"> Slider</span></a>               
-                    </li>     
+                    </li>      --}}
                 </ul>
-            </li> --}}
+            </li>
             {{-- <div class="footerlogodiv">
                 <a title="CMS" href="javascript:void(0)">
                    <span class="nav-label colorwhite"> <b class="ml18">Powered by,</b>

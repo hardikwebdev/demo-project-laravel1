@@ -218,7 +218,7 @@
                 <div class="col-sm-6 ">  
                     <div class="col-sm-12 ">        
                         <div class="checkbox ">
-                            <input type="checkbox" class="ml-0" id="checkbox1" name="terms_condition[]">
+                            <input type="checkbox" class="ml-0" id="checkbox1" name="terms_condition[]" value="aml_policy_statement">
                             <label for="checkbox1">
                                 <a href="{{asset('AML.pdf')}}" target="_blank" class="font-regular text-darkGrey">AML Policy Statement</a>
                             </label>
@@ -226,7 +226,7 @@
                     </div>
                     <div class="col-sm-12 ">        
                         <div class="checkbox ">
-                            <input type="checkbox" class="ml-0" id="checkbox2"  name="terms_condition[]">
+                            <input type="checkbox" class="ml-0" id="checkbox2"  name="terms_condition[]" value="risk_disclosure_statement">
                             <label for="checkbox2">
                                 <a href="{{asset('Risk-Disclosure.pdf')}}" target="_blank" class="font-regular text-darkGrey">Risk Disclosure Statement</a>
                             </label>
@@ -234,7 +234,7 @@
                     </div>
                     <div class="col-sm-12 ">        
                         <div class="checkbox ">
-                            <input type="checkbox" class="ml-0" id="checkbox3"  name="terms_condition[]">
+                            <input type="checkbox" class="ml-0" id="checkbox3"  name="terms_condition[]" value="client_agreement">
                             <label for="checkbox3">
                                 <a href="{{asset('TC.pdf')}}" target="_blank" class="font-regular text-darkGrey">User Agreement</a>
                             </label>
@@ -242,7 +242,7 @@
                     </div>
                     <div class="col-sm-12 ">        
                         <div class="checkbox ">
-                            <input type="checkbox" class="ml-0" id="checkbox4"  name="terms_condition[]">
+                            <input type="checkbox" class="ml-0" id="checkbox4"  name="terms_condition[]" value="poa">
                             <label for="checkbox4">
                                 <a href="{{asset('Privacy-Policy.pdf')}}" target="_blank" class="font-regular text-darkGrey">POA</a>
                             </label>

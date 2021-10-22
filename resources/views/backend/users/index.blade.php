@@ -9,21 +9,21 @@
         <h2>    
             <div class="col-xs-12 col-md-2 p-0">Manage Users</div>
             <div class="col-xs-12 col-md-10 text-right">
-                 {{-- {!! Form::open(['route' => 'user.index','class'=>'form-inline form-fix-height','method'=>'get']) !!}
+                 {!! Form::open(['route' => 'user.index','class'=>'form-inline form-fix-height','method'=>'get']) !!}
                 <div class="col-sm-8 pl-0 col-xs-12">
                     <div class="form-group">                                
                         <input type="text"  value="{{isset($data['keyword'])?$data['keyword']:''}}" name="keyword" placeholder="Search By Full Name,Username and Email" class="form-control input-sm" id="search-input">
                     </div> 
-                    <div class="form-group">                                
+                    {{-- <div class="form-group">                                
                         {!! Form::select('promo_account',['1'=>'Yes','2'=>'No'],old('promo_account',@$data['promo_account']),['class'=>'form-control','placeholder'=>'All']) !!}
-                    </div>       
-                     <div class="form-group">                                
+                    </div>        --}}
+                    {{-- <div class="form-group">                                
                          {!! Form::select('group_id',$groups,old('group_id',@$data['group_id']),['class'=>'form-control  input-sm','placeholder'=>'All Groups','id'=>"search-select"]) !!}
-                    </div>            
+                    </div>             --}}
                     <button class="btn btn-primary btn-sm" type="submit"><i class="fa fa-filter"></i> Search</button>
                     <a class="btn btn-danger btn-sm" href="{{route('user.index')}}">Clear</a>
                 </div>                              
-                {!! Form::close() !!} --}}
+                {!! Form::close() !!}
                 {{-- @role('admin') --}}
                 <div class="col-sm-4 pl-0 col-xs-12">
                      {{-- <a class="btn btn-warning btn-sm btn-xs-block " href="javascript:void(0)" data-toggle="modal" data-target="#fundWallet"><!-- <i class="fa fa-user-plus"></i> --> Add Fund</a> --}}
@@ -38,7 +38,7 @@
     </div>
 </div>
 
-{{-- <div class="wrapper wrapper-content animated fadeInRight">
+<div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
         <div class="col-lg-12">
             <div class="ibox float-e-margins bg-dark-blue">
@@ -48,22 +48,22 @@
                             <thead>
                                 <tr>
                                     <th width="5%">id</th>
-                                    <th width="5%">Fullname</th>
-                                    <th width="5%">Group</th>
+                                    <th width="15%">Fullname</th>
+                                    {{-- <th width="5%">Group</th> --}}
                                     <th width="15%">Username</th>
                                     <th width="23%">Email</th>
-                                    <th width="5%">MT5 Id</th>
-                                    <th width="6%">Fund Wallet</th>
-                                    <th width="6%">MT5 Topup<br>wallet</th>
-                                    <th width="8%">Total Topup<br>Value</th>
-                                    <th width="5%">Package</th>
+                                    {{-- <th width="5%">MT5 Id</th> --}}
+                                    <th width="6%">Crypto Wallet</th>
+                                    {{-- <th width="6%">MT5 Topup<br>wallet</th> --}}
+                                    {{-- <th width="8%">Total Topup<br>Value</th> --}}
+                                    {{-- <th width="5%">Package</th> --}}
                                     <th width="5%">Country</th>
-                                    <th width="5%">Sponsor</th>
-                                    <th>PROMO</th>
+                                    <th width="15%">Sponsor</th>
+                                    {{-- <th>PROMO</th> --}}
                                     <th width="10%">Date</th>
-                                    @role('admin')
+                                    {{-- @role('admin') --}}
                                     <th width="25%">Actions</th>
-                                    @endrole
+                                    {{-- @endrole --}}
                                 </tr>
                             </thead>
                             @php  $i =  1; $opt  @endphp
@@ -75,49 +75,48 @@
                                     
                                     <td>{{$row->id}}</td>
                                     <td>{{$row->name}}</td>
-                                    <td><small>{{@$row->group->name}}</small></td>                             
+                                    {{-- <td><small>{{@$row->group->name}}</small></td>                              --}}
                                     <td class="break-word "><a class="" href="{{route('user.show',[$row->username])}}">{{$row->username}}</a></td>
                                     <td class="break-word "><a class="" href="{{route('user.show',[$row->username])}}">{{$row->email}}</a></td>                             
-                                    <td>{{@$row->mt4_user_id}}</td>                             
+                                    {{-- <td>{{@$row->mt4_user_id}}</td>                              --}}
                                     <td >
-                                        <a class="btn-fund-wallet" data-user_id="{{$row->id}}" data-user="{{$row->username}}" data-amt='{{$row->userwallet!=null?$row->userwallet->fund_wallet:"0.00"}}'>
-                                        {{$row->userwallet!=null?number_format($row->userwallet->fund_wallet,2):"0.00"}}
+                                        <a class="btn-fund-wallet" data-user_id="{{$row->id}}" data-user="{{$row->username}}" data-amt='{{$row->userwallet!=null?$row->userwallet->crypto_wallet:"0.00"}}'>
+                                        {{$row->userwallet!=null?number_format($row->userwallet->crypto_wallet,2):"0.00"}}
                                         <!-- <i class="fa fa-edit"></i> --></a>
                                     </td>
-                                    <td>
-                                        
+                                    {{-- <td>
                                         {{$row->userwallet!=null?number_format($row->userwallet->mt_topup_wallet,2):"0.00"}}
-                                    </td>
-                                    <td>
+                                    </td> --}}
+                                    {{-- <td>
                                         <a class="btn-total_capital" data-user_id="{{$row->id}}" data-user="{{$row->username}}" data-amt='{{$row->total_capital!=null?$row->total_capital:"0"}}'>
                                         {{$row->total_capital?$row->total_capital:"0"}}
                                         <!-- <i class="fa fa-edit"></i> --></a> 
-                                    </td>
-                                    <td>{{$row->package_detail!=null?$row->package_detail->name:"-"}}</td>
+                                    </td> --}}
+                                    {{-- <td>{{$row->package_detail!=null?$row->package_detail->name:"-"}}</td> --}}
                                     <td>{{$row->country!=null?$row->country->country_name:"-"}}</td>
                                     <td>{{$row->sponsor!=null?$row->sponsor->username:"-"}}</td>
-                                    <td>{{($row->promo_account == 1)? 'Yes' : 'No'}}</td>
+                                    {{-- <td>{{($row->promo_account == 1)? 'Yes' : 'No'}}</td> --}}
                                     <td>{{date('Y-m-d',strtotime($row->created_at))}}</td>
-                                    @role('admin')
+                                    {{-- @role('admin') --}}
                                     <td  class="font-s-14" width="20%">
                                         {!! Form::open(['route' => ['user.update',$row->id],'onsubmit'=>"return confirmDelete(this,'Are you sure to want delete ?')",'id'=>'form-user-'.$row->id]) !!}                                    
                                         <a class="" data-toggle="tooltip" title="Edit User detail" href="{{route('user.edit',[$row->id])}}">Edit</a> |                                 
                                         @method('delete')
                                         <div class="dropdown">
                                         <a class="" data-toggle="tooltip" title="Delete User" onclick="$('#form-user-{{$row->id}}').submit()" >Delete</a> &nbsp;
-                                        <a class="dropdown-toggle " href="#" id="dropdownMenuLink{{$row->id}}" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
+                                        {{-- <a class="dropdown-toggle " href="#" id="dropdownMenuLink{{$row->id}}" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
                                         {!! Form::close() !!}
-                                        <ul class="dropdown-menu m-t-xs">
-                                            <li><a class="" href="{{route('admin_user_fund_wallet',[$row->id])}}">History</a></li>
-                                            <li><a class=" btn-upgrade-package" data-package="{{$row->package_detail!=null?$row->package_detail->id:'0'}}" data-id="{{$row->id}}"  href="#" >Upgrade Package</a></li>
-                                            <li><a class=" btn-upgrade-package resend_welcome_email"  href="{{route('user.resend_welcome_email',$row->id)}}" >Resend Welcome Email</a></li>
-                                            @if($row->mt4_user_id)
-                                            <li><a class=" btn-upgrade-package resend_mt5_email" data-id="{{$row->id}}"  href="{{route('user.resend_mt5_email',$row->id)}}" >Resend MT5 Email</a></li>
-                                            @endif
+                                        <ul class="dropdown-menu m-t-xs"> --}}
+                                            {{-- <li><a class="" href="{{route('admin_user_fund_wallet',[$row->id])}}">History</a></li> --}}
+                                            {{-- <li><a class=" btn-upgrade-package" data-package="{{$row->package_detail!=null?$row->package_detail->id:'0'}}" data-id="{{$row->id}}"  href="#" >Upgrade Package</a></li> --}}
+                                            {{-- <li><a class=" btn-upgrade-package resend_welcome_email"  href="{{route('user.resend_welcome_email',$row->id)}}" >Resend Welcome Email</a></li> --}}
+                                            {{-- @if($row->mt4_user_id) --}}
+                                            {{-- <li><a class=" btn-upgrade-package resend_mt5_email" data-id="{{$row->id}}"  href="{{route('user.resend_mt5_email',$row->id)}}" >Resend MT5 Email</a></li> --}}
+                                            {{-- @endif --}}
                                         </ul>
                                         </div>
                                     </td>
-                                    @endrole
+                                    {{-- @endrole --}}
                                 </tr>           
                                 @endforeach                            
                                 @else
@@ -128,7 +127,6 @@
                                 <tr>
                                     <td colspan="14" align="right">{!! $users->render('vendor.default_paginate') !!}</td>
                                 </tr>
-
                             </tbody>
                         </table>
                     </div>
@@ -136,7 +134,7 @@
             </div>
         </div>
     </div>
-</div> --}}
+</div>
 <!-- Modal -->
 {{-- @role('admin')
 <div id="fundWallet" class="modal fade" role="dialog">
