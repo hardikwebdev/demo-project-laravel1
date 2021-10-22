@@ -80,6 +80,12 @@
     width: 300px;
 }
 
+.min-h-240{
+    min-height: 240px;
+}
+.min-h-252{
+    min-height: 252px;
+}
 .h-350{
     height: 350px;
 }
@@ -450,7 +456,12 @@
     padding-top: 0px;
 }
 
-@media (max-width: 1200px){
+@media (max-width: 1450px){
+    .customer-register.wizard > .steps > ul > li {
+        width: 30%;
+    }
+}
+@media (max-width: 1250px){
     .customer-register.wizard > .steps > ul > li {
         width: auto;
     }
