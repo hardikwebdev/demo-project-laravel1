@@ -11,6 +11,8 @@ use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\AdminWithdrawalRequest;
 use App\Http\Controllers\Backend\PackageController;
 use App\Http\Controllers\Backend\PoolPackageController;
+use App\Http\Controllers\Backend\NFTCategoryController;
+use App\Http\Controllers\Backend\NFTProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,6 +80,10 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             // package crud
             Route::resource('packages', PackageController::class);
             Route::resource('pool-packages', PoolPackageController::class);
+            // NFT Category
+            Route::resource('nft-category', NFTCategoryController::class);
+            // NFT Product
+            Route::resource('nft-product', NFTProductController::class);
 
         });
     });
