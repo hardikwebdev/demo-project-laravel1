@@ -20,11 +20,14 @@
                     </li>
                     <li class=" @if(strstr(\Request::route()->getName(),'package_history')) {{'active'}} @endif">
                         <a href="{{route('package_history.index')}}" title="Package History"><span class="cus-sub-menu">Package History</span></a>
+                    </li>--}}
+                    <li class=" @if(strstr(\Request::route()->getName(),'crypto_Wallets_payment_history')) {{'active'}} @endif">
+                        <a href="{{route('crypto_wallets_payment_history.index')}}" title="Crypto Wallets Payment History"><span class="cus-sub-menu">Crypto Wallets Payment History</span></a>
                     </li>
-                    <li class=" @if(strstr(\Request::route()->getName(),'payment_history')) {{'active'}} @endif">
-                        <a href="{{route('payment_history.index')}}" title="Payment History"><span class="cus-sub-menu">Payment History</span></a>
+                    {{-- @php $count = Helper::getUnreadCount() @endphp --}}
+                    <li class=" @if(strstr(\Request::route()->getName(),'nft_wallets_payment_history')) {{'active'}} @endif">
+                        <a href="{{route('nft_wallets_payment_history.index')}}" title="Nft Wallets Payment History"><span class="cus-sub-menu">Nft Wallets Payment History</span></a>
                     </li>
-                    @php $count = Helper::getUnreadCount() @endphp--}}
                     <li class=" @if(strstr(\Request::route()->getName(),'support_ticket')) {{'active'}} @endif">
                         <a href="{{route('support_ticket.index1','all')}}" title="Support"><span class="cus-sub-menu">Support</span></a>
                     </li>
@@ -43,15 +46,18 @@
                     <span class="nav-label">Wallet</span><span class="fa arrow"></span>
                 </a>
                 <ul class="nav nav-second-level collapse" style="">
-                    {{-- @php $requests = Helper::getPendingBankCreditRequestCount() @endphp
-                    <li class=" @if(\Request::is('admin/admin_fund_wallet')) {{'active'}} @endif">
-                        <a href="{{route('admin_fund_wallet.index')}}" title="Bank Credits Requests"> <span class="cus-sub-menu">Bank Credits Requests</span><span class="label label-info pull-right">{{$requests}}</span></a>
-                    </li> --}}
+                    {{-- @php $requests = Helper::getPendingBankCreditRequestCount() @endphp--}}
+                    <li class=" @if(\Request::is('admin/crypto_wallets_credit_request')) {{'active'}} @endif">
+                        <a href="{{route('crypto_wallets_credit_request.index')}}" title="Bank Credits Requests"> <span class="cus-sub-menu">Crypto Wallets Credits Requests</span></a>
+                    </li> 
                     {{-- <li class=" @if(\Request::is('admin/withdrawal_request') || \Request::is('admin/withdrawal_request/*')) {{'active'}} @endif">
                         <a href="{{route('capital_request')}}" title="Capital Withdrawal Requests"> <span class="cus-sub-menu">Capital Withdrawal Requests</span></a>
                     </li> --}}
                     <li class=" @if(\Request::is('admin/withdrawal_request') || \Request::is('admin/withdrawal_request/*')) {{'active'}} @endif">
                         <a href="{{route('withdrawal_request.index')}}" title="Withdrawal Requests"> <span class="cus-sub-menu">Withdrawal Requests</span></a>
+                    </li>
+                    <li class=" @if(\Request::is('admin/yield_wallet') || \Request::is('admin/yield_wallet/*')) {{'active'}} @endif">
+                        <a href="{{route('yield_wallet.index')}}" title="Yield Wallet"> <span class="cus-sub-menu">Yield Wallet</span></a>
                     </li>
                     {{-- @role('admin')
                     <li class=" @if(\Request::is('admin/mt4-wallet-withdrawl-requests')) {{'active'}} @endif">

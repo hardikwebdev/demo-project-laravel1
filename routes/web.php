@@ -11,7 +11,10 @@ use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\AdminWithdrawalRequest;
 use App\Http\Controllers\Backend\PackageController;
 use App\Http\Controllers\Backend\PoolPackageController;
-
+use App\Http\Controllers\Backend\YieldWalletController;
+use App\Http\Controllers\Backend\CryptoWalletsPaymentController;
+use App\Http\Controllers\Backend\CryptocreditrequestController;
+use App\Http\Controllers\Backend\NftWalletsPaymentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -78,6 +81,23 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             // package crud
             Route::resource('packages', PackageController::class);
             Route::resource('pool-packages', PoolPackageController::class);
+
+            // Yield Wallet History
+            Route::resource('yield_wallet', YieldWalletController::class);
+            Route::any('yield-wallet-history-export',[YieldWalletController::class, 'exportData'])->name('yield-wallet-history-export.export');
+
+
+            // Crypto Wallets Payment History
+            Route::resource('crypto_wallets_payment_history', CryptoWalletsPaymentController::class);
+            Route::any('crypto_wallets_payment_history_export',[CryptoWalletsPaymentController::class, 'exportData'])->name('crypto_wallets_payment_history.export');
+
+            // Crypto Wallets USDT Credit Requests Approve or Reject.
+            Route::resource('crypto_wallets_credit_request', CryptocreditrequestController::class);
+            Route::any('crypto_wallets_credit_request_export',[CryptocreditrequestController::class, 'exportData'])->name('crypto_wallets_credit_request.export');
+
+            // Nft Wallets Payment History
+            Route::resource('nft_wallets_payment_history', NftWalletsPaymentController::class);
+            Route::any('nft_wallets_payment_history_export',[CryptoWalletsPaymentController::class, 'exportData'])->name('nft_wallets_payment_history.export');
 
         });
     });

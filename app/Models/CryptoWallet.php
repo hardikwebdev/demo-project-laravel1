@@ -11,7 +11,13 @@ class CryptoWallet extends Model
 
     protected $table = "crypto_wallets";
 
-   
+    // public function getTransSlipAttribute($value)
+    // {
+    //     if($value!=''){
+    //         return asset('uploads/news/'.$value);
+    //     }
+    // }
+
     public function user_detail(){
         return $this->hasOne(User::class,'id','user_id');
     }
