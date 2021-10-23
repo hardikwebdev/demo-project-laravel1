@@ -1445,3 +1445,117 @@ $("#pool_package_edit").validate({
     },
 
 });
+// NFT Category
+$("#nft_category_create").validate({
+    rules: {
+         name: {
+            required: true,
+            maxlength:255
+         },
+         image:{
+            required: true,
+            extension: "jpg,jpeg,png,gif"
+         }        
+    },
+    messages:{
+        name: {
+            required: 'Please enter name.',
+        },
+        image: {
+            required: 'Please choose image.',
+            extension: 'Please choose (jpg, jpeg, png, gif) file.'
+        },
+    },
+
+});
+$("#nft_category_edit").validate({
+    rules: {
+         name: {
+            required: true,
+            maxlength:255
+         },
+         image:{
+            extension: "jpg,jpeg,png,gif"
+         }        
+    },
+    messages:{
+        name: {
+            required: 'Please enter name.',
+        },
+        image: {
+            extension: 'Please choose (jpg, jpeg, png, gif) file.'
+        },
+    },
+
+});
+$("#nft_product_create").validate({
+    rules: {
+         name: {
+            required: true,
+            maxlength:255
+         },
+         price: {
+            required: true,
+            number:true,
+            positiveNumber :true,
+         },
+         category: {
+            required: true,
+         },
+         image:{
+            required: true,
+            extension: "jpg,jpeg,png,gif"
+         }        
+    },
+    messages:{
+        name: {
+            required: 'Please enter name.',
+        },
+        price: {
+            required: 'Please enter price.',
+        },
+        category: {
+            required: 'Please select category..',
+        },
+        image: {
+            required: 'Please choose image.',
+            extension: 'Please choose (jpg, jpeg, png, gif) file.'
+        },
+    },
+
+});
+$("#nft_product_edit").validate({
+    rules: {
+         name: {
+            required: true,
+            maxlength:255
+         },
+         price: {
+            required: true,
+            number:true,
+            positiveNumber :true,
+         },
+         category: {
+            required: true,
+         },
+         image:{
+            extension: "jpg,jpeg,png,gif"
+         }        
+    },
+    messages:{
+        name: {
+            required: 'Please enter name.',
+        },
+        price: {
+            required: 'Please enter price.',
+        },
+        category: {
+            required: 'Please select category..',
+        },
+        image: {
+            required: 'Please choose image.',
+            extension: 'Please choose (jpg, jpeg, png, gif) file.'
+        },
+    },
+
+});

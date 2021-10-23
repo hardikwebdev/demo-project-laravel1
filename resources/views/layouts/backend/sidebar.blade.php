@@ -142,6 +142,20 @@
                     </li>
                 </ul>
             </li>
+            <li class="@if(\Request::is('admin/nft-category') || \Request::is('admin/nft-category/*') || \Request::is('admin/nft-product') || \Request::is('admin/nft-product/*')) {{'active'}} @endif">
+                <a href="#">
+                    <img src="{{asset('images/Wallet.png')}}" class="side-icon-size">
+                    <span class="nav-label">NFT Collection</span><span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level collapse" style="">
+                    <li class="@if(\Request::is('admin/nft-category') || \Request::is('admin/nft-category/*')) {{'active'}} @endif">
+                        <a href="{{ route('nft-category.index')}}" title="Categories"> <span class="cus-sub-menu">Categories</span><span class="label label-info pull-right"></span></a>
+                    </li>
+                    <li class="@if(\Request::is('admin/nft-product') || \Request::is('admin/nft-product/*')) {{'active'}} @endif">
+                        <a href="{{ route('nft-product.index') }}" title="Products"> <span class="cus-sub-menu">Products</span></a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </div>
 </nav>

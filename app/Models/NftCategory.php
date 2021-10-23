@@ -9,4 +9,5 @@ class NftCategory extends Model
 {
     use HasFactory;
     protected $table = "nft_categories";
+    protected $fillable = ['is_deleted'];
 }
