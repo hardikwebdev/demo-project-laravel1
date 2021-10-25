@@ -15,6 +15,9 @@ use App\Http\Controllers\Backend\YieldWalletController;
 use App\Http\Controllers\Backend\CryptoWalletsPaymentController;
 use App\Http\Controllers\Backend\CryptocreditrequestController;
 use App\Http\Controllers\Backend\NftWalletsPaymentController;
+use App\Http\Controllers\Backend\NftcreditrequestController;
+use App\Http\Controllers\Backend\NftpurchaseController;
+use App\Http\Controllers\Backend\NftpurchaserequestController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -58,6 +61,9 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             Route::get('dashboard', [App\Http\Controllers\Backend\DashboardController::class, 'index'])->name('admin.dashboard');
             // User Crud
             Route::resource('user', UserController::class);
+
+            
+
             // News Crud
             Route::resource('news', NewsController::class);
 
@@ -97,8 +103,20 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 
             // Nft Wallets Payment History
             Route::resource('nft_wallets_payment_history', NftWalletsPaymentController::class);
-            Route::any('nft_wallets_payment_history_export',[CryptoWalletsPaymentController::class, 'exportData'])->name('nft_wallets_payment_history.export');
+            Route::any('nft_wallets_payment_history_export',[NftWalletsPaymentController::class, 'exportData'])->name('nft_wallets_payment_history.export');
 
+            // Nft Wallets USDT Credit Requests Approve or Reject.
+            Route::resource('nft_wallets_credit_request', NftcreditrequestController::class);
+            Route::any('nft_wallets_credit_request_export',[NftcreditrequestController::class, 'exportData'])->name('nft_wallets_credit_request.export');
+
+            // NFT Purchase History
+            Route::resource('nft_purchase_history', NftpurchaseController::class);
+            Route::any('nft_purchase_history_export',[NftpurchaseController::class, 'exportData'])->name('nft_purchase_history.export');
+
+
+            // NFT Purchase Requests
+            Route::resource('nft_purchase_request', NftpurchaserequestController::class);
+            Route::any('nft_purchase_request_export',[NftpurchaserequestController::class, 'exportData'])->name('nft_purchase_request.export');
         });
     });
 

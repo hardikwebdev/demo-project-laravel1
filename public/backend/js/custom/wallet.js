@@ -40,7 +40,6 @@ var exportBankRequests = function(thi){
 	export_url = export_url+'?'+data
 	window.location.href=export_url;
 }
-
 $(document).ready(function(){
     $('.date').attr('readonly',true);
     $('.input-daterange').attr('readonly',true);

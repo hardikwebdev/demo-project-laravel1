@@ -77,7 +77,7 @@
                                 @endforeach                            
                                 @else
                                 <tr>
-                                    <td colspan="10">No News Found!</td>
+                                    <td colspan="10">Oops! No Record Found</td>
                                 </tr>
                                 @endif
                                 <tr>

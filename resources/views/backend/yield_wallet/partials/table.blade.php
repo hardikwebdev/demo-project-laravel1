@@ -31,7 +31,7 @@
             @endforeach                            
             @else
             <tr>
-                <td colspan="9">No any payemnt history found.</td>
+                <td colspan="9">Oops! No Record Found</td>
             </tr>
             @endif
             <tr>

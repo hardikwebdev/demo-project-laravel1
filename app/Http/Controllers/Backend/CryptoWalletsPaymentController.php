@@ -82,7 +82,7 @@ class CryptoWalletsPaymentController extends Controller
                 return ((new \Rap2hpoutre\FastExcel\FastExcel($crypto_wallets_payment_history))->download('Cwph-' . time() . '.xlsx', function ($crypto_wallets_payment_history) {
                     return [
                         'Username' => $crypto_wallets_payment_history->user_detail->username,
-                        'Date' => date_format($crypto_wallets_payment_history->created_at,"Y-m-d H:i:s"),
+                        'Date' => ($crypto_wallets_payment_history->action_date) ? ($crypto_wallets_payment_history->action_date) : (date_format($crypto_wallets_payment_history->created_at,"Y-m-d H:i:s")),
                         'Type' => ($crypto_wallets_payment_history->type == 0) ? ('USDT') : (($crypto_wallets_payment_history->type == 1) ? ('Malasian Payment') : ( ($crypto_wallets_payment_history->type == 2) ? ("CoinPayment") : (" "))),
                         'Amount' => number_format($crypto_wallets_payment_history->amount,2),
                         'Order ID' => $crypto_wallets_payment_history->order_id ?? '',

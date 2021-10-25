@@ -28,6 +28,9 @@
                     <li class=" @if(strstr(\Request::route()->getName(),'nft_wallets_payment_history')) {{'active'}} @endif">
                         <a href="{{route('nft_wallets_payment_history.index')}}" title="Nft Wallets Payment History"><span class="cus-sub-menu">Nft Wallets Payment History</span></a>
                     </li>
+                    <li class=" @if(strstr(\Request::route()->getName(),'nft_purchase_history')) {{'active'}} @endif">
+                        <a href="{{route('nft_purchase_history.index')}}" title="Nft Purchase History"><span class="cus-sub-menu">Nft Purchase History</span></a>
+                    </li>
                     <li class=" @if(strstr(\Request::route()->getName(),'support_ticket')) {{'active'}} @endif">
                         <a href="{{route('support_ticket.index1','all')}}" title="Support"><span class="cus-sub-menu">Support</span></a>
                     </li>
@@ -48,7 +51,13 @@
                 <ul class="nav nav-second-level collapse" style="">
                     {{-- @php $requests = Helper::getPendingBankCreditRequestCount() @endphp--}}
                     <li class=" @if(\Request::is('admin/crypto_wallets_credit_request')) {{'active'}} @endif">
-                        <a href="{{route('crypto_wallets_credit_request.index')}}" title="Bank Credits Requests"> <span class="cus-sub-menu">Crypto Wallets Credits Requests</span></a>
+                        <a href="{{route('crypto_wallets_credit_request.index')}}" title="Crypto Wallets Credits Requests"> <span class="cus-sub-menu">Crypto Wallets Credits Requests</span></a>
+                    </li>
+                    <li class=" @if(\Request::is('admin/nft_wallets_credit_request')) {{'active'}} @endif">
+                        <a href="{{route('nft_wallets_credit_request.index')}}" title="Nft Wallets Credits Requests"> <span class="cus-sub-menu">Nft Wallets Credits Requests</span></a>
+                    </li> 
+                    <li class=" @if(\Request::is('admin/nft_purchase_request')) {{'active'}} @endif">
+                        <a href="{{route('nft_purchase_request.index')}}" title="Nft Purchase Requests"> <span class="cus-sub-menu">Nft Purchase Requests</span></a>
                     </li> 
                     {{-- <li class=" @if(\Request::is('admin/withdrawal_request') || \Request::is('admin/withdrawal_request/*')) {{'active'}} @endif">
                         <a href="{{route('capital_request')}}" title="Capital Withdrawal Requests"> <span class="cus-sub-menu">Capital Withdrawal Requests</span></a>

@@ -66,14 +66,12 @@
                                     {{-- @endrole --}}
                                 </tr>
                             </thead>
-                            @php  $i =  1; $opt  @endphp
-                            <tbody >
+                            @php  $i = 1;  @endphp
+                            <tbody>
                                 @if(count($users) > 0)
                                 @foreach($users as $row)
-                                @php  $i =  1;  @endphp
                                 <tr class="row-user-{{$row->id}}">
-                                    
-                                    <td>{{$row->id}}</td>
+                                    <td>{{$i++}}</td>
                                     <td>{{$row->name}}</td>
                                     {{-- <td><small>{{@$row->group->name}}</small></td>                              --}}
                                     <td class="break-word "><a class="" href="{{route('user.show',[$row->username])}}">{{$row->username}}</a></td>
@@ -104,24 +102,24 @@
                                         @method('delete')
                                         <div class="dropdown">
                                         <a class="" data-toggle="tooltip" title="Delete User" onclick="$('#form-user-{{$row->id}}').submit()" >Delete</a> &nbsp;
-                                        {{-- <a class="dropdown-toggle " href="#" id="dropdownMenuLink{{$row->id}}" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
+                                        <a class="dropdown-toggle " href="#" id="dropdownMenuLink{{$row->id}}" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
                                         {!! Form::close() !!}
-                                        <ul class="dropdown-menu m-t-xs"> --}}
+                                        <ul class="dropdown-menu m-t-xs">
                                             {{-- <li><a class="" href="{{route('admin_user_fund_wallet',[$row->id])}}">History</a></li> --}}
                                             {{-- <li><a class=" btn-upgrade-package" data-package="{{$row->package_detail!=null?$row->package_detail->id:'0'}}" data-id="{{$row->id}}"  href="#" >Upgrade Package</a></li> --}}
                                             {{-- <li><a class=" btn-upgrade-package resend_welcome_email"  href="{{route('user.resend_welcome_email',$row->id)}}" >Resend Welcome Email</a></li> --}}
                                             {{-- @if($row->mt4_user_id) --}}
-                                            {{-- <li><a class=" btn-upgrade-package resend_mt5_email" data-id="{{$row->id}}"  href="{{route('user.resend_mt5_email',$row->id)}}" >Resend MT5 Email</a></li> --}}
-                                            {{-- @endif --}}
+                                            {{-- <li><a class=" btn-upgrade-package resend_mt5_email" data-id="{{$row->id}}"  href="{{route('user.resend_mt5_email',$row->id)}}" >Resend MT5 Email</a></li>
+                                            @endif--}}
                                         </ul>
-                                        </div>
+                                        </div> 
                                     </td>
                                     {{-- @endrole --}}
                                 </tr>           
                                 @endforeach                            
                                 @else
-                                <tr>
-                                    <td colspan="14">No users found by such keyword</td>
+                                <tr class="my-3">
+                                    <td colspan="14">Oops! No Record Found</td>
                                 </tr>
                                 @endif
                                 <tr>

@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\CryptoWallet;
+use App\Models\NftWallet;
 use App\Models\Country;
 use App\Models\UserWallet;
 use Carbon\Carbon;
 
-class CryptocreditrequestController extends Controller
+class NftcreditrequestController extends Controller
 {
     public function __construct(Request $request){
         $this->limit = $request->limit?$request->limit:50;
@@ -21,10 +21,9 @@ class CryptocreditrequestController extends Controller
      */
     public function index(Request $request)
     {
-        //
         try{
             $data = $request->all();
-            $crypto_credit =  CryptoWallet::with(['user_detail' => function ($query) {
+            $crypto_credit =  NftWallet::with(['user_detail' => function ($query) {
                 $query->withTrashed();
             }]);
             if($request->ajax()){
@@ -33,7 +32,7 @@ class CryptocreditrequestController extends Controller
                 }
                 $crypto_credit->status = ($request->status!="")?$request->status:"0";
                 $crypto_credit->save();
-                return response()->json(['status'=>'success','message'=>"Crypto wallet transaction update successfully..",'data'=>$crypto_credit]);
+                return response()->json(['status'=>'success','message'=>"Nft wallet transaction update successfully..",'data'=>$crypto_credit]);
             }  
             /* Search Functions start*/
             if($request->request_date && $request->request_date != ""){
@@ -65,23 +64,25 @@ class CryptocreditrequestController extends Controller
             /* Search Functions end*/
             $crypto_credit = $crypto_credit->whereIn('type',['2','0','7'])->orderBy('created_at','desc')->paginate($this->limit)->appends($request->all()); 
             
-            return view('backend.crypto_wallets_credit_request.index',compact('crypto_credit','data'));
+            return view('backend.nft_wallets_credit_request.index',compact('crypto_credit','data'));
         } catch (Exception $e) {
 
             if($request->ajax()){
              return response()->json(['status'=>'fail','message'=>"Something went wrong......"]);
 
          }
-      }
+        }
     }
 
-     //Crypto Wallets Payment History export
+
+   
+     //Nft Wallets Payment History export
      public function exportData(Request $request)
      {
          try {
             
             $data = $request->all();
-            $crypto_credit =  CryptoWallet::with(['user_detail' => function ($query) {
+            $crypto_credit =  NftWallet::with(['user_detail' => function ($query) {
                 $query->withTrashed();
             }]);
             if($request->ajax()){
@@ -90,7 +91,7 @@ class CryptocreditrequestController extends Controller
                 }
                 $crypto_credit->status = ($request->status!="")?$request->status:"0";
                 $crypto_credit->save();
-                return response()->json(['status'=>'success','message'=>"Crypto wallet transaction update successfully..",'data'=>$crypto_credit]);
+                return response()->json(['status'=>'success','message'=>"Nft wallet transaction update successfully..",'data'=>$crypto_credit]);
             }  
             /* Search Functions start*/
             if($request->request_date && $request->request_date != ""){
@@ -124,7 +125,7 @@ class CryptocreditrequestController extends Controller
             
             
             if(count( $crypto_credit ) > 0){
-                return ((new \Rap2hpoutre\FastExcel\FastExcel($crypto_credit))->download('cwcr-' . time() . '.xlsx', function ($crypto_credit) {
+                return ((new \Rap2hpoutre\FastExcel\FastExcel($crypto_credit))->download('nwcr-' . time() . '.xlsx', function ($crypto_credit) {
                     return [
                         '#Id' => str_replace("-", "", $crypto_credit->created_at->format('d-m-y'))."-".sprintf("%04d", $crypto_credit->unique_no),
                         'Type' => ($crypto_credit->type==7)? (($crypto_credit->user_detail && $crypto_credit->user_detail->country_id == '45') ? 'RMB' : 'IDR'):'USDT',
@@ -144,6 +145,9 @@ class CryptocreditrequestController extends Controller
          }   
      }
  
+
+ 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -162,8 +166,9 @@ class CryptocreditrequestController extends Controller
      */
     public function store(Request $request)
     {
-             
+        //
     }
+
     /**
      * Display the specified resource.
      *
@@ -194,38 +199,39 @@ class CryptocreditrequestController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {   
-            if($request->ajax() || $request->status != ''){
-                try{
-                    $fund_wallet = CryptoWallet::find($id);
-                    if($fund_wallet == null && $fund_wallet == ""){
-                        return response()->json(['status'=>'fail','message'=>"{{trans('custom.no_data_found')}}...."]);
-                    }
-                    $fund_wallet->status = ($request->status!="")?$request->status:"0";
-                    if($request->status == 1 || $request->status == '1'){
-                        $user_wallet = UserWallet::where('user_id',$fund_wallet->user_id)->increment('crypto_wallet',$fund_wallet->amount);
+    {
+        //
+        if($request->ajax() || $request->status != ''){
+            try{
+                $fund_wallet = NftWallet::find($id);
+                if($fund_wallet == null && $fund_wallet == ""){
+                    return response()->json(['status'=>'fail','message'=>"{{trans('custom.no_data_found')}}...."]);
+                }
+                $fund_wallet->status = ($request->status!="")?$request->status:"0";
+                if($request->status == 1 || $request->status == '1'){
+                    $user_wallet = UserWallet::where('user_id',$fund_wallet->user_id)->increment('nft_wallet',$fund_wallet->amount);
 
-                        // Helper::generate_pdf($fund_wallet);
-                        // $pdf->stream('payment_invoice_'.time());
-                        // if($count == 0){
-                        // Helper::gw_send_sms("APIKHW9E4Z5SP", "APIKHW9E4Z5SPKHW9E", "Vextrader", $fund_wallet->user_detail->phone_number, "Welcome ".$fund_wallet->user_detail->name." to Vextrader, Taking You Higher. Login now and start your journey today!");
-                        // }
-                    }
-                    $date = date('d-m-y');
-                    $count = CryptoWallet::where('user_id',$fund_wallet->user_id)->where('status',1)->count();
-                    $fund_wallet->action_date = Carbon::now();
-                    if(!empty($request->remark)){
-                        $fund_wallet->remark = ($request->remark) ? $request->remark : null;
-                    }
-                    $fund_wallet->save(); 
-                    if($request->status == '2'){
-                        return redirect()->back()->with('success','Rejected successfully..');
-                    }
-                    return response()->json(['status'=>'success','message'=>"Crypto wallet transaction update successfully..",'data'=>$fund_wallet]);
-                } catch (Exception $e) {
-                    return response()->json(['status'=>'fail','message'=>"Something went wrong......"]);
-                }               
-            }   
+                    // Helper::generate_pdf($fund_wallet);
+                    // $pdf->stream('payment_invoice_'.time());
+                    // if($count == 0){
+                    // Helper::gw_send_sms("APIKHW9E4Z5SP", "APIKHW9E4Z5SPKHW9E", "Vextrader", $fund_wallet->user_detail->phone_number, "Welcome ".$fund_wallet->user_detail->name." to Vextrader, Taking You Higher. Login now and start your journey today!");
+                    // }
+                }
+                $date = date('d-m-y');
+                $count = NftWallet::where('user_id',$fund_wallet->user_id)->where('status',1)->count();
+                $fund_wallet->action_date = Carbon::now();
+                if(!empty($request->remark)){
+                    $fund_wallet->remark = ($request->remark) ? $request->remark : null;
+                }
+                $fund_wallet->save(); 
+                if($request->status == '2'){
+                    return redirect()->back()->with('success','Rejected successfully..');
+                }
+                return response()->json(['status'=>'success','message'=>"Nft wallet transaction update successfully..",'data'=>$fund_wallet]);
+            } catch (Exception $e) {
+                return response()->json(['status'=>'fail','message'=>"Something went wrong......"]);
+            }               
+        }   
     }
 
     /**

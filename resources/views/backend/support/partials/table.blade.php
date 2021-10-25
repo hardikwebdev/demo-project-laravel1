@@ -123,7 +123,7 @@
             @endforeach                            
             @else
             <tr>
-                <td colspan="10">No any support ticket found.</td>
+                <td>Oops! No Record Found</td>
             </tr>
             @endif
             <tr>

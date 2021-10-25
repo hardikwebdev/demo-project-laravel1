@@ -42,6 +42,7 @@ class NftWalletsPaymentController extends Controller
             $nft_wallets_payment_history = $nft_wallets_payment_history->whereRaw('DATE_FORMAT(created_at,"%Y-%m-%d") >= "'.$start_date.'"')->whereRaw('DATE_FORMAT(created_at,"%Y-%m-%d") <= "'.$end_date.'"');
         }
         $data = $request->all();
+        
         $total_amount = $nft_wallets_payment_history->sum('amount');
         $nft_wallets_payment_history = $nft_wallets_payment_history->orderBy('action_date','desc')->paginate($this->limit)->appends($data);
         return view('backend.nft_wallets_payment_history.index',compact('nft_wallets_payment_history','total_amount','data'));
@@ -78,17 +79,16 @@ class NftWalletsPaymentController extends Controller
                $nft_wallets_payment_history = $nft_wallets_payment_history->whereRaw('DATE_FORMAT(created_at,"%Y-%m-%d") >= "'.$start_date.'"')->whereRaw('DATE_FORMAT(created_at,"%Y-%m-%d") <= "'.$end_date.'"');
            }
            $nft_wallets_payment_history = $nft_wallets_payment_history->orderBy('action_date','desc')->get();
-
            if(count( $nft_wallets_payment_history ) > 0){
-               return ((new \Rap2hpoutre\FastExcel\FastExcel($nft_wallets_payment_history))->download('Cwph-' . time() . '.xlsx', function ($nft_wallets_payment_history) {
+               return ((new \Rap2hpoutre\FastExcel\FastExcel($nft_wallets_payment_history))->download('Nwph-' . time() . '.xlsx', function ($nft_wallets_payment_history) {
                    return [
                        'Username' => $nft_wallets_payment_history->user_detail->username,
-                       'Date' => date_format($nft_wallets_payment_history->created_at,"Y-m-d H:i:s"),
-                       'Type' => ($nft_wallets_payment_history->type == 0) ? ('USDT') : (($nft_wallets_payment_history->type == 1) ? ('Malasian Payment') : ( ($nft_wallets_payment_history->type == 2) ? ("CoinPayment") : (" "))),
-                       'Amount' => number_format($nft_wallets_payment_history->amount,2),
-                       'Order ID' => $nft_wallets_payment_history->order_id ?? '',
-                       'Transaction ID' => $nft_wallets_payment_history->transaction_id ?? '',
-                       'Status' =>  ($nft_wallets_payment_history->status == 1) ? ("Approved") : ( ($nft_wallets_payment_history->status == 2) ? ("Rejected") : ("Pending")),
+                       'Date' => ($nft_wallets_payment_history->action_date) ? ($nft_wallets_payment_history->action_date) : (date_format($nft_wallets_payment_history->created_at,"Y-m-d H:i:s")),
+                        'Type' => ($nft_wallets_payment_history->type == 0) ? ('USDT') : (($nft_wallets_payment_history->type == 1) ? ('Malasian Payment') : ( ($nft_wallets_payment_history->type == 2) ? ("CoinPayment") : (" "))),
+                        'Amount' => number_format($nft_wallets_payment_history->amount,2),
+                        'Order ID' => $nft_wallets_payment_history->order_id ?? '',
+                        'Transaction ID' => $nft_wallets_payment_history->transaction_id ?? '',
+                        'Status' =>  ($nft_wallets_payment_history->status == 1) ? ("Approved") : ( ($nft_wallets_payment_history->status == 2) ? ("Rejected") : ("Pending")),
                    ];
                }));
            }

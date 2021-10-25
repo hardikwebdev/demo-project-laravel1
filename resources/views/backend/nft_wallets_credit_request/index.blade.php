@@ -9,12 +9,12 @@
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-12">
         <h2>    
-            {!! Form::open(['route' => 'crypto_wallets_credit_request.index','class'=>'form-inline','method'=>'get','id'=>'filter_data_ajax']) !!}
-            <div class="col-xs-12 col-md-6 p-0">Crypto Wallets Credits Requests</div>
+            {!! Form::open(['route' => 'nft_wallets_credit_request.index','class'=>'form-inline','method'=>'get','id'=>'filter_data_ajax']) !!}
+            <div class="col-xs-12 col-md-6 p-0">Nft Wallets Credits Requests</div>
             <div class="col-xs-12 col-md-6 text-right">
                 {{-- @role('admin') --}}
                 <div class="pull-right">
-                    <a class="btn btn-primary" onclick="exportBankRequests(this)" ><i class="fa fa-cloud-download"></i> Export</a>
+                    <a class="btn btn-primary" onclick="exportnftwalletRequests(this)" ><i class="fa fa-cloud-download"></i> Export</a>
                 </div>   
                 {{-- @endrole --}}
             </div>
@@ -43,7 +43,7 @@
                         </div>
                         <div class="col-xs-12 col-md-2 m-t-xs text-right">                
                             <button class="btn btn-primary" type="submit"><i class="fa fa-filter"></i> Search</button>
-                            <a class="btn btn-danger" href="{{route('crypto_wallets_credit_request.index')}}">Clear</a>
+                            <a class="btn btn-danger" href="{{route('nft_wallets_credit_request.index')}}">Clear</a>
                         </div>
                     </div>            
                 </div>
@@ -156,7 +156,7 @@
 <div id="edit_credit_request" class="modal fade" role="dialog">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
-            {!! Form::open(['route'=>['crypto_wallets_credit_request.update',''],'method'=>'post','class'=>'form-vertical','id'=>'credit_request_form','autocomplete'=>'false','files'=>true]) !!}
+            {!! Form::open(['route'=>['nft_wallets_credit_request.update',''],'method'=>'post','class'=>'form-vertical','id'=>'credit_request_form','autocomplete'=>'false','files'=>true]) !!}
             @method('patch')
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -186,7 +186,7 @@
 <div id="update_remark" class="modal fade" role="dialog">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
-            {!! Form::open(['route'=>['crypto_wallets_credit_request.update',''],'method'=>'post','class'=>'form-vertical','id'=>'credit_remark_form','autocomplete'=>'false','files'=>true]) !!}
+            {!! Form::open(['route'=>['nft_wallets_credit_request.update',''],'method'=>'post','class'=>'form-vertical','id'=>'credit_remark_form','autocomplete'=>'false','files'=>true]) !!}
             @method('patch')
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -210,17 +210,16 @@
     </div>
 </div>
 @endsection
-
 @section('scripts')
 <script type="text/javascript">
-   var route_url = "{{route('crypto_wallets_credit_request.update',[''])}}" 
-   var url_remark = "{{route('crypto_wallets_credit_request.update',[''])}}" ;
-   var export_url = "{{route('crypto_wallets_credit_request.export')}}" ;
+ var route_url = "{{route('nft_wallets_credit_request.update',[''])}}" 
+  var url_remark = "{{route('nft_wallets_credit_request.update',[''])}}" ;
+ var exportnft_url = "{{route('nft_wallets_credit_request.export')}}" ;
    $('.chosen-select').chosen({width: "100%"});
 </script>
 <script src="{{asset('backend/js/plugins/datapicker/bootstrap-datepicker.js')}}"></script>
 <script src="{{asset('backend/js/plugins/blueimp/jquery.blueimp-gallery.min.js')}}"></script>
-<script src="{{asset('backend/js/custom/wallet.js')}}"></script>
+<script src="{{asset('backend/js/custom/nftwallet.js')}}"></script>
 <script type="text/javascript">
     var options = {
         container: document.getElementsByClassName('blueimp-gallery-div'),

@@ -47,7 +47,7 @@ class UserController extends Controller
         /* Search Functionality*/
         $users = $users
             ->OrderBy('id', 'desc')
-            ->paginate(30)
+            ->paginate($request->limit)
             ->appends($request->all());
         // $groups = \App\Group::where('status','1')->pluck('name','id');
         // $packages = Model\Package::where('status','active')->pluck('name','id');
@@ -530,6 +530,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+        // dd($id);
         //
         try {
             $user = User::find($id);
@@ -552,7 +553,8 @@ class UserController extends Controller
                 // FundWallet::where('user_id', $id)->delete();
                 // WithdrawalRequest::where('user_id', $id)->delete();
                 // UserReferral::where('user_id', $id)->delete();
-                $user->forceDelete();
+                // $user->forceDelete();
+                $user->delete();
                 return redirect()
                     ->route('user.index')
                     ->with(['success' => 'Customer delete sucessfully.']);
