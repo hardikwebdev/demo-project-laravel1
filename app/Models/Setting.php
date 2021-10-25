@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Setting extends Model
 {
     use HasFactory,SoftDeletes;
-    protected $table = "settings";
-
+    // protected $table = "settings";
+    protected $fillable = ['key','value'];
     protected $dates = [ 'deleted_at' ];
 }

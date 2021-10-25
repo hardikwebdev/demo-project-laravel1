@@ -12,4 +12,8 @@ class Rank extends Model
     protected $table = "ranks";
 
     protected $dates = [ 'deleted_at' ];
+
+    public function detail() {
+        return $this->belongsTo(Rank::class,'rank_name', 'id');
+    }
 }

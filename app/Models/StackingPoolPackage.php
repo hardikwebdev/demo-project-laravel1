@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class StackingPoolPackage extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'is_deleted'
+    ];
 }

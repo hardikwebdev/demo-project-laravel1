@@ -430,6 +430,21 @@ class CommonController extends Controller
         return $upCount;
     }
 
+
+      /***Check Username   */
+    protected function usernameExits(Request $request){
+        $usernameExits = User::where('username',$request->username)->first();
+        if ($usernameExits === null) {
+            $isValid = true;
+        } else {
+            $isValid = false;
+        }
+        echo json_encode(array(
+            'valid' => $isValid,
+        ));
+    }
+
+
     /**
      * Store a newly created resource in storage.
      *

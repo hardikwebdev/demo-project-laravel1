@@ -93,4 +93,14 @@ class User extends Authenticatable
     public function userwallet() {
         return $this->belongsTo(UserWallet::class, 'id', 'user_id');
     }
+
+     //package
+     public function package_detail() {
+        return $this->belongsTo(Package::class, 'package_id', 'id');
+    }
+
+      //get downline users 
+    public function downlineuser() {
+        return $this->hasMany(User::class, 'sponsor_id', 'id')->where(['status'=>'active']);
+    }
 }

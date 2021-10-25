@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+    public function __construct(Request $request)
+    {
+        $this->limit = $request->limit ? $request->limit : 10;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -78,7 +82,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        
         /* validation start */
         $rules = [
             'username' =>
@@ -184,8 +187,6 @@ class UserController extends Controller
             'swift_code' => $data['swift_code'],
             'bank_country_id' => $data['bank_country_id'],
         ]);
-
-        
 
         $userAgreement = UserAgreement::create([
             'user_id' => $user->id,

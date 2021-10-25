@@ -36,12 +36,12 @@
                         <li class="@if($slug=='open') active @endif""><a class="nav-link help-ajax" href="{{route('support_ticket.index1','open')}}"> {{trans('custom.open')}}</a></li>
                         <li class="@if($slug=='close') active @endif""><a class="nav-link help-ajax" href="{{route('support_ticket.index1','close')}}">{{trans('custom.closed')}}</a></li>
                     </ul>
-                    @role('admin')
+                    {{-- @role('admin') --}}
                     <p class="m-t-md">
                         <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#reply_support">{{trans('custom.create_new_ticket')}}</button>
                         <a href="{{route('support_ticket.index')}}" class="btn btn-warning btn-block">View All Tickets</a>
                     </p>
-                    @endrole
+                    {{-- @endrole --}}
                 </div>
             </div>
         </div>

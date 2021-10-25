@@ -6,8 +6,7 @@ var getBankProof = function(th){
 	
 	var id = th.data('id');
 	var type = th.data('type');
-
-	$.post(detail_url,{user_id:id,type:type},function(response){
+	$.post(detail_url,{wrid:id,type:type},function(response){
         if(response.status == 'success'){
             $('.remark-decline').html(response.html);
             $("#remark_decline").modal('show');

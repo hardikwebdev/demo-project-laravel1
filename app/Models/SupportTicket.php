@@ -15,10 +15,24 @@ class SupportTicket extends Model
 
     protected $dates = [ 'deleted_at' ];
 
+    public function setSlugAttribute($value)
+    {
+        $this->attributes['slug'] = uniqid('support-ticket-');
+    }
+    
     public function subject() {
         return $this->belongsTo(SuportSubject::class, 'subject_id', 'id');
     }
     public function user_detail() {
         return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+    public function supportattach() {
+        return $this->hasMany(SupportTicketAttachment::class, 'support_tkt_id', 'id')->orderBy('created_at','desc');
+    }
+    public function last_message() {
+        return $this->hasOne(SupportTicketMessages::class, 'support_id', 'id')->latest();
+    }
+    public function messages() {
+        return $this->hasMany(SupportTicketMessages::class, 'support_id', 'id');
     }
 }
