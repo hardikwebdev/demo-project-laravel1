@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="{{ asset('assets/css/custom/slick-theme.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/jquery.steps.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/jquery-ui.css') }}">
+  <link rel="stylesheet" href="{{ asset('backend/css/dropify.min.css')}}">
   <link rel="stylesheet" type="text/css" href="http://keith-wood.name/css/jquery.signature.css">
 </head>
 <body>
@@ -45,9 +46,10 @@
 <script src="{{ asset('assets/js/custom/jquery-ui.js') }}"></script>
 <script src="{{ asset('assets/js/custom/jquery.steps.min.js') }}"></script>
 <script type="text/javascript" src="http://keith-wood.name/js/jquery.signature.js"></script>
-<script src="{{ asset('assets/js/custom/custom.js').'?v='.time() }}"></script>
 <script src="{{asset('backend/js/plugins/validate/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('assets/js/custom/custom.js').'?v='.time() }}"></script>
 <script src="{{asset('backend/js/plugins/validate/additional-methods.min.js')}}"></script>
+<script src="{{asset('backend/js/dropify.min.js')}}"></script>
 
 @yield('scripts')
 </body>

@@ -128,4 +128,49 @@ $(document).ready(function(){
   //     window.location.href = 'login.html';
   //     return false;
   //   });
-  // });   
+  // });
+   $.validator.addMethod(
+       "positiveNumber",
+       function(value) {
+           return Number(value) > 0;
+       },
+       'Value must be greater than 0'
+   );
+   $.validator.addMethod("regex", function(value, element, regexpr) {          
+    return regexpr.test(value);
+  }, "Please enter a valid value.");
+  $("#cryptowalletform").validate({
+      rules: {
+           amount: {
+              required: true,
+              positiveNumber:true,
+              minlength: 0,
+              maxlength: 6,
+           },
+           secure_password: {
+              required: true,
+           },
+           upload_proof:{
+            required: true,
+           }        
+      },
+      messages:{
+      },
+
+  });
+  $("#cryptowalletform-myr").validate({
+      rules: {
+           amount: {
+              required: true,
+              positiveNumber:true,
+              minlength: 0,
+              maxlength: 6,
+           },
+           secure_password: {
+              required: true,
+           }        
+      },
+      messages:{
+      },
+
+  });   

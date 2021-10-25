@@ -58,7 +58,8 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::get('/node_management', 'App\Http\Controllers\HomeController@node_management')->name('node_management');
 
         Route::get('/node_register', 'App\Http\Controllers\HomeController@node_register')->name('node_register');
-        Route::get('/crypto_wallets', 'App\Http\Controllers\HomeController@crypto_wallets')->name('crypto_wallets');
+        Route::get('/crypto_wallets', 'App\Http\Controllers\WalletController@cryptoWallets')->name('crypto_wallets');
+        Route::any('/crypto_wallets_form', 'App\Http\Controllers\WalletController@cryptoWalletForm')->name('cryptoWalletForm');
         Route::get('/yield_wallet', 'App\Http\Controllers\HomeController@yield_wallet')->name('yield_wallet');
         Route::get('/commission_wallet', 'App\Http\Controllers\HomeController@commission_wallet')->name('commission_wallet');
         Route::get('/nft_wallet', 'App\Http\Controllers\HomeController@nft_wallet')->name('nft_wallet');
