@@ -95,4 +95,17 @@ class HomeController extends Controller
     public function sell_nft(){
         return view('nft_marketplace.sell_nft');
     }
+
+
+    public function downlinePlacement(Request $request){
+        $downlineUser = User::where('placement_id',$request->id)->where('status',1)->where('id','!=',$request->id)->get();
+        return view('mynetworkdownlinePlacement',compact('downlineUser'));
+    }
+
+    
+    public function downlineUsers(Request $request){
+        $downlineUser = User::where('sponsor_id',$request->id)->where('status',1)->where('id','!=',$request->id)->get();
+        return view('mynetworkdownline',compact('downlineUser'));
+    }
+
 }

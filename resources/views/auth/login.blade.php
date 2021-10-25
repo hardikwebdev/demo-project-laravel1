@@ -1,4 +1,5 @@
 @extends('layouts.guest')
+@section('title', __('custom.sign_in'))
 
 @section('content')
 <div class="row w-100 mx-0">

@@ -51,8 +51,8 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
     Route::middleware(['auth','verified'])->group(function () {
 
         Route::get('/', 'App\Http\Controllers\HomeController@dashboard')->name('dashboard');
-        Route::get('/get-downlineusers', 'AccountController@downlineUsers')->name('downlineUsers');
-        Route::get('/get-downlinePlacement', 'AccountController@downlinePlacement')->name('downlinePlacement');
+        Route::get('/get-downlineusers', 'App\Http\Controllers\HomeController@downlineUsers')->name('downlineUsers');
+        Route::get('/get-downlinePlacement', 'App\Http\Controllers\HomeController@downlinePlacement')->name('downlinePlacement');
         Route::get('/stacking-pool', 'App\Http\Controllers\HomeController@stacking_pool')->name('stacking_pool');
         Route::get('/stackpool', 'App\Http\Controllers\HomeController@stackpool')->name('stackpool');
         Route::get('/node_management', 'App\Http\Controllers\HomeController@node_management')->name('node_management');

@@ -180,4 +180,36 @@
 </div>
 @endsection
 @section('scripts')
+<script type="text/javascript">
+ $(document).ready(function(){  
+  $("#form-wizards-register").steps({
+    bodyTag: "fieldset",
+    labels:{
+      finish: '<button class="btn bg-warning text-white py-4 px-5 font-weight-bold rounded-0 mt-4 mt-md-2 font-18" id="finish">FINISH</button>',
+      next: '<button class="btn bg-warning text-white py-4 px-5 font-weight-bold rounded-0 mt-4 mt-md-2 font-18">NEXT <img src="../images/assets/Staking_Pools/Group179.png" class="img-fluid ml-3 align-middle" alt=""></button>',
+      previous: '<button class="btn bg-transparent border-warning text-white py-4 px-5 mt-4 mt-md-2 font-weight-bold rounded-0 font-18">PREVIOUS <img src="../images/assets/Staking_Pools/Group179.png" class="img-fluid ml-3 align-middle" alt=""></button>'
+    },
+
+    onInit: function (event, current) {
+      var sigpad = $('#sigpad').signature({syncField: '#signature', syncFormat: 'PNG'});
+      $('#clear').click(function(e) {
+        e.preventDefault();
+        sigpad.signature('clear');
+        $("#signature").val('');
+      });
+      $('.actions > ul > li:first-child').attr('style', 'display:none');
+    },
+    onStepChanging: function (event, currentIndex, newIndex){    
+      $('.actions > ul > li:first-child').attr('style', 'display:block');
+      return true;
+    }
+    
+  });   
+  $('#finish').click(function() {
+      // window.location.href = 'login.html';
+      return false;
+    });
+});   
+
+</script>
 @endsection
