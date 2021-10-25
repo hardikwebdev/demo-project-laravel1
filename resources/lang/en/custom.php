@@ -14,10 +14,10 @@ return [
     */
     // Login page
     'welcome_text' => 'Welcome to Vextrader',
-    'welcome_text_desc' => 'Login to your portal',
+    'welcome_text_desc' => 'Member Login',
     'sign_in' => 'Sign In',
-    'sign_up' => 'Sign Up',
-    'forgot_your_password' => 'Forgot Your Password?',
+    'sign_up' => 'Create Account',
+    'forgot_your_password' => 'Forgot Password?',
     'remember_me' =>'Remember me',
     'access_login_information_access_site' => 'Please access to login information to access this site.',
     'keep_sign_in' => 'Keep me Signed in',
@@ -1459,5 +1459,28 @@ return [
     'mt5_request_submited_review' => 'Your MT5 request is submitted successfully and pending for review now.',
     'mt5_wallet_tnc' => '<ul class="dis"><li>You can check your trading profit from your MT5 account</li><li>Your trading profit can be calculated by deducting your package amount from your MT5 balance</li><li>All trading profit withdrawal requests will take 2-3 working days to be processed.</li><li>Once approved, 70% will be credited into your cash wallet as 30% is the company trading performance fee</li><li>All approved withdrawal requests are final and cannot be reversed</li></ul>',
     '3rd_party_payment_note' => 'Please put “IDRVT” only as the remark in your bank transfer',
+
+     /* binary system */
+    'placement_name_placeholder' => 'Placement Name',
+    'verify_placement_username' => 'Verify Placement Name',
+    'placement_username' => 'Placement Username',
+    'enter_placement_username' => 'Enter Placement Username',
+    'placement_user_not_found_not__valid_placement' => 'The placement user is not found or not a valid placement. Please enter another placement username.',
+    'placement_username_verified' => 'The placement username is verified.',
+    'upline_username_verified' => 'The upline or downline username is verified.',
+    'enter_valid_placement_username' => 'Please enter valid placement username.',
+    'verify_entered_placement' => 'Please verify the entered placement details.',
+    'please_check_placement_username_not_valid' => 'Please check placement username is not valid',
+    'please_enter_placement_name' => 'Please enter placement name',
+    'verify_placement'  => 'Verify Placement',
+    'maximim_limit_placement_name_20_character' => 'Maximim limit of placement name is 20 character',
+    'child_position' => 'Child Position',
+    'left' => 'Left',
+    'right' => 'Right',
+
+    /* defix new */
+    'not_amember' => 'Not a member?',
+    'forgot_password' => 'Forgot Password',
+    'clear_signature' => 'Clear Signature',
 
 ];

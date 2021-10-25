@@ -3,16 +3,16 @@ $(document).ready(function(){
       infinite: true,
       slidesToShow: 1,
       slidesToScroll: 1,
-      prevArrow: '<button class="slide-arrow prev-arrow"><img src="images/assets/Dashboard/Group948.png" alt=""></button>',
-      nextArrow: '<button class="slide-arrow next-arrow"><img src="images/assets/Dashboard/Group948.png" alt=""></button>'
+      prevArrow: '<button class="slide-arrow prev-arrow"><img src="../../images/assets/Dashboard/Group948.png" alt=""></button>',
+      nextArrow: '<button class="slide-arrow next-arrow"><img src="../../images/assets/Dashboard/Group948.png" alt=""></button>'
     });
 
   $('.stacking-slider').slick({
     infinite: true,
     slidesToShow: 4,
     slidesToScroll: 1,
-    prevArrow: '<button class="slide-arrow prev-arrow"><img src="images/assets/Dashboard/Group948.png" alt=""></button>',
-    nextArrow: '<button class="slide-arrow next-arrow"><img src="images/assets/Dashboard/Group948.png" alt=""></button>',
+    prevArrow: '<button class="slide-arrow prev-arrow"><img src="../../images/assets/Dashboard/Group948.png" alt=""></button>',
+    nextArrow: '<button class="slide-arrow next-arrow"><img src="../../images/assets/Dashboard/Group948.png" alt=""></button>',
     responsive: [
                   {
                     breakpoint: 576,
@@ -43,8 +43,8 @@ $(document).ready(function(){
     infinite: true,
     slidesToShow: 2,
     slidesToScroll: 1,
-    prevArrow: '<button class="slide-arrow prev-arrow"><img src="images/assets/Dashboard/Group948.png" alt=""></button>',
-    nextArrow: '<button class="slide-arrow next-arrow"><img src="images/assets/Dashboard/Group948.png" alt=""></button>',
+    prevArrow: '<button class="slide-arrow prev-arrow"><img src="../../images/assets/Dashboard/Group948.png" alt=""></button>',
+    nextArrow: '<button class="slide-arrow next-arrow"><img src="../../images/assets/Dashboard/Group948.png" alt=""></button>',
     responsive: [
                   {
                     breakpoint: 576,
@@ -60,8 +60,8 @@ $(document).ready(function(){
     infinite: true,
     slidesToShow: 5,
     slidesToScroll: 1,
-    prevArrow: '<button class="slide-arrow prev-arrow"><img src="images/assets/Dashboard/Group948.png" alt=""></button>',
-    nextArrow: '<button class="slide-arrow next-arrow"><img src="images/assets/Dashboard/Group948.png" alt=""></button>',
+    prevArrow: '<button class="slide-arrow prev-arrow"><img src="../../images/assets/Dashboard/Group948.png" alt=""></button>',
+    nextArrow: '<button class="slide-arrow next-arrow"><img src="../../images/assets/Dashboard/Group948.png" alt=""></button>',
     responsive: [
                   {
                     breakpoint: 576,
@@ -100,27 +100,32 @@ $(document).ready(function(){
 
 
     /*************************step wizard***************************/
-  $(document).ready(function(){  
-    $("#form-wizards-register").steps({
-      bodyTag: "fieldset",
-      labels:{
-      finish: '<button class="btn bg-warning text-white py-4 px-5 font-weight-bold rounded-0 mt-4 mt-md-0 font-18">FINISH</button>',
-      next: '<button class="btn bg-warning text-white py-4 px-5 font-weight-bold rounded-0 mt-4 mt-md-0 font-18">NEXT <img src="../images/assets/Staking_Pools/Group179.png" class="img-fluid ml-3 align-middle" alt=""></button>',
-      previous: '<button class="btn bg-transparent border-warning text-white py-4 px-5 font-weight-bold rounded-0 font-18">PREVIOUS <img src="../images/assets/Staking_Pools/Group179.png" class="img-fluid ml-3 align-middle" alt=""></button>'
-    },
-      onInit: function (event, current) {
-        var sigpad = $('#sigpad').signature({syncField: '#signature', syncFormat: 'PNG'});
-        $('#clear').click(function(e) {
-            e.preventDefault();
-            sigpad.signature('clear');
-            $("#signature").val('');
-        });
-          $('.actions > ul > li:first-child').attr('style', 'display:none');
-      },
-      onStepChanging: function (event, currentIndex, newIndex){    
-          $('.actions > ul > li:first-child').attr('style', 'display:block');
-          return true;
-      }
+  // $(document).ready(function(){  
+  //   $("#form-wizards-register").steps({
+  //     bodyTag: "fieldset",
+  //     labels:{
+  //     finish: '<button class="btn bg-warning text-white py-4 px-5 font-weight-bold rounded-0 mt-4 mt-md-2 font-18" id="finish">FINISH</button>',
+  //     next: '<button class="btn bg-warning text-white py-4 px-5 font-weight-bold rounded-0 mt-4 mt-md-2 font-18">NEXT <img src="../images/assets/Staking_Pools/Group179.png" class="img-fluid ml-3 align-middle" alt=""></button>',
+  //     previous: '<button class="btn bg-transparent border-warning text-white py-4 px-5 mt-4 mt-md-2 font-weight-bold rounded-0 font-18">PREVIOUS <img src="../images/assets/Staking_Pools/Group179.png" class="img-fluid ml-3 align-middle" alt=""></button>'
+  //   },
+
+  //     onInit: function (event, current) {
+  //       var sigpad = $('#sigpad').signature({syncField: '#signature', syncFormat: 'PNG'});
+  //       $('#clear').click(function(e) {
+  //           e.preventDefault();
+  //           sigpad.signature('clear');
+  //           $("#signature").val('');
+  //       });
+  //         $('.actions > ul > li:first-child').attr('style', 'display:none');
+  //     },
+  //     onStepChanging: function (event, currentIndex, newIndex){    
+  //         $('.actions > ul > li:first-child').attr('style', 'display:block');
+  //         return true;
+  //     }
       
-    });   
-  });   
+  //   });   
+  //   $('#finish').click(function() {
+  //     window.location.href = 'login.html';
+  //     return false;
+  //   });
+  // });   

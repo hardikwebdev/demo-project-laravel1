@@ -1,73 +1,59 @@
-@extends('layouts.app')
+@extends('layouts.guest')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+<div class="row w-100 mx-0">
+  <div class="col-12 col-lg-6 mx-auto">
+    <form method="POST" action="{{ route('login') }}">
+        <div class="row align-items-center justify-content-center login-gradient rounded p-3 p-md-5">
+          <div class="col-12 text-center">
+            <img src="{{ asset('assets/images/assets/Register_Account/Group83.png') }}" class="img-fluid" alt="logo">
         </div>
+        <div class="col-12 text-center mt-5">
+            <h2 class="font-weight-bold text-white">{{__('custom.welcome_text_desc')}}</h2>
+        </div>
+        @csrf
+        <div class="col-12 mt-5">
+            <input id="email" type="email" class="form-control grey-ph h-auto py-4 rounded-0 @error('email') is-invalid @enderror" placeholder="{{__('custom.email')}}" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+            @error('email')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+        </div>
+        <div class="col-12 mt-3">
+            <input id="password" type="password" class="form-control grey-ph h-auto py-4 rounded-0 @error('password') is-invalid @enderror" placeholder="{{__('custom.password')}}" name="password" required autocomplete="current-password">
+
+            @error('password')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+        </div>
+        <div class="col-12 mt-3">
+            <button type="submit" class="btn bg-warning text-white py-4 font-weight-bold rounded-0 w-100 text-uppercase" >{{__('custom.sign_in')}} <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png')}}" class="img-fluid ml-3 align-middle" alt=""></button>
+        </div>
+        <div class="col-12 col-md-6 mt-3 text-white">
+            <label class="cus-checkbox d-flex">
+              <input class="d-none" type="checkbox" checked>
+              <span></span>
+              <h4 class="ml-3 text-light-pink">{{__('custom.remember_me')}}</h4> 
+          </label>
+      </div>
+      <div class="col-12 col-md-6 mt-3 text-md-right">
+        @if (Route::has('password.request'))
+        <h4><a class="text-white" href="{{ route('password.request') }}">{{__('custom.forgot_your_password')}}</a></h4>
+        @endif
+    </div>
+    <div class="col-12">
+        <hr class="w-100 border border-white my-3"/>
+    </div>
+    <div class="col-12 text-center mt-4">
+        <h4 class="text-light-pink">{{__('custom.not_amember')}}<a href="{{ route('register') }}" class="text-white ml-2">{{__('custom.sign_up')}}</a></h4>
     </div>
 </div>
+</form>
+</div>
+</div>
+
 @endsection

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\UserReferral;
 use Illuminate\Http\Request;
+use App\Helpers\Helper;
 
 class CommonController extends Controller
 {
@@ -28,11 +29,69 @@ class CommonController extends Controller
         //
     }
 
+     /** Check sponsor username **/
+    protected function placementUsernameExists(Request $request){
+        $usernameExits = User::where('username',$request->placement_username)->where('status',1)->exists();
+        if ($usernameExits != null) {
+            $placement = User::where('username',$request->placement_username)->where('status',1)->first();
+            $placementCount = User::where('placement_id',$placement->id)->where('status',1)->where('child_position',$request->child_position)->count();
+            if($placementCount > 0){
+                $isValid = false;
+            }
+            $user = User::where('username',$request->sponsor_check)->where('status',1)->first();
+            $user_reference = UserReferral::where('user_id',$user->id)->first();
+            // $upline_ids = $user_reference!=null?(array)$user_reference->downline_ids:[];
+            $upline_ids = Helper::getUplineSponsorIds($user);
+            $isValid = false;
+
+            if($placementCount == 0 && $placement && (in_array($placement->id, $upline_ids) || empty($upline_ids))){
+                $isValid = true;
+            }
+            // echo "<pre>";
+            // print_r($upline_ids);
+            //     die('test2');
+
+        } else {
+                die('test1');
+
+            $isValid = false;
+        }
+        echo json_encode(array(
+            'valid' => $isValid,
+        ));
+    }
+
+    /***Check Username   */
+    protected function usernameExits(Request $request){
+        $usernameExits = User::where('username',$request->username)->first();
+        if ($usernameExits === null) {
+            $isValid = true;
+        } else {
+            $isValid = false;
+        }
+        echo json_encode(array(
+            'valid' => $isValid,
+        ));
+    }
+
+    /***Check email   */
+    protected function emailExists(Request $request){
+        $emailExits = User::where('email',$request->email)->first();
+        if ($emailExits === null) {
+            $isValid = true;
+        } else {
+            $isValid = false;
+        }
+        echo json_encode(array(
+            'valid' => $isValid,
+        ));
+    }
+
     /***Check sponsor username  */
     protected function sponsorUsernameExists(Request $request)
     {
         $usernameExits = User::where('username', $request->sponsor_username)
-            ->where('status', 'active')
+            ->where('status', 1)
             ->exists();
         if ($usernameExits != null) {
             $isValid = true;
@@ -48,11 +107,11 @@ class CommonController extends Controller
     protected function icNumberDuplication(Request $request)
     {
         $usernameExits = User::where('username', $request->sponsor_username)
-            ->where('status', 'active')
+            ->where('status', 1)
             ->first();
         $icnumber = $request->ic_number;
         $icNUmberCheck = User::where('identification_number', $icnumber)
-            ->where('status', 'active')
+            ->where('status', 1)
             ->count();
         $isValid = false;
         // return $icnumber;
@@ -106,11 +165,11 @@ class CommonController extends Controller
     protected function icNumberDuplicationedit(Request $request)
     {
         $usernameExits = User::where('username', $request->sponsor_username)
-            ->where('status', 'active')
+            ->where('status', 1)
             ->first();
         $icnumber = $request->ic_number;
         $icNUmberCheck = User::where('identification_number', $icnumber)
-            ->where('status', 'active')
+            ->where('status', 1)
             ->count();
         $isValid = false;
         // return $icnumber;
@@ -330,10 +389,10 @@ class CommonController extends Controller
     protected function getdownIcnumber($sponserId, $icnumber, $i = 1)
     {
         $usernameExits = User::where('sponsor_id', $sponserId)
-            ->where('status', 'active')
+            ->where('status', 1)
             ->get();
         $icNUmberCheck = User::where('identification_number', $icnumber)
-            ->where('status', 'active')
+            ->where('status', 1)
             ->first();
         // dd($sponserId);
         // dd($usernameExits);
@@ -354,7 +413,7 @@ class CommonController extends Controller
     protected function getuplineIcnumber($sponserName, $icnumber, $i = 1)
     {
         $usernameExits = User::where('username', $sponserName)
-            ->where('status', 'active')
+            ->where('status', 1)
             ->first();
         $upCount = 0;
         if (!empty($usernameExits) || $usernameExits != null) {

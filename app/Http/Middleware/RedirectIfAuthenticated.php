@@ -19,20 +19,26 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        // $guards = empty($guards) ? [null] : $guards;
-
-        // foreach ($guards as $guard) {
-        //     if (Auth::guard($guard)->check()) {
-        //         return redirect(RouteServiceProvider::HOME);
-        //     }
-        // }
-        if ($guard == "web" && Auth::guard($guard)->check()) {
-            return redirect()->route('home');
+      switch ($guard) {
+            case 'admin' :
+                if (Auth::guard($guard)->check()) {
+                    return redirect('admin-vextrader-portal/dashboard');
+                }
+                break;
+            default:
+                if (Auth::guard($guard)->check()) {
+                   return redirect('/');
+                }
+                break;
         }
 
-        if ($guard == "admin" && Auth::guard($guard)->check()) {
-            return redirect()->route('admin.dashboard');
+       /* if ($guard == "admin" && Auth::guard($guard)->check()) {
+            return redirect('admin/dashboard');
         }
+        if (Auth::guard($guard)->check()) {
+            return redirect('/');
+        }*/
+        
         return $next($request);
     }
 }
