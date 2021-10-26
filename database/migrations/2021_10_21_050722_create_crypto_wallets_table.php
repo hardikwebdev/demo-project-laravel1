@@ -23,8 +23,8 @@ class CreateCryptoWalletsTable extends Migration
             $table->tinyInteger('status')->default(0)->comment('0 = pending , 1 = Accept , 2 = Reject');
             $table->integer('unique_no')->nullable(); 
             $table->string('certificate_id')->nullable();
-            $table->text('remark');
-            $table->text('payment_response');
+            $table->text('remark')->nullable();
+            $table->text('payment_response')->nullable();
             $table->string('order_id')->nullable();
             $table->string('transaction_id')->nullable();
             $table->timestamp('action_date')->nullable();

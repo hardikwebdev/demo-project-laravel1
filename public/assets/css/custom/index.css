@@ -1,6 +1,17 @@
 .sidebar .nav.sub-menu .nav-item::before {
     content: none;
 }
+.sidebar .nav.sub-menu {
+    padding: 0px;
+}
+
+.sidebar .nav.sub-menu .nav-item{
+    padding: 0.25rem 0 0 3.07rem
+}
+.sidebar .nav.sub-menu .nav-item:hover {
+    background: #9c27b0;
+    width: 100%;
+}
 
 .sidebar {
     background: #16181d;
@@ -28,17 +39,17 @@
 .navbar .navbar-menu-wrapper {
     height: 150px;
 }
-
-/* .count{
-    background-color: white;
+.modal-backdrop.fade {
+    opacity: 0.8;
+}
+.cus-line-height{
+    line-height: 1.1rem;
+}
+.count{
     border-radius: 50%;
-    height: 5px;
-    width: 5px;
-    padding: 8px;
-    position: absolute;
-    top: -9px;
-    right: -9px;
-} */
+    height: 8px;
+    width: 8px;
+}
 
 .cus-my-profile-img{
     margin-top: -35px;
@@ -67,6 +78,16 @@
 }
 .w-300{
     width: 300px;
+}
+
+.min-h-240{
+    min-height: 240px;
+}
+.min-h-252{
+    min-height: 252px;
+}
+.h-350{
+    height: 350px;
 }
 
 .rotate-180{
@@ -186,11 +207,20 @@
 .text-violate{
     color: #4c27bb;
 }
+.bg-violate{
+    background-color: #4c27bb;
+}
 .text-blue{
     color: #00267a;
 }
 .bg-blue{
     background-color: #00267a;
+}
+.text-pink{
+    color: #d900ff;
+}
+.bg-pink{
+    background-color: #d900ff;
 }
 
 .card-4-btn{
@@ -260,16 +290,16 @@
 }
 .login-gradient {
     background-image: linear-gradient(to right, #cf62db , #3a1eb7);
-  }
+}
 .table-gradient {
     background-image: linear-gradient(to right, #4d2e55 , #20194a);
-  }
+}
 .withdrawal-gradient {
     background-image: linear-gradient(to right, #fad861 , #f16267);
-  }
+}
 .yield-gradient {
     background-image: linear-gradient(to right, #2acae4 , #2acae4);
-  }
+}
 
 .trading-table tbody tr:nth-child(odd) {
     background-color: #16181d;
@@ -325,16 +355,16 @@
     width: 20px;
     border: 2px solid #e3bcee;
     position: relative;
-  }
-  
+}
+
 .cus-checkbox  [type=checkbox]:checked + span:before {
     content: '\2714';
     position: absolute;
     top: -3px;
     left: 2px;
-  }
+}
 
-  .cus-radio span {
+.cus-radio span {
     color: white;
     background: #ffc100;
     padding: 20px 50px;
@@ -342,8 +372,8 @@
     font-weight: bold;
     cursor: pointer;
     display: block;
-  }
-  
+}
+
 .cus-radio  [type=radio]:checked + span {
     opacity: 0.8;
 }  
@@ -355,15 +385,15 @@
 @media screen and (max-width: 767px) {
     .navbar .navbar-menu-wrapper .navbar-nav.navbar-nav-right .nav-item.display-none {
       display: none !important;
-    }
   }
+}
 
-  @media screen and (min-width: 1200px) {
+@media screen and (min-width: 1200px) {
     .w-123{
         width: 123px;
     }
-  }
-  
+}
+
 /*******************************step wizard start*****************************************/  
 
 .customer-register.wizard > .content > .body {
@@ -422,7 +452,16 @@
     margin: 0;
 }
 
-@media (max-width: 1200px){
+.wizard > .actions {
+    padding-top: 0px;
+}
+
+@media (max-width: 1450px){
+    .customer-register.wizard > .steps > ul > li {
+        width: 30%;
+    }
+}
+@media (max-width: 1250px){
     .customer-register.wizard > .steps > ul > li {
         width: auto;
     }
@@ -432,5 +471,32 @@
         width: 100%;
     }
 }
+form{
+    width: 100%;
+}
+.text-uppercase {
+    text-transform: uppercase;
+}
 
+.success-verify,.cus-success-sponsor,.cus-error-sponsor , .wizard > .content > .body .cus-error-sponsor,.cus-error-placement,.wizard > .content > .body .cus-error-placement{
+    display: none;
+}
+label.error,label.sucess,.cus-error-sponsor,.cus-error-placement{
+    font-weight: 700;
+}
+.cus-error-sponsor,.cus-error-placement{
+    color: #c71d25 !important;
+}
+
+.wizard > .actions .disabled a, .wizard > .actions .disabled a:hover, .wizard > .actions .disabled a:active {
+     background: transparent !important; 
+    /* color: #aaa; */
+}
+
+.cus-success-sponsor.sucess, .cus-success-placement.sucess{
+    color: green;
+}
+.wizard > .content > .body label.error{
+    margin-left: 0 !important;
+}
 /*******************************step wizard end*****************************************/  

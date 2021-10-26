@@ -18,8 +18,8 @@ class CreateCommissionWalletHistoriesTable extends Migration
             $table->integer('user_id');
             $table->double('amount',8,2);
             $table->text('description');
-            $table->enum('type', ['0','1'])->default('0');
-            $table->double('final_amount',8,2);
+            $table->tinyInteger('type');
+            $table->double('final_amount',8,2)->default(0.00);
             $table->timestamps();
         });
     }

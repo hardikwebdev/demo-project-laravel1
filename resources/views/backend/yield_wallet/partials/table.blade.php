@@ -21,7 +21,7 @@
                 </td>
                 <td>{{($row->created_at) ? $row->created_at : $row->created_at }}</td>
                 <td >
-                    @if($row->type == 1)
+                    @if($row->type == 2)
                     <label class="label label-primary">Added</label>
                     @else
                     <label class="label label-danger">Reduce</label>

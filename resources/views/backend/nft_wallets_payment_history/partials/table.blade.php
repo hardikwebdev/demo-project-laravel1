@@ -43,14 +43,14 @@
                 <td >
                     @if($row->type == 5)
                     <label class="label label-primary">Added</label>
-                    @else
-                    @if($row->status=='1')
-                    <label class="label label-primary">Approved</label>
-                    @elseif($row->status=='2')
-                    <label class="label label-danger">Rejected</label>
-                    @else
-                    <label class="label label-warning">Pending</label>
-                    @endif
+                        @else
+                        @if($row->status=='1')
+                        <label class="label label-primary">Approved</label>
+                        @elseif($row->status=='2')
+                        <label class="label label-danger">Rejected</label>
+                        @else
+                        <label class="label label-warning">Pending</label>
+                        @endif
                     @endif
                 </td>
             </tr>               

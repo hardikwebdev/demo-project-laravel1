@@ -7,7 +7,7 @@
             </li> 
             <li class=" @if(\Request::is('admin/user') || \Request::is('admin/user/*') || strstr(\Request::route()->getName(),'proof_request') || strstr(\Request::route()->getName(),'package_history') ||  strstr(\Request::route()->getName(),'payment_history') || strstr(\Request::route()->getName(),'support_ticket') || strstr(\Request::route()->getName(),'ticket_request')) {{'active'}} @endif">
                 <a href="#">
-                    <img src="{{asset('images/User.png')}}" class="side-icon-size">
+                    <img src="{{asset('/assets/images/assets/Dashboard/Group851.png')}}" class="side-icon-size" style="width: 15px;">
                     <span class="nav-label">Users</span><span class="fa arrow"></span>
                 </a>
                 <ul class="nav nav-second-level collapse" style="">
@@ -31,8 +31,9 @@
                     <li class=" @if(strstr(\Request::route()->getName(),'nft_purchase_history')) {{'active'}} @endif">
                         <a href="{{route('nft_purchase_history.index')}}" title="Nft Purchase History"><span class="cus-sub-menu">Nft Purchase History</span></a>
                     </li>
+                    @php $count = Helper::getUnreadCount() @endphp
                     <li class=" @if(strstr(\Request::route()->getName(),'support_ticket')) {{'active'}} @endif">
-                        <a href="{{route('support_ticket.index1','all')}}" title="Support"><span class="cus-sub-menu">Support</span></a>
+                        <a href="{{route('support_ticket.index1','all')}}" title="Support"><span class="cus-sub-menu">Support</span><span class="label label-info pull-right">{{$count}}</span></a>
                     </li>
                     {{-- <!-- <li class=" @if(strstr(\Request::route()->getName(),'ticket_request2') || strstr(\Request::route()->getName(),'ticket_request')) {{'active'}} @endif">                     -->
                     @role('admin')
@@ -45,13 +46,12 @@
             </li>        
             <li class=" @if(\Request::is('admin/admin_fund_wallet') || \Request::is('admin/withdrawal_request') || \Request::is('admin/withdrawal_request/*') || \Request::is('admin/mt4-wallet-withdrawl-requests') || \Request::route()->getName() =='admin_pips_rebate.index' || \Request::route()->getName()=='admin_pips_rebate.import' || strstr(\Request::route()->getName(),'profit_sharing')) {{'active'}} @endif">
                 <a href="#">
-                    <img src="{{asset('images/Wallet.png')}}" class="side-icon-size">
+                    <img src="{{asset('/assets/images/assets/Dashboard/Group952.png')}}" class="side-icon-size" style="width: 20px;">
                     <span class="nav-label">Wallet</span><span class="fa arrow"></span>
                 </a>
                 <ul class="nav nav-second-level collapse" style="">
-                    {{-- @php $requests = Helper::getPendingBankCreditRequestCount() @endphp--}}
                     <li class=" @if(\Request::is('admin/crypto_wallets_credit_request')) {{'active'}} @endif">
-                        <a href="{{route('crypto_wallets_credit_request.index')}}" title="Crypto Wallets Credits Requests"> <span class="cus-sub-menu">Crypto Wallets Credits Requests</span></a>
+                        <a href="{{route('crypto_wallets_credit_request.index')}}" title="Crypto Wallets Credits Requests"> <span class="cus-sub-menu">Crypto Wallets Credits Requests<span class="label label-info pull-right">{{Helper::getPendingCryptoCreditRequestCount()}}</span></span></a>
                     </li>
                     <li class=" @if(\Request::is('admin/nft_wallets_credit_request')) {{'active'}} @endif">
                         <a href="{{route('nft_wallets_credit_request.index')}}" title="Nft Wallets Credits Requests"> <span class="cus-sub-menu">Nft Wallets Credits Requests</span></a>
@@ -107,9 +107,47 @@
                     </li>
                 </ul>
             </li>             --}}
+           
+            {{-- <div class="footerlogodiv">
+                <a title="CMS" href="javascript:void(0)">
+                   <span class="nav-label colorwhite"> <b class="ml18">Powered by,</b>
+                    <div>
+                        <img src="" alt="Logo"  class="footerlogo">
+                    </div>
+                   </span> 
+                </a>
+            </div> --}}
+            <li class="@if(\Request::is('admin/packages') || \Request::is('admin/packages/*') || \Request::is('admin/pool-packages') || \Request::is('admin/pool-packages/*')) {{'active'}} @endif">
+                <a href="#">
+                    <img src="{{asset('/assets/images/assets/Dashboard/Group955.png')}}" class="side-icon-size" style="width: 20px;">
+                    <span class="nav-label">Staking Pools</span><span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level collapse" style="">
+                    <li class="@if(\Request::is('admin/pool-packages') || \Request::is('admin/pool-packages/*')) {{'active'}} @endif">
+                        <a href="{{ route('pool-packages.index')}}" title=""> <span class="cus-sub-menu">Pool Packages</span><span class="label label-info pull-right"></span></a>
+                    </li>
+                    <li class="@if(\Request::is('admin/packages') || \Request::is('admin/packages/*')) {{'active'}} @endif">
+                        <a href="{{ route('packages.index')}}" title=""> <span class="cus-sub-menu">Packages</span></a>
+                    </li>
+                </ul>
+            </li>
+            <li class="@if(\Request::is('admin/nft-category') || \Request::is('admin/nft-category/*') || \Request::is('admin/nft-product') || \Request::is('admin/nft-product/*')) {{'active'}} @endif">
+                <a href="#">
+                    <img src="{{asset('assets/images/assets/Dashboard/Group951.png')}}" class="side-icon-size" style="width: 20px;">
+                    <span class="nav-label">NFT Collection</span><span class="fa arrow"></span>
+                </a>
+                <ul class="nav nav-second-level collapse" style="">
+                    <li class="@if(\Request::is('admin/nft-category') || \Request::is('admin/nft-category/*')) {{'active'}} @endif">
+                        <a href="{{ route('nft-category.index')}}" title="Categories"> <span class="cus-sub-menu">Categories</span><span class="label label-info pull-right"></span></a>
+                    </li>
+                    <li class="@if(\Request::is('admin/nft-product') || \Request::is('admin/nft-product/*')) {{'active'}} @endif">
+                        <a href="{{ route('nft-product.index') }}" title="Products"> <span class="cus-sub-menu">Products</span></a>
+                    </li>
+                </ul>
+            </li>
             <li class=" @if(\Request::is('admin/package_setting') || \Request::is('admin/rank_setting')|| \Request::is('admin/setting') || \Request::is('admin/package_setting/*') || \Request::is('admin/rank_setting/*')|| \Request::is('admin/general_setting/*') || strstr(\Request::route()->getName(),'investment-plans')) {{'active'}} @endif">
                 <a href="#">
-                    <img src="{{asset('images/Settings.png')}}" class="side-icon-size">
+                    <img src="{{asset('/assets/images/assets/Dashboard/Path1214.png')}}" class="side-icon-size" style="width: 20px;">
                     <span class="nav-label">Settings</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse" style="">
                     <li class=" @if(\Request::is('admin/setting')) {{'active'}} @endif"><a href="{{route('setting.index')}}"><span class="cus-sub-menu">General Setting</span></a></li>
@@ -132,29 +170,6 @@
                      {{-- <li class=" @if( \Request::is('admin/slider') || \Request::is('admin/slider/*')) {{'active'}} @endif">
                         <a href="{{route('slider.index')}}"><span class="cus-sub-menu"> Slider</span></a>               
                     </li>      --}}
-                </ul>
-            </li>
-            {{-- <div class="footerlogodiv">
-                <a title="CMS" href="javascript:void(0)">
-                   <span class="nav-label colorwhite"> <b class="ml18">Powered by,</b>
-                    <div>
-                        <img src="" alt="Logo"  class="footerlogo">
-                    </div>
-                   </span> 
-                </a>
-            </div> --}}
-            <li class="@if(\Request::is('admin/packages') || \Request::is('admin/packages/*') || \Request::is('admin/pool-packages') || \Request::is('admin/pool-packages/*')) {{'active'}} @endif">
-                <a href="#">
-                    <img src="{{asset('images/Wallet.png')}}" class="side-icon-size">
-                    <span class="nav-label">Staking Pools</span><span class="fa arrow"></span>
-                </a>
-                <ul class="nav nav-second-level collapse" style="">
-                    <li class="@if(\Request::is('admin/pool-packages') || \Request::is('admin/pool-packages/*')) {{'active'}} @endif">
-                        <a href="{{ route('pool-packages.index')}}" title=""> <span class="cus-sub-menu">Pool Packages</span><span class="label label-info pull-right"></span></a>
-                    </li>
-                    <li class="@if(\Request::is('admin/packages') || \Request::is('admin/packages/*')) {{'active'}} @endif">
-                        <a href="{{ route('packages.index')}}" title=""> <span class="cus-sub-menu">Packages</span></a>
-                    </li>
                 </ul>
             </li>
         </ul>

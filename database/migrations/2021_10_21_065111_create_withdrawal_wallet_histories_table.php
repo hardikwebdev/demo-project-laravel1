@@ -18,7 +18,7 @@ class CreateWithdrawalWalletHistoriesTable extends Migration
             $table->integer('user_id'); 
             $table->double('amount',12,2)->default(0.00);
             $table->enum('type', ['0','1'])->default('0');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

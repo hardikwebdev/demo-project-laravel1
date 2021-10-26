@@ -23,7 +23,7 @@ class YieldWalletController extends Controller
         $yield_wallet_payment = YieldWalletHistory::with('user_detail');
         if($request->status && $request->status != ""){
             if($request->status == 1){
-                $yield_wallet_payment = $yield_wallet_payment->where('type','=','1');
+                $yield_wallet_payment = $yield_wallet_payment->where('type','=','2');
             }
             else{
                 $yield_wallet_payment = $yield_wallet_payment->where('type','=','0');
@@ -49,7 +49,7 @@ class YieldWalletController extends Controller
             $yield_wallet_payment = YieldWalletHistory::with('user_detail');
             if($request->status && $request->status != ""){
                 if($request->status == 1){
-                    $yield_wallet_payment = $yield_wallet_payment->where('type','=','1');
+                    $yield_wallet_payment = $yield_wallet_payment->where('type','=','2');
                 }
                 else{
                     $yield_wallet_payment = $yield_wallet_payment->where('type','=','0');
@@ -67,7 +67,7 @@ class YieldWalletController extends Controller
                         'Username' => $yield_wallet_payment->user_detail->username,
                         'Amount' => number_format($yield_wallet_payment->amount,2),
                         'Date' => date_format($yield_wallet_payment->created_at,"Y-m-d H:i:s"),
-                        'Status' => $yield_wallet_payment->type == 1 ? 'Added' : 'reduce',
+                        'Status' => $yield_wallet_payment->type == 2 ? 'Added' : 'reduce',
                     ];
                 }));
             }

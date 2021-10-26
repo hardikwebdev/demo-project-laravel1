@@ -18,20 +18,17 @@ use App\Http\Controllers\Backend\NftWalletsPaymentController;
 use App\Http\Controllers\Backend\NftcreditrequestController;
 use App\Http\Controllers\Backend\NftpurchaseController;
 use App\Http\Controllers\Backend\NftpurchaserequestController;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\Backend\NFTCategoryController;
+use App\Http\Controllers\Backend\NFTProductController;
+use App\Http\Controllers\Backend\Usercryptowallet;
+use App\Http\Controllers\Backend\Usernftwallet;
+use App\Http\Controllers\Backend\UseryieldwalletController;
+use App\Http\Controllers\Backend\UsercommissionwalletController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/admin', function(){
     return redirect()->route('admin.login');
@@ -44,10 +41,38 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 
     /*check sponsor username exits*/
     Route::post('/sponsor-username-exits', [App\Http\Controllers\CommonController::class, 'sponsorUsernameExists'])->name('sponsorUsernameExits');
-    Route::post('/username-exits', [App\Http\Controllers\CommonController::class, 'usernameExits'])->name('usernameExits');
     /**Icnumber duplicatioan check */
     Route::any('ic-number-duplication/', [App\Http\Controllers\CommonController::class, 'icNumberDuplication'])->name('icNumberDuplication');
     Route::any('ic-number-duplication-edit/', [App\Http\Controllers\CommonController::class, 'icNumberDuplicationedit'])->name('icNumberDuplicationedit');
+    Route::post('/placement-username-exits', 'App\Http\Controllers\CommonController@placementUsernameExists')->name('placementUsernameExits');
+    Route::post('/email-exits', 'App\Http\Controllers\CommonController@emailExists')->name('emailExists');
+    Route::post('/username-exits', 'App\Http\Controllers\CommonController@usernameExits')->name('usernameExits');
+
+    Route::middleware(['auth','verified'])->group(function () {
+
+        Route::get('/', 'App\Http\Controllers\HomeController@dashboard')->name('dashboard');
+        Route::get('/get-downlineusers', 'App\Http\Controllers\HomeController@downlineUsers')->name('downlineUsers');
+        Route::get('/get-downlinePlacement', 'App\Http\Controllers\HomeController@downlinePlacement')->name('downlinePlacement');
+        Route::get('/stacking-pool', 'App\Http\Controllers\HomeController@stacking_pool')->name('stacking_pool');
+        Route::get('/stackpool', 'App\Http\Controllers\HomeController@stackpool')->name('stackpool');
+        Route::get('/node_management', 'App\Http\Controllers\HomeController@node_management')->name('node_management');
+
+        Route::get('/node_register', 'App\Http\Controllers\HomeController@node_register')->name('node_register');
+        Route::get('/crypto_wallets', 'App\Http\Controllers\HomeController@crypto_wallets')->name('crypto_wallets');
+        Route::get('/yield_wallet', 'App\Http\Controllers\HomeController@yield_wallet')->name('yield_wallet');
+        Route::get('/commission_wallet', 'App\Http\Controllers\HomeController@commission_wallet')->name('commission_wallet');
+        Route::get('/nft_wallet', 'App\Http\Controllers\HomeController@nft_wallet')->name('nft_wallet');
+        Route::get('/nft_marketplace', 'App\Http\Controllers\HomeController@nft_marketplace')->name('nft_marketplace');
+        Route::get('/withdrawal', 'App\Http\Controllers\HomeController@withdrawal')->name('withdrawal');
+        Route::get('/ledger', 'App\Http\Controllers\HomeController@ledger')->name('ledger');
+        Route::get('/account', 'App\Http\Controllers\HomeController@account')->name('account');
+        Route::get('/my_collection', 'App\Http\Controllers\HomeController@my_collection')->name('my_collection');
+        Route::get('/help_support', 'App\Http\Controllers\HomeController@help_support')->name('help_support');
+        Route::get('/nftproduct', 'App\Http\Controllers\HomeController@nftproduct')->name('nftproduct');
+        Route::get('/sell_nft', 'App\Http\Controllers\HomeController@sell_nft')->name('sell_nft');
+
+
+    });
 
 
     //Admin
@@ -62,8 +87,16 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             // User Crud
             Route::resource('user', UserController::class);
 
-            
-
+            Route::prefix('user')->group(function () {
+                 // Crypto wallet
+              Route::resource('crypto-wallet-history', Usercryptowallet::class);
+               // nft wallet
+               Route::resource('nft-wallet-history', Usernftwallet::class);
+               // yield wallet
+               Route::resource('yield-wallet-history', UseryieldwalletController::class);
+                //Commission wallet
+              Route::resource('commission-wallet-history', UsercommissionwalletController::class);
+            });
             // News Crud
             Route::resource('news', NewsController::class);
 
@@ -87,6 +120,10 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             // package crud
             Route::resource('packages', PackageController::class);
             Route::resource('pool-packages', PoolPackageController::class);
+            // NFT Category
+            Route::resource('nft-category', NFTCategoryController::class);
+            // NFT Product
+            Route::resource('nft-product', NFTProductController::class);
 
             // Yield Wallet History
             Route::resource('yield_wallet', YieldWalletController::class);
@@ -120,7 +157,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         });
     });
 
-   
+
 
 
 

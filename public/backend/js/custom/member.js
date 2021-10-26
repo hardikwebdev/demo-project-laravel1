@@ -1,5 +1,5 @@
 /* fund wallet approve disapprove code*/
-$('input[name="sponsor"]').on('keyup',function(){ console.log("123"); $(this).parent().parent().parent().find('.help-block').text("") })
+$('input[name="sponsor"]').on('keyup',function(){ $(this).parent().parent().parent().find('.help-block').text("") })
 $('.verify-sponser').on('click',function(){
 	var th = $(this);
 	th.parent().parent().find('.help-block').text("");
@@ -8,6 +8,7 @@ $('.verify-sponser').on('click',function(){
 	if(sponsor.trim()!=""){
 		$.post(verify_sponsor,{"sponsor_username":sponsor},function(response){
 			var resp = $.parseJSON(response);
+            console.log(response);
 			if(resp.valid){
                 // th.parent().parent().parent().find('.help-block').text('The Sponsor username is verified.').addClass('text-navy').removeClass('text-danger');
                 $(th).closest(".form-group-all").find("#sponsor_check").val(sponsor);
@@ -1442,6 +1443,120 @@ $("#pool_package_edit").validate({
         stacking_display_end: {
             required: 'Please enter stacking display end',
         }
+    },
+
+});
+// NFT Category
+$("#nft_category_create").validate({
+    rules: {
+         name: {
+            required: true,
+            maxlength:255
+         },
+         image:{
+            required: true,
+            extension: "jpg,jpeg,png,gif"
+         }        
+    },
+    messages:{
+        name: {
+            required: 'Please enter name.',
+        },
+        image: {
+            required: 'Please choose image.',
+            extension: 'Please choose (jpg, jpeg, png, gif) file.'
+        },
+    },
+
+});
+$("#nft_category_edit").validate({
+    rules: {
+         name: {
+            required: true,
+            maxlength:255
+         },
+         image:{
+            extension: "jpg,jpeg,png,gif"
+         }        
+    },
+    messages:{
+        name: {
+            required: 'Please enter name.',
+        },
+        image: {
+            extension: 'Please choose (jpg, jpeg, png, gif) file.'
+        },
+    },
+
+});
+$("#nft_product_create").validate({
+    rules: {
+         name: {
+            required: true,
+            maxlength:255
+         },
+         price: {
+            required: true,
+            number:true,
+            positiveNumber :true,
+         },
+         category: {
+            required: true,
+         },
+         image:{
+            required: true,
+            extension: "jpg,jpeg,png,gif"
+         }        
+    },
+    messages:{
+        name: {
+            required: 'Please enter name.',
+        },
+        price: {
+            required: 'Please enter price.',
+        },
+        category: {
+            required: 'Please select category..',
+        },
+        image: {
+            required: 'Please choose image.',
+            extension: 'Please choose (jpg, jpeg, png, gif) file.'
+        },
+    },
+
+});
+$("#nft_product_edit").validate({
+    rules: {
+         name: {
+            required: true,
+            maxlength:255
+         },
+         price: {
+            required: true,
+            number:true,
+            positiveNumber :true,
+         },
+         category: {
+            required: true,
+         },
+         image:{
+            extension: "jpg,jpeg,png,gif"
+         }        
+    },
+    messages:{
+        name: {
+            required: 'Please enter name.',
+        },
+        price: {
+            required: 'Please enter price.',
+        },
+        category: {
+            required: 'Please select category..',
+        },
+        image: {
+            required: 'Please choose image.',
+            extension: 'Please choose (jpg, jpeg, png, gif) file.'
+        },
     },
 
 });

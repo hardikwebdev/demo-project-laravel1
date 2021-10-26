@@ -105,7 +105,7 @@
                                         <a class="dropdown-toggle " href="#" id="dropdownMenuLink{{$row->id}}" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
                                         {!! Form::close() !!}
                                         <ul class="dropdown-menu m-t-xs">
-                                            {{-- <li><a class="" href="{{route('admin_user_fund_wallet',[$row->id])}}">History</a></li> --}}
+                                           <li><a class="" href="{{route('crypto-wallet-history.show',[$row->id])}}">History</a></li>
                                             {{-- <li><a class=" btn-upgrade-package" data-package="{{$row->package_detail!=null?$row->package_detail->id:'0'}}" data-id="{{$row->id}}"  href="#" >Upgrade Package</a></li> --}}
                                             {{-- <li><a class=" btn-upgrade-package resend_welcome_email"  href="{{route('user.resend_welcome_email',$row->id)}}" >Resend Welcome Email</a></li> --}}
                                             {{-- @if($row->mt4_user_id) --}}

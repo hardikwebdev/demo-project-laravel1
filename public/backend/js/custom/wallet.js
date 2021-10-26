@@ -93,9 +93,7 @@ $("#credit_remark_form").validate({
         }
     }
 });
-
-
-$("#fund_wallets").validate({
+$("#userall_wallets").validate({
      rules: {
          amount: {
             required: true,
