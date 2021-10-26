@@ -4,68 +4,82 @@
           <div class="row mt-5 pt-5">
             <div class="col-12">
               <div class="yield-gradient rounded text-white py-4 px-5">
-                <h2 class="mb-0 font-weight-bold">$40,0123.95</h2>
-                <p class="mb-0">Balance</p>
+                <h2 class="mb-0 font-weight-bold">${{number_format($wallet->yield_wallet, 2)}}</h2>
+                <p class="mb-0">{{ trans('custom.balance')}}</p>
               </div>
             </div>
           </div>
           <div class="row justify-content-center mt-4">
             <div class="col-12">
+              @if(Session::has('success'))
+              <div class="alert alert-success alert-dismissable">
+                  <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                  {{ Session::get('success') }}
+              </div>
+              @endif
+
+              @if(Session::has('error'))
+              <div class="alert alert-danger alert-dismissable">
+                  <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                  {{ Session::get('error') }}
+              </div>
+              @endif
               <div class="card">
                 <div class="card-body p-md-5">
                   <div class="row">
                     <div class="col-12 pb-3">
-                      <h4 class="font-weight-bold">Terms & Conditions</h4>
+                      <h4 class="font-weight-bold">{{ trans('custom.terms_conditions')}}</h4>
                     </div>
                     <div class="col-12 col-md-6 col-xl-4">
                       <ul class="text-grey">
-                        <li>Withdrawal Fee is USD 10</li>
-                        <li>Conversion rate of USD to USDT is 0.95</li>
-                        <li>Members that have funded in USDT previousl</li>
+                        <li>{{ trans('custom.withdrawal_fee_is_usd_10')}}</li>
+                        <li>{{ trans('custom.conversion_rate_of_usd_to_usdt_is_0_95')}}</li>
+                        <li>{{ trans('custom.members_that_have_funded_in_usdt_previousl')}}</li>
                       </ul>
                     </div>
                     <div class="col-12 col-md-6 col-xl-4">
                       <ul class="text-grey">
-                        <li>Withdrawal Fee is USD 10</li>
-                        <li>Conversion rate of USD to USDT is 0.95</li>
-                        <li>Members that have funded in USDT previousl</li>
+                        <li>{{ trans('custom.withdrawal_fee_is_usd_10')}}</li>
+                        <li>{{ trans('custom.conversion_rate_of_usd_to_usdt_is_0_95')}}</li>
+                        <li>{{ trans('custom.members_that_have_funded_in_usdt_previousl')}}</li>
                       </ul>
                     </div>
                     <div class="col-12 col-md-6 col-xl-4">
                       <ul class="text-grey">
-                        <li>Withdrawal Fee is USD 10</li>
-                        <li>Conversion rate of USD to USDT is 0.95</li>
-                        <li>Members that have funded in USDT previousl</li>
+                        <li>{{ trans('custom.withdrawal_fee_is_usd_10')}}</li>
+                        <li>{{ trans('custom.conversion_rate_of_usd_to_usdt_is_0_95')}}</li>
+                        <li>{{ trans('custom.members_that_have_funded_in_usdt_previousl')}}</li>
                       </ul>
                     </div>
                   </div>
+                  {{Form::open(['route' => 'yield_wallet_store','class' => 'confirm-submit','id' =>'yield-wallet-confirm','enctype' => 'multipart/form-data'])}}
                   <div class="row mt-4">
                     <div class="col-12 col-md-4">
-                      <select class="form-control text-grey font-weight-bold h-auto py-4 border-0 outline-0 shadow">
-                        <option value="">Select Fund Type</option>
-                      </select>
+                      {{Form::select('fund_type',['0'=> trans('custom.crypto_wallet'),'1'=> trans('custom.withdrawal_wallet'), '2'=> trans('custom.nft_wallet')],old('type'),['class' => 'form-control text-grey font-weight-bold h-auto py-4 border-0 outline-0 shadow','placeholder' => trans('custom.fund_type_placeholder')])}}
                     </div>
                     <div class="col-12 col-md-4 mt-4 mt-md-0">
-                      <input type="text" class="form-control grey-ph h-auto py-4 border-0 shadow" placeholder="Amount">
+                      {{Form::number('amount',old('amount'),['class' => 'form-control grey-ph h-auto py-4 border-0 shadow','placeholder' => trans('custom.amount_USD'), 'autocomplete' => 'off'])}}
                     </div>
                     <div class="col-12 col-md-4 mt-4 mt-md-0">
-                      <input type="text" class="form-control grey-ph h-auto py-4 border-0 shadow" placeholder="Security Password">
+                      {{Form::password('security_password',['class' => 'form-control grey-ph h-auto py-4 border-0 shadow','placeholder' => trans('custom.security_password')])}}
                     </div>
                     <div class="col-12 col-xl-6 mt-4">
-                      <button class="btn bg-warning text-white py-4 px-5 rounded-0">TRANSFER FUND <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-4 d-inline align-middle" alt=""></button>
+                      <button type="submit" class="btn bg-warning text-white py-4 px-5 rounded-0">{{ trans('custom.transfer_fund')}} <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-4 d-inline align-middle" alt=""></button>
                     </div>
                   </div>
+                  {{Form::close()}}
                 </div>
               </div>
             </div>
           </div>
           <div class="row mt-5">
             <div class="col-12">
-              <p class="text-white pb-3">Yield Wallet History</p>
+              <p class="text-white pb-3">{{ trans('custom.yield_wallet_history')}}</p>
             </div>
             <div class="col-12">
               <div class="table-responsive">
-                <table class="table table-dark trading-table text-center">
+                @include('yield_wallet.partials.history')
+                {{-- <table class="table table-dark trading-table text-center">
                   <thead class="table-gradient">
                     <tr>
                       <th>DATE</th>
@@ -176,14 +190,14 @@
                       </td>
                     </tr>
                   </tbody>
-                </table>
+                </table> --}}
               </div>
             </div>
           </div>
           <div class="row align-items-center mt-5">
             <div class="col-12 text-right">
               <div class="text-secondary">
-                <img src="{{ asset('assets/images/assets/Sell_NFT/Path599.png') }}" class="img-fluid rotate-180" alt="">
+                {{-- <img src="{{ asset('assets/images/assets/Sell_NFT/Path599.png') }}" class="img-fluid rotate-180" alt="">
                 <span class="font-12 mx-1">1</span>
                 <span class="font-12 mx-1 bg-warning px-1">2</span>
                 <span class="font-12 mx-1">3</span>
@@ -194,8 +208,14 @@
                 <span class="font-12 mx-1">8</span>
                 <span class="font-12 mx-1">9</span>
                 <span class="font-12 mx-1">10</span>
-                <img src="{{ asset('assets/images/assets/Sell_NFT/Path599.png') }}" class="img-fluid " alt="">
+                <img src="{{ asset('assets/images/assets/Sell_NFT/Path599.png') }}" class="img-fluid " alt=""> --}}
+                {{$history->render('vendor.default_paginate')}}
               </div>
             </div>
           </div>
+@endsection
+@section('scripts')
+<script type="text/javascript">
+    var withdrawal_popup_txt = "{{trans('custom.withdrawal_popup_txt')}}";
+</script>
 @endsection

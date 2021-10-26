@@ -173,4 +173,73 @@ $(document).ready(function(){
       messages:{
       },
 
-  });   
+  });
+  $("#yield-wallet-confirm").validate({
+      ignore: "input[type='text']:hidden",
+      rules: {
+          amount: {
+              required: true,
+              number: true,
+              positiveNumber:true,
+              minlength: 0,
+              maxlength: 6,
+          },
+          fund_type: {
+              required: true,
+          },
+          security_password: {
+              required: true,
+          },
+      },
+      messages: {
+          security_password: {
+              required: securepassword_required_field,
+          },            
+          fund_type: {
+              required: select_fund_type,
+          },
+          amount: {
+              required: amount_required_field,
+              number: enter_valid_number,
+          },
+      },
+      submitHandler: function (form,event) {
+          withdrawal_popup_txt = withdrawal_popup_txt.replace(':amount',$("input[name=amount]").val());
+          if($('select[name="fund_type"]').val() == '0'){
+              withdrawal_popup_txt = withdrawal_popup_txt.replace(':wallet',"Crypto");
+          }else if($('select[name="fund_type"]').val() == '1'){
+            withdrawal_popup_txt = withdrawal_popup_txt.replace(':wallet',"Withdrawal");
+          }else{
+              withdrawal_popup_txt = withdrawal_popup_txt.replace(':wallet',"NFT");
+          }
+          event.preventDefault();           
+          swal({
+            title: withdrawal_popup_txt,
+            text: "",
+            type: "warning",
+            showCancelButton: true,
+            cancelButtonClass: "btn-danger",
+            confirmButtonClass: "btn-success",
+            confirmButtonText: "Yes",
+            cancelButtonText: "No",
+            closeOnConfirm: false
+        },
+        function(isConfirm){
+          if (isConfirm == true) {
+              form.submit();
+          }else{
+              event.preventDefault();
+          }
+      });
+          
+      }
+  });
+  if($('.dropify').length){
+      $('.dropify').dropify({
+          messages: {
+              'default': 'Drag and drop a file here or click',
+              'replace': 'Drag and drop or click to replace',
+              'remove':  'Remove',
+          }
+      });
+  }     

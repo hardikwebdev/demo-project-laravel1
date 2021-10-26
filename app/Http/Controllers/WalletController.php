@@ -53,7 +53,6 @@ class WalletController extends Controller
             $usercheck = Model\User::where('id',$this->user->id)->where('status','active')->first();
             $isError = 0;
             if($usercheck != null){
-
                 $todayDate = date('Y-m-d');
                 if(md5($request->security_password) === $usercheck->secure_password){
                     // FundWallet::where('user_id',$this->user->id)->where('status',0)->whereIn('type',['4','1','2'])->update(['status'=>2]);
@@ -134,7 +133,7 @@ class WalletController extends Controller
                                 $fundWallet->action_date = Carbon::now();
                                 // return redirect()->route('fundswallet')->with('success',trans('custom.procced_transaction'));
                                 $orderId = $model->order_id;
-                                $suceesUrl = route('fundswallet');
+                                $suceesUrl = route('crypto_wallets');
                                 if($requestResponse != null){
 
                                     $fundWallet->payment_response = json_encode($requestResponse);
@@ -183,7 +182,7 @@ class WalletController extends Controller
                                 $fundWallet->action_date = Carbon::now();
                                 $fundWallet->save();
                                 return redirect($requestResponse['payment_url']);
-                                // return redirect()->route('fundswallet')->with('success',trans('custom.procced_transaction'));
+                                // return redirect()->route('crypto_wallets')->with('success',trans('custom.procced_transaction'));
 
                             }else{
                             // dd($requestResponse);
@@ -212,7 +211,7 @@ class WalletController extends Controller
                                 if(isset($requestResponse['error'])){
                                     Session::flash('error',$requestResponse['error']);
                                 }
-                                return redirect()->route('fundswallet')->withInput($request->input());
+                                return redirect()->route('crypto_wallets')->withInput($request->input());
                             }
                         }
                         Session::flash('error','Something went wrong');
@@ -270,5 +269,95 @@ class WalletController extends Controller
             return redirect()->route('crypto_wallets')->withInput($request->input());
         }
         return redirect()->route('crypto_wallets');
+    }
+    public function yieldWallet(Request $request){
+
+        $wallet = Model\UserWallet::where('user_id',auth()->id())->first();
+
+        $history = Model\YieldWalletHistory::where('user_id',auth()->id())->where('amount','>',0);
+
+        if($request->ajax()){
+            
+            $history = $history->orderby('id','desc')->paginate(10);
+            return view('yield_wallet.partials.history',compact('wallet','history'));
+        }
+
+        $history = $history->orderby('id','desc')->paginate(10);
+        return view('yield_wallet.index',compact('wallet','history'));
+    }
+    public function yieldWalletStore(Request $request){
+         $request->validate([
+             'amount'=>"required",
+             'fund_type'=>"required",
+             'security_password'=>"required",
+         ]);
+        $usercheck = Model\User::with('userwallet')->where('id',auth()->id())->where('status','active')->first();
+         $isError = 0;
+         if($usercheck != null){            
+             if(md5($request->security_password) === $usercheck->secure_password){
+                 if(isset($request->amount) && $request->amount > $usercheck->userwallet['yield_wallet']){
+                     Session::flash('error',trans('custom.transfer_amount_less_equal_wallet'));
+                     return redirect()->back()->withInput($request->input());
+                 }
+
+                 $description = "";
+                 if($request->fund_type == '0'){
+                     $description = 'Transferred to Crypto Wallet';
+                 }elseif($request->fund_type == '1'){
+                     $description = 'Transferred to Withdrawal Wallet';                    
+                 }else{
+                    $description = 'Transferred to NFT Wallet';    
+                 }
+                 $yieldwalle = new Model\YieldWalletHistory();
+                 $yieldwalle->user_id = auth()->id();
+                 $yieldwalle->amount = $request->amount;
+                 $yieldwalle->final_amount = $usercheck->userwallet['yield_wallet'] - $request->amount;
+                 $yieldwalle->description = $description;
+                 $yieldwalle->type = '0';
+                 $yieldwalle->save();
+
+                 if($request->fund_type=='0'){
+                     $cryptoWalletHistory = new Model\CryptoWalletHistory;
+                     $cryptoWalletHistory->user_id = auth()->id();
+                     $cryptoWalletHistory->amount = $request->amount;
+                     $cryptoWalletHistory->final_amount = $usercheck->userwallet['crypto_wallet'] + $request->amount;
+                     $cryptoWalletHistory->description = 'Transferred from Yield Wallet';
+                     $cryptoWalletHistory->type = '1';
+                     $cryptoWalletHistory->save();
+                     Model\UserWallet::where('user_id',$usercheck->id)->increment('crypto_wallet',round($request->amount,2));
+                 }
+                 if($request->fund_type=='1'){
+                     $withdrawal = new Model\WithdrawalWalletHistory;
+                     $withdrawal->user_id = auth()->id();
+                     $withdrawal->amount = $request->amount;
+                     $withdrawal->description = 'Transferred from Yield Wallet';
+                     $withdrawal->type = '1';
+                     $withdrawal->save();
+                     Model\UserWallet::where('user_id',$usercheck->id)->increment('withdrawal_balance',round($request->amount,2));
+                 }
+                 if($request->fund_type=='2'){
+                     $withdrawal = new Model\NftWalletHistory;
+                     $withdrawal->user_id = auth()->id();
+                     $withdrawal->amount = $request->amount;
+                     $withdrawal->final_amount = $usercheck->userwallet['nft_wallet'] + $request->amount;
+                     $withdrawal->description = 'Transferred from Yield Wallet';
+                     $withdrawal->type = '1';
+                     $withdrawal->save();
+                     Model\UserWallet::where('user_id',$usercheck->id)->increment('nft_wallet',round($request->amount,2));
+                 }
+                 Model\UserWallet::where('user_id',$usercheck->id)->decrement('yield_wallet',round($request->amount,2));
+                 if($request->fund_type=='0'){
+                     Session::flash('success',trans('custom.requested_amount_transfered_crypto'));
+                 }elseif($request->fund_type=='1'){
+                     Session::flash('success',trans('custom.requested_amount_transfered_withdrawal'));
+                 }else{
+                     Session::flash('success',trans('custom.requested_amount_transfered_nft'));
+                 }
+                 return redirect()->route('yield_wallet');
+             }else{
+                 Session::flash('error',trans('custom.security_password_wrong'));   
+                 return redirect()->back()->withInput($request->input());
+             }
+         }
     }
 }

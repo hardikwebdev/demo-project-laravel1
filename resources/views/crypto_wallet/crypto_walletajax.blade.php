@@ -1,12 +1,12 @@
 <table class="table table-dark trading-table text-center table-responsive-sm">
   <thead class="table-gradient">
     <tr>
-      <th>DATE</th>
-      <th>AMOUNT</th>
-      <th>TYPE</th>
-      <th>PAYMENT PROOF</th>
-      <th>DESCRIPTION</th>
-      <th>STATUS</th>
+      <th>{{ trans('custom.date')}}</th>
+      <th>{{ trans('custom.amount')}}</th>
+      <th>{{ trans('custom.type')}}</th>
+      <th>{{ trans('payment_proof')}}</th>
+      <th>{{ trans('custom.description')}}</th>
+      <th>{{ trans('custom.status')}}</th>
       {{-- <th>&nbsp;</th> --}}
     </tr>
   </thead>
@@ -22,19 +22,19 @@
       <td>-</td>
       @endif
       @if($value->trans_slip)
-      <td><a target="_blank" href="{{asset('uploads/upload_bank_proof/'.$value->trans_slip)}}">View</a></td>
+      <td><a target="_blank" href="{{asset('uploads/upload_bank_proof/'.$value->trans_slip)}}">{{ trans('custom.view')}}</a></td>
       @else
       <td>-</td>
       @endif
       <td>{{ ($value->remark)? $value->remark:'-'}}</td>
       @if($value->status == 0)
-      <td class="text-warning">Pending</td>
+      <td class="text-warning">{{ trans('custom.pending')}}</td>
       @endif
       @if($value->status == 1)
-      <td class="text-success">Approved</td>
+      <td class="text-success">{{ trans('custom.approved')}}</td>
       @endif
       @if($value->status == 2)
-      <td class="text-danger">Reject</td>
+      <td class="text-danger">{{ trans('custom.rejected')}}</td>
       @endif
     </tr>
     @endforeach
@@ -43,95 +43,5 @@
         <td colspan="10" class="no-records text-center">{{trans('custom.no_data_found')}}</td>
     </tr>
     @endif
-    {{-- <tr>
-      <td>12/09/2021</td>
-      <td>$1,000</td>
-      <td>Transfer To Withdrawal Wallet</td>
-      <td class="text-warning">Pending</td>
-      <td>
-        <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-      </td>
-    </tr>
-    <tr>
-      <td>12/09/2021</td>
-      <td>$1,000</td>
-      <td>Transfer To Withdrawal Wallet</td>
-      <td class="text-success">Approved</td>
-      <td>
-        <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-      </td>
-    </tr>
-    <tr>
-      <td>12/09/2021</td>
-      <td>$1,000</td>
-      <td>Transfer To Withdrawal Wallet</td>
-      <td class="text-success">Approved</td>
-      <td>
-        <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-      </td>
-    </tr>
-    <tr>
-      <td>12/09/2021</td>
-      <td>$1,000</td>
-      <td>Transfer To Withdrawal Wallet</td>
-      <td class="text-danger">Reject</td>
-      <td>
-        <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-      </td>
-    </tr>
-    <tr>
-      <td>12/09/2021</td>
-      <td>$1,000</td>
-      <td>Transfer To Withdrawal Wallet</td>
-      <td class="text-danger">Reject</td>
-      <td>
-        <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-      </td>
-    </tr>
-    <tr>
-      <td>12/09/2021</td>
-      <td>$1,000</td>
-      <td>Transfer To Withdrawal Wallet</td>
-      <td class="text-danger">Reject</td>
-      <td>
-        <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-      </td>
-    </tr>
-    <tr>
-      <td>12/09/2021</td>
-      <td>$1,000</td>
-      <td>Transfer To Withdrawal Wallet</td>
-      <td class="text-warning">Pending</td>
-      <td>
-        <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-      </td>
-    </tr>
-    <tr>
-      <td>12/09/2021</td>
-      <td>$1,000</td>
-      <td>Transfer To Withdrawal Wallet</td>
-      <td class="text-warning">Pending</td>
-      <td>
-        <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-      </td>
-    </tr>
-    <tr>
-      <td>12/09/2021</td>
-      <td>$1,000</td>
-      <td>Transfer To Withdrawal Wallet</td>
-      <td class="text-success">Approved</td>
-      <td>
-        <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-      </td>
-    </tr>
-    <tr>
-      <td>12/09/2021</td>
-      <td>$1,000</td>
-      <td>Transfer To Withdrawal Wallet</td>
-      <td class="text-success">Approved</td>
-      <td>
-        <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-      </td>
-    </tr> --}}
   </tbody>
 </table>
