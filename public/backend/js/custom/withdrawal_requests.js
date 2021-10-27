@@ -85,7 +85,16 @@ $("#open_remark_model").validate({
     }
 });
 
+ 
 
+$('#open_remark_modal').on('hidden.bs.modal', function() {
+    $('#open_remark_modal form')[0].reset();
+    $("label.error").hide();
+});
+$('#remark_decline').on('hidden.bs.modal', function() {
+    $('#remark_decline form')[0].reset();
+    $("label.error").hide();
+});
 
 
 $('input[name="checkall"]').click(function(){

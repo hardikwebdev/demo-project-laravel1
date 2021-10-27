@@ -40,7 +40,6 @@ var exportBankRequests = function(thi){
 	export_url = export_url+'?'+data
 	window.location.href=export_url;
 }
-
 $(document).ready(function(){
     $('.date').attr('readonly',true);
     $('.input-daterange').attr('readonly',true);
@@ -94,9 +93,7 @@ $("#credit_remark_form").validate({
         }
     }
 });
-
-
-$("#fund_wallets").validate({
+$("#userall_wallets").validate({
      rules: {
          amount: {
             required: true,
@@ -118,6 +115,13 @@ $("#fund_wallets").validate({
         }
     }
 });
+
+
+$('#fundWallet').on('hidden.bs.modal', function() {
+    $('#fundWallet form')[0].reset();
+    $("label.error").hide();
+});
+
 
 var opFundWallet = function(th){
 	var request_id = $(th).data('id');
