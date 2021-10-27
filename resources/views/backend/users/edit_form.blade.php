@@ -118,7 +118,29 @@
                         </div>       
                     </div>
                 </div> 
-                <div class="row ">
+                <div class="row form-group-all">
+                    <div class="col-sm-8 pr-0 ">          
+                        <div class="form-group">
+                            <label>Sponsor</label> 
+                            {!! Form::text('sponsor',old('sponsor',isset($user->sponsor)  && $user->sponsor!=null?$user->sponsor->username:""),['class'=>'form-control','placeholder'=>'Enter Sponsor','id'=>'sponsor_username']) !!}
+                        </div> 
+                    </div>
+                    <div class="col-sm-4 ">
+                        <div class="form-group">
+                            <label>&nbsp;&nbsp;</label> 
+                            <a class="btn-primary btn btn-block verify-sponser">Verify Sponsor</a>
+                        </div>
+                    </div>
+                    <div class="col-md-12 ">
+                        <input id="sponsor_check" type="hidden" class="form-control @error('sponsor_check') is-invalid @enderror" name="sponsor_check" value="{{ old('sponsor_check') }}"  autocomplete="sponsor_check" autofocus placeholder="{{ __('Sponsor Username') }}">
+                        <span class="cus-error-sponsor error">{{trans('auth.verify_sponsor_wrong')}} </span>
+                        <label class="cus-error-sponsor">{{trans('custom.sponsor_user_not_found_not__valid_sponsor')}}</label>
+                        <label class="cus-success-sponsor sucess">{{trans('custom.sponsor_username_verified')}}</label>
+                    </div>
+                    <span class="col-sm-12 help-block text-danger">{{ $errors->first('sponsor') }}</span>
+                </div>
+
+                {{-- <div class="row ">
                     <div class="col-sm-8">          
                         <div class="form-group">
                             <label>Sponsor</label> 
@@ -133,7 +155,7 @@
                     </div>
                     <span class="help-block text-danger">{{ $errors->first('sponsor') }}</span>
 
-                </div>
+                </div> --}}
                 <div class="row">
                     <div class="col-sm-6"> 
                        <div class="col-sm-12">        

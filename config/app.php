@@ -232,6 +232,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'FastExcel' => Rap2hpoutre\FastExcel\Facades\FastExcel::class,
+        'Helper' => App\Helpers\Helper::class,
     ],
 
 ];

@@ -227,103 +227,106 @@ class AdminWithdrawalRequest extends Controller
             }
     
             $withdrawal_requests= $withdrawal_requests->whereNotIn('status',['3','4'])->orderBy('action_date','desc')->get();
-    
-            $file_name = public_path('uploads/withdrawal_request/export/'.time().'.xlsx');
-            $path = public_path("uploads/withdrawal_request/export");
-            if(!\File::isDirectory($path)) {
-                \File::makeDirectory($path,  $mode = 0755, $recursive = true);
-            }
-            // $setting = Helper::getSettings();
-            $files = (new \Rap2hpoutre\FastExcel\FastExcel($withdrawal_requests))->export($file_name,function ($user) {
-                $status = ['0'=>"Pending",'1'=>"Approved",'2'=>"Rejected"];
-                $payble_amount = $user->payble_amount;
+            
+            if(count($withdrawal_requests) > 0){
+                $file_name = public_path('uploads/withdrawal_request/export/'.time().'.xlsx');
+                $path = public_path("uploads/withdrawal_request/export");
+                if(!\File::isDirectory($path)) {
+                    \File::makeDirectory($path,  $mode = 0755, $recursive = true);
+                }
                 // $setting = Helper::getSettings();
-                $bank_detail="";
-                // $account_number = strlen(trim($user->user_detail->userbank->account_number));
-                    $ac_num = (string)$user->user_detail->userbank->account_number;
-                    // for ($i=0; $i <$account_number ; $i++) { 
-                    //     $ac_num .= 'X';
-                    // }
-                if( $user->type =='0' && $user->user_detail->userbank!=null){
-                    $bank_detail .= "Bank Name :".$user->user_detail->userbank->name;
-                    $bank_detail .= " | Branch :".$user->user_detail->userbank->branch;
-                    $bank_detail .= " | Account Holder name :".$user->user_detail->userbank->account_holder;
-
-                    $bank_detail .= " | Account Number :".$ac_num;
-                    $bank_detail .= " | Swift Code :".$user->user_detail->userbank->swift_code;
-                    $payble_amount = $payble_amount;// * $setting['withdrawal_rmb_amount']
-                }else if($user->type =='1' && $user->user_detail!=null){
-                    $bank_detail = "Bank Name: USDT | Acc Holder Name: ".$user->user_detail->name." | USDT Address : ".$user->user_detail->usdt_address;
-                    if($user->payment_address){
-                        $bank_detail = "Bank Name: USDT | Acc Holder Name: ".$user->user_detail->name." | USDT Address : ".$user->payment_address;
-
+                $files = (new \Rap2hpoutre\FastExcel\FastExcel($withdrawal_requests))->export($file_name,function ($user) {
+                    $status = ['0'=>"Pending",'1'=>"Approved",'2'=>"Rejected"];
+                    $payble_amount = $user->payble_amount;
+                    // $setting = Helper::getSettings();
+                    $bank_detail="";
+                    // $account_number = strlen(trim($user->user_detail->userbank->account_number));
+                        $ac_num = (string)$user->user_detail->userbank->account_number;
+                        // for ($i=0; $i <$account_number ; $i++) { 
+                        //     $ac_num .= 'X';
+                        // }
+                    if( $user->type =='0' && $user->user_detail->userbank!=null){
+                        $bank_detail .= "Bank Name :".$user->user_detail->userbank->name;
+                        $bank_detail .= " | Branch :".$user->user_detail->userbank->branch;
+                        $bank_detail .= " | Account Holder name :".$user->user_detail->userbank->account_holder;
+    
+                        $bank_detail .= " | Account Number :".$ac_num;
+                        $bank_detail .= " | Swift Code :".$user->user_detail->userbank->swift_code;
+                        $payble_amount = $payble_amount;// * $setting['withdrawal_rmb_amount']
+                    }else if($user->type =='1' && $user->user_detail!=null){
+                        $bank_detail = "Bank Name: USDT | Acc Holder Name: ".$user->user_detail->name." | USDT Address : ".$user->user_detail->usdt_address;
+                        if($user->payment_address){
+                            $bank_detail = "Bank Name: USDT | Acc Holder Name: ".$user->user_detail->name." | USDT Address : ".$user->payment_address;
+    
+                        }
+                        $payble_amount = $payble_amount ;//* $setting['bank_usdt_amount']
+                    }else if($user->type =='2'){
+                        $payble_amount = $payble_amount;// * $setting['bank_hkd_amount']
                     }
-                    $payble_amount = $payble_amount ;//* $setting['bank_usdt_amount']
-                }else if($user->type =='2'){
-                    $payble_amount = $payble_amount;// * $setting['bank_hkd_amount']
-                }
-                $USDTfunds = 'No'; 
-                if($user->user_detail->usdt_withdraw){
-                    if($user->user_detail->usdt_fund_history->count() > 0){
-                        $USDTfunds = 'Yes';
-                    } 
-                }
-                if( $user->type =='0'){
-                    return [
-                        'Username' => $user->user_detail->username,
-                        'Amount' => number_format($payble_amount,2),
-                        'Updated date' => ($user->action_date),
-                        'Bank Name' => @$user->user_detail->userbank->name,
-                        'Account Holder Name' => @$user->user_detail->userbank->account_holder,
-                        'Account Number' => @(string)$ac_num,
-                        'Branch' => @$user->user_detail->userbank->branch,
-                        // 'USDT Funds' => $USDTfunds,
-                        // 'USDT Addess' => ''
-                    ];
-                }else if($user->type =='1' && $user->user_detail!=null){
-                    return [
-                        'Username' => $user->user_detail->username,
-                        // 'Withdrawal Amount' => number_format($user->withdrawal_amount,2),
-                        'Amount' => number_format($payble_amount,2),
-                        'Updated date' => ($user->action_date),
-                        'Bank Name' => 'USDT(ERC-20)',
-                        'Account Holder Name' => '',
-                        'Account Number' => '',
-                        'Branch' => '',
-                        // 'USDT Funds' => $USDTfunds,
-                        // 'USDT Addess' => $user->payment_address
-                    ];
-                }else if($user->type =='4' && $user->user_detail!=null){
-                    return [
-                        'Username' => $user->user_detail->username,
-                        // 'Withdrawal Amount' => number_format($user->withdrawal_amount,2),
-                        'Amount' => number_format($payble_amount,2),
-                        'Updated date' => ($user->action_date),
-                        'Bank Name' => 'USDT(TRC-20)',
-                        'Account Holder Name' => '',
-                        'Account Number' => '',
-                        'Branch' => '',
-                        // 'USDT Funds' => $USDTfunds,
-                        // 'USDT Addess' => $user->payment_address
-                    ];
-                }else if($user->type =='2'){
-                    return [
-                        'Username' => $user->user_detail->username,
-                        // 'Withdrawal Amount' => number_format($user->withdrawal_amount,2),
-                        'Amount' => number_format($payble_amount,2),
-                        'Updated date' => ($user->action_date),
-                        'Bank Name' => 'OMINI',
-                        'Account Holder Name' => '',
-                        'Account Number' => '',
-                        'Branch' => '',
-                        // 'USDT Funds' => $USDTfunds,
-                        // 'USDT Addess' => ''
-                    ];
-                }
-            });
-            return response()->download($file_name); 
-
-
+                    $USDTfunds = 'No'; 
+                    if($user->user_detail->usdt_withdraw){
+                        if($user->user_detail->usdt_fund_history->count() > 0){
+                            $USDTfunds = 'Yes';
+                        } 
+                    }
+                    if( $user->type =='0'){
+                        return [
+                            'Username' => $user->user_detail->username,
+                            'Amount' => number_format($payble_amount,2),
+                            'Updated date' => ($user->action_date),
+                            'Bank Name' => @$user->user_detail->userbank->name,
+                            'Account Holder Name' => @$user->user_detail->userbank->account_holder,
+                            'Account Number' => @(string)$ac_num,
+                            'Branch' => @$user->user_detail->userbank->branch,
+                            // 'USDT Funds' => $USDTfunds,
+                            // 'USDT Addess' => ''
+                        ];
+                    }else if($user->type =='1' && $user->user_detail!=null){
+                        return [
+                            'Username' => $user->user_detail->username,
+                            // 'Withdrawal Amount' => number_format($user->withdrawal_amount,2),
+                            'Amount' => number_format($payble_amount,2),
+                            'Updated date' => ($user->action_date),
+                            'Bank Name' => 'USDT(ERC-20)',
+                            'Account Holder Name' => '',
+                            'Account Number' => '',
+                            'Branch' => '',
+                            // 'USDT Funds' => $USDTfunds,
+                            // 'USDT Addess' => $user->payment_address
+                        ];
+                    }else if($user->type =='4' && $user->user_detail!=null){
+                        return [
+                            'Username' => $user->user_detail->username,
+                            // 'Withdrawal Amount' => number_format($user->withdrawal_amount,2),
+                            'Amount' => number_format($payble_amount,2),
+                            'Updated date' => ($user->action_date),
+                            'Bank Name' => 'USDT(TRC-20)',
+                            'Account Holder Name' => '',
+                            'Account Number' => '',
+                            'Branch' => '',
+                            // 'USDT Funds' => $USDTfunds,
+                            // 'USDT Addess' => $user->payment_address
+                        ];
+                    }else if($user->type =='2'){
+                        return [
+                            'Username' => $user->user_detail->username,
+                            // 'Withdrawal Amount' => number_format($user->withdrawal_amount,2),
+                            'Amount' => number_format($payble_amount,2),
+                            'Updated date' => ($user->action_date),
+                            'Bank Name' => 'OMINI',
+                            'Account Holder Name' => '',
+                            'Account Number' => '',
+                            'Branch' => '',
+                            // 'USDT Funds' => $USDTfunds,
+                            // 'USDT Addess' => ''
+                        ];
+                    }
+                });
+                return response()->download($file_name);     
+            }
+            else{
+                return redirect()->back()->with('error','No Recored Found....');
+            }
         } catch (Exception $e) {
                 return redirect()->back()->with('error',$e->getMessage());          
         }   

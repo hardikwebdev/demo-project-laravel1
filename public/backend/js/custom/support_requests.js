@@ -98,6 +98,9 @@ $('#reply_support_ticket').submit(function(e){
 
 });
 
+
+
+
 var opFundWallet = function(th){
 	var request_id = $(th).parent().find('input[name="withdraw_request_id"]').val();;
 	var username = $(th).parent().find('input[name="username"]').val();
