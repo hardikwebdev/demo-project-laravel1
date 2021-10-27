@@ -242,4 +242,77 @@ $(document).ready(function(){
               'remove':  'Remove',
           }
       });
-  }     
+  }
+  $("#withdrawalform-usdt").validate({
+      rules: {
+           amount: {
+              required: true,
+              number:true,
+              positiveNumber:true,
+              minlength: 0,
+              min:100,                
+              max:10000000
+           },
+           secure_password: {
+              required: true,
+           },
+           upload_proof:{
+            required: true,
+            extension:'png|jpeg|jpg' 
+           }        
+      },
+      messages:{
+      },
+
+  });
+  $("#withdrawalform").validate({
+      rules: {
+           amount: {
+              required: true,
+              number:true,
+              positiveNumber:true,
+              minlength: 0,
+              min:100,                
+              max:10000000
+           },
+           secure_password: {
+              required: true,
+           }        
+      },
+      messages:{
+      },
+
+  });
+  function getData(page,htype = 0){
+      $.ajax(
+      {
+          url: '?page=' + page,
+          type: "get",
+          datatype: "html",
+          data:{
+              general_search: $('#sgenreal_search').val(),
+              type: $( "#S_type option:selected" ).val(),
+              status: $( "#S_status option:selected" ).val(),
+              spagination: $( "#spagination option:selected" ).val(),
+              htype: htype,
+          },
+      }).done(function(data){
+          $(".table-pisprebate").empty().html(data);
+          location.hash = page;
+      }).fail(function(jqXHR, ajaxOptions, thrownError){
+              alert('No response from server');   
+              $('.cus-spinner-full').hide(200);
+      });
+  }
+
+  $(document).on('click', '.second-ajax-pag .pagination a',function(event)
+  {
+      event.preventDefault();
+      
+      $('.datas').append('<div class="cus-spinner-full"><div class="sk-spinner sk-spinner-three-bounce"><div class="sk-bounce1"></div><div class="sk-bounce2"></div><div class="sk-bounce3"></div></div></div>');
+      $(this).parent('li span').parent('li span').removeClass('bg-warning px-1');
+      $(this).parent('li span').addClass('bg-warning px-1');
+      var myurl = $(this).attr('href');
+      var page=$(this).attr('href').split('page=')[1];
+      getData(page);
+  });

@@ -47,6 +47,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
     Route::post('/placement-username-exits', 'App\Http\Controllers\CommonController@placementUsernameExists')->name('placementUsernameExits');
     Route::post('/email-exits', 'App\Http\Controllers\CommonController@emailExists')->name('emailExists');
     Route::post('/username-exits', 'App\Http\Controllers\CommonController@usernameExits')->name('usernameExits');
+    Route::get('withdrawl-request/{key}', 'App\Http\Controllers\CommonController@withdrawlRequestVerify')->name('withdrawlRequestVerify');
 
     Route::middleware(['auth','verified'])->group(function () {
 
@@ -65,13 +66,15 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::get('/commission_wallet', 'App\Http\Controllers\HomeController@commission_wallet')->name('commission_wallet');
         Route::get('/nft_wallet', 'App\Http\Controllers\HomeController@nft_wallet')->name('nft_wallet');
         Route::get('/nft_marketplace', 'App\Http\Controllers\HomeController@nft_marketplace')->name('nft_marketplace');
-        Route::get('/withdrawal', 'App\Http\Controllers\HomeController@withdrawal')->name('withdrawal');
+        // Route::get('/withdrawal', 'App\Http\Controllers\HomeController@withdrawal')->name('withdrawal');
         Route::get('/ledger', 'App\Http\Controllers\HomeController@ledger')->name('ledger');
         Route::get('/account', 'App\Http\Controllers\HomeController@account')->name('account');
         Route::get('/my_collection', 'App\Http\Controllers\HomeController@my_collection')->name('my_collection');
         Route::get('/help_support', 'App\Http\Controllers\HomeController@help_support')->name('help_support');
         Route::get('/nftproduct', 'App\Http\Controllers\HomeController@nftproduct')->name('nftproduct');
         Route::get('/sell_nft', 'App\Http\Controllers\HomeController@sell_nft')->name('sell_nft');
+        Route::get('/withdrawal', 'App\Http\Controllers\WithdrawalController@index')->name('withdrawal');
+        Route::post('/withdrawal-request', 'App\Http\Controllers\WithdrawalController@withdrawalRequest')->name('withdrawal-request');
 
 
     });

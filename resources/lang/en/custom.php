@@ -1501,5 +1501,7 @@ return [
     'transferred_to_nft_wallet' => 'Transferred to NFT Wallet.',
     'transferred_from_yield_wallet' => 'Transferred from Yield Wallet.',
     'yield_wallet' => 'Yield Wallet',
+    'BANK' => 'BANK',
+    'REQUEST_FOR_WITHDRAWAL' => 'REQUEST FOR WITHDRAWAL',
 
 ];
