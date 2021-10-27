@@ -63,7 +63,7 @@
                                 @endforeach                            
                                 @else
                                 <tr>
-                                    <td>Oops! No Record Found</td>
+                                    <td>Oops! No Record Found.</td>
                                 </tr>
                                 @endif
                                 <tr>

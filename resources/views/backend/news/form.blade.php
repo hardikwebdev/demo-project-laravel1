@@ -44,8 +44,8 @@
     </div>    
 </div>
 <div class="">
-    <button class="btn btn-md btn-primary m-t-n-xs btn-rounded" type="submit">Save</button>
-    <a class="btn btn-md btn-danger m-t-n-xs btn-rounded" href="{{route('news.index')}}">Cancel</a>
+    <button class="btn btn-md btn-primary m-t-n-xs" type="submit">Save</button>
+    <a class="btn btn-md btn-danger m-t-n-xs" href="{{route('news.index')}}">Cancel</a>
 </div>
 <div class="clearfix"></div>
 

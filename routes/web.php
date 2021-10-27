@@ -24,7 +24,7 @@ use App\Http\Controllers\Backend\Usercryptowallet;
 use App\Http\Controllers\Backend\Usernftwallet;
 use App\Http\Controllers\Backend\UseryieldwalletController;
 use App\Http\Controllers\Backend\UsercommissionwalletController;
-
+use App\Http\Controllers\Backend\SliderController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -70,8 +70,6 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::get('/help_support', 'App\Http\Controllers\HomeController@help_support')->name('help_support');
         Route::get('/nftproduct', 'App\Http\Controllers\HomeController@nftproduct')->name('nftproduct');
         Route::get('/sell_nft', 'App\Http\Controllers\HomeController@sell_nft')->name('sell_nft');
-
-
     });
 
 
@@ -99,6 +97,9 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             });
             // News Crud
             Route::resource('news', NewsController::class);
+
+            // Slider
+            Route::resource('slider', SliderController::class);
 
 
             // Support Ticket

@@ -32,7 +32,7 @@
                 @else
                 <tbody >
                     <tr>
-                        <td colspan="6">Oops! No Record Found.</td>
+                        <td colspan="6">Oops! No Record Found..</td>
                     </tr>
                 </tbody >
                 @endif

@@ -59,7 +59,7 @@
                                 @endforeach                            
                                 @else
                                 <tr>
-                                    <td colspan="8">Oops! No Record Found</td>
+                                    <td colspan="8">Oops! No Record Found.</td>
                                 </tr>
                                 @endif
                                 <tr>

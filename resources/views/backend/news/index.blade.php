@@ -10,7 +10,7 @@
             <div class="col-xs-12 col-md-4 p-0">News</div>
             {{-- @role('admin') --}}
             <div class="col-xs-12 col-md-8 text-right">
-                <a class="btn btn-success btn-sm btn-xs-block btn-rounded" href="{{route('news.create')}}">Create News</a>
+                <a class="btn btn-success btn-sm btn-xs-block" href="{{route('news.create')}}">Create News</a>
             </div>
             {{-- @endrole --}}
         </h2>
@@ -77,7 +77,7 @@
                                 @endforeach                            
                                 @else
                                 <tr>
-                                    <td colspan="10">Oops! No Record Found</td>
+                                    <td colspan="10">Oops! No Record Found.</td>
                                 </tr>
                                 @endif
                                 <tr>

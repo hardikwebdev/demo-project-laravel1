@@ -27,6 +27,11 @@
                     Malasian Payment
                     @elseif($row->type == 2)
                     CoinPayment
+                    @elseif($row->type == 3)
+                    Admin Added
+                    @elseif($row->type == 4)
+                    Admin Reduced
+                    @else
                     @endif
                 </td>
                 <td>
@@ -41,23 +46,23 @@
                     {{-- {{($row->type == 8) ? $row->transaction_id : ''}} --}}
                 </td>
                 <td >
-                    @if($row->type == 5)
+                @if($row->type == 3)
                     <label class="label label-primary">Added</label>
-                        @else
-                        @if($row->status=='1')
-                        <label class="label label-primary">Approved</label>
-                        @elseif($row->status=='2')
-                        <label class="label label-danger">Rejected</label>
-                        @else
-                        <label class="label label-warning">Pending</label>
-                        @endif
+                @else
+                    @if($row->status=='1')
+                    <label class="label label-primary">Approved</label>
+                    @elseif($row->status=='2')
+                    <label class="label label-danger">Rejected</label>
+                    @else
+                    <label class="label label-warning">Pending</label>
                     @endif
+                @endif
                 </td>
             </tr>               
             @endforeach                            
             @else
             <tr>
-                <td colspan="9">Oops! No Record Found.</td>
+                <td colspan="9">Oops! No Record Found..</td>
             </tr>
             @endif
             <tr>

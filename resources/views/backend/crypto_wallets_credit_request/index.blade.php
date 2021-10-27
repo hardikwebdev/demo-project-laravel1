@@ -132,7 +132,7 @@
                             @else
                             <tbody >
                                 <tr align="left">
-                                    <td colspan="9">Oops! No Record Found</td>
+                                    <td colspan="9">Oops! No Record Found.</td>
                                 </tr>
                             </tbody >
                             @endif
@@ -217,6 +217,11 @@
    var url_remark = "{{route('crypto_wallets_credit_request.update',[''])}}" ;
    var export_url = "{{route('crypto_wallets_credit_request.export')}}" ;
    $('.chosen-select').chosen({width: "100%"});
+   $('#update_remark').on('hidden.bs.modal', function() {
+            $('#update_remark form')[0].reset();
+            $("label.error").hide();
+    });
+
 </script>
 <script src="{{asset('backend/js/plugins/datapicker/bootstrap-datepicker.js')}}"></script>
 <script src="{{asset('backend/js/plugins/blueimp/jquery.blueimp-gallery.min.js')}}"></script>

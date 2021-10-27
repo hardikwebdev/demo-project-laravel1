@@ -3,7 +3,7 @@
         <ul class="nav metismenu" id="side-menu">          
             <li class="@if(\Request::is('admin/dashboard') || \Request::is('admin')  ) {{'active'}} @endif" >
                 <a href="{{route('admin.dashboard')}}" title="Dashboard">
-                <img src="{{asset('images/Dashboard.png')}}" class="side-icon-size"> <span class="nav-label"> Dashboard</span></a>
+                <img src="{{asset('images/Dashboard.png')}}" class="side-icon-size" style="width: 20px;"> <span class="nav-label"> Dashboard</span></a>
             </li> 
             <li class=" @if(\Request::is('admin/user') || \Request::is('admin/user/*') || strstr(\Request::route()->getName(),'proof_request') || strstr(\Request::route()->getName(),'package_history') ||  strstr(\Request::route()->getName(),'payment_history') || strstr(\Request::route()->getName(),'support_ticket') || strstr(\Request::route()->getName(),'ticket_request')) {{'active'}} @endif">
                 <a href="#">
@@ -54,16 +54,16 @@
                         <a href="{{route('crypto_wallets_credit_request.index')}}" title="Crypto Wallets Credits Requests"> <span class="cus-sub-menu">Crypto Wallets Credits Requests<span class="label label-info pull-right">{{Helper::getPendingCryptoCreditRequestCount()}}</span></span></a>
                     </li>
                     <li class=" @if(\Request::is('admin/nft_wallets_credit_request')) {{'active'}} @endif">
-                        <a href="{{route('nft_wallets_credit_request.index')}}" title="Nft Wallets Credits Requests"> <span class="cus-sub-menu">Nft Wallets Credits Requests</span></a>
+                        <a href="{{route('nft_wallets_credit_request.index')}}" title="Nft Wallets Credits Requests"> <span class="cus-sub-menu">Nft Wallets Credits Requests<span class="label label-info pull-right">{{Helper::getPendingNftCreditRequestCount()}}</span></span></a>
                     </li> 
                     <li class=" @if(\Request::is('admin/nft_purchase_request')) {{'active'}} @endif">
-                        <a href="{{route('nft_purchase_request.index')}}" title="Nft Purchase Requests"> <span class="cus-sub-menu">Nft Purchase Requests</span></a>
+                        <a href="{{route('nft_purchase_request.index')}}" title="Nft Purchase Requests"> <span class="cus-sub-menu">Nft Purchase Requests</span><span class="label label-info pull-right">{{Helper::getPendingNftPurchaseRequestCount()}}</span></a>
                     </li> 
                     {{-- <li class=" @if(\Request::is('admin/withdrawal_request') || \Request::is('admin/withdrawal_request/*')) {{'active'}} @endif">
                         <a href="{{route('capital_request')}}" title="Capital Withdrawal Requests"> <span class="cus-sub-menu">Capital Withdrawal Requests</span></a>
                     </li> --}}
                     <li class=" @if(\Request::is('admin/withdrawal_request') || \Request::is('admin/withdrawal_request/*')) {{'active'}} @endif">
-                        <a href="{{route('withdrawal_request.index')}}" title="Withdrawal Requests"> <span class="cus-sub-menu">Withdrawal Requests</span></a>
+                        <a href="{{route('withdrawal_request.index')}}" title="Withdrawal Requests"> <span class="cus-sub-menu">Withdrawal Requests</span><span class="label label-info pull-right">{{Helper::getwithdrawalRequestCount()}}</span></a>
                     </li>
                     <li class=" @if(\Request::is('admin/yield_wallet') || \Request::is('admin/yield_wallet/*')) {{'active'}} @endif">
                         <a href="{{route('yield_wallet.index')}}" title="Yield Wallet"> <span class="cus-sub-menu">Yield Wallet</span></a>
@@ -158,7 +158,7 @@
             </li>
             <li class="@if(\Request::is('admin/news') || \Request::is('admin/news/*') || \Request::is('admin/announcement') || \Request::is('admin/announcement/*') || \Request::is('admin/slider') || \Request::is('admin/slider/*') ||   \Request::is('admin/ticket') ||   \Request::is('admin/ticket/*') ||   \Request::is('admin/product') ||   \Request::is('admin/product/*') ) {{'active'}} @endif">
                 <a href="#">
-                    <img src="{{asset('images/content.png')}}" class="side-icon-size">
+                    <img src="{{asset('images/content.png')}}" class="side-icon-size" style="width: 20px;">
                     <span class="nav-label">CMS</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse" style="">
                     <li class=" @if(\Request::is('admin/news') || \Request::is('admin/news/*')) {{'active'}} @endif">
@@ -167,9 +167,9 @@
                     {{-- <li class=" @if( \Request::is('admin/announcement') || \Request::is('admin/announcement/*')) {{'active'}} @endif">
                         <a href="{{route('announcement.index')}}"><span class="cus-sub-menu"> Announcement</span></a>               
                     </li>     --}}
-                     {{-- <li class=" @if( \Request::is('admin/slider') || \Request::is('admin/slider/*')) {{'active'}} @endif">
+                     <li class=" @if( \Request::is('admin/slider') || \Request::is('admin/slider/*')) {{'active'}} @endif">
                         <a href="{{route('slider.index')}}"><span class="cus-sub-menu"> Slider</span></a>               
-                    </li>      --}}
+                    </li>     
                 </ul>
             </li>
         </ul>

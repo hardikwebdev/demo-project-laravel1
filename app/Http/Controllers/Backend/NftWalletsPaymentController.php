@@ -31,8 +31,12 @@ class NftWalletsPaymentController extends Controller
                 $nft_wallets_payment_history = $nft_wallets_payment_history->where('type','0');
             }elseif($request->type == 2){
                 $nft_wallets_payment_history = $nft_wallets_payment_history->where('type','1');
-            } else {
+            } elseif($request->type == 3){
                 $nft_wallets_payment_history = $nft_wallets_payment_history->where('type','2');
+            } elseif($request->type == 4){
+                $nft_wallets_payment_history = $nft_wallets_payment_history->where('type','3');
+            } else {
+                $nft_wallets_payment_history = $nft_wallets_payment_history->where('type','4');
             }
         }
         if($request->start && $request->end){
@@ -64,13 +68,17 @@ class NftWalletsPaymentController extends Controller
                $nft_wallets_payment_history = $nft_wallets_payment_history->where('status',$request->status);
            }
            if($request->type && $request->type != ""){
-               if ($request->type == 1) {
-                   $nft_wallets_payment_history = $nft_wallets_payment_history->where('type','0');
-               }elseif($request->type == 2){
-                   $nft_wallets_payment_history = $nft_wallets_payment_history->where('type','1');
-               } else {
-                   $nft_wallets_payment_history = $nft_wallets_payment_history->where('type','2');
-               }
+            if ($request->type == 1) {
+                $nft_wallets_payment_history = $nft_wallets_payment_history->where('type','0');
+            }elseif($request->type == 2){
+                $nft_wallets_payment_history = $nft_wallets_payment_history->where('type','1');
+            } elseif($request->type == 3){
+                $nft_wallets_payment_history = $nft_wallets_payment_history->where('type','2');
+            } elseif($request->type == 4){
+                $nft_wallets_payment_history = $nft_wallets_payment_history->where('type','3');
+            } else {
+                $nft_wallets_payment_history = $nft_wallets_payment_history->where('type','4');
+            }
            }
            if($request->start && $request->end){
                $start_date = date('Y-m-d',strtotime($request->start));
@@ -80,15 +88,15 @@ class NftWalletsPaymentController extends Controller
            }
            $nft_wallets_payment_history = $nft_wallets_payment_history->orderBy('action_date','desc')->get();
            if(count( $nft_wallets_payment_history ) > 0){
-               return ((new \Rap2hpoutre\FastExcel\FastExcel($nft_wallets_payment_history))->download('Nwph-' . time() . '.xlsx', function ($nft_wallets_payment_history) {
+               return ((new \Rap2hpoutre\FastExcel\FastExcel($nft_wallets_payment_history))->download('nwph-' . time() . '.xlsx', function ($nft_wallets_payment_history) {
                    return [
                        'Username' => $nft_wallets_payment_history->user_detail->username,
                        'Date' => ($nft_wallets_payment_history->action_date) ? ($nft_wallets_payment_history->action_date) : (date_format($nft_wallets_payment_history->created_at,"Y-m-d H:i:s")),
-                        'Type' => ($nft_wallets_payment_history->type == 0) ? ('USDT') : (($nft_wallets_payment_history->type == 1) ? ('Malasian Payment') : ( ($nft_wallets_payment_history->type == 2) ? ("CoinPayment") : (" "))),
+                       'Type' => ($nft_wallets_payment_history->type == 0) ? ('USDT') : (($nft_wallets_payment_history->type == 1) ? ('Malasian Payment') : ( ($nft_wallets_payment_history->type == 2) ? ("CoinPayment") : (($nft_wallets_payment_history->type == 3) ? ("Admin Added") : ("Admin Reduced")))),
                         'Amount' => number_format($nft_wallets_payment_history->amount,2),
                         'Order ID' => $nft_wallets_payment_history->order_id ?? '',
                         'Transaction ID' => $nft_wallets_payment_history->transaction_id ?? '',
-                        'Status' =>  ($nft_wallets_payment_history->status == 1) ? ("Approved") : ( ($nft_wallets_payment_history->status == 2) ? ("Rejected") : ("Pending")),
+                        'Status' =>  ($nft_wallets_payment_history->type == 3) ? ("Added") : (($nft_wallets_payment_history->status == 1) ? ("Approved") : (($nft_wallets_payment_history->status == 2) ? ("Rejected") : ("Pending"))),
                    ];
                }));
            }

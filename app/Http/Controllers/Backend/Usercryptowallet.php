@@ -70,7 +70,7 @@ class Usercryptowallet extends Controller
                         $fundWallet->user_id = $user_detail->id;
                         $fundWallet->amount = $fund_wallet_amount;
                         $fundWallet->usd_amount = $fund_wallet_amount;
-                        $fundWallet->type = 6;
+                        $fundWallet->type = 4;
                         $fundWallet->action_date =Carbon::now();
                         $fundWallet->status = 1;
                         $fundWallet->unique_no = $uniqu_no;
@@ -89,7 +89,7 @@ class Usercryptowallet extends Controller
                             $fundWallet->user_id = $user_detail->id;
                             $fundWallet->amount = $fund_wallet_amount;
                             $fundWallet->usd_amount = $fund_wallet_amount;
-                            $fundWallet->type = 5;
+                            $fundWallet->type = 3;
                             $fundWallet->action_date = Carbon::now();
                             $fundWallet->status = 1;
                             $fundWallet->unique_no = $uniqu_no;

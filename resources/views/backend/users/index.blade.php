@@ -119,7 +119,7 @@
                                 @endforeach                            
                                 @else
                                 <tr class="my-3">
-                                    <td colspan="14">Oops! No Record Found</td>
+                                    <td colspan="14">Oops! No Record Found.</td>
                                 </tr>
                                 @endif
                                 <tr>

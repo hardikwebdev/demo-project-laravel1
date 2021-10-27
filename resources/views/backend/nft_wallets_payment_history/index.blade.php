@@ -28,7 +28,7 @@
                         {!! Form::text('end',old('end',isset($data['end'])?$data['end']:""),['class'=>'input-sm form-control','placeholder'=>'End Date','readonly'=>'true']) !!}
                     </div>                                                   
                     <div class="form-group">                                
-                        {!! Form::select('type',['1'=>'USDT','2'=>'Malasian Payment','3'=>'Coin Payment'],old('status',@$data['type']),['class'=>'form-control','placeholder'=>'All']) !!}
+                        {!! Form::select('type',['1'=>'USDT','2'=>'Malasian Payment','3'=>'Coin Payment','4'=>'Admin Added','5'=>'Admin Reduced'],old('status',@$data['type']),['class'=>'form-control','placeholder'=>'All']) !!}
                     </div> 
                     <div class="form-group">                                
                         {!! Form::select('status',['1'=>'Approved','2'=>'Rejected'],old('status',@$data['status']),['class'=>'form-control','placeholder'=>'All Status']) !!}

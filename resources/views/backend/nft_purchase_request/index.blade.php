@@ -122,7 +122,7 @@
                                 @else
                                     <tbody>
                                         <tr align="left">
-                                            <td colspan="9">Oops! No Record Found</td>
+                                            <td colspan="9">Oops! No Record Found.</td>
                                         </tr>
                                     </tbody>
                                 @endif
