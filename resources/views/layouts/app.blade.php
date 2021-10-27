@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="{{ asset('assets/css/custom/feather.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/themify-icons.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/vertical-layout-light/style.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/css/custom/index.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/custom/index.css').'?v='.time() }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/slick.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/slick-theme.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/jquery.steps.css') }}">
@@ -48,7 +48,20 @@
 <script src="{{ asset('assets/js/custom/custom.js').'?v='.time() }}"></script>
 <script src="{{asset('backend/js/plugins/validate/jquery.validate.min.js') }}"></script>
 <script src="{{asset('backend/js/plugins/validate/additional-methods.min.js')}}"></script>
+ <script>
+   var sponsorUsernameExits = "{{route('sponsorUsernameExits')}}";
+   var placementUsernameExits = "{{route('placementUsernameExits')}}";
 
+   var emailExists = "{{route('emailExists')}}";
+   var usernameExits = "{{route('usernameExits')}}";
+ </script>
+ <script type="text/javascript">
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': "{{csrf_token()}}"
+    }
+  });
+</script>
 @yield('scripts')
 </body>
 

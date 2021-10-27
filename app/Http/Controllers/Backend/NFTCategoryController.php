@@ -67,7 +67,6 @@ class NFTCategoryController extends Controller
 
         } catch (Exception $e) {
             return redirect()->back()->with(["error"=>$e->getMessage()]);
-            
         }
     }
 

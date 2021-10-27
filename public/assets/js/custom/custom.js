@@ -3,16 +3,16 @@ $(document).ready(function(){
       infinite: true,
       slidesToShow: 1,
       slidesToScroll: 1,
-      prevArrow: '<button class="slide-arrow prev-arrow"><img src="../../images/assets/Dashboard/Group948.png" alt=""></button>',
-      nextArrow: '<button class="slide-arrow next-arrow"><img src="../../images/assets/Dashboard/Group948.png" alt=""></button>'
+      prevArrow: '<button class="slide-arrow prev-arrow"><img src="'+arrow+'" alt=""></button>',
+      nextArrow: '<button class="slide-arrow next-arrow"><img src="'+arrow+'" alt=""></button>'
     });
 
   $('.stacking-slider').slick({
     infinite: true,
     slidesToShow: 4,
     slidesToScroll: 1,
-    prevArrow: '<button class="slide-arrow prev-arrow"><img src="../../images/assets/Dashboard/Group948.png" alt=""></button>',
-    nextArrow: '<button class="slide-arrow next-arrow"><img src="../../images/assets/Dashboard/Group948.png" alt=""></button>',
+    prevArrow: '<button class="slide-arrow prev-arrow"><img src="'+arrow+'" alt=""></button>',
+    nextArrow: '<button class="slide-arrow next-arrow"><img src="'+arrow+'" alt=""></button>',
     responsive: [
                   {
                     breakpoint: 576,
@@ -43,8 +43,8 @@ $(document).ready(function(){
     infinite: true,
     slidesToShow: 2,
     slidesToScroll: 1,
-    prevArrow: '<button class="slide-arrow prev-arrow"><img src="../../images/assets/Dashboard/Group948.png" alt=""></button>',
-    nextArrow: '<button class="slide-arrow next-arrow"><img src="../../images/assets/Dashboard/Group948.png" alt=""></button>',
+    prevArrow: '<button class="slide-arrow prev-arrow"><img src="'+arrow+'" alt=""></button>',
+    nextArrow: '<button class="slide-arrow next-arrow"><img src="'+arrow+'" alt=""></button>',
     responsive: [
                   {
                     breakpoint: 576,
@@ -60,8 +60,8 @@ $(document).ready(function(){
     infinite: true,
     slidesToShow: 5,
     slidesToScroll: 1,
-    prevArrow: '<button class="slide-arrow prev-arrow"><img src="../../images/assets/Dashboard/Group948.png" alt=""></button>',
-    nextArrow: '<button class="slide-arrow next-arrow"><img src="../../images/assets/Dashboard/Group948.png" alt=""></button>',
+    prevArrow: '<button class="slide-arrow prev-arrow"><img src="'+arrow+'" alt=""></button>',
+    nextArrow: '<button class="slide-arrow next-arrow"><img src="'+arrow+'" alt=""></button>',
     responsive: [
                   {
                     breakpoint: 576,
@@ -95,7 +95,34 @@ $(document).ready(function(){
 });
 
 
-
+ $(document).on('click', '.second-ajax-pag .pagination a',function(event)
+ {
+    event.preventDefault();
+    
+    $('.datas').append('<div class="cus-spinner-full"><div class="sk-spinner sk-spinner-three-bounce"><div class="sk-bounce1"></div><div class="sk-bounce2"></div><div class="sk-bounce3"></div></div></div>');
+    $(this).parent('li').removeClass('active');
+    $(this).parent('li').addClass('active');
+    var myurl = $(this).attr('href');
+    var page=$(this).attr('href').split('page=')[1];
+    getData(page);
+ });
+ function getData(page,htype = 0){
+    $.ajax(
+    {
+      url: '?page=' + page,
+      type: "get",
+      datatype: "html",
+      data:{
+        htype: htype,
+     },
+  }).done(function(data){
+   $(".table-history").empty().html(data);
+   location.hash = page;
+}).fail(function(jqXHR, ajaxOptions, thrownError){
+  alert('No response from server');   
+  $('.cus-spinner-full').hide(200);
+});
+}
 
 
 

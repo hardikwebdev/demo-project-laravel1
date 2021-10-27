@@ -54,10 +54,12 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::get('/get-downlineusers', 'App\Http\Controllers\HomeController@downlineUsers')->name('downlineUsers');
         Route::get('/get-downlinePlacement', 'App\Http\Controllers\HomeController@downlinePlacement')->name('downlinePlacement');
         Route::get('/stacking-pool', 'App\Http\Controllers\HomeController@stacking_pool')->name('stacking_pool');
-        Route::get('/stackpool', 'App\Http\Controllers\HomeController@stackpool')->name('stackpool');
-        Route::get('/node_management', 'App\Http\Controllers\HomeController@node_management')->name('node_management');
+        Route::get('/stack/{id}', 'App\Http\Controllers\StackingPoolController@detail')->name('stackpool');
+        Route::get('/node_management', 'App\Http\Controllers\AccountController@node_management')->name('node_management');
 
-        Route::get('/node_register', 'App\Http\Controllers\HomeController@node_register')->name('node_register');
+        Route::get('/node_register', 'App\Http\Controllers\AccountController@addmember')->name('node_register');
+        Route::post('/createmember', 'App\Http\Controllers\AccountController@createMember')->name('createmember');
+
         Route::get('/crypto_wallets', 'App\Http\Controllers\HomeController@crypto_wallets')->name('crypto_wallets');
         Route::get('/yield_wallet', 'App\Http\Controllers\HomeController@yield_wallet')->name('yield_wallet');
         Route::get('/commission_wallet', 'App\Http\Controllers\HomeController@commission_wallet')->name('commission_wallet');
@@ -102,9 +104,9 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             Route::resource('setting', SettingController::class);
 
             // Withdrawal Request 
-             Route::resource('withdrawal_request', AdminWithdrawalRequest::class);
-             Route::post('bankproof',  [AdminWithdrawalRequest::class, 'bank_proofs'])->name('user.bank_proofs');
-             Route::any('withdrawal-request-export',[AdminWithdrawalRequest::class, 'exportData'])->name('withdrawal_request.export');
+            Route::resource('withdrawal_request', AdminWithdrawalRequest::class);
+            Route::post('bankproof',  [AdminWithdrawalRequest::class, 'bank_proofs'])->name('user.bank_proofs');
+            Route::any('withdrawal-request-export',[AdminWithdrawalRequest::class, 'exportData'])->name('withdrawal_request.export');
 
             // package crud
             Route::resource('packages', PackageController::class);
