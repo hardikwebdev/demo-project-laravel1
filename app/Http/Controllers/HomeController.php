@@ -9,6 +9,7 @@ use App\Models\User;
 use Auth;
 use App\Models\NftCategory;
 use App\Models\News;
+use App\Models\StackingPool;
 
 class HomeController extends Controller
 {
@@ -39,7 +40,13 @@ class HomeController extends Controller
     public function dashboard(){
         $user = $this->user;
         $sliders = Slider::all();
-        $stacking_pool = StackingPoolPackage::all();
+        $stacking_pool = StackingPoolPackage::orderBy('id','desc')
+                                            ->limit(8)
+                                            ->get()
+                                            ->map(function($pool) use ($user){
+                                                $pool->investedAmount = StackingPool::where('user_id',$user->id)->where('stacking_pool_package_id',$pool->id)->sum('amount');
+                                                return $pool;
+                                            });
         $nft_cats = NftCategory::orderBY('id','desc')->limit(3)->get();
         $locale = app()->getLocale();
         // if ($locale == 'en' || $locale == 'ko' || $locale == 'th' || $locale == 'vi') {
@@ -51,12 +58,6 @@ class HomeController extends Controller
 
         return view('dashboard',compact('user','sliders','stacking_pool','news','nft_cats'));
     }
-
-    public function stacking_pool(){
-        return view('stacking_pool.index');
-    }
-
-    
 
     public function crypto_wallets(){
         return view('crypto_wallet.index');

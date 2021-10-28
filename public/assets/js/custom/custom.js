@@ -104,7 +104,21 @@ $(document).ready(function(){
     $(this).parent('li').addClass('active');
     var myurl = $(this).attr('href');
     var page=$(this).attr('href').split('page=')[1];
-    getData(page);
+     $.ajax(
+    {
+      url: '?page=' + page,
+      type: "get",
+      datatype: "html",
+      data:{
+        // htype: htype,
+      },
+    }).done(function(data){
+     $(".table-history").empty().html(data);
+     location.hash = page;
+   }).fail(function(jqXHR, ajaxOptions, thrownError){
+    alert('No response from server');   
+    $('.cus-spinner-full').hide(200);
+  });
  });
  function getData(page,htype = 0){
     $.ajax(

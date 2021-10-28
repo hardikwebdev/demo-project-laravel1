@@ -1533,5 +1533,12 @@ return [
     'stacking_history' => 'Stacking History',
     'duration' => 'Duration',
     'stack_amount' => 'Stake Amount',
+    'stack_now' => 'Stake Now',
+    'duration_term' => 'Duration Term',
+    'months' => 'Months',
+    'stacking_pool_added_successfully' => 'Stacking pool added successfully.',
+    'invested_amount' => 'Invested <br> Amounts',
+    'stacking_pool' => 'Stacking Pool',
+    'stacking_pools' => 'Stacking Pools',
 
 ];

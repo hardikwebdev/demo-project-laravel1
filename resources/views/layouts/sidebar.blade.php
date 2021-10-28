@@ -8,7 +8,7 @@
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('stacking_pool') }}">
+      <a class="nav-link" href="{{ route('stacks') }}">
         <img src="{{ asset('assets/images/assets/Dashboard/Group955.png') }}" class="cus-sidebar-icon" alt="">
         <span class="menu-title">Staking Pools</span>
       </a>

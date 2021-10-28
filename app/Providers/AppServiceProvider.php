@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
+use Auth;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,7 +15,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        view()->composer(['*'], function ($view) {
+            if (Auth::check() && auth()->user()->userwallet) {
+                $totalstacking_pool = auth()->user()->userwallet->crypto_wallet;
+                $view->with('max_stack', $totalstacking_pool);
+
+            }
+        });
+
     }
 
     /**

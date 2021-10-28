@@ -55,14 +55,15 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::get('/', 'App\Http\Controllers\HomeController@dashboard')->name('dashboard');
         Route::get('/get-downlineusers', 'App\Http\Controllers\HomeController@downlineUsers')->name('downlineUsers');
         Route::get('/get-downlinePlacement', 'App\Http\Controllers\HomeController@downlinePlacement')->name('downlinePlacement');
-        Route::get('/stacking-pool', 'App\Http\Controllers\HomeController@stacking_pool')->name('stacking_pool');
+
+        Route::get('/stacks', 'App\Http\Controllers\StackingPoolController@index')->name('stacks');
+        Route::post('/stacking-pool', 'App\Http\Controllers\StackingPoolController@stacking_pool')->name('stacking_pool');
         Route::get('/stack/{id}', 'App\Http\Controllers\StackingPoolController@detail')->name('stackpool');
         Route::get('/node_management', 'App\Http\Controllers\AccountController@node_management')->name('node_management');
 
         Route::get('/node_register', 'App\Http\Controllers\AccountController@addmember')->name('node_register');
         Route::post('/createmember', 'App\Http\Controllers\AccountController@createMember')->name('createmember');
 
-        Route::get('/node_register', 'App\Http\Controllers\HomeController@node_register')->name('node_register');
         Route::get('/crypto_wallets', 'App\Http\Controllers\WalletController@cryptoWallets')->name('crypto_wallets');
         Route::any('/crypto_wallets_form', 'App\Http\Controllers\WalletController@cryptoWalletForm')->name('cryptoWalletForm');
         Route::get('/yield_wallet', 'App\Http\Controllers\WalletController@yieldWallet')->name('yield_wallet');

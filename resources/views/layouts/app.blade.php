@@ -52,14 +52,14 @@
 <script src="{{asset('backend/js/sweetalert.min.js')}}"></script>
 <script src="{{ asset('assets/js/custom/custom.js').'?v='.time() }}"></script>
 <script src="{{asset('backend/js/plugins/validate/additional-methods.min.js')}}"></script>
- <script>
-   var sponsorUsernameExits = "{{route('sponsorUsernameExits')}}";
-   var placementUsernameExits = "{{route('placementUsernameExits')}}";
+<script>
+ var sponsorUsernameExits = "{{route('sponsorUsernameExits')}}";
+ var placementUsernameExits = "{{route('placementUsernameExits')}}";
 
-   var emailExists = "{{route('emailExists')}}";
-   var usernameExits = "{{route('usernameExits')}}";
- </script>
- <script type="text/javascript">
+ var emailExists = "{{route('emailExists')}}";
+ var usernameExits = "{{route('usernameExits')}}";
+</script>
+<script type="text/javascript">
   $.ajaxSetup({
     headers: {
       'X-CSRF-TOKEN': "{{csrf_token()}}"

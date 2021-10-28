@@ -20,8 +20,8 @@ class CreateStackingPoolsTable extends Migration
             $table->double('amount',12,2)->default(0.00);
             $table->double('percent',12,2)->default(0.00);
             $table->string('stacking_period');
-            $table->string('range');
-            $table->string('commission');
+            $table->string('range')->nullable();
+            $table->string('commission')->default(0.00);
             $table->timestamps();
         });
     }
