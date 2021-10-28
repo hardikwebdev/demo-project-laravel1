@@ -99,10 +99,10 @@
           <h3 class="text-white font-weight-bold">{{$stackingpool->stacking_display_start}}% - {{$stackingpool->stacking_display_end}}%</h3>
           @if($stackingpool->investedAmount > 0)
           <div class="d-flex justify-content-around mt-2">
-            <p class="text-white font-weight-bold font-12">Invested <br/> Amounts</p>
+            <p class="text-white font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
             <button class="btn bg-blue text-white rounded-0 px-4">${{number_format($stackingpool->investedAmount,2)}}</button>
           </div>
-          <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2 position-absolute" href="{{ route('stackpool',$stackingpool->id) }}">{{__('custom.stack')}} <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle w-25" alt=""></a>
+          <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2 card-1-btn position-absolute" href="{{ route('stackpool',$stackingpool->id) }}">{{__('custom.stack')}} <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle w-25" alt=""></a>
           @else
           <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2" href="{{ route('stackpool',$stackingpool->id) }}">{{__('custom.stack')}} <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle" alt=""></a>
           @endif
@@ -119,10 +119,10 @@
           <h3 class="text-white font-weight-bold">{{$stackingpool->stacking_display_start}}% - {{$stackingpool->stacking_display_end}}%</h3>
           @if($stackingpool->investedAmount > 0)
           <div class="d-flex justify-content-around mt-2">
-            <p class="text-white font-weight-bold font-12">Invested <br/> Amounts</p>
+            <p class="text-white font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
             <button class="btn bg-blue text-white rounded-0 px-4">${{number_format($stackingpool->investedAmount,2)}}</button>
           </div>
-          <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2 position-absolute" href="{{ route('stackpool',$stackingpool->id) }}">{{__('custom.stack')}} <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle w-25" alt=""></a>
+          <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2 card-2-btn position-absolute" href="{{ route('stackpool',$stackingpool->id) }}">{{__('custom.stack')}} <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle w-25" alt=""></a>
           @else
           <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2" href="{{ route('stackpool',$stackingpool->id) }}">{{__('custom.stack')}} <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle" alt=""></a>
           @endif
@@ -140,10 +140,10 @@
           
           @if($stackingpool->investedAmount > 0)
           <div class="d-flex justify-content-around mt-2">
-            <p class="text-white font-weight-bold font-12">Invested <br/> Amounts</p>
+            <p class="text-white font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
             <button class="btn bg-blue text-white rounded-0 px-4">${{number_format($stackingpool->investedAmount,2)}}</button>
           </div>
-          <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2 position-absolute" href="{{ route('stackpool',$stackingpool->id) }}">{{__('custom.stack')}} <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle w-25" alt=""></a>
+          <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2 card-3-btn position-absolute" href="{{ route('stackpool',$stackingpool->id) }}">{{__('custom.stack')}} <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle w-25" alt=""></a>
           @else
           <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2" href="{{ route('stackpool',$stackingpool->id) }}">{{__('custom.stack')}} <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle" alt=""></a>
           @endif
@@ -160,7 +160,7 @@
           <h3 class="text-blue font-weight-bold">{{$stackingpool->stacking_display_start}}% - {{$stackingpool->stacking_display_end}}%</h3>
           @if($stackingpool->investedAmount > 0)
           <div class="d-flex justify-content-around mt-2">
-            <p class="text-dark font-weight-bold font-12">Invested <br/> Amounts</p>
+            <p class="text-dark font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
             <button class="btn bg-blue text-white rounded-0 px-4">${{number_format($stackingpool->investedAmount,2)}}</button>
           </div>
           <a class="btn bg-warning text-white px-3 rounded-0 font-10 mt-2 card-4-btn" href="{{ route('stackpool',$stackingpool->id) }}">{{__('custom.stack')}} <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-2 d-inline align-middle w-25" alt=""></a>
@@ -273,20 +273,20 @@
             <div class="bg-news p-4 d-flex flex-column justify-content-end" style="background-image: url({{$value->image}});">
               <h5 class="text-white">{{__('custom.news')}}</h5>
               <h3 class="text-white">{!! \Illuminate\Support\Str::limit($value->title,50) !!}</h3>
-              <p class="text-white font-12">{!! \Illuminate\Support\Str::limit($value->description,100) !!}</p>
+              <p class="text-white font-12">{!! \Illuminate\Support\Str::limit($value->details,100) !!}</p>
             </div>
           </div>
           @else
           @if($key == 1)
           <div class="col-12 col-xl-5 mt-4 mt-xl-0">
             @endif
-            <div class="d-flex align-items-center">
+            <div class="d-flex align-items-center {{($key > 1) ? 'mt-3' : '' }}">
               <div>
                 <img src="{{$value->image}}" class="img-fluid" alt="">
               </div>
               <div class="ml-3 border-bottom pb-3">
                 <p class="font-12 mb-1">{!! \Illuminate\Support\Str::limit($value->title,50) !!}</p>
-                <h5 class="font-weight-bold">{!! \Illuminate\Support\Str::limit($value->description,50) !!}</h5>
+                <h5 class="font-weight-bold">{!! \Illuminate\Support\Str::limit($value->details,50) !!}</h5>
               </div>
             </div>
             <!-- <div class="d-flex align-items-center mt-3">

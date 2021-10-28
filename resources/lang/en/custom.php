@@ -1537,7 +1537,7 @@ return [
     'duration_term' => 'Duration Term',
     'months' => 'Months',
     'stacking_pool_added_successfully' => 'Stacking pool added successfully.',
-    'invested_amount' => 'Invested Amounts',
+    'invested_amount' => 'Invested <br> Amounts',
     'stacking_pool' => 'Stacking Pool',
     'stacking_pools' => 'Stacking Pools',
 

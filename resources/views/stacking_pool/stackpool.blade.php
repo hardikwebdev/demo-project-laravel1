@@ -26,7 +26,7 @@
             </div>
             @if($totalInvested > 0)
             <div class="col-12 col-md-5 px-xl-0">
-              <p class="text-blue font-12 font-weight-bold">{{__('custom.invested_amount')}}</p>
+              <p class="text-blue font-12 font-weight-bold">{{str_replace('<br>','',__('custom.invested_amount'))}}</p>
               <button class="btn bg-blue text-white rounded-0 w-100">${{number_format($totalInvested,2)}}</button>
             </div>
             @endif

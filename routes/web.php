@@ -64,7 +64,6 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::get('/node_register', 'App\Http\Controllers\AccountController@addmember')->name('node_register');
         Route::post('/createmember', 'App\Http\Controllers\AccountController@createMember')->name('createmember');
 
-        Route::get('/node_register', 'App\Http\Controllers\HomeController@node_register')->name('node_register');
         Route::get('/crypto_wallets', 'App\Http\Controllers\WalletController@cryptoWallets')->name('crypto_wallets');
         Route::any('/crypto_wallets_form', 'App\Http\Controllers\WalletController@cryptoWalletForm')->name('cryptoWalletForm');
         Route::get('/yield_wallet', 'App\Http\Controllers\WalletController@yieldWallet')->name('yield_wallet');
