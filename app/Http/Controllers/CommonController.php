@@ -434,7 +434,7 @@ class CommonController extends Controller
 
 
       /***Check Username   */
-    /*protected function usernameExits(Request $request){
+    protected function usernameExits(Request $request){
         $usernameExits = User::where('username',$request->username)->first();
         if ($usernameExits === null) {
             $isValid = true;
@@ -444,7 +444,7 @@ class CommonController extends Controller
         echo json_encode(array(
             'valid' => $isValid,
         ));
-    }*/
+    }
     /**
      * Store a newly created resource in storage.
      *
