@@ -6,6 +6,8 @@ use App\Models\User;
 use App\Models\UserReferral;
 use Illuminate\Http\Request;
 use App\Helpers\Helper;
+use App\Models\WithdrawalRequest;
+use Auth;
 
 class CommonController extends Controller
 {
@@ -431,6 +433,18 @@ class CommonController extends Controller
     }
 
 
+      /***Check Username   */
+    /*protected function usernameExits(Request $request){
+        $usernameExits = User::where('username',$request->username)->first();
+        if ($usernameExits === null) {
+            $isValid = true;
+        } else {
+            $isValid = false;
+        }
+        echo json_encode(array(
+            'valid' => $isValid,
+        ));
+    }*/
     /**
      * Store a newly created resource in storage.
      *
@@ -485,5 +499,27 @@ class CommonController extends Controller
     public function destroy($id)
     {
         //
+    }
+    // withdrawlRequestVerify
+    public function withdrawlRequestVerify(Request $request){
+        $withderawRequest = WithdrawalRequest::where('usdt_verification_key',$request->key)->first();
+        \Session::put('url1', $request->key);
+        if (Auth::check()) {
+            $user = Auth::user();
+            // $user = User::find($withderawRequest->user_id);
+            if($withderawRequest->user_id !=  $user->id){
+                return redirect()->route('withdrawal')->with(['error'=>trans('custom.withdraw_request_not_user')]);
+            }
+            if($withderawRequest){
+                if($withderawRequest->status != 3 ){
+                    return redirect()->route('withdrawal')->with(['error'=>trans('custom.withdrawl_request_already_verified')]);    
+                }
+                $withderawRequest->status = 0;
+                $withderawRequest->save();
+                return redirect()->route('withdrawal')->with(['success'=>trans('custom.withdrawl_request_verified')]);
+            }
+            return redirect()->route('withdrawal')->with(['error'=>trans('custom.withdrawl_request_not_valid')]);
+        }
+        return redirect()->route('login')->with(['error'=>trans('custom.login_first')]);
     }
 }

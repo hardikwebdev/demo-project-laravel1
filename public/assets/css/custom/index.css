@@ -483,6 +483,7 @@ form{
 }
 label.error,label.sucess,.cus-error-sponsor,.cus-error-placement{
     font-weight: 700;
+    color: red;
 }
 .cus-error-sponsor,.cus-error-placement{
     color: #c71d25 !important;

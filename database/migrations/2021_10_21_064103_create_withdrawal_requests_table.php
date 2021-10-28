@@ -19,7 +19,7 @@ class CreateWithdrawalRequestsTable extends Migration
             $table->string('transaction_id')->nullable();
             $table->string('payment_address')->nullable();
             $table->string('payment_proof')->nullable();
-            $table->text('remark');
+            $table->text('remark')->nullable();
             $table->double('withdrawal_amount',12,2)->default(0.00);
             $table->double('payble_amount',12,2)->default(0.00);
             $table->enum('type', ['0','1','2','3','4'])->default('0')->comment('0 = Bank,1 =USDT , 2 = OMINI');
