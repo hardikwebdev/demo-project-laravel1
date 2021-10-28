@@ -10,12 +10,8 @@
   <link rel="stylesheet" href="{{ asset('assets/css/custom/feather.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/themify-icons.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/vertical-layout-light/style.css') }}">
-<<<<<<< HEAD
   <link rel="stylesheet" href="{{ asset('backend/css/dropify.min.css')}}">
-  <link rel="stylesheet" href="{{ asset('assets/css/custom/index.css') }}">
-=======
   <link rel="stylesheet" href="{{ asset('assets/css/custom/index.css').'?v='.time() }}">
->>>>>>> 0a1d67984f10fc31c96ac3616c4f7b39a49c7287
   <link rel="stylesheet" href="{{ asset('assets/css/custom/slick.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/slick-theme.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/jquery.steps.css') }}">
