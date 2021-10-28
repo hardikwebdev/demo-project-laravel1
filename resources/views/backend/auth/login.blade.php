@@ -14,16 +14,16 @@
     <link href="{{ asset('backend/css/custom.css') }}" rel="stylesheet">
 </head>
 
-<body class="gray-bg" style="background:url('{{ url('images/redbg.jpg') }}')">
+<body class="gray-bg" style="background:url('{{ url('assets/images/assets/Register_Account/Group73.png') }}')">
 
     <div class="middle-box text-center loginscreen animated fadeInDown">
-        <div class="white-bg p-3">
+        <div class="white-bg p-3" style="background-image: linear-gradient(to right, #cf62db , #3a1eb7);">
             <div class="mt-1">
                 {{-- <h5 class="logo-name">{{env('APP_NAME')}}</h5> --}}
-                <h3>{{env('APP_NAME')}}</h3>
-                {{-- <img src="{{asset('images/logo.png')}}" width="220"> --}}
+                {{-- <h3>{{env('APP_NAME')}}</h3> --}}
+                <img src="{{asset('/assets/images/assets/Register_Account/Group83.png')}}" width="220">
             </div>
-            <h3 class="mb-1 mt-1">Administrator Login</h3>
+            <h3 class="mb-1 mt-1" style="color: #ffffff !important;">Administrator Login</h3>
             {{-- <p>Login in. To see it in action.</p> --}}
             <form method="POST" action='{{ route('admin.login') }}' aria-label="{{ __('Login') }}"
                 autocomplete="off" class="m-t mt-40" id="adminloginform">
@@ -54,10 +54,10 @@
                         </span>
                     @enderror
                 </div>
-                <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
+                <button type="submit" class="btn bg-warning text-white block full-width m-b">Login</button>
             </form>
 
-            <p class="m-t"> <small><strong>Copyright</strong> {{ env('APP_NAME') }} &copy;
+            <p class="m-t" style="color: #ffffff !important;"> <small><strong>Copyright</strong> {{ env('APP_NAME') }} &copy;
                     {{ date('Y') }}</small></p>
         </div>
     </div>

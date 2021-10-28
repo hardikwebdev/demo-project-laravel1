@@ -478,7 +478,7 @@ form{
     text-transform: uppercase;
 }
 
-.success-verify,.cus-success-sponsor,.cus-error-sponsor , .wizard > .content > .body .cus-error-sponsor,.cus-error-placement,.wizard > .content > .body .cus-error-placement{
+.success-verify,.cus-success-sponsor,.cus-success-placement,.cus-error-sponsor , .wizard > .content > .body .cus-error-sponsor,.cus-error-placement,.wizard > .content > .body .cus-error-placement{
     display: none;
 }
 label.error,label.sucess,.cus-error-sponsor,.cus-error-placement{
@@ -499,5 +499,18 @@ label.error,label.sucess,.cus-error-sponsor,.cus-error-placement{
 }
 .wizard > .content > .body label.error{
     margin-left: 0 !important;
+}
+span.page-link, a.page-link {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    color: #a3a4a5 !important;
+}
+.active > span.page-link {
+    background-color: #FFC100 !important;
+    border-color: #FFC100 !important;
+    color: #a3a4a5 !important;
+}
+.second-ajax-pag > nav {
+    float: right;
 }
 /*******************************step wizard end*****************************************/  

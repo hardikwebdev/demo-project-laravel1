@@ -3,14 +3,15 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Models\User;
+use App\Helpers\Helper;
 use App\Models\Country;
-use App\Models\UserWallet;
 use App\Models\UserBank;
+use App\Models\UserWallet;
 use Illuminate\Http\Request;
 use App\Models\UserAgreement;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -47,7 +48,7 @@ class UserController extends Controller
         /* Search Functionality*/
         $users = $users
             ->OrderBy('id', 'desc')
-            ->paginate(30)
+            ->paginate($request->limit)
             ->appends($request->all());
         // $groups = \App\Group::where('status','1')->pluck('name','id');
         // $packages = Model\Package::where('status','active')->pluck('name','id');
@@ -135,18 +136,16 @@ class UserController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
-        //     if(Helper::ic_number_verification($data['ic_number'],$data['sponsor']) == true){
+        // if(Helper::ic_number_verification($data['ic_number'],$data['sponsor']) == true){
         //     $validator = Validator::make([], []);
         //     $validator->getMessageBag()->add('ic_number',  trans('validation.unique',['attribute'=>'identification number']));
         //     return redirect()->back()->withErrors($validator)->withInput();
         //         // return response()->json(['success' => false, 'message' => trans('validation.unique',['attribute'=>'identification number']), "code" => 400], 400);
         // }
         $terms_condition = $request->terms_condition;
-        $securePassword = md5($data['secure_password']);
         $sponsor_id = User::where('username', $data['sponsor'])
             ->where('status', 'active')
             ->first();
-
         $user = User::firstOrCreate([
             'name' => $data['name'],
             'sponsor_id' => $sponsor_id != null ? $sponsor_id->id : '0',
@@ -157,7 +156,7 @@ class UserController extends Controller
             'country_id' => $data['country'],
             'identification_number' => $data['ic_number'],
             'phone_number' => $data['phone_number'],
-            'secure_password' => $securePassword,
+            'secure_password' => Hash::make($data['secure_password']),
             'email' => $data['email'],
             // 'password' => md5($data['password']),
             'password' => Hash::make($data['password']),
@@ -530,6 +529,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+        // dd($id);
         //
         try {
             $user = User::find($id);
@@ -552,7 +552,8 @@ class UserController extends Controller
                 // FundWallet::where('user_id', $id)->delete();
                 // WithdrawalRequest::where('user_id', $id)->delete();
                 // UserReferral::where('user_id', $id)->delete();
-                $user->forceDelete();
+                // $user->forceDelete();
+                $user->delete();
                 return redirect()
                     ->route('user.index')
                     ->with(['success' => 'Customer delete sucessfully.']);

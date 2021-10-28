@@ -62,7 +62,7 @@
                                 @endforeach                            
                                 @else
                                 <tr>
-                                    <td colspan="8">No any rank found!</td>
+                                    <td colspan="8">Oops! No Record Found.</td>
                                 </tr>
                                 @endif
                                 <tr>

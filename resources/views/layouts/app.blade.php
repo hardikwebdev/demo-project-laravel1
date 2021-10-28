@@ -10,8 +10,12 @@
   <link rel="stylesheet" href="{{ asset('assets/css/custom/feather.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/themify-icons.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/vertical-layout-light/style.css') }}">
+<<<<<<< HEAD
   <link rel="stylesheet" href="{{ asset('backend/css/dropify.min.css')}}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/index.css') }}">
+=======
+  <link rel="stylesheet" href="{{ asset('assets/css/custom/index.css').'?v='.time() }}">
+>>>>>>> 0a1d67984f10fc31c96ac3616c4f7b39a49c7287
   <link rel="stylesheet" href="{{ asset('assets/css/custom/slick.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/slick-theme.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/jquery.steps.css') }}">
@@ -52,7 +56,20 @@
 <script src="{{asset('backend/js/sweetalert.min.js')}}"></script>
 <script src="{{ asset('assets/js/custom/custom.js').'?v='.time() }}"></script>
 <script src="{{asset('backend/js/plugins/validate/additional-methods.min.js')}}"></script>
+ <script>
+   var sponsorUsernameExits = "{{route('sponsorUsernameExits')}}";
+   var placementUsernameExits = "{{route('placementUsernameExits')}}";
 
+   var emailExists = "{{route('emailExists')}}";
+   var usernameExits = "{{route('usernameExits')}}";
+ </script>
+ <script type="text/javascript">
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': "{{csrf_token()}}"
+    }
+  });
+</script>
 @yield('scripts')
 </body>
 

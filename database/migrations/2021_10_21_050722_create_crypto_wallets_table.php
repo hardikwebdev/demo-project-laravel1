@@ -16,7 +16,7 @@ class CreateCryptoWalletsTable extends Migration
         Schema::create('crypto_wallets', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id'); 
-            $table->enum('type', ['0','1'])->default('0');
+            $table->tinyInteger('type')->default(0)->comment('0 = usdt ,1 = malasian payment, 2 = coinpayment');
             $table->string('trans_slip')->nullable();
             $table->double('amount',8,2)->default(0.00);
             $table->double('usd_amount',8,2)->default(0.00);

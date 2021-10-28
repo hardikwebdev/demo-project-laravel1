@@ -98,7 +98,19 @@
 @endsection
 
 @section('scripts')
-<script type="text/javascript"> var action_url = "{{route('support_ticket.update','')}}"</script>
+<script type="text/javascript">
+ var action_url = "{{route('support_ticket.update','')}}"
+
+   
+$('#reply_support').on('hidden.bs.modal', function() {
+    $('#reply_support form')[0].reset();
+    $("label[for='username']").hide();
+    $("label[for='message']").hide();
+    $("label[for='subject']").hide();
+
+});
+
+</script>
 <script type="text/javascript"> 
     var detail_url = "{{route('support_ticket.show','')}}"
     var close_ticket_url = "{{route('support_ticket.store')}}"

@@ -63,7 +63,7 @@
                                 @endforeach                            
                                 @else
                                 <tr>
-                                    <td align="center" colspan="8">No any categories found</td>
+                                    <td>Oops! No Record Found.</td>
                                 </tr>
                                 @endif
                                 <tr>

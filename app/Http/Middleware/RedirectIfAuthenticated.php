@@ -22,7 +22,7 @@ class RedirectIfAuthenticated
       switch ($guard) {
             case 'admin' :
                 if (Auth::guard($guard)->check()) {
-                    return redirect('admin-vextrader-portal/dashboard');
+                    return redirect('admin/dashboard');
                 }
                 break;
             default:

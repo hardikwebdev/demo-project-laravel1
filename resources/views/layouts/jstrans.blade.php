@@ -110,5 +110,8 @@ var mt5_popup_txt = '{{ trans('custom.mt5_popup_txt') }}';
 var please_enter_placement_name = "{{trans('custom.please_enter_placement_name')}}";
 var downlineUsers = "{{route('downlineUsers')}}";
 var downlinePlacement = "{{route('downlinePlacement')}}";
-
+var finish = '{{trans("custom.finish")}}';
+var next = '{{trans("custom.next")}}';
+var previous = '{{trans("custom.previous")}}';
+var arrow = '{{ asset("assets/images/assets/Dashboard/Group948.png") }}';
 </script>

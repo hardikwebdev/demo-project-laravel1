@@ -33,24 +33,24 @@ class CommonController extends Controller
 
      /** Check sponsor username **/
     protected function placementUsernameExists(Request $request){
-        $usernameExits = User::where('username',$request->placement_username)->where('status',1)->exists();
+        $usernameExits = User::where('username',$request->placement_username)->where('status','active')->exists();
         if ($usernameExits != null) {
-            $placement = User::where('username',$request->placement_username)->where('status',1)->first();
-            $placementCount = User::where('placement_id',$placement->id)->where('status',1)->where('child_position',$request->child_position)->count();
+            $placement = User::where('username',$request->placement_username)->where('status','active')->first();
+            $placementCount = User::where('placement_id',$placement->id)->where('status','active')->where('child_position',$request->child_position)->count();
             if($placementCount > 0){
                 $isValid = false;
             }
-            $user = User::where('username',$request->sponsor_check)->where('status',1)->first();
+            $user = User::where('username',$request->sponsor_check)->where('status','active')->first();
             $user_reference = UserReferral::where('user_id',$user->id)->first();
             // $upline_ids = $user_reference!=null?(array)$user_reference->downline_ids:[];
-            $upline_ids = Helper::getUplineSponsorIds($user);
+            $upline_ids = Helper::getAllDownlineIds($user->id);
             $isValid = false;
 
-            if($placementCount == 0 && $placement && (in_array($placement->id, $upline_ids) || empty($upline_ids))){
+            if($placementCount == 0 && $placement && (in_array($placement->id, $upline_ids) || empty($upline_ids) || $placement->username == $user->username)){
                 $isValid = true;
             }
             // echo "<pre>";
-            // print_r($upline_ids);
+            // print_r(($placement->username == $user->username));
             //     die('test2');
 
         } else {
@@ -64,17 +64,17 @@ class CommonController extends Controller
     }
 
     /***Check Username   */
-    protected function usernameExits(Request $request){
-        $usernameExits = User::where('username',$request->username)->first();
-        if ($usernameExits === null) {
-            $isValid = true;
-        } else {
-            $isValid = false;
-        }
-        echo json_encode(array(
-            'valid' => $isValid,
-        ));
-    }
+    // protected function usernameExits(Request $request){
+    //     $usernameExits = User::where('username',$request->username)->first();
+    //     if ($usernameExits === null) {
+    //         $isValid = true;
+    //     } else {
+    //         $isValid = false;
+    //     }
+    //     echo json_encode(array(
+    //         'valid' => $isValid,
+    //     ));
+    // }
 
     /***Check email   */
     protected function emailExists(Request $request){
@@ -445,8 +445,6 @@ class CommonController extends Controller
             'valid' => $isValid,
         ));
     }*/
-
-
     /**
      * Store a newly created resource in storage.
      *
