@@ -53,7 +53,7 @@
       @foreach($sliders as $slider)
 
       <div class="position-relative">
-        <img src="{{$slider->image}}" class="img-fluid min-height-280" alt="">
+        <img src="{{ $slider->image }}" class="img-fluid min-height-280" alt="">
         <div class="text-center text-white NFT-collection">
           <!-- <h4>LAUNCHING SOON</h4>
             <h3>NFT COLLECTIONS</h3> -->
