@@ -324,7 +324,7 @@ $(document).ready(function(){
       },
 
   });
-  function getData(page,htype = 0){
+  /*function getData(page,htype = 0){
       $.ajax(
       {
           url: '?page=' + page,
@@ -344,9 +344,9 @@ $(document).ready(function(){
               alert('No response from server');   
               $('.cus-spinner-full').hide(200);
       });
-  }
+  }*/
 
-  $(document).on('click', '.second-ajax-pag .pagination a',function(event)
+  $(document).on('click', '.ticket-ajax-pag .pagination a',function(event)
   {
       event.preventDefault();
       

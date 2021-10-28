@@ -26,7 +26,7 @@
 					<button class="btn bg-warning text-white py-3 px-4 rounded-sm" data-toggle="modal" data-target="#new-tickets">OPEN TICKET <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-4 d-inline align-middle" alt=""></button>
 				</p>
 			</div>
-			<div class="datas">
+			<div class="table-responsive table-history">
 				@include('help_support.help_supportajax')
 			</div>
 		</div>
@@ -34,8 +34,8 @@
 	<div class="row align-items-center mt-5">
 		<div class="col-12 text-right">
 			@if(isset($supportTicket))
-			    <div class="second-ajax-pag">
-			    {{$supportTicket->render() }}
+			    <div class="ticket-ajax-pag">
+			    	@if($supportTicket->count() > 0){{ $supportTicket->render() }}@endif
 			    </div>
 			@endif
 		</div>

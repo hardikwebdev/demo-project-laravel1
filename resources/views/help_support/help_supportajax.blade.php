@@ -1,4 +1,4 @@
-<table class="table table-dark trading-table text-center table-responsive-sm table-pisprebate">
+<table class="table table-dark trading-table text-center table-responsive-sm table-history">
 	<thead class="table-gradient">
 		<tr>
 			<th>{{trans('custom.subject')}}</th>

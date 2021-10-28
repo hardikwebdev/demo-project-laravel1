@@ -11,7 +11,7 @@ class SupportTicketController extends Controller
 {
     public function __construct()
     {
-        $this->limit = 5;  
+        $this->limit = 10;  
         $this->middleware(function ($request, $next) {
             $this->user = Auth::user();
             return $next($request);
