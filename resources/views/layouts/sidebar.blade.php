@@ -89,7 +89,7 @@
       </div>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{{ route('help_support') }}">
+      <a class="nav-link" href="{{ route('help_support.index') }}">
         <img src="{{ asset('assets/images/assets/Dashboard/Path1214.png') }}" class="cus-sidebar-icon" alt="">
         <span class="menu-title">Help & Support</span>
       </a>

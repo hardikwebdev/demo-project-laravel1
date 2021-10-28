@@ -25,6 +25,7 @@ use App\Http\Controllers\Backend\Usernftwallet;
 use App\Http\Controllers\Backend\UseryieldwalletController;
 use App\Http\Controllers\Backend\UsercommissionwalletController;
 use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\SupportTicketController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -74,11 +75,13 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::get('/ledger', 'App\Http\Controllers\HomeController@ledger')->name('ledger');
         Route::get('/account', 'App\Http\Controllers\HomeController@account')->name('account');
         Route::get('/my_collection', 'App\Http\Controllers\HomeController@my_collection')->name('my_collection');
-        Route::get('/help_support', 'App\Http\Controllers\HomeController@help_support')->name('help_support');
+        // Route::get('/help_support', 'App\Http\Controllers\HomeController@help_support')->name('help_support');
         Route::get('/nftproduct', 'App\Http\Controllers\HomeController@nftproduct')->name('nftproduct');
         Route::get('/sell_nft', 'App\Http\Controllers\HomeController@sell_nft')->name('sell_nft');
         Route::get('/withdrawal', 'App\Http\Controllers\WithdrawalController@index')->name('withdrawal');
         Route::post('/withdrawal-request', 'App\Http\Controllers\WithdrawalController@withdrawalRequest')->name('withdrawal-request');
+        // Route::resource('help-support', 'App\Http\Controllers\SupportTicketController')->name('help-support');
+        Route::resource('help_support', SupportTicketController::class);
 
 
     });
