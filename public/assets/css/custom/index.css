@@ -513,4 +513,8 @@ span.page-link, a.page-link {
 .second-ajax-pag > nav {
     float: right;
 }
+.position-absolute{
+    position: absolute !important;
+    bottom: 36px;
+}
 /*******************************step wizard end*****************************************/  

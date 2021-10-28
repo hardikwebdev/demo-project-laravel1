@@ -14,7 +14,7 @@ $("#stacking_pool").validate({
             positiveNumber:true,
             minlength: 0,
             maxlength: 6,
-            min:max, 
+            max:max, 
         },
         security_password: {
             required: true,

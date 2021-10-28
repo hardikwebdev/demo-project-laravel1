@@ -17,7 +17,7 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->composer(['*'], function ($view) {
             if (Auth::check() && auth()->user()->userwallet) {
-                $totalstacking_pool = auth()->user()->userwallet->stacking_pool;
+                $totalstacking_pool = auth()->user()->userwallet->crypto_wallet;
                 $view->with('max_stack', $totalstacking_pool);
 
             }

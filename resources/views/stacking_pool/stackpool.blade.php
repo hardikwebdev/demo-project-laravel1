@@ -1,5 +1,6 @@
  @extends('layouts.app')
-
+@section('title', __('custom.stacking_pool'))
+@section('page_title', __('custom.stacking_pool'))
  @section('content')
  <div class="content-wrapper">
   <div class="row align-items-center mt-5 pt-5">
@@ -23,10 +24,12 @@
               <p class="text-blue font-12 font-weight-bold">{{__('custom.expected_anual_rate')}}</p>
               <h3 class="text-blue font-weight-bold mt-2">{{$stackingpool->stacking_display_start}}% - {{$stackingpool->stacking_display_end}}%</h3>
             </div>
+            @if($totalInvested > 0)
             <div class="col-12 col-md-5 px-xl-0">
-              <p class="text-blue font-12 font-weight-bold">Invested Amounts</p>
-              <button class="btn bg-blue text-white rounded-0 w-100">$20,000</button>
+              <p class="text-blue font-12 font-weight-bold">{{__('custom.invested_amount')}}</p>
+              <button class="btn bg-blue text-white rounded-0 w-100">${{number_format($totalInvested,2)}}</button>
             </div>
+            @endif
           </div>
         </div>
       </div>
@@ -124,11 +127,12 @@
     </div>
     <div class="col-12 col-xl-8 mt-4 mt-xl-0 pl-xl-5">
       <div>
-        <p class="text-white pb-3">Stake Now</p>
+        <p class="text-white pb-3">{{__('custom.stack_now')}}</p>
       </div>
-      <form method="post" action="{{ route('register') }}" id="stacking_pool">
+      <form method="post" action="{{ route('stacking_pool') }}" id="stacking_pool">
         @csrf
         <div class="row align-items-center bg-warning px-3 py-4 rounded">
+          <div class="col-12 col-md-12">
          @if(Session::has('success'))
          <div class="alert alert-success alert-dismissable">
            {{ Session::get('success') }}
@@ -141,8 +145,9 @@
            {{ Session::get('error') }}
          </div>
          @endif
-
+       </div>
          <div class="col-12 col-md-7">
+          <input type="hidden" name="stacking_pool_package_id" value="{{$stackingpool->id}}">
           <input type="text" name="amount" class="form-control h-auto py-4" placeholder="{{__('custom.stack_amount')}}">
           @error('amount')
           <span class="invalid-feedback" role="alert">
@@ -163,9 +168,9 @@
      </div>
      <div class="col-12 col-md-5 mt-3">
       <select name="duration" id="duration" class="form-control h-auto py-4">
-        <option value="">Duration Term</option>
-        <option value="12">12 Months</option>
-        <option value="24">24 Months</option>
+        <option value="">{{__('custom.duration_term')}}</option>
+        <option value="12">12 {{__('custom.months')}}</option>
+        <option value="24">24 {{__('custom.months')}}</option>
         @error('duration')
         <span class="invalid-feedback" role="alert">
          <strong>{{ $message }}</strong>
