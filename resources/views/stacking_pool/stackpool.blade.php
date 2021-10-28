@@ -126,54 +126,62 @@
       <div>
         <p class="text-white pb-3">Stake Now</p>
       </div>
-      <div class="row align-items-center bg-warning px-3 py-4 rounded">
-       @if(Session::has('success'))
-       <div class="alert alert-success alert-dismissable">
-         {{ Session::get('success') }}
-       </div>
-       @endif
+      <form method="post" action="{{ route('register') }}" id="stacking_pool">
+        @csrf
+        <div class="row align-items-center bg-warning px-3 py-4 rounded">
+         @if(Session::has('success'))
+         <div class="alert alert-success alert-dismissable">
+           {{ Session::get('success') }}
+         </div>
+         @endif
 
-       @if(Session::has('error'))
-       <div class="alert alert-danger alert-dismissable">
-         <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-         {{ Session::get('error') }}
+         @if(Session::has('error'))
+         <div class="alert alert-danger alert-dismissable">
+           <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+           {{ Session::get('error') }}
+         </div>
+         @endif
+
+         <div class="col-12 col-md-7">
+          <input type="text" name="amount" class="form-control h-auto py-4" placeholder="{{__('custom.stack_amount')}}">
+          @error('amount')
+          <span class="invalid-feedback" role="alert">
+           <strong>{{ $message }}</strong>
+         </span>
+         @enderror
        </div>
-       @endif
-       <div class="col-12 col-md-7">
-        <input type="text" name="amount" class="form-control h-auto py-4" placeholder="{{__('custom.stack_amount')}}">
-        @error('amount')
+       <div class="col-12 col-md-5 mt-3 mt-md-0">
+        <h3 class="font-weight-bold"><span class="font-12">Available Fund:</span> ${{($user->userwallet) ? number_format($user->userwallet->crypto_wallet,2) : '0.00' }}</h3>
+      </div>
+      <div class="col-12 col-md-7 mt-3">
+        <input name="security_password" id="security_password" type="text" class="form-control h-auto py-4" placeholder="{{ trans('custom.security_password') }}">
+        @error('secure_password')
         <span class="invalid-feedback" role="alert">
          <strong>{{ $message }}</strong>
        </span>
        @enderror
      </div>
-     <div class="col-12 col-md-5 mt-3 mt-md-0">
-      <h3 class="font-weight-bold"><span class="font-12">Available Fund:</span> ${{($user->userwallet) ? number_format($user->userwallet->crypto_wallet,2) : '0.00' }}</h3>
-    </div>
-    <div class="col-12 col-md-7 mt-3">
-      <input name="secure_password" id="secure_password" type="text" class="form-control h-auto py-4" placeholder="{{ trans('custom.security_password') }}">
-      @error('secure_password')
-      <span class="invalid-feedback" role="alert">
-       <strong>{{ $message }}</strong>
-     </span>
-     @enderror
+     <div class="col-12 col-md-5 mt-3">
+      <select name="duration" id="duration" class="form-control h-auto py-4">
+        <option value="">Duration Term</option>
+        <option value="12">12 Months</option>
+        <option value="24">24 Months</option>
+        @error('duration')
+        <span class="invalid-feedback" role="alert">
+         <strong>{{ $message }}</strong>
+       </span>
+       @enderror
+     </select>
    </div>
-   <div class="col-12 col-md-5 mt-3">
-    <select name="duration" class="form-control h-auto py-4">
-      <option value="">Duration Term</option>
-      <option value="12">12 Months</option>
-      <option value="24">24 Months</option>
-      @error('duration')
-      <span class="invalid-feedback" role="alert">
-       <strong>{{ $message }}</strong>
-     </span>
-     @enderror
-   </select>
- </div>
- <div class="col-12 mt-3">
-  <button class="btn bg-white text-warning p-4 rounded-0 w-100 text-uppercase">{{__('custom.stack')}} <img src="{{ asset('images/assets/Dashboard/Group930.png') }}" class="img-fluid d-inline align-middle ml-4" alt=""></button>
+   <div class="col-12 mt-3">
+    <button class="btn bg-white text-warning p-4 rounded-0 w-100 text-uppercase">{{__('custom.stack')}} <img src="{{ asset('images/assets/Dashboard/Group930.png') }}" class="img-fluid d-inline align-middle ml-4" alt=""></button>
+  </div>
+</div>
+</form>
 </div>
 </div>
-</div>
-</div>
+@endsection
+@section('scripts')
+<script src="{{ asset('assets/js/custom/stacking_pool.js').'?v='.time() }}"></script>
+
 @endsection
