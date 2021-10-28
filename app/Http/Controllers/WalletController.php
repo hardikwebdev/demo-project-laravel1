@@ -44,6 +44,7 @@ class WalletController extends Controller
         if ($request->ajax()) {
             return view('crypto_wallet/crypto_walletajax', compact('cryptowallet'));
         }
+        $convertedRateMYR = 0;
         if(Auth::user()->country_id == '131'){
             $convertedRateMYR = Model\Setting::where('key','bank_myr_amount')->value('value');
         }
