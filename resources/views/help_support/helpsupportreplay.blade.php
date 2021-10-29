@@ -28,7 +28,7 @@
                       }
                   @endphp
                   @if( $proofType ==  'pdf' || $proofType ==  'doc' || $proofType ==  'docx')
-                      <a href="{{asset('uploads/suport_ticket_attach/'.$valueAttach->file_name)}}" target="_blank">View</a> 
+                      <a href="{{asset('uploads/suport_ticket_attach/'.$valueAttach->file_name)}}" target="_blank">{{ trans('custom.view')}}</a> 
                   @else
                       <img src="{{asset('uploads/suport_ticket_attach/'.$valueAttach->file_name)}}" class="rounded-circle img-fluid">
                   @endif
@@ -63,7 +63,7 @@
                       }
                   @endphp
                   @if( $proofType ==  'pdf' || $proofType ==  'doc' || $proofType ==  'docx')
-                      <a href="{{asset('uploads/suport_ticket_attach/'.$valueAttach->file_name)}}" target="_blank">View</a> 
+                      <a href="{{asset('uploads/suport_ticket_attach/'.$valueAttach->file_name)}}" target="_blank">{{ trans('custom.view')}}</a> 
                   @else
                       <img src="{{asset('uploads/suport_ticket_attach/'.$valueAttach->file_name)}}" class="rounded-circle img-fluid">
                   @endif
@@ -87,7 +87,7 @@
   <div class="row mt-5 pt-5">
     <div class="col-12">
       <div class="login-gradient rounded text-white py-4 px-5">
-        <h2 class="mb-0 font-weight-bold">No Ticket found</h2>
+        <h2 class="mb-0 font-weight-bold">{{ trans('custom.no_ticket_found')}}</h2>
       </div>
     </div>
   </div>

@@ -18,12 +18,12 @@
 			@endif
 			<div class="mb-4">
 				<ul class="nav nav-tabs justify-content-center account-tabs border-0">
-				  <li><a class="text-warning border border-warning py-3 px-5 d-block fund-usdt-bank help-ajax active" data-type="2" data-toggle="tab" href="#home">All Tickets</a></li>
-				  <li><a class="text-warning border border-warning py-3 px-5 d-block fund-usdt-bank help-ajax" data-toggle="tab" data-type="0" href="#menu1"> Open ({{$openTicketCount}})</a></li>
-				  <li><a class="text-warning border border-warning py-3 px-5 d-block fund-usdt-bank help-ajax" data-toggle="tab" data-type="1" href="#menu2"> Close ({{$closeTicketCount}})</a></li>
+				  <li><a class="text-warning border border-warning py-3 px-5 d-block fund-usdt-bank help-ajax active" data-type="2" data-toggle="tab" href="#home">{{ trans('custom.all_tickets')}}</a></li>
+				  <li><a class="text-warning border border-warning py-3 px-5 d-block fund-usdt-bank help-ajax" data-toggle="tab" data-type="0" href="#menu1"> {{ trans('custom.open')}} ({{$openTicketCount}})</a></li>
+				  <li><a class="text-warning border border-warning py-3 px-5 d-block fund-usdt-bank help-ajax" data-toggle="tab" data-type="1" href="#menu2"> {{ trans('custom.close')}} ({{$closeTicketCount}})</a></li>
 				</ul>
 				<p class="m-t-md mt-4 text-center ">
-					<button class="btn bg-warning text-white py-3 px-4 rounded-sm" data-toggle="modal" data-target="#new-tickets">OPEN TICKET <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-4 d-inline align-middle" alt=""></button>
+					<button class="btn bg-warning text-white py-3 px-4 rounded-sm" data-toggle="modal" data-target="#new-tickets">{{ trans('custom.open_ticket')}} <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-4 d-inline align-middle" alt=""></button>
 				</p>
 			</div>
 			<div class="table-responsive table-history">
@@ -58,7 +58,7 @@
 	                            <div class="from-inner-space">
 	                                <label class="mb-2 bmd-label-static">{{trans('custom.title')}}:<span
 	                                    class="text-red">*</span></label>
-	                                {!! Form::select('subject_id',$supportSubject,old('supportSubject'),['class'=>'form-control','placeholder'=>'Select Title']) !!}            
+	                                {!! Form::select('subject_id',$supportSubject,old('supportSubject'),['class'=>'form-control grey-ph h-auto py-4 border-0 shadow','placeholder'=>'Select Title']) !!}            
 	                            </div>
 	                        </div>
 	                    </div>
@@ -68,7 +68,7 @@
 	                        <div class="form-group">
 	                            <div class="from-inner-space">
 	                                <label class="mb-2 bmd-label-static">{{trans('custom.attachment')}}:</label>
-	                                <input name="attachment[]" type="file" multiple  />
+	                                <input class="form-control grey-ph h-auto py-4 border-0 shadow" name="attachment[]" type="file" multiple  />
 	                            </div>
 	                        </div>
 	                    </div>
@@ -78,7 +78,7 @@
 	                        <div class="form-group">
 	                            <div class="from-inner-space">
 	                                <label class="mb-2 bmd-label-static">{{trans('custom.message')}}:<span class="text-red">*</span></label>
-	                                {!! Form::textarea('message', null, ['class'=> 'form-control' ,'id' => 'message', 'rows' => 4, 'cols' => 54]) !!}
+	                                {!! Form::textarea('message', null, ['class'=> 'form-control grey-ph h-auto py-4 border-0 shadow' ,'id' => 'message', 'rows' => 4, 'cols' => 54]) !!}
 	                            </div>
 	                        </div>
 	                    </div>

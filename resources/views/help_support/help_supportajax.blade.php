@@ -21,7 +21,7 @@
 				@endif
 			</td>
 			<td>
-				<a href="{{route('supportReplay',$value->slug)}}" class="cus-text-red" title="{{trans('custom.view')}}">View</a>
+				<a href="{{route('supportReplay',$value->slug)}}" class="cus-text-red" title="{{trans('custom.view')}}">{{ trans('custom.view')}}</a>
 			</td>
 		</tr>
 		@endforeach
