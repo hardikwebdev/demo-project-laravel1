@@ -1540,5 +1540,6 @@ return [
     'invested_amount' => 'Invested <br> Amounts',
     'stacking_pool' => 'Stacking Pool',
     'stacking_pools' => 'Stacking Pools',
+    'explore' => 'EXPLORE',
 
 ];

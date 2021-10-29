@@ -47,14 +47,14 @@ class HomeController extends Controller
                                                 $pool->investedAmount = StackingPool::where('user_id',$user->id)->where('stacking_pool_package_id',$pool->id)->sum('amount');
                                                 return $pool;
                                             });
-        $nft_cats = NftCategory::orderBY('id','desc')->limit(3)->get();
+        $nft_cats = NftCategory::orderBy('id','desc')->limit(3)->get();
         $locale = app()->getLocale();
         // if ($locale == 'en' || $locale == 'ko' || $locale == 'th' || $locale == 'vi') {
         //     $locale = 'en';
         // } else {
         //     $locale = 'cn';
         // }
-        $news = News::where(['status' => 'active', 'is_deleted' => null, 'lang' => $locale])->orderBy('created_at', 'desc')->take(5)->get();
+        $news = News::where(['status' => 'active', 'lang' => $locale])->orderBy('created_at', 'desc')->take(5)->get();
 
         return view('dashboard',compact('user','sliders','stacking_pool','news','nft_cats'));
     }

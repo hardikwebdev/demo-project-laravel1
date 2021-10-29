@@ -57,7 +57,7 @@
         <div class="text-center text-white NFT-collection">
           <!-- <h4>LAUNCHING SOON</h4>
             <h3>NFT COLLECTIONS</h3> -->
-            <button class="btn bg-transparent text-warning border-warning px-3 rounded-0 font-10 mt-2">EXPLORE <img src="{{ $slider->url }}" class="img-fluid ml-2 d-inline align-middle" alt=""></button>
+            <button class="btn bg-transparent text-warning border-warning px-3 rounded-0 font-10 mt-2">{{__('custom.explore')}} <img src="{{ $slider->url }}" class="img-fluid ml-2 d-inline align-middle" alt=""></button>
           </div>
         </div>
         @endforeach

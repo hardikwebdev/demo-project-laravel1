@@ -25,4 +25,8 @@ class StackingPool extends Model
     public function user_detail(){
         return $this->hasOne('App\Models\User','id','user_id');
     }
+
+    public function stacking_pool_package(){
+        return $this->hasOne('App\Models\StackingPoolPackage','id','stacking_pool_package_id');
+    }
 }

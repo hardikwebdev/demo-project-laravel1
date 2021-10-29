@@ -9,7 +9,7 @@
         <div class="card-body">
           <div class="row px-md-4 py-2">
             <div class="col-12 col-md-4">
-              <h1 class="text-violate border-violate rounded-circle font-weight-bold text-center alpha-symbol">A</h1>
+              <h1 class="text-violate border-violate rounded-circle font-weight-bold text-center alpha-symbol">{{substr($stackingpool->name,0,1)}}</h1>
             </div>
             <div class="col-12 col-md-8">
               <h3 class="text-blue font-weight-bold">{{$stackingpool->name}}</h3>
