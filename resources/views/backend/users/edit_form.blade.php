@@ -131,12 +131,12 @@
                             <a class="btn-primary btn btn-block verify-sponser">Verify Sponsor</a>
                         </div>
                     </div>
-                    <div class="col-md-12 ">
+                    {{-- <div class="col-md-12 ">
                         <input id="sponsor_check" type="hidden" class="form-control @error('sponsor_check') is-invalid @enderror" name="sponsor_check" value="{{ old('sponsor_check') }}"  autocomplete="sponsor_check" autofocus placeholder="{{ __('Sponsor Username') }}">
                         <span class="cus-error-sponsor error">{{trans('auth.verify_sponsor_wrong')}} </span>
                         <label class="cus-error-sponsor">{{trans('custom.sponsor_user_not_found_not__valid_sponsor')}}</label>
                         <label class="cus-success-sponsor sucess">{{trans('custom.sponsor_username_verified')}}</label>
-                    </div>
+                    </div> --}}
                     <span class="col-sm-12 help-block text-danger">{{ $errors->first('sponsor') }}</span>
                 </div>
 

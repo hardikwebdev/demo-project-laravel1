@@ -25,7 +25,7 @@ class AdminFactory extends Factory
         return [
             'name' => 'Admin',
             'username' => 'aipxperts',
-            'email' => 'admin@aipxperts.com',
+            'email' => 'admin@defixfinance.com',
             'email_verified_at' => now(),
             'password' => '$2y$10$v9gNzFAXwUHCp87uRLiSDe3WGCir9fF/U50MQRdg4QLh92flVMYC6', // aipX@1234
             'is_super' => '0',

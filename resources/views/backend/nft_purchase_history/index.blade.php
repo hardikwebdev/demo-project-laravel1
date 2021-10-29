@@ -8,7 +8,7 @@
     <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-12">
             <h2>
-                <div class="col-xs-12 col-md-4 p-0">Nft Purchase History</div>
+                <div class="col-xs-12 col-md-4 p-0">NFT Purchase History</div>
                 <div class="col-xs-12 col-md-8 text-right">
                     {{-- @role('admin') --}}
                     <a class="btn  btn-info" onclick="exportnftpurchasehistoryFunction()">Export</a>

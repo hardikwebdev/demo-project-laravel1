@@ -356,9 +356,10 @@ class UserController extends Controller
         $data = $request->all();
         try {
             /* Update user detail start*/
-            $sponsor_id = User::where('username', $data['sponsor'])
-                ->where('status', 'active')
-                ->first();
+            // $sponsor_id = User::where('username', $data['sponsor'])
+            //     ->where('status', 'active')
+            //     ->first();
+            $sponsor_id = User::where('username', $data['sponsor'])->first();
             // $package_detail = Model\Package::where([
             //     'status' => 'active',
             //     'is_deleted' => '0',

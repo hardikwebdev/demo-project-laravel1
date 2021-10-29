@@ -103,6 +103,11 @@ $('#country_id').on('change',function(e){
             $('#ic_number').attr('maxlength','12');
         }
     })
+
+
+
+
+
     $("#customer_register").validate({
         ignore: "input[type='text']:hidden",
         rules: {
@@ -110,6 +115,7 @@ $('#country_id').on('change',function(e){
                     alphanumeric : true,
                     minlength: 3,
                     maxlength: 50,
+        
                 },
                 name: {
                     required: true,
@@ -119,22 +125,22 @@ $('#country_id').on('change',function(e){
                     required: true,
                     alphanumeric : true,
                     minlength: 3,
-                    maxlength: 50,
-                //     remote: {
-                //         url: usernameExits,
-                //         type: "post",
-                //         data: {
-                //            _token: $("input[name=_token]").val()
-                //        },
-                //        dataFilter: function(data) {
-                //           var data = JSON.parse(data);
-                //           if (data.valid != true) {
-                //               return false;
-                //           } else {
-                //               return true;
-                //           }
-                //       }
-                //   }
+                    maxlength: 50,/*
+                    remote: {
+                        url: usernameExits,
+                        type: "post",
+                        data: {
+                            _token: $("input[name=_token]").val()
+                        },
+                        dataFilter: function(data) {
+                            var data = JSON.parse(data);
+                            if (data.valid != true) {
+                                return false;
+                            } else {
+                                return true;
+                            }
+                        }
+                    }*/
                 },
                 address: {
                     required: true,
@@ -184,21 +190,21 @@ $('#country_id').on('change',function(e){
                     required: true,
                     email: true,
                     maxlength: 50,
-                //     remote: {
-                //         url: emailExists,
-                //         type: "post",
-                //         data: {
-                //            _token: $("input[name=_token]").val()
-                //        },
-                //        dataFilter: function(data) {
-                //            var data = JSON.parse(data);
-                //            if (data.valid != true) {
-                //               return false;
-                //           } else {
-                //               return true;
-                //           }
-                //       }
-                //   }
+                    // remote: {
+                    //     url: emailExists,
+                    //     type: "post",
+                    //     data: {
+                    //         _token: $("input[name=_token]").val()
+                    //     },
+                    //     dataFilter: function(data) {
+                    //         var data = JSON.parse(data);
+                    //         if (data.valid != true) {
+                    //             return false;
+                    //         } else {
+                    //             return true;
+                    //         }
+                    //     }
+                    // }
                 },
                 phone_number: {
                     required: true,
@@ -300,6 +306,9 @@ $('#country_id').on('change',function(e){
             sponsor:{
                 required: "Please enter Sponsor Username",
             },
+            sponsor_check: {
+                required: "Please enter Sponsor Username",
+            },
             ic_number: {
                 required: "Please enter identification number",
                 alphanumeric : "Only number and alphabets are allowed",
@@ -310,7 +319,7 @@ $('#country_id').on('change',function(e){
                 required: "Please enter email address",
                 email: "Please enter valid email address",
                     // maxlength: 50,
-                // remote: "Email already exists!",
+                    // remote: "",
                 },
                 phone_number: {
                     required: "Please enter phone number",
@@ -368,244 +377,276 @@ $('#country_id').on('change',function(e){
                 
             },
         });
-$("#customer_register_edit").validate({
-        ignore: "input[type='text']:hidden",
-        rules: {
-            sponsor: {
-                alphanumeric : true,
-                minlength: 3,
-                maxlength: 50,
-               
-            },
-            name: {
-                required: true,
-                maxlength: 50,
-            },
-            username: {
-                required: true,
-                alphanumeric : true,
-                minlength: 3,
-                maxlength: 50,/*
-                remote: {
-                    url: usernameExits,
-                    type: "post",
-                    data: {
-                        _token: $("input[name=_token]").val()
+
+
+
+
+
+
+
+
+
+
+        $("#customer_register_edit").validate({
+            ignore: "input[type='text']:hidden",
+            rules: {
+                    sponsor: {
+                        required: true,
+                        alphanumeric : true,
+                        minlength: 3,
+                        maxlength: 50,
                     },
-                    dataFilter: function(data) {
-                        var data = JSON.parse(data);
-                        if (data.valid != true) {
-                            return false;
-                        } else {
-                            return true;
-                        }
-                    }
-                }*/
-            },
-            address: {
-                required: true,
-                maxlength: 100,
-            },
-            city: {
-                required: true,
-                maxlength: 50,
-            },
-            state: {
-                required: true,
-                maxlength: 50,
-            },
-            country_id: {
-                required: true,
-                number: true,
-            },
-            ic_number: {
-                required: true,
-                alphanumeric1: true,
-                maxlength: function(){
-                    if($('#country_id').val() == '131'){
-                        return '12';
-                    }
+                    name: {
+                        required: true,
+                        maxlength: 50,
+                    },
+                    username: {
+                        required: true,
+                        alphanumeric : true,
+                        minlength: 3,
+                            maxlength: 50,/*
+                            remote: {
+                                url: usernameExits,
+                                type: "post",
+                                data: {
+                                    _token: $("input[name=_token]").val()
+                                },
+                                dataFilter: function(data) {
+                                    var data = JSON.parse(data);
+                                    if (data.valid != true) {
+                                        return false;
+                                    } else {
+                                        return true;
+                                    }
+                                }
+                            }*/
+                    },
+                    address: {
+                        required: true,
+                        maxlength: 100,
+                    },
+                    city: {
+                        required: true,
+                        maxlength: 50,
+                    },
+                    state: {
+                        required: true,
+                        maxlength: 50,
+                    },
+                    country: {
+                        required: true,
+                        number: true,
+                    },
+                    ic_number: {
+                        required: true,
+                        alphanumeric1: true,
+                        maxlength: function(){
+                            if($('#country_id').val() == '131'){
+                                return '12';
+                            }
+                        },
+                    },
+                    // remote: {
+                    //     url: icNumberDuplicationEdit,
+                    //     type: "post",
+                    //     data: {
+                    //         _token: $("input[name=_token]").val(),
+                    //         sponsor_username: function() {
+                    //             return $( "#sponsor_username" ).val();
+                    //         }
+                    //     },
+                    //     dataFilter: function(data) {
+                    //         var data = JSON.parse(data);
+                    //         if (data.valid == true || data.valid == 'false') {
+                    //             return true;
+                    //         } else {
+                    //             return false;
+                    //         }
+                    //     }
+                    // },
+                    email: {
+                        required: true,
+                        email: true,
+                        maxlength: 50,
+                        
+                    },
+                    phone_number: {
+                        required: true,
+                        number: true,
+                        minlength:10,
+                        maxlength: 15,
+                    },
+                    password: {
+                        minlength:8,
+                        maxlength: 15
+                    },
+                    retype_password: {
+                        equalTo: "#password"
+                    },
+                    secure_password: {
+                        minlength:8,
+                        maxlength: 15
+                    },
+                    retype_secure_password: {
+                        equalTo: "#secure_password"
+                    },
+                    bank_name:{
+                        required: true,
+                        maxlength: 50,
+                    },
+                    acc_holder_name:{
+                        required: true,
+                        maxlength: 50,
+                        equalTo: "#fullname"
+                    },
+                    acc_number:{
+                        required: true,
+                        // number: true,
+                        maxlength: 20,
+                    },
+                    swift_code:{
+                        required: true,
+                        // number: true,
+                        maxlength: 20,
+                    },
+                    branch:{
+                        required: true,
+                        maxlength: 50,
+                    },
+                    branch:{
+                        required: true,
+                        maxlength: 50,
+                    },
+                    bank_country_id:{
+                        required: true,
+                    },       
                 },
-                remote: {
-                    url: icNumberDuplication,
-                    type: "post",
-                    data: {
-                        _token: $("input[name=_token]").val(),
-                        sponsor_username: function() {
-                            return $( "#sponsor_username" ).val();
-                          }
-                    },
-                    dataFilter: function(data) {
-                        var data = JSON.parse(data);
-                                    if (data.valid == true || data.valid == 'false') {
-                            return true;
-                        } else {
-                            return false;
-                        }
-                    }
-                }
-            },
-            email: {
-                required: true,
-                email: true,
-                maxlength: 50,
+                messages: {
+                sponsor: {
+                    required: "Please enter Sponsor Username",
+                    alphanumeric : "Only number and alphabets are allowed",
+                    minlength: "Please enter minimum 3 character",
+                    maxlength: "Maximim limit of sponsor name is 50 character",
+                },
+                name: {
+                    required: "Please enter full name",
+                    maxlength: "Maximim limit of sponsor name is 20 character",
+                },
+                username: {
+                    required: "Please enter username",
+                    alphanumeric : "Only number and alphabets are allowed",
+                    minlength: "Please enter minimum 3 character",
+                    maxlength: "Maximim limit of username is 50 character",
+                    remote:"",
+                },
+                address: {
+                    required: "Please enter address",
+                },
+                city: {
+                    required: "Please enter city",
+                },
+                state: {
+                    required: "Please enter state",
+                },
+                country: {
+                    required: "PLease select country",
+                },
+                ic_number: {
+                    // required: "Please enter identification number",
+                    alphanumeric : "Only number and alphabets are allowed",
+                    maxlength: "Maximim limit of 12 character",
+                    remote:"This Identification number is already in use"
+                },
+                email: {
+                    required: "Please enter email address",
+                    email: "Please enter valid email address",
+                    // maxlength: 50,
+                    // remote: "",
+                },
+                phone_number: {
+                    required: "Please enter phone number",
+                    number: "Please enter number only",
+                    minlength:"Please enter minimum 9 character",
+                    maxlength: "Maximim limit of username is 15 character",
+                },
+                password: {
+                    // minlength:8,
+                    // maxlength: 15
+                },
+                retype_password: {
+                    equalTo:"Password and Retype password must be same"
+                },
+                secure_password: {
+                    minlength:"Please enter minimum 8 character",
+                    maxlength: "Maximim limit of username is 15 character",
+                },
+                retype_secure_password: {
+                    equalTo: "Secure password and Retype secure password must be same"
+                },
+                bank_name:{
+                    required:"Please enter bank name",
+                    // maxlength: 50,
+                },
+                acc_holder_name:{
+                    required:"Please enter account holder name",
+                    // maxlength: 50,
+                },
+                acc_number:{
+                    required:"Please enter account number",
+                    number: "Only number has been allowed",
+                    // maxlength: 20,
+                },
+                swift_code:{
+                    required:"Please enter swift code",
+                    number: "Only number has been allowed",
+                    // maxlength: 20,
+                },
+                branch:{
+                    required:"Please enter bank branch",
+                    // maxlength: 50,
+                },
+                bank_country_id:{
+                    required: "Please Select bank account country",
+                },
+                signature:{
+                    required:"Please enter signature...",
+                    // maxlength: 50,
+                },
                 
             },
-            phone_number: {
-                required: true,
-                number: true,
-                minlength:10,
-                maxlength: 15,
-            },
-            password: {
-                minlength:8,
-                maxlength: 15
-            },
-            retype_password: {
-                equalTo: "#password"
-            },
-            secure_password: {
-                minlength:8,
-                maxlength: 15
-            },
-            retype_secure_password: {
-                equalTo: "#secure_password"
-            },
-            bank_name:{
-                required: true,
-                maxlength: 50,
-            },
-            acc_holder_name:{
-                required: true,
-                maxlength: 50,
-                equalTo: "#fullname"
-            },
-            acc_number:{
-                required: true,
-                // number: true,
-                maxlength: 20,
-            },
-            swift_code:{
-                required: true,
-                // number: true,
-                maxlength: 20,
-            },
-            branch:{
-                required: true,
-                maxlength: 50,
-            },
-            branch:{
-                required: true,
-                maxlength: 50,
-            },
-            bank_country_id:{
-                required: true,
-            },
-            
-        },
-        messages: {
-             sponsor: {
-                alphanumeric : "Only number and alphabets are allowed",
-                minlength: "Please enter minimum 3 character",
-                maxlength: "Maximim limit of sponsor name is 50 character",
-               
-            },
-            name: {
-                required: "Please enter full name",
-                maxlength: "Maximim limit of sponsor name is 20 character",
-            },
-            username: {
-                required: "Please enter username",
-                alphanumeric : "Only number and alphabets are allowed",
-                minlength: "Please enter minimum 3 character",
-                maxlength: "Maximim limit of username is 50 character",
-                remote:"",
-            },
-            address: {
-                required: "Please enter address",
-            },
-            city: {
-                required: "Please enter city",
-            },
-            state: {
-                required: "Please enter state",
-            },
-            country_id: {
-                required: "PLease select country",
-            },
-            ic_number: {
-                // required: "Please enter identification number",
-                alphanumeric : "Only number and alphabets are allowed",
-                maxlength: "Maximim limit of 12 character",
-                remote:"This Identification number is already in use"
-            },
-            email: {
-                required: "Please enter email address",
-                email: "Please enter valid email address",
-                // maxlength: 50,
-                // remote: "",
-            },
-            phone_number: {
-                required: "Please enter phone number",
-                number: "Please enter number only",
-                minlength:"Please enter minimum 9 character",
-                maxlength: "Maximim limit of username is 15 character",
-            },
-            password: {
-                // minlength:8,
-                // maxlength: 15
-            },
-            retype_password: {
-                equalTo:"Password and Retype password must be same"
-            },
-            secure_password: {
-                minlength:"Please enter minimum 8 character",
-                maxlength: "Maximim limit of username is 15 character",
-            },
-            retype_secure_password: {
-                equalTo: "Secure password and Retype secure password must be same"
-            },
-            bank_name:{
-                required:"Please enter bank name",
-                // maxlength: 50,
-            },
-            acc_holder_name:{
-                required:"Please enter account holder name",
-                // maxlength: 50,
-            },
-            acc_number:{
-                required:"Please enter account number",
-                number: "Only number has been allowed",
-                // maxlength: 20,
-            },
-            swift_code:{
-                required:"Please enter swift code",
-                number: "Only number has been allowed",
-                // maxlength: 20,
-            },
-            branch:{
-                required:"Please enter bank branch",
-                // maxlength: 50,
-            },
-            bank_country_id:{
-                required: "Please Select bank account country",
-            },
-            signature:{
-                required:"Please enter signature...",
-                // maxlength: 50,
-            },
-            
-        },
-    });
-    $('input[name="fixed_rank"]').on('change',function(){
-        if($(this).val()==1){
-            $('.self_trading-collapse').collapse('show');
-        }else{
-            $('.self_trading-collapse').collapse('hide');
+        });
 
-        }
 
-    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+$('input[name="fixed_rank"]').on('change',function(){
+    if($(this).val()==1){
+        $('.self_trading-collapse').collapse('show');
+    }else{
+        $('.self_trading-collapse').collapse('hide');
+
+    }
+
+})
     /*Update Fund Wallet Amount*/
 
 $("#add_fund_userwallet").validate({

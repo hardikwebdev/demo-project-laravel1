@@ -142,18 +142,6 @@
                 </div>
                 <span class="col-sm-12 help-block text-danger">{{ $errors->first('sponsor') }}</span>
             </div>
-            {{-- <div class="row">
-                <div class="col-sm-6"> 
-                       <div class="col-sm-12">        
-                        <div class="checkbox ">
-                            <input class="ml-0" id="is_consultant"  name="is_consultant" type="checkbox" value="1">
-                            <label for="is_consultant">
-                                Is Consultant
-                            </label>
-                        </div> 
-                    </div>      
-                </div>
-            </div> --}}
         </div>
     </div>
     <div class=" col-sm-6 m-t-lg">
@@ -260,21 +248,6 @@
             </div>
         </div>
     </div>
-    {{-- <div class=" col-sm-6 m-t-lg">
-        <div class="ibox-content ibox-border-rad cus-heght-full">
-            <h4 class="p-b-sm">MT5 Member Details</h4>
-            <div class="form-group">
-                <label>MT5 ID</label> 
-                {!! Form::number('mt4_id',old('mt4_id'),['class'=>'form-control','placeholder'=>'Enter MT5 ID','maxlength'=>'8','max'=>"99999999",'min'=>'66666666']) !!}
-                <span class="help-block text-danger">{{ $errors->first('mt4_id') }}</span>
-            </div>       
-            <div class="form-group">
-                <label class="control-label">MT5 Password</label> <br>
-                {!! Form::password('mt4_password',['class'=>'form-control','placeholder'=>'Enter MT5 Password']) !!}
-                <span class="help-block text-danger">{{ $errors->first('mt4_password') }}</span>
-            </div>       
-        </div>
-    </div> --}}
 </div>
 </div>
 <div class="m-t-lg">
