@@ -93,6 +93,9 @@ class Helper {
                  $array = Helper::getAllDownlineIds($value,$array);
             }
         }
+        if($array == 1){
+                $array = [];
+            }
         return $array;
     }
 
@@ -142,6 +145,7 @@ class Helper {
 
     /* left group sale */
     public static function getTotalgroupsalesLeft($user){
+        // print_r($user);die();
         try {
             $allDownlineids = Helper::getAllDownlineIdsLeft($user->id,1);
             $allDownlineids = $allDownlineids != null ? $allDownlineids : [];
@@ -151,7 +155,9 @@ class Helper {
                                     })
                                     ->get()
                                     ->sum('amount');
-
+            // if($totalgroupsales > 0){
+            //     echo $totalgroupsales;die();
+            // }
             return $totalgroupsales;
         }catch(\Illuminate\Exception\ErrorException $e){
             return 0;

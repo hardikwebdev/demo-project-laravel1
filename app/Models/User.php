@@ -63,7 +63,7 @@ class User extends Authenticatable
     ];
 
     protected $dates = [ 'deleted_at' ];
-    protected $appends = [ 'sale_left','sale_right' ];
+    // protected $appends = [ 'sale_left','sale_right' ];
 
     //sponsers detail
     public function sponsor() {
@@ -127,15 +127,15 @@ class User extends Authenticatable
         return Helper::getTotalgroupsales($this);
     }
 
-    public function getSaleLeftAttribute()
-    {
-        return Helper::getTotalgroupsalesLeft($this);
-    }
+    // public function getSaleLeftAttribute()
+    // {
+    //     return Helper::getTotalgroupsalesLeft($this);
+    // }
 
-    public function getSaleRightAttribute()
-    {
-        return Helper::getTotalgroupsalesRight($this);
-    }
+    // public function getSaleRightAttribute()
+    // {
+    //     return Helper::getTotalgroupsalesRight($this);
+    // }
 
       // placements
     public function placementLeft() {

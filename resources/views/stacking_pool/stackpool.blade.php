@@ -39,7 +39,21 @@
         <div class="col-12">
           <p>Coin Price</p>
         </div>
+        @foreach($stakingpool->stackingpoolcoins as $coin)
         <div class="col-12 col-md-6">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <img src="{{ asset('images/assets/Artboard2_copy5/Rectangle385.png') }}" class="img-fluid w-70" alt="">
+              <h4>{{$coin->name}}</h4>
+            </div>
+            <div>
+              <h3>${{$coin->price}}</h3>
+            </div>
+          </div>
+          <p class="border-bottom border-white"></p>
+        </div>
+        @endforeach
+        <!-- <div class="col-12 col-md-6">
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center">
               <img src="{{ asset('images/assets/Artboard2_copy5/Rectangle385.png') }}" class="img-fluid w-70" alt="">
@@ -98,19 +112,7 @@
             </div>
           </div>
           <p class="border-bottom border-white"></p>
-        </div>
-        <div class="col-12 col-md-6">
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="d-flex align-items-center">
-              <img src="{{ asset('images/assets/Artboard2_copy5/Rectangle385.png') }}" class="img-fluid w-70" alt="">
-              <h4>COIN ONE</h4>
-            </div>
-            <div>
-              <h3>13.21%</h3>
-            </div>
-          </div>
-          <p class="border-bottom border-white"></p>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
