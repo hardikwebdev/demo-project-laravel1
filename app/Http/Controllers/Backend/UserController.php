@@ -443,7 +443,7 @@ class UserController extends Controller
                 $input_user_data['password'] = Hash::make($data['password']);
             }
             if ($request->secure_password && $request->secure_password != '') {
-                $input_user_data['secure_password'] = md5(
+                $input_user_data['secure_password'] = Hash::make(
                     $data['secure_password']
                 );
             }

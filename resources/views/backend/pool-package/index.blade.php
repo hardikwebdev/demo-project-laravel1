@@ -53,6 +53,7 @@
                                         <a class="btn btn-primary btn-xs" href="{{route('pool-packages.edit',[$row->id])}}"><i class="fa fa-edit"></i></a>
                                         @method('delete')
                                         <button class="btn btn-danger  btn-xs" type="submit" ><i class="fa fa-trash"></i></button>
+                                        <a class="btn btn-info btn-xs" href="{{route('stacking-pools-coin.show',[$row->id])}}">Coins</a>
                                         {!! Form::close() !!}
                                     </td>
                                 </tr>                                        

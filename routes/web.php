@@ -26,7 +26,7 @@ use App\Http\Controllers\Backend\UseryieldwalletController;
 use App\Http\Controllers\Backend\UsercommissionwalletController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\SupportTicketController;
-
+use App\Http\Controllers\Backend\StackingpoolscoinController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -170,6 +170,9 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             // NFT Purchase Requests
             Route::resource('nft_purchase_request', NftpurchaserequestController::class);
             Route::any('nft_purchase_request_export',[NftpurchaserequestController::class, 'exportData'])->name('nft_purchase_request.export');
+
+            //Stacking Pools Coin
+            Route::resource('stacking-pools-coin', StackingpoolscoinController::class);
         });
     });
 
