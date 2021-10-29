@@ -5,6 +5,11 @@
 		<div class="col-12">
 			<div class="mb-4">
 				<button class="btn bg-warning text-white py-3 px-4 rounded-sm">OPEN TICKET <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-4 d-inline align-middle" alt=""></button>
+				<ul class="nav nav-tabs justify-content-center account-tabs border-0">
+				  <li><a class="text-warning border border-warning py-3 px-5 d-block fund-usdt-bank active" data-value="usdt" data-toggle="tab" href="#home">All Tickets</a></li>
+				  <li><a class="text-warning border border-warning py-3 px-5 d-block fund-usdt-bank" data-toggle="tab" data-value="myr-usdt" href="#menu1"> Open ({{$openTicketCount}})</a></li>
+				  <li><a class="text-warning border border-warning py-3 px-5 d-block fund-usdt-bank" data-toggle="tab" data-value="myr-usdt" href="#menu1"> Close ({{$closeTicketCount}})</a></li>
+				</ul>
 			</div>
 			<table class="table table-dark trading-table text-center table-responsive-sm">
 				<thead class="table-gradient">

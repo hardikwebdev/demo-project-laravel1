@@ -478,11 +478,12 @@ form{
     text-transform: uppercase;
 }
 
-.success-verify,.cus-success-sponsor,.cus-error-sponsor , .wizard > .content > .body .cus-error-sponsor,.cus-error-placement,.wizard > .content > .body .cus-error-placement{
+.success-verify,.cus-success-sponsor,.cus-success-placement,.cus-error-sponsor , .wizard > .content > .body .cus-error-sponsor,.cus-error-placement,.wizard > .content > .body .cus-error-placement{
     display: none;
 }
 label.error,label.sucess,.cus-error-sponsor,.cus-error-placement{
     font-weight: 700;
+    color: red;
 }
 .cus-error-sponsor,.cus-error-placement{
     color: #c71d25 !important;
@@ -499,4 +500,30 @@ label.error,label.sucess,.cus-error-sponsor,.cus-error-placement{
 .wizard > .content > .body label.error{
     margin-left: 0 !important;
 }
+span.page-link, a.page-link {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    color: #a3a4a5 !important;
+}
+.active > span.page-link {
+    background-color: #FFC100 !important;
+    border-color: #FFC100 !important;
+    color: #a3a4a5 !important;
+}
+.second-ajax-pag > nav {
+    float: right;
+}
+.position-absolute{
+    position: absolute !important;
+    bottom: 36px;
+}
+/*.card-1-btn {
+    left: 10%;
+}
+.card-2-btn {
+    left: 34%;
+}
+.card-3-btn {
+    left: 59%;
+}*/
 /*******************************step wizard end*****************************************/  

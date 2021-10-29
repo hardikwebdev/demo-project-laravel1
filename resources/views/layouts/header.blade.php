@@ -10,26 +10,31 @@
 
     <div class="ml-4 d-none d-md-block">
       <h2 class="text-warning font-weight-bold">@yield('page_title','Dashboard')</h2>
-      <p class="text-white">Hi, Andy welcome back to Defix Finance Dashboard.</p>
+      @if(Route::currentRouteName() == 'dashboard')
+      <p class="text-white">{{str_replace('#name',auth()->user()->name,__('custom.wc_text'))}}</p>
+      @endif
     </div>
     <ul class="navbar-nav navbar-nav-right">
       <li class="nav-item nav-profile dropdown align-self-md-end">
         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-          <img src="{{ asset('assets/images/assets/Dashboard/Group853.png') }}" alt="">
+          <img src="{{auth()->user()->profile_image}}" alt="">
         </a>
         <div class="ml-2">
-          <h4 class="text-warning font-weight-bold mb-0">Andy John</h4>
-          <span>Active</span>
+          <h4 class="text-warning font-weight-bold mb-0">{{auth()->user()->name}}</h4>
+          <!-- <span>Active</span> -->
         </div>
         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
           <a class="dropdown-item">
             <i class="ti-settings text-primary"></i>
             Settings
           </a>
-          <a class="dropdown-item">
+          <a class="dropdown-item"  href="javascript:void(0)" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
             <i class="ti-power-off text-primary"></i>
             Logout
           </a>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                      </form>
         </div>
         <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="icon-menu"></span>

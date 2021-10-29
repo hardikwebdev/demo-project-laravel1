@@ -96,11 +96,11 @@ class RegisterController extends Controller
             $user = User::where('username',$data['sponsor_check'])->where('status',1)->first();
             // $user_reference = UserReferral::where('user_id',$user->id)->first();
             // $upline_ids = $user_reference!=null?(array)$user_reference->downline_ids:[];
-            $upline_ids = Helper::getUplineSponsorIds($user);
+            $upline_ids = Helper::getAllDownlineIds($user);
 
             $isValid = false;
 
-            if($placementCount == 0 && $placement && (in_array($placement->id, $upline_ids) || empty($upline_ids))){
+            if($placementCount == 0 && $placement && (in_array($placement->id, $upline_ids) || empty($upline_ids) || $placement->username == $user->username)){
                 $isValid = true;
             }
 

@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Helpers\Helper;
 
 class User extends Authenticatable
 {
@@ -62,6 +63,7 @@ class User extends Authenticatable
     ];
 
     protected $dates = [ 'deleted_at' ];
+    protected $appends = [ 'sale_left','sale_right' ];
 
     //sponsers detail
     public function sponsor() {
@@ -95,7 +97,7 @@ class User extends Authenticatable
     }
 
      //package
-     public function package_detail() {
+    public function package_detail() {
         return $this->belongsTo(Package::class, 'package_id', 'id');
     }
 
@@ -103,4 +105,27 @@ class User extends Authenticatable
     public function downlineuser() {
         return $this->hasMany(User::class, 'sponsor_id', 'id')->where(['status'=>'active']);
     }
+
+    // stacking_history
+    public function stacking_history(){
+        return $this->hasMany(StackingPool::class);
+    }
+
+    public function getProfileImageAttribute($value){
+        if(file_exists(public_path('uploads/profile_image/'.$value)) && $value){
+            return asset('uploads/profile_image/'.$value);     
+        }
+        return asset('assets/images/avatar.png');
+    }
+
+    public function getSaleLeftAttribute()
+    {
+        return Helper::getTotalgroupsalesLeft($this);
+    }
+
+    public function getSaleRightAttribute()
+    {
+        return Helper::getTotalgroupsalesRight($this);
+    }
+
 }

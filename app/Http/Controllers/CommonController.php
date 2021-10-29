@@ -6,6 +6,8 @@ use App\Models\User;
 use App\Models\UserReferral;
 use Illuminate\Http\Request;
 use App\Helpers\Helper;
+use App\Models\WithdrawalRequest;
+use Auth;
 
 class CommonController extends Controller
 {
@@ -31,24 +33,24 @@ class CommonController extends Controller
 
      /** Check sponsor username **/
     protected function placementUsernameExists(Request $request){
-        $usernameExits = User::where('username',$request->placement_username)->where('status',1)->exists();
+        $usernameExits = User::where('username',$request->placement_username)->where('status','active')->exists();
         if ($usernameExits != null) {
-            $placement = User::where('username',$request->placement_username)->where('status',1)->first();
-            $placementCount = User::where('placement_id',$placement->id)->where('status',1)->where('child_position',$request->child_position)->count();
+            $placement = User::where('username',$request->placement_username)->where('status','active')->first();
+            $placementCount = User::where('placement_id',$placement->id)->where('status','active')->where('child_position',$request->child_position)->count();
             if($placementCount > 0){
                 $isValid = false;
             }
-            $user = User::where('username',$request->sponsor_check)->where('status',1)->first();
+            $user = User::where('username',$request->sponsor_check)->where('status','active')->first();
             $user_reference = UserReferral::where('user_id',$user->id)->first();
             // $upline_ids = $user_reference!=null?(array)$user_reference->downline_ids:[];
-            $upline_ids = Helper::getUplineSponsorIds($user);
+            $upline_ids = Helper::getAllDownlineIds($user->id);
             $isValid = false;
 
-            if($placementCount == 0 && $placement && (in_array($placement->id, $upline_ids) || empty($upline_ids))){
+            if($placementCount == 0 && $placement && (in_array($placement->id, $upline_ids) || empty($upline_ids) || $placement->username == $user->username)){
                 $isValid = true;
             }
             // echo "<pre>";
-            // print_r($upline_ids);
+            // print_r(($placement->username == $user->username));
             //     die('test2');
 
         } else {
@@ -443,8 +445,6 @@ class CommonController extends Controller
             'valid' => $isValid,
         ));
     }
-
-
     /**
      * Store a newly created resource in storage.
      *
@@ -499,5 +499,27 @@ class CommonController extends Controller
     public function destroy($id)
     {
         //
+    }
+    // withdrawlRequestVerify
+    public function withdrawlRequestVerify(Request $request){
+        $withderawRequest = WithdrawalRequest::where('usdt_verification_key',$request->key)->first();
+        \Session::put('url1', $request->key);
+        if (Auth::check()) {
+            $user = Auth::user();
+            // $user = User::find($withderawRequest->user_id);
+            if($withderawRequest->user_id !=  $user->id){
+                return redirect()->route('withdrawal')->with(['error'=>trans('custom.withdraw_request_not_user')]);
+            }
+            if($withderawRequest){
+                if($withderawRequest->status != 3 ){
+                    return redirect()->route('withdrawal')->with(['error'=>trans('custom.withdrawl_request_already_verified')]);    
+                }
+                $withderawRequest->status = 0;
+                $withderawRequest->save();
+                return redirect()->route('withdrawal')->with(['success'=>trans('custom.withdrawl_request_verified')]);
+            }
+            return redirect()->route('withdrawal')->with(['error'=>trans('custom.withdrawl_request_not_valid')]);
+        }
+        return redirect()->route('login')->with(['error'=>trans('custom.login_first')]);
     }
 }

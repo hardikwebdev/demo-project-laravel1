@@ -3,7 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\StackingPoolPackage;
+use App\Models\Slider;
 use App\Models\User;
+use Auth;
+use App\Models\NftCategory;
+use App\Models\News;
+use App\Models\StackingPool;
 
 class HomeController extends Controller
 {
@@ -14,8 +20,12 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
-    }
+       $this->middleware(function ($request, $next) {
+        $this->user = Auth::user();
+        return $next($request);
+    });
+       $this->middleware('auth');
+   }
 
     /**
      * Show the application dashboard.
@@ -28,39 +38,40 @@ class HomeController extends Controller
     }
 
     public function dashboard(){
-        return view('dashboard');
+        $user = $this->user;
+        $sliders = Slider::all();
+        $stacking_pool = StackingPoolPackage::orderBy('id','desc')
+                                            ->limit(8)
+                                            ->get()
+                                            ->map(function($pool) use ($user){
+                                                $pool->investedAmount = StackingPool::where('user_id',$user->id)->where('stacking_pool_package_id',$pool->id)->sum('amount');
+                                                return $pool;
+                                            });
+        $nft_cats = NftCategory::orderBy('id','desc')->limit(3)->get();
+        $locale = app()->getLocale();
+        // if ($locale == 'en' || $locale == 'ko' || $locale == 'th' || $locale == 'vi') {
+        //     $locale = 'en';
+        // } else {
+        //     $locale = 'cn';
+        // }
+        $news = News::where(['status' => 'active', 'lang' => $locale])->orderBy('created_at', 'desc')->take(5)->get();
+
+        return view('dashboard',compact('user','sliders','stacking_pool','news','nft_cats'));
     }
 
-    public function stacking_pool(){
-        return view('stacking_pool.index');
-    }
-
-    public function stackpool(){
-        return view('stacking_pool.stackpool');
-    }
-
-     public function node_register(){
-        return view('accounts.register');
-    }
-
-     public function node_management(){
-        return view('accounts.network');
-    }
-
-     public function crypto_wallets(){
+    public function crypto_wallets(){
         return view('crypto_wallet.index');
     }
 
-     public function yield_wallet(){
+    public function yield_wallet(){
         return view('yield_wallet.index');
     }
 
-     public function commission_wallet(){
+    public function commission_wallet(){
         return view('commission_wallet.index');
     }
 
-
-     public function nft_wallet(){
+    public function nft_wallet(){
         return view('nft_wallet.index');
     }
 
@@ -85,7 +96,7 @@ class HomeController extends Controller
         return view('profile.my_collection');
     }
 
-     public function help_support(){
+    public function help_support(){
         return view('help_support.index');
     }
 

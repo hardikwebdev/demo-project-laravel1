@@ -1,51 +1,57 @@
 @extends('layouts.app')
-
+@section('title', __('custom.node_management'))
+@section('page_title', __('custom.node_management'))
+@section('css')
+<link rel="stylesheet" href="{{ asset('assets/tree/assets/css/style.css') }}"/> 
+<link rel="stylesheet" href="{{ asset('assets/tree/extensions/DataInspector.css') }}" />
+@endsection
 @section('content')
 <div class="content-wrapper">
   <div class="row mt-5 pt-5">
     <div class="col-12 col-xl-8">
-      <img src="{{ asset('assets/images/assets/Node_Management/Group1055.png') }}" class="img-fluid w-100" alt="" style="height: 460px;">
+      <!-- <img src="{{ asset('assets/images/assets/Node_Management/Group1055.png') }}" class="img-fluid w-100" alt="" style="height: 460px;"> -->
+      <div id="myDiagramDiv" style="background-color: #ffffff; border: solid 1px #000000;min-height: 460px;"></div>
     </div>
     <div class="col-12 col-xl-4 mt-4 mt-xl-0">
       <div class="table-responsive">
         <table class="table table-dark trading-table text-center">
           <thead class="table-gradient">
             <tr>
-              <th width="50%">LEFT</th>
-              <th width="50%">RIGHT</th>
+              <th class="text-uppercase" width="50%">{{__('custom.left')}}</th>
+              <th class="text-uppercase" width="50%">{{__('custom.right')}}</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>ACCUMULATE GROUP SALES</td>
+              <td class="text-left text-uppercase">{{__('custom.accumulate_grp_sale')}}</td>
               <td></td>
             </tr>
             <tr>
-              <td> $2,000</td>
-              <td> $2,000</td>
+              <td> ${{$accumulateLeftSale}}</td>
+              <td> ${{$accumulateRightSale}}</td>
             </tr>
             <tr>
-              <td>TODAY GROUP SALES</td>
+              <td class="text-left text-uppercase">{{__('custom.today_grp_sale')}}</td>
               <td></td>
             </tr>
             <tr>
-              <td> $2,000</td>
-              <td> $2,000</td>
+              <td> ${{$todaysLeftSale}}</td>
+              <td> ${{$todaysRightSale}}</td>
             </tr>
             <tr>
-              <td>CARRY FORWARD</td>
+              <td class="text-left text-uppercase">{{ __('custom.carry_forward') }}</td>
               <td></td>
             </tr>
             <tr>
-              <td> $2,000</td>
-              <td> $2,000</td>
+              <td> ${{$todaysLeftCarryFw}}</td>
+              <td> ${{$todaysRightCarryFw}}</td>
             </tr>
             <tr>
-              <td>DAILY MAX COMMISIION</td>
+              <td class="text-left text-uppercase">{{ __('custom.daily_max_commission') }}</td>
               <td></td>
             </tr>
             <tr>
-              <td> $2,000</td>
+              <td> ${{$dailyMaxCommission}}</td>
               <td></td>
             </tr>
           </tbody>
@@ -57,193 +63,102 @@
     <div class="col-12 col-xl-3 pr-0">
       <div class="bg-warning text-white p-5 rounded-left">
         <div class="ml-xl-4">
-          <h4 class="font-weight-bold">$60,302.95</h4>
-          <span> Sales Left</span>
+          <h4 class="font-weight-bold">${{$accumulateLeftSale}}</h4>
+          <span> {{ __('custom.sale_left') }}</span>
         </div>
         <div class="mt-5 ml-xl-4">
-          <h4 class="font-weight-bold">$60,302.95</h4>
-          <span> Sales Left</span>
+          <h4 class="font-weight-bold">${{$accumulateRightSale}}</h4>
+          <span> {{ __('custom.sale_right') }}</span>
         </div>
         <div class="mt-5 ml-xl-4">
-          <h4 class="font-weight-bold">$60,302.95</h4>
-          <span> Sales Left</span>
+          <h4 class="font-weight-bold">${{$totalCommission}}</h4>
+          <span> {{ __('custom.commission') }}</span>
         </div>
       </div>
     </div>
     <div class="col-12 col-xl-9 pl-0">
-      <img src="{{ asset('assets/images/assets/Node_Management/Group1054.png') }}" class="img-fluid rounded-right w-100" alt="" style="height: 336px;">
-    </div>  
-  </div>
-  <div class="row mt-5">
-    <div class="col-12">
-      <div class="table-responsive">
-        <table class="table table-dark trading-table text-center">
-          <thead class="table-gradient">
-            <tr>
-              <th>#</th>
-              <th>SALES LEFT</th>
-              <th>SALES RIGHT</th>
-              <th>NET PAIRING LEFT</th>
-              <th>NET PAIRING RIGHT</th>
-              <th>%</th>
-              <th>DAILY MAX COMMISIION</th>
-              <th>COMMISIION EARNED</th>
-              <th>DATE</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>$0</td>
-              <td>$0</td>
-              <td>$0.00</td>
-              <td>$0.00</td>
-              <td>$7.00</td>
-              <td>5000.00</td>
-              <td>$7.00</td>
-              <td>12/09/2021</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>$0</td>
-              <td>$0</td>
-              <td>$0.00</td>
-              <td>$0.00</td>
-              <td>$7.00</td>
-              <td>5000.00</td>
-              <td>$7.00</td>
-              <td>12/09/2021</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>$0</td>
-              <td>$0</td>
-              <td>$0.00</td>
-              <td>$0.00</td>
-              <td>$7.00</td>
-              <td>5000.00</td>
-              <td>$7.00</td>
-              <td>12/09/2021</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>$0</td>
-              <td>$0</td>
-              <td>$0.00</td>
-              <td>$0.00</td>
-              <td>$7.00</td>
-              <td>5000.00</td>
-              <td>$7.00</td>
-              <td>12/09/2021</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>$0</td>
-              <td>$0</td>
-              <td>$0.00</td>
-              <td>$0.00</td>
-              <td>$7.00</td>
-              <td>5000.00</td>
-              <td>$7.00</td>
-              <td>12/09/2021</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>$0</td>
-              <td>$0</td>
-              <td>$0.00</td>
-              <td>$0.00</td>
-              <td>$7.00</td>
-              <td>5000.00</td>
-              <td>$7.00</td>
-              <td>12/09/2021</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>$0</td>
-              <td>$0</td>
-              <td>$0.00</td>
-              <td>$0.00</td>
-              <td>$7.00</td>
-              <td>5000.00</td>
-              <td>$7.00</td>
-              <td>12/09/2021</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>$0</td>
-              <td>$0</td>
-              <td>$0.00</td>
-              <td>$0.00</td>
-              <td>$7.00</td>
-              <td>5000.00</td>
-              <td>$7.00</td>
-              <td>12/09/2021</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>$0</td>
-              <td>$0</td>
-              <td>$0.00</td>
-              <td>$0.00</td>
-              <td>$7.00</td>
-              <td>5000.00</td>
-              <td>$7.00</td>
-              <td>12/09/2021</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>$0</td>
-              <td>$0</td>
-              <td>$0.00</td>
-              <td>$0.00</td>
-              <td>$7.00</td>
-              <td>5000.00</td>
-              <td>$7.00</td>
-              <td>12/09/2021</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>$0</td>
-              <td>$0</td>
-              <td>$0.00</td>
-              <td>$0.00</td>
-              <td>$7.00</td>
-              <td>5000.00</td>
-              <td>$7.00</td>
-              <td>12/09/2021</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>$0</td>
-              <td>$0</td>
-              <td>$0.00</td>
-              <td>$0.00</td>
-              <td>$7.00</td>
-              <td>5000.00</td>
-              <td>$7.00</td>
-              <td>12/09/2021</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-  <div class="row align-items-center mt-5">
-    <div class="col-12 text-right">
-      <div class="text-secondary">
-        <img src="{{ asset('assets/images/assets/Sell_NFT/Path599.png') }}" class="img-fluid rotate-180" alt="">
-        <span class="font-12 mx-1">1</span>
-        <span class="font-12 mx-1 bg-warning px-1">2</span>
-        <span class="font-12 mx-1">3</span>
-        <span class="font-12 mx-1">4</span>
-        <span class="font-12 mx-1">5</span>
-        <span class="font-12 mx-1">6</span>
-        <span class="font-12 mx-1">7</span>
-        <span class="font-12 mx-1">8</span>
-        <span class="font-12 mx-1">9</span>
-        <span class="font-12 mx-1">10</span>
-        <img src="{{ asset('assets/images/assets/Sell_NFT/Path599.png') }}" class="img-fluid " alt="">
-      </div>
-    </div>
-    @endsection
+      <div class="" id="hightlinechart" class="img-fluid rounded-right w-100" alt="" style="height: 336px;"></div>
+<!--       <img src="{{ asset('assets/images/assets/Node_Management/Group1054.png') }}" class="img-fluid rounded-right w-100" alt="" style="height: 336px;">
+-->    </div>  
+</div>
+<div class="table-history">
+  
+@include('accounts.pairing_history')
+</div>
+@endsection
+@section('scripts')
+<script src="{{ asset('assets/tree/release/go.js') }}"></script>
+<script src="{{ asset('assets/tree/assets/js/goSamples.js').'?v='.time() }}"></script>
+<script src="{{ asset('assets/tree/extensions/DataInspector.js') }}"></script>
+<script src="{{ asset('assets/tree/assets/js/treejs.js').'?v='.time() }}" id="code"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/series-label.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(e){
+    var users = {!! json_encode($users) !!};
+    init(users,1);
+  });
+  Highcharts.chart('hightlinechart', {
+
+    title: {
+      text: 'Commision & Sales'
+    },
+    yAxis: {
+      title: {
+        text: ''
+      }
+    },
+
+    xAxis: {
+      accessibility: {
+        rangeDescription: ''
+      },
+      categories: {!! json_encode(array_values($months)) !!}
+  },
+
+  legend: {
+    layout: 'vertical',
+    align: 'right',
+    verticalAlign: 'middle'
+  },
+
+  plotOptions: {
+    series: {
+      label: {
+        connectorAllowed: false
+      },
+    }
+  },
+
+  series: [{
+    name: "{{ __('custom.sale_left') }}",
+    data: {!! json_encode($graph['sale_left']) !!}
+  }, {
+    name: "{{ __('custom.sale_right') }}",
+    data: {!! json_encode($graph['sale_right']) !!}
+  }, {
+    name: "{{ __('custom.commission') }}",
+    data: {!! json_encode($graph['pairing_commission']) !!}
+  }],
+
+  responsive: {
+    rules: [{
+      condition: {
+        maxWidth: 500
+      },
+      chartOptions: {
+        legend: {
+          layout: 'horizontal',
+          align: 'center',
+          verticalAlign: 'bottom'
+        }
+      }
+    }]
+  }
+
+});
+</script>
+@endsection
