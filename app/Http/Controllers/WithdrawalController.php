@@ -61,7 +61,7 @@ class WithdrawalController extends Controller
         $usercheck = auth()->user();
         $allowed_ranks = [ 'DIB', 'SIB', 'MDIB', 'TDIB'];
         
-        if(Hash::check($request->security_password, $usercheck->secure_password)){
+        if(Hash::check($request->secure_password, $usercheck->secure_password)){
             $miniwithdrawalAmount = Model\Setting::where('key','min_withdrawal_request_amount')->pluck('value')->first();
             /*if(isset($request->amount) && $request->amount < $miniwithdrawalAmount){
                 Session::flash('error',trans('custom.minimum_amount_less_wallet'));
