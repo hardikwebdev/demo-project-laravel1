@@ -56,7 +56,7 @@ class WalletController extends Controller
             $isError = 0;
             if($usercheck != null){
                 $todayDate = date('Y-m-d');
-                if(Hash::check($request->security_password, $usercheck->secure_password)){
+                if(Hash::check($request->secure_password, $usercheck->secure_password)){
                     // FundWallet::where('user_id',$this->user->id)->where('status',0)->whereIn('type',['4','1','2'])->update(['status'=>2]);
                     $fundwalletCheck = Model\CryptoWallet::where('user_id',$this->user->id)->where('status',0)->whereIn('type',['0',])->get();
                     if(count($fundwalletCheck) && Auth::user()->country_id != '45'){
