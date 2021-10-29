@@ -421,3 +421,116 @@ $(document).ready(function(){
           }
       },
   });
+  $("#personal-detail-upadte").validate({
+        ignore: "input[type='text']:hidden",
+        rules: {
+                fullname: {
+                    required: true,
+                    maxlength: 50,
+                },
+                address: {
+                    required: true,
+                    maxlength: 100,
+                },
+                city: {
+                    required: true,
+                    maxlength: 50,
+                },
+                state: {
+                    required: true,
+                    maxlength: 50,
+                },
+                country: {
+                    required: true,
+                    number: true,
+                },
+                phone_number: {
+                    required: true,
+                    number: true,
+                    minlength:10,
+                    maxlength: 15,
+                },
+            },
+            messages: {
+              name: {
+                  required: "Please enter full name",
+                  maxlength: "Maximim limit of sponsor name is 20 character",
+              },
+              address: {
+                  required: "Please enter address",
+              },
+              city: {
+                  required: "Please enter city",
+              },
+              state: {
+                  required: "Please enter state",
+              },
+              country: {
+                  required: "PLease select country",
+              },
+              phone_number: {
+                  required: "Please enter phone number",
+                  number: "Please enter number only",
+                  minlength:"Please enter minimum 9 character",
+                  maxlength: "Maximim limit of username is 15 character",
+              },
+        },
+  });
+  $("#bank-detail-upadte").validate({
+        ignore: "input[type='text']:hidden",
+        rules: {
+                bank_name:{
+                    required: true,
+                    maxlength: 50,
+                },
+                acc_holder_name:{
+                    required: true,
+                    maxlength: 50,
+                    // equalTo: "#fullname"
+                },
+                acc_number:{
+                    required: true,
+                        // number: true,
+                        maxlength: 20,
+                    },
+                swift_code:{
+                    required: true,
+                    // number: true,
+                    maxlength: 20,
+                },
+                bank_branch:{
+                    required: true,
+                    maxlength: 50,
+                },
+                bank_country_id:{
+                    required: true,
+                },
+            },
+            messages: {
+              bank_name:{
+                  required: bankname_required_field,
+                  maxlength: please_enter_no_more_than_50,
+              },
+              acc_holder_name:{
+                  required: accountholder_required_field,
+                  maxlength: please_enter_no_more_than_50,
+                  equalTo: account_holder_name_and_full_name_same
+              },
+              acc_number:{
+                  required: accountnumber_required_field,
+                  maxlength: please_enter_no_more_than_20,
+              },
+              swift_code:{
+                  required: swift_code_required_field,
+                  maxlength: please_enter_no_more_than_20,
+              },
+              bank_branch:{
+                  required: bank_branch_required_field,
+                  maxlength: please_enter_no_more_than_50,
+              },
+              bank_country_id:{
+                  required: bank_country_required_field,
+              },
+              
+            },
+  });
