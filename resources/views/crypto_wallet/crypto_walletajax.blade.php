@@ -4,7 +4,7 @@
       <th>{{ trans('custom.date')}}</th>
       <th>{{ trans('custom.amount')}}</th>
       <th>{{ trans('custom.type')}}</th>
-      <th>{{ trans('payment_proof')}}</th>
+      <th>{{ trans('custom.payment_proof')}}</th>
       <th>{{ trans('custom.description')}}</th>
       <th>{{ trans('custom.status')}}</th>
       {{-- <th>&nbsp;</th> --}}
