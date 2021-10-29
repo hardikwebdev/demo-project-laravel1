@@ -1,6 +1,6 @@
 <div id="fund_wallet" class="tab-pane active">
     <div class="panel-body">
-        <h3 class="title">Nft wallet History <a class="btn btn-success pull-right" data-toggle="modal" data-target="#fundWallet"><i class="fa fa-edit"></i> Edit Nft Wallet</a></h3>
+        <h3 class="title">NFT wallet History <a class="btn btn-success pull-right" data-toggle="modal" data-target="#fundWallet"><i class="fa fa-edit"></i> Edit NFT Wallet</a></h3>
         <table class="table table-stripped">
             <thead>
                 <tr>
@@ -45,7 +45,7 @@
             {!! Form::open(['route'=>'nft-wallet-history.store','method'=>'post','class'=>'form-vertical','id'=>'userall_wallets','autocomplete'=>'false']) !!}
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Edit Nft Wallet [{{$user->name}}]</h4>
+                <h4 class="modal-title">Edit NFT Wallet [{{$user->name}}]</h4>
             </div>
             <div class="modal-body">
                 <div class="form-group">

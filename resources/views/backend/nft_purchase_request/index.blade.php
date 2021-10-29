@@ -9,7 +9,7 @@
         <div class="col-lg-12">
             <h2>
                 {!! Form::open(['route' => 'nft_purchase_request.index', 'class' => 'form-inline', 'method' => 'get', 'id' => 'filter_data_ajax']) !!}
-                <div class="col-xs-12 col-md-6 p-0">Nft Purchase Request</div>
+                <div class="col-xs-12 col-md-6 p-0">NFT Purchase Request</div>
                 <div class="col-xs-12 col-md-6 text-right">
                     {{-- @role('admin') --}}
                     <div class="pull-right">
