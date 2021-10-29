@@ -356,9 +356,10 @@ class UserController extends Controller
         $data = $request->all();
         try {
             /* Update user detail start*/
-            $sponsor_id = User::where('username', $data['sponsor'])
-                ->where('status', 'active')
-                ->first();
+            // $sponsor_id = User::where('username', $data['sponsor'])
+            //     ->where('status', 'active')
+            //     ->first();
+            $sponsor_id = User::where('username', $data['sponsor'])->first();
             // $package_detail = Model\Package::where([
             //     'status' => 'active',
             //     'is_deleted' => '0',
@@ -442,7 +443,7 @@ class UserController extends Controller
                 $input_user_data['password'] = Hash::make($data['password']);
             }
             if ($request->secure_password && $request->secure_password != '') {
-                $input_user_data['secure_password'] = md5(
+                $input_user_data['secure_password'] = Hash::make(
                     $data['secure_password']
                 );
             }

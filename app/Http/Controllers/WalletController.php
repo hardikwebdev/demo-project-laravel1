@@ -25,6 +25,7 @@ class WalletController extends Controller
         $userWallet = Model\UserWallet::firstOrCreate(['user_id'=>$this->user->id]);
         $convertedRateUSDT = Model\Setting::where('key','bank_usdt_amount')->value('value');
         $query = Model\CryptoWallet::where('user_id',$this->user->id);
+        $banks = [];
         if ($request->get('spagination') != "") {
             $this->limit = $request->get('spagination');
         }
@@ -45,18 +46,24 @@ class WalletController extends Controller
         if ($request->ajax()) {
             return view('crypto_wallet/crypto_walletajax', compact('cryptowallet'));
         }
+        // Malaysia
         $convertedRateMYR = 0;
         if(Auth::user()->country_id == '131'){
             $convertedRateMYR = Model\Setting::where('key','bank_myr_amount')->value('value');
+            $banks = Model\Bank::where('currency','MYR')->orderBy('name')->pluck('name','code');
         }
-        return view('crypto_wallet.index', compact('convertedRateUSDT', 'convertedRateMYR', 'cryptowallet', 'userWallet'));
+        return view('crypto_wallet.index', compact('convertedRateUSDT', 'convertedRateMYR', 'cryptowallet', 'userWallet', 'banks'));
     }
     public function cryptoWalletForm(Request $request){
             $usercheck = Model\User::where('id',$this->user->id)->where('status','active')->first();
             $isError = 0;
+            // condition for other payment not avialable
+            if($request->payment_method != 'usdt'){
+                return redirect()->route('crypto_wallets');
+            }
             if($usercheck != null){
                 $todayDate = date('Y-m-d');
-                if(Hash::check($request->security_password, $usercheck->secure_password)){
+                if(Hash::check($request->secure_password, $usercheck->secure_password)){
                     // FundWallet::where('user_id',$this->user->id)->where('status',0)->whereIn('type',['4','1','2'])->update(['status'=>2]);
                     $fundwalletCheck = Model\CryptoWallet::where('user_id',$this->user->id)->where('status',0)->whereIn('type',['0',])->get();
                     if(count($fundwalletCheck) && Auth::user()->country_id != '45'){
@@ -291,12 +298,12 @@ class WalletController extends Controller
          $request->validate([
              'amount'=>"required",
              'fund_type'=>"required",
-             'security_password'=>"required",
+             'secure_password'=>"required",
          ]);
         $usercheck = Model\User::with('userwallet')->where('id',auth()->id())->where('status','active')->first();
          $isError = 0;
          if($usercheck != null){            
-             if(md5($request->security_password) === $usercheck->secure_password){
+            if(Hash::check($request->secure_password, $usercheck->secure_password)){
                  if(isset($request->amount) && $request->amount > $usercheck->userwallet['yield_wallet']){
                      Session::flash('error',trans('custom.transfer_amount_less_equal_wallet'));
                      return redirect()->back()->withInput($request->input());

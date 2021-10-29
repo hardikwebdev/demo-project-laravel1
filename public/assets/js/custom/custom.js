@@ -193,6 +193,7 @@ $(document).ready(function(){
            },
            upload_proof:{
             required: true,
+            extension:'png|jpeg|jpg|pdf'
            }        
       },
       messages:{
@@ -207,11 +208,15 @@ $(document).ready(function(){
               minlength: 0,
               maxlength: 6,
            },
+           bank_id: {
+              required: true,
+           },
            secure_password: {
               required: true,
            }        
       },
       messages:{
+        
       },
 
   });
@@ -228,12 +233,12 @@ $(document).ready(function(){
           fund_type: {
               required: true,
           },
-          security_password: {
+          secure_password: {
               required: true,
           },
       },
       messages: {
-          security_password: {
+          secure_password: {
               required: securepassword_required_field,
           },            
           fund_type: {
@@ -301,6 +306,24 @@ $(document).ready(function(){
             required: true,
             extension:'png|jpeg|jpg' 
            }        
+      },
+      messages:{
+      },
+
+  });
+  $("#cryptowalletform-coin").validate({
+      rules: {
+           amount: {
+              required: true,
+              number:true,
+              positiveNumber:true,
+              minlength: 0,
+              min:10,                
+              max:10000000
+           },
+           secure_password: {
+              required: true,
+           },       
       },
       messages:{
       },

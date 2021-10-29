@@ -61,7 +61,7 @@
                       {{Form::number('amount',old('amount'),['class' => 'form-control grey-ph h-auto py-4 border-0 shadow','placeholder' => trans('custom.amount_USD'), 'autocomplete' => 'off'])}}
                     </div>
                     <div class="col-12 col-md-4 mt-4 mt-md-0">
-                      {{Form::password('security_password',['class' => 'form-control grey-ph h-auto py-4 border-0 shadow','placeholder' => trans('custom.security_password')])}}
+                      {{Form::password('secure_password',['class' => 'form-control grey-ph h-auto py-4 border-0 shadow','placeholder' => trans('custom.security_password')])}}
                     </div>
                     <div class="col-12 col-xl-6 mt-4">
                       <button type="submit" class="btn bg-warning text-white py-4 px-5 rounded-0">{{ trans('custom.transfer_fund')}} <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-4 d-inline align-middle" alt=""></button>

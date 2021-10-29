@@ -10,7 +10,7 @@
     <div class="col-lg-12">
         <h2>    
             {!! Form::open(['route' => 'nft_wallets_credit_request.index','class'=>'form-inline','method'=>'get','id'=>'filter_data_ajax']) !!}
-            <div class="col-xs-12 col-md-6 p-0">Nft Wallets Credits Requests</div>
+            <div class="col-xs-12 col-md-6 p-0">NFT Wallets Credits Requests</div>
             <div class="col-xs-12 col-md-6 text-right">
                 {{-- @role('admin') --}}
                 <div class="pull-right">

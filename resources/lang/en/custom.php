@@ -1541,5 +1541,9 @@ return [
     'staking_pool' => 'Staking Pool',
     'staking_pools' => 'Staking Pools',
     'explore' => 'EXPLORE',
+    'coin_payment' => 'Coin Payment',
+    'myr_amount' => 'Amount (MYR)',
+    'open_ticket' => 'OPEN TICKET',
+    'no_ticket_found' => 'No Ticket found',
 
 ];
