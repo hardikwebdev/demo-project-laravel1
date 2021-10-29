@@ -53,6 +53,19 @@ class Helper {
         }
     }
 
+    /* get upline sponsors */
+    public static function getUplineSponsor($user_detail,$level=1,$array=[]){
+        $sponser_details = User::where(['id'=>$user_detail->sponsor_id,'status'=>'active'])->first();
+        if($sponser_details==null || $user_detail->sponsor_id ==0 ){
+            return $array;
+        }else{            
+            $sponser_details->level = $level;
+            $array[$level] = $sponser_details;  
+            $level = $level + 1;
+            return Helper::getUplineSponsor($sponser_details,$level,$array);
+        }
+    }
+
     /* get upline sponsors IDs */
     public static function getUplineSponsorIds($user_detail,$level=1,$array=[]){
         $sponser_details = User::where(['id'=>$user_detail->sponsor_id,'status'=>'active'])->first();
@@ -158,10 +171,10 @@ class Helper {
                                     })
                                     ->get()
                                     ->sum('amount');
-            // $totalgroupsales = User::with('stacking_history')
+            // $totalgroupsales = User::with('staking_history')
             //                         ->whereIn('id',$allDownlineids)
             //                         ->get()
-            //                         ->sum('stacking_history.amount');
+            //                         ->sum('staking_history.amount');
 
             return $totalgroupsales;
 
@@ -245,7 +258,7 @@ class Helper {
             $allDirectDownlineids = Helper::getDirectDownlineIds($user->id);
             $allDirectDownlineids = $allDirectDownlineids!=null?$allDirectDownlineids:[];
             \DB::enableQueryLog();
-            $totaldirectgroupsales = User::with('stacking_history')->whereIn('id',$allDirectDownlineids)->where(['status'=>"active"])->get()->sum('stacking_history.amount');
+            $totaldirectgroupsales = User::with('staking_history')->whereIn('id',$allDirectDownlineids)->where(['status'=>"active"])->get()->sum('staking_history.amount');
             return $totaldirectgroupsales;
 
         }catch(ErrorException $e){

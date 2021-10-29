@@ -184,7 +184,7 @@ class AccountController extends Controller
         $todaysRightSale        = Helper::getTotalgroupsalesTodayRight($this->user);
         $todaysLeftCarryFw      = ($todaysLeftSale > $todaysRightSale) ? ($todaysLeftSale - $todaysRightSale) : 0;
         $todaysRightCarryFw     = ($todaysRightSale > $todaysLeftSale) ? ($todaysRightSale - $todaysLeftSale) : 0;
-        $dailyMaxCommission     = Setting::where('key','_direct_pairing_limit')->value('value');
+        $dailyMaxCommission     = Setting::where('key','daily_direct_pairing_limit')->value('value');
         $dailyMaxCommission     = ($dailyMaxCommission > 0) ? $dailyMaxCommission : 0;
 
         $totalCommission        = Helper::getTotalgroupsales($this->user);

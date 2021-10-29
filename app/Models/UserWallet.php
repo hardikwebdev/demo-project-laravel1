@@ -11,7 +11,7 @@ class UserWallet extends Model
 
     // protected $table = "user_wallets";
     protected $fillable = [
-        'user_id', 'crypto_wallet','yield_wallet','commission_wallet','nft_wallet','pairing_commission','referral_commission','withdrawal_balance'
+        'user_id', 'crypto_wallet','yield_wallet','commission_wallet','nft_wallet','pairing_commission','referral_commission','withdrawal_balance','carry_forward','carry_forward_to'
     ];
     public function user_detail(){
         return $this->belongsTo(User::class,'user_id','id');

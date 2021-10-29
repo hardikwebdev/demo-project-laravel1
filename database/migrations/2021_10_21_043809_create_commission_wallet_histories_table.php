@@ -16,6 +16,8 @@ class CreateCommissionWalletHistoriesTable extends Migration
         Schema::create('commission_wallet_histories', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
+            $table->integer('from_user_id')->default(0);
+            $table->string('commission_type')->nullable();
             $table->double('amount',8,2);
             $table->text('description');
             $table->tinyInteger('type');

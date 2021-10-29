@@ -57,8 +57,8 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::get('/get-downlinePlacement', 'App\Http\Controllers\HomeController@downlinePlacement')->name('downlinePlacement');
 
         Route::get('/stacks', 'App\Http\Controllers\StackingPoolController@index')->name('stacks');
-        Route::post('/stacking-pool', 'App\Http\Controllers\StackingPoolController@stacking_pool')->name('stacking_pool');
-        Route::get('/stack/{id}', 'App\Http\Controllers\StackingPoolController@detail')->name('stackpool');
+        Route::post('/stacking-pool', 'App\Http\Controllers\StackingPoolController@stacking_pool')->name('staking_pool');
+        Route::get('/stack/{id}', 'App\Http\Controllers\StackingPoolController@detail')->name('stakepool');
         Route::get('/node_management', 'App\Http\Controllers\AccountController@node_management')->name('node_management');
 
         Route::get('/node_register', 'App\Http\Controllers\AccountController@addmember')->name('node_register');

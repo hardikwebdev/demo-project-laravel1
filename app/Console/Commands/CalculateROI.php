@@ -44,12 +44,12 @@ class CalculateROI extends Command
 
 
             
-            $stackingpools = StackingPool::where('status',1)->get();
-            foreach($stackingpools as $stackingpool){
-                $stacking_pool_package = $stackingpool->stacking_pool_package;
+            $stakingpools = StackingPool::where('status',1)->get();
+            foreach($stakingpools as $stakingpool){
+                $staking_pool_package = $stakingpool->staking_pool_package;
 
-                if($stackingpool->stacking_period == 12){
-                    // $stacking_period = $stacking_pool_package->
+                if($stakingpool->staking_period == 12){
+                    // $staking_period = $staking_pool_package->
                 }
             }
         });
