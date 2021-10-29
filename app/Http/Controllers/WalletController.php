@@ -56,7 +56,7 @@ class WalletController extends Controller
             $isError = 0;
             if($usercheck != null){
                 $todayDate = date('Y-m-d');
-                if(Hash::check($request->security_password, $usercheck->secure_password)){
+                if(Hash::check($request->secure_password, $usercheck->secure_password)){
                     // FundWallet::where('user_id',$this->user->id)->where('status',0)->whereIn('type',['4','1','2'])->update(['status'=>2]);
                     $fundwalletCheck = Model\CryptoWallet::where('user_id',$this->user->id)->where('status',0)->whereIn('type',['0',])->get();
                     if(count($fundwalletCheck) && Auth::user()->country_id != '45'){
@@ -296,7 +296,7 @@ class WalletController extends Controller
         $usercheck = Model\User::with('userwallet')->where('id',auth()->id())->where('status','active')->first();
          $isError = 0;
          if($usercheck != null){            
-             if(md5($request->security_password) === $usercheck->secure_password){
+            if(Hash::check($request->security_password, $usercheck->secure_password)){
                  if(isset($request->amount) && $request->amount > $usercheck->userwallet['yield_wallet']){
                      Session::flash('error',trans('custom.transfer_amount_less_equal_wallet'));
                      return redirect()->back()->withInput($request->input());
