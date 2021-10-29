@@ -1600,3 +1600,83 @@ $("#nft_product_edit").validate({
     },
 
 });
+
+
+
+$("#productcoin_create").validate({
+    rules: {
+         name: {
+            required: true,
+            maxlength:255
+         },
+         symbol: {
+            required: true,
+            maxlength:30
+         },
+         price: {
+            required: true,
+            number:true,
+            positiveNumber :true,
+         },
+         image:{
+            required: true,
+            extension: "jpg,jpeg,png,gif"
+         }        
+    },
+    messages:{
+        name: {
+            required: 'Please enter name.',
+        },
+        symbol: {
+            required: 'Please enter symbol.',
+        },
+        price: {
+            required: 'Please enter price.',
+        },
+        image: {
+            required: 'Please choose image.',
+            extension: 'Please choose (jpg, jpeg, png, gif) file.'
+        },
+    },
+
+});
+
+
+
+$("#productcoin_edit").validate({
+    rules: {
+         name: {
+            required: true,
+            maxlength:255
+         },
+         symbol: {
+            required: true,
+            maxlength:30
+         },
+         price: {
+            required: true,
+            number:true,
+            positiveNumber :true,
+         },
+         image:{
+            // required: true,
+            extension: "jpg,jpeg,png,gif"
+         }        
+    },
+    messages:{
+        name: {
+            required: 'Please enter name.',
+        },
+        symbol: {
+            required: 'Please enter symbol.',
+        },
+        price: {
+            required: 'Please enter price.',
+        },
+        image: {
+            // required: 'Please choose image.',
+            extension: 'Please choose (jpg, jpeg, png, gif) file.'
+        },
+    },
+
+});
