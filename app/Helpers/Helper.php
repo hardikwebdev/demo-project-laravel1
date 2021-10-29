@@ -85,7 +85,7 @@ class Helper {
         if(count($direct_downline) == 0 || (count($direct_downline) > 0 && $direct_downline[0] == $sponsor_id)){
             return $array;
         }else{
-            if($array == 1){
+            if(!is_array($array)){
                 $array = [];
             }
             $array = array_merge($array, $direct_downline);
@@ -93,9 +93,6 @@ class Helper {
                  $array = Helper::getAllDownlineIds($value,$array);
             }
         }
-        if($array == 1){
-                $array = [];
-            }
         return $array;
     }
 
