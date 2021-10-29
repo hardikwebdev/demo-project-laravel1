@@ -324,7 +324,7 @@ $(document).ready(function(){
       },
 
   });
-  function getData(page,htype = 0){
+  /*function getData(page,htype = 0){
       $.ajax(
       {
           url: '?page=' + page,
@@ -344,9 +344,9 @@ $(document).ready(function(){
               alert('No response from server');   
               $('.cus-spinner-full').hide(200);
       });
-  }
+  }*/
 
-  $(document).on('click', '.second-ajax-pag .pagination a',function(event)
+  $(document).on('click', '.ticket-ajax-pag .pagination a',function(event)
   {
       event.preventDefault();
       
@@ -356,4 +356,45 @@ $(document).ready(function(){
       var myurl = $(this).attr('href');
       var page=$(this).attr('href').split('page=')[1];
       getData(page);
+  });
+  //For hepla and support 
+  $(document).on('click', '.help-ajax',function(event){
+      event.preventDefault();
+      
+      $('.datas').append('<div class="cus-spinner-full"><div class="sk-spinner sk-spinner-three-bounce"><div class="sk-bounce1"></div><div class="sk-bounce2"></div><div class="sk-bounce3"></div></div></div>');
+      // var page=$(this).attr('href').split('page=')[1];
+      
+      var htype = $(this).attr('data-type');
+      getData(0,htype);
+  });
+  //Suport ticket 
+  $("#support-ticket").validate({
+      ignore: "input[type='text']:hidden",
+      rules: {
+          subject_id: {
+              required: true,
+          },
+          message: {
+              required: true,
+              normalizer: function(value) {
+                  return $.trim(value);
+              }
+          },
+          'attachment[]':{
+              extension: "pdf|jpg|jpeg|png|JPG|JPEG",
+              // filesize: 12000000
+          }
+      },
+      messages: {
+          subject_id:{
+              required: title_required,
+          },
+          message:{
+              required: messages_required,
+          },
+          'attachment[]':{
+              extension: upload_bank_proof_img,
+              // filesize: 'File size must be less than 12MB',
+          }
+      },
   });

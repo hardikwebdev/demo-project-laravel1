@@ -83,6 +83,9 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::post('/withdrawal-request', 'App\Http\Controllers\WithdrawalController@withdrawalRequest')->name('withdrawal-request');
         // Route::resource('help-support', 'App\Http\Controllers\SupportTicketController')->name('help-support');
         Route::resource('help_support', SupportTicketController::class);
+        Route::get('help-support-replay/{id}', [SupportTicketController::class, 'supportReplay'])->name('supportReplay');
+        Route::get('help-support-close/{slug}', [SupportTicketController::class, 'supportClose'])->name('supportClose');
+        Route::post('help-support-replay-message', [SupportTicketController::class, 'supportReplayPost'])->name('supportReplayPost');
 
 
     });
