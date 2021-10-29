@@ -7,6 +7,7 @@ use Auth;
 use App\Models as Model;
 use Session;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
 
 class WithdrawalController extends Controller
 {
@@ -60,7 +61,7 @@ class WithdrawalController extends Controller
         $usercheck = auth()->user();
         $allowed_ranks = [ 'DIB', 'SIB', 'MDIB', 'TDIB'];
         
-        if(md5($request->security_password) == $usercheck->secure_password){
+        if(Hash::check($request->security_password, $usercheck->secure_password)){
             $miniwithdrawalAmount = Model\Setting::where('key','min_withdrawal_request_amount')->pluck('value')->first();
             /*if(isset($request->amount) && $request->amount < $miniwithdrawalAmount){
                 Session::flash('error',trans('custom.minimum_amount_less_wallet'));

@@ -296,7 +296,7 @@ class WalletController extends Controller
         $usercheck = Model\User::with('userwallet')->where('id',auth()->id())->where('status','active')->first();
          $isError = 0;
          if($usercheck != null){            
-             if(md5($request->security_password) === $usercheck->secure_password){
+            if(Hash::check($request->security_password, $usercheck->secure_password)){
                  if(isset($request->amount) && $request->amount > $usercheck->userwallet['yield_wallet']){
                      Session::flash('error',trans('custom.transfer_amount_less_equal_wallet'));
                      return redirect()->back()->withInput($request->input());
