@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="{{ asset('assets/css/custom/jquery.steps.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/jquery-ui.css') }}">
   <link rel="stylesheet" href="{{ asset('backend/css/sweetalert.css')}}">
-  <link rel="stylesheet" type="text/css" href="http://keith-wood.name/css/jquery.signature.css">
+  <link rel="stylesheet" type="text/css" href="https://keith-wood.name/css/jquery.signature.css">
 </head>
 <body>
   <div class="container-scroller">
@@ -47,7 +47,7 @@
 <script src="{{ asset('assets/js/custom/jquery-ui.js') }}"></script>
 <script src="{{ asset('assets/js/custom/jquery.steps.min.js') }}"></script>
 <script src="{{asset('backend/js/dropify.min.js')}}"></script>
-<script type="text/javascript" src="http://keith-wood.name/js/jquery.signature.js"></script>
+<script type="text/javascript" src="https://keith-wood.name/js/jquery.signature.js"></script>
 <script src="{{asset('backend/js/plugins/validate/jquery.validate.min.js') }}"></script>
 <script src="{{asset('backend/js/sweetalert.min.js')}}"></script>
 <script src="{{ asset('assets/js/custom/custom.js').'?v='.time() }}"></script>
