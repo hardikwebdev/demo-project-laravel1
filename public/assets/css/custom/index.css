@@ -517,6 +517,10 @@ span.page-link, a.page-link {
     position: absolute !important;
     bottom: 36px;
 }
+.modal-content {
+    background-color: #16181d !important;
+    border: 1px solid #16181d !important;
+}
 /*.card-1-btn {
     left: 10%;
 }

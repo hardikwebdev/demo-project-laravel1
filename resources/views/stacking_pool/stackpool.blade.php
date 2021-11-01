@@ -1,6 +1,7 @@
  @extends('layouts.app')
 @section('title', __('custom.staking_pool'))
 @section('page_title', __('custom.staking_pool'))
+
  @section('content')
  <div class="content-wrapper">
   <div class="row align-items-center mt-5 pt-5">
@@ -188,13 +189,99 @@
 </div>
 </div>
 @foreach($user_investments as $user_investment)
-
+<div class="modal fade bs-example-modal-center" tabindex="-1" role="dialog" aria-labelledby="points-alert" aria-hidden="true"  id="planExpiredModal{{$user_investment->id}}">
+    <div class="modal-dialog  modal-dialog-centered">
+        <div class="modal-content cus-blue-bg text-white">
+            <div class="modal-header">
+                <h5 class="modal-title mt-0"><span class="mdi mdi-alert"></span> {{trans('custom.staking_popup_title')}}</h5>
+            </div>
+            <div class="modal-body">
+                {{Form::open(['route' => ['stake-plan-change',':id'],'class' => '','id' =>'stake-plan-change'.$user_investment->id,'class' =>'stake-plan-change','enctype' => 'multipart/form-data','method'=>'POST'])}}
+                <div class="font-16 text-left">
+                    {{trans('custom.investment_desc')}}
+                    <div id="planExpiredContent{{$user_investment->id}}"></div>
+                    <div class="col-lg-3 form-group-sub mr-btn" >
+                        <div class="form-group row mt-3">
+                            <button type="submit" class="btn btn-primary cus-width-full cus-bg-green ">{{trans('custom.submit')}}</button>
+                        </div>
+                    </div>
+                </div>
+                {{Form::close()}}
+            </div>
+        </div>
+    </div>
+</div>
 @endforeach
 @endsection
 @section('scripts')
 <script src="{{ asset('assets/js/custom/stacking_pool.js').'?v='.time() }}"></script>
 <script type="text/javascript">
-  
+  var plan_get = "{{route('stock-market-investment-period',':id')}}";
+    @if(count($user_investments) > 0)
+    @foreach($user_investments as $user_investment)
+    var id = '{{$user_investment->id}}';
+    plan_get_action = plan_get.replace(':id',id);
+    var action = $('#stake-plan-change{{$user_investment->id}}').attr('action');
+    action = action.replace(':id',id);
+    $('#stake-plan-change{{$user_investment->id}}').attr('action',action)
+    $.get(plan_get_action,function(response){
+        if(response.status == 'success'){
+            $('#planExpiredContent{{$user_investment->id}}').html(response.html);
+            $("#planExpiredModal{{$user_investment->id}}").modal('show');
+        }else{
+            alert('Bank Proofs are not available');
+        }
+    });
+    $("#stake-plan-change{{$user_investment->id}}").validate({
+
+        ignore: "input[type='text']:hidden",
+        rules: {
+            changeplan: {
+                required: true,
+            },
+            time_period: {
+                required: '#changeplan{{$user_investment->id}}:checked',
+            },
+            iagreechange: {
+                required: true,
+            }
+        },
+        messages: {
+            time_period: {
+                required: select_period,
+            },
+            iagreechange:{
+                required: please_accept_aggrement
+            }
+
+        }
+    });
+    $(document).on('change','#time_period{{$user_investment->id}}',function(e) {
+        end_period1 = end_period.replace(':date',$(this).val());
+        if($(this).val() != ''){
+
+            $('#time_period-error{{$user_investment->id}}').text('');
+            $('#end_period{{$user_investment->id}}').text(end_period1);
+            $('#plan{{$user_investment->id}}').val($( "#time_period{{$user_investment->id}} option:selected" ).text());
+        }else{
+            $('#end_period{{$user_investment->id}}').text('');
+            $('#plan{{$user_investment->id}}').val('');
+        }
+    });
+    $(document).on('change','input:radio[name=changeplan]',function(e) {
+        if($(this).val() == 'changeplan'){
+            $('#changeplanDis'+$(this).data('id')).show();
+            $('#close_investmentDis'+$(this).data('id')).hide();
+        }else if($(this).val() == 'close_investment'){
+           $('#changeplanDis'+$(this).data('id')).hide();
+            $('#close_investmentDis'+$(this).data('id')).show(); 
+        }else{
+            $('#changeplanDis'+$(this).data('id')).hide();
+            $('#close_investmentDis'+$(this).data('id')).hide(); 
+        }
+    });
+    @endforeach
+    @endif
 </script>
 
 @endsection

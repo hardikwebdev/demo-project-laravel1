@@ -36,7 +36,7 @@
         </div>
         <div class="col-12 col-md-6 mt-3 text-white">
             <label class="cus-checkbox d-flex">
-              <input class="d-none" type="checkbox" checked>
+              <input class="d-none" type="checkbox">
               <span></span>
               <h4 class="ml-3 text-light-pink">{{__('custom.remember_me')}}</h4> 
           </label>

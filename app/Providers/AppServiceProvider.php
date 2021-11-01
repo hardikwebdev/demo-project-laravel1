@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
                 $before12Month  = Carbon::today()->subDays(365);
                 $before24Month  = Carbon::today()->subDays(730);
                 $user_investments = StackingPool::whereIn('status',[0,1])
-                    ->where('user_id',auth()->user()->id)
+                                            ->where('user_id',auth()->user()->id)
                                             ->where(function($query) use ($today,$before12Month,$before24Month){ 
                                                 $query
                                                 ->where(function($q1) use ($before12Month){
@@ -39,19 +39,18 @@ class AppServiceProvider extends ServiceProvider
                                                 });
                                             })
                                             ->get();
-                                        $planExpired = false;
-                                        $expired_stacking_pools = [];
-                                        foreach ($user_investments as $key => $user_investment) {
+                                            $planExpired = false;
+                                            $expired_stacking_pools = [];
+                                            foreach ($user_investments as $key => $user_investment) {
 
-                                            if($user_investment->start_date_week <= $today && $user_investment->end_date_week > $today){
-                                                $planExpired = true;
-                                                $expired_stacking_pools[] = $user_investment;
+                                                if($user_investment->start_date_week <= $today && $user_investment->end_date_week > $today){
+                                                    $planExpired = true;
+                                                    $expired_stacking_pools[] = $user_investment;
+                                                }
                                             }
-                                        }
-                                        // print_r($expired_stacking_pools);die();
+
                 $view->with('planExpired', $planExpired);
                 $view->with('expired_stacking_pools', $expired_stacking_pools);
-
                 $view->with('max_stake', $totalstaking_pool);
                 $view->with('min_stake', $minstakeamount);
 

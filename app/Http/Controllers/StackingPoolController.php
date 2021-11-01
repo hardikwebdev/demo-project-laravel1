@@ -43,7 +43,7 @@ class StackingPoolController extends Controller
         $before12Month  = Carbon::today()->subDays(365);
         $before24Month  = Carbon::today()->subDays(730);
         $user_investments = StackingPool::whereIn('status',[0,1])
-        ->where('user_id',auth()->user()->id)
+                                        ->where('user_id',auth()->user()->id)
                                             ->where(function($query) use ($today,$before12Month,$before24Month){ 
                                                 $query
                                                 ->where(function($q1) use ($before12Month){
@@ -59,11 +59,10 @@ class StackingPoolController extends Controller
         $planExpired = false;
         $expired_stacking_pools = [];
         foreach ($user_investments as $key => $user_investment) {
-
-                                            if($user_investment->start_date_week <= $today && $user_investment->end_date_week > $today){
-            $planExpired = true;
-            $expired_stacking_pools[] = $user_investment;
-                                            }
+            if($user_investment->start_date_week <= $today && $user_investment->end_date_week > $today){
+                $planExpired = true;
+                $expired_stacking_pools[] = $user_investment;
+            }
         }
         $user_investments = $expired_stacking_pools;
         return view('stacking_pool.stackpool',compact('stakingpool','stackHistory','user','totalInvested','user_investments'));
@@ -116,5 +115,48 @@ class StackingPoolController extends Controller
         }
 
         return redirect()->route('stakepool',$request->stacking_pool_package_id);
+    }
+
+    /* investment period expired */
+    public function investmentperiod($id){
+        $stacking_pool = StackingPool::find($id);
+        $before12Month  = Carbon::today()->subDays(365);
+        $before24Month  = Carbon::today()->subDays(730);
+
+        // $timeperiods = [$before12Month=>'12',$before24Month=>'24'];
+        $view = view('stacking_pool/partials/plan_expired',compact('stacking_pool'))->render();
+        return response()->json(['status'=>'success','html'=>$view]);
+        return view('stacking_pool/partials/plan_expired',compact('stacking_pool','timeperiods'));
+    }
+
+    /* change plan period */
+    public function changePlan($id,Request $request){
+        $this->validate($request, [
+                        'changeplan' => 'required',
+                        'duration'=>'required'
+                    ]);
+        $user_investment = StackingPool::find($id);
+        if($request->changeplan == 'changeplan'){
+
+            $start_date = Carbon::today();
+            $end_date = Carbon::today()->addDay(365 * ($request->duration / 12));
+            $data = [
+                        'description' => 'renew_invested',
+                        'start_date' => Carbon::now()->format('Y-m-d'),
+                        'end_date' => $end_date,
+                        'stacking_period' => $request->duration
+                    ];
+            $user_investment->update($data);
+            Session::flash('success',trans('custom.success_investment_period_change'));
+        }else{
+            $user_investment->status = 2;
+            $user_investment->save();
+            UserWallet::where('user_id',$user_investment->user_id)->increment('crypto_wallet',round($user_investment->amount,2));
+            UserWallet::where('user_id',$user_investment->user_id)->decrement('stacking_pool',round($user_investment->amount,2));
+
+            Session::flash('success',trans('custom.success_close_investment'));
+            
+        }
+        return redirect()->route('stakepool',$user_investment->stacking_pool_package_id)->withInput($request->input());
     }
 }
