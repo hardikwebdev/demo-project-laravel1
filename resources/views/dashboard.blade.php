@@ -165,7 +165,7 @@
           </div>
           <a class="btn bg-warning text-white px-3 rounded-0 font-10 mt-2 card-4-btn" href="{{ route('stakepool',$stakingpool->id) }}">{{__('custom.stake')}} <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-2 d-inline align-middle w-25" alt=""></a>
           @else
-          <a class="btn bg-warning text-warning px-3 rounded-0 font-10 mt-2" href="{{ route('stakepool',$stakingpool->id) }}">{{__('custom.stake')}} <img src="{{ asset('assets/images/assets/Dashboard/Group179.png') }}" class="img-fluid ml-2 d-inline align-middle" alt=""></a>
+          <a class="btn bg-warning text-white px-3 rounded-0 font-10 mt-2" href="{{ route('stakepool',$stakingpool->id) }}">{{__('custom.stake')}} <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-2 d-inline align-middle" alt=""></a>
 
           @endif
         </div>

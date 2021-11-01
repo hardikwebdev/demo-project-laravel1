@@ -99,7 +99,7 @@ class Helper {
     /* Get Array of  All Downline users ids left */
     public static function getAllDownlineIdsLeft($placement_id,$level,$array=[]){
 
-        $direct_downline = User::where(['status'=>"active",'placement_id'=>$placement_id]);
+        $direct_downline = User::where(['status'=>"active",'placement_id'=>$placement_id,'promo_account'=>'0']);
         if($level == 1){
             $direct_downline = $direct_downline->where('child_position','left');
         }
@@ -122,7 +122,7 @@ class Helper {
      /* Get Array of  All Downline users ids right */
     public static function getAllDownlineIdsRight($placement_id,$level,$array=[]){
 
-        $direct_downline = User::where(['status'=>"active",'placement_id'=>$placement_id]);
+        $direct_downline = User::where(['status'=>"active",'placement_id'=>$placement_id,'promo_account'=>'0']);
         if($level == 1){
             $direct_downline = $direct_downline->where('child_position','right');
         }
@@ -194,12 +194,11 @@ class Helper {
             $allDownlineids = Helper::getAllDownlineIdsLeft($user->id,1);
             $allDownlineids = $allDownlineids != null ? $allDownlineids : [];
             $today = Carbon::today();
-
             $totalgroupsales = StackingPool::whereIn('user_id',$allDownlineids)
                                     ->whereHas('user_detail',function($query){
                                         $query->where('status','active');
                                     })
-                                    ->where('created_at',$today)
+                                    ->whereDate('created_at',$today)
                                     ->get()
                                     ->sum('amount');
 
@@ -221,7 +220,7 @@ class Helper {
                                     ->whereHas('user_detail',function($query){
                                         $query->where('status','active');
                                     })
-                                    ->where('created_at',$today)
+                                    ->whereDate('created_at',$today)
                                     ->get()
                                     ->sum('amount');
 

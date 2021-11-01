@@ -18,6 +18,8 @@ class StackingPool extends Model
         'stacking_period',
         'range',
         'commission',
+        'start_date',
+        'end_date',
         'created_at',
         'updated_at'
     ];

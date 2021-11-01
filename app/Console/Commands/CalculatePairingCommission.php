@@ -44,7 +44,7 @@ class CalculatePairingCommission extends Command
      */
     public function handle()
     {
-        $users = User::where('status','active')->whereHas('placementLeft')->whereHas('placementRight')->get();
+        $users = User::where('status','active')->whereHas('placementLeft')->whereHas('placementRight')->where('id',1)->orderBy('id','asc')->get();
         // print_r($users);die();
         foreach($users as $user){
             $leftDownlineGroupsaleActual = $leftDownlineGroupsale  = Helper::getTotalgroupsalesTodayLeft($user); 
@@ -52,7 +52,6 @@ class CalculatePairingCommission extends Command
             if($leftDownlineGroupsaleActual == 0 && $rightDownlineGroupsaleActual == 0){
                 continue;
             }
-
             $cf = $user->userwallet->carry_forward;
             $carry_forward_to = 0;
             if($user->userwallet->carry_forward_to == 'left'){
@@ -74,7 +73,9 @@ class CalculatePairingCommission extends Command
              /* pairing value */
             $pairing_value = ($package_detail) ? $package_detail->network_pairing : 10;
 
-            if($leftDownlineGroupsale < $rightDownlineGroupsale){
+            // echo $leftDownlineGroupsale; echo $rightDownlineGroupsale;
+            // die();
+            if($leftDownlineGroupsale < $rightDownlineGroupsale && $leftDownlineGroupsale != 0){
                 $groupsale = $leftDownlineGroupsale;
                 $carry_forward = $rightDownlineGroupsale - $leftDownlineGroupsale;
                 $pairing_got_from = 'left';

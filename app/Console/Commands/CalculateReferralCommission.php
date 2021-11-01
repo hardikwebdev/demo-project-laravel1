@@ -45,9 +45,8 @@ class CalculateReferralCommission extends Command
     public function handle()
     {
         set_time_limit(0);
-        \DB::transaction(function () {
+        // \DB::transaction(function () {
             // $result_date = ($this->argument('date')) ? Carbon::createFromFormat('Y-m-d H:i:s', $this->argument('date').' 00:00:00')->subDay()->format('Y-m-d') : Carbon::today()->subDay()->format('Y-m-d');
-
             StackingPool::where('status',0)->update(['status' => 1]);
             $stakingpools = StackingPool::where('status',1)->get();
             foreach($stakingpools as $stakingpool){
@@ -55,11 +54,12 @@ class CalculateReferralCommission extends Command
                 $upline_users = Helper::getUplineSponsor($user);
                 $last_comm_percent = 0;
                 $sum_rank_percent = 0;
-                $package_detail = Package::where('amount','<=',$stakingpool->amount)->orderBy('amount','desc')->first();
-                if(!$package_detail){
-                    continue;
-                }
+
                 foreach ($upline_users as $key => $value) {
+                    $package_detail = Package::where('amount','<=',$value->userwallet->stacking_pool)->orderBy('amount','desc')->first();
+                    if(!$package_detail){
+                        continue;
+                    }
 
                     $level_commission_percent = 0;
                     $total_commission = $package_detail->direct_refferal; //$value->package_detail->direct_refferal;
@@ -109,7 +109,7 @@ class CalculateReferralCommission extends Command
 
                 }
             }
-        });
+        // });
         
         return Command::SUCCESS;
     }
