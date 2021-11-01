@@ -373,4 +373,24 @@
   </div>
 </div>
 <!-- content-wrapper ends -->
+@if($planExpired)
+@foreach($expired_stacking_pools as $stacking_pool)
+<div class="modal fade bs-example-modal-center" tabindex="-1" role="dialog" aria-labelledby="points-alert" aria-hidden="true" style="display: none;" id="planExpired{{$stacking_pool->id}}" >
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content cus-blue-bg">
+            <div class="modal-header">
+                <h5 class="modal-title mt-0"><span class="mdi mdi-alert"></span> {{trans('custom.staking_popup_title')}}</h5>
+            </div>
+            <div class="modal-body">
+                <div class="font-16">
+                    <?php $text = str_replace('#link',route('stakepool',$stacking_pool->stacking_pool_package_id),str_replace(':Stock',$stacking_pool->name_en,str_replace(':Date', $stacking_pool->end_date,str_replace(':Month', $stacking_pool->staking_period, trans('custom.plan_expired'))))); ?>
+                    {!! $text !!}
+                </div>
+
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+@endforeach
+@endif
 @endsection

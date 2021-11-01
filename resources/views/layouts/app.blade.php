@@ -66,6 +66,14 @@
     }
   });
 </script>
+@if($planExpired)
+@foreach($expired_stacking_pools as $stacking_pool)
+<script type="text/javascript">
+    $('#planExpired{{$stacking_pool->id}}').modal('show');
+    
+</script>
+@endforeach
+@endif
 @yield('scripts')
 </body>
 

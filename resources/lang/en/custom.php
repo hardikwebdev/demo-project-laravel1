@@ -1161,7 +1161,7 @@ return [
     'i_agree_with_terms' => 'I accept and agree to be bound by <a href="#link1" target="_blank" class="cus-light-green" style="text-decoration:underline">Terms and Condition </a> and <a href="#link2" target="_blank" class="cus-light-green" style="text-decoration:underline">Risk Disclosure</a> by acknowledging such acceptance during the investment process',
     'please_accept_aggrement' => 'Please accept agreement',
     'end_period' => 'Your end period is: :date',
-    'plan_expired' => 'Your :Month, VexStocks+ investment (:Date) on :Stock is expiring.<br><a href="#link" class="changePlanEx" data-id="#changePlan" style="text-decoration:underline;"> Click here</a> for further action on your VexStock+ investment ',
+    'plan_expired' => 'Your :Month, Staking Pool (:Date) on :Stock is expiring.<br><a href="#link" class="changePlanEx" data-id="#changePlan" style="text-decoration:underline;"> Click here</a> for further action on your Staking Pool investment ',
     'change_plan' => 'Change Investment Period',
     'expired_on' => 'Expired On',
     'success_investment_period_change' => 'Investment Period updated successfully.',
@@ -1545,5 +1545,6 @@ return [
     'myr_amount' => 'Amount (MYR)',
     'open_ticket' => 'OPEN TICKET',
     'no_ticket_found' => 'No Ticket found',
+    'staking_popup_title' => 'STAKING POOL REMINDER',
 
 ];
