@@ -188,28 +188,7 @@
 </div>
 </div>
 @foreach($user_investments as $user_investment)
-<div class="modal fade bs-example-modal-center" tabindex="-1" role="dialog" aria-labelledby="points-alert" aria-hidden="true"  id="planExpiredModal{{$user_investment->id}}">
-    <div class="modal-dialog  modal-dialog-centered">
-        <div class="modal-content cus-blue-bg text-white">
-            <div class="modal-header">
-                <h5 class="modal-title mt-0"><span class="mdi mdi-alert"></span> {{trans('custom.stock_popup_title')}}</h5>
-            </div>
-            <div class="modal-body">
-                {{Form::open(['route' => ['investment-plan-change',':id'],'class' => '','id' =>'investment-plan-change'.$user_investment->id,'class' =>'investment-plan-change','enctype' => 'multipart/form-data','method'=>'POST'])}}
-                <div class="font-16 text-left">
-                    {{trans('custom.investment_desc')}}
-                    <div id="planExpiredContent{{$user_investment->id}}"></div>
-                    <div class="col-lg-3 form-group-sub mr-btn" >
-                        <div class="form-group row mt-3">
-                            <button type="submit" class="btn btn-primary cus-width-full cus-bg-green ">{{trans('custom.submit')}}</button>
-                        </div>
-                    </div>
-                </div>
-                {{Form::close()}}
-            </div>
-        </div>
-    </div>
-</div>
+
 @endforeach
 @endsection
 @section('scripts')
