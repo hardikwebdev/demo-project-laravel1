@@ -99,6 +99,13 @@ var exportnftPaymentHistoryFunction = function(thi){
 	window.location.href=report_export;
 }
 
+var exportstackingpollhistoryFunction = function(thi){
+	var data = $( "form#filter_request").serialize()
+	report_export = report_export+'?'+data
+	window.location.href=report_export;
+}
+
+
 $('input[name="checkall"]').click(function(){
 	if($(this).is(":checked")){
 		$("input[name='request_ids[]']").each(function(){

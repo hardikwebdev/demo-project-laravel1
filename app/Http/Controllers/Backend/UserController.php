@@ -26,7 +26,11 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $users = User::with(['userwallet', 'sponsor']);
+        $users = User::with(['userwallet',
+            'sponsor' => function ($query) {
+                $query->withTrashed();
+            },
+        ]);
         /* Search Functionality*/
         // if($request->group_id && $request->group_id!=""){
         //     $users = $users->where('member_group',$request->group_id);
@@ -39,10 +43,10 @@ class UserController extends Controller
                     ->orWhere('email', 'like', '%' . $request->keyword . '%');
             });
         }
-        // if($request->promo_account && $request->promo_account!=""){
-        //     $promo_account = ($request->promo_account == 2)? '0' : '1';
-        //     $users = $users->where('promo_account',$promo_account);
-        // }
+        if($request->promo_account && $request->promo_account!=""){
+            $promo_account = ($request->promo_account == 2)? '0' : '1';
+            $users = $users->where('promo_account',$promo_account);
+        }
 
         $data = $request->all();
         /* Search Functionality*/
@@ -268,10 +272,14 @@ class UserController extends Controller
         //
         $user = User::with([
             'userwallet',
-            'sponsor',
+            'sponsor' => function ($query) {
+                $query->withTrashed();
+            },
             'userbank',
             'user_agreement',
-            'placementusername'
+            'placementusername' => function ($query) {
+                $query->withTrashed();
+            },
         ])->find($id);
 
         if (!$user) {

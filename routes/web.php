@@ -27,6 +27,8 @@ use App\Http\Controllers\Backend\UsercommissionwalletController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\SupportTicketController;
 use App\Http\Controllers\Backend\StackingpoolscoinController;
+use App\Http\Controllers\Backend\StackingpoolhistoryController;
+use App\Http\Controllers\Backend\ReferralcommissionsController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -57,8 +59,8 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::get('/get-downlinePlacement', 'App\Http\Controllers\HomeController@downlinePlacement')->name('downlinePlacement');
 
         Route::get('/stacks', 'App\Http\Controllers\StackingPoolController@index')->name('stacks');
-        Route::post('/stacking-pool', 'App\Http\Controllers\StackingPoolController@stacking_pool')->name('stacking_pool');
-        Route::get('/stack/{id}', 'App\Http\Controllers\StackingPoolController@detail')->name('stackpool');
+        Route::post('/stacking-pool', 'App\Http\Controllers\StackingPoolController@stacking_pool')->name('staking_pool');
+        Route::get('/stack/{id}', 'App\Http\Controllers\StackingPoolController@detail')->name('stakepool');
         Route::get('/node_management', 'App\Http\Controllers\AccountController@node_management')->name('node_management');
 
         Route::get('/node_register', 'App\Http\Controllers\AccountController@addmember')->name('node_register');
@@ -74,7 +76,9 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::get('/nft_marketplace', 'App\Http\Controllers\HomeController@nft_marketplace')->name('nft_marketplace');
         // Route::get('/withdrawal', 'App\Http\Controllers\HomeController@withdrawal')->name('withdrawal');
         Route::get('/ledger', 'App\Http\Controllers\HomeController@ledger')->name('ledger');
-        Route::get('/account', 'App\Http\Controllers\HomeController@account')->name('account');
+        Route::get('/account', 'App\Http\Controllers\AccountController@profile')->name('account');
+        Route::post('/personal-detail-upadte', 'App\Http\Controllers\AccountController@updatePersonalDetail')->name('personal-detail-upadte');
+        Route::post('/bank-detail-upadte', 'App\Http\Controllers\AccountController@updateBankDetail')->name('bank-detail-upadte');
         Route::get('/my_collection', 'App\Http\Controllers\HomeController@my_collection')->name('my_collection');
         // Route::get('/help_support', 'App\Http\Controllers\HomeController@help_support')->name('help_support');
         Route::get('/nftproduct', 'App\Http\Controllers\HomeController@nftproduct')->name('nftproduct');
@@ -83,6 +87,9 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::post('/withdrawal-request', 'App\Http\Controllers\WithdrawalController@withdrawalRequest')->name('withdrawal-request');
         // Route::resource('help-support', 'App\Http\Controllers\SupportTicketController')->name('help-support');
         Route::resource('help_support', SupportTicketController::class);
+        Route::get('help-support-replay/{id}', [SupportTicketController::class, 'supportReplay'])->name('supportReplay');
+        Route::get('help-support-close/{slug}', [SupportTicketController::class, 'supportClose'])->name('supportClose');
+        Route::post('help-support-replay-message', [SupportTicketController::class, 'supportReplayPost'])->name('supportReplayPost');
 
 
     });
@@ -145,6 +152,12 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             Route::resource('yield_wallet', YieldWalletController::class);
             Route::any('yield-wallet-history-export',[YieldWalletController::class, 'exportData'])->name('yield-wallet-history-export.export');
 
+            // Stacking Pool History
+            Route::resource('stacking_pool_history', StackingpoolhistoryController::class);
+            Route::any('stacking-pool-history-export',[StackingpoolhistoryController::class, 'exportData'])->name('stacking_pool_history.export');
+
+            // Referral commissions
+            Route::resource('referral_commission', ReferralcommissionsController::class);         
 
             // Crypto Wallets Payment History
             Route::resource('crypto_wallets_payment_history', CryptoWalletsPaymentController::class);

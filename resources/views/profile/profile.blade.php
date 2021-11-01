@@ -123,151 +123,105 @@
 
           <div class="row justify-content-center mt-5">
             <div class="col-12">
+              @if(Session::has('success'))
+              <div class="alert alert-success alert-dismissable">
+                  <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                  {{ Session::get('success') }}
+              </div>
+              @endif
+
+              @if(Session::has('error'))
+              <div class="alert alert-danger alert-dismissable">
+                  <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                  {{ Session::get('error') }}
+              </div>
+              @endif
               <ul class="nav nav-tabs justify-content-center account-tabs border-0">
                 <li><a class="text-warning border border-warning py-3 px-5 d-block active" data-toggle="tab" href="#home">PERSONAL DETAILS</a></li>
-                <li class="mt-3 mt-md-0"><a class="text-warning border border-warning py-3 px-5 d-block" data-toggle="tab" href="#menu1">ACCOUNT DETAILS </a></li>
-                <li class="mt-3 mt-md-0"><a class="text-warning border border-warning py-3 px-5 d-block" data-toggle="tab" href="#menu2">BANK DETAILS</a></li>
-                <li class="mt-3 mt-xl-0"><a class="text-warning border border-warning py-3 px-5 d-block" data-toggle="tab" href="#menu3">USER AGREEMENT</a></li>
+                {{-- <li class="mt-3 mt-md-0"><a class="text-warning border border-warning py-3 px-5 d-block" data-toggle="tab" href="#menu1">ACCOUNT DETAILS </a></li> --}}
+                <li class="mt-3 mt-md-0"><a class="text-warning border border-warning py-3 px-5 d-block" data-toggle="tab" href="#menu1">BANK DETAILS</a></li>
+                {{-- <li class="mt-3 mt-xl-0"><a class="text-warning border border-warning py-3 px-5 d-block" data-toggle="tab" href="#menu3">USER AGREEMENT</a></li> --}}
               </ul>
             </div>
-
             <div class="col-12 mt-4">
               <div class="tab-content border-0">
                 <div id="home" class="tab-pane active">
+                  {!! Form::open(['route' => 'personal-detail-upadte','enctype' => 'multipart/form-data','id'=>'personal-detail-upadte', 'method'=>'POST'])!!}
                   <div class="row">
                     <div class="col-12 col-md-6">
-                      <input type="text" class="form-control blue-ph h-auto py-4" placeholder="Andy">
+                      <input name="id" type="hidden" class="form-control blue-ph h-auto py-4" value="{{ $user->id }}">
+                      <input name="fullname" type="text" class="form-control blue-ph h-auto py-4" value="{{ $user->name }}"  placeholder="Full Name">
                     </div>
                     <div class="col-12 col-md-6 mt-4 mt-md-0">
-                      <input type="text" class="form-control blue-ph h-auto py-4" placeholder="John">
+                      <input name="username" type="text" class="form-control blue-ph h-auto py-4" placeholder="Username" value="{{ $user->username }}" readonly="readonly">
                     </div>
                     <div class="col-12 col-md-6 mt-4">
-                      <input type="text" class="form-control blue-ph h-auto py-4" placeholder="andy@outlook.com">
+                      <input name="email" type="text" class="form-control blue-ph h-auto py-4" placeholder="Email" value="{{ $user->email }}" readonly="readonly">
                     </div>
                     <div class="col-12 col-md-6 mt-4">
-                      <input type="text" class="form-control blue-ph h-auto py-4" placeholder="012-345 6789">
+                      <input name="phone_number" type="text" class="form-control blue-ph h-auto py-4" value="{{ $user->phone_number}}" placeholder="Phone Number">
                     </div>
                     <div class="col-12 col-md-6 mt-4">
-                      <input type="text" class="form-control blue-ph h-auto py-4" placeholder="1442 Loving Acres Road, Kansas City, Missouri">
+                      <input id="address" name="address" type="text" class="form-control blue-ph h-auto py-4"
+                      name="address" value="{{ $user->address }}" autocomplete="address" autofocus
+                      placeholder="{{trans('custom.address')}}">
                     </div>
                     <div class="col-12 col-md-6 mt-4">
-                      <input type="text" class="form-control blue-ph h-auto py-4" placeholder="64105">
+                      <input type="text" name="state" class="form-control h-auto py-4" value="{{ $user->state }}" placeholder="State">
                     </div>
-                    <div class="col-12 col-md-4 mt-4">
-                      <input type="text" class="form-control h-auto py-4" placeholder="United State">
+                    <div class="col-12 col-md-6 mt-4">
+                      <input type="text" name="city" class="form-control h-auto py-4" value="{{ $user->city }}" placeholder="City">
                     </div>
-                    <div class="col-12 col-md-4 mt-4">
-                      <input type="text" class="form-control h-auto py-4" placeholder="Kansas City">
-                    </div>
-                    <div class="col-12 col-md-4 mt-4">
-                      <input type="text" class="form-control h-auto py-4" placeholder="Missouri">
+                    <div class="col-12 col-md-6 mt-4">
+                      {!! Form::select('country',$country,old('country_id', $user->country_id),['class'=>'form-control h-auto py-4','placeholder'=>trans('custom.select_country'),'id'=>'country_id']) !!}
                     </div>
                     <div class="col-12 col-md-6 col-xl-4 mt-4">
                       <button class="btn bg-warning text-white py-4 px-5 rounded-0">UPDATE PROFILE <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-4 d-inline align-middle" alt=""></button>
                     </div>
                   </div>
                 </div>
+                {!! Form::close() !!}
                 <div id="menu1" class="tab-pane">
+                  {!! Form::open(['route' => 'bank-detail-upadte','enctype' => 'multipart/form-data','id'=>'bank-detail-upadte', 'method'=>'POST'])!!}
                   <div class="row">
+                    <input name="id" type="hidden" class="form-control blue-ph h-auto py-4" value="{{ $user->id }}">
                     <div class="col-12 col-md-6">
-                      <input type="text" class="form-control blue-ph h-auto py-4" placeholder="Andy">
+                      <input id="bank_name" type="text" class="form-control blue-ph h-auto py-4 @error('bank_name') is-invalid @enderror"
+                      name="bank_name" value="{{ @$user->userbank->name}}" autocomplete="bank_name" autofocus
+                      placeholder="{{ trans('custom.name_of_bank') }}">
                     </div>
                     <div class="col-12 col-md-6 mt-4 mt-md-0">
-                      <input type="text" class="form-control blue-ph h-auto py-4" placeholder="John">
+                      <input id="acc_holder_name" type="text"
+                       class="form-control grey-ph h-auto py-4 rounded-0 @error('acc_holder_name') is-invalid @enderror" name="acc_holder_name"
+                       value="{{ @$user->userbank->account_holder }}" autocomplete="acc_holder_name" autofocus
+                       placeholder="{{ trans('custom.name_account_holder') }}">
                     </div>
                     <div class="col-12 col-md-6 mt-4">
-                      <input type="text" class="form-control blue-ph h-auto py-4" placeholder="andy@outlook.com">
+                      <input id="bank_branch" type="text"
+                      class="form-control grey-ph h-auto py-4 rounded-0 @error('bank_branch') is-invalid @enderror" name="bank_branch"
+                      value="{{ @$user->userbank->branch }}" autocomplete="bank_branch" autofocus
+                      placeholder="{{ trans('custom.bank_branch_only') }}">
                     </div>
                     <div class="col-12 col-md-6 mt-4">
-                      <input type="text" class="form-control blue-ph h-auto py-4" placeholder="012-345 6789">
+                      <input id="swift_code" type="text"
+                      class="form-control grey-ph h-auto py-4 rounded-0 @error('swift_code') is-invalid @enderror" name="swift_code"
+                      value="{{ @$user->userbank->swift_code }}" autocomplete="swift_code" autofocus
+                      placeholder="{{ trans('custom.swift_code') }}">
                     </div>
                     <div class="col-12 col-md-6 mt-4">
-                      <input type="text" class="form-control blue-ph h-auto py-4" placeholder="1442 Loving Acres Road, Kansas City, Missouri">
+                      <input id="acc_number" type="text"
+                      class="form-control grey-ph h-auto py-4 rounded-0 @error('acc_number') is-invalid @enderror" name="acc_number"
+                      value="{{ @$user->userbank->account_number }}" autocomplete="acc_number" autofocus
+                      placeholder="{{ trans('custom.account_number') }}">
                     </div>
                     <div class="col-12 col-md-6 mt-4">
-                      <input type="text" class="form-control blue-ph h-auto py-4" placeholder="64105">
-                    </div>
-                    <div class="col-12 col-md-4 mt-4">
-                      <input type="text" class="form-control h-auto py-4" placeholder="United State">
-                    </div>
-                    <div class="col-12 col-md-4 mt-4">
-                      <input type="text" class="form-control h-auto py-4" placeholder="Kansas City">
-                    </div>
-                    <div class="col-12 col-md-4 mt-4">
-                      <input type="text" class="form-control h-auto py-4" placeholder="Missouri">
+                      {!! Form::select('bank_country_id',$country,old('bank_country_id', @$user->userbank->bank_country_id),['class'=>'form-control h-auto py-4','placeholder'=>trans('custom.select_country'),'id'=>'country_id']) !!}
                     </div>
                     <div class="col-12 col-md-6 col-xl-4 mt-4">
                       <button class="btn bg-warning text-white py-4 px-5 rounded-0">UPDATE ACCOUNT <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-4 d-inline align-middle" alt=""></button>
                     </div>
                   </div>
-                </div>
-                <div id="menu2" class="tab-pane">
-                  <div class="row">
-                    <div class="col-12 col-md-6">
-                      <input type="text" class="form-control blue-ph h-auto py-4" placeholder="Andy">
-                    </div>
-                    <div class="col-12 col-md-6 mt-4 mt-md-0">
-                      <input type="text" class="form-control blue-ph h-auto py-4" placeholder="John">
-                    </div>
-                    <div class="col-12 col-md-6 mt-4">
-                      <input type="text" class="form-control blue-ph h-auto py-4" placeholder="andy@outlook.com">
-                    </div>
-                    <div class="col-12 col-md-6 mt-4">
-                      <input type="text" class="form-control blue-ph h-auto py-4" placeholder="012-345 6789">
-                    </div>
-                    <div class="col-12 col-md-6 mt-4">
-                      <input type="text" class="form-control blue-ph h-auto py-4" placeholder="1442 Loving Acres Road, Kansas City, Missouri">
-                    </div>
-                    <div class="col-12 col-md-6 mt-4">
-                      <input type="text" class="form-control blue-ph h-auto py-4" placeholder="64105">
-                    </div>
-                    <div class="col-12 col-md-4 mt-4">
-                      <input type="text" class="form-control h-auto py-4" placeholder="United State">
-                    </div>
-                    <div class="col-12 col-md-4 mt-4">
-                      <input type="text" class="form-control h-auto py-4" placeholder="Kansas City">
-                    </div>
-                    <div class="col-12 col-md-4 mt-4">
-                      <input type="text" class="form-control h-auto py-4" placeholder="Missouri">
-                    </div>
-                    <div class="col-12 col-md-6 col-xl-4 mt-4">
-                      <button class="btn bg-warning text-white py-4 px-5 rounded-0">UPDATE BANK <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-4 d-inline align-middle" alt=""></button>
-                    </div>
-                  </div>
-                </div>
-                <div id="menu3" class="tab-pane">
-                  <div class="row">
-                    <div class="col-12 col-md-6">
-                      <input type="text" class="form-control blue-ph h-auto py-4" placeholder="Andy">
-                    </div>
-                    <div class="col-12 col-md-6 mt-4 mt-md-0">
-                      <input type="text" class="form-control blue-ph h-auto py-4" placeholder="John">
-                    </div>
-                    <div class="col-12 col-md-6 mt-4">
-                      <input type="text" class="form-control blue-ph h-auto py-4" placeholder="andy@outlook.com">
-                    </div>
-                    <div class="col-12 col-md-6 mt-4">
-                      <input type="text" class="form-control blue-ph h-auto py-4" placeholder="012-345 6789">
-                    </div>
-                    <div class="col-12 col-md-6 mt-4">
-                      <input type="text" class="form-control blue-ph h-auto py-4" placeholder="1442 Loving Acres Road, Kansas City, Missouri">
-                    </div>
-                    <div class="col-12 col-md-6 mt-4">
-                      <input type="text" class="form-control blue-ph h-auto py-4" placeholder="64105">
-                    </div>
-                    <div class="col-12 col-md-4 mt-4">
-                      <input type="text" class="form-control h-auto py-4" placeholder="United State">
-                    </div>
-                    <div class="col-12 col-md-4 mt-4">
-                      <input type="text" class="form-control h-auto py-4" placeholder="Kansas City">
-                    </div>
-                    <div class="col-12 col-md-4 mt-4">
-                      <input type="text" class="form-control h-auto py-4" placeholder="Missouri">
-                    </div>
-                    <div class="col-12 col-md-6 col-xl-4 mt-4">
-                      <button class="btn bg-warning text-white py-4 px-5 rounded-0">UPDATE USER <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-4 d-inline align-middle" alt=""></button>
-                    </div>
-                  </div>
+                  {!! Form::close() !!}
                 </div>
               </div>
             </div>

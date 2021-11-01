@@ -31,10 +31,14 @@
                     <li class=" @if(strstr(\Request::route()->getName(),'nft_purchase_history')) {{'active'}} @endif">
                         <a href="{{route('nft_purchase_history.index')}}" title="Nft Purchase History"><span class="cus-sub-menu">NFT Purchase History</span></a>
                     </li>
+                    <li class=" @if(strstr(\Request::route()->getName(),'stacking_pool_history')) {{'active'}} @endif">
+                        <a href="{{route('stacking_pool_history.index')}}" title="Stacking Pool History"><span class="cus-sub-menu">Stacking Pool History</span></a>
+                    </li>
                     @php $count = Helper::getUnreadCount() @endphp
                     <li class=" @if(strstr(\Request::route()->getName(),'support_ticket')) {{'active'}} @endif">
                         <a href="{{route('support_ticket.index1','all')}}" title="Support"><span class="cus-sub-menu">Support</span><span class="label label-info pull-right">{{$count}}</span></a>
                     </li>
+
                     {{-- <!-- <li class=" @if(strstr(\Request::route()->getName(),'ticket_request2') || strstr(\Request::route()->getName(),'ticket_request')) {{'active'}} @endif">                     -->
                     @role('admin')
                         <li class=" @if(strstr(\Request::route()->getName(),'support_ticket')) {{'active'}} @endif">

@@ -17,29 +17,29 @@
         <div class="col-sm-6 pl-0 ">
             <div class="form-group">
                 <label>Staking Period (12 Month) Start</label> 
-                 {!! Form::number('stacking_actual12_start',old('stacking_actual12_start'),['class'=>'form-control','placeholder'=>'Enter Staking Period (12 Month) Start','min'=>'0']) !!}
-                <span class="help-block text-danger">{{ $errors->first('stacking_actual12_start') }}</span>
+                 {!! Form::number('staking_actual12_start',old('staking_actual12_start',@$package->stacking_actual12_start),['class'=>'form-control','placeholder'=>'Enter Staking Period (12 Month) Start','min'=>'0']) !!}
+                <span class="help-block text-danger">{{ $errors->first('staking_actual12_start') }}</span>
             </div> 
         </div>
         <div class="col-sm-6 pl-0 ">
             <div class="form-group">
                 <label>Staking Period (12 Month) End</label> 
-                 {!! Form::number('stacking_actual12_end',old('stacking_actual12_end'),['class'=>'form-control','placeholder'=>'Enter Staking Period (12 Month) End','min'=>'0', 'id' => 'stacking_actual12_end']) !!}
-                <span class="help-block text-danger">{{ $errors->first('stacking_actual12_end') }}</span>
+                 {!! Form::number('staking_actual12_end',old('staking_actual12_end',@$package->stacking_actual12_end),['class'=>'form-control','placeholder'=>'Enter Staking Period (12 Month) End','min'=>'0', 'id' => 'staking_actual12_end']) !!}
+                <span class="help-block text-danger">{{ $errors->first('staking_actual12_end') }}</span>
             </div> 
         </div>
         <div class="col-sm-6 pl-0 ">
             <div class="form-group">
                 <label>Staking Period (24 Month) Start</label> 
-                 {!! Form::number('stacking_actual24_start',old('stacking_actual24_start'),['class'=>'form-control','placeholder'=>'Enter Staking Period (24 Month) Start','min'=>'0']) !!}
-                <span class="help-block text-danger">{{ $errors->first('stacking_actual24_start') }}</span>
+                 {!! Form::number('staking_actual24_start',old('staking_actual24_start',@$package->stacking_actual24_start),['class'=>'form-control','placeholder'=>'Enter Staking Period (24 Month) Start','min'=>'0']) !!}
+                <span class="help-block text-danger">{{ $errors->first('staking_actual24_start') }}</span>
             </div> 
         </div>
         <div class="col-sm-6 pl-0 ">
             <div class="form-group">
                 <label>Staking Period (24 Month) End</label> 
-                 {!! Form::number('stacking_actual24_end',old('stacking_actual24_end'),['class'=>'form-control','placeholder'=>'Enter Staking Period (24 Month) End','min'=>'0']) !!}
-                <span class="help-block text-danger">{{ $errors->first('stacking_actual24_end') }}</span>
+                 {!! Form::number('staking_actual24_end',old('staking_actual24_end',@$package->stacking_actual24_end),['class'=>'form-control','placeholder'=>'Enter Staking Period (24 Month) End','min'=>'0']) !!}
+                <span class="help-block text-danger">{{ $errors->first('staking_actual24_end') }}</span>
             </div> 
         </div>
         <div class="col-sm-6 pl-0 ">

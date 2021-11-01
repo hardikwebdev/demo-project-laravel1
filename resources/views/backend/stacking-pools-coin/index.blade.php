@@ -49,7 +49,11 @@
                                                     {{ $row->symbol }}
                                                 </td>
                                                 <td> 
+                                                    @if (!empty($row->icon))
                                                     <img src="{{asset('uploads/package_coin/'.$row->icon)}}" width="auto" height="50px">
+                                                    @else
+                                                        
+                                                    @endif
                                                 </a>
                                                 </td>
                                                 <td>

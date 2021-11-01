@@ -5,7 +5,7 @@ $.validator.addMethod(
     },
     amount_must_greater_0
     );
-$("#stacking_pool").validate({
+$("#staking_pool").validate({
     ignore: "input[type='text']:hidden",
     rules: {
         amount: {
@@ -14,6 +14,7 @@ $("#stacking_pool").validate({
             positiveNumber:true,
             minlength: 0,
             maxlength: 6,
+            min:min, 
             max:max, 
         },
         security_password: {

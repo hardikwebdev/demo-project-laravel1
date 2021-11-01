@@ -63,7 +63,7 @@ class User extends Authenticatable
     ];
 
     protected $dates = [ 'deleted_at' ];
-    protected $appends = [ 'sale_left','sale_right' ];
+    // protected $appends = [ 'sale_left','sale_right' ];
 
     //sponsers detail
     public function sponsor() {
@@ -73,6 +73,11 @@ class User extends Authenticatable
     //placement username detail
      public function placementusername() {
         return $this->belongsTo(User::class, 'placement_id', 'id');
+    }
+
+    public function direct_downline() {
+        return $this->hasMany(User::class, 'sponsor_id');
+
     }
     
     //sponsers detail
@@ -111,8 +116,8 @@ class User extends Authenticatable
         return $this->hasMany(User::class, 'sponsor_id', 'id')->where(['status'=>'active']);
     }
 
-    // stacking_history
-    public function stacking_history(){
+    // staking_history
+    public function staking_history(){
         return $this->hasMany(StackingPool::class);
     }
 
@@ -123,14 +128,29 @@ class User extends Authenticatable
         return asset('assets/images/avatar.png');
     }
 
-    public function getSaleLeftAttribute()
+    public function getTotalStake()
     {
-        return Helper::getTotalgroupsalesLeft($this);
+        return Helper::getTotalgroupsales($this);
     }
 
-    public function getSaleRightAttribute()
-    {
-        return Helper::getTotalgroupsalesRight($this);
+    // public function getSaleLeftAttribute()
+    // {
+    //     return Helper::getTotalgroupsalesLeft($this);
+    // }
+
+    // public function getSaleRightAttribute()
+    // {
+    //     return Helper::getTotalgroupsalesRight($this);
+    // }
+
+      // placements
+    public function placementLeft() {
+        return $this->hasMany('App\Models\User', 'placement_id', 'id')->where('child_position','left');
+    }
+
+    // placements
+    public function placementRight() {
+        return $this->hasMany('App\Models\User', 'placement_id', 'id')->where('child_position','right');
     }
 
 }
