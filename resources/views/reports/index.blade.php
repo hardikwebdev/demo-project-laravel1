@@ -13,454 +13,57 @@
             <div class="col-12 mt-5">
               <div class="tab-content border-0">
                 <div id="home" class="tab-pane active">
+                  {!! Form::open(['route' => 'reports-staking-pool-export','enctype' => 'multipart/form-data','method'=>'POST', 'id'=>'export-staking-pool'])!!}
                   <div class="row align-items-center justify-content-center">
                     <div class="col-12 col-md-3 col-xl-auto pr-md-0 mt-3">
                         <p class="text-white font-weight-bold mb-0">FILTER DATE</p>
                     </div>
                     <div class="col-12 col-md-4 col-xl-auto mt-3">
-                        <input type="text" class="form-control bg-transparent font-12 w-123" id="datepicker1" placeholder="OCT 12, 2020 ">
+                        <input name="start_date" type="text" class="form-control bg-transparent font-12 w-123" id="datepicker1" placeholder="Start Date" autocomplete="off">
                     </div>
                     <div class="col-12 col-md-1 col-xl-auto px-md-0 mt-3">
                         <p class="text-white font-weight-bold mb-0 font-12 text-center">TO</p>
                     </div>
                     <div class="col-12 col-md-4 col-xl-auto mt-3">
-                        <input type="text" class="form-control bg-transparent font-12 w-123" id="datepicker2" placeholder="OCT 28, 2020">
+                        <input name="end_date" type="text" class="form-control bg-transparent font-12 w-123" id="datepicker2" placeholder="End Date" autocomplete="off">
                     </div>
                     <div class="col-12 col-md-3 col-xl-auto pr-md-0 mt-3">
                       <p class="text-white font-weight-bold mb-0">STAKING POOL</p>
                     </div>
                     <div class="col-12 col-md-3 col-xl-auto mt-3 d-flex align-items-end">
-                      <select class="form-control font-12 bg-transparent text-white w-123">
-                        <option value="">APLHA</option>
-                      </select>>
+                      {!! Form::select('stackingpoolpackage',$stackingPoolPackage,old('stackingpoolpackage'),['class'=>'form-control font-12 bg-transparent w-123','placeholder'=> 'Select Stacking Pool Package' ,'id'=>'stackingpoolpackage']) !!}
                     </div>
                     <div class="col-12 col-xl-auto ml-lg-auto mt-3 text-center">
                       <button class="btn bg-warning text-white py-3 px-4 rounded-sm">EXPORT <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-3 d-inline align-middle" alt=""></button>
                     </div>
-                  </div> 
-                 
-                  <div class="row mt-4">
-                    <div class="col-12">
-                      <table class="table table-dark trading-table text-center table-responsive-sm">
-                        <thead class="table-gradient">
-                          <tr>
-                            <th>AMOUNT</th>
-                            <th>STAKING POOLS</th>
-                            <th>DURATION</th>
-                            <th>DATE</th>
-                            <th>&nbsp;</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>$20,000</td>
-                            <td>ALPHA</td>
-                            <td>1 - 12 Months</td>
-                            <td>12/09/2021</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>$20,000</td>
-                            <td>ALPHA</td>
-                            <td>1 - 12 Months</td>
-                            <td>12/09/2021</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>$20,000</td>
-                            <td>ALPHA</td>
-                            <td>1 - 12 Months</td>
-                            <td>12/09/2021</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>$20,000</td>
-                            <td>ALPHA</td>
-                            <td>1 - 12 Months</td>
-                            <td>12/09/2021</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>$20,000</td>
-                            <td>ALPHA</td>
-                            <td>1 - 12 Months</td>
-                            <td>12/09/2021</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>$20,000</td>
-                            <td>ALPHA</td>
-                            <td>1 - 12 Months</td>
-                            <td>12/09/2021</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>$20,000</td>
-                            <td>ALPHA</td>
-                            <td>1 - 12 Months</td>
-                            <td>12/09/2021</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>$20,000</td>
-                            <td>ALPHA</td>
-                            <td>1 - 12 Months</td>
-                            <td>12/09/2021</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>$20,000</td>
-                            <td>ALPHA</td>
-                            <td>1 - 12 Months</td>
-                            <td>12/09/2021</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>$20,000</td>
-                            <td>ALPHA</td>
-                            <td>1 - 12 Months</td>
-                            <td>12/09/2021</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>$20,000</td>
-                            <td>ALPHA</td>
-                            <td>1 - 12 Months</td>
-                            <td>12/09/2021</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>$20,000</td>
-                            <td>ALPHA</td>
-                            <td>1 - 12 Months</td>
-                            <td>12/09/2021</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>$20,000</td>
-                            <td>ALPHA</td>
-                            <td>1 - 12 Months</td>
-                            <td>12/09/2021</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>$20,000</td>
-                            <td>ALPHA</td>
-                            <td>1 - 12 Months</td>
-                            <td>12/09/2021</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>$20,000</td>
-                            <td>ALPHA</td>
-                            <td>1 - 12 Months</td>
-                            <td>12/09/2021</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>$20,000</td>
-                            <td>ALPHA</td>
-                            <td>1 - 12 Months</td>
-                            <td>12/09/2021</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>$20,000</td>
-                            <td>ALPHA</td>
-                            <td>1 - 12 Months</td>
-                            <td>12/09/2021</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>$20,000</td>
-                            <td>ALPHA</td>
-                            <td>1 - 12 Months</td>
-                            <td>12/09/2021</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
                   </div>
-                  <div class="row align-items-center mt-5">
-                    <div class="col-12 text-right">
-                      <div class="text-secondary">
-                        <img src="{{ asset('assets/images/assets/Sell_NFT/Path599.png') }}" class="img-fluid rotate-180" alt="">
-                        <span class="font-12 mx-1">1</span>
-                        <span class="font-12 mx-1 bg-warning px-1">2</span>
-                        <span class="font-12 mx-1">3</span>
-                        <span class="font-12 mx-1">4</span>
-                        <span class="font-12 mx-1">5</span>
-                        <span class="font-12 mx-1">6</span>
-                        <span class="font-12 mx-1">7</span>
-                        <span class="font-12 mx-1">8</span>
-                        <span class="font-12 mx-1">9</span>
-                        <span class="font-12 mx-1">10</span>
-                        <img src="{{ asset('assets/images/assets/Sell_NFT/Path599.png') }}" class="img-fluid " alt="">
-                      </div>
-                    </div>
+                  {{ Form::close() }}
+                  <div class="table-responsive table-history">
+                    @include('reports.partials.staking_pools_history')
                   </div>
                 </div>
                 <div id="menu1" class="tab-pane">
+                  {!! Form::open(['route' => 'reports-pairing-commissions-export','enctype' => 'multipart/form-data','method'=>'POST', 'id'=>'reports-pairing-commissions-export'])!!}
                   <div class="row align-items-center justify-content-center">
                     <div class="col-12 col-md-2 col-xl-auto pr-md-0 mt-3">
                         <p class="text-white font-weight-bold mb-0">FILTER DATE</p>
                     </div>
                     <div class="col-12 col-md-3 col-xl-auto mt-3">
-                        <input type="text" class="form-control bg-transparent font-12 w-123" id="datepicker1" placeholder="OCT 12, 2020 ">
+                        <input name="c_start_date" type="text" class="form-control bg-transparent font-12 w-123" id="datepicker3" placeholder="Start Date" autocomplete="off">
                     </div>
                     <div class="col-12 col-md-auto col-xl-auto px-md-0 mt-3">
                         <p class="text-white font-weight-bold mb-0 font-12 text-center">TO</p>
                     </div>
                     <div class="col-12 col-md-3 col-xl-auto mt-3">
-                        <input type="text" class="form-control bg-transparent font-12 w-123" id="datepicker2" placeholder="OCT 28, 2020">
+                        <input name="c_end_date" type="text" class="form-control bg-transparent font-12 w-123" id="datepicker4" placeholder="End Date" autocomplete="off">
                     </div>
                     <div class="col-12 col-md-auto col-xl-auto ml-md-auto mt-3 text-center">
                       <button class="btn bg-warning text-white py-3 px-4 rounded-sm">EXPORT <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-3 d-inline align-middle" alt=""></button>
                     </div>
-                  </div> 
-                 
-                  <div class="row mt-4">
-                    <div class="col-12">
-                      <table class="table table-dark trading-table text-center table-responsive-xl">
-                        <thead class="table-gradient">
-                          <tr>
-                            <th>SALES LEFT</th>
-                            <th>SALES RIGHT</th>
-                            <th>CARRY FORWARD LEFT</th>
-                            <th>CARRY FORWARD RIGHT</th>
-                            <th>DAILY LIMIT</th>
-                            <th>PERCENTAGE</th>
-                            <th>DATE</th>
-                            <th>&nbsp;</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>$20,000</td>
-                            <td>ALPHA</td>
-                            <td>$2,000</td>
-                            <td>$2,000</td>
-                            <td>$2,000</td>
-                            <td>1%</td>
-                            <td>12/09/2021</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>$20,000</td>
-                            <td>ALPHA</td>
-                            <td>$2,000</td>
-                            <td>$2,000</td>
-                            <td>$2,000</td>
-                            <td>1%</td>
-                            <td>12/09/2021</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>$20,000</td>
-                            <td>ALPHA</td>
-                            <td>$2,000</td>
-                            <td>$2,000</td>
-                            <td>$2,000</td>
-                            <td>1%</td>
-                            <td>12/09/2021</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>$20,000</td>
-                            <td>ALPHA</td>
-                            <td>$2,000</td>
-                            <td>$2,000</td>
-                            <td>$2,000</td>
-                            <td>1%</td>
-                            <td>12/09/2021</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>$20,000</td>
-                            <td>ALPHA</td>
-                            <td>$2,000</td>
-                            <td>$2,000</td>
-                            <td>$2,000</td>
-                            <td>1%</td>
-                            <td>12/09/2021</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>$20,000</td>
-                            <td>ALPHA</td>
-                            <td>$2,000</td>
-                            <td>$2,000</td>
-                            <td>$2,000</td>
-                            <td>1%</td>
-                            <td>12/09/2021</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>$20,000</td>
-                            <td>ALPHA</td>
-                            <td>$2,000</td>
-                            <td>$2,000</td>
-                            <td>$2,000</td>
-                            <td>1%</td>
-                            <td>12/09/2021</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>$20,000</td>
-                            <td>ALPHA</td>
-                            <td>$2,000</td>
-                            <td>$2,000</td>
-                            <td>$2,000</td>
-                            <td>1%</td>
-                            <td>12/09/2021</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>$20,000</td>
-                            <td>ALPHA</td>
-                            <td>$2,000</td>
-                            <td>$2,000</td>
-                            <td>$2,000</td>
-                            <td>1%</td>
-                            <td>12/09/2021</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>$20,000</td>
-                            <td>ALPHA</td>
-                            <td>$2,000</td>
-                            <td>$2,000</td>
-                            <td>$2,000</td>
-                            <td>1%</td>
-                            <td>12/09/2021</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>$20,000</td>
-                            <td>ALPHA</td>
-                            <td>$2,000</td>
-                            <td>$2,000</td>
-                            <td>$2,000</td>
-                            <td>1%</td>
-                            <td>12/09/2021</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>$20,000</td>
-                            <td>ALPHA</td>
-                            <td>$2,000</td>
-                            <td>$2,000</td>
-                            <td>$2,000</td>
-                            <td>1%</td>
-                            <td>12/09/2021</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>$20,000</td>
-                            <td>ALPHA</td>
-                            <td>$2,000</td>
-                            <td>$2,000</td>
-                            <td>$2,000</td>
-                            <td>1%</td>
-                            <td>12/09/2021</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>$20,000</td>
-                            <td>ALPHA</td>
-                            <td>$2,000</td>
-                            <td>$2,000</td>
-                            <td>$2,000</td>
-                            <td>1%</td>
-                            <td>12/09/2021</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
                   </div>
-                  <div class="row align-items-center mt-5">
-                    <div class="col-12 text-right">
-                      <div class="text-secondary">
-                        <img src="{{ asset('assets/images/assets/Sell_NFT/Path599.png') }}" class="img-fluid rotate-180" alt="">
-                        <span class="font-12 mx-1">1</span>
-                        <span class="font-12 mx-1 bg-warning px-1">2</span>
-                        <span class="font-12 mx-1">3</span>
-                        <span class="font-12 mx-1">4</span>
-                        <span class="font-12 mx-1">5</span>
-                        <span class="font-12 mx-1">6</span>
-                        <span class="font-12 mx-1">7</span>
-                        <span class="font-12 mx-1">8</span>
-                        <span class="font-12 mx-1">9</span>
-                        <span class="font-12 mx-1">10</span>
-                        <img src="{{ asset('assets/images/assets/Sell_NFT/Path599.png') }}" class="img-fluid " alt="">
-                      </div>
-                    </div>
+                  {{ Form::close() }}
+                  <div class="table-responsive table-history">
+                    @include('reports.partials.nodes_management_history')
                   </div>
                 </div>
                 <div id="menu2" class="tab-pane">

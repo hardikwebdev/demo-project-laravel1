@@ -89,8 +89,10 @@ $(document).ready(function(){
     });
 
 
-  $( "#datepicker1" ).datepicker();
-  $( "#datepicker2" ).datepicker();    
+  $( "#datepicker1" ).datepicker({ dateFormat: 'dd-mm-yy',maxDate: 0 });
+  $( "#datepicker2" ).datepicker({ dateFormat: 'dd-mm-yy',maxDate: 0 });    
+  $( "#datepicker3" ).datepicker({ dateFormat: 'dd-mm-yy',maxDate: 0 });    
+  $( "#datepicker4" ).datepicker({ dateFormat: 'dd-mm-yy',maxDate: 0 });    
 
 });
 
@@ -547,4 +549,102 @@ $(document).ready(function(){
               required: "Please enter address",
           },
         },
+  });
+  $.validator.addMethod('mindate',function(v,el){
+      // if (this.optional(el)){
+      //     return true;
+      // }
+      if($("input[name=start_date]").val() == ''){
+          return true;
+      }
+      var end_date = $("input[name=end_date]").datepicker('getDate');
+
+      var start_date = $(el).datepicker('getDate');
+      return end_date >= start_date;
+  }, 'From Date must be less then To date');
+
+  $.validator.addMethod('maxdate',function(v,el){
+      if (this.optional(el)){
+          return true;
+      }
+      if($("input[name=start_date]").val() == ''){
+          return false;
+      }
+      var end_date = $("input[name=end_date]").datepicker('getDate');
+
+      var start_date = $("input[name=start_date]").datepicker('getDate');
+      return end_date >= start_date;
+  }, 'To date must be greater then From date');
+  $.validator.addMethod('mindate',function(v,el){
+      // if (this.optional(el)){
+      //     return true;
+      // }
+      if($("input[name=c_start_date]").val() == ''){
+          return true;
+      }
+      var end_date = $("input[name=c_end_date]").datepicker('getDate');
+
+      var start_date = $(el).datepicker('getDate');
+      return end_date >= start_date;
+  }, 'From Date must be less then To date');
+
+  $.validator.addMethod('maxdate',function(v,el){
+      if (this.optional(el)){
+          return true;
+      }
+      if($("input[name=c_start_date]").val() == ''){
+          return false;
+      }
+      var end_date = $("input[name=c_end_date]").datepicker('getDate');
+
+      var start_date = $("input[name=c_start_date]").datepicker('getDate');
+      return end_date >= start_date;
+  }, 'To date must be greater then From date');
+  $( "#export-staking-pool" ).validate({
+      /*errorPlacement: function(error, element) {
+          error.insertAfter(element.parent('div').parent('div'));
+      },*/     
+      rules: {
+          start_date: {
+              // required: true,
+              mindate: true,
+          },
+          end_date: {
+              // required: true,
+              maxdate: true,
+          },
+          
+      }, messages: {
+          "start_date" :{
+               mindate: "Start Date must be less then End Date"
+          },
+          "end_date" :{
+               maxdate: "End Date must be greater then Start Date"
+          },
+              
+      }
+  });
+  $( "#reports-pairing-commissions-export" ).validate({
+      /*errorPlacement: function(error, element) {
+          error.insertAfter(element.parent('div').parent('div'));
+      },*/     
+      rules: {
+          c_start_date: {
+              // required: true,
+              mindate: true,
+          },
+          c_end_date: {
+              // required: true,
+              maxdate: true,
+          },
+          
+      }, messages: {
+          "c_start_date" :{
+               mindate: "Start Date must be less then End Date"
+          },
+          "c_end_date" :{
+               maxdate: "End Date must be greater then Start Date"
+          },
+              
+      }
   });
