@@ -63,13 +63,14 @@ class StackingPoolController extends Controller
                     return redirect()->route('stakepool',$request->stacking_pool_package_id)->withInput($request->input());
                 }
                 $start_date = Carbon::today();
-                $end_date = Carbon::today()->addDay($request->duration);
+                $end_date = Carbon::today()->addDay(365 * ($request->duration / 12));
                 StackingPool::create(['user_id' => $usercheck->id,
                                      'stacking_pool_package_id' => $request->stacking_pool_package_id,
                                      'amount' => $request->amount,
                                      'stacking_period' => $request->duration,
                                      'start_date' => $start_date,
                                      'end_date' => $end_date]);
+                
                 UserWallet::where('user_id',$usercheck->id)->decrement('crypto_wallet',round($request->amount,2));
                 UserWallet::where('user_id',$usercheck->id)->increment('stacking_pool',round($request->amount,2));
 
