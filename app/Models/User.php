@@ -39,7 +39,8 @@ class User extends Authenticatable
         'profile_image',
         'rank_id',
         'package_id',
-        'invest_id'
+        'invest_id',
+        'nft_wallet_address'
     ];
 
     /**

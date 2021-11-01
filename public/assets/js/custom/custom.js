@@ -534,3 +534,17 @@ $(document).ready(function(){
               
             },
   });
+  $("#nft-wallet-address-upadte").validate({
+        ignore: "input[type='text']:hidden",
+        rules: {
+                nft_wallet_address: {
+                    required: true,
+                    maxlength: 50,
+                },
+        },
+        messages: {
+          address: {
+              required: "Please enter address",
+          },
+        },
+  });

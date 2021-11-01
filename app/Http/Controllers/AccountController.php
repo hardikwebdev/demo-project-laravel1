@@ -300,4 +300,19 @@ class AccountController extends Controller
             
         }
     }
+    public function updateNFTWalletAddress(Request $request){
+        $validatedData = $request->validate([
+            'nft_wallet_address' => 'required',         
+        ]);
+        /* validation end */
+        try {
+            $user = User::find($request->id);
+            $user->nft_wallet_address = $request->nft_wallet_address;
+            $user->save();
+            return redirect()->back()->with('success', 'User NFT Wallet address updates successfully');
+        } catch (Exception $e) {
+            return redirect()->back()->with(["error"=>$e->getMessage()]);
+            
+        }
+    }
 }
