@@ -31,10 +31,10 @@
           <h4 class="text-dark font-weight-bold mb-0">{{$user->name}}</h4>
           <span class="text-secondary font-12">{{trans('custom.full_name')}}</span>
         </div>
-        <div class="col-md-6">
+       <!--  <div class="col-md-6">
           <h4 class="text-dark font-weight-bold mb-0">{{($user->rank) ? $user->rank->name : '-'}}</h4>
           <span class="text-secondary font-12">{{trans('custom.current_rank')}}</span>
-        </div>
+        </div> -->
       </div>
       <div class="row px-4 mt-4">
         <div class="col-md-6">
