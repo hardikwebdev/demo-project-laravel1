@@ -278,7 +278,49 @@ class Helper {
     }
 
 
+    public static function ic_number_verification($icnumber,$sponser_name){
+        $sponser_details =  User::where('username',$sponser_name)->first();
+        $count = User::where('identification_number',$icnumber)->where(['status'=>'active'])->where('id','!=',$sponser_details->id)->count();
+        $exists = 0;
+        if($count > 0){
+            $downline_ids = $upline_ids = [];
+            $user_ids=User::where('identification_number',$icnumber)->where(['status'=>'active'])->pluck('id');
+            $user_reference = UserReferral::where('user_id',$sponser_details->id)->first();
+            $downline_ids = $user_reference!=null?$user_reference->direct_downline_ids:[];
+            $upline_ids = $user_reference!=null?$user_reference->upline_ids:[];
+            $normal_count = 0;
+            $downline_count = 0;
+            $downline_count = 0;
+            if(($downline_ids!=null && is_array($downline_ids)) || ($upline_ids!=null && is_array($upline_ids))) {
+                foreach ($user_ids as $key => $value) {
+                    if($downline_count>=3 ||  $normal_count >= 1){
+                        $exists = 1;
+                        break;
+                    }
+                    if(is_array($downline_ids) && in_array($value,$downline_ids)){
+                        $downline_count++;
+                    }else if(is_array($upline_ids) && in_array($value,$upline_ids)){
+                        $downline_count++;
+                    }else if($sponser_details->id == $value){
+                        $downline_count++;
+                    }else{
+                        $normal_count++;
+                    }
+                }
+                if($downline_count>=3 ||  $normal_count >=1){
+                    $exists = 1;
+                }
+            }else{
+                $exists = 0;
+            }     
+        }
+        if($exists){
+            return true;
+        }else{
+            return false;
+        }
 
+    }
 
     // count support unread support ticket
     public static function getUnreadCount(){

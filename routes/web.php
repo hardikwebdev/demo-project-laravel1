@@ -27,6 +27,8 @@ use App\Http\Controllers\Backend\UsercommissionwalletController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\SupportTicketController;
 use App\Http\Controllers\Backend\StackingpoolscoinController;
+use App\Http\Controllers\Backend\StackingpoolhistoryController;
+use App\Http\Controllers\Backend\ReferralcommissionsController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -153,6 +155,12 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             Route::resource('yield_wallet', YieldWalletController::class);
             Route::any('yield-wallet-history-export',[YieldWalletController::class, 'exportData'])->name('yield-wallet-history-export.export');
 
+            // Stacking Pool History
+            Route::resource('stacking_pool_history', StackingpoolhistoryController::class);
+            Route::any('stacking-pool-history-export',[StackingpoolhistoryController::class, 'exportData'])->name('stacking_pool_history.export');
+
+            // Referral commissions
+            Route::resource('referral_commission', ReferralcommissionsController::class);         
 
             // Crypto Wallets Payment History
             Route::resource('crypto_wallets_payment_history', CryptoWalletsPaymentController::class);

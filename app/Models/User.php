@@ -70,8 +70,14 @@ class User extends Authenticatable
         return $this->belongsTo(User::class, 'sponsor_id', 'id');
     }
 
+    //placement username detail
+     public function placementusername() {
+        return $this->belongsTo(User::class, 'placement_id', 'id');
+    }
+
     public function direct_downline() {
         return $this->hasMany(User::class, 'sponsor_id');
+
     }
     
     //sponsers detail

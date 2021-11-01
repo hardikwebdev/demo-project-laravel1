@@ -31,10 +31,14 @@
                     <li class=" @if(strstr(\Request::route()->getName(),'nft_purchase_history')) {{'active'}} @endif">
                         <a href="{{route('nft_purchase_history.index')}}" title="Nft Purchase History"><span class="cus-sub-menu">NFT Purchase History</span></a>
                     </li>
+                    <li class=" @if(strstr(\Request::route()->getName(),'stacking_pool_history')) {{'active'}} @endif">
+                        <a href="{{route('stacking_pool_history.index')}}" title="Stacking Pool History"><span class="cus-sub-menu">Stacking Pool History</span></a>
+                    </li>
                     @php $count = Helper::getUnreadCount() @endphp
                     <li class=" @if(strstr(\Request::route()->getName(),'support_ticket')) {{'active'}} @endif">
                         <a href="{{route('support_ticket.index1','all')}}" title="Support"><span class="cus-sub-menu">Support</span><span class="label label-info pull-right">{{$count}}</span></a>
                     </li>
+
                     {{-- <!-- <li class=" @if(strstr(\Request::route()->getName(),'ticket_request2') || strstr(\Request::route()->getName(),'ticket_request')) {{'active'}} @endif">                     -->
                     @role('admin')
                         <li class=" @if(strstr(\Request::route()->getName(),'support_ticket')) {{'active'}} @endif">
@@ -152,7 +156,7 @@
                 <ul class="nav nav-second-level collapse" style="">
                     <li class=" @if(\Request::is('admin/setting')) {{'active'}} @endif"><a href="{{route('setting.index')}}"><span class="cus-sub-menu">General Setting</span></a></li>
                     {{-- <li class=" @if(\Request::is('admin/package_setting') || \Request::is('admin/package_setting/*')) {{'active'}} @endif"><a href="{{route('package_setting.index')}}"><span class="cus-sub-menu">Package Setting</span></a></li> --}}
-                    <li class=" @if(\Request::is('admin/rank_setting')|| \Request::is('admin/rank_setting/*')) {{'active'}} @endif"><a href="{{route('rank_setting.index')}}"><span class="cus-sub-menu">Rank Setting</span></a></li>
+                    {{-- <li class=" @if(\Request::is('admin/rank_setting')|| \Request::is('admin/rank_setting/*')) {{'active'}} @endif"><a href="{{route('rank_setting.index')}}"><span class="cus-sub-menu">Rank Setting</span></a></li> --}}
                     {{-- <li class=" @if(\Request::is('admin/investment-plans')|| \Request::is('admin/investment-plans/*')) {{'active'}} @endif"><a href="{{route('investment-plans.index')}}"><span class="cus-sub-menu">Investment Plans</span></a></li> --}}
                 </ul>
             </li>

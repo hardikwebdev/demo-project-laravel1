@@ -14,9 +14,9 @@
                     <div class="form-group">                                
                         <input type="text"  value="{{isset($data['keyword'])?$data['keyword']:''}}" name="keyword" placeholder="Search By Full Name,Username and Email" class="form-control input-sm" id="search-input">
                     </div> 
-                    {{-- <div class="form-group">                                
+                    <div class="form-group">                                
                         {!! Form::select('promo_account',['1'=>'Yes','2'=>'No'],old('promo_account',@$data['promo_account']),['class'=>'form-control','placeholder'=>'All']) !!}
-                    </div>        --}}
+                    </div>       
                     {{-- <div class="form-group">                                
                          {!! Form::select('group_id',$groups,old('group_id',@$data['group_id']),['class'=>'form-control  input-sm','placeholder'=>'All Groups','id'=>"search-select"]) !!}
                     </div>             --}}
@@ -59,7 +59,7 @@
                                     {{-- <th width="5%">Package</th> --}}
                                     <th width="5%">Country</th>
                                     <th width="15%">Sponsor</th>
-                                    {{-- <th>PROMO</th> --}}
+                                    <th>PROMO</th>
                                     <th width="10%">Date</th>
                                     {{-- @role('admin') --}}
                                     <th width="25%">Actions</th>
@@ -93,7 +93,7 @@
                                     {{-- <td>{{$row->package_detail!=null?$row->package_detail->name:"-"}}</td> --}}
                                     <td>{{$row->country!=null?$row->country->country_name:"-"}}</td>
                                     <td>{{$row->sponsor!=null?$row->sponsor->username:"-"}}</td>
-                                    {{-- <td>{{($row->promo_account == 1)? 'Yes' : 'No'}}</td> --}}
+                                    <td>{{($row->promo_account == 1)? 'Yes' : 'No'}}</td>
                                     <td>{{date('Y-m-d',strtotime($row->created_at))}}</td>
                                     {{-- @role('admin') --}}
                                     <td  class="font-s-14" width="20%">
@@ -106,7 +106,10 @@
                                         {!! Form::close() !!}
                                         <ul class="dropdown-menu m-t-xs">
                                            <li><a class="" href="{{route('crypto-wallet-history.show',[$row->id])}}">History</a></li>
-                                            {{-- <li><a class=" btn-upgrade-package" data-package="{{$row->package_detail!=null?$row->package_detail->id:'0'}}" data-id="{{$row->id}}"  href="#" >Upgrade Package</a></li> --}}
+                                           <li><a class="" href="{{route('referral_commission.index',['user'=>$row->id])}}">
+                                            Referral Commission
+                                            </a></li>
+                                        {{-- <li><a class=" btn-upgrade-package" data-package="{{$row->package_detail!=null?$row->package_detail->id:'0'}}" data-id="{{$row->id}}"  href="#" >Upgrade Package</a></li> --}}
                                             {{-- <li><a class=" btn-upgrade-package resend_welcome_email"  href="{{route('user.resend_welcome_email',$row->id)}}" >Resend Welcome Email</a></li> --}}
                                             {{-- @if($row->mt4_user_id) --}}
                                             {{-- <li><a class=" btn-upgrade-package resend_mt5_email" data-id="{{$row->id}}"  href="{{route('user.resend_mt5_email',$row->id)}}" >Resend MT5 Email</a></li>

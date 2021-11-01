@@ -1130,7 +1130,7 @@ return [
     'stock_markets' => 'Stock Markets',
     'stock_wallet' => 'Stock Wallet',
     'err_field_req' => 'Trường này là bắt buộc',
-    'max_3_identfication_allowed' => 'You have already registered maximum 3 accounts with Vextrader',
+    'max_3_identfication_allowed' => 'You have already registered maximum 3 accounts with DefixFinance',
     'amount_should_lesserthan' => 'Please select USD 2,270 or below for :Bank transactions.',    
     'leverage'=>'Leverage',
     'min' => [

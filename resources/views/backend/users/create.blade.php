@@ -26,6 +26,7 @@
 @section('scripts')
 <script type="text/javascript">
      var verify_sponsor = "{{route('sponsorUsernameExits')}}";
+     var placementUsernameExits = "{{route('placementUsernameExits')}}";
 </script>
 <script type="text/javascript" src="{{asset('backend/js/custom/member.js')}}"></script>
 @endsection

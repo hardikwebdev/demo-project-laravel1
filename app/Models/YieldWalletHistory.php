@@ -9,7 +9,7 @@ class YieldWalletHistory extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'amount', 'description','type','user_id','final_amount','created_at','updated_at'];
+        'amount', 'description','type','user_id','final_amount','created_at','updated_at','stacking_pool_id','unique_no'];
 
     public function user_detail(){
         return $this->belongsTo(User::class,'user_id','id');

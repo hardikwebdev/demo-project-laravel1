@@ -121,16 +121,18 @@
                         </div>       
                     </div>
             </div>   
+
+            
             <div class="row form-group-all">
-                <div class="col-sm-8 pr-0 ">          
+                <div class="col-sm-8 pr-0 ">
                     <div class="form-group">
-                        <label>Sponsor</label> 
-                        {!! Form::text('sponsor',old('sponsor'),['class'=>'form-control','placeholder'=>'Enter Sponsor','id'=>'sponsor_username']) !!}
-                    </div> 
+                        <label>Sponsor Name</label>
+                        {!! Form::text('sponsor',old('sponsor'),['class'=>'form-control','placeholder'=>'Enter Sponsor Name','id'=>'sponsor_username']) !!}
+                    </div>
                 </div>
                 <div class="col-sm-4 ">
                     <div class="form-group">
-                        <label>&nbsp;&nbsp;</label> 
+                        <label>&nbsp;&nbsp;</label>
                         <a class="btn-primary btn btn-block verify-sponser">Verify Sponsor</a>
                     </div>
                 </div>
@@ -141,6 +143,51 @@
                     <label class="cus-success-sponsor sucess">{{trans('custom.sponsor_username_verified')}}</label>
                 </div>
                 <span class="col-sm-12 help-block text-danger">{{ $errors->first('sponsor') }}</span>
+            </div>
+            
+             <div class="row form-group-all">
+                <div class="col-sm-8 pr-0 ">
+                    <div class="form-group">
+                        <label>Placement Name</label>
+                        {!! Form::text('placement_username',old('placement_username'),['class'=>'form-control','placeholder'=>'Enter Placement Name','id'=>'placement_username']) !!}
+                    </div>
+                </div>
+                <div class="col-sm-4 ">
+                    <div class="form-group">
+                        <label>&nbsp;&nbsp;</label>
+                        <a class="btn-primary btn btn-block verify-placement">Verify Placement</a>
+                    </div>
+                </div>
+                <div class="col-md-12 ">
+                    <input id="placement_check" type="hidden" class="form-control @error('placement_check') is-invalid @enderror" name="placement_check" value="{{ old('placement_check') }}"  autocomplete="placement_check" autofocus placeholder="{{ __('Placement name') }}">
+            
+                    {{-- <span class="cus-error-sponsor error">Please verify the entered placement details.
+                    </span> --}}
+            
+                    {{-- <label class="cus-error-sponsor">{{trans('custom.placement_user_not_found_not__valid_placement')}}</label> --}}
+            
+                    {{-- <label class="cus-success-sponsor sucess">{{trans('custom.placement_username_verified')}}</label> --}}
+            
+                     <label
+                    class="cus-error-placement">{{trans('custom.placement_user_not_found_not__valid_placement')}}</label>
+            
+                    <label class="cus-success-placement sucess"
+                    style="display:none">{{trans('custom.placement_username_verified')}}</label>
+            
+                   <label id="placement_username-error" class="error" for="placement_username"></label>
+            
+                </div>
+                <span class="col-sm-12 help-block text-danger">{{ $errors->first('placement_username') }}</span>
+            </div>
+            <div class="col-12 text-center mt-3">
+                <label class="cus-radio">
+                    <input class="d-none" type="radio" name="child_position" value="left" checked>
+                    <span class="text-uppercase">{{trans('custom.left') }}</span>
+                </label>
+                <label class="cus-radio">
+                    <input class="d-none" type="radio" name="child_position" value="right">
+                    <span class="text-uppercase">{{trans('custom.right') }}</span>
+                </label>
             </div>
         </div>
     </div>
@@ -196,7 +243,7 @@
         </div>
     </div>
 </div>
-<div class="row d-flex ">
+{{-- <div class="row d-flex ">
     <div class=" col-sm-6 m-t-lg">
         <div class="ibox-content ibox-border-rad cus-heght-full">
             <h4 class="p-b-sm">User Agreement</h4>
@@ -237,6 +284,7 @@
                         </div>      
                     </div>
                     <span class="help-block text-danger">{{ $errors->first('terms_condition') }}</span>
+                    <label id="terms_condition_error" class="error" style="color: #c71d25 !important;"></label>
                 </div>
                 <div class="col-sm-6 ">        
                     <div class="form-group">
@@ -248,7 +296,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 </div>
 <div class="m-t-lg">
     <button class="btn  btn-primary" type="submit"><strong>Save</strong></button>

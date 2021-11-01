@@ -1109,7 +1109,7 @@ return [
     'last_month_plan_performance' => '上月計劃績效',
     
     'leverage'=>'Leverage',
-    'max_3_identfication_allowed' => 'You have already registered maximum 3 accounts with Vextrader',
+    'max_3_identfication_allowed' => 'You have already registered maximum 3 accounts with DefixFinance',
     'min' => [
        'numeric' => 'Please enter a :attribute greater than or equal to :min.',
        'file' => 'The :attribute must be at least :min kilobytes.',

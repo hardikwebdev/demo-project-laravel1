@@ -1105,7 +1105,7 @@ return [
     'last_month_plan_performance' => 'เดือนล่าสุดผลการดำเนินงานตามแผน',
     
     'leverage'=>'Leverage',
-    'max_3_identfication_allowed' => 'You have already registered maximum 3 accounts with Vextrader',
+    'max_3_identfication_allowed' => 'You have already registered maximum 3 accounts with DefixFinance',
     'amount_should_lesserthan' => 'Please select USD 2,270 or below for :Bank transactions.',
     'min' => [
         'numeric' => 'Please enter a :attribute greater than or equal to :min.',

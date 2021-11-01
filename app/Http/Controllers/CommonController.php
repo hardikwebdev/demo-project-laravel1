@@ -54,8 +54,7 @@ class CommonController extends Controller
             //     die('test2');
 
         } else {
-                die('test1');
-
+                // die('test1');
             $isValid = false;
         }
         echo json_encode(array(
