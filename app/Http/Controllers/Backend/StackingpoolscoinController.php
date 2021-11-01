@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\StackingPoolPackage;
+use Illuminate\Validation\Rule;
 use App\Models\StackingPoolCoin;
+use App\Models\StackingPoolPackage;
+use App\Http\Controllers\Controller;
 
 class StackingpoolscoinController extends Controller
 {
@@ -50,17 +51,18 @@ class StackingpoolscoinController extends Controller
         $packageid = $request->packageid;
         /* validation start */
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            // 'name' => [
-            //     'required',
-            //     \Rule::unique('stacking_pools_coins')->where(function ($query) use($packageid) {
-            //         return $query->where('ip', $ip)
-            //         ->where('hostname', $hostname);
-            //     }),
-            // ],
+            // 'name' => 'required|string|max:255',
+            'name' => [
+                'required',
+                Rule::unique('stacking_pools_coins')->where(function ($query) use($packageid) {
+                    return $query->where('stacking_pool_package_id', $packageid);
+                }),
+            ],
             'symbol' => 'required|string|max:30',
             'image' => 'required|mimes:jpeg,jpg,png,gif',
             'price' => 'required',            
+        ],[
+            'name.unique' => 'Coin already exists!',
         ]);
         
          /* validation end */
@@ -99,7 +101,7 @@ class StackingpoolscoinController extends Controller
     {
         //
         $package = StackingPoolPackage::find($id);
-        $coin = StackingPoolCoin::orderBy('id','desc')->paginate($this->limit);
+        $coin = StackingPoolCoin::where('stacking_pool_package_id', $id)->orderBy('id','desc')->paginate($this->limit);
 
         if (!$package) {
             return redirect()
@@ -138,13 +140,21 @@ class StackingpoolscoinController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $packageid = $request->packageid;
          /* validation start */
          $validatedData = $request->validate([
             // 'name' => 'required|string|max:255|unique:packages,name,'.$id,
-            'name' => 'required|string|max:255',
+            'name' => [
+                'required',
+                Rule::unique('stacking_pools_coins')->ignore($id, 'id')->where(function ($query) use($packageid) {
+                    return $query->where('stacking_pool_package_id', $packageid);
+                }),
+            ],
             'symbol' => 'required|string|max:30',
             'image' => 'mimes:jpeg,jpg,png,gif',
             'price' => 'required',
+         ],[
+            'name.unique' => 'Coin already exists!',
         ]);
         /* validation end */
         try {

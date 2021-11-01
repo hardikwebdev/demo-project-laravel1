@@ -116,6 +116,28 @@ body.mini-navbar .metismenu ul.nav-second-level li a .cus-sub-menu{
 .success-verify,.form-group .error-verify,.form-group .otp-success-mail,.cus-success-sponsor,.cus-error-sponsor {
     display: none;
 }
+.cus-success-placement,
+.cus-error-placement {
+    display: none;
+}
+.cus-radio [type="radio"]:checked + span {
+    opacity: 0.8;
+}
+
+.cus-radio span {
+    color: white;
+    background: #ffc100;
+    padding: 8px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    display: block;
+}
+
+.text-uppercase {
+    text-transform: uppercase !important;
+}
+
 .cutomer-backend .disable-class{
     pointer-events: none;
     opacity: 0.8;
@@ -584,6 +606,14 @@ a,a:hover {
 }
 .cus-success-sponsor.sucess {
     color: green;
+}
+.cus-success-placement.sucess {
+    color: green;
+}
+
+#placement_username-error {
+    color: #c71d25 !important;
+    font-weight: 600;
 }
 /***End form changes***/
 /**Login page**/

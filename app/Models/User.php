@@ -69,6 +69,11 @@ class User extends Authenticatable
     public function sponsor() {
         return $this->belongsTo(User::class, 'sponsor_id', 'id');
     }
+
+    //placement username detail
+     public function placementusername() {
+        return $this->belongsTo(User::class, 'placement_id', 'id');
+    }
     
     //sponsers detail
     public function child_sponsor() {

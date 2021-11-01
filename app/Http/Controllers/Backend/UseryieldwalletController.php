@@ -54,6 +54,7 @@ class UseryieldwalletController extends Controller
 
     		if($userwallet->yield_wallet > $request->amount){
     			$history_data["type"]="0";
+                $history_data["stacking_pool_id"]=1;
     			$fund_wallet_amount = $userwallet->yield_wallet - $request->amount; 
                 $history_data["amount"]=$fund_wallet_amount;
     			$text = "Yield wallet update successfully";
@@ -61,6 +62,7 @@ class UseryieldwalletController extends Controller
     		}else if($userwallet->yield_wallet < $request->amount){
     			$fund_wallet_amount = $request->amount - $userwallet->yield_wallet; 
     			$history_data["type"]="2";
+                $history_data["stacking_pool_id"]=1;
                 $history_data["amount"]=$fund_wallet_amount;
     			$text = "Yield wallet update successfully";
     		    YieldWalletHistory::create($history_data);

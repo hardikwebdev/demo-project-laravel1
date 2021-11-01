@@ -83,7 +83,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        /* validation start */
+             /* validation start */
         $rules = [
             'username' =>
                 'required|string|unique:users,username,NULL,id,deleted_at,NULL|max:255|alpha_num',
@@ -95,6 +95,8 @@ class UserController extends Controller
                 'max:255',
                 'exists:users,username',
             ],
+            'placement_username' => ['required', 'string', 'max:255', 'exists:users,username'],
+            'child_position' => 'required',
             'password' => 'required',
             'retype_password' => 'required',
             'secure_password' => 'required',
@@ -105,15 +107,14 @@ class UserController extends Controller
             'country' => 'required',
             'city' => 'required',
             'state' => 'required',
-            'signature' => 'required',
             'name' => 'required',
             'branch' => 'required',
             'acc_holder_name' => 'required|same:name',
             'acc_number' => 'required',
             'swift_code' => 'required',
-            'terms_condition' => 'required',
             'bank_country_id' => 'required',
         ];
+
 
         if ($request->country == '131') {
             $rules['ic_number'] = 'max:12';
@@ -121,6 +122,7 @@ class UserController extends Controller
 
         $validatedData = $request->validate($rules);
         /* validation end */
+
 
         $data = $request->all();
         $count = User::where('identification_number', $request->ic_number)
@@ -136,19 +138,51 @@ class UserController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
-        // if(Helper::ic_number_verification($data['ic_number'],$data['sponsor']) == true){
-        //     $validator = Validator::make([], []);
-        //     $validator->getMessageBag()->add('ic_number',  trans('validation.unique',['attribute'=>'identification number']));
-        //     return redirect()->back()->withErrors($validator)->withInput();
-        //         // return response()->json(['success' => false, 'message' => trans('validation.unique',['attribute'=>'identification number']), "code" => 400], 400);
-        // }
-        $terms_condition = $request->terms_condition;
-        $sponsor_id = User::where('username', $data['sponsor'])
-            ->where('status', 'active')
-            ->first();
+
+        $usernameExits = User::where('username', $data['placement_username'])->where('status', 'active')->exists();
+        $isValid = false;
+        if ($usernameExits != null) {
+            $placement = User::where('username', $data['placement_username'])->where('status', 'active')->first();
+            $placementCount = User::where('placement_id', $placement->id)->where('status', 1)->where('child_position', $data['child_position'])->count();
+            if ($placementCount > 0) {
+                $isValid = false;
+            }
+            $user = User::where('username', $data['sponsor_check'])->where('status', 'active')->first();
+            $upline_ids = Helper::getAllDownlineIds($user->sponsor_id);
+
+            $isValid = false;
+
+            if ($placementCount == 0 && $placement && (in_array($placement->id, $upline_ids) || empty($upline_ids) || $placement->username == $user->username)) {
+                $isValid = true;
+            }
+        } else {
+            $isValid = false;
+        }
+
+        if (!$isValid) {
+            $validator = Validator::make([], []);
+            $validator
+                ->getMessageBag()
+                ->add('placement_username', 'Invalid placement position');
+            return redirect()
+                ->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+        if(Helper::ic_number_verification($data['ic_number'],$data['sponsor']) == true){
+            $validator = Validator::make([], []);
+            $validator->getMessageBag()->add('ic_number',  trans('validation.unique',['attribute'=>'identification number']));
+            return redirect()->back()->withErrors($validator)->withInput();
+                // return response()->json(['success' => false, 'message' => trans('validation.unique',['attribute'=>'identification number']), "code" => 400], 400);
+        }
+        // $terms_condition = $request->terms_condition;
+        $sponsor_id = User::where('username', $data['sponsor'])->where('status', 'active')->first();
+        $placement_id = User::where('username', $data['placement_username'])->where('status', 'active')->first();
         $user = User::firstOrCreate([
             'name' => $data['name'],
             'sponsor_id' => $sponsor_id != null ? $sponsor_id->id : '0',
+            'placement_id' => ($placement_id != null) ? $placement_id->id : '0',
+            'child_position' => $data['child_position'],
             'username' => $data['username'],
             'address' => $data['address'],
             'city' => $data['city'],
@@ -158,25 +192,10 @@ class UserController extends Controller
             'phone_number' => $data['phone_number'],
             'secure_password' => Hash::make($data['secure_password']),
             'email' => $data['email'],
-            // 'password' => md5($data['password']),
             'password' => Hash::make($data['password']),
-            'signature' => $data['signature'],
-            // 'member_group'=>($sponsor_id != null ) ? $sponsor_id->member_group : '0',
-            // 'is_consultant' => $request->filled('is_consultant'),
-            // 'is_investor' => $request->filled('is_investor'),
-            // 'fixed_rank' => $request->filled('is_consultant'),
             'email_verified_at' => date('Y-m-d H:i:s'),
         ]);
-        // print_r($user);die();
 
-        // if($request->mt4_id && $request->mt4_password && $request->mt4_id!="" && $request->mt4_password!=""){
-        //     $user->mt4_user_id = $request->mt4_id;
-        //     $user->mt4_password = $request->mt4_password;
-        // }
-        // if($request->filled('is_consultant')){
-        //     $rank = Model\Rank::where('name','Consultant')->first();
-        //     $user->rank_id = ($rank) ? $rank->id : 0;
-        // }
         $userBank = UserBank::create([
             'user_id' => $user->id,
             'name' => $data['bank_name'],
@@ -190,23 +209,23 @@ class UserController extends Controller
         $userAgreement = UserAgreement::create([
             'user_id' => $user->id,
 
-            'aml_policy_statement' => in_array(
-                'aml_policy_statement',
-                $terms_condition
-            )
-                ? 1
-                : 0,
-            'risk_disclosure_statement' => in_array(
-                'risk_disclosure_statement',
-                $terms_condition
-            )
-                ? 1
-                : 0,
-            'user_agreement' => in_array('client_agreement', $terms_condition)
-                ? 1
-                : 0,
-            'poa' => in_array('poa', $terms_condition) ? 1 : 0,
-            'user_signature' => $data['signature'],
+            // 'aml_policy_statement' => in_array(
+            //     'aml_policy_statement',
+            //     $terms_condition
+            // )
+            //     ? 1
+            //     : 0,
+            // 'risk_disclosure_statement' => in_array(
+            //     'risk_disclosure_statement',
+            //     $terms_condition
+            // )
+            //     ? 1
+            //     : 0,
+            // 'user_agreement' => in_array('client_agreement', $terms_condition)
+            //     ? 1
+            //     : 0,
+            // 'poa' => in_array('poa', $terms_condition) ? 1 : 0,
+            // 'user_signature' => $data['signature'],
             'date_of_registration' => date('Y-m-d H:i:s'),
         ]);
 
@@ -214,7 +233,7 @@ class UserController extends Controller
             'user_id' => $user->id,
         ]);
         $user->save();
-        // Helper::updateDownline($user->id);
+        Helper::updateDownline($user->id);
         return redirect()
             ->route('user.index')
             ->with(['success' => 'Customer added sucessfully.']);
@@ -252,6 +271,7 @@ class UserController extends Controller
             'sponsor',
             'userbank',
             'user_agreement',
+            'placementusername'
         ])->find($id);
 
         if (!$user) {
@@ -264,6 +284,7 @@ class UserController extends Controller
             'country_name',
             'id'
         );
+        // dd($user);
         // $ranks = Model\Rank::where('is_deleted','0')->pluck('name','id');
         // $packages = Model\Package::where('is_deleted','0')->where('status','active')->pluck('name','id');
 
@@ -305,43 +326,41 @@ class UserController extends Controller
 
         // }
         $user_detail = $user = User::where('id', $id)->first();
-        $data = $request->all();
         $rules = [
-            'username' =>
-                'required|string|max:255|alpha_num|unique:users,username,' .
-                $id .
-                ',id,deleted_at,NULL',
+            // 'username' =>
+            //     'required|string|max:255|alpha_num|unique:users,username,' .
+            //     $id .
+            //     ',id,deleted_at,NULL',
             'email' =>
                 'required|email|max:255|unique:users,email,' .
                 $id .
                 ',id,deleted_at,NULL',
 
-            'sponsor' => [
-                'required',
-                'string',
-                'max:255',
-                'exists:users,username,deleted_at,NULL',
-            ],
+            // 'sponsor' => [
+            //     'required',
+            //     'string',
+            //     'max:255',
+            //     'exists:users,username,deleted_at,NULL',
+            // ],
+            // 'placement_username' => ['required', 'string', 'max:255', 'exists:users,username'],
             'ic_number' => 'required',
             'name' => 'required|max:255',
             'address' => 'required',
             'country' => 'required',
             'city' => 'required',
             'state' => 'required',
-            // 'signature' => 'required',
             'name' => 'required',
             'branch' => 'required',
             'acc_holder_name' => 'required|same:name',
             'acc_number' => 'required',
             'swift_code' => 'required',
-            'terms_condition' => 'required',
             'bank_country_id' => 'required',
         ];
         if ($request->country == '131') {
             $rules['ic_number'] = 'max:12';
         }
         $validatedData = $request->validate($rules);
-        // $count = User::where('identification_number',$request->ic_number)->where(['status'=>'active','is_deleted'=>'0'])->count();
+        $count = User::where('identification_number',$request->ic_number)->where(['status'=>'active'])->count();
         // if($count >= 3){
         //     $validator = Validator::make([], []);
         //     $validator->getMessageBag()->add('ic_number', trans('custom.max_3_identfication_allowed'));
@@ -359,7 +378,7 @@ class UserController extends Controller
             // $sponsor_id = User::where('username', $data['sponsor'])
             //     ->where('status', 'active')
             //     ->first();
-            $sponsor_id = User::where('username', $data['sponsor'])->first();
+            // $sponsor_id = User::where('username', $data['sponsor'])->first();
             // $package_detail = Model\Package::where([
             //     'status' => 'active',
             //     'is_deleted' => '0',
@@ -412,7 +431,6 @@ class UserController extends Controller
             // }
             $input_user_data = [
                 'name' => $data['name'],
-                'sponsor_id' => $sponsor_id != null ? $sponsor_id->id : '0',
                 'username' => $data['username'],
                 'address' => $data['address'],
                 'city' => $data['city'],
@@ -421,25 +439,12 @@ class UserController extends Controller
                 'identification_number' => $data['ic_number'],
                 'phone_number' => $data['phone_number'],
                 'email' => $data['email'],
-                // 'signature'=>$data['signature'],
-                // 'rank_id' => $data['rank_id'],
-                // 'package_id' => $data['package_id'],
                 'status' => $data['status'],
-                // 'fixed_rank' => isset($data['fixed_rank'])
-                //     ? $data['fixed_rank']
-                //     : '0',
-                // 'promo_account' => $data['promo_account'],
-                // 'is_consultant' => $request->filled('is_consultant'),
-                // 'is_investor' => $request->filled('is_investor'),
-                // 'payment_methods' => $request->payment_methods,
-                // 'downline_user_transfer'=>$data['downline_user_transfer'],
-                // 'enable_fund_wallet'=>$data['enable_fund_wallet'],
-                // 'disabled_commission'=>$data['disabled_commission'],
+                'promo_account' => $data['promo_account'],
             ];
-            // if ($request->promo_account && $request->promo_account == '1') {
-            // }
+            if ($request->promo_account && $request->promo_account == '1') {
+            }
             if ($request->password && $request->password != '') {
-                // $input_user_data['password'] = md5($data['password']);
                 $input_user_data['password'] = Hash::make($data['password']);
             }
             if ($request->secure_password && $request->secure_password != '') {
@@ -481,35 +486,35 @@ class UserController extends Controller
             /* Update user bank end */
 
             /* Update user agreement end */
-            $input_aggrement_data = [
-                'aml_policy_statement' => in_array(
-                    'aml_policy_statement',
-                    $data['terms_condition']
-                )
-                    ? 1
-                    : 0,
-                'risk_disclosure_statement' => in_array(
-                    'risk_disclosure_statement',
-                    $data['terms_condition']
-                )
-                    ? 1
-                    : 0,
-                'user_agreement' => in_array(
-                    'client_agreement',
-                    $data['terms_condition']
-                )
-                    ? 1
-                    : 0,
-                'poa' => in_array('poa', $data['terms_condition']) ? 1 : 0,
-                'user_signature' => $data['name'],
-            ];
-            $user_agreement_detail = UserAgreement::firstOrCreate([
-                'user_id' => $id,
-            ]);
-            $user_agreement_detail = UserAgreement::where(
-                'user_id',
-                $id
-            )->update($input_aggrement_data);
+            // $input_aggrement_data = [
+            //     'aml_policy_statement' => in_array(
+            //         'aml_policy_statement',
+            //         $data['terms_condition']
+            //     )
+            //         ? 1
+            //         : 0,
+            //     'risk_disclosure_statement' => in_array(
+            //         'risk_disclosure_statement',
+            //         $data['terms_condition']
+            //     )
+            //         ? 1
+            //         : 0,
+            //     'user_agreement' => in_array(
+            //         'client_agreement',
+            //         $data['terms_condition']
+            //     )
+            //         ? 1
+            //         : 0,
+            //     'poa' => in_array('poa', $data['terms_condition']) ? 1 : 0,
+            //     'user_signature' => $data['name'],
+            // ];
+            // $user_agreement_detail = UserAgreement::firstOrCreate([
+            //     'user_id' => $id,
+            // ]);
+            // $user_agreement_detail = UserAgreement::where(
+            //     'user_id',
+            //     $id
+            // )->update($input_aggrement_data);
             /* Update user agreement end */
 
             return redirect()

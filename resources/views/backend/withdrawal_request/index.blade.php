@@ -233,4 +233,5 @@
     //  $('.chosen-select').val({!! json_encode(@$data['group']) !!}).chosen({width: "100%"});
 </script> 
 <script type="text/javascript" src="{{asset('backend/js/custom/withdrawal_requests.js')}}"></script>
+<script type="text/javascript" src="{{asset('backend/js/custom/reports.js')}}"></script>
 @endsection

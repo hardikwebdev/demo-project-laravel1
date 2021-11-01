@@ -17,7 +17,8 @@
 	<!-- Magnific Popup css -->
 	<link href="{{asset('backend/css/magnific-popup.css')}}" rel="stylesheet">
 	<!-- Custom css -->
-	<link href="{{ asset('backend/css/custom.css?v=1.0') }}" rel="stylesheet">
+	{{-- <link href="{{ asset('backend/css/custom.css?v=1.0') }}" rel="stylesheet"> --}}
+	<link href="{{ asset('backend/css/custom.css') . '?v=' . time() }}" rel="stylesheet" type="text/css" />
 	<style type="text/css">
 		label.error {
 			color: #cc5965;

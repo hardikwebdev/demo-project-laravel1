@@ -35,12 +35,13 @@
                                 </thead>
                                 <tbody>
                                     @if (count($coin) > 0)
+                                        @if (isset($coin) && !empty($coin))
+                                        @php
+                                            $i = ($coin->currentpage() - 1) * $coin->perpage() + 1;
+                                        @endphp
                                         @foreach ($coin as $key => $row)
                                             <tr>
-                                                @php
-                                                    $index = $key + 1;
-                                                @endphp
-                                                <td>{{ $row->id }}</td>
+                                                <td>{{ $i++ }}</td>
                                                 <td>
                                                     {{ $row->name }}
                                                 </td>
@@ -65,6 +66,7 @@
                                                 </td>
                                             </tr>
                                         @endforeach
+                                        @endif
                                     @else
                                         <tr>
                                             <td colspan="8">Oops! No Record Found.</td>

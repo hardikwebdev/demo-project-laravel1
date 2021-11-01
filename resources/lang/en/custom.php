@@ -1135,7 +1135,7 @@ return [
     'buying'=>'Buying',
     'avg_risk_score'=>'Average Risk Score',
     'ref'=>'Ref',
-    'max_3_identfication_allowed' => 'You have already registered maximum 3 accounts with Vextrader',
+    'max_3_identfication_allowed' => 'You have already registered maximum 3 accounts with DefixFinance',
     'lastrange'=>'Returns last 12 Months',
     'sell_popup_txt'=>'Are you sure you want to close this investment?',
     'success_close_investment'=>'Investment closed successfully',
