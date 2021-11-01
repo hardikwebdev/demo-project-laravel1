@@ -74,7 +74,9 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::get('/nft_marketplace', 'App\Http\Controllers\HomeController@nft_marketplace')->name('nft_marketplace');
         // Route::get('/withdrawal', 'App\Http\Controllers\HomeController@withdrawal')->name('withdrawal');
         Route::get('/ledger', 'App\Http\Controllers\HomeController@ledger')->name('ledger');
-        Route::get('/account', 'App\Http\Controllers\HomeController@account')->name('account');
+        Route::get('/account', 'App\Http\Controllers\AccountController@profile')->name('account');
+        Route::post('/personal-detail-upadte', 'App\Http\Controllers\AccountController@updatePersonalDetail')->name('personal-detail-upadte');
+        Route::post('/bank-detail-upadte', 'App\Http\Controllers\AccountController@updateBankDetail')->name('bank-detail-upadte');
         Route::get('/my_collection', 'App\Http\Controllers\HomeController@my_collection')->name('my_collection');
         // Route::get('/help_support', 'App\Http\Controllers\HomeController@help_support')->name('help_support');
         Route::get('/nftproduct', 'App\Http\Controllers\HomeController@nftproduct')->name('nftproduct');

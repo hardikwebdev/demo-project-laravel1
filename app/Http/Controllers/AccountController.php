@@ -249,4 +249,61 @@ class AccountController extends Controller
 
         return view('accounts.network',compact('users','accumulateLeftSale','accumulateRightSale','todaysLeftSale','todaysRightSale','todaysLeftCarryFw','todaysRightCarryFw','dailyMaxCommission','totalCommission','graph','months','pairingHistory'));
     }
+    public function profile(Request $request){
+        $user = User::with('userbank')->where('id',Auth::user()->id)->where('status','active')->where('deleted_at', null)->first();
+        $country  = Country::pluck('country_name','id')->toArray();
+        return view('profile.profile', compact('country', 'user'));
+    }
+    public function updatePersonalDetail(Request $request){
+        /* validation start */
+        $validatedData = $request->validate([
+            'fullname' => 'required|string|max:255',
+            'phone_number' => 'required',          
+            'address' => 'required',          
+            'state' => 'required',          
+            'city' => 'required',          
+            'country' => 'required',          
+        ]);
+        /* validation end */
+        try {
+            $user = User::find($request->id);
+            $user->name = $request->fullname;
+            $user->phone_number = $request->phone_number;
+            $user->address = $request->address;
+            $user->state = $request->state;
+            $user->city = $request->city;
+            $user->country_id = $request->country;
+            $user->save();
+            return redirect()->back()->with('success', 'User personal details updates successfully');
+        } catch (Exception $e) {
+            return redirect()->back()->with(["error"=>$e->getMessage()]);
+            
+        }    
+
+    }
+    public function updateBankDetail(Request $request){
+        $validatedData = $request->validate([
+            'bank_name' => 'required|string|max:255',
+            'acc_holder_name' => 'required',          
+            'bank_branch' => 'required',          
+            'swift_code' => 'required',          
+            'acc_number' => 'required',          
+            'bank_country_id' => 'required',          
+        ]);
+        /* validation end */
+        try {
+            $user = UserBank::where('user_id', '=', $request->id)->first();
+            $user->name = $request->bank_name;
+            $user->branch = $request->bank_branch;
+            $user->account_holder = $request->acc_holder_name;
+            $user->account_number = $request->acc_number;
+            $user->swift_code = $request->swift_code;
+            $user->bank_country_id = $request->bank_country_id;
+            $user->save();
+            return redirect()->back()->with('success', 'User bank details updates successfully');
+        } catch (Exception $e) {
+            return redirect()->back()->with(["error"=>$e->getMessage()]);
+            
+        }
+    }
 }
