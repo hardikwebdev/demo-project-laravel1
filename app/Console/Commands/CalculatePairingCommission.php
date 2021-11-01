@@ -73,8 +73,6 @@ class CalculatePairingCommission extends Command
              /* pairing value */
             $pairing_value = ($package_detail) ? $package_detail->network_pairing : 10;
 
-            // echo $leftDownlineGroupsale; echo $rightDownlineGroupsale;
-            // die();
             if($leftDownlineGroupsale < $rightDownlineGroupsale && $leftDownlineGroupsale != 0){
                 $groupsale = $leftDownlineGroupsale;
                 $carry_forward = $rightDownlineGroupsale - $leftDownlineGroupsale;
@@ -84,6 +82,18 @@ class CalculatePairingCommission extends Command
                 $carry_forward = $leftDownlineGroupsale - $rightDownlineGroupsale;
                 $pairing_got_from = 'right';
             }
+            if($rightDownlineGroupsale == 0){
+                $groupsale = $leftDownlineGroupsale;
+                $carry_forward = 0;
+                $pairing_got_from = 'right';
+            }
+            if($leftDownlineGroupsale == 0){
+                $groupsale = $rightDownlineGroupsale;
+                $carry_forward = 0;
+                $pairing_got_from = 'left';
+            }
+            // echo $groupsale; echo $rightDownlineGroupsale;
+            // die();
 
             $pairing_commission = ($groupsale * $pairing_value) / 100;
             $pairing_commission = ($pairing_commission > $daily_limit) ? $daily_limit : $pairing_commission;

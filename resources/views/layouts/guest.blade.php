@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="{{ asset('assets/css/custom/index.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/jquery.steps.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/jquery-ui.css') }}">
-  <link rel="stylesheet" type="text/css" href="http://keith-wood.name/css/jquery.signature.css">
+  <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/jquery.signature.css') }}">
   <style>
   .kbw-signature { width: 100%; height: 200px;}
   #sigpad canvas{ width: 100% !important; height: 198px;}
@@ -38,7 +38,7 @@
   <script src="{{ asset('assets/js/template.js') }}"></script>
   <script src="{{ asset('assets/js/custom/custom.js').'?v='.time() }}"></script>
   <script src="{{ asset('assets/js/custom/jquery-ui.js') }}"></script>
-  <script type="text/javascript" src="http://keith-wood.name/js/jquery.signature.js"></script>
+  <script type="text/javascript" src="{{ asset('assets/js/jquery.signature.js') }}"></script>
 
   <script src="{{ asset('assets/js/custom/jquery.steps.min.js') }}"></script>
   <script src="{{ asset('assets/js/custom/slick.min.js') }}"></script>
