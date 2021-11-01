@@ -42,9 +42,15 @@ class CalculateROI extends Command
         \DB::transaction(function () {
             $result_date = ($this->argument('date')) ? Carbon::createFromFormat('Y-m-d H:i:s', $this->argument('date').' 00:00:00')->subDay()->format('Y-m-d') : Carbon::today()->subDay()->format('Y-m-d');
 
-            $stackingpools = StackingPool::where('status',1)->get();
-            foreach($stackingpools as $stackingpool){
-                $stacking_pool_package = $stackingpool->stacking_pool_package;
+
+            
+            $stakingpools = StackingPool::where('status',1)->get();
+            foreach($stakingpools as $stakingpool){
+                $staking_pool_package = $stakingpool->staking_pool_package;
+
+                if($stakingpool->staking_period == 12){
+                    // $staking_period = $staking_pool_package->
+                }
             }
         });
         return Command::SUCCESS;

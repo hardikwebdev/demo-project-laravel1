@@ -176,7 +176,13 @@ class AccountController extends Controller
 
         $referral = Helper::getAllDownlineIds($this->user->id);
         $referral = array_merge($referral, [$this->user->id]);
-        $users    = User::whereIn('id',$referral)->where('status','active')->select('id as key','username as name','placement_id as parent','profile_image')->orderBy('child_position','asc')->get()->toArray();
+        $users    = User::whereIn('id',$referral)->where('status','active')->select('id','id as key','username as name','placement_id as parent','profile_image')->orderBy('child_position','asc')
+              ->get()
+              ->map(function($query){
+                    $query->sale_left = Helper::getTotalgroupsalesLeft($query);
+                    $query->sale_right = Helper::getTotalgroupsalesRight($query);
+                    return $query;
+              })->toArray();
 
         $accumulateLeftSale     = Helper::getTotalgroupsalesLeft($this->user);
         $accumulateRightSale    = Helper::getTotalgroupsalesRight($this->user);
@@ -184,19 +190,19 @@ class AccountController extends Controller
         $todaysRightSale        = Helper::getTotalgroupsalesTodayRight($this->user);
         $todaysLeftCarryFw      = ($todaysLeftSale > $todaysRightSale) ? ($todaysLeftSale - $todaysRightSale) : 0;
         $todaysRightCarryFw     = ($todaysRightSale > $todaysLeftSale) ? ($todaysRightSale - $todaysLeftSale) : 0;
-        $dailyMaxCommission     = Setting::where('key','_direct_pairing_limit')->value('value');
+        $dailyMaxCommission     = Setting::where('key','daily_direct_pairing_limit')->value('value');
         $dailyMaxCommission     = ($dailyMaxCommission > 0) ? $dailyMaxCommission : 0;
 
         $totalCommission        = Helper::getTotalgroupsales($this->user);
 
-
         $allDownlineids = Helper::getAllDownlineIdsLeft($this->user->id,1);
-        $saleLeft               = StackingPool::select(DB::raw("sum(amount) as amount"),DB::raw("DATE_FORMAT(created_at,'%Y-%m') as year"))->groupBy('year')->get()->toArray();
+        $saleLeft               = StackingPool::select(DB::raw("sum(amount) as amount"),DB::raw("DATE_FORMAT(created_at,'%Y-%m') as year"))->groupBy('year')->whereIn('user_id',$allDownlineids)->get()->toArray();
 
         $allDownlineids = Helper::getAllDownlineIdsRight($this->user->id,1);
-        $saleRight              = StackingPool::select(DB::raw("sum(amount) as amount"),DB::raw("DATE_FORMAT(created_at,'%Y-%m') as year"))->groupBy('year')->get()->toArray();
+        $saleRight              = StackingPool::select(DB::raw("sum(amount) as amount"),DB::raw("DATE_FORMAT(created_at,'%Y-%m') as year"))->groupBy('year')->whereIn('user_id',$allDownlineids)->get()->toArray();
 
         $allDownlineids = Helper::getAllDownlineIds($this->user->id,1);
+        $allDownlineids = (is_array($allDownlineids)) ? $allDownlineids : [];
         $graphData              = PairingCommission::select(DB::raw("sum(pairing_commission) as amount"),DB::raw("DATE_FORMAT(created_at,'%Y-%m') as year"))->whereIn('user_id',$allDownlineids)->groupBy('year')->get()->toArray();
 
         /* get last 12 month series */

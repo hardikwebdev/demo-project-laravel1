@@ -114,5 +114,7 @@ var finish = '{{trans("custom.finish")}}';
 var next = '{{trans("custom.next")}}';
 var previous = '{{trans("custom.previous")}}';
 var arrow = '{{ asset("assets/images/assets/Dashboard/Group948.png") }}';
-var max = {{ (isset($max_stack)) ? $max_stack : 0 }};
+var max = {{ (isset($max_stake)) ? $max_stake : 0 }};
+var min = {{ (isset($min_stake)) ? $min_stake : 0 }};
+
 </script>

@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use Auth;
+use App\Models\Setting;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -17,8 +18,10 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->composer(['*'], function ($view) {
             if (Auth::check() && auth()->user()->userwallet) {
-                $totalstacking_pool = auth()->user()->userwallet->crypto_wallet;
-                $view->with('max_stack', $totalstacking_pool);
+                $totalstaking_pool = auth()->user()->userwallet->crypto_wallet;
+                $view->with('max_stake', $totalstaking_pool);
+                $minstakeamount = Setting::where('key','min_stackingpool_amount')->value('value');
+                $view->with('min_stake', $minstakeamount);
 
             }
         });

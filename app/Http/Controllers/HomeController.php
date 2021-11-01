@@ -40,7 +40,7 @@ class HomeController extends Controller
     public function dashboard(){
         $user = $this->user;
         $sliders = Slider::all();
-        $stacking_pool = StackingPoolPackage::orderBy('id','desc')
+        $staking_pool = StackingPoolPackage::orderBy('id','desc')
                                             ->limit(8)
                                             ->get()
                                             ->map(function($pool) use ($user){
@@ -56,7 +56,7 @@ class HomeController extends Controller
         // }
         $news = News::where(['status' => 'active', 'lang' => $locale])->orderBy('created_at', 'desc')->take(5)->get();
 
-        return view('dashboard',compact('user','sliders','stacking_pool','news','nft_cats'));
+        return view('dashboard',compact('user','sliders','staking_pool','news','nft_cats'));
     }
 
     public function crypto_wallets(){
