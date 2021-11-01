@@ -140,7 +140,7 @@
                 <li><a class="text-warning border border-warning py-3 px-5 d-block active" data-toggle="tab" href="#home">PERSONAL DETAILS</a></li>
                 {{-- <li class="mt-3 mt-md-0"><a class="text-warning border border-warning py-3 px-5 d-block" data-toggle="tab" href="#menu1">ACCOUNT DETAILS </a></li> --}}
                 <li class="mt-3 mt-md-0"><a class="text-warning border border-warning py-3 px-5 d-block" data-toggle="tab" href="#menu1">BANK DETAILS</a></li>
-                {{-- <li class="mt-3 mt-xl-0"><a class="text-warning border border-warning py-3 px-5 d-block" data-toggle="tab" href="#menu3">USER AGREEMENT</a></li> --}}
+                <li class="mt-3 mt-xl-0"><a class="text-warning border border-warning py-3 px-5 d-block" data-toggle="tab" href="#menu2">CRYPTO WALLETE DETAILS</a></li>
               </ul>
             </div>
             <div class="col-12 mt-4">
@@ -179,8 +179,8 @@
                       <button class="btn bg-warning text-white py-4 px-5 rounded-0">UPDATE PROFILE <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-4 d-inline align-middle" alt=""></button>
                     </div>
                   </div>
+                  {!! Form::close() !!}
                 </div>
-                {!! Form::close() !!}
                 <div id="menu1" class="tab-pane">
                   {!! Form::open(['route' => 'bank-detail-upadte','enctype' => 'multipart/form-data','id'=>'bank-detail-upadte', 'method'=>'POST'])!!}
                   <div class="row">
@@ -217,6 +217,20 @@
                     <div class="col-12 col-md-6 mt-4">
                       {!! Form::select('bank_country_id',$country,old('bank_country_id', @$user->userbank->bank_country_id),['class'=>'form-control h-auto py-4','placeholder'=>trans('custom.select_country'),'id'=>'country_id']) !!}
                     </div>
+                    <div class="col-12 col-md-6 col-xl-4 mt-4">
+                      <button class="btn bg-warning text-white py-4 px-5 rounded-0">UPDATE ACCOUNT <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-4 d-inline align-middle" alt=""></button>
+                    </div>
+                  </div>
+                  {!! Form::close() !!}
+                </div>
+                <div id="menu2" class="tab-pane">
+                  {!! Form::open(['route' => 'nft-wallet-address-update','enctype' => 'multipart/form-data','id'=>'nft-wallet-address-upadte', 'method'=>'POST'])!!}
+                  <div class="row">
+                    <input name="id" type="hidden" class="form-control blue-ph h-auto py-4" value="{{ $user->id }}">
+                    <div class="col-12 col-md-6">
+                      {!! Form::textarea('nft_wallet_address', old('nft_wallet_address', @$user->nft_wallet_address), ['class' => 'form-control blue-ph h-auto py-4', 'rows' => 6,'placeholder' => 'Enter NFT Wallete Address']) !!}
+                    </div>
+                    <div class="col-12 col-md-6 col-xl-4 mt-4"></div>
                     <div class="col-12 col-md-6 col-xl-4 mt-4">
                       <button class="btn bg-warning text-white py-4 px-5 rounded-0">UPDATE ACCOUNT <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-4 d-inline align-middle" alt=""></button>
                     </div>
