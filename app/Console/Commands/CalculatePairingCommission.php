@@ -107,11 +107,11 @@ class CalculatePairingCommission extends Command
 
             if($pairing_commission > 0){
                 $commission_wallet = UserWallet::where('user_id',$user->id)->first();
-                $commission_wallet->increment('pairing_commission',$pairing_commission);
                 $nft_commission = Setting::where('key','nft_commission')->value('value');
                 $nft_commission = ($nft_commission > 0) ? $nft_commission/100 : 0.2; 
                 $nft_commission_amount = $pairing_commission * $nft_commission;
                 $pairing_commission_amount = $paring_commission - $nft_commission_amount;
+                $commission_wallet->increment('pairing_commission',$pairing_commission_amount);
                 PairingCommission::create(['user_id' => $user->id,
                     'left_sale' => $leftDownlineGroupsaleActual,
                     'right_sale' => $rightDownlineGroupsaleActual,
@@ -133,7 +133,7 @@ class CalculatePairingCommission extends Command
                 $history_data["final_amount"] = $commission_wallet->commission_wallet + $pairing_commission;
 
                 CommissionWalletHistory::create($history_data);
-                $commission_wallet->increment('commission_wallet',$pairing_commission);
+                $commission_wallet->increment('commission_wallet',$pairing_commission_amount);
             }
         }
         return Command::SUCCESS;

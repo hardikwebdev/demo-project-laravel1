@@ -98,7 +98,7 @@ class CalculateReferralCommission extends Command
                     $history_data["final_amount"] = $commission_wallet->commission_wallet + $commission_amount_actual;
 
                     CommissionWalletHistory::create($history_data);
-                    $commission_wallet->increment('commission_wallet',$commission_amount);
+                    $commission_wallet->increment('commission_wallet',$commission_amount_actual);
 
                     $data["status"] = 1;
                     $data["actual_commission_amount"] = $commission_amount;
@@ -112,7 +112,7 @@ class CalculateReferralCommission extends Command
                     $data["percent"] = $package_detail->direct_refferal;
 
                     ReferralCommission::create($data);
-                    $commission_wallet->increment('referral_commission',$commission_amount);
+                    $commission_wallet->increment('referral_commission',$commission_amount_actual);
 
 
                 }
