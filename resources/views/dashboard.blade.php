@@ -136,7 +136,7 @@
           <p class="font-12 text-white">{!! \Illuminate\Support\Str::limit($stakingpool->description,50) !!}</p>
           <hr/>
           <p class="text-white font-12">{{__('custom.expected_anual_rate')}}</p>
-          <h3 class="text-white font-weight-bold">{{$stakingpool->stacking_display_start}}% - {{$stakingpool->stakeing_display_end}}%</h3>
+          <h3 class="text-white font-weight-bold">{{$stakingpool->stacking_display_start}}% - {{$stakingpool->stacking_display_end}}%</h3>
           
           @if($stakingpool->investedAmount > 0)
           <div class="d-flex justify-content-around mt-2">
@@ -377,7 +377,7 @@
 @foreach($expired_stacking_pools as $stacking_pool)
 <div class="modal fade bs-example-modal-center" tabindex="-1" role="dialog" aria-labelledby="points-alert" aria-hidden="true" style="display: none;" id="planExpired{{$stacking_pool->id}}" >
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content cus-blue-bg">
+        <div class="modal-content cus-blue-bg text-white">
             <div class="modal-header">
                 <h5 class="modal-title mt-0"><span class="mdi mdi-alert"></span> {{trans('custom.staking_popup_title')}}</h5>
             </div>

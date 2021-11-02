@@ -10,6 +10,7 @@ use App\Models\Package;
 use App\Models\CommissionWalletHistory;
 use App\Models\UserWallet;
 use App\Models\ReferralCommission;
+use App\Models\Setting;
 
 class CalculateReferralCommission extends Command
 {
@@ -82,20 +83,27 @@ class CalculateReferralCommission extends Command
                     $commission_percent = $level_commission_percent / 100;
                     $commission_amount = round($package_detail->amount * $commission_percent,2); 
                     $commission_wallet = UserWallet::where('user_id',$value->id)->first();
+                     $commission_wallet = UserWallet::where('user_id',$user->id)->first();
+                    $nft_commission = Setting::where('key','nft_commission')->value('value');
+                    $nft_commission = ($nft_commission > 0) ? $nft_commission/100 : 0.2; 
+                    $nft_commission_amount = $commission_amount * $nft_commission;
+                    $commission_amount_actual = $commission_amount - $nft_commission_amount;
 
                     $history_data["type"] = "1";
-                    $history_data["amount"] = $commission_amount;
+                    $history_data["amount"] = $commission_amount_actual;
                     $history_data["user_id"] = $value->id;
                     $history_data["from_user_id"] = $stakingpool->user_id;
                     $history_data["commission_type"] = 'referral';
                     $history_data["description"] = 'Referral commission from '.$stakingpool->user_detail->username;
-                    $history_data["final_amount"] = $commission_wallet->commission_wallet + $commission_amount;
+                    $history_data["final_amount"] = $commission_wallet->commission_wallet + $commission_amount_actual;
 
                     CommissionWalletHistory::create($history_data);
                     $commission_wallet->increment('commission_wallet',$commission_amount);
 
                     $data["status"] = 1;
-                    $data["amount"] = $commission_amount;
+                    $data["actual_commission_amount"] = $commission_amount;
+                    $data["amount"] = $commission_amount_actual;
+                    
                     $data["user_id"] = $value->id;
                     $data["from_user_id"] = $stakingpool->user_id;
                     $data["stacking_pool_id"] = $stakingpool->id;

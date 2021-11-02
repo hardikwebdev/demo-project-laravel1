@@ -14,9 +14,9 @@
         </div>
         @csrf
         <div class="col-12 mt-5">
-            <input id="email" type="email" class="form-control grey-ph h-auto py-4 rounded-0 @error('email') is-invalid @enderror" placeholder="{{__('custom.email')}}" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+            <input id="username" type="username" class="form-control grey-ph h-auto py-4 rounded-0 @error('username') is-invalid @enderror" placeholder="{{__('custom.username')}}" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
 
-            @error('email')
+            @error('username')
             <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
             </span>

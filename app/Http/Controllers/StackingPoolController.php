@@ -43,6 +43,7 @@ class StackingPoolController extends Controller
         $before12Month  = Carbon::today()->subDays(365);
         $before24Month  = Carbon::today()->subDays(730);
         $user_investments = StackingPool::whereIn('status',[0,1])
+                                        ->where('stacking_pool_package_id',$id)
                                         ->where('user_id',auth()->user()->id)
                                             ->where(function($query) use ($today,$before12Month,$before24Month){ 
                                                 $query

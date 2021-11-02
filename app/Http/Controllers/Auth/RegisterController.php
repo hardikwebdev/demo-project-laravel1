@@ -185,7 +185,7 @@ class RegisterController extends Controller
         $UserWallet = UserWallet::create([
             'user_id' => $user->id,
         ]);
-        // Helper::updateDownline($user->id);
+        Helper::updateDownline($user->id);
         return $user;        
     }
 }

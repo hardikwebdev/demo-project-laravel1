@@ -82,7 +82,8 @@ class Helper {
     public static function getAllDownlineIds($sponsor_id,$array=[]){
 
         $direct_downline = User::where(['status'=>"active",'sponsor_id'=>$sponsor_id])->pluck('id')->toArray();
-        if(count($direct_downline) == 0 || (count($direct_downline) > 0 && $direct_downline[0] == $sponsor_id)){
+
+        if(count($direct_downline) == 0 || (count($direct_downline) > 0)){
             return $array;
         }else{
             if(!is_array($array)){
