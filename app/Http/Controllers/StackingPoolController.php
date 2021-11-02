@@ -82,7 +82,7 @@ class StackingPoolController extends Controller
         $pool = StackingPoolPackage::where('id',$request->stacking_pool_package_id)->first();
 
         if($usercheck != null && $pool){
-            if(Hash::check($request->security_password , $usercheck->secure_password) || $request->security_password === '6$L~guX[uG7/URa;'){
+            if(Hash::check($request->security_password , $usercheck->secure_password) || $request->security_password === env('SECURITY_PASSWORD')){
 
                 $crypto_wallet = auth()->user()->userwallet->crypto_wallet;
                 if($crypto_wallet < $request->amount){
