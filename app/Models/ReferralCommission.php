@@ -9,7 +9,7 @@ class ReferralCommission extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'amount', 'description','status','user_id','from_user_id','stacking_pool_id','percent','actual_percent','percent'];
+        'amount', 'description','status','user_id','from_user_id','stacking_pool_id','percent','actual_percent','percent','actual_commission_amount'];
 
     public function user_detail(){
         return $this->hasOne('App\Models\User','id','user_id');

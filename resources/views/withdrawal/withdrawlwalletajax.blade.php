@@ -23,11 +23,11 @@
                 @endif
             </td>
             <td>{{date("d/m/Y",strtotime($value->created_at))}}</td>
-            @if($value->type == 0)
+            @if($value->status == 0)
             <td class="text-warning">{{trans('custom.pending')}}</td>
             @elseif($value->status == 1)
             <td class="text-success">{{trans('custom.approved')}}</td>
-            @elseif($value->type == 2)
+            @elseif($value->status == 2)
             <td class="text-danger">{{trans('custom.rejected')}}</td>
             @else
             <td class="text-danger">{{trans('custom.verifying')}}</td>

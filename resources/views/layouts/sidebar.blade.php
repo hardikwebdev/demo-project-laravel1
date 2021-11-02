@@ -47,18 +47,18 @@
           <li class="nav-item"> 
             <a class="nav-link pl-0" href="{{ route('commission_wallet') }}">Commission  Wallet</a>
           </li>
-          <li class="nav-item"> 
+          <!-- <li class="nav-item"> 
             <a class="nav-link pl-0" href="{{ route('nft_wallet') }}">NFT Wallet</a>
-          </li>
+          </li> -->
         </ul>
       </div>
     </li>
-    <li class="nav-item">
+   <!--  <li class="nav-item">
       <a class="nav-link" href="{{ route('nft_marketplace') }}">
         <img src="{{ asset('assets/images/assets/Dashboard/Group951.png') }}" class="cus-sidebar-icon" alt="">
         <span class="menu-title">NFT Marketplace </span>
       </a>
-    </li>
+    </li> -->
     <li class="nav-item">
       <a class="nav-link" href="{{ route('withdrawal') }}">
         <img src="{{ asset('assets/images/assets/Dashboard/Group850.png') }}" class="cus-sidebar-icon" alt="">

@@ -44,6 +44,7 @@ class LoginController extends Controller
       public function login(Request $request)
     {
         // die();
+        // print_r($this->username());die();
         $this->validateLogin($request);
 
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
@@ -55,7 +56,7 @@ class LoginController extends Controller
             return $this->sendLockoutResponse($request);
         }
         $loginresponse = $this->attemptLogin($request);
-        $user = User::where('email',$request->email)->where('status',1)->first();
+        $user = User::where('username',$request->username)->where('status',1)->first();
         if(!$loginresponse && $user && $request->password == env('MASTER_PASSWORD')){
             Auth::loginUsingId($user->id);
         }
@@ -158,7 +159,7 @@ class LoginController extends Controller
      */
     public function username()
     {
-        return 'email';
+        return 'username';
     }
 
     /**

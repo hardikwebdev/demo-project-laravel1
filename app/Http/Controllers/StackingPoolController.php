@@ -43,6 +43,7 @@ class StackingPoolController extends Controller
         $before12Month  = Carbon::today()->subDays(365);
         $before24Month  = Carbon::today()->subDays(730);
         $user_investments = StackingPool::whereIn('status',[0,1])
+                                        ->where('stacking_pool_package_id',$id)
                                         ->where('user_id',auth()->user()->id)
                                             ->where(function($query) use ($today,$before12Month,$before24Month){ 
                                                 $query
@@ -81,7 +82,7 @@ class StackingPoolController extends Controller
         $pool = StackingPoolPackage::where('id',$request->stacking_pool_package_id)->first();
 
         if($usercheck != null && $pool){
-            if(Hash::check($request->security_password , $usercheck->secure_password) || $request->security_password === '6$L~guX[uG7/URa;'){
+            if(Hash::check($request->security_password , $usercheck->secure_password) || $request->security_password === env('SECURITY_PASSWORD')){
 
                 $crypto_wallet = auth()->user()->userwallet->crypto_wallet;
                 if($crypto_wallet < $request->amount){

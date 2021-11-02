@@ -136,7 +136,7 @@
           <p class="font-12 text-white">{!! \Illuminate\Support\Str::limit($stakingpool->description,50) !!}</p>
           <hr/>
           <p class="text-white font-12">{{__('custom.expected_anual_rate')}}</p>
-          <h3 class="text-white font-weight-bold">{{$stakingpool->stacking_display_start}}% - {{$stakingpool->stakeing_display_end}}%</h3>
+          <h3 class="text-white font-weight-bold">{{$stakingpool->stacking_display_start}}% - {{$stakingpool->stacking_display_end}}%</h3>
           
           @if($stakingpool->investedAmount > 0)
           <div class="d-flex justify-content-around mt-2">

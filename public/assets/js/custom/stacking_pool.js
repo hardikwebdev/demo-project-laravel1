@@ -34,5 +34,18 @@ $("#staking_pool").validate({
         security_password: {
             required: securepassword_required_field,
         },
+    },
+    submitHandler: function(form) {
+        swal({
+            title: "Are you sure? ",
+            text: "You want to invest $"+$('#amount').val()+" for "+$('#name').val()+" for "+' '+$('#duration').val()+" Months !",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#4B49AC",
+            confirmButtonText: "Yes",
+            closeOnConfirm: false
+        }, function(isConfirm){
+            if (isConfirm) form.submit();
+        });
     }
 });

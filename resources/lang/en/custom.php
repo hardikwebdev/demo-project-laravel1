@@ -1546,5 +1546,6 @@ return [
     'open_ticket' => 'OPEN TICKET',
     'no_ticket_found' => 'No Ticket found',
     'staking_popup_title' => 'STAKING POOL REMINDER',
+    'commission_history' => 'Commission History',
 
 ];

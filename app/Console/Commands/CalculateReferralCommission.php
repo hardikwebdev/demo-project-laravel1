@@ -10,6 +10,7 @@ use App\Models\Package;
 use App\Models\CommissionWalletHistory;
 use App\Models\UserWallet;
 use App\Models\ReferralCommission;
+use App\Models\Setting;
 
 class CalculateReferralCommission extends Command
 {
@@ -56,10 +57,14 @@ class CalculateReferralCommission extends Command
                 $sum_rank_percent = 0;
 
                 foreach ($upline_users as $key => $value) {
+                    if(count($value->active_staking_history) == 0){
+                        continue;
+                    }
                     $package_detail = Package::where('amount','<=',$value->userwallet->stacking_pool)->orderBy('amount','desc')->first();
                     if(!$package_detail){
                         continue;
                     }
+
 
                     $level_commission_percent = 0;
                     $total_commission = $package_detail->direct_refferal; //$value->package_detail->direct_refferal;
@@ -80,22 +85,29 @@ class CalculateReferralCommission extends Command
                     }
                     $sum_rank_percent = $sum_rank_percent + $level_commission_percent; 
                     $commission_percent = $level_commission_percent / 100;
-                    $commission_amount = round($package_detail->amount * $commission_percent,2); 
+                    $commission_amount = round($stakingpool->amount * $commission_percent,2); 
                     $commission_wallet = UserWallet::where('user_id',$value->id)->first();
+                     $commission_wallet = UserWallet::where('user_id',$user->id)->first();
+                    $nft_commission = Setting::where('key','nft_commission')->value('value');
+                    $nft_commission = ($nft_commission > 0) ? $nft_commission/100 : 0.2; 
+                    $nft_commission_amount = $commission_amount * $nft_commission;
+                    $commission_amount_actual = $commission_amount - $nft_commission_amount;
 
                     $history_data["type"] = "1";
-                    $history_data["amount"] = $commission_amount;
+                    $history_data["amount"] = $commission_amount_actual;
                     $history_data["user_id"] = $value->id;
                     $history_data["from_user_id"] = $stakingpool->user_id;
                     $history_data["commission_type"] = 'referral';
                     $history_data["description"] = 'Referral commission from '.$stakingpool->user_detail->username;
-                    $history_data["final_amount"] = $commission_wallet->commission_wallet + $commission_amount;
+                    $history_data["final_amount"] = $commission_wallet->commission_wallet + $commission_amount_actual;
 
                     CommissionWalletHistory::create($history_data);
-                    $commission_wallet->increment('commission_wallet',$commission_amount);
+                    $commission_wallet->increment('commission_wallet',$commission_amount_actual);
 
                     $data["status"] = 1;
-                    $data["amount"] = $commission_amount;
+                    $data["actual_commission_amount"] = $commission_amount;
+                    $data["amount"] = $commission_amount_actual;
+                    
                     $data["user_id"] = $value->id;
                     $data["from_user_id"] = $stakingpool->user_id;
                     $data["stacking_pool_id"] = $stakingpool->id;
@@ -104,7 +116,7 @@ class CalculateReferralCommission extends Command
                     $data["percent"] = $package_detail->direct_refferal;
 
                     ReferralCommission::create($data);
-                    $commission_wallet->increment('referral_commission',$commission_amount);
+                    $commission_wallet->increment('referral_commission',$commission_amount_actual);
 
 
                 }

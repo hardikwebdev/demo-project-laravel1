@@ -151,7 +151,7 @@
        </div>
          <div class="col-12 col-md-7">
           <input type="hidden" name="stacking_pool_package_id" value="{{$stakingpool->id}}">
-          <input type="text" name="amount" class="form-control h-auto py-4" placeholder="{{__('custom.stake_amount')}}">
+          <input type="text" name="amount" class="form-control h-auto py-4" placeholder="{{__('custom.stake_amount')}}" id="amount">
           @error('amount')
           <span class="invalid-feedback" role="alert">
            <strong>{{ $message }}</strong>
@@ -162,6 +162,7 @@
         <h3 class="font-weight-bold"><span class="font-12">Available Fund:</span> ${{($user->userwallet) ? number_format($user->userwallet->crypto_wallet,2) : '0.00' }}</h3>
       </div>
       <div class="col-12 col-md-7 mt-3">
+        <input type="hidden" name="name" id="name" value="{{$stakingpool->name}}">
         <input name="security_password" id="security_password" type="password" class="form-control h-auto py-4" placeholder="{{ trans('custom.security_password') }}">
         @error('secure_password')
         <span class="invalid-feedback" role="alert">
@@ -254,6 +255,23 @@
                 required: please_accept_aggrement
             }
 
+        },
+        submitHandler: function(form) {
+          var text = "";
+          if($("input:radio[name=changeplan]:checked").val() == 'changeplan'){
+            text = "You want to renew investment with duration "+' '+$('#duration').val()+" Months !";
+          }
+          swal({
+            title: "Are you sure? ",
+            text: text,
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#4B49AC",
+            confirmButtonText: "Yes",
+            closeOnConfirm: false
+          }, function(isConfirm){
+            if (isConfirm) form.submit();
+          });
         }
     });
     $(document).on('change','#time_period{{$user_investment->id}}',function(e) {

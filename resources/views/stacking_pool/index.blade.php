@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@section('title', __('custom.stakeing_pools'))
-@section('page_title', __('custom.stakeing_pools'))
+@section('title', __('custom.staking_pools'))
+@section('page_title', __('custom.staking_pools'))
 @section('content')
 <div class="content-wrapper mt-5">
   <div class="row mt-5 pt-md-5">
