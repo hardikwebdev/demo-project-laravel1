@@ -1,5 +1,6 @@
 @extends('layouts.app')
-
+@section('title', $supportChat->subject['subject_en'])
+@section('page_title', $supportChat->subject['subject_en'])
 @section('content')
 <div class="content-wrapper">
   <div class="row mt-5 pt-5">

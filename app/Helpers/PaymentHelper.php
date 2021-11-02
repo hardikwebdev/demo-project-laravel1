@@ -17,7 +17,7 @@ class PaymentHelper{
 	    $data['customer_email'] = $input['email'];
 	    $data['transaction_amount'] = $input['amount'];
 	    $data['bank_name'] = ($input['bank_code'] == 'Maybank') ? 'may_bank' : strtolower(str_replace(' ', '_',$input['bank_code']));
-	    $data['return_url'] = route('fundswallet');
+	    $data['return_url'] = route('crypto_wallets');
 	    $data['ipn_url'] = route('online-payment-my-response-secure',$input['order_id']);
 	    $data['custom_transaction_id'] = $input['order_id'];
 	        // $data['success_url'] = route('online-payment-my-response','success');
@@ -34,15 +34,15 @@ class PaymentHelper{
 
 	    $requestParams = PaymentHelper::genrateStringMalasia($input);
 	        // print_r($input);die();
-	    $url = env('MYR_New_Deposit_URL_Online');
+	    $url = env('MYR_Deposit_URL_Online');
 	        // dd($url,$requestParams);
 
 	    \Log::channel('fundlog')->debug('Error==>>>>>>>>>>>>>Proceed Payment Malasia Start.');
 	    \Log::channel('fundlog')->info('Showing user profile for user: '.json_encode([$requestParams,$input]));
 	    $headers    = [];
 	    $headers['Content-Type']  = 'application/json';
-	    $headers['client_id']  = env('MYR_New_client_id_Online');
-	    $headers['client_secret']  = env('MYR_New_client_secret_Online');
+	    $headers['client_id']  = env('MYR_client_id_Online');
+	    $headers['client_secret']  = env('MYR_client_secret_Online');
 	    $curl = curl_init();
 
 	    curl_setopt_array($curl, array(
@@ -56,8 +56,8 @@ class PaymentHelper{
 	      CURLOPT_POSTFIELDS => $requestParams,
 	      CURLOPT_HTTPHEADER => array(
 	            // "cache-control: no-cache",
-	        "client_id: ".env('MYR_New_client_id_Online'),
-	        "client_secret: ".env('MYR_New_client_secret_Online'),
+	        "client_id: ".env('MYR_client_id_Online'),
+	        "client_secret: ".env('MYR_client_secret_Online'),
 	        "content-type: application/json",
 	    ),
 	  ));
@@ -67,7 +67,6 @@ class PaymentHelper{
 
 	    \Log::channel('fundlog')->debug(json_encode($result));
 	    \Log::channel('fundlog')->debug('Error==>>>>>>>>>>>>>Proceed Payment Malasia END.');
-	        // dd($result);
 	    return json_decode($result,true);
 	}
 }

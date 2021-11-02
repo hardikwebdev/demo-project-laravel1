@@ -1,4 +1,6 @@
 @extends('layouts.app')
+@section('title', __('custom.withdrawals'))
+@section('page_title', __('custom.withdrawals'))
 @section('content')
 <div class="content-wrapper">
 <div class="row mt-5 pt-5">

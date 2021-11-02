@@ -11,6 +11,7 @@ use App\Models\Package;
 use App\Models\CommissionWalletHistory;
 use App\Models\UserWallet;
 use App\Models\Setting;
+use App\Models\NftWalletHistory;
 
 class CalculatePairingCommission extends Command
 {
@@ -111,6 +112,15 @@ class CalculatePairingCommission extends Command
                 $nft_commission = ($nft_commission > 0) ? $nft_commission/100 : 0.2; 
                 $nft_commission_amount = $pairing_commission * $nft_commission;
                 $pairing_commission_amount = $paring_commission - $nft_commission_amount;
+                $history_data["type"] = "1";
+                $history_data["amount"] = $nft_commission_amount;
+                $history_data["user_id"] = $value->id;
+                $history_data["description"] = 'Referral commission from '.$stakingpool->user_detail->username;
+                $history_data["final_amount"] = $commission_wallet->nft_wallet + $nft_commission_amount;
+
+                NftWalletHistory::create($history_data);
+                $commission_wallet->increment('nft_wallet',$nft_commission_amount);
+                
                 $commission_wallet->increment('pairing_commission',$pairing_commission_amount);
                 PairingCommission::create(['user_id' => $user->id,
                     'left_sale' => $leftDownlineGroupsaleActual,

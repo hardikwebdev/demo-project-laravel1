@@ -53,6 +53,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
     Route::get('withdrawl-request/{key}', 'App\Http\Controllers\CommonController@withdrawlRequestVerify')->name('withdrawlRequestVerify');
     Route::get('calculate-pairing-commission', 'App\Http\Controllers\CommonController@pairingCommission')->name('calculate-pairing');
     Route::get('calculate-referral-commission', 'App\Http\Controllers\CommonController@referralCommission')->name('calculate-referral');
+    Route::any('online-payment-response/mysecure/{slug}', 'WalletController@online_payment_callback_my_secure')->name('online-payment-my-response-secure');
 
     Route::middleware(['auth','verified'])->group(function () {
 
