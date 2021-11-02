@@ -1,16 +1,16 @@
 <div class="row mt-5">
 		<div class="col-12">
-			<p class="text-white pb-3">Commission  History</p>
+			<p class="text-white pb-3">{{ trans('custom.commission_history')}}</p>
 		</div>
 		<div class="col-12">
 			<div class="table-responsive">
 				<table class="table table-dark trading-table text-center">
 					<thead class="table-gradient">
 						<tr>
-							<th>DATE</th>
-							<th>AMOUNT</th>
-							<th>DESCRIPTION</th>
-							<th>STATUS</th>
+							<th>{{ trans('custom.date')}}</th>
+							<th>{{ trans('custom.amount')}}</th>
+							<th>{{ trans('custom.description')}}</th>
+							<th>{{ trans('custom.status')}}</th>
 						</tr>
 					</thead>
 					<tbody>

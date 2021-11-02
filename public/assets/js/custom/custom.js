@@ -648,3 +648,34 @@ $(document).ready(function(){
               
       }
   });
+  // commission-wallet-form validation
+  $("#commission-wallet-confirm").validate({
+      ignore: "input[type='text']:hidden",
+      rules: {
+          amount: {
+              required: true,
+              number: true,
+              positiveNumber:true,
+              minlength: 0,
+              maxlength: 6,
+          },
+          fund_type: {
+              required: true,
+          },
+          secure_password: {
+              required: true,
+          },
+      },
+      messages: {
+          secure_password: {
+              required: securepassword_required_field,
+          },            
+          fund_type: {
+              required: select_fund_type,
+          },
+          amount: {
+              required: amount_required_field,
+              number: enter_valid_number,
+          },
+      },
+  });

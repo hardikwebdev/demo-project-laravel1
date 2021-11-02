@@ -55,7 +55,7 @@ class WalletController extends Controller
         return view('crypto_wallet.index', compact('convertedRateUSDT', 'convertedRateMYR', 'cryptowallet', 'userWallet', 'banks'));
     }
     public function cryptoWalletForm(Request $request){
-            $usercheck = Model\User::where('id',$this->user->id)->where('status','active')->first();
+            $usercheck = Model\User::where('id',$this->user->id)->where('status','active')->where('deleted_at', null)->first();
             $isError = 0;
             // condition for other payment not avialable
             if($request->payment_method != 'usdt'){
@@ -300,7 +300,7 @@ class WalletController extends Controller
              'fund_type'=>"required",
              'secure_password'=>"required",
          ]);
-        $usercheck = Model\User::with('userwallet')->where('id',auth()->id())->where('status','active')->first();
+        $usercheck = Model\User::with('userwallet')->where('id',auth()->id())->where('status','active')->where('deleted_at', null)->first();
          $isError = 0;
          if($usercheck != null){            
             if(Hash::check($request->secure_password, $usercheck->secure_password)){
@@ -378,6 +378,77 @@ class WalletController extends Controller
         return view('commission_wallet.index',compact('userWallet', 'history'));
     }
     public function commissionWalletStore(Request $request){
-        // dd($request->all());
+        $request->validate([
+             'amount'=>"required",
+             'fund_type'=>"required",
+             'secure_password'=>"required",
+         ]);
+        $usercheck = Model\User::with('userwallet')->where('id',auth()->id())->where('status','active')->where('deleted_at', null)->first();
+        if($usercheck != null){            
+           if(Hash::check($request->secure_password, $usercheck->secure_password)){
+                if(isset($request->amount) && $request->amount > $usercheck->userwallet['commission_wallet']){
+                    Session::flash('error',trans('custom.transfer_amount_less_equal_wallet'));
+                    return redirect()->back()->withInput($request->input());
+                }
+
+                $description = "";
+                if($request->fund_type == '0'){
+                    $description = 'Transferred to Crypto Wallet';
+                }elseif($request->fund_type == '1'){
+                    $description = 'Transferred to Withdrawal Wallet';                    
+                }else{
+                   $description = 'Transferred to NFT Wallet';    
+                }
+                $yieldwalle = new Model\CommissionWalletHistory();
+                $yieldwalle->user_id = auth()->id();
+                $yieldwalle->amount = $request->amount;
+                $yieldwalle->final_amount = $usercheck->userwallet['commission_wallet'] - $request->amount;
+                $yieldwalle->description = $description;
+                $yieldwalle->type = '0';
+                $yieldwalle->save();
+
+                if($request->fund_type=='0'){
+                    $cryptoWalletHistory = new Model\CryptoWalletHistory;
+                    $cryptoWalletHistory->user_id = auth()->id();
+                    $cryptoWalletHistory->amount = $request->amount;
+                    $cryptoWalletHistory->final_amount = $usercheck->userwallet['crypto_wallet'] + $request->amount;
+                    $cryptoWalletHistory->description = 'Transferred from Commission Wallet';
+                    $cryptoWalletHistory->type = '1';
+                    $cryptoWalletHistory->save();
+                    Model\UserWallet::where('user_id',$usercheck->id)->increment('crypto_wallet',round($request->amount,2));
+                }
+                if($request->fund_type=='1'){
+                    $withdrawal = new Model\WithdrawalWalletHistory;
+                    $withdrawal->user_id = auth()->id();
+                    $withdrawal->amount = $request->amount;
+                    $withdrawal->description = 'Transferred from Commission Wallet';
+                    $withdrawal->type = '1';
+                    $withdrawal->save();
+                    Model\UserWallet::where('user_id',$usercheck->id)->increment('withdrawal_balance',round($request->amount,2));
+                }
+                if($request->fund_type=='2'){
+                    $withdrawal = new Model\NftWalletHistory;
+                    $withdrawal->user_id = auth()->id();
+                    $withdrawal->amount = $request->amount;
+                    $withdrawal->final_amount = $usercheck->userwallet['nft_wallet'] + $request->amount;
+                    $withdrawal->description = 'Transferred from Commission Wallet';
+                    $withdrawal->type = '1';
+                    $withdrawal->save();
+                    Model\UserWallet::where('user_id',$usercheck->id)->increment('nft_wallet',round($request->amount,2));
+                }
+                Model\UserWallet::where('user_id',$usercheck->id)->decrement('commission_wallet',round($request->amount,2));
+                if($request->fund_type=='0'){
+                    Session::flash('success',trans('custom.requested_amount_transfered_crypto'));
+                }elseif($request->fund_type=='1'){
+                    Session::flash('success',trans('custom.requested_amount_transfered_withdrawal'));
+                }else{
+                    Session::flash('success',trans('custom.requested_amount_transfered_nft'));
+                }
+                return redirect()->route('commission_wallet');
+            }else{
+                Session::flash('error',trans('custom.security_password_wrong'));   
+                return redirect()->back()->withInput($request->input());
+            }
+        }
     }
 }
