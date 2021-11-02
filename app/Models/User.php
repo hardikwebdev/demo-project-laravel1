@@ -122,6 +122,10 @@ class User extends Authenticatable
         return $this->hasMany(StackingPool::class);
     }
 
+    public function active_staking_history(){
+        return $this->hasMany(StackingPool::class)->whereIn('status',[0,1]);
+    }
+
     public function getProfileImageAttribute($value){
         if(file_exists(public_path('uploads/profile_image/'.$value)) && $value){
             return asset('uploads/profile_image/'.$value);     

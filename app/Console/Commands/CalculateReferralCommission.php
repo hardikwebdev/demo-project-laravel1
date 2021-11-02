@@ -57,10 +57,14 @@ class CalculateReferralCommission extends Command
                 $sum_rank_percent = 0;
 
                 foreach ($upline_users as $key => $value) {
+                    if(count($value->active_staking_history) == 0){
+                        continue;
+                    }
                     $package_detail = Package::where('amount','<=',$value->userwallet->stacking_pool)->orderBy('amount','desc')->first();
                     if(!$package_detail){
                         continue;
                     }
+
 
                     $level_commission_percent = 0;
                     $total_commission = $package_detail->direct_refferal; //$value->package_detail->direct_refferal;
@@ -81,7 +85,7 @@ class CalculateReferralCommission extends Command
                     }
                     $sum_rank_percent = $sum_rank_percent + $level_commission_percent; 
                     $commission_percent = $level_commission_percent / 100;
-                    $commission_amount = round($package_detail->amount * $commission_percent,2); 
+                    $commission_amount = round($stakingpool->amount * $commission_percent,2); 
                     $commission_wallet = UserWallet::where('user_id',$value->id)->first();
                      $commission_wallet = UserWallet::where('user_id',$user->id)->first();
                     $nft_commission = Setting::where('key','nft_commission')->value('value');
