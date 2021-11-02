@@ -369,4 +369,15 @@ class WalletController extends Controller
              }
          }
     }
+    public function commission_wallet(Request $request){
+        $userWallet = Model\UserWallet::where('user_id',$this->user->id)->first();
+        $history = Model\CommissionWalletHistory::where('user_id',$this->user->id)->where('amount','>',0)->orderby('id','desc')->orderby('id','desc')->paginate(10);
+        if($request->ajax()){
+            return view('commission_wallet.history',compact('history'));
+        }
+        return view('commission_wallet.index',compact('userWallet', 'history'));
+    }
+    public function commissionWalletStore(Request $request){
+        // dd($request->all());
+    }
 }
