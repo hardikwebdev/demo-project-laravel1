@@ -20,7 +20,7 @@
                                 {!! Form::select('subject',$subjects,old('subject',@$data['subject']),['class'=>'form-control','placeholder'=>'All']) !!}
                         </div>            
                         <button class="btn btn-primary" type="submit"><i class="fa fa-filter"></i> Search</button>
-                        <a class="btn btn-danger" href="{{route('support_ticket.index')}}">Clear</a>
+                        <a class="btn btn-danger" href="{{route('support_ticket.index1',$slug)}}">Clear</a>
                 {!! Form::close() !!}  
             </div>
         </h2>

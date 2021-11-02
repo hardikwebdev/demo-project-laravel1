@@ -1307,6 +1307,7 @@ $.validator.addMethod('max_stacking_display',function(v,el){
     var stacking_display_start = $("input[name=stacking_display_start]").val();
     return parseFloat(stacking_display_end) > parseFloat(stacking_display_start);
 }, 'Staking Dispaly End must be greater then  Staking Dispaly Start');
+
 $("#package_create").validate({
     rules: {
          name: {
@@ -1533,7 +1534,6 @@ $("#pool_package_edit").validate({
             required: 'Please enter stacking display end',
         }
     },
-
 });
 // NFT Category
 $("#nft_category_create").validate({
