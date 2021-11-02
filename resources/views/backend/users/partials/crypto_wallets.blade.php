@@ -26,7 +26,10 @@
                     @endforeach
                     <tfoot>
                         <tr align="right">
-                            <td colspan="6">{!! $crypto_wallets->render('vendor.default_paginate') !!}</td>
+                            <tr>
+                                <td colspan="14" align="right">{!! $crypto_wallets->render('vendor.default_paginate') !!}</td>
+                            </tr>
+                            {{-- <td colspan="6">{!! $crypto_wallets->render('vendor.default_paginate') !!}</td> --}}
                         </tr>
                     </tfoot>
                 @else

@@ -15,19 +15,19 @@
             </div>
         </div>
     </div>
-    <div class="row">    
+    <div class="row">
         <div class="col-sm-6 pl-0 ">
             <div class="form-group">
                 <label>Staking Dispaly Start</label> 
-                 {!! Form::number('staking_display_start',old('staking_display_start'),['class'=>'form-control','placeholder'=>'Enter Staking Period (12 Month) Start','min'=>'0']) !!}
-                <span class="help-block text-danger">{{ $errors->first('staking_display_start') }}</span>
+                 {!! Form::number('stacking_display_start',old('stacking_display_start'),['class'=>'form-control','placeholder'=>'Enter Staking Period (12 Month) Start','min'=>'0']) !!}
+                <span class="help-block text-danger">{{ $errors->first('stacking_display_start') }}</span>
             </div> 
         </div>
         <div class="col-sm-6 pl-0 ">
             <div class="form-group">
                 <label>Staking Dispaly End</label> 
-                 {!! Form::number('staking_display_end',old('staking_display_end'),['class'=>'form-control','placeholder'=>'Enter Staking Period (12 Month) End','min'=>'0']) !!}
-                <span class="help-block text-danger">{{ $errors->first('staking_display_end') }}</span>
+                 {!! Form::number('stacking_display_end',old('stacking_display_end'),['class'=>'form-control','placeholder'=>'Enter Staking Period (12 Month) End','min'=>'0']) !!}
+                <span class="help-block text-danger">{{ $errors->first('stacking_display_end') }}</span>
             </div> 
         </div>
     </div>

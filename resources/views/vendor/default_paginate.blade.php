@@ -1,15 +1,15 @@
 @if ($paginator->lastPage() > 1)
 @php $link_limit=4 @endphp
-<ul class="pagination" style="float: right !important">
-    <li class="{{ ($paginator->currentPage() == 1) ? ' disabled' : '' }}">
-        <a href="{{ $paginator->url(1) }}"><img src="{{ asset('assets/images/assets/Sell_NFT/Path599.png') }}" class="img-fluid rotate-180" alt=""></a>
+<ul class="pagination">
+    <li class="page-item {{ ($paginator->currentPage() == 1) ? ' disabled' : '' }}">
+        <a href="{{ $paginator->url(1) }}"><i class="fa fa-angle-double-left"></i></a>
     </li>
 
      {{-- Pagination Elements --}}
     @foreach ($elements as $element)
         {{-- "Three Dots" Separator --}}
         @if (is_string($element))
-            <li class="disabled"><span>{{ $element }}</span></li>
+            <li class="disabled page-item"><span>{{ $element }}</span></li>
         @endif
 
         {{-- Array Of Links --}}
@@ -20,16 +20,16 @@
                     @php //continue; @endphp 
                 @endif
                 @if ($page == $paginator->currentPage())
-                    <li><span class="font-12 mx-1 bg-warning px-1">{{$page}}</span></li>
+                    <li class="page-item active"><span>{{ $page }}</span></li>
                 @else
-                    <li><a style="color: #a3a4a5 !important;" class="font-12 mx-1" href="{{ $url }}">{{ $page }}</a></li>
+                    <li class="page-item"><a class="page-link" href="{{ $url }}">{{ $page }}</a></li>
                 @endif
                 @php $i++; @endphp
             @endforeach
         @endif
     @endforeach
-    <li class="{{ ($paginator->currentPage() == $paginator->lastPage()) ? ' disabled' : '' }}">
-        <a href="{{ $paginator->url($paginator->currentPage()+1) }}" ><img src="{{ asset('assets/images/assets/Sell_NFT/Path599.png') }}" class="img-fluid " alt=""></a>
+    <li class="page-item {{ ($paginator->currentPage() == $paginator->lastPage()) ? ' disabled' : '' }}">
+        <a  class="page-link" href="{{ $paginator->url($paginator->currentPage()+1) }}" ><i class="fa fa-angle-double-right"></i></a>
     </li>
 </ul>
 @endif
