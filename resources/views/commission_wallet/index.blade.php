@@ -59,22 +59,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="row mt-5">
-		<div class="col-12">
-			<p class="text-white pb-3">Commission  History</p>
-		</div>
-		<div class="table-responsive table-history">
+	<div class="table-responsive table-history">
 		@include('commission_wallet.history')
-		</div>
-	</div>
-	<div class="row align-items-center mt-5">
-		<div class="col-12 text-right">
-			<div class="text-secondary">
-				<div class="second-ajax-pag">
-					@if($history->count() > 0){{ $history->render() }}@endif
-				</div>
-				
-			</div>
-		</div>
 	</div>
 	@endsection
