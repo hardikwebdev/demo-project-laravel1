@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models as Model;
+use Illuminate\Validation\Rule;
 
 class PackageController extends Controller
 {
@@ -42,15 +43,19 @@ class PackageController extends Controller
     {
         /* validation start */
         $validatedData = $request->validate([
-            'name' => 'required|string|unique:packages|max:255',
-            'amount' => 'required|integer',            
-            'stacking_actual12_start' => 'required|integer',            
-            'stacking_actual12_end' => 'required|integer',            
-            'stacking_actual24_start' => 'required|integer',            
-            'stacking_actual24_end' => 'required|integer',            
-            'direct_refferal' => 'required|integer',            
-            'network_pairing' => 'required|integer',            
-            'daily_limit' => 'required|integer',          
+            // 'name' => 'required|string|max:255|unique:packages',
+            'name' => ['required','string','max:255', Rule::unique('packages')->where(function ($query) {
+                return $query->where('is_deleted','0');
+              })
+             ],
+            'amount' => 'required',            
+            'stacking_actual12_start' => 'required',            
+            'stacking_actual12_end' => 'required',            
+            'stacking_actual24_start' => 'required',            
+            'stacking_actual24_end' => 'required',            
+            'direct_refferal' => 'required',            
+            'network_pairing' => 'required',            
+            'daily_limit' => 'required',          
         ]);
         /* validation end */
         try {
@@ -109,15 +114,19 @@ class PackageController extends Controller
     {
         /* validation start */
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255|unique:packages,name,'.$id,
-            'amount' => 'required|integer',
-            'stacking_actual12_start' => 'required|integer',            
-            'stacking_actual12_end' => 'required|integer',            
-            'stacking_actual24_start' => 'required|integer',            
-            'stacking_actual24_end' => 'required|integer',            
-            'direct_refferal' => 'required|integer',            
-            'network_pairing' => 'required|integer',            
-            'daily_limit' => 'required|integer',            
+            // 'name' => 'required|string|max:255|unique:packages,name,'.$id,
+            'name' => ['required','string','max:255', Rule::unique('packages')->ignore($id, 'id')->where(function ($query) {
+                return $query->where('is_deleted','0');
+              })
+             ],
+            'amount' => 'required',
+            'stacking_actual12_start' => 'required',            
+            'stacking_actual12_end' => 'required',            
+            'stacking_actual24_start' => 'required',            
+            'stacking_actual24_end' => 'required',            
+            'direct_refferal' => 'required',            
+            'network_pairing' => 'required',            
+            'daily_limit' => 'required',            
         ]);
         /* validation end */
         try {

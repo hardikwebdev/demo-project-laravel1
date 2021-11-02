@@ -127,25 +127,8 @@
               </div>  
             </div>
           </div>
-
-          <div class="row mt-5">
-            <div class="col-12">
-              <p class="text-white pb-3">{{ trans('custom.crypto_wallet_history')}}</p>
-            </div>
-            <div class="col-12">
-              <div class="table-responsive table-history">
-                @include('crypto_wallet/crypto_walletajax')
-              </div>
-            </div>
-          </div>
-          <div class="row align-items-center mt-5">
-            <div class="col-12 text-right">
-              <div class="text-secondary">
-                <div class="second-ajax-pag">
-                  @if(count($cryptowallet) > 0){{$cryptowallet->render() }}@endif
-                </div>
-              </div>
-            </div>
+          <div class="table-responsive table-history">
+            @include('crypto_wallet/crypto_walletajax')
           </div>
 @endsection
 @section('scripts')

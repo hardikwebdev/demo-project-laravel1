@@ -37,6 +37,19 @@ $('#filter_request').validate({
     },
     //rest of validate options
 });
+
+$('#filter_nft_data_ajax').validate({
+    rules: {
+        start: {
+            mindate: true,
+        },
+        end: {
+            maxdate: true,
+        },
+        //the rest of your rules
+    },
+    //rest of validate options
+});
 /* fund wallet approve disapprove code*/
 $('.btn-status').on('click',function(e){
 	e.preventDefault();

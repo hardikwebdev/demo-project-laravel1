@@ -10,6 +10,8 @@ use Auth;
 use App\Models\NftCategory;
 use App\Models\News;
 use App\Models\StackingPool;
+use App\Models\UserWallet;
+use App\Models\CommissionWalletHistory;
 
 class HomeController extends Controller
 {
@@ -67,8 +69,13 @@ class HomeController extends Controller
         return view('yield_wallet.index');
     }
 
-    public function commission_wallet(){
-        return view('commission_wallet.index');
+    public function commission_wallet(Request $request){
+        $userWallet = UserWallet::where('user_id',$this->user->id)->first();
+        $history = CommissionWalletHistory::where('user_id',$this->user->id)->where('amount','>',0)->orderby('id','desc')->orderby('id','desc')->paginate(10);
+        if($request->ajax()){
+            return view('yield_wallet.partials.history',compact('history'));
+        }
+        return view('commission_wallet.index',compact('userWallet', 'history'));
     }
 
     public function nft_wallet(){

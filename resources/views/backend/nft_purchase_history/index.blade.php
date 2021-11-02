@@ -61,4 +61,5 @@
     </script>
     <script src="{{ asset('backend/js/custom/nftpurchase.js') }}"></script>
     <script src="{{ asset('backend/js/plugins/datapicker/bootstrap-datepicker.js') }}"></script>
+    <script type="text/javascript" src="{{asset('backend/js/custom/reports.js')}}"></script>
 @endsection

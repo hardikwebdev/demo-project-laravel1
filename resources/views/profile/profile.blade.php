@@ -228,7 +228,7 @@
                   <div class="row">
                     <input name="id" type="hidden" class="form-control blue-ph h-auto py-4" value="{{ $user->id }}">
                     <div class="col-12 col-md-6">
-                      {!! Form::textarea('nft_wallet_address', old('nft_wallet_address', @$user->nft_wallet_address), ['class' => 'form-control blue-ph h-auto py-4', 'rows' => 6,'placeholder' => 'Enter NFT Wallete Address']) !!}
+                      {!! Form::text('nft_wallet_address', old('nft_wallet_address', @$user->nft_wallet_address), ['class' => 'form-control blue-ph h-auto py-4', 'placeholder' => 'Enter NFT Wallete Address']) !!}
                     </div>
                     <div class="col-12 col-md-6 col-xl-4 mt-4"></div>
                     <div class="col-12 col-md-6 col-xl-4 mt-4">

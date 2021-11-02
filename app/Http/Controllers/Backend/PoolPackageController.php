@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models as Model;
+use Illuminate\Validation\Rule;
 
 class PoolPackageController extends Controller
 {
@@ -42,9 +43,13 @@ class PoolPackageController extends Controller
     {
         /* validation start */
         $validatedData = $request->validate([
-            'name' => 'required|string|unique:stacking_pool_packages|max:255',
-            'stacking_display_start' => 'required|integer',            
-            'stacking_display_end' => 'required|integer',
+            // 'name' => 'required|string|unique:stacking_pool_packages|max:255',
+            'name' => ['required','string','max:255', Rule::unique('stacking_pool_packages')->where(function ($query) {
+                return $query->where('is_deleted','0');
+              })
+             ],
+            'stacking_display_start' => 'required',            
+            'stacking_display_end' => 'required',
             'image' => 'mimes:jpeg,jpg,png,gif'          
         ]);
         /* validation end */
@@ -110,9 +115,13 @@ class PoolPackageController extends Controller
     {
         /* validation start */
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255|unique:packages,name,'.$id,
-            'stacking_display_start' => 'required|integer',            
-            'stacking_display_end' => 'required|integer',
+            // 'name' => 'required|string|max:255|unique:packages,name,'.$id,
+            'name' => ['required','string','max:255', Rule::unique('stacking_pool_packages')->ignore($id, 'id')->where(function ($query) {
+                return $query->where('is_deleted','0');
+              })
+             ],
+            'stacking_display_start' => 'required',            
+            'stacking_display_end' => 'required',
             'image' => 'mimes:jpeg,jpg,png,gif'
         ]);
         /* validation end */
