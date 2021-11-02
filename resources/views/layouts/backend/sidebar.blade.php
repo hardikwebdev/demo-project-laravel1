@@ -25,9 +25,17 @@
                         <a href="{{route('crypto_wallets_payment_history.index')}}" title="Crypto Wallets Payment History"><span class="cus-sub-menu">Crypto Wallets Payment History</span></a>
                     </li>
                     {{-- @php $count = Helper::getUnreadCount() @endphp --}}
-                    <li class=" @if(strstr(\Request::route()->getName(),'nft_wallets_payment_history')) {{'active'}} @endif">
+
+
+
+
+                    {{-- <li class=" @if(strstr(\Request::route()->getName(),'nft_wallets_payment_history')) {{'active'}} @endif">
                         <a href="{{route('nft_wallets_payment_history.index')}}" title="Nft Wallets Payment History"><span class="cus-sub-menu">NFT Wallets Payment History</span></a>
-                    </li>
+                    </li> --}}
+
+
+
+
                     <li class=" @if(strstr(\Request::route()->getName(),'nft_purchase_history')) {{'active'}} @endif">
                         <a href="{{route('nft_purchase_history.index')}}" title="Nft Purchase History"><span class="cus-sub-menu">NFT Purchase History</span></a>
                     </li>
@@ -57,9 +65,16 @@
                     <li class=" @if(\Request::is('admin/crypto_wallets_credit_request')) {{'active'}} @endif">
                         <a href="{{route('crypto_wallets_credit_request.index')}}" title="Crypto Wallets Credits Requests"> <span class="cus-sub-menu">Crypto Wallets Credits Requests<span class="label label-info pull-right">{{Helper::getPendingCryptoCreditRequestCount()}}</span></span></a>
                     </li>
-                    <li class=" @if(\Request::is('admin/nft_wallets_credit_request')) {{'active'}} @endif">
+
+
+
+                    {{-- <li class=" @if(\Request::is('admin/nft_wallets_credit_request')) {{'active'}} @endif">
                         <a href="{{route('nft_wallets_credit_request.index')}}" title="Nft Wallets Credits Requests"> <span class="cus-sub-menu">NFT Wallets Credits Requests<span class="label label-info pull-right">{{Helper::getPendingNftCreditRequestCount()}}</span></span></a>
-                    </li> 
+                    </li>  --}}
+
+
+
+
                     <li class=" @if(\Request::is('admin/nft_purchase_request')) {{'active'}} @endif">
                         <a href="{{route('nft_purchase_request.index')}}" title="Nft Purchase Requests"> <span class="cus-sub-menu">NFT Purchase Requests</span><span class="label label-info pull-right">{{Helper::getPendingNftPurchaseRequestCount()}}</span></a>
                     </li> 
