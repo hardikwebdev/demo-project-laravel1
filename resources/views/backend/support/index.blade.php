@@ -18,7 +18,7 @@
                         {!! Form::text('search',old('search',@$data['search']),['class'=>'form-control','placeholder'=>'Search by username']) !!}
                     </div>            
                     <div class="form-group">                                
-                        {!! Form::select('status',['Open'=>'Open','Close'=>'Close'],old('status',@$data['status']),['class'=>'form-control','placeholder'=>'All']) !!}
+                        {!! Form::select('status',['Open'=>'Open','Close'=>'Close','Replied'=>'Replied'],old('status',@$data['status']),['class'=>'form-control','placeholder'=>'All']) !!}
                     </div>            
                     <button class="btn btn-primary" type="submit"><i class="fa fa-filter"></i> Search</button>
                     <a class="btn btn-danger" href="{{route('support_ticket.index')}}">Clear</a>

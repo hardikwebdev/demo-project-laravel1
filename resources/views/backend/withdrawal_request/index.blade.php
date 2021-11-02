@@ -36,8 +36,8 @@
                     {!! Form::text('search',old('search',@$data['search']),['class'=>'form-control input-sm','placeholder'=>'Search by username']) !!}
                 </div>  
                 <div class="form-group">                                
-                    {!! Form::select('type',['0'=>'Bank','1'=>'USDT(ERC-20)','2'=>'OMNI','4'=>'USDT(TRC-20)'],old('type',@$data['type']),['class'=>'form-control input-sm','placeholder'=>'All Type']) !!}
-                </div>   
+                    {!! Form::select('type',['1'=>'Bank','2'=>'USDT'],old('type',@$data['type']),['class'=>'form-control input-sm','placeholder'=>'All Type']) !!}
+                </div>
                 <div class="form-group">                                
                     {!! Form::select('status',['Pending'=>'Pending','Approved'=>'Approved','Rejected'=>'Rejected'],old('status',@$data['status']),['class'=>'form-control input-sm','placeholder'=>'All Status']) !!}
                 </div>           
@@ -88,43 +88,40 @@
                             @if(count($withdrawal_requests) > 0)
                             @foreach($withdrawal_requests as $row)
                             <tr>
+                                <td>
+                                    <label>@if($row->status == '0'){!! Form::checkbox('request_ids[]',$row->id,false ) !!}@endif {{$i++}}</label>
+                                </td>
 
-                                <td> <label>@if($row->status == '0'){!! Form::checkbox('request_ids[]',$row->id,false ) !!}@endif {{$i++}}</label></td>
+
                                 <td colspan="" width="20%">
                                     {{$row->user_detail->username}}                                 
                                 </td>
+
+                
                                 <td  width="18%">
                                     <strong>Withdrawal Amount:</strong>  {{$row->withdrawal_amount}}<br>
                                     <span class="text-danger"><strong>Payable Amount:</strong>  {{$row->payble_amount}}</span>
-                                </td>                             
+                                </td>   
+                                
+                                
                                 <td width="27%">
                                     @if($row->type=='0')
-                                    @if($row->user_detail->userbank!=null)
-                                    <strong>Name:</strong>  {{@$row->user_detail->userbank->name}}<br>
-                                    <strong>Branch:</strong>  {{@$row->user_detail->userbank->branch}}<br>
-                                    <strong>Account Holder name:</strong>  {{@$row->user_detail->userbank->account_holder}}<br>
-                                    <strong>Account Number:</strong>  {{@$row->user_detail->userbank->account_number}}<br>
-                                    <strong>Swift Code:</strong>  {{@$row->user_detail->userbank->swift_code}}<br>
-                                    @else
-                                    No bank available
-                                    @endif
+                                        @if($row->user_detail->userbank!=null)
+                                        <strong>Name:</strong>  {{@$row->user_detail->userbank->name}}<br>
+                                        <strong>Branch:</strong>  {{@$row->user_detail->userbank->branch}}<br>
+                                        <strong>Account Holder name:</strong>  {{@$row->user_detail->userbank->account_holder}}<br>
+                                        <strong>Account Number:</strong>  {{@$row->user_detail->userbank->account_number}}<br>
+                                        <strong>Swift Code:</strong>  {{@$row->user_detail->userbank->swift_code}}<br>
+                                        @else
+                                        No bank available
+                                        @endif
                                     @else
                                     <strong>USDT Address : </strong>{{($row->payment_address) ? $row->payment_address : $row->user_detail->usdt_address}}
                                     @endif
                                 </td>
-                                <td>{{$row->type=='1'?"USDT(ERC-20)":($row->type=='2'?"OMNI":($row->type=='4'?"USDT(TRC-20)":"Bank"))}}</td>
-                                <td>{{$row->action_date}}</td>
-                                {{-- <td>
-                                    @if($row->user_detail->usdt_withdraw)
-                                    @if($row->user_detail->usdt_fund_history->count() > 0)
-                                    Yes
-                                    @else
-                                    No
-                                    @endif
-                                    @else
-                                    No
-                                    @endif
-                                </td> --}}
+
+                                <td>{{($row->type=='1')?("USDT"):("Bank")}}</td>
+                                <td>{{$row->action_date ?? ""}}</td>
                                 <td>
                                     @if($row->status=='1')
                                     <label class="label label-primary">Approved</label>
@@ -143,7 +140,9 @@
                                     <a class="btn btn-success btn-xs btn-status" data-toggle="tooltip" data-value="1" title="Approved" href="#"><i class="fa fa-check" ></i></a>
                                     <a class="btn btn-danger btn-xs btn-status"  data-value="2" data-toggle="tooltip" title="Rejected" href="#"><i class="fa fa-times"></i></a>
                                     @endif
+                                    @if (!empty($row->payment_proof))
                                     <button class="btn btn-info  btn-xs"  data-type="{{$row->type}}"  data-id="{{$row->id}}"   data-toggle="tooltip" onclick="getBankProof($(this))" title="View Bank Proof" type="submit" ><i class="fa fa-id-card"></i></button>
+                                    @endif
                                     {!! Form::close() !!}
                                     {{-- @else
                                     N/A
@@ -206,6 +205,8 @@
         </div>
     </div>
 </div>
+
+
 <div id="remark_decline" class="modal fade" role="dialog">
     <div class="modal-dialog modal-md">
         <div class="modal-content">
@@ -225,7 +226,7 @@
 @section('scripts')
 <script type="text/javascript">  
     var update_url = "{{route('withdrawal_request.update',[''])}}"; 
-    var export_url = "{{route('withdrawal_request.export')}}"; 
+    var report_export = "{{route('withdrawal_request.export')}}"; 
     var detail_url = "{{route('user.bank_proofs')}}"; 
 </script>
 <script src="{{asset('backend/js/plugins/datapicker/bootstrap-datepicker.js')}}"></script>

@@ -53,7 +53,7 @@
                                     <th width="15%">Username</th>
                                     <th width="23%">Email</th>
                                     {{-- <th width="5%">MT5 Id</th> --}}
-                                    <th width="6%">Crypto Wallet</th>
+                                    {{-- <th width="6%">Crypto Wallet</th> --}}
                                     {{-- <th width="6%">MT5 Topup<br>wallet</th> --}}
                                     {{-- <th width="8%">Total Topup<br>Value</th> --}}
                                     {{-- <th width="5%">Package</th> --}}
@@ -77,11 +77,11 @@
                                     <td class="break-word "><a class="" href="{{route('user.show',[$row->username])}}">{{$row->username}}</a></td>
                                     <td class="break-word "><a class="" href="{{route('user.show',[$row->username])}}">{{$row->email}}</a></td>                             
                                     {{-- <td>{{@$row->mt4_user_id}}</td>                              --}}
-                                    <td >
+                                    {{-- <td >
                                         <a class="btn-fund-wallet" data-user_id="{{$row->id}}" data-user="{{$row->username}}" data-amt='{{$row->userwallet!=null?$row->userwallet->crypto_wallet:"0.00"}}'>
                                         {{$row->userwallet!=null?number_format($row->userwallet->crypto_wallet,2):"0.00"}}
                                         <!-- <i class="fa fa-edit"></i> --></a>
-                                    </td>
+                                    </td> --}}
                                     {{-- <td>
                                         {{$row->userwallet!=null?number_format($row->userwallet->mt_topup_wallet,2):"0.00"}}
                                     </td> --}}
