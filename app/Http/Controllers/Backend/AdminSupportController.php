@@ -31,14 +31,26 @@ class AdminSupportController extends Controller
             $q->whereNotNull('username');
         });
         if($request->status && $request->status != ""){
-            $status = ['Open'=>'0','Close'=>'1']; 
-            $support_tickets = $support_tickets->where('status',$status[$request->status]);
-            if($request->status == 'Open'){
-                $support_tickets = $support_tickets->where(function($q){
-                    $q->whereHas('last_message',function($query){
-                    $query->where('reply_from','!=','admin');
-                })->orWhereDoesntHave('last_message');
-                });
+            if($request->status == "Replied"){
+                    $status = ['Replied'=>'0'];
+                    $support_tickets = $support_tickets->where('status',$status[$request->status]);
+                    if($request->status == 'Replied'){
+                        $support_tickets = $support_tickets->where(function($q){
+                            $q->whereHas('last_message',function($query){
+                            $query->where('reply_from','=','admin')->where('is_read','=','0');
+                        })->orWhereDoesntHave('last_message');
+                        });
+                    }
+            }else{
+                    $status = ['Open'=>'0','Close'=>'1']; 
+                    $support_tickets = $support_tickets->where('status',$status[$request->status]);
+                    if($request->status == 'Open'){
+                        $support_tickets = $support_tickets->where(function($q){
+                            $q->whereHas('last_message',function($query){
+                            $query->where('reply_from','!=','admin');
+                        })->orWhereDoesntHave('last_message');
+                        });
+                    }
             }
         }
         if($request->search && $request->search != ""){

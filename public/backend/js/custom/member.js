@@ -503,24 +503,25 @@ $("#customer_register_edit").validate({
                     return '12';
                 }
             },
-            remote: {
-                url: icNumberDuplication,
-                type: "post",
-                data: {
-                    _token: $("input[name=_token]").val(),
-                    sponsor_username: function() {
-                        return $("#sponsor_username").val();
-                    }
-                },
-                dataFilter: function(data) {
-                    var data = JSON.parse(data);
-                    if (data.valid == true || data.valid == 'false') {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                }
-            }
+            // remote: {
+            //     url: icNumberDuplicationEdit,
+            //     type: "post",
+            //     data: {
+            //         _token: $("input[name=_token]").val(),
+            //         sponsor_username: function() {
+            //             console.log('hi')
+            //             return $("#sponsor_username").val();
+            //         }
+            //     },
+            //     dataFilter: function(data) {
+            //         var data = JSON.parse(data);
+            //         if (data.valid == true || data.valid == 'false') {
+            //             return true;
+            //         } else {
+            //             return false;
+            //         }
+            //     }
+            // }
         },
         email: {
             required: true,
@@ -616,7 +617,7 @@ $("#customer_register_edit").validate({
             required: "Please enter identification number",
             alphanumeric: "Only number and alphabets are allowed",
             maxlength: "Maximim limit of 12 character",
-            remote: "This Identification number is already in use"
+            // remote: "This Identification number is already in use"
         },
         email: {
             required: "Please enter email address",

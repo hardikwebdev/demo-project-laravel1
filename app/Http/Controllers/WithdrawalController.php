@@ -55,7 +55,7 @@ class WithdrawalController extends Controller
 
         // $proofs = Model\UploadProof::where('user_id',$user->id)->whereIn('status',['0','2'])->orderBy('id','desc')->first();
 
-        return view('withdrawal.index',compact('bankcountry','user','withdrawWallet','userWallet','withdrawalFee','allowed_ranks','usdt_only','proofs'));
+        return view('withdrawal.index',compact('bankcountry','user','withdrawWallet','userWallet','withdrawalFee','allowed_ranks','usdt_only'));
     }
     public function withdrawalRequest(Request $request){
         $usercheck = auth()->user();
@@ -107,7 +107,6 @@ class WithdrawalController extends Controller
                     $withdrawalRequest->status = 3; // Verifying
                     $withdrawalRequest->type = '1'; //USDT
                     // $withdrawalRequest->payment_address = $request->usdt_address;
-
                     if($request->hasFile('upload_proof')){
                         $paymentProof = $request->file('upload_proof');
                         $idFilename = time() .'.'. $paymentProof->getClientOriginalExtension();              

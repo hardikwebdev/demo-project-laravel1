@@ -12,10 +12,13 @@
                 </tr>
             
                 @if(isset($nft_wallets) && count($nft_wallets)>0)
+                    @php
+                        $i = ($nft_wallets->currentpage() - 1) * $nft_wallets->perpage() + 1;
+                    @endphp
                     @foreach($nft_wallets as $funds)
                     <tbody>
                     <tr>
-                        <td>{{$funds->id}}</td>
+                        <td>{{$i++}}</td>
                         <td>{{number_format($funds->amount,'2')}}</td>
                         <td>{{$funds->type==0?'Reduced':($funds->type==2?'Added By Admin':"Added")}}</td>
                         <td>{{$funds->description}}</td>

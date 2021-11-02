@@ -34,7 +34,7 @@
                     <li class=" @if(strstr(\Request::route()->getName(),'stacking_pool_history')) {{'active'}} @endif">
                         <a href="{{route('stacking_pool_history.index')}}" title="Stacking Pool History"><span class="cus-sub-menu">Stacking Pool History</span></a>
                     </li>
-                    @php $count = Helper::getUnreadCount() @endphp
+                    @php $count = Helper::getSupportUnreadCount() @endphp
                     <li class=" @if(strstr(\Request::route()->getName(),'support_ticket')) {{'active'}} @endif">
                         <a href="{{route('support_ticket.index1','all')}}" title="Support"><span class="cus-sub-menu">Support</span><span class="label label-info pull-right">{{$count}}</span></a>
                     </li>
