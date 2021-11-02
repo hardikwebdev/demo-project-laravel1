@@ -44,7 +44,7 @@
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
-	        <h3 class="modal-title inline" id="exampleModalLabel">{{trans('custom.create_new_ticket')}}</h3>
+	        <h3 class="modal-title inline text-white" id="exampleModalLabel">{{trans('custom.create_new_ticket')}}</h3>
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
 	        </button>
@@ -56,7 +56,7 @@
 	                    <div class="col-lg-12 form-group-sub">
 	                        <div class="form-group">
 	                            <div class="from-inner-space">
-	                                <label class="mb-2 bmd-label-static">{{trans('custom.title')}}:<span
+	                                <label class="mb-2 bmd-label-static text-white">{{trans('custom.title')}}:<span
 	                                    class="text-red">*</span></label>
 	                                {!! Form::select('subject_id',$supportSubject,old('supportSubject'),['class'=>'form-control grey-ph h-auto py-4 border-0 shadow','placeholder'=>'Select Title']) !!}            
 	                            </div>
@@ -67,7 +67,7 @@
 	                    <div class="col-lg-12 form-group-sub">
 	                        <div class="form-group">
 	                            <div class="from-inner-space">
-	                                <label class="mb-2 bmd-label-static">{{trans('custom.attachment')}}:</label>
+	                                <label class="mb-2 bmd-label-static text-white">{{trans('custom.attachment')}}:</label>
 	                                <input class="form-control grey-ph h-auto py-4 border-0 shadow" name="attachment[]" type="file" multiple  />
 	                            </div>
 	                        </div>
@@ -77,7 +77,7 @@
 	                    <div class="col-lg-12 form-group-sub">
 	                        <div class="form-group">
 	                            <div class="from-inner-space">
-	                                <label class="mb-2 bmd-label-static">{{trans('custom.message')}}:<span class="text-red">*</span></label>
+	                                <label class="mb-2 bmd-label-static text-white">{{trans('custom.message')}}:<span class="text-red">*</span></label>
 	                                {!! Form::textarea('message', null, ['class'=> 'form-control grey-ph h-auto py-4 border-0 shadow' ,'id' => 'message', 'rows' => 4, 'cols' => 54]) !!}
 	                            </div>
 	                        </div>
