@@ -24,7 +24,15 @@ class NftWalletsPaymentController extends Controller
         }]);
     
         if($request->status && $request->status != ""){
-            $nft_wallets_payment_history = $nft_wallets_payment_history->where('status',$request->status);
+            if($request->status == 1){
+                $nft_wallets_payment_history = $nft_wallets_payment_history->where('status','1')->where('type','!=','3');
+            }elseif($request->status == 2){
+                $nft_wallets_payment_history = $nft_wallets_payment_history->where('status','2');
+            }elseif($request->status == 3){
+                $nft_wallets_payment_history = $nft_wallets_payment_history->where('status','0');
+            }else {
+                $nft_wallets_payment_history = $nft_wallets_payment_history->where('status','1')->where('type','3');
+            }
         }
         if($request->type && $request->type != ""){
             if ($request->type == 1) {
@@ -65,7 +73,15 @@ class NftWalletsPaymentController extends Controller
            }]);
        
            if($request->status && $request->status != ""){
-               $nft_wallets_payment_history = $nft_wallets_payment_history->where('status',$request->status);
+            if($request->status == 1){
+                $nft_wallets_payment_history = $nft_wallets_payment_history->where('status','1')->where('type','!=','3');
+            }elseif($request->status == 2){
+                $nft_wallets_payment_history = $nft_wallets_payment_history->where('status','2');
+            }elseif($request->status == 3){
+                $nft_wallets_payment_history = $nft_wallets_payment_history->where('status','0');
+            }else {
+                $nft_wallets_payment_history = $nft_wallets_payment_history->where('status','1')->where('type','3');
+            }
            }
            if($request->type && $request->type != ""){
             if ($request->type == 1) {

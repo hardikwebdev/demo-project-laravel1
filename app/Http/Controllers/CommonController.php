@@ -112,7 +112,7 @@ class CommonController extends Controller
     protected function sponsorUsernameExists(Request $request)
     {
         $usernameExits = User::where('username', $request->sponsor_username)
-            ->where('status', 1)
+            ->where('status', 'active')
             ->exists();
         if ($usernameExits != null) {
             $isValid = true;
@@ -128,11 +128,11 @@ class CommonController extends Controller
     protected function icNumberDuplication(Request $request)
     {
         $usernameExits = User::where('username', $request->sponsor_username)
-            ->where('status', 1)
+            ->where('status', 'active')
             ->first();
         $icnumber = $request->ic_number;
         $icNUmberCheck = User::where('identification_number', $icnumber)
-            ->where('status', 1)
+            ->where('status', 'active')
             ->count();
         $isValid = false;
         // return $icnumber;
@@ -186,11 +186,11 @@ class CommonController extends Controller
     protected function icNumberDuplicationedit(Request $request)
     {
         $usernameExits = User::where('username', $request->sponsor_username)
-            ->where('status', 1)
+            ->where('status', 'active')
             ->first();
         $icnumber = $request->ic_number;
         $icNUmberCheck = User::where('identification_number', $icnumber)
-            ->where('status', 1)
+            ->where('status', 'active')
             ->count();
         $isValid = false;
         // return $icnumber;
@@ -328,7 +328,7 @@ class CommonController extends Controller
     {
         $sponser_details = User::where('id', $userid)->first();
         $count = User::where('identification_number', $icnumber)
-            ->where(['status' => 'active', 'is_deleted' => '0'])
+            ->where(['status' => 'active'])
             ->where('id', '!=', $sponser_details->id)
             ->count();
         $exists = 0;
@@ -336,7 +336,7 @@ class CommonController extends Controller
         if ($count > 0) {
             $downline_ids = $upline_ids = [];
             $user_ids = User::where('identification_number', $icnumber)
-                ->where(['status' => 'active', 'is_deleted' => '0'])
+                ->where(['status' => 'active'])
                 ->pluck('id');
             $user_reference = UserReferral::where(
                 'user_id',
@@ -410,10 +410,10 @@ class CommonController extends Controller
     protected function getdownIcnumber($sponserId, $icnumber, $i = 1)
     {
         $usernameExits = User::where('sponsor_id', $sponserId)
-            ->where('status', 1)
+            ->where('status', 'active')
             ->get();
         $icNUmberCheck = User::where('identification_number', $icnumber)
-            ->where('status', 1)
+            ->where('status', 'active')
             ->first();
         // dd($sponserId);
         // dd($usernameExits);
@@ -434,7 +434,7 @@ class CommonController extends Controller
     protected function getuplineIcnumber($sponserName, $icnumber, $i = 1)
     {
         $usernameExits = User::where('username', $sponserName)
-            ->where('status', 1)
+            ->where('status', 'active')
             ->first();
         $upCount = 0;
         if (!empty($usernameExits) || $usernameExits != null) {
