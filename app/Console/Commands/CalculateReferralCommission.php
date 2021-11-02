@@ -45,7 +45,7 @@ class CalculateReferralCommission extends Command
     public function handle()
     {
         set_time_limit(0);
-        // \DB::transaction(function () {
+        \DB::transaction(function () {
             // $result_date = ($this->argument('date')) ? Carbon::createFromFormat('Y-m-d H:i:s', $this->argument('date').' 00:00:00')->subDay()->format('Y-m-d') : Carbon::today()->subDay()->format('Y-m-d');
             StackingPool::where('status',0)->update(['status' => 1]);
             $stakingpools = StackingPool::where('status',1)->get();
@@ -109,7 +109,7 @@ class CalculateReferralCommission extends Command
 
                 }
             }
-        // });
+        });
         
         return Command::SUCCESS;
     }

@@ -31,10 +31,10 @@
           <h4 class="text-dark font-weight-bold mb-0">{{$user->name}}</h4>
           <span class="text-secondary font-12">{{trans('custom.full_name')}}</span>
         </div>
-        <div class="col-md-6">
+       <!--  <div class="col-md-6">
           <h4 class="text-dark font-weight-bold mb-0">{{($user->rank) ? $user->rank->name : '-'}}</h4>
           <span class="text-secondary font-12">{{trans('custom.current_rank')}}</span>
-        </div>
+        </div> -->
       </div>
       <div class="row px-4 mt-4">
         <div class="col-md-6">
@@ -377,7 +377,7 @@
 @foreach($expired_stacking_pools as $stacking_pool)
 <div class="modal fade bs-example-modal-center" tabindex="-1" role="dialog" aria-labelledby="points-alert" aria-hidden="true" style="display: none;" id="planExpired{{$stacking_pool->id}}" >
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content cus-blue-bg">
+        <div class="modal-content cus-blue-bg text-white">
             <div class="modal-header">
                 <h5 class="modal-title mt-0"><span class="mdi mdi-alert"></span> {{trans('custom.staking_popup_title')}}</h5>
             </div>

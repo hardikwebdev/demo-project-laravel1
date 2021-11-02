@@ -4,10 +4,10 @@
 @section('content')
 <div class="content-wrapper mt-5">
   <div class="row mt-5 pt-md-5">
-    <?php $i = 1; ?>
+    <?php $i = 1; $j = 1; ?>
     @foreach($staking_pool as $stackingpool)
     @if($i == 1)
-    <div class="col-12 col-md-6 col-xl-4">
+    <div class="col-12 col-md-6 col-xl-4 @if($j > 4) mt-5 pt-md-5 @endif">
       <div class="bg-card-1 text-center p-4 pb-5 rounded">
         <img src="{{ asset('assets/images/assets/Dashboard/Group929.png') }}" class="img-fluid card-img-top w-300" alt="">
         <h4 class="text-white font-weight-bold">{{$stackingpool->name}}</h4>
@@ -27,7 +27,7 @@
       </div>
     </div>
     @elseif($i == 2)
-    <div class="col-12 col-md-6 col-xl-4 mt-5 mt-md-0">
+    <div class="col-12 col-md-6 col-xl-4 mt-5 @if($j > 4) pt-md-5 @else  mt-md-0 @endif">
       <div class="bg-card-2 text-center p-4 pb-5 rounded">
         <img src="{{ asset('assets/images/assets/Dashboard/Group929.png') }}" class="img-fluid card-img-top w-300" alt="">
         <h4 class="text-white font-weight-bold">{{$stackingpool->name}}</h4>
@@ -47,7 +47,7 @@
       </div>
     </div>
     @elseif($i == 3)
-    <div class="col-12 col-md-6 col-xl-4 mt-5 mt-xl-0 pt-md-5 pt-xl-0">
+    <div class="col-12 col-md-6 col-xl-4 mt-5 @if($j > 4) pt-md-5 @else  mt-xl-0 pt-md-5 pt-xl-0 @endif">
       <div class="bg-card-3 text-center p-4 pb-5 rounded">
         <img src="{{ asset('assets/images/assets/Dashboard/Group929.png') }}" class="img-fluid card-img-top w-300" alt="">
         <h4 class="text-white font-weight-bold">{{$stackingpool->name}}</h4>
@@ -90,6 +90,7 @@
     @endif
     <?php 
     $i++; 
+    $j++;
     if($i == 5){
       $i=1;
     }
