@@ -1,5 +1,6 @@
 @extends('layouts.app')
-
+@section('title', __('custom.my_collection'))
+@section('page_title', __('custom.my_collection'))
 @section('content')
 <div class="content-wrapper">
           <div class="row mt-5 pt-5">

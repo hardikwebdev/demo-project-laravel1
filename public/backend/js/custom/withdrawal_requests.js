@@ -46,9 +46,9 @@ $('.btn-status').on('click',function(e){
 	$('#open_remark_model').find('input[name="request_id"]').val(withdraw_request_id);
 	$('#open_remark_model').find('.status').text(status);
 	$('#open_remark_model').find('.username').text(username);
-	var action_url = update_url;
-	action_url = action_url+'/'+withdraw_request_id;
-	$('#open_remark_model').attr('action',action_url);
+	// var action_url = update_url;
+	action_url = update_url+'/'+withdraw_request_id;
+	// $('#open_remark_model').attr('action',action_url);
 	$('.open-remark-model').modal('show');
 });
 var exportBankRequests = function(thi){
@@ -91,10 +91,11 @@ $('#open_remark_modal').on('hidden.bs.modal', function() {
     $('#open_remark_modal form')[0].reset();
     $("label.error").hide();
 });
-$('#remark_decline').on('hidden.bs.modal', function() {
-    $('#remark_decline form')[0].reset();
-    $("label.error").hide();
-});
+
+// $('#remark_decline').on('hidden.bs.modal', function() {
+//     $('#remark_decline form')[0].reset();
+//     $("label.error").hide();
+// });
 
 
 $('input[name="checkall"]').click(function(){

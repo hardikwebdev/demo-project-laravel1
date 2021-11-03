@@ -1,12 +1,13 @@
 <div class="block cus-heght-full">
     <div class="ibox-content ibox-border-rad ">
-        @if($type == 0)
+        {{-- @if($type == 0) --}}
         <div class="row">
             <div class="col-md-12 text-center">
             <h4>Bank Proofs</h4>
             @if($proof->payment_proof!=null)
             <div class="img-thumbnail">
                  {{-- <img onerror="this.src='{{asset('backend/media/no_found.png')}}'" src="{{($user->proofs!=null?$user->proofs->bank_proof:'')}}" width="auto" > --}}
+                 <img src="{{asset('uploads/withdrawl_request/'.$proof->payment_proof)}}" width="500" height="500">
             </div>
             @else
             <div class="cus-view-content">
@@ -15,7 +16,7 @@
             @endif
             </div>
         </div>
-        @else
+        {{-- @else --}}
         {{-- <div class="row">
             <div class="col-md-12 text-center">
             <h4>USDT Information</h4>
@@ -34,6 +35,6 @@
             @endif
             </div>
         </div> --}}
-        @endif
+        {{-- @endif --}}
     </div>
 </div>

@@ -82,9 +82,9 @@
           <li class="nav-item"> 
             <a class="nav-link pl-0" href="{{ route('account') }}">My Account</a>
           </li>
-          <li class="nav-item"> 
+          <!-- <li class="nav-item"> 
             <a class="nav-link pl-0" href="{{ route('my_collection') }}">My Collection</a>
-          </li>
+          </li> -->
         </ul>
       </div>
     </li>

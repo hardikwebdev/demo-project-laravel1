@@ -3,15 +3,16 @@ namespace App\Helpers;
 
 use Carbon\Carbon;
 use App\Models\User;
+use App\Models as Model;
+use App\Models\NftWallet;
 use App\Models\FundWallet;
 use App\Models\CryptoWallet;
+use App\Models\StackingPool;
 use App\Models\UserReferral;
 use App\Models\SupportTicket;
 use App\Models\WithdrawalRequest;
-use App\Models as Model;
-use App\Models\StackingPool;
-use App\Models\NftWallet;
 use App\Models\NftPurchaseHistory;
+use App\Models\SupportTicketMessages;
 
 
 class Helper {
@@ -322,6 +323,14 @@ class Helper {
         }
 
     }
+
+
+    public static function getSupportUnreadCount(){
+        return SupportTicketMessages::whereHas('tickets',function($q){
+             $q->where('reply_from','admin')->where('is_read','0');
+        })->count();
+     }
+
 
     // count support unread support ticket
     public static function getUnreadCount(){

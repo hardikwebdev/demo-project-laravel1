@@ -13,10 +13,13 @@
                 </tr>
             
                 @if(isset($commission_wallets) && count($commission_wallets)>0)
+                    @php
+                        $i = ($commission_wallets->currentpage() - 1) * $commission_wallets->perpage() + 1;
+                    @endphp
                     @foreach($commission_wallets as $funds)
                     <tbody>
                     <tr>
-                        <td>{{$funds->id}}</td>
+                        <td>{{$i++}}</td>
                         <td>{{number_format($funds->amount,'2')}}</td>
                         <td>{{$funds->type==0?'Reduced':($funds->type==2?'Added By Admin':"Added")}}</td>
                         <td>{{$funds->description}}</td>

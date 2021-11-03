@@ -46,6 +46,8 @@ button[type="submit"] {
 }
 
 </style>
+@section('title', __('custom.profile'))
+@section('page_title', __('custom.profile'))
 @section('content')
 <div class="content-wrapper">
           <div class="row mt-5 pt-5">

@@ -25,7 +25,15 @@ class CryptoWalletsPaymentController extends Controller
         }]);
     
         if($request->status && $request->status != ""){
-            $crypto_wallets_payment_history = $crypto_wallets_payment_history->where('status',$request->status);
+            if($request->status == 1){
+                $crypto_wallets_payment_history = $crypto_wallets_payment_history->where('status','1')->where('type','!=','3');
+            }elseif($request->status == 2){
+                $crypto_wallets_payment_history = $crypto_wallets_payment_history->where('status','2');
+            }elseif($request->status == 3){
+                $crypto_wallets_payment_history = $crypto_wallets_payment_history->where('status','0');
+            }else {
+                $crypto_wallets_payment_history = $crypto_wallets_payment_history->where('status','1')->where('type','3');
+            }
         }
         if($request->type && $request->type != ""){
             if ($request->type == 1) {
@@ -63,7 +71,15 @@ class CryptoWalletsPaymentController extends Controller
             }]);
         
             if($request->status && $request->status != ""){
-                $crypto_wallets_payment_history = $crypto_wallets_payment_history->where('status',$request->status);
+                if($request->status == 1){
+                    $crypto_wallets_payment_history = $crypto_wallets_payment_history->where('status','1')->where('type','!=','3');
+                }elseif($request->status == 2){
+                    $crypto_wallets_payment_history = $crypto_wallets_payment_history->where('status','2');
+                }elseif($request->status == 3){
+                    $crypto_wallets_payment_history = $crypto_wallets_payment_history->where('status','0');
+                }else {
+                    $crypto_wallets_payment_history = $crypto_wallets_payment_history->where('status','1')->where('type','3');
+                }
             }
             if($request->type && $request->type != ""){
                 if ($request->type == 1) {

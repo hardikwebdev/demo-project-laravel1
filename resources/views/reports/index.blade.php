@@ -1,4 +1,6 @@
 @extends('layouts.app')
+@section('title', __('custom.reports'))
+@section('page_title', __('custom.reports'))
 @section('content')
 <div class="content-wrapper">
           <div class="row justify-content-center mt-5 pt-5">
