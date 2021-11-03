@@ -46,7 +46,7 @@ class CalculatePairingCommission extends Command
      */
     public function handle()
     {
-        $users = User::where('status','active')->whereHas('placementLeft')->whereHas('placementRight')->where('id',1)->orderBy('id','asc')->get();
+        $users = User::where('status','active')->whereHas('placementLeft')->whereHas('placementRight')->orderBy('id','asc')->get();
         // print_r($users);die();
         foreach($users as $user){
             $leftDownlineGroupsaleActual = $leftDownlineGroupsale  = Helper::getTotalgroupsalesTodayLeft($user); 
