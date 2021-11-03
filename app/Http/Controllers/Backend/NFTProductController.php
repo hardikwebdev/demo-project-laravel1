@@ -61,59 +61,62 @@ class NFTProductController extends Controller
                 $file= $request->image->move($path, $primary_image_name);  
                 // $product->image = $primary_image_name;
             }
-            $data = $request->all();
-            $image = $data['form']['file'];
-            $totalImages = count($data['form']['file']);
-            $validImageCount = 0;
-            if ($image) {
-                $validExtension = ['jpg', 'jpeg', 'png'];
-                foreach ($image as $file) {
-                    $image_parts = explode(";base64,", $file);
-                    $image_type_aux = explode("image/", $image_parts[0]);
-                    if (key_exists(1, $image_type_aux)) {
-                        if (in_array($image_type_aux[1], $validExtension)) {
-                            $validImageCount++;
-                        }
-                    }
-                }
-            }
-            if ($totalImages == $validImageCount) {
-                $product = new Model\NftProduct();
-                $product->category_id = $request->category;
-                $product->name = $request->name;
-                $product->price = $request->price;
-                $product->description = $request->description;
-                $product->status = $request->status;
-                $product->image = $primary_image_name;
-                $product->save();
+            $product = new Model\NftProduct();
+            $product->category_id = $request->category;
+            $product->name = $request->name;
+            $product->price = $request->price;
+            $product->description = $request->description;
+            $product->status = $request->status;
+            $product->image = $primary_image_name;
+            $product->save();
+
+            if(!empty($request->form)){
+                $data = $request->all();
                 $image = $data['form']['file'];
+                $totalImages = count($data['form']['file']);
+                $validImageCount = 0;
                 if ($image) {
+                    $validExtension = ['jpg', 'jpeg', 'png'];
                     foreach ($image as $file) {
                         $image_parts = explode(";base64,", $file);
                         $image_type_aux = explode("image/", $image_parts[0]);
-                        $image_type = key_exists(1, $image_type_aux) ? $image_type_aux[1] : time();
-                        $image_base64 = base64_decode($image_parts[1]);
-                        // $renamed = time().'_nft_product' . '.' . $image_type;
-                        $renamed = time() . rand() . '_nft_product.' . $image_type;
-                        file_put_contents(public_path('uploads/nft-product/') . $renamed, $image_base64);
-
-                        $productImage = new Model\NftProductImage;
-                        $productImage->product_id = $product->id;
-                        $productImage->image = $renamed;
-                        $productImage->save();
-                        $request->session()->pull('uploadImage', $image);
+                        if (key_exists(1, $image_type_aux)) {
+                            if (in_array($image_type_aux[1], $validExtension)) {
+                                $validImageCount++;
+                            }
+                        }
                     }
                 }
-                return redirect()->route('nft-product.index')->with('success','Product create successfully');
-            }else{
-                return redirect()->route('nft-product.index')->with('error', 'Please upload only jpg, jpeg and png files');
+
+                if ($totalImages == $validImageCount) {
+                    $image = $data['form']['file'];
+                    if ($image) {
+                        foreach ($image as $file) {
+                            $image_parts = explode(";base64,", $file);
+                            $image_type_aux = explode("image/", $image_parts[0]);
+                            $image_type = key_exists(1, $image_type_aux) ? $image_type_aux[1] : time();
+                            $image_base64 = base64_decode($image_parts[1]);
+                            // $renamed = time().'_nft_product' . '.' . $image_type;
+                            $renamed = time() . rand() . '_nft_product.' . $image_type;
+                            file_put_contents(public_path('uploads/nft-product/') . $renamed, $image_base64);
+    
+                            $productImage = new Model\NftProductImage;
+                            $productImage->product_id = $product->id;
+                            $productImage->image = $renamed;
+                            $productImage->save();
+                            $request->session()->pull('uploadImage', $image);
+                        }
+                    }
+                }else{
+                    return redirect()->route('nft-product.index')->with('error', 'Please upload only jpg, jpeg and png files');
+                }
             }
+            return redirect()->route('nft-product.index')->with('success','Product create successfully');
+
             // return redirect()->route('nft-product.index')->with(["success"=>"Product created successfully"]);
 
-
         } catch (Exception $e) {
-            return redirect()->back()->with(["error"=>$e->getMessage()]);
-            
+            return redirect()->back()->with(["error"=>$e->getMessage()]); 
         }
     }
 

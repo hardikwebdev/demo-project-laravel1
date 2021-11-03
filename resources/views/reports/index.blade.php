@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@section('title', __('custom.reports'))
-@section('page_title', __('custom.reports'))
+@section('title', __('custom.Ledger'))
+@section('page_title', __('custom.Ledger'))
 @section('content')
 <div class="content-wrapper">
           <div class="row justify-content-center mt-5 pt-5">
@@ -125,7 +125,8 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
+                          <td colspan="10" class="no-records text-center">No data found</td>
+                          {{-- <tr>
                             <td>
                               <img src="{{ asset('assets/images/assets/Sell_NFT/Group553.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
                             </td>
@@ -202,13 +203,13 @@
                             <td>
                               <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
                             </td>
-                          </tr>
+                          </tr> --}}
                         </tbody>
                       </table>
                     </div>
                   </div>
 
-                  <div class="row align-items-center mt-5">
+                  {{-- <div class="row align-items-center mt-5">
                     <div class="col-12 text-right">
                       <div class="text-secondary">
                         <img src="{{ asset('assets/images/assets/Sell_NFT/Path599.png') }}" class="img-fluid rotate-180" alt="">
@@ -225,7 +226,7 @@
                         <img src="{{ asset('assets/images/assets/Sell_NFT/Path599.png') }}" class="img-fluid " alt="">
                       </div>
                     </div>
-                  </div>
+                  </div> --}}
                 </div>
               </div>
             </div>

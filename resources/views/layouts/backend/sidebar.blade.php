@@ -29,9 +29,9 @@
 
 
 
-                    {{-- <li class=" @if(strstr(\Request::route()->getName(),'nft_wallets_payment_history')) {{'active'}} @endif">
+                    <li class=" @if(strstr(\Request::route()->getName(),'nft_wallets_payment_history')) {{'active'}} @endif">
                         <a href="{{route('nft_wallets_payment_history.index')}}" title="Nft Wallets Payment History"><span class="cus-sub-menu">NFT Wallets Payment History</span></a>
-                    </li> --}}
+                    </li>
 
 
 
@@ -68,9 +68,9 @@
 
 
 
-                    {{-- <li class=" @if(\Request::is('admin/nft_wallets_credit_request')) {{'active'}} @endif">
+                    <li class=" @if(\Request::is('admin/nft_wallets_credit_request')) {{'active'}} @endif">
                         <a href="{{route('nft_wallets_credit_request.index')}}" title="Nft Wallets Credits Requests"> <span class="cus-sub-menu">NFT Wallets Credits Requests<span class="label label-info pull-right">{{Helper::getPendingNftCreditRequestCount()}}</span></span></a>
-                    </li>  --}}
+                    </li> 
 
 
 
