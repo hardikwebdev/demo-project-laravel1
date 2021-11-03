@@ -55,7 +55,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
     Route::get('calculate-referral-commission', 'App\Http\Controllers\CommonController@referralCommission')->name('calculate-referral');
     Route::any('online-payment-response/mysecure/{slug}', 'WalletController@online_payment_callback_my_secure')->name('online-payment-my-response-secure');
 
-    Route::middleware(['auth','verified'])->group(function () {
+    Route::middleware(['auth','verified','Checkuseractive'])->group(function () {
 
         Route::get('/', 'App\Http\Controllers\HomeController@dashboard')->name('dashboard');
         Route::get('/get-downlineusers', 'App\Http\Controllers\HomeController@downlineUsers')->name('downlineUsers');

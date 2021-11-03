@@ -105,7 +105,7 @@
                                         <a class="dropdown-toggle " href="#" id="dropdownMenuLink{{$row->id}}" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
                                         {!! Form::close() !!}
                                         <ul class="dropdown-menu m-t-xs">
-                                           <li><a class="" href="{{route('crypto-wallet-history.show',[$row->id])}}">History</a></li>
+                                           <li><a class="" href="{{route('crypto-wallet-history.show',[$row->id])}}">Wallet History</a></li>
                                            <li><a class="" href="{{route('referral_commission.index',['user'=>$row->id])}}">
                                             Referral Commission
                                             </a></li>

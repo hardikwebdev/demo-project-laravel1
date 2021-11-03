@@ -50,6 +50,8 @@
 
    var emailExists = "{{route('emailExists')}}";
    var usernameExits = "{{route('usernameExits')}}";
+    $('.alert-success').fadeIn().delay(4000).fadeOut();
+    $('.alert-danger').fadeIn().delay(4000).fadeOut();
  </script>
  <script type="text/javascript">
   $.ajaxSetup({

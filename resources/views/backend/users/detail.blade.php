@@ -34,9 +34,9 @@
                         <li class="@if($tab_name == 'crypto_wallets') active @endif">
                             <a  href="{{route('crypto-wallet-history.show',[$user->id])}}" aria-expanded="false">Crypto <br>Wallet</a>
                         </li>
-                        {{-- <li class="@if($tab_name == 'nft_wallets') active @endif">
+                        <li class="@if($tab_name == 'nft_wallets') active @endif">
                             <a  href="{{route('nft-wallet-history.show',[$user->id])}}" aria-expanded="true">NFT <br>Wallet</a>
-                        </li> --}}
+                        </li>
                         <li class="@if($tab_name == 'yield_wallets') active @endif">
                             <a href="{{route('yield-wallet-history.show',[$user->id])}}" aria-expanded="true">Yield <br>Wallet</a>
                         </li>
