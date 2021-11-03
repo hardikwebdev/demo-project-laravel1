@@ -111,7 +111,7 @@ class CalculatePairingCommission extends Command
                 $nft_commission = Setting::where('key','nft_commission')->value('value');
                 $nft_commission = ($nft_commission > 0) ? $nft_commission/100 : 0.2; 
                 $nft_commission_amount = $pairing_commission * $nft_commission;
-                $pairing_commission_amount = $paring_commission - $nft_commission_amount;
+                $pairing_commission_amount = $pairing_commission - $nft_commission_amount;
                 $history_data["type"] = "1";
                 $history_data["amount"] = $nft_commission_amount;
                 $history_data["user_id"] = $value->id;
