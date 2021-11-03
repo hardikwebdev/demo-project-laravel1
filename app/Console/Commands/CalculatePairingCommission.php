@@ -115,7 +115,7 @@ class CalculatePairingCommission extends Command
                 $history_data["type"] = "1";
                 $history_data["amount"] = $nft_commission_amount;
                 $history_data["user_id"] = $user->id;
-                $history_data["description"] = 'Referral commission from '.$stakingpool->user_detail->username;
+                $history_data["description"] = 'Pairing commission.';
                 $history_data["final_amount"] = $commission_wallet->nft_wallet + $nft_commission_amount;
 
                 NftWalletHistory::create($history_data);
