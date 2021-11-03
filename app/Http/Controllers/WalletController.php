@@ -387,4 +387,75 @@ class WalletController extends Controller
             }
         }
     }
+
+    public function online_payment_callback_my($slug = null,Request $request){
+
+        \Log::channel('fundlog')->info('online_payment_callback_my : '.$request);
+        
+        if(isset($_POST)) {
+            /*Receive Callback Parameters*/ 
+            try {
+               /*Create and open log file*/ 
+               if(!is_null($slug) && isset($request->status) && $request->status=='Success'){
+                $payment = Model\CryptoWalletOnlinePayment::where('order_id',$slug)->where('status','0')->first();
+                // print_r($payment);die();
+                if($payment!=null){
+                    $payment->response = json_encode($request->all());
+                    $payment->status = '1';
+                    $payment->save();
+                    $funds = Model\CryptoWallet::where(['type'=>'2','status'=>'0','user_id'=>$payment->user_id])->where('order_id',$slug)->first();
+                            // dd($funds);
+                    if($funds==null){
+                        return array('receive' => 'FAIL');
+                    }else{
+                        $funds->type = 2; 
+                        $funds->status = 1;
+                        $funds->save();
+                    }
+                    $count = Model\CryptoWallet::where('user_id',$payment->user_id)
+                                ->where('status',1)
+                                ->count();
+
+                    // UserWallet::where('user_id',$payment->user_id)->increment('fund_wallet',$payment->usd_amount);
+                    // Helper::generate_pdf($funds);
+                    // Helper::updaterankpackage($funds);
+                    $cron = new CronController();
+                    $cron->ranking_upgrade_cron($funds->user_id);
+
+                }
+                \Log::channel('fundlog')->info('success1 ');
+            }elseif(!is_null($slug) && isset($request->status) && $request->status=='Failed'){
+                $payment = Model\CryptoWalletOnlinePayment::where('order_id',$slug)->where('status','0')->first();
+                if($payment!=null){
+                    $payment->response = json_encode($request->all());
+                    $payment->status = '1';
+                    $payment->save();
+                    $funds = Model\CryptoWallet::where(['type'=>'2','status'=>'0','user_id'=>$payment->user_id,'amount'=>$payment->usd_amount])->first();
+
+                        if($funds != null)
+                            $funds->type = 2; 
+                            $funds->status = 2;
+                            $funds->save();
+                        }
+
+                    }elseif(!is_null($slug) && $slug == 'success'){
+                        Session::flash('success',trans('Your Transaction Successful.'));   
+
+                        return view('thankyou');
+                    }elseif(!is_null($slug) && $slug == 'fail'){
+                        Session::flash('error',trans('Your Transaction Faild.'));   
+
+                        return view('thankyou');
+                    }
+                    \Log::channel('fundlog')->info('success2 ');
+                    return array('receive' => 'OK');
+
+                } catch (Exception $e) {
+                    Helper::createAdminLog($this->path,'online_payment'.date("Y-m-d").'.log',$request->path(),["Error==>>>>>>>>>>>>>Start",$e->getMessage()]);
+                }
+                return array('receive' => 'OK');
+            }
+            return redirect()->route('dmwallet')->with('error',trans('custom.fail_online_payment_txt'));
+        }
+
 }

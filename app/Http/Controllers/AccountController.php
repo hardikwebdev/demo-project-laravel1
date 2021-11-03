@@ -174,7 +174,8 @@ class AccountController extends Controller
             return view('accounts.pairing_history', compact('pairingHistory'));
         }
 
-        $referral = Helper::getAllDownlineIds($this->user->id);
+        $referral = Helper::getAllDownlineIdsTree($this->user->id);
+        // echo "<pre>"; print_r($referral);die();
         $referral = array_merge($referral, [$this->user->id]);
         $users    = User::whereIn('id',$referral)->where('status','active')->select('id','id as key','username as name','placement_id as parent','profile_image')->orderBy('child_position','asc')
               ->get()
