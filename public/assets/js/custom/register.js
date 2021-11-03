@@ -186,7 +186,7 @@ onStepChanging: function (event, currentIndex, newIndex)
         onFinished: function (event, currentIndex)
         {
             var form = $(this);
-            alert(form.valid());
+            // alert(form.valid());
 
             // Submit form input
             form.submit();
