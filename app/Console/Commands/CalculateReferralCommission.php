@@ -50,7 +50,7 @@ class CalculateReferralCommission extends Command
         \DB::transaction(function () {
             // $result_date = ($this->argument('date')) ? Carbon::createFromFormat('Y-m-d H:i:s', $this->argument('date').' 00:00:00')->subDay()->format('Y-m-d') : Carbon::today()->subDay()->format('Y-m-d');
             StackingPool::where('status',0)->update(['status' => 1]);
-            $stakingpools = StackingPool::where('status',1)->get();
+            $stakingpools = StackingPool::where('status',1)->where('user_id',20)->get();
             foreach($stakingpools as $stakingpool){
                 $user = $stakingpool->user_detail;
                 $upline_users = Helper::getUplineSponsor($user);
@@ -86,9 +86,12 @@ class CalculateReferralCommission extends Command
                     }
                     $sum_rank_percent = $sum_rank_percent + $level_commission_percent; 
                     $commission_percent = $level_commission_percent / 100;
+                    // echo $stakingpool->user_detail->username.' '.$value->level;
+                    // echo "<pre><br>";
+                    // echo $value->username."=".$sum_rank_percent."---".$level_commission_percent; 
+
                     $commission_amount = round($stakingpool->amount * $commission_percent,2); 
                     $commission_wallet = UserWallet::where('user_id',$value->id)->first();
-                     // $commission_wallet = UserWallet::where('user_id',$user->id)->first();
                     $nft_commission = Setting::where('key','nft_commission')->value('value');
                     $nft_commission = ($nft_commission > 0) ? $nft_commission/100 : 0.2; 
                     $nft_commission_amount = $commission_amount * $nft_commission;

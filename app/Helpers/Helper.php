@@ -55,8 +55,9 @@ class Helper {
     }
 
     /* get upline sponsors */
+   /* get upline sponsors */
     public static function getUplineSponsor($user_detail,$level=1,$array=[]){
-        $sponser_details = User::where(['id'=>$user_detail->sponsor_id,'status'=>'active'])->first();
+        $sponser_details = User::where(['id'=>$user_detail->placement_id,'status'=>'active'])->first();
         if($sponser_details==null || $user_detail->sponsor_id ==0 ){
             return $array;
         }else{            

@@ -66,10 +66,10 @@ class CommonController extends Controller
             $upline_ids = Helper::getAllDownlineIds($user->id);
             $isValid = false;
             // echo "<pre>";
-            // print_r(($placement->username == $user->username));
+            // print_r($user->id.'-'.$placement->id);
             //     die('test2');
 
-            if($placementCount == 0 && $placement && (in_array($placement->id, $upline_ids) || empty($upline_ids) || $placement->username == $user->username) && $user->id >= $placement->id){
+            if($placementCount == 0 && $placement && (in_array($placement->id, $upline_ids) || empty($upline_ids) || $placement->username == $user->username) && $user->id <= $placement->id){
                 $isValid = true;
             }
 
