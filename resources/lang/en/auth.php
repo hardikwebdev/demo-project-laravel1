@@ -25,7 +25,7 @@ return [
     'invalid_credentials' => 'Your username or password does not match.',
     'success_login' => 'Login sucessfully',
     'success_message' => 'Data get sucessfully',
-    'success_register' => 'Thank you, You are successfully registered with Vextrader.',
+    'success_register' => 'Thank you, Your account created successfully.',
     'verify_sponsor_wrong' => 'Please verify the entered sponsor details.',
     'reset_link_success' => 'An email is sent to your mailbox with Reset Password Details. Please check your inbox for more details.',
     'enter_email_reset' =>'Enter your registered email to reset your password',
