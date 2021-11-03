@@ -87,6 +87,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::get('/account', 'App\Http\Controllers\AccountController@profile')->name('account');
         Route::post('/personal-detail-upadte', 'App\Http\Controllers\AccountController@updatePersonalDetail')->name('personal-detail-upadte');
         Route::post('/bank-detail-upadte', 'App\Http\Controllers\AccountController@updateBankDetail')->name('bank-detail-upadte');
+        Route::post('/update-profile-image', 'App\Http\Controllers\AccountController@updateImage')->name('updateImage');
         Route::post('/nft-wallet-address-upadte', 'App\Http\Controllers\AccountController@updateNFTWalletAddress')->name('nft-wallet-address-update');
         Route::get('/my_collection', 'App\Http\Controllers\HomeController@my_collection')->name('my_collection');
         // Route::get('/help_support', 'App\Http\Controllers\HomeController@help_support')->name('help_support');

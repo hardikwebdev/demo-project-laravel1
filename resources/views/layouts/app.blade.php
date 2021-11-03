@@ -52,6 +52,39 @@
 <script src="{{asset('backend/js/sweetalert.min.js')}}"></script>
 <script src="{{ asset('assets/js/custom/custom.js').'?v='.time() }}"></script>
 <script src="{{asset('backend/js/plugins/validate/additional-methods.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.cropit.js'.'?'.time())}}"></script>
+<script type="text/javascript">
+  $(function() {
+      $('.image-editor').cropit({
+        imageState: {
+          src: 'http://lorempixel.com/500/400/',
+      },
+  });
+
+      $('.rotate-cw').click(function() {
+        $('.image-editor').cropit('rotateCW');
+    });
+      $('.rotate-ccw').click(function() {
+        $('.image-editor').cropit('rotateCCW');
+    });
+      $(".btn-f").click(function(e){
+          e.preventDefault();
+          $('.cropit-image-input').trigger('click');
+      })
+
+  });
+  $(document).on('click', '.btn-f',function(e){
+        e.preventDefault();
+        $('.cropit-image-input').trigger('click');
+  });
+    
+    $('#profile-image-update').submit(function(e){
+        // e.preventDefault()
+        var imageData = $('.image-editor').cropit('export');
+        $('.image-value').val(imageData);
+
+    })
+</script>
 <script>
  var sponsorUsernameExits = "{{route('sponsorUsernameExits')}}";
  var placementUsernameExits = "{{route('placementUsernameExits')}}";

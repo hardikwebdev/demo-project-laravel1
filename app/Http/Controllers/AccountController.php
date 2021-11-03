@@ -17,6 +17,7 @@ use DB;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use App\Models\Setting;
+use App\Models\StackingPoolPackage;
 
 class AccountController extends Controller
 {
@@ -252,7 +253,15 @@ class AccountController extends Controller
     public function profile(Request $request){
         $user = User::with('userbank')->where('id',Auth::user()->id)->where('status','active')->where('deleted_at', null)->first();
         $country  = Country::pluck('country_name','id')->toArray();
-        return view('profile.profile', compact('country', 'user'));
+        $staking_pool_count = StackingPool::where('user_id', $this->user->id)->where('status', ['0', '1'])->count();
+        $staking_pool = StackingPoolPackage::orderBy('id','desc')
+                                            ->limit(8)
+                                            ->get()
+                                            ->map(function($pool) use ($user){
+                                                $pool->investedAmount = StackingPool::where('user_id',$user->id)->where('stacking_pool_package_id',$pool->id)->sum('amount');
+                                                return $pool;
+                                            });
+        return view('profile.profile', compact('country', 'user', 'staking_pool', 'staking_pool_count'));
     }
     public function updatePersonalDetail(Request $request){
         /* validation start */
@@ -320,5 +329,26 @@ class AccountController extends Controller
             return redirect()->back()->with(["error"=>$e->getMessage()]);
             
         }
+    }
+    public function updateImage(Request $request){
+        $customMessages = [
+            'required' => 'The :attribute field is required.',
+            'mimes' => 'Please upload :attribute in pdf,jpeg,jpg,png',
+            'max' => 'The :attribute may not be greater than 12 Mb.'
+        ];
+        $this->validate($request, [
+            'profile_image' => 'required',
+        ],$customMessages);
+        
+
+        $img = preg_replace('/^data:image\/\w+;base64,/', '', $request->profile_image);
+        $type = explode(';', $request->profile_image)[0];
+         $type = explode('/', $type)[1]; // png or jpg etc
+         $imageName = time() .'_profile.'.$type;     
+         \File::put(public_path('uploads/users'). '/' . $imageName, base64_decode($img));
+
+         User::where('id',auth()->id())->update(['profile_image'=>$imageName]);
+
+         return redirect()->back()->with(['success'=> 'Update Image Successfully']);
     }
 }
