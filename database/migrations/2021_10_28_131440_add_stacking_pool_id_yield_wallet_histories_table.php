@@ -14,7 +14,7 @@ class AddStackingPoolIdYieldWalletHistoriesTable extends Migration
     public function up()
     {
         Schema::table('yield_wallet_histories', function (Blueprint $table) {
-            $table->integer('stacking_pool_id'); 
+            $table->integer('stacking_pool_id')->default(0); 
             $table->string('unique_no')->nullable(); 
         });
     }
