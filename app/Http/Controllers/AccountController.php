@@ -331,24 +331,21 @@ class AccountController extends Controller
         }
     }
     public function updateImage(Request $request){
-        $customMessages = [
-            'required' => 'The :attribute field is required.',
-            'mimes' => 'Please upload :attribute in pdf,jpeg,jpg,png',
-            'max' => 'The :attribute may not be greater than 12 Mb.'
-        ];
         $this->validate($request, [
-            'profile_image' => 'required',
-        ],$customMessages);
-        
+            'profile_image' => 'mimes:jpg,jpeg,png,JPG,JPEG,pdf',
 
-        $img = preg_replace('/^data:image\/\w+;base64,/', '', $request->profile_image);
-        $type = explode(';', $request->profile_image)[0];
-         $type = explode('/', $type)[1]; // png or jpg etc
-         $imageName = time() .'_profile.'.$type;     
-         \File::put(public_path('uploads/users'). '/' . $imageName, base64_decode($img));
+        ]);
+        if ($request->hasFile('profile_image')) {
+            $file = $request->file('profile_image');
+            
+            $image = $request->file('profile_image');
+            $filename=time() .'.'. $image->getClientOriginalExtension();        
+            $image->move(public_path('uploads/user'), $filename);
 
-         User::where('id',auth()->id())->update(['profile_image'=>$imageName]);
+            User::where('id',auth()->id())->update(['profile_image'=>$filename]);
 
-         return redirect()->back()->with(['success'=> 'Update Image Successfully']);
+            return redirect()->back()->with(['success'=> 'Update Image Successfully']);
+        }     
+        return redirect()->back();
     }
 }

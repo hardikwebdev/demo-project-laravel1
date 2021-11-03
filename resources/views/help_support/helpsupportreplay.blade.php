@@ -15,9 +15,9 @@
     @if($value->reply_from == 'user')
       <div class="row mt-5">
         <div class="col-12 col-xl-6 mt-4 mt-xl-0">
-          <div class="card tale-bg overflow-hidden bg-white pb-3">
+          <div class="card tale-bg overflow-hidden bg-warning pb-3">
             <div class="bg-warning p-4 pb-5">
-              <h4 class="text-white pb-2">{{ $supportChat->user_detail['name'] }}</h4>
+              <h4 class="pb-2">{{ $supportChat->user_detail['name'] }}</h4>
             </div>
             <div class="px-4 cus-my-profile-img">
               @if(!empty($value->attchment) && isset($value->attchment[0]))
@@ -39,8 +39,8 @@
             </div>
             <div class="row px-4 mt-4">
               <div class="col-md-6">
-                  <h4 class="text-dark font-weight-bold mb-0">{!! nl2br($value['message']) !!}</h4>
-                  <span class="text-secondary font-12">{{ $value->created_at->diffForHumans() }}</span>
+                  <h4 class="font-weight-bold mb-0">{!! nl2br($value['message']) !!}</h4>
+                  <span class="font-12">{{ $value->created_at->diffForHumans() }}</span>
               </div>
             </div>
           </div>
@@ -50,9 +50,9 @@
       <div class="row mt-5">
         <div class="col-12 col-xl-6 mt-4 mt-xl-0"></div>
         <div class="col-12 col-xl-6 mt-4 mt-xl-0">
-          <div class="card tale-bg overflow-hidden bg-white pb-3">
-            <div class="bg-warning p-4 pb-5">
-              <h4 class="text-white pb-2">Admin</h4>
+          <div class="card tale-bg overflow-hidden bg-warning pb-3">
+            <div class="p-4 pb-5">
+              <h4 class="pb-2">Admin</h4>
             </div>
             <div class="px-4 cus-my-profile-img">
               @if(!empty($value->attchment) && isset($value->attchment[0]))
@@ -75,8 +75,8 @@
             </div>
             <div class="row px-4 mt-4">
               <div class="col-md-6">
-                  <h4 class="text-dark font-weight-bold mb-0">{!! nl2br($value['message']) !!}</h4>
-                  <span class="text-secondary font-12">{{ $value->created_at->diffForHumans() }}</span>
+                  <h4 class="font-weight-bold mb-0">{!! nl2br($value['message']) !!}</h4>
+                  <span class="font-12">{{ $value->created_at->diffForHumans() }}</span>
               </div>
             </div>
           </div>

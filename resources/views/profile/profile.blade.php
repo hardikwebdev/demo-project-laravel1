@@ -1,51 +1,4 @@
 @extends('layouts.app')
-<style>
-.cropit-preview {
-    background-color: #f8f8f8;
-    background-size: cover;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    margin-top: 7px;
-    width: 200px !important;
-    height: 200px !important;
-}
-.cropit-preview-image-container {
-    cursor: move;
-}
-.image-size-label {
-    margin-top: 10px;
-}
-input {
-    display: block;
-}
-button[type="submit"] {
-    margin-top: 10px;
-}
-#result {
-    margin-top: 10px;
-    width: 900px;
-}
-#result-data {
-    display: block;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    word-wrap: break-word;
-}
-.image-editor {width: 200px;}
-.cus-nav-slick {
-    color: #3D4054 !important;
-}
-.investmentplan-slider{
-  display: none;
-  visibility: hidden;
-}
-.investmentplan-slider.slick-initialized{
-  display: block;
-  visibility: visible;
-}
-
-</style>
 @section('title', __('custom.profile'))
 @section('page_title', __('custom.profile'))
 @section('content')
@@ -57,7 +10,7 @@ button[type="submit"] {
                   <h4 class="text-white pb-2">My profile</h4>
                 </div>
                 <div class="px-4 cus-my-profile-img">
-                  <img src="{{ asset('assets/images/assets/Dashboard/Group853.png') }}" class="rounded-circle img-fluid" alt="">
+                  <img src="{{asset($user->profile_image)}}" class="rounded-circle img-fluid" alt="">
                   <a href="#profile-upload" data-toggle="modal" data-target="#profile-upload" class="font-10 d-block"><u>Edit Photo</u></a>
                 </div>
                 <div class="row px-4 mt-4">
@@ -234,7 +187,7 @@ button[type="submit"] {
                 <li><a class="text-warning border border-warning py-3 px-5 d-block active" data-toggle="tab" href="#home">PERSONAL DETAILS</a></li>
                 {{-- <li class="mt-3 mt-md-0"><a class="text-warning border border-warning py-3 px-5 d-block" data-toggle="tab" href="#menu1">ACCOUNT DETAILS </a></li> --}}
                 <li class="mt-3 mt-md-0"><a class="text-warning border border-warning py-3 px-5 d-block" data-toggle="tab" href="#menu1">BANK DETAILS</a></li>
-                <li class="mt-3 mt-xl-0"><a class="text-warning border border-warning py-3 px-5 d-block" data-toggle="tab" href="#menu2">CRYPTO WALLETE DETAILS</a></li>
+                <li class="mt-3 mt-xl-0"><a class="text-warning border border-warning py-3 px-5 d-block" data-toggle="tab" href="#menu2">CRYPTO WALLET DETAILS</a></li>
               </ul>
             </div>
             <div class="col-12 mt-4">
@@ -322,7 +275,7 @@ button[type="submit"] {
                   <div class="row">
                     <input name="id" type="hidden" class="form-control blue-ph h-auto py-4" value="{{ $user->id }}">
                     <div class="col-12 col-md-6">
-                      {!! Form::text('nft_wallet_address', old('nft_wallet_address', @$user->nft_wallet_address), ['class' => 'form-control blue-ph h-auto py-4', 'placeholder' => 'Enter NFT Wallete Address']) !!}
+                      {!! Form::text('nft_wallet_address', old('nft_wallet_address', @$user->nft_wallet_address), ['class' => 'form-control blue-ph h-auto py-4', 'placeholder' => 'Enter NFT Wallet Address']) !!}
                     </div>
                     <div class="col-12 col-md-6 col-xl-4 mt-4"></div>
                     <div class="col-12 col-md-6 col-xl-4 mt-4">
@@ -345,7 +298,7 @@ button[type="submit"] {
                           <div class="row">
                               <div class="col-lg-12">
                                   {{Form::open(['route' => 'updateImage','id' =>'profile-image-update','enctype' => 'multipart/form-data'])}}
-                                  <div class="image-editor m-auto">
+                                  {{-- <div class="image-editor m-auto">
                                       <div class="cropit-preview"></div>
                                       <div class="image-size-label">Resize Image</div>
                                       <!-- <input type="range" class="cropit-image-zoom-input mt-2 mb-2 w-100  "> -->
@@ -353,7 +306,18 @@ button[type="submit"] {
                                       <input type="hidden" class="image-value" name="profile_image"/>
                                       <button class="btn btn-info btn-sm float-left btn-f" type="button">Choose File</button>
                                       <button class="btn btn-success  btn-sm  float-right">Submit</button>
+                                  </div> --}}
+                                  <div class="fallback">
+                                    <input name="profile_image" type="file" class="dropify" id="profile_image"/>
+                                    <p>Profile extension png, jpg, jpeg</p>
+                                    @error('profile_image')
+                                    <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                   </div>
+                                  <label style="display:none;" id="profile_image-error" class="error" for="profile_image"></label>
+                                  <button class="btn btn-success  btn-sm  float-right">Submit</button>
                                   {{Form::close()}}
                               </div>
                           </div>
