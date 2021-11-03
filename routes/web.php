@@ -79,7 +79,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 
         Route::get('/commission_wallet', 'App\Http\Controllers\WalletController@commission_wallet')->name('commission_wallet');
         Route::post('/commission_wallet-request', 'App\Http\Controllers\WalletController@commissionWalletStore')->name('commission-wallet-store');
-        Route::get('/nft_wallet', 'App\Http\Controllers\HomeController@nft_wallet')->name('nft_wallet');
+        Route::get('/nft_wallet', 'App\Http\Controllers\WalletController@nft_wallet')->name('nft_wallet');
         Route::get('/nft_marketplace', 'App\Http\Controllers\HomeController@nft_marketplace')->name('nft_marketplace');
         // Route::get('/withdrawal', 'App\Http\Controllers\HomeController@withdrawal')->name('withdrawal');
         Route::get('/ledger', 'App\Http\Controllers\LedgerController@ledger')->name('ledger');
@@ -88,6 +88,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::get('/account', 'App\Http\Controllers\AccountController@profile')->name('account');
         Route::post('/personal-detail-upadte', 'App\Http\Controllers\AccountController@updatePersonalDetail')->name('personal-detail-upadte');
         Route::post('/bank-detail-upadte', 'App\Http\Controllers\AccountController@updateBankDetail')->name('bank-detail-upadte');
+        Route::post('/update-profile-image', 'App\Http\Controllers\AccountController@updateImage')->name('updateImage');
         Route::post('/nft-wallet-address-upadte', 'App\Http\Controllers\AccountController@updateNFTWalletAddress')->name('nft-wallet-address-update');
         Route::get('/my_collection', 'App\Http\Controllers\HomeController@my_collection')->name('my_collection');
         // Route::get('/help_support', 'App\Http\Controllers\HomeController@help_support')->name('help_support');

@@ -39,6 +39,29 @@
                       <button class="btn bg-warning text-white py-3 px-4 rounded-sm">EXPORT <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-3 d-inline align-middle" alt=""></button>
                     </div>
                   </div>
+                  <div class="row align-items-center justify-content-center">
+                    <div class="col-12 col-md-3 col-xl-auto pr-md-0 mt-3">
+                        {{-- <p class="text-white font-weight-bold mb-0">FILTER DATE</p> --}}
+                    </div>
+                    <div class="col-12 col-md-4 col-xl-auto mt-3">
+                        <label id="datepicker1-error" style="display: none;" class="error" for="datepicker1">Start Date must be less then End Date</label>
+                        {{-- <input name="start_date" type="text" class="form-control bg-transparent font-12 w-123" id="datepicker1" placeholder="Start Date" autocomplete="off"> --}}
+                    </div>
+                    <div class="col-12 col-md-1 col-xl-auto px-md-0 mt-3">
+                        {{-- <p class="text-white font-weight-bold mb-0 font-12 text-center">TO</p> --}}
+                    </div>
+                    <div class="col-12 col-md-4 col-xl-auto mt-3">
+                        <label style="display:none" id="datepicker2-error" class="error" for="datepicker2">End Date must be greater then Start Date</label>
+                        {{-- <input name="end_date" type="text" class="form-control bg-transparent font-12 w-123" id="datepicker2" placeholder="End Date" autocomplete="off"> --}}
+                    </div>
+                    <div class="col-12 col-md-3 col-xl-auto pr-md-0 mt-3">
+                      {{-- <p class="text-white font-weight-bold mb-0">STAKING POOL</p> --}}
+                    </div>
+                    <div class="col-12 col-md-3 col-xl-auto mt-3 d-flex align-items-end">
+                    </div>
+                    <div class="col-12 col-xl-auto ml-lg-auto mt-3 text-center">
+                    </div>
+                  </div>
                   {{ Form::close() }}
                   <div class="table-responsive table-history">
                     @include('reports.partials.staking_pools_history')

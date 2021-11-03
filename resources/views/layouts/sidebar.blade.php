@@ -47,9 +47,9 @@
           <li class="nav-item"> 
             <a class="nav-link pl-0" href="{{ route('commission_wallet') }}">Commission  Wallet</a>
           </li>
-          <!-- <li class="nav-item"> 
+          <li class="nav-item"> 
             <a class="nav-link pl-0" href="{{ route('nft_wallet') }}">NFT Wallet</a>
-          </li> -->
+          </li>
         </ul>
       </div>
     </li>
