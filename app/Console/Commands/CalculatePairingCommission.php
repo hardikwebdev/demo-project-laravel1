@@ -63,7 +63,7 @@ class CalculatePairingCommission extends Command
                 $rightDownlineGroupsale += $cf;
             }
 
-            $packageamount = Helper::getTotalgroupsales($user);
+            $packageamount = $user->userwallet->stacking_pool;//Helper::getTotalgroupsales($user);
             $package_detail = Package::where('amount','<=',$packageamount)->orderBy('amount','desc')->first();
             if(!$package_detail){
                 continue;
