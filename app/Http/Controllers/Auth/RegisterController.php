@@ -186,6 +186,11 @@ class RegisterController extends Controller
             'user_id' => $user->id,
         ]);
         Helper::updateDownline($user->id);
+        $routeUrl = route('login');
+        \Mail::send('emails.welcome-email',['routeUrl' =>$routeUrl, 'user' => $user], function($message) use($data )  {
+            $message->to($data['email'], 'Welcome')
+            ->subject('Defix Welcome');
+        });
         return $user;        
     }
 }
