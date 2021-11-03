@@ -387,6 +387,19 @@ class WalletController extends Controller
             }
         }
     }
+    public function nft_wallet(Request $request){
+        $wallet = Model\UserWallet::where('user_id',auth()->id())->first();
+
+        $history = Model\NftWalletHistory::where('user_id',auth()->id())->where('amount','>',0);
+
+        if($request->ajax()){
+            $history = $history->orderby('id','desc')->paginate(10);
+            return view('nft_wallet.history',compact('wallet','history'));
+        }
+
+        $history = $history->orderby('id','desc')->paginate(10);
+        return view('nft_wallet.index',compact('wallet','history'));
+    }
 
     public function online_payment_callback_my($slug = null,Request $request){
 

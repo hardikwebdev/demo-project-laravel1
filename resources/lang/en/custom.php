@@ -1488,7 +1488,7 @@ return [
     'malaysia_opg' => 'MALAYSIA OPG',
     'withdrawal_fee_is_usd_10' => 'Withdrawal Fee is USD 10',
     'conversion_rate_of_usd_to_usdt_is_0_95' => 'Conversion rate of USD to USDT is 0.95',
-    'members_that_have_funded_in_usdt_previousl' => 'Members that have funded in USDT previousl',
+    'members_that_have_funded_in_usdt_previousl' => 'Members that have funded in USDT previously',
     'usdt_amount' => 'USDT Amount',
     'topup_fund_submit' => 'TOPUP FUND',
     'crypto_wallet_history' => 'Crypto Wallet History',

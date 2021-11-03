@@ -127,8 +127,8 @@ class User extends Authenticatable
     }
 
     public function getProfileImageAttribute($value){
-        if(file_exists(public_path('uploads/profile_image/'.$value)) && $value){
-            return asset('uploads/profile_image/'.$value);     
+        if(file_exists(public_path('uploads/user/'.$value)) && $value){
+            return asset('uploads/user/'.$value);     
         }
         return asset('assets/images/avatar.png');
     }

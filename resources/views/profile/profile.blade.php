@@ -10,25 +10,26 @@
                   <h4 class="text-white pb-2">My profile</h4>
                 </div>
                 <div class="px-4 cus-my-profile-img">
-                  <img src="{{ asset('assets/images/assets/Dashboard/Group853.png') }}" class="rounded-circle img-fluid" alt="">
+                  <img src="{{asset($user->profile_image)}}" class="rounded-circle img-fluid" alt="">
+                  <a href="#profile-upload" data-toggle="modal" data-target="#profile-upload" class="font-10 d-block"><u>Edit Photo</u></a>
                 </div>
                 <div class="row px-4 mt-4">
                   <div class="col-md-6">
-                      <h4 class="text-dark font-weight-bold mb-0">Andy John</h4>
+                      <h4 class="text-dark font-weight-bold mb-0">{{ @$user->name}}</h4>
                       <span class="text-secondary font-12">Full name</span>
                   </div>
-                  <div class="col-md-6">
+                  {{-- <div class="col-md-6">
                     <h4 class="text-dark font-weight-bold mb-0">Gold</h4>
                     <span class="text-secondary font-12" >Rank</span>
-                  </div>
+                  </div> --}}
                 </div>
                 <div class="row px-4 mt-4">
                   <div class="col-md-6">
-                      <h4 class="text-secondary mb-0">andy@outlook.com</h4>
+                      <h4 class="text-secondary mb-0">{{ @$user->email}}</h4>
                       <span class="text-secondary font-12">Email</span>
                   </div>
                   <div class="col-md-6">
-                    <h4 class="text-secondary mb-0">+6012355678</h4>
+                    <h4 class="text-secondary mb-0">{{ @$user->phone_number}}</h4>
                     <span class="text-secondary font-12">Phone number</span>
                   </div>
                 </div>
@@ -43,75 +44,120 @@
                         <div class="col-12 col-xl-4">
                           <div class="row align-iems-center justify-content-between">
                             <div class="col-12 col-md-6">
-                              <h4 class="text-black mb-0 font-weight-bold">28928475</h4>
+                              <h4 class="text-black mb-0 font-weight-bold">{{ Helper::defixFinanceID($user->id, date("d-m-Y",strtotime($user->created_at)))}}</h4>
                               <span class="text-secondary font-10">Defix Finance ID</span>
                             </div>
                             <div class="col-12 col-md-6">
-                              <h4 class="text-black mb-0 font-weight-bold">******5749</h4>
+                              <h4 class="text-black mb-0 font-weight-bold">******{{ substr($user->phone_number, -4)}}</h4>
                               <span class="text-secondary font-10">Phone number</span>
                             </div>
                           </div>
                           <div class="row align-iems-center justify-content-between mt-4">
                             <div class="col-12 col-md-6">
-                              <h4 class="text-black mb-0 font-weight-bold">4/8/2020</h4>
+                              <h4 class="text-black mb-0 font-weight-bold">{{ date("d/m/Y",strtotime($user->created_at)) }}</h4>
                               <span class="text-secondary font-10">Date Joined</span>
                             </div>
                             <div class="col-12 col-md-6">
-                              <h4 class="text-black mb-0 font-weight-bold">6</h4>
+                              <h4 class="text-black mb-0 font-weight-bold">{{ $staking_pool_count}}</h4>
                               <span class="text-secondary font-10">Total Staking Packag</span>
                             </div>
                           </div>
                         </div>
                         <div class="col-12 col-xl-8">
                           <div class="collection-slider">
+                            <?php $i = 1; ?>
+                            @foreach($staking_pool as $stakingpool)
+                            @if($i == 1)
                             <div>
-                              <div class="bg-card-1 text-center p-4 rounded mx-2">
-                                <img src="{{ asset('assets/images/assets/My_Collection/Group610.png') }}" class="img-fluid w-60 mx-auto card-img-top" alt="">
-                                <h5 class="text-white mt-3">ALPHA</h5>
-                                <p class="text-white font-10">The Cosmos Hub keeps track of balances and
-                                  routes transactions through the internet of
-                                  blockchains.</p>
-                                  <hr class="border-white my-1"/>
-                                <p class="text-white font-10">Expected Annual Reward Rate</p>
-                                <h4 class="text-white font-weight-bold">5% - 10%</h4>
-                                <div class="d-flex align-items-center justify-content-center mt-3">
-                                  <span class="font-10 font-weight-bold mr-2 mb-0">Invested <br/> Amounts</span>
-                                  <button class="btn bg-blue text-white rounded-0 px-4 font-12 py-2">$20,000</button>
+                              <div class="bg-card-{{$i}} text-center p-4 pb-5 rounded mx-2">
+                                <img src="{{asset('assets/images/assets/Dashboard/Group929.png')}}" class="img-fluid card-img-top" alt="">
+                                <h4 class="text-white">{{$stakingpool->name}}</h4>
+                                <p class="text-white font-12">{!! \Illuminate\Support\Str::limit($stakingpool->description,50) !!}</p>
+                                <hr/>
+                                <p class="text-white font-12">{{__('custom.expected_anual_rate')}}</p>
+                                <h3 class="text-white font-weight-bold">{{$stakingpool->stacking_display_start}}% - {{$stakingpool->stacking_display_end}}%</h3>
+                                @if($stakingpool->investedAmount > 0)
+                                <div class="d-flex justify-content-around mt-2">
+                                  <p class="text-white font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
+                                  <button class="btn bg-blue text-white rounded-0 px-4">${{number_format($stakingpool->investedAmount,2)}}</button>
                                 </div>
+                                <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2 card-1-btn position-absolute" href="{{ route('stakepool',$stakingpool->id) }}">{{__('custom.stake')}} <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle w-25" alt=""></a>
+                                @else
+                                <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2" href="{{ route('stakepool',$stakingpool->id) }}">{{__('custom.stake')}} <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle" alt=""></a>
+                                @endif
                               </div>
                             </div>
                             <div>
-                              <div class="bg-card-2 text-center p-4 rounded mx-2">
-                                <img src="{{ asset('assets/images/assets/My_Collection/Group610.png') }}" class="img-fluid w-60 mx-auto card-img-top" alt="">
-                                <h5 class="text-white mt-3">ALPHA</h5>
-                                <p class="text-white font-10">The Cosmos Hub keeps track of balances and
-                                  routes transactions through the internet of
-                                  blockchains.</p>
-                                  <hr class="border-white my-1"/>
-                                <p class="text-white font-10">Expected Annual Reward Rate</p>
-                                <h4 class="text-white font-weight-bold">5% - 10%</h4>
-                                <div class="d-flex align-items-center justify-content-center mt-3">
-                                  <span class="font-10 font-weight-bold mr-2 mb-0">Invested <br/> Amounts</span>
-                                  <button class="btn bg-blue text-white rounded-0 px-4 font-12 py-2">$20,000</button>
+                              @elseif($i == 2)
+                              <div class="bg-card-2 text-center p-4 pb-5 rounded mx-2">
+                                <img src="{{ asset('assets/images/assets/Dashboard/Group929.png') }}" class="img-fluid card-img-top" alt="">
+                                <h4 class="text-white">{{$stakingpool->name}}</h4>
+                                <p class="text-white font-12">{!! \Illuminate\Support\Str::limit($stakingpool->description,50) !!}</p>
+                                <hr/>
+                                <p class="text-white font-12">{{__('custom.expected_anual_rate')}}</p>
+                                <h3 class="text-white font-weight-bold">{{$stakingpool->stacking_display_start}}% - {{$stakingpool->stacking_display_end}}%</h3>
+                                @if($stakingpool->investedAmount > 0)
+                                <div class="d-flex justify-content-around mt-2">
+                                  <p class="text-white font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
+                                  <button class="btn bg-blue text-white rounded-0 px-4">${{number_format($stakingpool->investedAmount,2)}}</button>
                                 </div>
+                                <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2 card-2-btn position-absolute" href="{{ route('stakepool',$stakingpool->id) }}">{{__('custom.stake')}} <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle w-25" alt=""></a>
+                                @else
+                                <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2" href="{{ route('stakepool',$stakingpool->id) }}">{{__('custom.stake')}} <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle" alt=""></a>
+                                @endif
                               </div>
                             </div>
                             <div>
-                              <div class="bg-card-3 text-center p-4 rounded mx-2">
-                                <img src="{{ asset('assets/images/assets/My_Collection/Group610.png') }}" class="img-fluid w-60 mx-auto card-img-top" alt="">
-                                <h5 class="text-white mt-3">ALPHA</h5>
-                                <p class="text-white font-10">The Cosmos Hub keeps track of balances and
-                                  routes transactions through the internet of
-                                  blockchains.</p>
-                                  <hr class="border-white my-1"/>
-                                <p class="text-white font-10">Expected Annual Reward Rate</p>
-                                <h4 class="text-white font-weight-bold">5% - 10%</h4>
-                                <div class="d-flex align-items-center justify-content-center mt-3">
-                                  <span class="font-10 font-weight-bold mr-2 mb-0">Invested <br/> Amounts</span>
-                                  <button class="btn bg-blue text-white rounded-0 px-4 font-12 py-2">$20,000</button>
+                              @elseif($i == 3)
+                              <div class="bg-card-3 text-center p-4 pb-5 rounded mx-2 ">
+                                <img src="{{ asset('assets/images/assets/Dashboard/Group929.png') }}" class="img-fluid card-img-top" alt="">
+                                <h4 class="text-white">{{$stakingpool->name}}</h4>
+                                <p class="font-12 text-white">{!! \Illuminate\Support\Str::limit($stakingpool->description,50) !!}</p>
+                                <hr/>
+                                <p class="text-white font-12">{{__('custom.expected_anual_rate')}}</p>
+                                <h3 class="text-white font-weight-bold">{{$stakingpool->stacking_display_start}}% - {{$stakingpool->stacking_display_end}}%</h3>
+                                
+                                @if($stakingpool->investedAmount > 0)
+                                <div class="d-flex justify-content-around mt-2">
+                                  <p class="text-white font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
+                                  <button class="btn bg-blue text-white rounded-0 px-4">${{number_format($stakingpool->investedAmount,2)}}</button>
                                 </div>
+                                <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2 card-3-btn position-absolute" href="{{ route('stakepool',$stakingpool->id) }}">{{__('custom.stake')}} <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle w-25" alt=""></a>
+                                @else
+                                <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2" href="{{ route('stakepool',$stakingpool->id) }}">{{__('custom.stake')}} <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle" alt=""></a>
+                                @endif
                               </div>
                             </div>
+                            @elseif($i == 4)
+                            <div>
+                              <div class="bg-card-4 text-center p-4 pb-5 rounded mx-2 position-relative">
+                                <img src="{{ asset('assets/images/assets/Dashboard/Group929.png') }}" class="img-fluid card-img-top" alt="">
+                                <h4>{{$stakingpool->name}}</h4>
+                                <p class="font-12">{!! \Illuminate\Support\Str::limit($stakingpool->description,50) !!}</p>
+                                <hr/>
+                                <p class="text-blue font-12">{{__('custom.expected_anual_rate')}}</p>
+                                <h3 class="text-blue font-weight-bold">{{$stakingpool->stacking_display_start}}% - {{$stakingpool->stacking_display_end}}%</h3>
+                                @if($stakingpool->investedAmount > 0)
+                                <div class="d-flex justify-content-around mt-2">
+                                  <p class="text-dark font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
+                                  <button class="btn bg-blue text-white rounded-0 px-4">${{number_format($stakingpool->investedAmount,2)}}</button>
+                                </div>
+                                <a class="btn bg-warning text-white px-3 rounded-0 font-10 mt-2 card-4-btn" href="{{ route('stakepool',$stakingpool->id) }}">{{__('custom.stake')}} <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-2 d-inline align-middle w-25" alt=""></a>
+                                @else
+                                <a class="btn bg-warning text-white px-3 rounded-0 font-10 mt-2" href="{{ route('stakepool',$stakingpool->id) }}">{{__('custom.stake')}} <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-2 d-inline align-middle" alt=""></a>
+
+                                @endif
+                              </div>
+                            </div>
+                            @endif
+                            <?php 
+                            $i++; 
+                            if($i == 5){
+                              $i=1;
+                            }
+                            ?>
+
+                            @endforeach
                           </div>
                         </div>
                       </div>
@@ -141,7 +187,7 @@
                 <li><a class="text-warning border border-warning py-3 px-5 d-block active" data-toggle="tab" href="#home">PERSONAL DETAILS</a></li>
                 {{-- <li class="mt-3 mt-md-0"><a class="text-warning border border-warning py-3 px-5 d-block" data-toggle="tab" href="#menu1">ACCOUNT DETAILS </a></li> --}}
                 <li class="mt-3 mt-md-0"><a class="text-warning border border-warning py-3 px-5 d-block" data-toggle="tab" href="#menu1">BANK DETAILS</a></li>
-                <li class="mt-3 mt-xl-0"><a class="text-warning border border-warning py-3 px-5 d-block" data-toggle="tab" href="#menu2">CRYPTO WALLETE DETAILS</a></li>
+                <li class="mt-3 mt-xl-0"><a class="text-warning border border-warning py-3 px-5 d-block" data-toggle="tab" href="#menu2">CRYPTO WALLET DETAILS</a></li>
               </ul>
             </div>
             <div class="col-12 mt-4">
@@ -229,7 +275,7 @@
                   <div class="row">
                     <input name="id" type="hidden" class="form-control blue-ph h-auto py-4" value="{{ $user->id }}">
                     <div class="col-12 col-md-6">
-                      {!! Form::text('nft_wallet_address', old('nft_wallet_address', @$user->nft_wallet_address), ['class' => 'form-control blue-ph h-auto py-4', 'placeholder' => 'Enter NFT Wallete Address']) !!}
+                      {!! Form::text('nft_wallet_address', old('nft_wallet_address', @$user->nft_wallet_address), ['class' => 'form-control blue-ph h-auto py-4', 'placeholder' => 'Enter NFT Wallet Address']) !!}
                     </div>
                     <div class="col-12 col-md-6 col-xl-4 mt-4"></div>
                     <div class="col-12 col-md-6 col-xl-4 mt-4">
@@ -240,6 +286,44 @@
                 </div>
               </div>
             </div>
+          </div>
+          <div class="modal fade bs-example-modal-center" tabindex="-1" role="dialog" aria-labelledby="profile-upload" aria-hidden="true" style="display: none;" id="profile-upload">
+              <div class="modal-dialog  modal-dialog-centered">
+                  <div class="modal-content  text-white">
+                      <div class="modal-header d-block ">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h5 class="modal-title mt-0">Upload Profile Image</h5>
+                      </div>
+                      <div class="modal-body">
+                          <div class="row">
+                              <div class="col-lg-12">
+                                  {{Form::open(['route' => 'updateImage','id' =>'profile-image-update','enctype' => 'multipart/form-data'])}}
+                                  {{-- <div class="image-editor m-auto">
+                                      <div class="cropit-preview"></div>
+                                      <div class="image-size-label">Resize Image</div>
+                                      <!-- <input type="range" class="cropit-image-zoom-input mt-2 mb-2 w-100  "> -->
+                                      <input type="file" class="cropit-image-input d-none">
+                                      <input type="hidden" class="image-value" name="profile_image"/>
+                                      <button class="btn btn-info btn-sm float-left btn-f" type="button">Choose File</button>
+                                      <button class="btn btn-success  btn-sm  float-right">Submit</button>
+                                  </div> --}}
+                                  <div class="fallback">
+                                    <input name="profile_image" type="file" class="dropify" id="profile_image"/>
+                                    <p>Profile extension png, jpg, jpeg</p>
+                                    @error('profile_image')
+                                    <span class="invalid-feedback" role="alert">
+                                      <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                  </div>
+                                  <label style="display:none;" id="profile_image-error" class="error" for="profile_image"></label>
+                                  <button class="btn btn-success  btn-sm  float-right">Submit</button>
+                                  {{Form::close()}}
+                              </div>
+                          </div>
+                      </div>
+                  </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
           </div>
 
 @endsection

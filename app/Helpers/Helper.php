@@ -375,5 +375,10 @@ class Helper {
     public static function getwithdrawalRequestCount(){
         return WithdrawalRequest::where('type','0')->where('status','0')->count();
      }
+    public static function defixFinanceID($userId ,$date){
+        $date = str_replace('-','',$date);
+        $defixFinanceID = 'DEF'.$userId.$date;
+        return $defixFinanceID;
+    } 
 
 }

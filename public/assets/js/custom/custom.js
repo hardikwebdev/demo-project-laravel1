@@ -575,7 +575,7 @@ $(document).ready(function(){
       var start_date = $("input[name=start_date]").datepicker('getDate');
       return end_date >= start_date;
   }, 'To date must be greater then From date');
-  $.validator.addMethod('mindate',function(v,el){
+  $.validator.addMethod('c_mindate',function(v,el){
       // if (this.optional(el)){
       //     return true;
       // }
@@ -588,7 +588,7 @@ $(document).ready(function(){
       return end_date >= start_date;
   }, 'From Date must be less then To date');
 
-  $.validator.addMethod('maxdate',function(v,el){
+  $.validator.addMethod('c_maxdate',function(v,el){
       if (this.optional(el)){
           return true;
       }
@@ -631,19 +631,19 @@ $(document).ready(function(){
       rules: {
           c_start_date: {
               // required: true,
-              mindate: true,
+              c_mindate: true,
           },
           c_end_date: {
               // required: true,
-              maxdate: true,
+              c_maxdate: true,
           },
           
       }, messages: {
           "c_start_date" :{
-               mindate: "Start Date must be less then End Date"
+               c_mindate: "Start Date must be less then End Date"
           },
           "c_end_date" :{
-               maxdate: "End Date must be greater then Start Date"
+               c_maxdate: "End Date must be greater then Start Date"
           },
               
       }
@@ -678,4 +678,15 @@ $(document).ready(function(){
               number: enter_valid_number,
           },
       },
+  });
+  $("#profile-image-update").validate({
+      rules: {
+           profile_image:{
+            // required: true,
+            extension:'png|jpeg|jpg'
+           }        
+      },
+      messages:{
+      },
+
   });
