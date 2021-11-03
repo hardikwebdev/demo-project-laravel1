@@ -85,6 +85,8 @@ return [
     'max_limit_ticket' => 'You can allowed maximum :quantity quantity for this ticket',
     'file' => 'File',
     'withdrawal_fee' => 'Withdrawal Fee',
+    'withdrawals' => 'Withdrawals',
+    'Ledger' => 'Ledger',
     'name_of_bank' => 'Name of Bank',
     'enter_your_bank_name' => 'Enter your bank name',
     'name_account_holder' => 'Name of Account Holder',
