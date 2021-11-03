@@ -8,7 +8,7 @@
               <ul class="nav nav-tabs justify-content-center account-tabs border-0">
                 <li><a class="text-warning border border-warning py-3 px-5 d-block active" data-toggle="tab" href="#home">STAKING POOLS</a></li>
                 <li class="mt-3 mt-md-0"><a class="text-warning border border-warning py-3 px-5 d-block" data-toggle="tab" href="#menu1">NODES MANAGEMENT</a></li>
-                <li class="mt-3 mt-md-0"><a class="text-warning border border-warning py-3 px-5 d-block" data-toggle="tab" href="#menu2">NFT MARKETPLACE</a></li>
+               <!--  <li class="mt-3 mt-md-0"><a class="text-warning border border-warning py-3 px-5 d-block" data-toggle="tab" href="#menu2">NFT MARKETPLACE</a></li> -->
               </ul>
             </div>
 
