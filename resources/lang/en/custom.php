@@ -1526,7 +1526,7 @@ return [
     'crypto_wallet' => 'Crypto wallet',
     'yield_wallet' => 'Yield wallet',
     'commission_wallet' => 'Commission wallet',
-    'nft_wallet' => 'NFT wallet',
+    'nft_wallet' => 'NFT Wallet',
     'balance' => 'Balance',
     'stake' => 'STAKE',
     'expected_anual_rate' => 'Expected Annual Reward Rate',
