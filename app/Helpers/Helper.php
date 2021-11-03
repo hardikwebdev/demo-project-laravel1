@@ -58,7 +58,7 @@ class Helper {
    /* get upline sponsors */
     public static function getUplineSponsor($user_detail,$level=1,$array=[]){
         $sponser_details = User::where(['id'=>$user_detail->placement_id,'status'=>'active'])->first();
-        if($sponser_details==null || $user_detail->sponsor_id ==0 ){
+        if($sponser_details==null || $user_detail->sponsor_id == 0 ){
             return $array;
         }else{            
             $sponser_details->level = $level;
@@ -83,7 +83,7 @@ class Helper {
     /* Get Array of  All Downline users ids */
     public static function getAllDownlineIds($sponsor_id,$array=[]){
 
-        $direct_downline = User::where(['status'=>"active",'sponsor_id'=>$sponsor_id])->pluck('id')->toArray();
+        $direct_downline = User::where(['status'=>"active",'placement_id'=>$sponsor_id])->pluck('id')->toArray();
         
         if(count($direct_downline) == 0 || (count($direct_downline) > 0 && $direct_downline[0] == $sponsor_id)){
             return $array;
