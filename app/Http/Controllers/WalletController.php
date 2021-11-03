@@ -15,7 +15,7 @@ class WalletController extends Controller
     public function __construct()
     {
         $this->limit = 10;
-        $this->middleware('auth');
+        // $this->middleware('auth');
         $this->middleware(function ($request, $next) {
             $this->user = Auth::user();
             return $next($request);
@@ -417,12 +417,11 @@ class WalletController extends Controller
                     $payment->response = json_encode($request->all());
                     $payment->status = '1';
                     $payment->save();
-                    $funds = Model\CryptoWallet::where(['type'=>'2','status'=>'0','user_id'=>$payment->user_id])->where('order_id',$slug)->first();
+                    $funds = Model\CryptoWallet::where(['type'=>'1','status'=>'0','user_id'=>$payment->user_id])->where('order_id',$slug)->first();
                             // dd($funds);
                     if($funds==null){
                         return array('receive' => 'FAIL');
                     }else{
-                        $funds->type = 2; 
                         $funds->status = 1;
                         $funds->save();
                     }
@@ -430,11 +429,9 @@ class WalletController extends Controller
                                 ->where('status',1)
                                 ->count();
 
-                    // UserWallet::where('user_id',$payment->user_id)->increment('fund_wallet',$payment->usd_amount);
+                    Model\UserWallet::where('user_id',$payment->user_id)->increment('crypto_wallet',$payment->usd_amount);
                     // Helper::generate_pdf($funds);
                     // Helper::updaterankpackage($funds);
-                    $cron = new CronController();
-                    $cron->ranking_upgrade_cron($funds->user_id);
 
                 }
                 \Log::channel('fundlog')->info('success1 ');

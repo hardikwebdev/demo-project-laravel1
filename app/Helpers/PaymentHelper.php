@@ -18,7 +18,7 @@ class PaymentHelper{
 	    $data['transaction_amount'] = $input['amount'];
 	    $data['bank_name'] = ($input['bank_code'] == 'Maybank') ? 'may_bank' : strtolower(str_replace(' ', '_',$input['bank_code']));
 	    $data['return_url'] = route('crypto_wallets');
-	    $data['ipn_url'] = route('online-payment-my-response-secure',$input['order_id']);
+	    $data['ipn_url'] = route('online-payment-my-response',$input['order_id']);
 	    $data['custom_transaction_id'] = $input['order_id'];
 	        // $data['success_url'] = route('online-payment-my-response','success');
 	        // $data['fail_url'] = route('online-payment-my-response','fail');
