@@ -98,6 +98,25 @@ class Helper {
         return $array;
     }
 
+      /* Get Array of  All Downline users ids */
+    public static function getAllDownlineIdsTree($sponsor_id,$array=[]){
+
+        $direct_downline = User::where(['status'=>"active",'placement_id'=>$sponsor_id])->pluck('id')->toArray();
+        
+        if(count($direct_downline) == 0 || (count($direct_downline) > 0 && $direct_downline[0] == $sponsor_id)){
+            return $array;
+        }else{
+            if(!is_array($array)){
+                $array = [];
+            }
+            $array = array_merge($array, $direct_downline);
+            foreach ($direct_downline as $key => $value) {
+                 $array = Helper::getAllDownlineIdsTree($value,$array);
+            }
+        }
+        return $array;
+    }
+
     /* Get Array of  All Downline users ids left */
     public static function getAllDownlineIdsLeft($placement_id,$level,$array=[]){
 
