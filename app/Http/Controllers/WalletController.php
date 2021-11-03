@@ -258,6 +258,7 @@ class WalletController extends Controller
                  $yieldwalle->amount = $request->amount;
                  $yieldwalle->final_amount = $usercheck->userwallet['yield_wallet'] - $request->amount;
                  $yieldwalle->description = $description;
+                 $yieldwalle->stacking_pool_id = 0;
                  $yieldwalle->type = '0';
                  $yieldwalle->save();
 
