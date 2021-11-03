@@ -88,7 +88,7 @@ class CalculateReferralCommission extends Command
                     $commission_percent = $level_commission_percent / 100;
                     $commission_amount = round($stakingpool->amount * $commission_percent,2); 
                     $commission_wallet = UserWallet::where('user_id',$value->id)->first();
-                     $commission_wallet = UserWallet::where('user_id',$user->id)->first();
+                     // $commission_wallet = UserWallet::where('user_id',$user->id)->first();
                     $nft_commission = Setting::where('key','nft_commission')->value('value');
                     $nft_commission = ($nft_commission > 0) ? $nft_commission/100 : 0.2; 
                     $nft_commission_amount = $commission_amount * $nft_commission;
