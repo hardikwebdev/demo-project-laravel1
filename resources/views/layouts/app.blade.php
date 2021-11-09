@@ -53,6 +53,8 @@
 <script src="{{ asset('assets/js/custom/custom.js').'?v='.time() }}"></script>
 <script src="{{asset('backend/js/plugins/validate/additional-methods.min.js')}}"></script>
 <script>
+$('.alert-success').fadeIn().delay(4000).fadeOut();
+$('.alert-danger').fadeIn().delay(4000).fadeOut();
  var sponsorUsernameExits = "{{route('sponsorUsernameExits')}}";
  var placementUsernameExits = "{{route('placementUsernameExits')}}";
 

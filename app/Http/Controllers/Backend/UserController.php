@@ -6,11 +6,19 @@ use App\Models\User;
 use App\Helpers\Helper;
 use App\Models\Country;
 use App\Models\UserBank;
+use App\Models\NftWallet;
 use App\Models\UserWallet;
+use App\Models\CryptoWallet;
+use App\Models\UserReferral;
 use Illuminate\Http\Request;
+use App\Models\SupportTicket;
 use App\Models\UserAgreement;
+use App\Models\WithdrawalRequest;
+use App\Models\CryptoWalletHistory;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use App\Models\SupportTicketMessages;
+use App\Models\SupportTicketAttachment;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
@@ -555,17 +563,31 @@ class UserController extends Controller
 
             // if ($user->package_id == 0 && $user->userwallet->fund_wallet <= 0 && $user->proof_status == 0 ) {
             if ($user->userwallet->crypto_wallet <= 0) {
-                // $user->is_deleted = '1';
-                // $user->save();
+
+                $support_id = SupportTicket::where('user_id', $id)->pluck('id');
+                foreach($support_id as $value){
+                    SupportTicketMessages::where('support_id',$value)->delete();
+                    SupportTicketAttachment::where('support_tkt_id',$value)->delete();
+                }
+                
                 UserAgreement::where('user_id', $id)->delete();
                 // UploadProof::where('user_id',$id)->delete();
-                UserBank::where('user_id', $id)->delete();
+                // UserBank::where('user_id', $id)->delete();
                 UserWallet::where('user_id', $id)->delete();
+                SupportTicket::where('user_id', $id)->delete();
+                UserReferral::where('user_id', $id)->delete();
+                WithdrawalRequest::where('user_id', $id)->delete();
+                CryptoWallet::where('user_id', $id)->delete();
+                // CryptoWalletHistory::where('user_id', $id)->delete();
+                NftWallet::where('user_id', $id)->delete();
+                // NftWalletHistory::where('user_id', $id)->delete();
+
+
                 // UserBeneficiary::where('user_id', $id)->delete();
                 // PackageHistory::where('user_id', $id)->delete();
                 // FundWallet::where('user_id', $id)->delete();
-                // WithdrawalRequest::where('user_id', $id)->delete();
-                // UserReferral::where('user_id', $id)->delete();
+               
+                
                 // $user->forceDelete();
                 $user->delete();
                 return redirect()

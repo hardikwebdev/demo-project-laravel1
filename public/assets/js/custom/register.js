@@ -115,7 +115,7 @@
      labels:{
       finish: '<button class="btn bg-warning text-white py-4 px-5 font-weight-bold rounded-0 mt-4 mt-md-2 font-18 text-uppercase" id="finish">'+finish+'</button>',
       next: '<button class="btn bg-warning text-white py-4 px-5 font-weight-bold rounded-0 mt-4 mt-md-2 font-18 text-uppercase">'+next+' <img src="'+arrow+'" class="img-fluid ml-3 align-middle" alt=""></button>',
-      previous: '<button class="btn bg-transparent border-warning text-white py-4 px-5 mt-4 mt-md-2 font-weight-bold rounded-0 font-18 text-uppercase">'+previous+' <img src="'+arrow+'" class="img-fluid ml-3 align-middle" alt=""></button>'
+      previous: '<button class="btn bg-transparent border-warning text-white py-4 px-5 mt-4 mt-md-2 font-weight-bold rounded-0 font-18 text-uppercase"><img src="'+arrow+'" class="img-fluid mr-3 align-middle" alt="" style="transform: rotate(180deg);">'+previous+'</button>'
   },
   onInit: function (event, current) {
     var sigpad = $('#sigpad').signature({syncField: '#signature', syncFormat: 'PNG'});
