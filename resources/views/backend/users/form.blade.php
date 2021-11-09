@@ -243,7 +243,7 @@
         </div>
     </div>
 </div>
-{{-- <div class="row d-flex ">
+<div class="row d-flex ">
     <div class=" col-sm-6 m-t-lg">
         <div class="ibox-content ibox-border-rad cus-heght-full">
             <h4 class="p-b-sm">User Agreement</h4>
@@ -253,50 +253,79 @@
                 <div class="col-sm-6 ">  
                     <div class="col-sm-12 ">        
                         <div class="checkbox ">
-                            <input type="checkbox" class="ml-0" id="checkbox1" name="terms_condition[]" value="aml_policy_statement">
-                            <label for="checkbox1">
-                                <a href="{{asset('AML.pdf')}}" target="_blank" class="font-regular text-darkGrey">AML Policy Statement</a>
+                            <input type="checkbox" class="ml-0" id="antimoney_laundering" name="terms_condition[]" value="antimoney_laundering">
+                            <label for="antimoney_laundering">
+                                <a href="{{asset('terms/antimoney_laundering.pdf')}}" target="_blank" class="font-regular text-darkGrey">Anti-Money Laundering</a>
                             </label>
                         </div>      
                     </div>
+
                     <div class="col-sm-12 ">        
                         <div class="checkbox ">
-                            <input type="checkbox" class="ml-0" id="checkbox2"  name="terms_condition[]" value="risk_disclosure_statement">
-                            <label for="checkbox2">
-                                <a href="{{asset('Risk-Disclosure.pdf')}}" target="_blank" class="font-regular text-darkGrey">Risk Disclosure Statement</a>
+                            <input type="checkbox" class="ml-0" id="coockie_policy"  name="terms_condition[]" value="coockie_policy">
+                            <label for="coockie_policy">
+                                <a href="{{asset('terms/coockie_policy.pdf')}}" target="_blank" class="font-regular text-darkGrey">Cookie Policy</a>
                             </label>
                         </div>      
                     </div>
+
                     <div class="col-sm-12 ">        
                         <div class="checkbox ">
-                            <input type="checkbox" class="ml-0" id="checkbox3"  name="terms_condition[]" value="client_agreement">
-                            <label for="checkbox3">
-                                <a href="{{asset('TC.pdf')}}" target="_blank" class="font-regular text-darkGrey">User Agreement</a>
+                            <input type="checkbox" class="ml-0" id="privacy_policy"  name="terms_condition[]" value="privacy_policy">
+                            <label for="privacy_policy">
+                                <a href="{{asset('terms/privacy_policy.pdf')}}" target="_blank" class="font-regular text-darkGrey">Privacy Policy</a>
                             </label>
                         </div>      
                     </div>
+
+
                     <div class="col-sm-12 ">        
                         <div class="checkbox ">
-                            <input type="checkbox" class="ml-0" id="checkbox4"  name="terms_condition[]" value="poa">
-                            <label for="checkbox4">
-                                <a href="{{asset('Privacy-Policy.pdf')}}" target="_blank" class="font-regular text-darkGrey">POA</a>
+                            <input type="checkbox" class="ml-0" id="risk_disclosure"  name="terms_condition[]" value="risk_disclosure">
+                            <label for="risk_disclosure">
+                                <a href="{{asset('terms/risk_disclosure.pdf')}}" target="_blank" class="font-regular text-darkGrey">Risk Disclosure</a>
                             </label>
                         </div>      
                     </div>
+
+                    <div class="col-sm-12 ">        
+                        <div class="checkbox ">
+                            <input type="checkbox" class="ml-0" id="terms_and_condition"  name="terms_condition[]" value="terms_and_condition">
+                            <label for="terms_and_condition">
+                                <a href="{{asset('terms/terms_and_condition.pdf')}}" target="_blank" class="font-regular text-darkGrey">Terms Of Use</a>
+                            </label>
+                        </div>      
+                    </div>
+
+                    <label id="terms_condition_error_msg"style="color:#c71d25 !important;font-weight: 600;"></label>
+
                     <span class="help-block text-danger">{{ $errors->first('terms_condition') }}</span>
                     <label id="terms_condition_error" class="error" style="color: #c71d25 !important;"></label>
                 </div>
-                <div class="col-sm-6 ">        
+
+                {{-- <div class="row mt-5 mb-3">
+                    <div class="col-12 col-md-6">
+                      <div class="card rounded-0">
+                       <div class="card-body">
+                         <label class="" for="">{{__('custom.signature')}}</label>
+                         <br/>
+                         <div id="sigpad"></div>
+                         <br><br>
+                         <button id="clear" class="btn btn-danger rounded-0">{{__('custom.clear_signature')}}</button>
+                         <textarea id="signature" name="signature" style="display: none"></textarea>
+                     </div>
+                 </div> --}}
+                {{-- <div class="col-sm-6 ">        
                     <div class="form-group">
                         <label>Signature</label> 
                         {!! Form::text('signature',old('reg_signature'),['class'=>'form-control','placeholder'=>'Enter Signature']) !!}
                         <span class="help-block text-danger">{{ $errors->first('signature') }}</span>
                     </div>       
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
-</div> --}}
+</div>
 </div>
 <div class="m-t-lg">
     <button class="btn  btn-primary" type="submit"><strong>Save</strong></button>

@@ -117,13 +117,13 @@ class HomeController extends Controller
 
 
     public function downlinePlacement(Request $request){
-        $downlineUser = User::where('placement_id',$request->id)->where('status',1)->where('id','!=',$request->id)->get();
+        $downlineUser = User::where('placement_id',$request->id)->where('status','active')->where('id','!=',$request->id)->get();
         return view('mynetworkdownlinePlacement',compact('downlineUser'));
     }
 
     
     public function downlineUsers(Request $request){
-        $downlineUser = User::where('sponsor_id',$request->id)->where('status',1)->where('id','!=',$request->id)->get();
+        $downlineUser = User::where('sponsor_id',$request->id)->where('status','active')->where('id','!=',$request->id)->get();
         return view('mynetworkdownline',compact('downlineUser'));
     }
 

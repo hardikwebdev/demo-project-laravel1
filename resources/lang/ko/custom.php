@@ -1159,7 +1159,7 @@ return [
     'i_agree_with_terms' => '나는 동의하고 준수 할 것에 동의 <a href="#link1" target="_blank" class="cus-light-green" style="text-decoration:underline">약관 및 조건 </a> 과 <a href="#link2" target="_blank" class="cus-light-green" style="text-decoration:underline">위험 공개</a> 투자 과정 등의 수용을 인정하여',
     'please_accept_aggrement' => '계약서에 동의하세요',
     'end_period' => '최종 기간입니다: :date',
-    'plan_expired' => '당신에 :Month, VexStocks+ 투자 (:Date) 의 :Stock 만료되다.<br><a href="#link" class="changePlanEx" data-id="#changePlan" style="text-decoration:underline;"> 여기를 클릭하세요</a> Vexstocks + 투자를 위해 추가 조치를 취하십시오. ',
+    'plan_expired' => '당신에 :Month, Staking Pools+ 투자 (:Date) 의 :Stock 만료되다.<br><a href="#link" class="changePlanEx" data-id="#changePlan" style="text-decoration:underline;"> 여기를 클릭하세요</a> Staking Pools + 투자를 위해 추가 조치를 취하십시오. ',
     'change_plan' => '변경 투자 기간',
     'expired_on' => 'Expired On',
     'success_investment_period_change' => '투자 기간은 성공적으로 업데이트',
@@ -1167,12 +1167,12 @@ return [
     'investment_plan' => '투자 계획',
     'investment_expiry' => '투자 만기',
     'close_investment_popup' => '귀하의 투자 계획은 여전히 ​​유효합니다, 당신은 어떤 투자 이익을 회수 할 자격이 없습니다.',
-    'stock_popup_title' => 'VEXSTOCKS + 알림',
-    'investment_desc' => '당신 Vexstocks + 투자가 만료되었습니다. 7 일 이내에, 새로운 투자 계획을 선택하거나 투자를 꺼 계속하십시오 ',
+    'stock_popup_title' => 'Staking Pools + 알림',
+    'investment_desc' => '당신 Staking Pools + 투자가 만료되었습니다. 7 일 이내에, 새로운 투자 계획을 선택하거나 투자를 꺼 계속하십시오 ',
     'change_plan_txt' => '새로운 계획에 투자를 계속:',
     'close_investment' => '닫기 투자',
-    'capital_investment_desc' => '당신은 여전히 ​​VexStocks + 투자. 당신은 원금을 모두 닫습니다 VexStocks + 투자의 전체 양을 추출하기 전에.<br><a href="#link" style="text-decoration:underline;">VexStocks + 투자로 돌아가려면 여기를 클릭하세요</a>',
-    'capital_investment_descin' => '당신은 여전히 ​​VexStocks + 투자. 당신은 원금을 모두 닫습니다 VexStocks + 투자의 전체 양을 추출하기 전에.',
+    'capital_investment_desc' => '당신은 여전히 ​​Staking Pools + 투자. 당신은 원금을 모두 닫습니다 Staking Pools + 투자의 전체 양을 추출하기 전에.<br><a href="#link" style="text-decoration:underline;">Staking Pools + 투자로 돌아가려면 여기를 클릭하세요</a>',
+    'capital_investment_descin' => '당신은 여전히 ​​Staking Pools + 투자. 당신은 원금을 모두 닫습니다 Staking Pools + 투자의 전체 양을 추출하기 전에.',
     'equity' => '당신은 당신이 종료 하시겠습니까?',
         // Stock FAQ starts
     'stockfaq'=> '
@@ -1181,7 +1181,7 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link" data-toggle="collapse" href="#collapse1" aria-expanded="true">
-    1. What is the difference between Defix funds management program and VexStocks+? 
+    1. What is the difference between Defix funds management program and Staking Pools+? 
     </a>
     </div>
     <div id="collapse1" class="collapse show" data-parent="#accordion">
@@ -1216,7 +1216,7 @@ return [
     </div>
     <div id="collapse3" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>VexStocks+ is a very exclusive offering and only opened to serious and existing Defix Funds Management Program investors.</p>
+    <p>Staking Pools+ is a very exclusive offering and only opened to serious and existing Defix Funds Management Program investors.</p>
     </div>
     </div>
     </div>
@@ -1269,7 +1269,7 @@ return [
     <li>6 months</li>
     <li>12 months</li>
     </ul>
-    <img class="stock0-faq-img" src="../../../public/images/VexStocks_Summary.png" alt="stockimg" style="max-width: 100%; max-height: 100%;">
+    <img class="stock0-faq-img" src="../../../public/images/Staking Pools_Summary.png" alt="stockimg" style="max-width: 100%; max-height: 100%;">
     
     <p>The longer the investment period, the higher profit percentage will be given to the investor. The company will also bear more loss percentage in a longer investment period.</p>
     </div>
@@ -1311,7 +1311,7 @@ return [
     </div>
     <div id="collapse9" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>Over time, the value of individual stock in a diversified portfolio moves up and down, drifting away from their target weights. Our system takes into account market movements, predictions and our preset risk management score to close open trades and open new ones automatically. The re-balancing mechanism closes and opens positions periodically, to keep the asset allocation ratio, and maintain the VexStocks+ strategy.</p>
+    <p>Over time, the value of individual stock in a diversified portfolio moves up and down, drifting away from their target weights. Our system takes into account market movements, predictions and our preset risk management score to close open trades and open new ones automatically. The re-balancing mechanism closes and opens positions periodically, to keep the asset allocation ratio, and maintain the Staking Pools+ strategy.</p>
     </div>
     </div>
     </div>
@@ -1324,7 +1324,7 @@ return [
     </div>
     <div id="collapse10" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>Your existing network is unaffected but enhanced with this new program. You can still use your existing network and every investor into VexStocks+ in your network will be counted as sales which helps your rankings.</p>
+    <p>Your existing network is unaffected but enhanced with this new program. You can still use your existing network and every investor into Staking Pools+ in your network will be counted as sales which helps your rankings.</p>
     </div>
     </div>
     </div>
@@ -1337,7 +1337,7 @@ return [
     </div>
     <div id="collapse11" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>It is not possible to close individual positions within the VexStocks+. You would need to close the investment completely.</p>
+    <p>It is not possible to close individual positions within the Staking Pools+. You would need to close the investment completely.</p>
     </div>
     </div>
     </div>
@@ -1377,12 +1377,12 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link" data-toggle="collapse" href="#collapse14">
-    14. What factors do you take into account when re-balancing VexStocks+?
+    14. What factors do you take into account when re-balancing Staking Pools+?
     </a>
     </div>
     <div id="collapse14" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>Over time, the value of individual ETFs in a diversified portfolio moves up and down, drifting away from their target weights. For example, over the long term, stocks generally rise faster than ETFs, so the stock portion of your portfolio will go up relative to the ETF portion. The re-balancing mechanism closes and opens positions periodically, to keep the asset allocation ratio, and maintain the VexStocks+ strategy.</p>
+    <p>Over time, the value of individual ETFs in a diversified portfolio moves up and down, drifting away from their target weights. For example, over the long term, stocks generally rise faster than ETFs, so the stock portion of your portfolio will go up relative to the ETF portion. The re-balancing mechanism closes and opens positions periodically, to keep the asset allocation ratio, and maintain the Staking Pools+ strategy.</p>
     </div>
     </div>
     </div>
@@ -1418,11 +1418,11 @@ return [
     
     ',
     // Stock FAQ ends
-    'stock_faq_title' => 'VexStocks+ FAQ',
-    'stock_request_submited_review' => 'VexStocks +에 대한 투자가 성공적입니다.',
+    'stock_faq_title' => 'Staking Pools+ FAQ',
+    'stock_request_submited_review' => 'Staking Pools +에 대한 투자가 성공적입니다.',
     'stock_wallet_tnc' => '<ul class="dis"><li>이 금액은 펀드 지갑이나 출금 지갑으로 이체하시면 됩니다.</li><li>이 송금은 되돌릴 수 없으므로 요청을 제출하기 전에 고려하시기 바랍니다.</li></ul>', 
     'investors' => '투자자',
-    'stock_investment' => 'VexStocks+ 투자',
+    'stock_investment' => 'Staking Pools+ 투자',
     'no_transaction_found' => '어떤 거래를 찾을 수 없습니다!',
     'transaction_approved' => '거래는 이미 승인. 당신은 요청을 취소 할 수 없습니다.',
     'transaction_already_cancelled' => '거래는 이미 취소. ',

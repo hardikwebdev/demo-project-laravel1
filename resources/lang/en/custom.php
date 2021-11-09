@@ -1551,4 +1551,9 @@ return [
     'commission_history' => 'Commission History',
     'antimoney-laundering' => 'Anti-Money Laundering',
     'coockie-policy' => 'Cookie Policy',
+    'nodes-management' => 'Nodes Management',
+    'nodes' => 'Nodes',
+    'commission-wallet' => 'Commission  Wallet',
+    'accounts' => 'Account',
+    'my-account' => 'My Account',
 ];

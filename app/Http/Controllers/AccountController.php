@@ -43,10 +43,10 @@ class AccountController extends Controller
     {
         $rules = [
             'fullname' => ['required', 'string', 'max:255'],
-            'username' => ['required', 'string', 'max:255','alpha_num'],
+            'username' => ['required', 'string', 'max:255','alpha_num','unique:users,username,NULL,id,deleted_at,NULL'],
             'sponsor_username' => ['required', 'string', 'max:255','exists:users,username'],
             'placement_username' => ['required', 'string', 'max:255','exists:users,username'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,NULL,id,deleted_at,NULL'],
             'password' => ['required', 'string', 'min:8','same:password_confirmation'],
             'ic_number' => 'required',
             'address' => 'required',
@@ -72,15 +72,15 @@ class AccountController extends Controller
         // if($data['country'] == '131'){
         //     $rules['ic_number'] = 'max:12';
         // }
-        $usernameExits = User::where('username',$data['placement_username'])->where('status',1)->exists();
+        $usernameExits = User::where('username',$data['placement_username'])->where('status','active')->exists();
         $isValid = false;
         if ($usernameExits != null) {
-            $placement = User::where('username',$data['placement_username'])->where('status',1)->first();
-            $placementCount = User::where('placement_id',$placement->id)->where('status',1)->where('child_position',$data['child_position'])->count();
+            $placement = User::where('username',$data['placement_username'])->where('status','active')->first();
+            $placementCount = User::where('placement_id',$placement->id)->where('status','active')->where('child_position',$data['child_position'])->count();
             if($placementCount > 0){
                 $isValid = false;
             }
-            $user = User::where('username',$data['sponsor_check'])->where('status',1)->first();
+            $user = User::where('username',$data['sponsor_check'])->where('status','active')->first();
             // $user_reference = UserReferral::where('user_id',$user->id)->first();
             // $upline_ids = $user_reference!=null?(array)$user_reference->downline_ids:[];
             $upline_ids = Helper::getAllDownlineIds($user->id);
