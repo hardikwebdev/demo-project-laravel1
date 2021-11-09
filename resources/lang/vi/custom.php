@@ -1148,7 +1148,7 @@ return [
     'i_agree_with_terms' => 'Tôi chấp nhận và đồng ý bị ràng buộc bởi <a href="#link1" target="_blank" class="cus-light-green" style="text-decoration:underline">Điều khoản và điều kiện </a> và <a href="#link2" target="_blank" class="cus-light-green" style="text-decoration:underline">Tuyên bố rủi ro</a> bằng cách thừa nhận sự chấp nhận như vậy trong quá trình đầu tư',
     'please_accept_aggrement' => 'Hãy chấp nhận thỏa thuận',
     'end_period' => 'Giai đoạn cuối cùng của bạn là: :date',
-    'plan_expired' => 'Bạn trên :Month, VexStocks+ Đã đầu tư (:Date) của :Stock được hết hạn.<br><a href="#link" class="changePlanEx" data-id="#changePlan" style="text-decoration:underline;"> bấm vào đây</a> Thực hiện thêm hành động cho Vexstocks + đầu tư của bạn ',
+    'plan_expired' => 'Bạn trên :Month, Staking Pools+ Đã đầu tư (:Date) của :Stock được hết hạn.<br><a href="#link" class="changePlanEx" data-id="#changePlan" style="text-decoration:underline;"> bấm vào đây</a> Thực hiện thêm hành động cho Staking Pools + đầu tư của bạn ',
     'change_plan' => 'Thay đổi Thời gian đầu tư',
     'expired_on' => 'Expired On',
     'success_investment_period_change' => 'Thời gian đầu tư cập nhật thành công',
@@ -1156,12 +1156,12 @@ return [
     'investment_plan' => 'Kế hoạch đầu tư',
     'investment_expiry' => 'Đầu tư Hạn sử dụng',
     'close_investment_popup' => 'kế hoạch đầu tư của bạn vẫn còn hiệu lực, bạn không đủ điều kiện để rút lại bất kỳ lợi nhuận đầu tư.',
-    'stock_popup_title' => 'VEXSTOCKS + NHẮC NHỞ',
-    'investment_desc' => 'Bạn Vexstocks + đầu tư đã hết hạn. Hãy trong thời hạn bảy ngày, và tiếp tục chọn phương án đầu tư mới hoặc tắt đầu tư của bạn ',
+    'stock_popup_title' => 'Staking Pools + NHẮC NHỞ',
+    'investment_desc' => 'Bạn Staking Pools + đầu tư đã hết hạn. Hãy trong thời hạn bảy ngày, và tiếp tục chọn phương án đầu tư mới hoặc tắt đầu tư của bạn ',
     'change_plan_txt' => 'Tiếp tục đầu tư với kế hoạch mới:',
     'close_investment' => 'Đóng đầu tư',
-    'capital_investment_desc' => 'Bạn vẫn VexStocks + đầu tư. Trước khi bạn trích xuất toàn bộ số tiền nợ gốc, đóng tất cả VexStocks + đầu tư.<br><a href="#link" style="text-decoration:underline;">Nhấn vào đây để trở về VexStocks + Đầu tư</a>',
-    'capital_investment_descin' => 'Bạn vẫn VexStocks + đầu tư. Trước khi bạn trích xuất toàn bộ số tiền nợ gốc, đóng tất cả VexStocks + đầu tư.',
+    'capital_investment_desc' => 'Bạn vẫn Staking Pools + đầu tư. Trước khi bạn trích xuất toàn bộ số tiền nợ gốc, đóng tất cả Staking Pools + đầu tư.<br><a href="#link" style="text-decoration:underline;">Nhấn vào đây để trở về Staking Pools + Đầu tư</a>',
+    'capital_investment_descin' => 'Bạn vẫn Staking Pools + đầu tư. Trước khi bạn trích xuất toàn bộ số tiền nợ gốc, đóng tất cả Staking Pools + đầu tư.',
     'equity' => 'Bạn có chắc chắn bạn muốn đóng không?',
         // Stock FAQ starts
     'stockfaq'=> '
@@ -1170,7 +1170,7 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link" data-toggle="collapse" href="#collapse1" aria-expanded="true">
-    1. What is the difference between Defix funds management program and VexStocks+? 
+    1. What is the difference between Defix funds management program and Staking Pools+? 
     </a>
     </div>
     <div id="collapse1" class="collapse show" data-parent="#accordion">
@@ -1205,7 +1205,7 @@ return [
     </div>
     <div id="collapse3" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>VexStocks+ is a very exclusive offering and only opened to serious and existing Defix Funds Management Program investors.</p>
+    <p>Staking Pools+ is a very exclusive offering and only opened to serious and existing Defix Funds Management Program investors.</p>
     </div>
     </div>
     </div>
@@ -1258,7 +1258,7 @@ return [
     <li>6 months</li>
     <li>12 months</li>
     </ul>
-    <img class="stock0-faq-img" src="../../../public/images/VexStocks_Summary.png" alt="stockimg" style="max-width: 100%; max-height: 100%;">
+    <img class="stock0-faq-img" src="../../../public/images/Staking Pools_Summary.png" alt="stockimg" style="max-width: 100%; max-height: 100%;">
     
     <p>The longer the investment period, the higher profit percentage will be given to the investor. The company will also bear more loss percentage in a longer investment period.</p>
     </div>
@@ -1300,7 +1300,7 @@ return [
     </div>
     <div id="collapse9" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>Over time, the value of individual stock in a diversified portfolio moves up and down, drifting away from their target weights. Our system takes into account market movements, predictions and our preset risk management score to close open trades and open new ones automatically. The re-balancing mechanism closes and opens positions periodically, to keep the asset allocation ratio, and maintain the VexStocks+ strategy.</p>
+    <p>Over time, the value of individual stock in a diversified portfolio moves up and down, drifting away from their target weights. Our system takes into account market movements, predictions and our preset risk management score to close open trades and open new ones automatically. The re-balancing mechanism closes and opens positions periodically, to keep the asset allocation ratio, and maintain the Staking Pools+ strategy.</p>
     </div>
     </div>
     </div>
@@ -1313,7 +1313,7 @@ return [
     </div>
     <div id="collapse10" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>Your existing network is unaffected but enhanced with this new program. You can still use your existing network and every investor into VexStocks+ in your network will be counted as sales which helps your rankings.</p>
+    <p>Your existing network is unaffected but enhanced with this new program. You can still use your existing network and every investor into Staking Pools+ in your network will be counted as sales which helps your rankings.</p>
     </div>
     </div>
     </div>
@@ -1326,7 +1326,7 @@ return [
     </div>
     <div id="collapse11" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>It is not possible to close individual positions within the VexStocks+. You would need to close the investment completely.</p>
+    <p>It is not possible to close individual positions within the Staking Pools+. You would need to close the investment completely.</p>
     </div>
     </div>
     </div>
@@ -1366,12 +1366,12 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link" data-toggle="collapse" href="#collapse14">
-    14. What factors do you take into account when re-balancing VexStocks+?
+    14. What factors do you take into account when re-balancing Staking Pools+?
     </a>
     </div>
     <div id="collapse14" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>Over time, the value of individual ETFs in a diversified portfolio moves up and down, drifting away from their target weights. For example, over the long term, stocks generally rise faster than ETFs, so the stock portion of your portfolio will go up relative to the ETF portion. The re-balancing mechanism closes and opens positions periodically, to keep the asset allocation ratio, and maintain the VexStocks+ strategy.</p>
+    <p>Over time, the value of individual ETFs in a diversified portfolio moves up and down, drifting away from their target weights. For example, over the long term, stocks generally rise faster than ETFs, so the stock portion of your portfolio will go up relative to the ETF portion. The re-balancing mechanism closes and opens positions periodically, to keep the asset allocation ratio, and maintain the Staking Pools+ strategy.</p>
     </div>
     </div>
     </div>
@@ -1407,11 +1407,11 @@ return [
     
     ',
     // Stock FAQ ends
-    'stock_faq_title' => 'VexStocks+ Câu hỏi thường gặp',
-    'stock_request_submited_review' => 'Khoản đầu tư của bạn vào VexStocks + thành công',
+    'stock_faq_title' => 'Staking Pools+ Câu hỏi thường gặp',
+    'stock_request_submited_review' => 'Khoản đầu tư của bạn vào Staking Pools + thành công',
     'stock_wallet_tnc' => '<ul class="dis"><li> Bạn có thể chuyển số tiền này vào ví tiền quỹ của bạn hoặc ví rút tiền.</li><li> Việc chuyển tiền này là không thể đảo ngược, vì vậy vui lòng xem xét trước khi gửi yêu cầu.</li></ul>', 
     'investors' => 'Các nhà đầu tư',
-    'stock_investment' => 'VexStocks+ Đầu tư',
+    'stock_investment' => 'Staking Pools+ Đầu tư',
     'no_transaction_found' => 'Không giao dịch được tìm thấy!',
     'transaction_approved' => 'Giao dịch đã được phê duyệt. Bạn không thể hủy bỏ yêu cầu.',
     'transaction_already_cancelled' => 'Giao dịch đã bị hủy bỏ. ',

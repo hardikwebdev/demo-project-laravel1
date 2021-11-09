@@ -703,7 +703,7 @@ return [
     'industry_tools' => 'เครื่องมืออุตสาหกรรม',
     'industry_tool_iframe' => 'https://www.youtube.com/embed/mXuR_SRP-XI',
     'footer_desc'=>'<p><strong>คำแนะนำทั่วไป:</strong> ข้อมูลทั้งหมดในเว็บไซต์นี้เป็นคำแนะนำทั่วไปเท่านั้น เราขอแนะนำอย่างยิ่งให้คุณพิจารณาคำแนะนำเกี่ยวกับวัตถุประสงค์ทางการเงินสถานการณ์และความต้องการของคุณ Defix Group Limited ไม่รับประกันความถูกต้องและครบถ้วนและไม่รับผิดชอบต่อข้อผิดพลาดในการส่งข้อมูลจริงหรือการวิเคราะห์ ความคิดเห็นในเว็บไซต์นี้เป็นคำพิจารณาปัจจุบันของผู้ออกซึ่งอาจมีการเปลี่ยนแปลงโดยไม่ต้องแจ้งให้ทราบล่วงหน้า </p><p><strong>การเปิดเผยความเสี่ยงทางกฎหมาย: </strong> โปรดทราบว่าอัตราแลกเปลี่ยนเงินตราต่างประเทศอยู่ในระดับสูง มีความเสี่ยงและอาจไม่เหมาะสำหรับนักลงทุนทุกคน เลเวอเรจระดับสูงสามารถทำงานกับคุณได้เช่นเดียวกับคุณ ก่อนตัดสินใจลงทุนในการแลกเปลี่ยนเงินตราต่างประเทศคุณควรพิจารณาวัตถุประสงค์การลงทุนระดับประสบการณ์และความเสี่ยง มีความเป็นไปได้อยู่ว่าคุณสามารถสูญเสียเงินลงทุนเริ่มแรกบางส่วนหรือทั้งหมดและดังนั้นคุณไม่ควรลงทุนเงินที่คุณไม่สามารถจะสูญเสียได้ คุณควรตระหนักถึงความเสี่ยงทั้งหมดที่เกี่ยวข้องกับการซื้อขายแลกเปลี่ยนเงินตราต่างประเทศและขอคำแนะนำจากที่ปรึกษาทางการเงินอิสระ </p><p><strong>ภูมิภาคที่ถูก จำกัด:</strong>Defix Group Limited ไม่ได้ให้บริการสำหรับผู้อยู่อาศัย ในบางประเทศเช่น อิหร่าน คิวบา ซูดาน ซีเรีย และเกาหลีเหนือ',
-    'footer_copyrights' => 'สงวนลิขสิทธิ์© '.date('Y').' Defix Group Limited ดำเนินงานในฐานะ Vextrade',
+    'footer_copyrights' => 'สงวนลิขสิทธิ์© '.date('Y').' Defix Group Limited ดำเนินงานในฐานะ DefixFinance',
     'login_footer_desc'=>'<p>General Advice: All information in this website is of general advise only. We strongly advise that you consider the advise in regards to your financial objectives, situation and needs. Defix makes no guarantee of its accuracy and completeness and is not responsible for errors of transmission of factual or analytical data. The opinions in this website constitute the present judgment of the issuer, which is subject to change without notice.<br><br>Legal Risk Disclosure: Please note that foreign exchange on margin carries a high level of risk, and may not be suitable for all investors. The high degree of leverage can work against you as well as for you. Before deciding to invest in foreign exchange you should carefully consider your investment objectives, level of experience and risk appetite. The possibility exists that you could sustain a loss of some or all of your initial investment and therefore you should not invest money that you cannot afford to lose. You should be aware of all the risks associated with foreign exchange trading, and seek advice from an independent financial advisor.<br><br>Restricted Regions: Defix does not provide services for the residents of certain countries, such as Iran, Cuba, Sudan, Syria and North Korea.</p>',
     'privacy_policy_label'=>'นโยบายความเป็นส่วนตัว',
     'terms_and_condition'=>'ข้อกำหนดการใช้งาน',
@@ -1122,7 +1122,7 @@ return [
     'i_agree_with_terms' => 'ฉันยอมรับและตกลงที่จะผูกพันตาม <a href="#link1" target="_blank" class="cus-light-green" style="text-decoration:underline">ข้อตกลงและเงื่อนไข </a> และ <a href="#link2" target="_blank" class="cus-light-green" style="text-decoration:underline">การเปิดเผยความเสี่ยง</a> ด้วยการยอมรับการยอมรับดังกล่าวในระหว่างขั้นตอนการลงทุน',
     'please_accept_aggrement' => 'โปรดยอมรับข้อตกลง',
     'end_period' => 'ระยะเวลาสิ้นสุดของคุณคือ: :date',
-    'plan_expired' => 'คุณใน :Month, VexStocks+ ลงทุนแล้ว (:Date) ของ :Stock จะหมดอายุ.<br><a href="#link" class="changePlanEx" data-id="#changePlan" style="text-decoration:underline;"> คลิกที่นี่</a> ดำเนินการเพิ่มเติมสำหรับการลงทุน Vexstocks + ของคุณ',
+    'plan_expired' => 'คุณใน :Month, Staking Pools+ ลงทุนแล้ว (:Date) ของ :Stock จะหมดอายุ.<br><a href="#link" class="changePlanEx" data-id="#changePlan" style="text-decoration:underline;"> คลิกที่นี่</a> ดำเนินการเพิ่มเติมสำหรับการลงทุน Staking Pools + ของคุณ',
     'change_plan' => 'เปลี่ยนระยะเวลาการลงทุน',
     'expired_on' => 'Expired On',
     'success_investment_period_change' => 'ระยะเวลาการลงทุนปรับปรุงเรียบร้อยแล้ว',
@@ -1130,12 +1130,12 @@ return [
     'investment_plan' => 'แผนลงทุน',
     'investment_expiry' => 'การลงทุนที่หมดอายุ',
     'close_investment_popup' => 'แผนการลงทุนของคุณยังคงถูกต้องคุณไม่มีสิทธิ์ที่จะถอนผลกำไรการลงทุนใด ๆ',
-    'stock_popup_title' => 'VEXSTOCKS + การแจ้งเตือน',
-    'investment_desc' => 'คุณ Vexstocks ลงทุน + หมดอายุ โปรดภายในเจ็ดวันและยังคงเลือกแผนการลงทุนใหม่หรือปิดการลงทุนของคุณ. ',
+    'stock_popup_title' => 'Staking Pools + การแจ้งเตือน',
+    'investment_desc' => 'คุณ Staking Pools ลงทุน + หมดอายุ โปรดภายในเจ็ดวันและยังคงเลือกแผนการลงทุนใหม่หรือปิดการลงทุนของคุณ. ',
     'change_plan_txt' => 'ดำเนินการต่อการลงทุนแผนใหม่:',
     'close_investment' => 'ปิดการลงทุน',
-    'capital_investment_desc' => 'คุณยังคงลงทุน VexStocks + ก่อนที่คุณจะดึงเงินเต็มจำนวนเงินต้นใกล้ VexStocks ทั้งหมด + การลงทุน.<br><a href="#link" style="text-decoration:underline;">คลิกที่นี่เพื่อกลับไปยัง VexStocks + การลงทุน</a>',
-    'capital_investment_descin' => 'คุณยังคงลงทุน VexStocks + ก่อนที่คุณจะดึงเงินเต็มจำนวนเงินต้นใกล้ VexStocks ทั้งหมด + การลงทุน.',
+    'capital_investment_desc' => 'คุณยังคงลงทุน Staking Pools + ก่อนที่คุณจะดึงเงินเต็มจำนวนเงินต้นใกล้ Staking Pools ทั้งหมด + การลงทุน.<br><a href="#link" style="text-decoration:underline;">คลิกที่นี่เพื่อกลับไปยัง Staking Pools + การลงทุน</a>',
+    'capital_investment_descin' => 'คุณยังคงลงทุน Staking Pools + ก่อนที่คุณจะดึงเงินเต็มจำนวนเงินต้นใกล้ Staking Pools ทั้งหมด + การลงทุน.',
     'equity' => 'คุณแน่ใจหรือว่าต้องการปิด?',
         // Stock FAQ starts
     'stockfaq'=> '
@@ -1144,7 +1144,7 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link" data-toggle="collapse" href="#collapse1" aria-expanded="true">
-    1. What is the difference between Defix funds management program and VexStocks+? 
+    1. What is the difference between Defix funds management program and Staking Pools+? 
     </a>
     </div>
     <div id="collapse1" class="collapse show" data-parent="#accordion">
@@ -1179,7 +1179,7 @@ return [
     </div>
     <div id="collapse3" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>VexStocks+ is a very exclusive offering and only opened to serious and existing Defix Funds Management Program investors.</p>
+    <p>Staking Pools+ is a very exclusive offering and only opened to serious and existing Defix Funds Management Program investors.</p>
     </div>
     </div>
     </div>
@@ -1232,7 +1232,7 @@ return [
     <li>6 months</li>
     <li>12 months</li>
     </ul>
-    <img class="stock0-faq-img" src="../../../public/images/VexStocks_Summary.png" alt="stockimg" style="max-width: 100%; max-height: 100%;">
+    <img class="stock0-faq-img" src="../../../public/images/Staking Pools_Summary.png" alt="stockimg" style="max-width: 100%; max-height: 100%;">
     
     <p>The longer the investment period, the higher profit percentage will be given to the investor. The company will also bear more loss percentage in a longer investment period.</p>
     </div>
@@ -1274,7 +1274,7 @@ return [
     </div>
     <div id="collapse9" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>Over time, the value of individual stock in a diversified portfolio moves up and down, drifting away from their target weights. Our system takes into account market movements, predictions and our preset risk management score to close open trades and open new ones automatically. The re-balancing mechanism closes and opens positions periodically, to keep the asset allocation ratio, and maintain the VexStocks+ strategy.</p>
+    <p>Over time, the value of individual stock in a diversified portfolio moves up and down, drifting away from their target weights. Our system takes into account market movements, predictions and our preset risk management score to close open trades and open new ones automatically. The re-balancing mechanism closes and opens positions periodically, to keep the asset allocation ratio, and maintain the Staking Pools+ strategy.</p>
     </div>
     </div>
     </div>
@@ -1287,7 +1287,7 @@ return [
     </div>
     <div id="collapse10" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>Your existing network is unaffected but enhanced with this new program. You can still use your existing network and every investor into VexStocks+ in your network will be counted as sales which helps your rankings.</p>
+    <p>Your existing network is unaffected but enhanced with this new program. You can still use your existing network and every investor into Staking Pools+ in your network will be counted as sales which helps your rankings.</p>
     </div>
     </div>
     </div>
@@ -1300,7 +1300,7 @@ return [
     </div>
     <div id="collapse11" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>It is not possible to close individual positions within the VexStocks+. You would need to close the investment completely.</p>
+    <p>It is not possible to close individual positions within the Staking Pools+. You would need to close the investment completely.</p>
     </div>
     </div>
     </div>
@@ -1340,12 +1340,12 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link" data-toggle="collapse" href="#collapse14">
-    14. What factors do you take into account when re-balancing VexStocks+?
+    14. What factors do you take into account when re-balancing Staking Pools+?
     </a>
     </div>
     <div id="collapse14" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>Over time, the value of individual ETFs in a diversified portfolio moves up and down, drifting away from their target weights. For example, over the long term, stocks generally rise faster than ETFs, so the stock portion of your portfolio will go up relative to the ETF portion. The re-balancing mechanism closes and opens positions periodically, to keep the asset allocation ratio, and maintain the VexStocks+ strategy.</p>
+    <p>Over time, the value of individual ETFs in a diversified portfolio moves up and down, drifting away from their target weights. For example, over the long term, stocks generally rise faster than ETFs, so the stock portion of your portfolio will go up relative to the ETF portion. The re-balancing mechanism closes and opens positions periodically, to keep the asset allocation ratio, and maintain the Staking Pools+ strategy.</p>
     </div>
     </div>
     </div>
@@ -1381,11 +1381,11 @@ return [
     
     ',
     // Stock FAQ ends
-    'stock_faq_title' => 'VexStocks+ คำถามที่พบบ่อย',
-    'stock_request_submited_review' => 'การลงทุนใน VexStocks + ของคุณประสบความสำเร็จ.',
+    'stock_faq_title' => 'Staking Pools+ คำถามที่พบบ่อย',
+    'stock_request_submited_review' => 'การลงทุนใน Staking Pools + ของคุณประสบความสำเร็จ.',
     'stock_wallet_tnc' => '<ul class="dis"><li>คุณสามารถโอนเงินจำนวนนี้ไปยังกระเป๋าเงินทุนหรือกระเป๋าเงินถอน</li><li>การโอนนี้ไม่สามารถย้อนกลับได้ โปรดพิจารณาก่อนส่งคำขอ</li></ul>', 
     'investors' => 'นักลงทุน',
-    'stock_investment' => 'VexStocks+ การลงทุน',
+    'stock_investment' => 'Staking Pools+ การลงทุน',
     'no_transaction_found' => 'ไม่มีการทำธุรกรรมพบ!',
     'transaction_approved' => 'การทำธุรกรรมได้รับการอนุมัติแล้ว คุณไม่สามารถยกเลิกคำขอ.',
     'transaction_already_cancelled' => 'การทำธุรกรรมการยกเลิกแล้ว ',

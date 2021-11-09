@@ -1120,7 +1120,7 @@ return [
   'i_agree_with_terms' => '我接受并同意受其约束 <a href="#link1" target="_blank" class="cus-light-green" style="text-decoration:underline">附带条约 </a> 和 <a href="#link2" target="_blank" class="cus-light-green" style="text-decoration:underline">风险披露</a> 通过在投资过程承认这种接受',
   'please_accept_aggrement' => '请接受协议',
   'end_period' => '你的有效期限是: :date',
-  'plan_expired' => '您于 :Month, VexStocks+ 所投资 (:Date) 的 :Stock 已到期.<br><a  href="#link" class="changePlanEx" data-id="#changePlan" style="text-decoration:underline;"> 请点击此处</a> 为您的Vexstocks+ 投资采取进一步的行动 ',
+  'plan_expired' => '您于 :Month, Staking Pools+ 所投资 (:Date) 的 :Stock 已到期.<br><a  href="#link" class="changePlanEx" data-id="#changePlan" style="text-decoration:underline;"> 请点击此处</a> 为您的Staking Pools+ 投资采取进一步的行动 ',
   'change_plan' => '改变投资期',
   'expired_on' => 'Expired On',
   'success_investment_period_change' => '投资期成功更新',
@@ -1128,12 +1128,12 @@ return [
   'investment_plan' => '投资计划',
   'investment_expiry' => '投资到期',
   'close_investment_popup' => '你的投资计划仍然有效，你无法提取任何投资收益。',
-  'stock_popup_title' => 'VEXSTOCKS +提醒',
-  'investment_desc' => '你Vexstocks +投资已到期。 请在7天之内，选择并继续新的投资计划或关闭您的投资. ',
+  'stock_popup_title' => 'Staking Pools +提醒',
+  'investment_desc' => '你Staking Pools +投资已到期。 请在7天之内，选择并继续新的投资计划或关闭您的投资. ',
   'change_plan_txt' => '继续与新的投资计划:',
   'close_investment' => '关闭投资',
-  'capital_investment_desc' => '您尚有VexStocks +投资。请在提取全额本金之前，关闭所有VexStocks +投资.<br><a href="#link" style="text-decoration:underline;">点击此处返回VexStocks +投资</a>',
-  'capital_investment_descin' => '您尚有VexStocks +投资。请在提取全额本金之前，关闭所有VexStocks +投资.',
+  'capital_investment_desc' => '您尚有Staking Pools +投资。请在提取全额本金之前，关闭所有Staking Pools +投资.<br><a href="#link" style="text-decoration:underline;">点击此处返回Staking Pools +投资</a>',
+  'capital_investment_descin' => '您尚有Staking Pools +投资。请在提取全额本金之前，关闭所有Staking Pools +投资.',
   'equity' => '你确定要关闭？',
         // Stock FAQ starts
   'stockfaq'=> '
@@ -1142,12 +1142,12 @@ return [
   <div class="card">
   <div class="card-header">
   <a class="collapsed card-link" data-toggle="collapse" href="#collapse1" aria-expanded="true">
-  1. Defix基金管理计划和VexStocks+有什么区别？
+  1. Defix基金管理计划和Staking Pools+有什么区别？
   </a>
   </div>
   <div id="collapse1" class="collapse show" data-parent="#accordion">
   <div class="card-body">
-  <p>Defix基金管理计划面向在较短时间内寻求较高回报的投资者，因此我们只在波动性较大的外汇市场进行交易。VexStocks+拥有传统上更长期的资产，如股票和ETF，因此更适合长期投资者。</p>
+  <p>Defix基金管理计划面向在较短时间内寻求较高回报的投资者，因此我们只在波动性较大的外汇市场进行交易。Staking Pools+拥有传统上更长期的资产，如股票和ETF，因此更适合长期投资者。</p>
 
   <p>这两个精彩的计划仍然在我们受欢迎的IB节目，提供各种额外的收入介绍。</p>
   </div>
@@ -1177,7 +1177,7 @@ return [
   </div>
   <div id="collapse3" class="collapse" data-parent="#accordion">
   <div class="card-body">
-  <p>VexStocks+是一个非常排他性的产品，只对认真的和现有的Defix基金管理计划投资者开放。</p>
+  <p>Staking Pools+是一个非常排他性的产品，只对认真的和现有的Defix基金管理计划投资者开放。</p>
   </div>
   </div>
   </div>
@@ -1230,7 +1230,7 @@ return [
   <li>6个月</li>
   <li>12个月</li>
   </ul>
-  <img class="stock0-faq-img" src="../../../public/images/VexStocks_Summary.png" alt="stockimg" style="max-width: 100%; max-height: 100%;">
+  <img class="stock0-faq-img" src="../../../public/images/Staking Pools_Summary.png" alt="stockimg" style="max-width: 100%; max-height: 100%;">
   
   <p>投资期限越长，给予投资者的利润率就越高。在较长的投资期内，公司还将承担较大的亏损比例。</p>
   </div>
@@ -1272,7 +1272,7 @@ return [
   </div>
   <div id="collapse9" class="collapse" data-parent="#accordion">
   <div class="card-body">
-  <p>随着时间的推移，多元化投资组合中的个股价值会上下波动，偏离其目标权重。我们的系统会考虑市场走势、预测和我们预设的风险管理分数，以自动关闭未平仓交易和打开新交易。重新平衡机制定期关闭和打开头寸，以保持资产配置比率，并维持VexStocks+策略。</p>
+  <p>随着时间的推移，多元化投资组合中的个股价值会上下波动，偏离其目标权重。我们的系统会考虑市场走势、预测和我们预设的风险管理分数，以自动关闭未平仓交易和打开新交易。重新平衡机制定期关闭和打开头寸，以保持资产配置比率，并维持Staking Pools+策略。</p>
   </div>
   </div>
   </div>
@@ -1285,7 +1285,7 @@ return [
   </div>
   <div id="collapse10" class="collapse" data-parent="#accordion">
   <div class="card-body">
-  <p>您的现有网络不受影响，但通过此新程序得到增强。你仍然可以使用你现有的网络和每一个投资者进入VexStocks+在你的网络将被视为销售，这有助于你的级别。</p>
+  <p>您的现有网络不受影响，但通过此新程序得到增强。你仍然可以使用你现有的网络和每一个投资者进入Staking Pools+在你的网络将被视为销售，这有助于你的级别。</p>
   </div>
   </div>
   </div>
@@ -1298,7 +1298,7 @@ return [
   </div>
   <div id="collapse11" class="collapse" data-parent="#accordion">
   <div class="card-body">
-  <p>无法关闭VexStocks+内的单个位置。你需要完全结束投资。</p>
+  <p>无法关闭Staking Pools+内的单个位置。你需要完全结束投资。</p>
   </div>
   </div>
   </div>
@@ -1338,12 +1338,12 @@ return [
   <div class="card">
   <div class="card-header">
   <a class="collapsed card-link" data-toggle="collapse" href="#collapse14">
-  14. 在重新平衡VexStocks+时，您考虑了哪些因素？
+  14. 在重新平衡Staking Pools+时，您考虑了哪些因素？
   </a>
   </div>
   <div id="collapse14" class="collapse" data-parent="#accordion">
   <div class="card-body">
-  <p>随着时间的推移，多元化投资组合中单个etf的价值会上下波动，偏离其目标权重。例如，从长期来看，股票通常比ETF上涨得更快，因此投资组合中的股票部分相对于ETF部分会上涨。重新平衡机制定期关闭和打开头寸，以保持资产配置比率，并维持VexStocks+策略。</p>
+  <p>随着时间的推移，多元化投资组合中单个etf的价值会上下波动，偏离其目标权重。例如，从长期来看，股票通常比ETF上涨得更快，因此投资组合中的股票部分相对于ETF部分会上涨。重新平衡机制定期关闭和打开头寸，以保持资产配置比率，并维持Staking Pools+策略。</p>
   </div>
   </div>
   </div>
@@ -1380,11 +1380,11 @@ return [
   ',
     // Stock FAQ ends
 
-    'stock_faq_title' => 'VexStocks+ 常见问题解答',
-    'stock_request_submited_review' => '您对VexStocks +的投资成功.',
+    'stock_faq_title' => 'Staking Pools+ 常见问题解答',
+    'stock_request_submited_review' => '您对Staking Pools +的投资成功.',
     'stock_wallet_tnc' => '<ul class ="dis"> <li>您可以将这笔款项转入您的资金钱包或提款钱包。</li> <li>该笔转账是不可逆的，因此请在提交请求之前考虑一下。</li> </ul>', 
     'investors' => '投资者',
-    'stock_investment' => 'VexStocks+ 投资',
+    'stock_investment' => 'Staking Pools+ 投资',
     'no_transaction_found' => '无交易',
     'transaction_approved' => '交易已获得批准。您不能取消请求。',
     'transaction_already_cancelled' => '交易已经取消。 ',
