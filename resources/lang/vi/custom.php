@@ -13,7 +13,7 @@ return [
     |
     */
     // Login page
-    'welcome_text' => 'Chào mừng đến với Vextrader',
+    'welcome_text' => 'Chào mừng đến với Defix',
     'welcome_text_desc' => 'Đăng nhập vào cổng thông tin của bạn',
     'sign_in' => 'Đăng Nhập',
     'sign_up' => 'Đăng Ký',
@@ -102,11 +102,11 @@ return [
     'share_referral_link' => 'Chia sẻ liên kết giới thiệu',
     'ok' => 'Ok',
     'regi_age_msgs' => 'Thông báo: Giới hạn độ tuổi <br><br>
-    Độ tuổi hợp pháp để mở tài khoản với Vextrader là từ 18 tuổi trở lên. Bất kỳ cá nhân nào dưới 18 tuổi đều được coi là trẻ vị thành niên và không được phép mở tài khoản.<br><br>
+    Độ tuổi hợp pháp để mở tài khoản với Defix là từ 18 tuổi trở lên. Bất kỳ cá nhân nào dưới 18 tuổi đều được coi là trẻ vị thành niên và không được phép mở tài khoản.<br><br>
     Cảm ơn',
     'points_warning' => 'Để mở khóa các tính năng của Đăng nhập thành viên, vui lòng tiến hành cấp vốn cho tài khoản.',
     'click_here_add_points'=> 'Bấm vào đây để cấp vốn trong tài khoản của bạn.',
-    'buy_package_message'=> 'Vui lòng mua một gói để kích hoạt tài khoản của bạn và truy cập tất cả các tính năng của Vextrader',
+    'buy_package_message'=> 'Vui lòng mua một gói để kích hoạt tài khoản của bạn và truy cập tất cả các tính năng của Defix',
     'click_here_add_package'=> 'Bấm vào đây để thêm gói.',
     'verify' => 'Xác minh',
     /*Registration*/
@@ -126,14 +126,14 @@ return [
     'repeat_password' => 'Lặp lại mật khẩu',
     'enter_your_password_again' => 'Nhập lại mật khẩu của bạn',
     'user_agreement' => 'Thỏa thuận của người dùng',
-    'user_agreement_desc' => '<p> Vextrader được cấp phép và quản lý bởi Trung tâm phân tích báo cáo và giao dịch tài chính Canada (FINTRAC) tại Canada. Số giấy phép MSB: M20464600</p><p> Kinh doanh ngoại hối, kim loại quý và bất kỳ sản phẩm nào khác có rủi ro cao đối với vốn của bạn và bạn chỉ nên giao dịch hoặc đầu tư với số tiền bạn có thể đủ khả năng để mất. Chúng tôi khuyến khích bạn xem xét các mục tiêu đầu tư, khả năng chịu rủi ro và kinh nghiệm giao dịch của bạn khi quyết định giao dịch trong Vextrader. Có khả năng là bạn có thể mất một phần hoặc toàn bộ khoản đầu tư ban đầu của mình và do đó bạn không nên đầu cơ, đầu tư hoặc phòng ngừa với số vốn bạn không đủ khả năng để mất, đó là vay hoặc sử dụng khoản khẩn cấp hoặc cần thiết cho sinh hoạt cá nhân hoặc gia đình. Giao dịch ngoại hối có thể không phù hợp với tất cả các nhà đầu tư, vì vậy hãy đảm bảo rằng bạn hiểu đầy đủ các rủi ro liên quan và tìm kiếm lời khuyên độc lập nếu bạn có bất kỳ nghi ngờ nào. Không có gì đảm bảo hiệu suất trong quá khứ sẽ là dấu hiệu cho kết quả trong tương lai. Thông tin trên trang web này có thể được truy cập trên toàn thế giới tuy nhiên nó không hướng đến cư dân ở bất kỳ quốc gia hoặc khu vực tài phán nào mà việc phân phối hoặc sử dụng đó sẽ trái với luật pháp hoặc quy định của địa phương.</p>',
+    'user_agreement_desc' => '<p> Defix được cấp phép và quản lý bởi Trung tâm phân tích báo cáo và giao dịch tài chính Canada (FINTRAC) tại Canada. Số giấy phép MSB: M20464600</p><p> Kinh doanh ngoại hối, kim loại quý và bất kỳ sản phẩm nào khác có rủi ro cao đối với vốn của bạn và bạn chỉ nên giao dịch hoặc đầu tư với số tiền bạn có thể đủ khả năng để mất. Chúng tôi khuyến khích bạn xem xét các mục tiêu đầu tư, khả năng chịu rủi ro và kinh nghiệm giao dịch của bạn khi quyết định giao dịch trong Defix. Có khả năng là bạn có thể mất một phần hoặc toàn bộ khoản đầu tư ban đầu của mình và do đó bạn không nên đầu cơ, đầu tư hoặc phòng ngừa với số vốn bạn không đủ khả năng để mất, đó là vay hoặc sử dụng khoản khẩn cấp hoặc cần thiết cho sinh hoạt cá nhân hoặc gia đình. Giao dịch ngoại hối có thể không phù hợp với tất cả các nhà đầu tư, vì vậy hãy đảm bảo rằng bạn hiểu đầy đủ các rủi ro liên quan và tìm kiếm lời khuyên độc lập nếu bạn có bất kỳ nghi ngờ nào. Không có gì đảm bảo hiệu suất trong quá khứ sẽ là dấu hiệu cho kết quả trong tương lai. Thông tin trên trang web này có thể được truy cập trên toàn thế giới tuy nhiên nó không hướng đến cư dân ở bất kỳ quốc gia hoặc khu vực tài phán nào mà việc phân phối hoặc sử dụng đó sẽ trái với luật pháp hoặc quy định của địa phương.</p>',
     'aml_policy_statement' => 'Tuyên bố chính sách AML',
     'risk_disclosure_statement' => 'Tuyên bố công bố rủi ro',
     'POA' => 'POA', 
     'managed_account' => 'Tài khoản được quản lý', 
     'signature' => 'Chữ ký',
     'signature_fullname'=> 'Chữ ký của bạn (Tên đầy đủ)',
-    'terms_desc'=> 'Tôi hiểu rằng với tư cách là một khách hàng của Vextrader, tôi có trách nhiệm xem xét tất cả các thông tin cần thiết về Điều khoản và Điều kiện của Vextrader. Tôi nhận thức được những rủi ro liên quan đến giao dịch và sẽ tìm kiếm lời khuyên cũng như giáo dục thêm về việc bắt đầu bất kỳ hoạt động giao dịch nào.',
+    'terms_desc'=> 'Tôi hiểu rằng với tư cách là một khách hàng của Defix, tôi có trách nhiệm xem xét tất cả các thông tin cần thiết về Điều khoản và Điều kiện của Defix. Tôi nhận thức được những rủi ro liên quan đến giao dịch và sẽ tìm kiếm lời khuyên cũng như giáo dục thêm về việc bắt đầu bất kỳ hoạt động giao dịch nào.',
     'already_have_account' => 'Bạn đã tài khoản chưa?',
     'sign_in' => 'Đăng nhập',
     /** Upload Proof */
@@ -156,7 +156,7 @@ return [
     'fund_trans'=> 'Chỉ chuyển tiền quỹ',
     'downlines_username' => 'Tên người dùng thành viên',
     'verify_username' => 'Xác minh tên người dùng',
-    'transfer_downlines_OTM' => 'Chuyển sang ví Vextrader của thành viên',
+    'transfer_downlines_OTM' => 'Chuyển sang ví Defix của thành viên',
     'total_deposit' => 'Tổng tiền gửi',
     'funds_wallet' => 'Ví tiền quỹ',
     'profile_detail' => 'Chi tiết hồ sơ',
@@ -180,7 +180,7 @@ return [
     'clicking_proceed_understand_payment_proof_editable_submission' => 'Bằng cách nhấp vào tiến hành, tôi sẽ hiểu rằng số tiền tôi đã nhập và chứng minh thanh toán tôi đã tải lên là chính xác và không thể chỉnh sửa sau khi gửi',
     'fund_top_funds_text' => '<p><strong>:ngày</strong><br><strong>RMB</strong><br><strong>账户名称 :</strong> :tên_tài_khoản<br><strong>银行名称 :</strong> :chủ_tài_khoản<br><strong>银行账号 :</strong>:số_tài_khoản<br><strong>开户网点 :</strong> :chi_nhánh_tài_khoản</p>',
     'fund_top_funds_text_1' => '<p><strong>(USD 1 : RMB  :số lượng)</strong><br><strong>(USD 1 : NTD :ngân hàng_ntd_tỷ_giá)</strong><br><strong>(USD 1 : HKD  :ngân_hàng _hkd_số_lượng)</strong><br><strong>(USD 1 : YEN 112)</strong><br><strong>(USD 1 : USDT :ngân_hàng_usdt_số_lượng)</strong></p>',
-    'st_fund_top_funds_text'=> '<p> <strong> Tài  khoản PT Vextrader Kapital </strong> <p class="m-b-xs"><strong>:ngày </strong></p><p class="m-b-xs"><strong>IDR</strong></p><p class="m-b-xs"><strong>账户名称 :</strong>: tên_tài_khoản</p><p class="m-b-xs"><strong>银行名称 :</strong> : chủ_tài_khoản</p><p class="m-b-xs"><strong>银行账号 :</strong>: số_tài_khoản </p><p class="m-b-xs"><strong>开户网点 :</strong> : chi_nhánh_tài_khoản</p><p class="m-b-xs"><strong>SWIFT :</strong> Tháp  NISPIDJA</p><p class="m-b-xs"><strong>(USD 1 : IDR 14,153.80)</strong></p>',
+    'st_fund_top_funds_text'=> '<p> <strong> Tài  khoản PT Defix Kapital </strong> <p class="m-b-xs"><strong>:ngày </strong></p><p class="m-b-xs"><strong>IDR</strong></p><p class="m-b-xs"><strong>账户名称 :</strong>: tên_tài_khoản</p><p class="m-b-xs"><strong>银行名称 :</strong> : chủ_tài_khoản</p><p class="m-b-xs"><strong>银行账号 :</strong>: số_tài_khoản </p><p class="m-b-xs"><strong>开户网点 :</strong> : chi_nhánh_tài_khoản</p><p class="m-b-xs"><strong>SWIFT :</strong> Tháp  NISPIDJA</p><p class="m-b-xs"><strong>(USD 1 : IDR 14,153.80)</strong></p>',
     'st_fund_top_funds_text_1' => '<p> <strong> Tài khoản Trung Quốc</strong> <p class="m-b-xs"><strong>2019-09-11</strong></p><p class="m-b-xs"><strong>RMB</strong></p><p class="m-b-xs"><strong>账户名称 :</strong> : tên_tài_khoản</p><p class="m-b-xs"><strong>银行名称 :</strong> : chủ_tài_khoản</p><p class="m-b-xs"><strong>银行账号 :</strong> : số_tài_khoản </p><p class="m-b-xs"><strong>开户网点 :</strong> : chi_nhánh_tài_khoản </p><p class="m-b-xs"><strong>(USD 1 : RMB :số lượng)</strong></p><p class="m-b-xs"><strong>(USD 1 : NTD :ntd_ số lượng)</strong></p><p class="m-b-xs"><strong>(USD 1 : HKD :hkd_ số lượng)</strong></p><p class="m-b-xs"><strong>(USD 1 : YEN  :yen_ số lượng)</strong></p><p class="m-b-xs"><strong>(USD 1 : USDT :usd_ số lượng </strong></p>',
     'upload_bank_proof_img' => 'Vui lòng tải lên chứng minh ngân hàng bằng pdf, jpeg, jpg, png',
     'funds_balance' => 'Số dư quỹ',
@@ -222,15 +222,15 @@ return [
     'transfer_to_withdrawal_wallet' => 'Chuyển sang ví rút tiền',
     'transfer_mt_topup_wallet' => 'Chuyển sang Ví nạp MT4',
     'transfer_funds_wallet' => 'Chuyển vào ví quỹ',
-    'transfer_OTM_wallet' => 'Chuyển sang ví Vextrader',
+    'transfer_OTM_wallet' => 'Chuyển sang ví Defix',
     'pips_rebate_history' => 'Lịch sử giảm giá lô',
     'pips_rebate_wallet_transfer_history' => 'Lịch sử chuyển tiền ví giảm giá lô',
     'withdrawal_wallet' => 'Ví rút tiền',
-    'OTM_wallet' => 'Ví Vextrader',
-    'OTM_balance' => 'Số dư Vextrader',
+    'OTM_wallet' => 'Ví Defix',
+    'OTM_balance' => 'Số dư Defix',
     /**pips rebate long text  */
-    'pips_wallet_desc' => '<p> Ví giảm giá lô cho phép bạn xem tất cả thu nhập giảm giá pip của bạn từ giao dịch Vextrader. </ p>
-    <p> Bạn có thể chuyển thu nhập của mình sang Ví quỹ, Ví rút tiền & Ví Vextrader. </ p> ',
+    'pips_wallet_desc' => '<p> Ví giảm giá lô cho phép bạn xem tất cả thu nhập giảm giá pip của bạn từ giao dịch Defix. </ p>
+    <p> Bạn có thể chuyển thu nhập của mình sang Ví quỹ, Ví rút tiền & Ví Defix. </ p> ',
     'withdrawl_pips_rebate_tnc' =>' <ul class = "dis"> <li> Chuyển tiền hoa hồng của bạn vào ví Rút tiền cho phép bạn gửi yêu cầu rút tiền. </ li> <li> Bất kỳ khoản tiền quỹ / hoa hồng nào đã được chuyển vào Ví rút tiền là không thể đảo ngược. </ li> </ ul> ',
     'st_withdrawl_pips_rebate_tnc' => '<ul class = "dis"> <li> Chuyển tiền hoa hồng của bạn vào ví Tự rút tiền cho phép bạn gửi yêu cầu rút tiền. </ li> <li> Bất kỳ khoản tiền quỹ / hoa hồng nào đã được chuyển đến Ví rút tiền tự giao dịch là không thể đảo ngược. </ Li> </ ul> ',
     'fund_tnc' => '<ul class = "dis"> <li> Chuyển tiền hoa hồng của bạn vào ví tiền cho phép bạn mua / nâng cấp gói. </ li> <li> Bất kỳ khoản tiền quỹ / hoa hồng nào đã được chuyển vào Ví tiền là không thể đảo ngược. </ li> </ ul> ',
@@ -239,8 +239,8 @@ return [
     <li> Bất kỳ khoản tiền quỹ / hoa hồng nào đã được chuyển sang Ví tiền nạp MT4 đều không thể đảo ngược. </ li>
     </ul>',
     'otm_pips_rebate_tnc' => '<ul class="dis">
-    <li> Chuyển tiền quỹ / hoa hồng của bạn vào ví Vextrader cho phép bạn đặt khách sạn tại trang web của Vextrader Hotel. </li>
-    <li> Bất kỳ tiền quỹ / tiền hoa hồng nào đã được chuyển sang Ví Vextrader đều không thể đảo ngược.</li>
+    <li> Chuyển tiền quỹ / hoa hồng của bạn vào ví Defix cho phép bạn đặt khách sạn tại trang web của Defix Hotel. </li>
+    <li> Bất kỳ tiền quỹ / tiền hoa hồng nào đã được chuyển sang Ví Defix đều không thể đảo ngược.</li>
     </ul>',
     /**Lot Cash Wallet */
     'pips_commission' => 'Hoa hồng Lô',
@@ -251,7 +251,7 @@ return [
     /**long text pips commision */
     'pips_commision_wallet_desc' => '<p> Ví tiền mặt lô cho phép bạn xem tất cả thu nhập từ hoa hồng từ tuyến dưới của bạn. </p>
     <p> Thu nhập của bạn dựa trên xếp hạng của bạn, kiếm tiền hoa hồng từ giảm giá lô tuyến dưới của bạn; thứ hạng của bạn càng cao, tỷ lệ phần trăm bạn có thể kiếm được từ tuyến dưới của bạn càng cao. </p>
-    <p> Bạn có thể chuyển thu nhập của mình sang Ví tiền quỹ, Ví rút tiền & Ví Vextrader. </p>',
+    <p> Bạn có thể chuyển thu nhập của mình sang Ví tiền quỹ, Ví rút tiền & Ví Defix. </p>',
     /**Overriding Wallet */
     'overriding' => 'ghi đè',
     'over_riding' => 'Ghi đè',
@@ -261,7 +261,7 @@ return [
     'overriding_wallet_transfer_history' => 'Ghi đè lịch sử chuyển ví',
     /**long text overriding */
     'overriding_wallet_desc' => '<p> Ghi đè ví cho phép bạn xem tất cả thu nhập từ hoa hồng từ gói tuyến dưới đã mua. (Phân phối 30 ngày một lần từ gói khách hàng đã mua / nâng cấp.)</p>
-    <p> Bạn có thể chuyển thu nhập của mình sang Ví tiền quỹ, Ví rút tiền & Ví Vextrader.</p>',
+    <p> Bạn có thể chuyển thu nhập của mình sang Ví tiền quỹ, Ví rút tiền & Ví Defix.</p>',
     
     /** Leader bonus wallet **/
     'leader_bonus' => 'Tiền thưởng thủ lĩnh',
@@ -271,7 +271,7 @@ return [
     'leader_bonus_wallet_transfer_history' => 'Lịch sử chuyển tiền thưởng của thủ lĩnh',
     /**Long text  */
     'leader_bon_wallet_desc' => '<p> Ví tiền thưởng thủ  lĩnh cho phép bạn xem tất cả thu nhập từ hoa hồng từ tuyến dưới của bạn.</p>
-    <p> Bạn có thể chuyển thu nhập của mình sang Ví tiền quỹ, Ví rút tiền & Ví Vextrader.</p>',
+    <p> Bạn có thể chuyển thu nhập của mình sang Ví tiền quỹ, Ví rút tiền & Ví Defix.</p>',
     /** Profit sharing Wallet **/
     'profit_sharing' => 'Chia sẻ lợi nhuận',
     'profit_sharing_wallet' => 'Ví chia sẻ lợi nhuận',
@@ -280,7 +280,7 @@ return [
     'profit_sharing_wallet_transfer_history' => 'Lịch sử chuyển tiền chia sẻ lợi nhuận',
     /**long text form profitsharing  */
     'profit_wallet_desc' => '<p> Ví chia sẻ lợi nhuận cho phép bạn xem tất cả thu nhập từ hoa hồng từ tổng số tiền đầu tư của bạn </p>
-    <p>Bạn có thể chuyển thu nhập của mình sang Ví tiền quỹ, Ví rút tiền & Ví Vextrader.</p>',
+    <p>Bạn có thể chuyển thu nhập của mình sang Ví tiền quỹ, Ví rút tiền & Ví Defix.</p>',
 
     /**MT4 Wallet**/ 
     'MT4_wallet' => 'Ví MT4',
@@ -298,8 +298,8 @@ return [
     /**Mt4  long ext  **/
     'mt4_wallet_desc' => '<p> Ví MT4 cho phép bạn gửi yêu cầu chuyển tiền từ tài khoản MT4 của bạn.</p>
     <p> Phê duyệt dựa trên lợi nhuận quản lý quỹ, bất kỳ khoản tiền nào cao hơn lợi nhuận đã nộp sẽ bị từ chối.</p>
-    <p> Bạn có thể chuyển thu nhập của mình sang Ví tiền quỹ, Ví rút tiền & Ví Vextrader. </p>',
-    'request_mt4_terms' => '<ul class="dis"><li> Bạn có thể dễ dàng rút tiền vào Ví MT4 của mình bằng cách sử dụng "Yêu cầu chuyển tiền từ MT4"</li>'.PHP_EOL.'<li> Phê duyệt dựa trên lợi nhuận quản lý quỹ, bất kỳ khoản tiền nào cao hơn lợi nhuận đã nộp sẽ bị từ chối </li>'.PHP_EOL.'<li> Thời gian xử lý ít nhất là 2 ngày làm việc cho yêu cầu chuyển tiền từ MT4 </li>'.PHP_EOL.'<li>60% số tiền được yêu cầu sẽ được ghi có vào Ví MT4 </li>'.PHP_EOL.'<li> Để rút tiền của Ví quỹ  MT4, vui lòng chuyển số tiền được chỉ định sang Ví rút tiền</li>'.PHP_EOL.'<li> Bạn vẫn cần được gửi yêu cầu rút tiền đầy đủ đến support@Vextrader.com và nhận được phản hồi xác nhận trước khi đến trang này để điền vào mẫu này.</li>'.PHP_EOL.'<li> Đối với lợi nhuận còn lại không là bội số của 50, bạn có thể rút bằng hình thức rút vốn trong quá trình rút tiền đầy đủ của mình.</li></ul>',
+    <p> Bạn có thể chuyển thu nhập của mình sang Ví tiền quỹ, Ví rút tiền & Ví Defix. </p>',
+    'request_mt4_terms' => '<ul class="dis"><li> Bạn có thể dễ dàng rút tiền vào Ví MT4 của mình bằng cách sử dụng "Yêu cầu chuyển tiền từ MT4"</li>'.PHP_EOL.'<li> Phê duyệt dựa trên lợi nhuận quản lý quỹ, bất kỳ khoản tiền nào cao hơn lợi nhuận đã nộp sẽ bị từ chối </li>'.PHP_EOL.'<li> Thời gian xử lý ít nhất là 2 ngày làm việc cho yêu cầu chuyển tiền từ MT4 </li>'.PHP_EOL.'<li>60% số tiền được yêu cầu sẽ được ghi có vào Ví MT4 </li>'.PHP_EOL.'<li> Để rút tiền của Ví quỹ  MT4, vui lòng chuyển số tiền được chỉ định sang Ví rút tiền</li>'.PHP_EOL.'<li> Bạn vẫn cần được gửi yêu cầu rút tiền đầy đủ đến support@Defix.com và nhận được phản hồi xác nhận trước khi đến trang này để điền vào mẫu này.</li>'.PHP_EOL.'<li> Đối với lợi nhuận còn lại không là bội số của 50, bạn có thể rút bằng hình thức rút vốn trong quá trình rút tiền đầy đủ của mình.</li></ul>',
     'sure_cap_withdraw' => 'Bạn có chắc chắn muốn rút Vốn của mình?',
     'process_irreversible' => 'Quá trình này là không thể đảo ngược và có thể ngăn bạn nhận bất kỳ khoản thanh toán nào trong tương lai nếu vốn của bạn giảm dưới mức yêu cầu tối thiểu của chúng tôi.',
     'msg_with_request_email' => 'Vui lòng kiểm tra email của bạn và nhấp vào liên kết trong email để xác minh danh tính của bạn.',
@@ -320,7 +320,7 @@ return [
     'waiting_cap_email_conf_msg' => 'Vui lòng nhấp vào liên kết được gửi cho bạn để xác nhận',
     'waiting_cap_admin_conf_msg' => 'Vui lòng đợi quản trị viên thực hiện tách MT4',
     'pending_mt4_requests' => 'Yêu cầu trước đó của bạn đang chờ xử lý.',
-    'conf_cap_with_info' => '<p> Bằng cách nhấp vào nút có bên dưới, tôi đồng ý với các điều khoản và điều kiện liên quan đến việc rút vốn và chấm dứt tài khoản sau đó nếu vốn của tôi giảm xuống dưới mức yêu cầu tối thiểu. </ p> <p> Bằng cách yêu cầu rút toàn bộ vốn của mình, tôi sẽ không còn đủ điều kiện để nhận bất kỳ khoản tiền mới nào: </ p> <ul> <li> Lợi nhuận giao dịch </ li> <li> Giảm giá lô </ li> <li> Giảm giá lô tuyến dưới < / li> <li> Chia sẻ lợi nhuận </ li> </ ul> <p> Khi rút tiền đầy đủ, tài khoản của tôi sẽ bị chấm dứt và tôi sẽ không thể đăng ký lại hoặc mở bất kỳ tài khoản mới nào với Vextrader và các chi nhánh của nó trong vòng 6 tháng.</ p> ',
+    'conf_cap_with_info' => '<p> Bằng cách nhấp vào nút có bên dưới, tôi đồng ý với các điều khoản và điều kiện liên quan đến việc rút vốn và chấm dứt tài khoản sau đó nếu vốn của tôi giảm xuống dưới mức yêu cầu tối thiểu. </ p> <p> Bằng cách yêu cầu rút toàn bộ vốn của mình, tôi sẽ không còn đủ điều kiện để nhận bất kỳ khoản tiền mới nào: </ p> <ul> <li> Lợi nhuận giao dịch </ li> <li> Giảm giá lô </ li> <li> Giảm giá lô tuyến dưới < / li> <li> Chia sẻ lợi nhuận </ li> </ ul> <p> Khi rút tiền đầy đủ, tài khoản của tôi sẽ bị chấm dứt và tôi sẽ không thể đăng ký lại hoặc mở bất kỳ tài khoản mới nào với Defix và các chi nhánh của nó trong vòng 6 tháng.</ p> ',
     'conf_cap_with' => 'Xác nhận rút vốn & chấm dứt tài khoản',
     /**Withdrawl Wallet **/
     'USDT_address' => 'Địa chỉ USDT',
@@ -356,7 +356,7 @@ return [
     'reference_number' => 'Số tham chiếu',
     'MT4_details' => 'Chi tiết MT4',    
     /**long text */
-    'transfer_fund_tnc' => '<ul class="dis" style="background: #142a22;"><li> Vextrader có quyền yêu cầu bằng chứng bổ sung về tiền quỹ từ bạn bất cứ lúc nào.</li>
+    'transfer_fund_tnc' => '<ul class="dis" style="background: #142a22;"><li> Defix có quyền yêu cầu bằng chứng bổ sung về tiền quỹ từ bạn bất cứ lúc nào.</li>
     <li> Chúng tôi có quyền áp dụng phí xử lý nếu thanh toán của bên thứ ba được thực hiện </li>
     <li> Thời gian xử lý quỹ sẽ là 2-3 ngày làm việc</li>
     <li> Giờ hoạt động của chúng tôi cho quỹ như sau:<br>
@@ -444,19 +444,19 @@ return [
     'trading_tv_desc'=> 'Xem thông tin và tin tức giao dịch mới nhất tại đây để bạn có thể làm cho giao dịch của mình thông minh hơn. Lắng nghe các lời khuyên của chuyên gia và nghiên cứu thị trường để có được thông tin mới nhất và nhiều thông tin nhất. ',
     /* Help & guide */
     'help_guides' => 'Trợ giúp & Hướng dẫn',
-    'OTM_trade_account_registration_reset'=> 'Đăng ký và đặt lại tài khoản Vextrader',
-    'OTM_trade_member_login_user_guide'=> 'Vextrader - Hướng dẫn sử dụng đăng nhập thành viên',
-    'OTM_trade_FAQ'=> 'Vextrader - Câu hỏi thường gặp',
+    'OTM_trade_account_registration_reset'=> 'Đăng ký và đặt lại tài khoản Defix',
+    'OTM_trade_member_login_user_guide'=> 'Defix - Hướng dẫn sử dụng đăng nhập thành viên',
+    'OTM_trade_FAQ'=> 'Defix - Câu hỏi thường gặp',
     'tải_xuống_MT5' => 'Tải xuống MT5',    
     /**Welcome Email**/
-    'congratulations' => 'Chúc mừng bạn đã trở thành Thành viên Vextrader!',
+    'congratulations' => 'Chúc mừng bạn đã trở thành Thành viên Defix!',
     'dear_client' => 'Kính gửi khách hàng yêu quý',
-    'thank_you_for_opening'=> 'Cảm ơn bạn đã mở tài khoản với Vextrader. Là một trong những đơn vị đứng đầu trong ngành này, chúng tôi có thể đảm bảo với bạn rằng các sản phẩm và dịch vụ của chúng tôi sẽ không làm bạn thất vọng. Bộ phận Tài chính của chúng tôi sẽ xử lý đơn của bạn trong vòng 24 giờ tới. ',
-    'your_login_details' => 'Chi tiết đăng nhập của bạn cho Vextrader là',
+    'thank_you_for_opening'=> 'Cảm ơn bạn đã mở tài khoản với Defix. Là một trong những đơn vị đứng đầu trong ngành này, chúng tôi có thể đảm bảo với bạn rằng các sản phẩm và dịch vụ của chúng tôi sẽ không làm bạn thất vọng. Bộ phận Tài chính của chúng tôi sẽ xử lý đơn của bạn trong vòng 24 giờ tới. ',
+    'your_login_details' => 'Chi tiết đăng nhập của bạn cho Defix là',
     'date_register' => 'Đăng ký ngày',
-    'at_otm_capital' => 'Tại Vextrader, chúng tôi cố gắng cung cấp dịch vụ ở mức độ độc quyền nhất của chúng tôi với lời khuyên ưu tiên và phù hợp để giúp bạn xây dựng, quản lý và bảo vệ tài sản của bạn. Chúng tôi không ngừng cải thiện nền tảng công nghệ của mình để bạn có được sự thực thi chất lượng cao nhất và truy cập vào các nhà cung cấp thanh khoản hàng đầu thế giới, chiếm hơn 80% thị trường. Hơn nữa, chúng tôi liên tục bổ sung việc cung cấp sản phẩm của mình và cải thiện các điều kiện của chúng tôi, để bạn có thể tiếp tục hưởng lợi với những cơ hội tốt nhất. ',
+    'at_otm_capital' => 'Tại Defix, chúng tôi cố gắng cung cấp dịch vụ ở mức độ độc quyền nhất của chúng tôi với lời khuyên ưu tiên và phù hợp để giúp bạn xây dựng, quản lý và bảo vệ tài sản của bạn. Chúng tôi không ngừng cải thiện nền tảng công nghệ của mình để bạn có được sự thực thi chất lượng cao nhất và truy cập vào các nhà cung cấp thanh khoản hàng đầu thế giới, chiếm hơn 80% thị trường. Hơn nữa, chúng tôi liên tục bổ sung việc cung cấp sản phẩm của mình và cải thiện các điều kiện của chúng tôi, để bạn có thể tiếp tục hưởng lợi với những cơ hội tốt nhất. ',
     'confidential_the_email' => '<strong> TUYỆT MẬT: </ strong> Email này và mọi tệp được gửi cùng với nó được bảo mật và chỉ nhằm mục đích sử dụng cho người nhận. Bất kỳ xem xét, truyền lại, phổ biến hoặc sử dụng khác, hoặc thực hiện bất kỳ hành động nào phụ thuộc vào thông tin này của người hoặc các thực thể khác ngoài (những) người nhận dự định đều bị cấm. Nếu bạn đã nhận được e-mail này do nhầm lẫn, vui lòng thông báo cho người gửi ngay lập tức và hủy tài liệu cho dù được lưu trữ trên máy tính hay không.',
-    'disclaimer' => '<strong> TỪ CHỐI TRÁCH NHIỆM: </ strong> Mọi quan điểm hoặc ý kiến được trình bày trong e-mail này chỉ là của tác giả và không nhất thiết phải đại diện cho Vextrader, trừ khi có quy định khác. Nội dung của thông điệp này không cấu thành Tư vấn đầu tư. ',    
+    'disclaimer' => '<strong> TỪ CHỐI TRÁCH NHIỆM: </ strong> Mọi quan điểm hoặc ý kiến được trình bày trong e-mail này chỉ là của tác giả và không nhất thiết phải đại diện cho Defix, trừ khi có quy định khác. Nội dung của thông điệp này không cấu thành Tư vấn đầu tư. ',    
     /*Help & Support*/
     'help_support' => 'Trợ giúp & Hỗ trợ',
     'create_new_ticket' => 'Tạo vé mới',
@@ -493,9 +493,9 @@ return [
     'this_week_income_source' => 'Nguồn thu nhập trong tuần này',
     'latest_network_sales' => 'Doanh số của mạng lưới mới nhất',
     'wallet' => 'Ví',
-    'dashboard_disclaimer' => '<p><strong class=" text-white "> Tiết lộ rủi ro: </ strong> Đầu tư vào các công cụ tài chính có liên quan đến mức độ rủi ro gia tăng phát sinh từ việc sử dụng đòn bẩy tài chính, có thể có lợi cho bạn hoặc chống lại bạn. Trước khi bạn quyết định mở tài khoản, hãy đảm bảo bạn nhận thức đầy đủ về mức độ rủi ro tài chính theo khả năng tài chính, kiến thức, kỹ năng phân tích, kỹ năng giao dịch thực tế, cũng như sự hiểu biết về khả năng chịu rủi ro và tự kiểm soát của chính bạn. Bất kỳ ý kiến, tin tức, nghiên cứu, phân tích hoặc thông tin khác được hiển thị trên trang web Vextrader, đăng nhập hoặc email được cung cấp dưới dạng bình luận thị trường chung không đánh giá lời khuyên đầu tư. Thông tin này không được hướng dẫn / dự định phân phối hoặc sử dụng bởi cư dân của một số quốc gia / khu vực pháp lý nhất định, bao gồm nhưng không giới hạn ở Hoa Kỳ, Bắc Triều Tiên, Đan Mạch, Pháp và Bỉ. Vextrader không cung cấp dịch vụ của mình cho cư dân của một số khu vực / quốc gia nhất định bao gồm nhưng không giới hạn ở Hoa Kỳ, Bắc Triều Tiên, Đan Mạch, Pháp và Bỉ. Vextrader có quyền thay đổi danh sách các quốc gia trên theo quyết định riêng của mình.</ p>
+    'dashboard_disclaimer' => '<p><strong class=" text-white "> Tiết lộ rủi ro: </ strong> Đầu tư vào các công cụ tài chính có liên quan đến mức độ rủi ro gia tăng phát sinh từ việc sử dụng đòn bẩy tài chính, có thể có lợi cho bạn hoặc chống lại bạn. Trước khi bạn quyết định mở tài khoản, hãy đảm bảo bạn nhận thức đầy đủ về mức độ rủi ro tài chính theo khả năng tài chính, kiến thức, kỹ năng phân tích, kỹ năng giao dịch thực tế, cũng như sự hiểu biết về khả năng chịu rủi ro và tự kiểm soát của chính bạn. Bất kỳ ý kiến, tin tức, nghiên cứu, phân tích hoặc thông tin khác được hiển thị trên trang web Defix, đăng nhập hoặc email được cung cấp dưới dạng bình luận thị trường chung không đánh giá lời khuyên đầu tư. Thông tin này không được hướng dẫn / dự định phân phối hoặc sử dụng bởi cư dân của một số quốc gia / khu vực pháp lý nhất định, bao gồm nhưng không giới hạn ở Hoa Kỳ, Bắc Triều Tiên, Đan Mạch, Pháp và Bỉ. Defix không cung cấp dịch vụ của mình cho cư dân của một số khu vực / quốc gia nhất định bao gồm nhưng không giới hạn ở Hoa Kỳ, Bắc Triều Tiên, Đan Mạch, Pháp và Bỉ. Defix có quyền thay đổi danh sách các quốc gia trên theo quyết định riêng của mình.</ p>
     <p><strong class="text-white"> Chính sách bảo mật:</strong> Chúng tôi cam kết đảm bảo rằng thông tin của bạn được an toàn. Để ngăn chặn truy cập hoặc tiết lộ trái phép, chúng tôi đã đưa ra các quy trình vật lý, điện tử và quản lý phù hợp để bảo vệ và bảo mật thông tin chúng tôi thu thập trực tuyến.</p>',
-    'risk_disclosure'=>'Đầu tư vào các công cụ tài chính có liên quan đến việc tăng mức độ rủi ro phát sinh từ việc sử dụng đòn bẩy tài chính, có thể có lợi cho bạn hoặc chống lại bạn. Trước khi bạn quyết định mở tài khoản, hãy đảm bảo bạn nhận thức đầy đủ về mức độ rủi ro tài chính theo khả năng tài chính, kiến thức, kỹ năng phân tích, kỹ năng giao dịch thực tế, cũng như sự hiểu biết về khả năng chịu rủi ro và tự kiểm soát của chính bạn. Bất kỳ ý kiến, tin tức, nghiên cứu, phân tích hoặc thông tin khác được hiển thị trên trang web Vextrader, đăng nhập hoặc email được cung cấp dưới dạng bình luận thị trường chung không đánh giá lời khuyên đầu tư. Thông tin này không được hướng dẫn / dự định phân phối hoặc sử dụng bởi cư dân của một số quốc gia / khu vực pháp lý nhất định, bao gồm nhưng không giới hạn ở Hoa Kỳ, Bắc Triều Tiên, Đan Mạch, Pháp và Bỉ. Vextrader không cung cấp dịch vụ của mình cho cư dân của một số khu vực / quốc gia nhất định bao gồm nhưng không giới hạn ở Hoa Kỳ, Bắc Triều Tiên, Đan Mạch, Pháp và Bỉ. Vextrader có quyền thay đổi danh sách các quốc gia trên theo quyết định riêng của mình.',
+    'risk_disclosure'=>'Đầu tư vào các công cụ tài chính có liên quan đến việc tăng mức độ rủi ro phát sinh từ việc sử dụng đòn bẩy tài chính, có thể có lợi cho bạn hoặc chống lại bạn. Trước khi bạn quyết định mở tài khoản, hãy đảm bảo bạn nhận thức đầy đủ về mức độ rủi ro tài chính theo khả năng tài chính, kiến thức, kỹ năng phân tích, kỹ năng giao dịch thực tế, cũng như sự hiểu biết về khả năng chịu rủi ro và tự kiểm soát của chính bạn. Bất kỳ ý kiến, tin tức, nghiên cứu, phân tích hoặc thông tin khác được hiển thị trên trang web Defix, đăng nhập hoặc email được cung cấp dưới dạng bình luận thị trường chung không đánh giá lời khuyên đầu tư. Thông tin này không được hướng dẫn / dự định phân phối hoặc sử dụng bởi cư dân của một số quốc gia / khu vực pháp lý nhất định, bao gồm nhưng không giới hạn ở Hoa Kỳ, Bắc Triều Tiên, Đan Mạch, Pháp và Bỉ. Defix không cung cấp dịch vụ của mình cho cư dân của một số khu vực / quốc gia nhất định bao gồm nhưng không giới hạn ở Hoa Kỳ, Bắc Triều Tiên, Đan Mạch, Pháp và Bỉ. Defix có quyền thay đổi danh sách các quốc gia trên theo quyết định riêng của mình.',
     'privacy_policy'=> 'Chúng tôi cam kết đảm bảo rằng thông tin của bạn được an toàn. Để ngăn chặn truy cập hoặc tiết lộ trái phép, chúng tôi đã đưa ra các quy trình vật lý, điện tử và quản lý phù hợp để bảo vệ và bảo mật thông tin chúng tôi thu thập trực tuyến.',
     /*Controller message */
     'package_not_found' => 'Không tìm thấy gói',
@@ -515,7 +515,7 @@ return [
     'requested_amount_transfered_fun_wallet' => 'Số tiền được yêu cầu được chuyển đến ví tiền quỹ  của người dùng đã cho',
     'requested_amount_transfered_withdrawal' => 'Số tiền được yêu cầu được chuyển sang số dư rút tiền',
     'requested_amount_transfered_MT4_Top_up' => 'Số tiền được yêu cầu được chuyển vào Ví nạp tiền MT4',
-    'requested_amount_transfered_Otm' => 'Số tiền được yêu cầu được chuyển vào ví Vextrader',
+    'requested_amount_transfered_Otm' => 'Số tiền được yêu cầu được chuyển vào ví Defix',
     'requested_amount_transfered_funds' => 'Số tiền được yêu cầu được chuyển vào ví của Quỹ',
     'requested_amount_transfered_st_withdrawal' => 'Số tiền được yêu cầu được chuyển vào ví rút tiền Tự giao dịch',
     'ticket_not_found_different_tickets_' => 'Không tìm thấy vé. Vui lòng thử với các vé khác nhau.',
@@ -533,14 +533,14 @@ return [
     'your_package_upgraded_1' => 'Gói của bạn được nâng cấp lên $: số lượng',
     'account_verified'=> 'Tài khoản của bạn đã được xác minh.',
     'password_successfully_reset' => 'Mật khẩu của bạn đã được đặt lại thành công',
-    'successfully_registered_verify_account' => 'Cảm ơn. Bạn đã đăng ký thành công với Vextrader. Vui lòng kiểm tra email để xác minh tài khoản của bạn.',
+    'successfully_registered_verify_account' => 'Cảm ơn. Bạn đã đăng ký thành công với Defix. Vui lòng kiểm tra email để xác minh tài khoản của bạn.',
     'password_Reset_link_sent' => 'Liên kết đặt lại mật khẩu đã được gửi đến id email đã đăng ký của bạn.',
 
     'account_update_success' => 'Cập nhật chi tiết tài khoản thành công.',
 
     'ticket_message_admin' => 'Tin nhắn vé được gửi tới quản trị viên.',
     'ticket_closed' => 'Vé đã bị đóng.',
-    'OTM_wallet_balance_less_ticket' => 'Số dư ví Vextrader của bạn nhỏ hơn số tiền tkt.',
+    'OTM_wallet_balance_less_ticket' => 'Số dư ví Defix của bạn nhỏ hơn số tiền tkt.',
     'withdrawl_request_verified' =>' Yêu cầu rút tiền của bạn được xác minh ',
     'withdrawl_request_already_verified' =>' Yêu cầu rút tiền của bạn đã được xác minh ',
     'withdrawl_request_not_valid' =>' Khóa yêu cầu rút tiền của bạn không hợp lệ ',
@@ -621,15 +621,15 @@ return [
     <li> Công ty có quyền thay đổi thời gian xử lý rút vốn mà không cần thông báo trước. </li>
     <li> Công ty có quyền điều tra, hủy bỏ và / hoặc áp dụng phí / tính phí đối với mọi yêu cầu rút tiền bắt nguồn từ tài khoản giao dịch không có hoạt động giao dịch. </li>
     <li> Công ty không thể chịu trách nhiệm cho bất kỳ sự chậm trễ xử lý tiền gửi / rút tiền nào do hệ thống thanh toán gây ra. </li>
-    <li> Nếu bạn rút vốn, bạn sẽ không được phép đăng ký tài khoản mới với Vextrader và tất cả các chi nhánh của nó trong vòng 6 tháng. </li>
+    <li> Nếu bạn rút vốn, bạn sẽ không được phép đăng ký tài khoản mới với Defix và tất cả các chi nhánh của nó trong vòng 6 tháng. </li>
     <li> Công ty có quyền thay đổi thời gian xử lý rút vốn mà không cần thông báo trước. </li>
     <li> Công ty có quyền điều tra, hủy bỏ và / hoặc áp dụng phí / tính phí đối với mọi yêu cầu rút tiền bắt nguồn từ tài khoản giao dịch không có hoạt động giao dịch. </li>
     </ul>',
 
     'mt4with_step2_q1'=> 'Tại sao bạn quyết định rút vốn?',
-    'mt4with_step2_q2'=> 'Bạn sẽ làm thế nào để cải thiện Vextrader?',
+    'mt4with_step2_q2'=> 'Bạn sẽ làm thế nào để cải thiện Defix?',
     'mt4with_step2_q3'=> 'Mục tiêu đầu tư của bạn là gì?',
-    'mt4with_step2_q4'=> 'Bạn có kế hoạch tái đầu tư vào Vextrader trong tương lai không?', 
+    'mt4with_step2_q4'=> 'Bạn có kế hoạch tái đầu tư vào Defix trong tương lai không?', 
     'mt4with_step2_q5'=> 'Bạn đã đầu tư vào các nền tảng khác chưa? Nếu có, đó là gì? ',
 
     'upl_ic_proof' => 'Tải lên chứng minh IC với ảnh tự chụp camera trước',
@@ -700,9 +700,9 @@ return [
     'news_tools' => 'Tin tức & Công cụ',
     'industry_tools' => 'Công cụ công nghiệp',
     'industry_tool_iframe' => 'https://www.youtube.com/embed/mXuR_SRP-XI',
-    'footer_desc'=>'<p><strong> Tư vấn chung:</strong> Tất cả thông tin trong trang web này là chỉ tư vấn chung. Chúng tôi đặc biệt khuyên bạn nên xem xét lời khuyên liên quan đến các mục tiêu, tình hình và nhu cầu tài chính của bạn. Vextrader Group Limited không đảm bảo tính chính xác và đầy đủ của nó và không chịu trách nhiệm đối với các lỗi truyền dữ liệu thực tế hoặc dữ liệu phân tích. Các ý kiến trong trang web này tạo thành phán quyết hiện tại của tổ chức phát hành, có thể thay đổi mà không cần thông báo trước.</p><p><strong>Công bố rủi ro pháp lý:</strong> Xin lưu ý rằng ngoại hối cận biên có mức độ rủi ro cao và có thể không phù hợp với tất cả các nhà đầu tư. Mức độ đòn bẩy cao có thể chống lại bạn cũng như có lợi cho bạn. Trước khi quyết định đầu tư vào ngoại hối, bạn nên xem xét cẩn thận mục tiêu đầu tư, mức độ kinh nghiệm và hướng rủi ro. Có khả năng là bạn có thể bị lỗ một số hoặc tất cả khoản đầu tư ban đầu của mình và do đó bạn không nên đầu tư số tiền mà bạn không đủ khả năng để mất. Bạn nên nhận thức được tất cả các rủi ro liên quan đến giao dịch ngoại hối và tìm kiếm lời khuyên từ một cố vấn tài chính độc lập.</p><p><strong> Khu vực hạn chế:</strong>Vextrader không cung cấp dịch vụ cho cư dân của một số quốc gia, như Iran, Cuba, Sudan, Syria và Bắc Triều Tiên. ',
-    'footer_copyrights' => 'Đã đăng ký Bản quyền © '.date('Y').' Vextrader',
-    'login_footer_desc'=>'<p>General Advice: All information in this website is of general advise only. We strongly advise that you consider the advise in regards to your financial objectives, situation and needs. Vextrader makes no guarantee of its accuracy and completeness and is not responsible for errors of transmission of factual or analytical data. The opinions in this website constitute the present judgment of the issuer, which is subject to change without notice.<br><br>Legal Risk Disclosure: Please note that foreign exchange on margin carries a high level of risk, and may not be suitable for all investors. The high degree of leverage can work against you as well as for you. Before deciding to invest in foreign exchange you should carefully consider your investment objectives, level of experience and risk appetite. The possibility exists that you could sustain a loss of some or all of your initial investment and therefore you should not invest money that you cannot afford to lose. You should be aware of all the risks associated with foreign exchange trading, and seek advice from an independent financial advisor.<br><br>Restricted Regions: Vextrader does not provide services for the residents of certain countries, such as Iran, Cuba, Sudan, Syria and North Korea.</p>',
+    'footer_desc'=>'<p><strong> Tư vấn chung:</strong> Tất cả thông tin trong trang web này là chỉ tư vấn chung. Chúng tôi đặc biệt khuyên bạn nên xem xét lời khuyên liên quan đến các mục tiêu, tình hình và nhu cầu tài chính của bạn. Defix Group Limited không đảm bảo tính chính xác và đầy đủ của nó và không chịu trách nhiệm đối với các lỗi truyền dữ liệu thực tế hoặc dữ liệu phân tích. Các ý kiến trong trang web này tạo thành phán quyết hiện tại của tổ chức phát hành, có thể thay đổi mà không cần thông báo trước.</p><p><strong>Công bố rủi ro pháp lý:</strong> Xin lưu ý rằng ngoại hối cận biên có mức độ rủi ro cao và có thể không phù hợp với tất cả các nhà đầu tư. Mức độ đòn bẩy cao có thể chống lại bạn cũng như có lợi cho bạn. Trước khi quyết định đầu tư vào ngoại hối, bạn nên xem xét cẩn thận mục tiêu đầu tư, mức độ kinh nghiệm và hướng rủi ro. Có khả năng là bạn có thể bị lỗ một số hoặc tất cả khoản đầu tư ban đầu của mình và do đó bạn không nên đầu tư số tiền mà bạn không đủ khả năng để mất. Bạn nên nhận thức được tất cả các rủi ro liên quan đến giao dịch ngoại hối và tìm kiếm lời khuyên từ một cố vấn tài chính độc lập.</p><p><strong> Khu vực hạn chế:</strong>Defix không cung cấp dịch vụ cho cư dân của một số quốc gia, như Iran, Cuba, Sudan, Syria và Bắc Triều Tiên. ',
+    'footer_copyrights' => 'Đã đăng ký Bản quyền © '.date('Y').' Defix',
+    'login_footer_desc'=>'<p>General Advice: All information in this website is of general advise only. We strongly advise that you consider the advise in regards to your financial objectives, situation and needs. Defix makes no guarantee of its accuracy and completeness and is not responsible for errors of transmission of factual or analytical data. The opinions in this website constitute the present judgment of the issuer, which is subject to change without notice.<br><br>Legal Risk Disclosure: Please note that foreign exchange on margin carries a high level of risk, and may not be suitable for all investors. The high degree of leverage can work against you as well as for you. Before deciding to invest in foreign exchange you should carefully consider your investment objectives, level of experience and risk appetite. The possibility exists that you could sustain a loss of some or all of your initial investment and therefore you should not invest money that you cannot afford to lose. You should be aware of all the risks associated with foreign exchange trading, and seek advice from an independent financial advisor.<br><br>Restricted Regions: Defix does not provide services for the residents of certain countries, such as Iran, Cuba, Sudan, Syria and North Korea.</p>',
     'privacy_policy_label' => 'Chính sách bảo mật',
     'terms_and_condition'=> 'Điều khoản sử dụng',
     'user_agreement_desc_new'=> '<p>Bằng cách điền vào biểu mẫu ở trên và tiếp tục, bạn tuyên bố và bảo đảm rằng: </p>    
@@ -713,7 +713,7 @@ return [
     <li type="a">bạn không phải là người vị thành niên trong phạm vi quyền hạn nơi mà bạn cư trú;</li>
     <li type="a">việc bạn sử dụng Dịch vụ của Công ty không vi phạm bất kỳ luật hoặc quy định hiện hành nào.</li>
     </ul>
-    <p> Bạn cũng đồng ý: Nếu bạn cung cấp bất kỳ thông tin nào không đúng sự thật, không chính xác, không hiện hành hoặc không đầy đủ hoặc Vextrader có cơ sở hợp lý để nghi ngờ rằng thông tin đó là không đúng sự thật, không chính xác, không hiện hành hoặc không đầy đủ, Vextrader có quyền đình chỉ hoặc chấm dứt tài khoản của bạn và từ chối bất kỳ và tất cả việc sử dụng trang web hiện tại hoặc trong tương lai (hoặc bất kỳ phần nào trong đó).</p><p> Khi đăng ký, bạn cũng đồng ý với các Điều khoản sử dụng, Tiết lộ rủi ro, Chống rửa tiền và Thỏa thuận chính sách bảo mật.</p>',
+    <p> Bạn cũng đồng ý: Nếu bạn cung cấp bất kỳ thông tin nào không đúng sự thật, không chính xác, không hiện hành hoặc không đầy đủ hoặc Defix có cơ sở hợp lý để nghi ngờ rằng thông tin đó là không đúng sự thật, không chính xác, không hiện hành hoặc không đầy đủ, Defix có quyền đình chỉ hoặc chấm dứt tài khoản của bạn và từ chối bất kỳ và tất cả việc sử dụng trang web hiện tại hoặc trong tương lai (hoặc bất kỳ phần nào trong đó).</p><p> Khi đăng ký, bạn cũng đồng ý với các Điều khoản sử dụng, Tiết lộ rủi ro, Chống rửa tiền và Thỏa thuận chính sách bảo mật.</p>',
     // Choose investment 
     'choose_investment_program' => 'Chọn chương trình đầu tư',
     'view_program' => 'Xem chương trình',
@@ -828,13 +828,13 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="card-link" data-toggle="collapse" href="#collapseOne" aria-expanded="true">
-    1. Vextrader mang lại gì cho khách hàng
+    1. Defix mang lại gì cho khách hàng
     </a>
     </div>
     <div id="collapseOne" class="collapse show" data-parent="#accordion">
     <div class="card-body">
-    <p>Một trong những sản phẩm đặc trưng của Vextrader là Dịch vụ tài khoản được Quản lý.</p>
-    <p>Tài khoản được Quản lý của Vextrader là một danh mục đầu tư được quản lý bởi một người quản lý chuyên nghiệp sẽ đưa ra và thực hiện các quyết định đầu tư dựa trên chiến lược đầu tư đã được xác định là phù hợp để đáp ứng các mục tiêu của khách hàng. Chiến lược đầu tư có sẵn của chúng tôi là Matrix, Prism và Paladin. Lợi nhuận mục tiêu sẽ từ 6% -20%.</p>
+    <p>Một trong những sản phẩm đặc trưng của Defix là Dịch vụ tài khoản được Quản lý.</p>
+    <p>Tài khoản được Quản lý của Defix là một danh mục đầu tư được quản lý bởi một người quản lý chuyên nghiệp sẽ đưa ra và thực hiện các quyết định đầu tư dựa trên chiến lược đầu tư đã được xác định là phù hợp để đáp ứng các mục tiêu của khách hàng. Chiến lược đầu tư có sẵn của chúng tôi là Matrix, Prism và Paladin. Lợi nhuận mục tiêu sẽ từ 6% -20%.</p>
     <p>Một khoản chia cổ phần được thỏa thuận là 70% được trả vào tài khoản của nhà đầu tư và 30% khoản khấu trừ được trả cho người quản lý quỹ/công ty.</p>
     </div>
     </div>
@@ -843,12 +843,12 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
-    2. Vextrader sinh lời như thế nào?
+    2. Defix sinh lời như thế nào?
     </a>
     </div>
     <div id="collapseTwo" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>Vextrader nhận lợi nhuận thông qua chênh lệch giá, là chênh lệch giữa giá đặt mua và giá bán. Trên Tài khoản được Quản lý, Vextrader được trả tiền thông qua việc chia sẻ lợi nhuận. </p>
+    <p>Defix nhận lợi nhuận thông qua chênh lệch giá, là chênh lệch giữa giá đặt mua và giá bán. Trên Tài khoản được Quản lý, Defix được trả tiền thông qua việc chia sẻ lợi nhuận. </p>
     </div>
     </div>
     </div>
@@ -856,17 +856,17 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-    3. Chính sách Chống Rửa tiền của Vextrader là gì?
+    3. Chính sách Chống Rửa tiền của Defix là gì?
     </a>
     </div>
     <div id="collapseThree" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>Vextrader sẽ liên tục xem xét tất cả hoạt động tài khoản để tìm bằng chứng về các giao dịch đáng ngờ có thể là dấu hiệu của hoạt động rửa tiền. Quá trình đánh giá này có thể bao gồm việc giám sát:<br>
+    <p>Defix sẽ liên tục xem xét tất cả hoạt động tài khoản để tìm bằng chứng về các giao dịch đáng ngờ có thể là dấu hiệu của hoạt động rửa tiền. Quá trình đánh giá này có thể bao gồm việc giám sát:<br>
     1) tiền vào và ra khỏi tài khoản.<br>
     2) nguồn gốc và điểm đến của chuyển khoản ngân hàng.<br>
     3) hoạt động khác ngoài quy trình kinh doanh thông thường.
     </p>
-    <p>Để hoàn toàn tuân thủ các yêu cầu quy định hiện hành, Vextrader đôi khi có thể liên hệ với khách hàng để biết thêm thông tin và/hoặc yêu cầu tài liệu.</p>
+    <p>Để hoàn toàn tuân thủ các yêu cầu quy định hiện hành, Defix đôi khi có thể liên hệ với khách hàng để biết thêm thông tin và/hoặc yêu cầu tài liệu.</p>
     
     </div>
     </div>
@@ -875,12 +875,12 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link" data-toggle="collapse" href="#collapsefour">
-    4. Cần bao nhiêu tiền để bắt đầu giao dịch trên Vextrader?
+    4. Cần bao nhiêu tiền để bắt đầu giao dịch trên Defix?
     </a>
     </div>
     <div id="collapsefour" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>Để bắt đầu giao dịch trên Vextrader, số tiền tối thiểu phải là 1.000USD<br>
+    <p>Để bắt đầu giao dịch trên Defix, số tiền tối thiểu phải là 1.000USD<br>
     Chúng tôi có các gói:<ul>
     <li>1.000 USD</li>
     <li>3.000 USD</li>
@@ -937,7 +937,7 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link" data-toggle="collapse" href="#collapseeight">
-    8. Tôi kiếm tiền trên Vextrader như thế nào?
+    8. Tôi kiếm tiền trên Defix như thế nào?
     </a>
     </div>
     <div id="collapseeight" class="collapse" data-parent="#accordion">
@@ -973,7 +973,7 @@ return [
     </div>
     <div id="collapseten" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>Khách hàng có thể đăng ký 3 tài khoản với Vextrader</p>
+    <p>Khách hàng có thể đăng ký 3 tài khoản với Defix</p>
     </div>
     </div>
     </div>
@@ -985,7 +985,7 @@ return [
     </div>
     <div id="collapseeleven" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>Để gửi yêu cầu rút vốn, vui lòng vào trang này để điền vào mẫu yêu cầu.<a href="https://account.vextrader.net/capital-withdraw">here</a></p>
+    <p>Để gửi yêu cầu rút vốn, vui lòng vào trang này để điền vào mẫu yêu cầu.<a href="https://account.Defix.net/capital-withdraw">here</a></p>
     </div>
     </div>
     </div>
@@ -997,7 +997,7 @@ return [
     </div>
     <div id="collapsetwelve" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>Vui lòng gửi tin nhắn cho chúng tôi tại đây <a href="https://account.vextrader.net/help-support">here</a>.</p>
+    <p>Vui lòng gửi tin nhắn cho chúng tôi tại đây <a href="https://account.Defix.net/help-support">here</a>.</p>
     </div>
     </div>
     </div>
@@ -1013,7 +1013,7 @@ return [
     <h4>7. Tôi đã nạp tiền nhưng tiền vẫn chưa đến?</h4>
     <p>Tất cả các khoản tiền gửi ban đầu hoặc các khoản nạp thêm vào tài khoản MT5 của bạn sẽ được xử lý trong vòng 7 ngày làm việc. Nếu bạn muốn gửi tiền ưu tiên, vui lòng thông báo cho đội ngũ hỗ trợ của chúng tôi qua hệ thống vé hỗ trợ.  </p>
 
-    <h4>8. Tôi kiếm tiền trên Vextrader như thế nào?</h4>
+    <h4>8. Tôi kiếm tiền trên Defix như thế nào?</h4>
     <p>Khách hàng sẽ được hoàn tiền khi giới thiệu khách hàng mới. Khoản hoàn tiền là một phần trong doanh thu của đối tác và quy trình hoa hồng hoàn toàn tự động.  </p>
 
     <h4>9. Khi nào thì giải ngân hoa hồng?</h4>
@@ -1026,25 +1026,25 @@ return [
     </p>
 
     <h4>10. Tôi có thể đăng ký bao nhiêu tài khoản?</h4>
-    <p>Khách hàng có thể đăng ký 3 tài khoản với Vextrader</p>
+    <p>Khách hàng có thể đăng ký 3 tài khoản với Defix</p>
 
     <h4>11. Tôi có thể nộp yêu cầu rút tiền cho khoản vốn ban đầu ở đâu?</h4>
-    <p>Để gửi yêu cầu rút vốn, vui lòng vào trang này để điền vào mẫu yêu cầu.<a href="https://account.vextrader.net/capital-withdraw">here</a></p>
+    <p>Để gửi yêu cầu rút vốn, vui lòng vào trang này để điền vào mẫu yêu cầu.<a href="https://account.Defix.net/capital-withdraw">here</a></p>
 
     <h4>12. Tôi vẫn còn thắc mắc</h4>
-    <p>Vui lòng gửi tin nhắn cho chúng tôi tại đây <a href="https://account.vextrader.net/help-support">here</a>.</p>',
+    <p>Vui lòng gửi tin nhắn cho chúng tôi tại đây <a href="https://account.Defix.net/help-support">here</a>.</p>',
     
     
     
     'videotitle'=> 'Video Hướng dẫn',
     'pdftitle'=> 'Giới thiệu công ty',
-    'pdflinks'=> '<a target="_blank" href="/download/v7s8a/Vextrader-Company-Profile-v2.1-VN.pdf">1. Hồ sơ công ty Vextrader </a><img class="img-fluid cus-img-faq" src='.asset("new-customer/images/PDF.png").'><br><a target="_blank" href="/download/v7s8a/Vextrader-Affiliate-Plan-v2.0-VN.pdf">2. Tổng quan về chương trình liên kết của Vextrader </a><img class="img-fluid cus-img-faq" src='.asset("new-customer/images/PDF.png").'><br><a target="_blank" href="/download/v7s8a/Vextrader-User-Guide-ENG-1.0.pdf">3. Hướng dẫn sử dụng Vextrader </a><img class="img-fluid cus-img-faq" src='.asset("new-customer/images/PDF.png").'>',
+    'pdflinks'=> '<a target="_blank" href="/download/v7s8a/Defix-Company-Profile-v2.1-VN.pdf">1. Hồ sơ công ty Defix </a><img class="img-fluid cus-img-faq" src='.asset("new-customer/images/PDF.png").'><br><a target="_blank" href="/download/v7s8a/Defix-Affiliate-Plan-v2.0-VN.pdf">2. Tổng quan về chương trình liên kết của Defix </a><img class="img-fluid cus-img-faq" src='.asset("new-customer/images/PDF.png").'><br><a target="_blank" href="/download/v7s8a/Defix-User-Guide-ENG-1.0.pdf">3. Hướng dẫn sử dụng Defix </a><img class="img-fluid cus-img-faq" src='.asset("new-customer/images/PDF.png").'>',
     
     'vidlinkso'=> '<a target="_blank" href="/download/v7s8a/vd/Registration-ENG.mp4">1. Đăng ký</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'><br><a target="_blank" href="/download/v7s8a/vd/Dashboard-ENG.mp4">2. Tổng quan về bảng điều khiển </a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'><br><a target="_blank" href="/download/v7s8a/vd/Funding-ENG.mp4">3. Quỹ </a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'><br>',
     
     'vidlinkstw'=> '<a target="_blank" href="/download/v7s8a/vd/Buy-Package-ENG.mp4">4. Mua gói </a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'><br><a target="_blank" href="/download/v7s8a/vd/Cash-Report-ENG.mp4">5. Ví tiền mặt & Báo cáo </a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'><br><a target="_blank" href="/download/v7s8a/vd/KYC-Withdrawal-ENG.mp4">6. KYC & Rút tiền </a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'>',
     
-    'vidlinksth'=> '<a target="_blank" href="/download/v7s8a/vd/Vextrader-Rankings-Breakdown.mp4">7. Bộ phân chia cấp</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'><br><a target="_blank" href="/download/v7s8a/vd/Types-of-Payouts-in-Vextrader.mp4">8. Kiểu chi tiêu</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'><br><a target="_blank" href="/download/v7s8a/vd/How-to-Choose-Trading-Strategy.mp4">9. Chọn chiến lược thương mại</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'>', 
+    'vidlinksth'=> '<a target="_blank" href="/download/v7s8a/vd/Defix-Rankings-Breakdown.mp4">7. Bộ phân chia cấp</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'><br><a target="_blank" href="/download/v7s8a/vd/Types-of-Payouts-in-Defix.mp4">8. Kiểu chi tiêu</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'><br><a target="_blank" href="/download/v7s8a/vd/How-to-Choose-Trading-Strategy.mp4">9. Chọn chiến lược thương mại</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'>', 
     
     'withdrawal_popup_txt'=>'Bạn có chắc chắn muốn chuyển $: số tiền sang: ví tiền không?',
     'trading_strategy_popup_txt'=>'Bạn có chắc chắn muốn chọn: lên kế hoạch cho chiến lược giao dịch ưa thích của mình không? Sau khi được chọn, chiến lược giao dịch sẽ không thể thay đổi cho đến khi đóng tài khoản. ',
@@ -1055,7 +1055,7 @@ return [
     'payment_through'=>'Payment With',
     'response_transaction' => 'Yêu cầu thanh toán của bạn đã được gửi thành công và đang xử lý giao dịch.',
     'buy_first_package' => 'Cảm ơn bạn đã mua gói của mình, chi tiết ID Metatrader 5 của bạn sẽ được thiết lập và chi tiết đăng nhập sẽ xuất hiện trong trang tổng quan của bạn trong vòng 1-3 ngày làm việc.',
-    'buy_usdt_txt_taiwan' => '<h4> Các bước để cấp vốn bằng USDT </h4><ol><li> Tới cổng thông tin chuyên dụng của chúng tôi <a target="_blank" href=":link">Mua USDT</a>nếu bạn không sở hữu USDT.</li><li> Trong khi mua, vui lòng đặt tên người dùng Vextrader của bạn vào cột ID Thành viên tại trang web.</li><li> Sau khi mua hàng thành công, hãy quay lại trang này và tải lên chứng minh mua hàng của bạn.</li><li> Nếu bạn đã có USDT, vui lòng chuyển đến địa chỉ USDT này:<br><span style="color:#444;font-weight:700">0xFcf6DDdCf26C283E8BE187803cAf8CDd234982ca</span>.<li>Sau khi thanh toán được thực hiện, xin vui lòng tải lên ngay chứng minh chuyển tiền.</li></ol>',  
+    'buy_usdt_txt_taiwan' => '<h4> Các bước để cấp vốn bằng USDT </h4><ol><li> Tới cổng thông tin chuyên dụng của chúng tôi <a target="_blank" href=":link">Mua USDT</a>nếu bạn không sở hữu USDT.</li><li> Trong khi mua, vui lòng đặt tên người dùng Defix của bạn vào cột ID Thành viên tại trang web.</li><li> Sau khi mua hàng thành công, hãy quay lại trang này và tải lên chứng minh mua hàng của bạn.</li><li> Nếu bạn đã có USDT, vui lòng chuyển đến địa chỉ USDT này:<br><span style="color:#444;font-weight:700">0xFcf6DDdCf26C283E8BE187803cAf8CDd234982ca</span>.<li>Sau khi thanh toán được thực hiện, xin vui lòng tải lên ngay chứng minh chuyển tiền.</li></ol>',  
     'send_new_email' => 'Gửi email',
     'remarks' => 'Nhận xét',
     'max' => [
@@ -1115,7 +1115,7 @@ return [
     'buying'=> 'mua',
     'avg_risk_score'=> 'Điểm rủi ro trung bình',
     'ref'=> 'ref',
-    'max_3_identfication_allowed' => 'Bạn đã đăng ký tối đa 3 tài khoản với Vextrader',
+    'max_3_identfication_allowed' => 'Bạn đã đăng ký tối đa 3 tài khoản với Defix',
     'lastrange'=> 'Lợi nhuận kéo dài 12 tháng',
     'sell_popup_txt'=> 'bạn có chắc bạn muốn đóng khoản đầu tư này?',
     'success_close_investment'=> 'Đầu tư đóng thành công',
@@ -1170,12 +1170,12 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link" data-toggle="collapse" href="#collapse1" aria-expanded="true">
-    1. What is the difference between vextrader funds management program and VexStocks+? 
+    1. What is the difference between Defix funds management program and VexStocks+? 
     </a>
     </div>
     <div id="collapse1" class="collapse show" data-parent="#accordion">
     <div class="card-body">
-    <p>Vextrader Funds Management program are for investors looking for a higher return in a shorter period, hence we trade exclusively in the forex market which is more volatile. Vextrader Market Portfolio have assets that are traditionally more long term such as stocks and ETFs so it’s more suitable for long term investors.</p>
+    <p>Defix Funds Management program are for investors looking for a higher return in a shorter period, hence we trade exclusively in the forex market which is more volatile. Defix Market Portfolio have assets that are traditionally more long term such as stocks and ETFs so it’s more suitable for long term investors.</p>
 
     <p>These two wonderful programs are still under our popular IB program which provides various extra earnings to an introducer.</p>
     </div>
@@ -1205,7 +1205,7 @@ return [
     </div>
     <div id="collapse3" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>VexStocks+ is a very exclusive offering and only opened to serious and existing Vextrader Funds Management Program investors.</p>
+    <p>VexStocks+ is a very exclusive offering and only opened to serious and existing Defix Funds Management Program investors.</p>
     </div>
     </div>
     </div>
@@ -1397,7 +1397,7 @@ return [
     </div>
     <div id="collapse16" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>The risk score shows the risk the investor is taking, and is calculated using a special formula we have developed at Vextrader. The score is calculated for each user from 1 to 10, where 1 is the lowest possible risk, and 10 is the highest possible risk.</p>
+    <p>The risk score shows the risk the investor is taking, and is calculated using a special formula we have developed at Defix. The score is calculated for each user from 1 to 10, where 1 is the lowest possible risk, and 10 is the highest possible risk.</p>
     </div>
     </div>
     </div>
