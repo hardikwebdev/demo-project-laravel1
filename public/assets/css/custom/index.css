@@ -484,9 +484,11 @@ form{
 label.error,label.sucess,.cus-error-sponsor,.cus-error-placement{
     font-weight: 700;
     color: #ffffff;
+    font-size: 14px;
 }
 .cus-error-sponsor,.cus-error-placement{
     color: #ffffff !important;
+    font-size: 14px;
 }
 
 .wizard > .actions .disabled a, .wizard > .actions .disabled a:hover, .wizard > .actions .disabled a:active {
