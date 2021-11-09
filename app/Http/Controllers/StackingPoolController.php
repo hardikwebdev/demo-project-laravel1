@@ -91,7 +91,7 @@ class StackingPoolController extends Controller
                 }
                 $start_date = Carbon::today();
                 $end_date = Carbon::today()->addDay(365 * ($request->duration / 12));
-                StackingPool::create(['user_id' => $usercheck->id,
+                $pool = StackingPool::create(['user_id' => $usercheck->id,
                                      'stacking_pool_package_id' => $request->stacking_pool_package_id,
                                      'amount' => $request->amount,
                                      'stacking_period' => $request->duration,
@@ -100,6 +100,8 @@ class StackingPoolController extends Controller
                 
                 UserWallet::where('user_id',$usercheck->id)->decrement('crypto_wallet',round($request->amount,2));
                 UserWallet::where('user_id',$usercheck->id)->increment('stacking_pool',round($request->amount,2));
+                $command = "php artisan calculate:directreferral ".$pool->id." > /dev/null 2>/dev/null &";
+                shell_exec($command);
 
                 Session::flash('success',trans('custom.staking_pool_added_successfully'));
 

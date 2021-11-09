@@ -26,7 +26,10 @@ class CommonController extends Controller
 
     public function referralCommission(){
         set_time_limit(0);
-        \Artisan::call('calculate:directreferral');
+        \Artisan::call('calculate:directreferral 19');
+        // $a = 1;
+        // $command = "php artisan calculate:directreferral ".$a." > /dev/null 2>/dev/null &";
+        // shell_exec($command);
         echo "executed";die();
         
     }
