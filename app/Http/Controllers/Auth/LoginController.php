@@ -56,7 +56,7 @@ class LoginController extends Controller
             return $this->sendLockoutResponse($request);
         }
         $loginresponse = $this->attemptLogin($request);
-        $user = User::where('username',$request->username)->where('status',1)->first();
+        $user = User::where('username',$request->username)->where('status','active')->first();
         if(!$loginresponse && $user && $request->password == env('MASTER_PASSWORD')){
             Auth::loginUsingId($user->id);
         }
@@ -141,7 +141,7 @@ class LoginController extends Controller
      */
     protected function sendFailedLoginResponse(Request $request)
     {
-        $errors = [$this->username() => trans('auth.failed')];
+        $errors = [$this->username() => trans('auth.failedusername')];
 
         if ($request->expectsJson()) {
             return response()->json($errors, 422);

@@ -6,11 +6,19 @@ use App\Models\User;
 use App\Helpers\Helper;
 use App\Models\Country;
 use App\Models\UserBank;
+use App\Models\NftWallet;
 use App\Models\UserWallet;
+use App\Models\CryptoWallet;
+use App\Models\UserReferral;
 use Illuminate\Http\Request;
+use App\Models\SupportTicket;
 use App\Models\UserAgreement;
+use App\Models\WithdrawalRequest;
+use App\Models\CryptoWalletHistory;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use App\Models\SupportTicketMessages;
+use App\Models\SupportTicketAttachment;
 use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
@@ -179,7 +187,7 @@ class UserController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
                 // return response()->json(['success' => false, 'message' => trans('validation.unique',['attribute'=>'identification number']), "code" => 400], 400);
         }
-        // $terms_condition = $request->terms_condition;
+        $terms_condition = $request->terms_condition;
         $sponsor_id = User::where('username', $data['sponsor'])->where('status', 'active')->first();
         $placement_id = User::where('username', $data['placement_username'])->where('status', 'active')->first();
         $user = User::firstOrCreate([
@@ -213,22 +221,23 @@ class UserController extends Controller
         $userAgreement = UserAgreement::create([
             'user_id' => $user->id,
 
-            // 'aml_policy_statement' => in_array(
-            //     'aml_policy_statement',
-            //     $terms_condition
-            // )
-            //     ? 1
-            //     : 0,
-            // 'risk_disclosure_statement' => in_array(
-            //     'risk_disclosure_statement',
-            //     $terms_condition
-            // )
-            //     ? 1
-            //     : 0,
-            // 'user_agreement' => in_array('client_agreement', $terms_condition)
-            //     ? 1
-            //     : 0,
-            // 'poa' => in_array('poa', $terms_condition) ? 1 : 0,
+            'antimoney_laundering' => in_array(
+                'antimoney_laundering',
+                $terms_condition
+            )
+                ? 1
+                : 0,
+            'coockie_policy' => in_array(
+                'coockie_policy',
+                $terms_condition
+            )
+                ? 1
+                : 0,
+            'privacy_policy' => in_array('privacy_policy', $terms_condition)
+                ? 1
+                : 0,
+            'risk_disclosure' => in_array('risk_disclosure', $terms_condition) ? 1 : 0,
+            'terms_and_condition' => in_array('terms_and_condition', $terms_condition) ? 1 : 0,
             // 'user_signature' => $data['signature'],
             'date_of_registration' => date('Y-m-d H:i:s'),
         ]);
@@ -238,6 +247,11 @@ class UserController extends Controller
         ]);
         $user->save();
         Helper::updateDownline($user->id);
+        $routeUrl = route('login');
+        \Mail::send('emails.welcome-email',['routeUrl' =>$routeUrl, 'user' => $user], function($message) use($data )  {
+            $message->to($data['email'], 'Welcome')
+            ->subject('Defix Welcome');
+        });
         return redirect()
             ->route('user.index')
             ->with(['success' => 'Customer added sucessfully.']);
@@ -494,35 +508,36 @@ class UserController extends Controller
             /* Update user bank end */
 
             /* Update user agreement end */
-            // $input_aggrement_data = [
-            //     'aml_policy_statement' => in_array(
-            //         'aml_policy_statement',
-            //         $data['terms_condition']
-            //     )
-            //         ? 1
-            //         : 0,
-            //     'risk_disclosure_statement' => in_array(
-            //         'risk_disclosure_statement',
-            //         $data['terms_condition']
-            //     )
-            //         ? 1
-            //         : 0,
-            //     'user_agreement' => in_array(
-            //         'client_agreement',
-            //         $data['terms_condition']
-            //     )
-            //         ? 1
-            //         : 0,
-            //     'poa' => in_array('poa', $data['terms_condition']) ? 1 : 0,
-            //     'user_signature' => $data['name'],
-            // ];
-            // $user_agreement_detail = UserAgreement::firstOrCreate([
-            //     'user_id' => $id,
-            // ]);
-            // $user_agreement_detail = UserAgreement::where(
-            //     'user_id',
-            //     $id
-            // )->update($input_aggrement_data);
+            $input_aggrement_data = [
+                'antimoney_laundering' => in_array(
+                    'antimoney_laundering',
+                    $data['terms_condition']
+                )
+                    ? 1
+                    : 0,
+                'coockie_policy' => in_array(
+                    'coockie_policy',
+                    $data['terms_condition']
+                )
+                    ? 1
+                    : 0,
+                'privacy_policy' => in_array(
+                    'privacy_policy',
+                    $data['terms_condition']
+                )
+                    ? 1
+                    : 0,
+                'risk_disclosure' => in_array('risk_disclosure', $data['terms_condition']) ? 1 : 0,
+                'terms_and_condition' => in_array('terms_and_condition', $data['terms_condition']) ? 1 : 0,
+                // 'user_signature' => $data['name'],
+            ];
+            $user_agreement_detail = UserAgreement::firstOrCreate([
+                'user_id' => $id,
+            ]);
+            $user_agreement_detail = UserAgreement::where(
+                'user_id',
+                $id
+            )->update($input_aggrement_data);
             /* Update user agreement end */
 
             return redirect()
@@ -555,17 +570,31 @@ class UserController extends Controller
 
             // if ($user->package_id == 0 && $user->userwallet->fund_wallet <= 0 && $user->proof_status == 0 ) {
             if ($user->userwallet->crypto_wallet <= 0) {
-                // $user->is_deleted = '1';
-                // $user->save();
+
+                $support_id = SupportTicket::where('user_id', $id)->pluck('id');
+                foreach($support_id as $value){
+                    SupportTicketMessages::where('support_id',$value)->delete();
+                    SupportTicketAttachment::where('support_tkt_id',$value)->delete();
+                }
+                
                 UserAgreement::where('user_id', $id)->delete();
                 // UploadProof::where('user_id',$id)->delete();
-                UserBank::where('user_id', $id)->delete();
+                // UserBank::where('user_id', $id)->delete();
                 UserWallet::where('user_id', $id)->delete();
+                SupportTicket::where('user_id', $id)->delete();
+                UserReferral::where('user_id', $id)->delete();
+                WithdrawalRequest::where('user_id', $id)->delete();
+                CryptoWallet::where('user_id', $id)->delete();
+                // CryptoWalletHistory::where('user_id', $id)->delete();
+                NftWallet::where('user_id', $id)->delete();
+                // NftWalletHistory::where('user_id', $id)->delete();
+
+
                 // UserBeneficiary::where('user_id', $id)->delete();
                 // PackageHistory::where('user_id', $id)->delete();
                 // FundWallet::where('user_id', $id)->delete();
-                // WithdrawalRequest::where('user_id', $id)->delete();
-                // UserReferral::where('user_id', $id)->delete();
+               
+                
                 // $user->forceDelete();
                 $user->delete();
                 return redirect()

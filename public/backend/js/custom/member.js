@@ -185,7 +185,12 @@ $('#country_id').on('change',function(e){
 })
 
 
-
+// var sigpad = $('#sigpad').signature({syncField: '#signature', syncFormat: 'PNG'});
+// $('#clear').click(function(e) {
+//     e.preventDefault();
+//     sigpad.signature('clear');
+//     $("#signature").val('');
+// });
 
 $("#customer_register").validate({
     ignore: "input[type='text']:hidden",
@@ -304,7 +309,7 @@ $("#customer_register").validate({
         phone_number: {
             required: true,
             number: true,
-            minlength: 10,
+            minlength:10,
             maxlength: 15,
         },
         password: {
@@ -351,6 +356,17 @@ $("#customer_register").validate({
         bank_country_id: {
             required: true,
         },
+        'terms_condition[]':{
+            required: true,
+            minlength: 4
+        },
+    },
+    errorPlacement: function(error, element) {
+        if (element.attr("name") == "terms_condition[]") {
+            $('#terms_condition_error_msg').html(error);
+        } else {
+            error.insertAfter(element)
+        }
     },
     messages: {
         sponsor: {
@@ -409,7 +425,7 @@ $("#customer_register").validate({
         phone_number: {
             required: "Please enter phone number",
             number: "Please enter number only",
-            minlength: "Please enter minimum 9 character",
+            minlength: "Please enter minimum 10 character",
             maxlength: "Maximim limit of username is 15 character",
         },
         password: {
@@ -455,13 +471,13 @@ $("#customer_register").validate({
         bank_country_id: {
             required: "Please select bank account country",
         },
+        'terms_condition[]':{
+            required: "Please select checkboxes",
+            minlength: "Please choose atleast 4 checkboxes"
+        },
     },
 });
 
-
-
-
-       
 
 $("#customer_register_edit").validate({
     ignore: "input[type='text']:hidden",
@@ -531,7 +547,7 @@ $("#customer_register_edit").validate({
         phone_number: {
             required: true,
             number: true,
-            minlength: 10,
+            minlength:10,
             maxlength: 15,
         },
         password: {
@@ -580,6 +596,17 @@ $("#customer_register_edit").validate({
         bank_country_id: {
             required: true,
         },
+        'terms_condition[]':{
+            required: true,
+            minlength: 4
+        },
+    },
+    errorPlacement: function(error, element) {
+        if (element.attr("name") == "terms_condition[]") {
+            $('#terms_condition_edit_error_msg').html(error);
+        } else {
+            error.insertAfter(element)
+        }
     },
     messages: {
         sponsor: {
@@ -628,7 +655,7 @@ $("#customer_register_edit").validate({
         phone_number: {
             required: "Please enter phone number",
             number: "Please enter number only",
-            minlength: "Please enter minimum 9 character",
+            minlength: "Please enter minimum 10 character",
             maxlength: "Maximim limit of username is 15 character",
         },
         password: {
@@ -671,6 +698,10 @@ $("#customer_register_edit").validate({
         },
         bank_country_id: {
             required: "Please select bank account country",
+        },
+        'terms_condition[]':{
+            required: "Please select checkboxes",
+            minlength: "Please choose atleast 4 checkboxes"
         },
     },
 });

@@ -583,7 +583,7 @@ $local_url = url('locale');
        labels:{
           finish: '<button class="btn bg-warning text-white py-4 px-5 font-weight-bold rounded-0 mt-4 mt-md-2 font-18 text-uppercase" id="finish">{{trans("custom.finish")}}</button>',
           next: '<button class="btn bg-warning text-white py-4 px-5 font-weight-bold rounded-0 mt-4 mt-md-2 font-18 text-uppercase">{{trans("custom.next")}} <img src="{{ asset("assets/images/assets/Staking_Pools/Group179.png") }}" class="img-fluid ml-3 align-middle" alt=""></button>',
-          previous: '<button class="btn bg-transparent border-warning text-white py-4 px-5 mt-4 mt-md-2 font-weight-bold rounded-0 font-18 text-uppercase">{{trans("custom.previous")}} <img src="{{ asset("assets/images/assets/Staking_Pools/Group179.png") }}" class="img-fluid ml-3 align-middle" alt=""></button>'
+          previous: '<button class="btn bg-transparent border-warning text-white py-4 px-5 mt-4 mt-md-2 font-weight-bold rounded-0 font-18 text-uppercase"><img src="{{ asset("assets/images/assets/Staking_Pools/Group179.png") }}" class="img-fluid mr-3 align-middle" alt="" style="transform: rotate(180deg);">{{trans("custom.previous")}}</button>'
       },
       onInit: function (event, current) {
         var sigpad = $('#sigpad').signature({syncField: '#signature', syncFormat: 'PNG'});
@@ -597,6 +597,7 @@ $local_url = url('locale');
     onStepChanging: function (event, currentIndex, newIndex)
     {
       $('.actions > ul > li:first-child').attr('style', 'display:block');
+
 
             // Always allow going backward even if the current step contains invalid fields!
             if (currentIndex > newIndex)

@@ -690,3 +690,11 @@ $(document).ready(function(){
       },
 
   });
+
+
+//Create New Ticket Hide Error Message
+$('#new-tickets').on('hidden.bs.modal', function () {
+    $('#new-tickets form')[0].reset();
+    $("label.error").hide();
+    $(".error-text").html("");
+});
