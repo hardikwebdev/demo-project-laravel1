@@ -124,7 +124,7 @@ return [
     'repeat_password' => '重複密碼',
     'enter_your_password_again' => '請再次輸入密碼',
     'user_agreement' => '用戶協議',
-    'user_agreement_desc' => '<p>我特此證明並證明，上述信息是完整和準確的，我同意受這些條款和條件的約束。我還授權Vextrader驗證上述任何或全部信息。該電子簽名與手寫簽名具有相同的效力和效果。 </p>
+    'user_agreement_desc' => '<p>我特此證明並證明，上述信息是完整和準確的，我同意受這些條款和條件的約束。我還授權Defix驗證上述任何或全部信息。該電子簽名與手寫簽名具有相同的效力和效果。 </p>
     <p>請在以下方框中做出選擇，以便讓我們了解您對這些條款及協議內容的接受、認可及理解情況。 </p>',
     'aml_policy_statement' => '反洗錢政策申明',
     'risk_disclosure_statement' => '風險告知申明',
@@ -132,7 +132,7 @@ return [
     'managed_account' => '託管賬戶',
     'signature' => '您的簽名 (完整姓名)',
     'signature_fullname' => '您的簽名 (完整姓名)',
-    'terms_desc' => '我了解作為Vextrader客戶，我有責任查看Vextrader條款和條件的所有必要信息。我知道交易的風險，並會就任何交易活動尋求建議和進一步的教育。 ',
+    'terms_desc' => '我了解作為Defix客戶，我有責任查看Defix條款和條件的所有必要信息。我知道交易的風險，並會就任何交易活動尋求建議和進一步的教育。 ',
     'already_have_account' => '已有賬號?',
     'sign_in' => '登入',
     /** Upload Proof */
@@ -174,7 +174,7 @@ return [
     'clicking_proceed_understand_payment_proof_editable_submission' => '我確定填入正確的注資金額及上傳正確的付款證明，一旦確認提交，將無法更改。 ',
     'fund_top_funds_text' => '<p><strong>:date</strong><br><strong>RMB</strong><br><strong>賬戶名稱:</strong> :acc_name<br><strong>銀行名稱:</strong> :acc_holder<br><strong>銀行賬號:</strong>:acc_no <br><strong>開戶網點:</strong> :acc_branch </p>',
     'fund_top_funds_text_1' => '<p><strong>(USD 1 : RMB :amount)</strong><br><strong>(USD 1 : NTD :bank_ntd_rate)</strong><br><strong>(USD 1 : HKD :bank_hkd_amount)</strong><br><strong>(USD 1 : YEN 112)</strong><br><strong>(USD 1 : USDT :bank_usdt_amount)</strong></p>' ,
-    'st_fund_top_funds_text' => '<p> <strong> PT Vextrader Kapital Account</strong> <p class="mb-xs"><strong>:date</strong></p><p class="mb- xs"><strong>IDR</strong></p><p class="mb-xs"><strong>賬戶名稱:</strong>:acc_name</p><p class="mb-xs" ><strong>銀行名稱:</strong> :acc_holder</p><p class="mb-xs"><strong>銀行賬號:</strong>:acc_no</p><p class="mb- xs"><strong>開戶網點:</strong> :acc_branch</p><p class="mb-xs"><strong>SWIFT :</strong> NISPIDJA Tower</p><p class="mb -xs"><strong>(USD 1 : IDR 14,153.80)</strong></p>',
+    'st_fund_top_funds_text' => '<p> <strong> PT Defix Kapital Account</strong> <p class="mb-xs"><strong>:date</strong></p><p class="mb- xs"><strong>IDR</strong></p><p class="mb-xs"><strong>賬戶名稱:</strong>:acc_name</p><p class="mb-xs" ><strong>銀行名稱:</strong> :acc_holder</p><p class="mb-xs"><strong>銀行賬號:</strong>:acc_no</p><p class="mb- xs"><strong>開戶網點:</strong> :acc_branch</p><p class="mb-xs"><strong>SWIFT :</strong> NISPIDJA Tower</p><p class="mb -xs"><strong>(USD 1 : IDR 14,153.80)</strong></p>',
     'st_fund_top_funds_text_1' => '<p> <strong> China Account</strong> <p class="mb-xs"><strong>2019-09-11</strong></p><p class="mb -xs"><strong>RMB</strong></p><p class="mb-xs"><strong>賬戶名稱:</strong> :acc_name</p><p class="mb-xs "><strong>銀行名稱:</strong> :acc_holder</p><p class="mb-xs"><strong>銀行賬號:</strong> :acc_no</p><p class="mb -xs"><strong>開戶網點:</strong> :acc_branch</p><p class="mb-xs"><strong>(USD 1 : RMB :amount)</strong></p>< p class="mb-xs"><strong>(USD 1 : NTD :ntd_amount)</strong></p><p class="mb-xs"><strong>(USD 1 : HKD :hkd_amount)< /strong></p><p class="mb-xs"><strong>(USD 1 : YEN :yen_wmount)</strong></p><p class="mb-xs"><strong>( USD 1 : USDT :usd_amount</strong></p>',
     'upload_bank_proof_img' => '請上傳證明 pdf,jpeg,jpg,png',
     'funds_balance' => '資產錢包金額',
@@ -220,13 +220,13 @@ return [
     'transfer_to_withdrawal_wallet' => '轉入提現錢包',
     'transfer_mt_topup_wallet' => 'Transfer to MT5 Topup Wallet',
     'transfer_funds_wallet' => 'Transfer to Funds Wallet',
-    'transfer_OTM_wallet' => 'Transfer to Vextrader Wallet',
+    'transfer_OTM_wallet' => 'Transfer to Defix Wallet',
     'pips_rebate_history' => 'Lot Rebate History',
     'pips_rebate_wallet_transfer_history' => 'Lot Rebate Wallet Transfer History',
     'withdrawal_wallet' => '提現錢包',
     'MT5_top_up_wallet' => 'MT5 Top-up Wallet',
-    'OTM_wallet' => 'Vextrader Wallet',
-    'OTM_balance' => 'Vextrader Balance',
+    'OTM_wallet' => 'Defix Wallet',
+    'OTM_balance' => 'Defix Balance',
     /**pips rebate long text */
     'pips_wallet_desc' => '<p>自傭錢包允許您查看在維利交易中所賺取的自傭佣金。 </p>
     <p>您可以將佣金轉入資金錢包或提現錢包。 </p>',
@@ -238,8 +238,8 @@ return [
     <li>任何轉入MT5充值錢包的資金/佣金都是不可逆的。 </li>
     </ul>"',
     'otm_pips_rebate_tnc' => '"<ul class=""dis"">
-    <li>您可將您的資金/佣金轉入Vextrader錢包，讓您在Vextrader Hotel網站上預訂酒店。 </li>
-    <li>任何轉入Vextrader錢包的資金/佣金都是不可逆的。 </li>
+    <li>您可將您的資金/佣金轉入Defix錢包，讓您在Defix Hotel網站上預訂酒店。 </li>
+    <li>任何轉入Defix錢包的資金/佣金都是不可逆的。 </li>
     </ul>"',
     /**Lot Commission Wallet */
     'pips_commission' => '交易佣金',
@@ -487,7 +487,7 @@ return [
     'your_package_upgraded_1' => '您的配套已升級為$:amount',
     'account_verified' => '您的帳戶已通過驗證。 ',
     'password_successfully_reset' => '您的密碼已成功重置',
-    'successfully_registered_verify_account' => '謝謝。您已成功在Vextrader註冊。請檢查您的電子郵件以驗證您的帳戶。 ',
+    'successfully_registered_verify_account' => '謝謝。您已成功在Defix註冊。請檢查您的電子郵件以驗證您的帳戶。 ',
     'password_Reset_link_sent' => '密碼重置鏈接已發送到您的註冊電子郵件ID。 ',
 
     'account_update_success' => '帳戶詳細信息更新成功。 ',
@@ -681,7 +681,7 @@ return [
     <li type="a">您不是您所居住的司法管轄區的未成年人；</li>
     <li type="a">您對公司服務的使用不違反任何適用的法律或法規。 </li>
     </ul>
-    <p>您還同意：（a）根據網站註冊表格的提示提供有關您的真實，準確，最新和完整的信息，以及（b）維護並及時更新註冊數據以使其真實，準確，最新和完整。如果您提供的任何信息不真實，不准確，不是當前或不完整，或者維利集團有合理的理由懷疑此類信息不真實，不准確，不是當前或不完整，則Vextrader有權暫停或終止您的帳戶並拒絕任何和網站當前或將來的全部使用（或其任何部分）</p><p>簽署即表示您還同意使用條款，風險披露，反洗錢和隱私政策協議。 </p>',
+    <p>您還同意：（a）根據網站註冊表格的提示提供有關您的真實，準確，最新和完整的信息，以及（b）維護並及時更新註冊數據以使其真實，準確，最新和完整。如果您提供的任何信息不真實，不准確，不是當前或不完整，或者維利集團有合理的理由懷疑此類信息不真實，不准確，不是當前或不完整，則Defix有權暫停或終止您的帳戶並拒絕任何和網站當前或將來的全部使用（或其任何部分）</p><p>簽署即表示您還同意使用條款，風險披露，反洗錢和隱私政策協議。 </p>',
         // Dashboard
     'daily' => '日',
     'weekly' => '星期',
@@ -961,7 +961,7 @@ return [
     </div>
     <div id="collapseeleven" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>提交出金申請，請到<a href="https://account.vextrader.net/capital-withdraw">本頁</a>填寫出金申請表</p>
+    <p>提交出金申請，請到<a href="https://account.Defix.net/capital-withdraw">本頁</a>填寫出金申請表</p>
     </div>
     </div>
     </div>
@@ -973,7 +973,7 @@ return [
     </div>
     <div id="collapsetwelve" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>請在<a href="https://account.vextrader.net/help-support">此處</a>發送消息</p>
+    <p>請在<a href="https://account.Defix.net/help-support">此處</a>發送消息</p>
     </div>
     </div>
     </div>
@@ -1004,22 +1004,22 @@ return [
     <p>在維利集團，每個用戶能註冊3個賬戶。 </p>
 
     <h4>11. 我在哪裡能夠申請出金？ </h4>
-    <p>提交出金申請，請到<a href="https://account.vextrader.net/capital-withdraw">本頁</a>填寫出金申請表</p>
+    <p>提交出金申請，請到<a href="https://account.Defix.net/capital-withdraw">本頁</a>填寫出金申請表</p>
 
     <h4>12. 更多問題</h4>
-    <p>請在<a href="https://account.vextrader.net/help-support">此處</a>發送消息</p>',
+    <p>請在<a href="https://account.Defix.net/help-support">此處</a>發送消息</p>',
     
     
     
     'videotitle'=> '影片指南',
     'pdftitle'=> '公司介紹',
-    'pdflinks'=> '<a target="_blank" href="/download/v7s8a/Vextrader-Company-Profile-(TCN)-v2.2.pdf">1. 維利集團公司簡介</a><img class ="img-fluid cus-img-faq" src='.asset("new-customer/images/PDF.png").'><br><a target="_blank" href="/download/v7s8a/Vextrader-Affiliate-Plan-v2.0-CN.pdf">2. 維利集團會員計劃</a><img class="img-fluid cus-img-faq" src='.asset("new-customer/images/PDF.png").'><br><a target="_blank" href="/download/v7s8a/Vextrader-User-Guide-CN-1.0.pdf">3. 維利用戶指南</ a><img class="img-fluid cus-img-faq" src='.asset("new-customer/images/PDF.png").'>',
+    'pdflinks'=> '<a target="_blank" href="/download/v7s8a/Defix-Company-Profile-(TCN)-v2.2.pdf">1. 維利集團公司簡介</a><img class ="img-fluid cus-img-faq" src='.asset("new-customer/images/PDF.png").'><br><a target="_blank" href="/download/v7s8a/Defix-Affiliate-Plan-v2.0-CN.pdf">2. 維利集團會員計劃</a><img class="img-fluid cus-img-faq" src='.asset("new-customer/images/PDF.png").'><br><a target="_blank" href="/download/v7s8a/Defix-User-Guide-CN-1.0.pdf">3. 維利用戶指南</ a><img class="img-fluid cus-img-faq" src='.asset("new-customer/images/PDF.png").'>',
     
     'vidlinkso'=> '<a target="_blank" href="/download/v7s8a/vd/Registration-CN.mp4">1. 註冊</a><img class="img-fluid cus-img-video " src='.asset("new-customer/images/Video.png").'><br><a target="_blank" href="/download/v7s8a/vd/Dashboard-CN.mp4">2 . 儀表板</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'><br><a target="_blank" href="/download/v7s8a/vd/Funding-CN.mp4">3. 入金</a><img class="img-fluid cus-img-video " src='.asset("new-customer/images/Video.png").'><br>',
     
     'vidlinkstw'=> '<a target="_blank" href="/download/v7s8a/vd/Buy-Package-CN.mp4" >4. 倉位管理</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'><br><a target="_blank" href="/download/v7s8a/vd/Cash-Report-CN.mp4">5. 現金錢包和報告</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'><br><a target="_blank" href="/download/v7s8a/vd/KYC-Withdrawal -CN.mp4">6. 實人認證和提款</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png") .'>',
     
-    'vidlinksth'=> '<a target="_blank" href="/download/v7s8a/vd/Vextrader-Rankings-Breakdown.mp4">7. 經紀人級別細目</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'><br><a target="_blank" href="/download/v7s8a/vd/Types-of-Payouts-in-Vextrader.mp4">8. 支出類型</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'><br><a target="_blank" href="/download/v7s8a/vd/How-to-Choose-Trading-Strategy.mp4">9. 交易策略選擇</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'>',
+    'vidlinksth'=> '<a target="_blank" href="/download/v7s8a/vd/Defix-Rankings-Breakdown.mp4">7. 經紀人級別細目</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'><br><a target="_blank" href="/download/v7s8a/vd/Types-of-Payouts-in-Defix.mp4">8. 支出類型</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'><br><a target="_blank" href="/download/v7s8a/vd/How-to-Choose-Trading-Strategy.mp4">9. 交易策略選擇</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'>',
 
     
     'withdrawal_popup_txt'=>'您確定要將$ :amount 金額轉入:wallet錢包嗎？ ?',
@@ -1098,7 +1098,7 @@ return [
     'buying'=> '購買',
     'avg_risk_score'=> '平均風險評分',
     'ref'=> '參考',
-    'max_3_identfication_allowed' => '您已經在Vextrader註冊了最多3個賬戶',
+    'max_3_identfication_allowed' => '您已經在Defix註冊了最多3個賬戶',
     'lastrange'=> '過去12個月',
     'sell_popup_txt'=> '你確定要關閉這項投資？',
     'success_close_investment'=> '投資成功關閉',
@@ -1147,12 +1147,12 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link" data-toggle="collapse" href="#collapse1" aria-expanded="true">
-    1. Vextrader基金管理計畫和VexStocks+有什麼區別？ 
+    1. Defix基金管理計畫和VexStocks+有什麼區別？ 
     </a>
     </div>
     <div id="collapse1" class="collapse show" data-parent="#accordion">
     <div class="card-body">
-    <p>Vextrader基金管理計畫面向在較短時間內尋求較高回報的投資者，囙此我們只在波動性較大的外匯市場進行交易。VexStocks+擁有傳統上更長期的資產，如股票和ETF，囙此更適合長期投資者。</p>
+    <p>Defix基金管理計畫面向在較短時間內尋求較高回報的投資者，囙此我們只在波動性較大的外匯市場進行交易。VexStocks+擁有傳統上更長期的資產，如股票和ETF，囙此更適合長期投資者。</p>
 
     <p>这两个精彩的计划仍然在我们受欢迎的伊布节目，提供各种额外的收入介绍。/p>
     </div>
@@ -1182,7 +1182,7 @@ return [
     </div>
     <div id="collapse3" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>VexStocks+是一個非常排他性的產品，只對認真的和現有的Vextrader基金管理計畫投資者開放。</p>
+    <p>VexStocks+是一個非常排他性的產品，只對認真的和現有的Defix基金管理計畫投資者開放。</p>
     </div>
     </div>
     </div>
@@ -1374,7 +1374,7 @@ return [
     </div>
     <div id="collapse16" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>風險得分顯示了投資者正在承擔的風險，並使用我們在Vextrader開發的特殊公式進行計算。每個用戶的得分從1到10計算，其中1是最低可能風險，10是最高可能風險。</p>
+    <p>風險得分顯示了投資者正在承擔的風險，並使用我們在Defix開發的特殊公式進行計算。每個用戶的得分從1到10計算，其中1是最低可能風險，10是最高可能風險。</p>
     </div>
     </div>
     </div>

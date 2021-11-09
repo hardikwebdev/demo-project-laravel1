@@ -41,6 +41,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 
     Auth::routes();
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/test-reset-mail', [App\Http\Controllers\Auth\RegisterController::class, 'testResetMail']);
 
     /*check sponsor username exits*/
     Route::post('/sponsor-username-exits', [App\Http\Controllers\CommonController::class, 'sponsorUsernameExists'])->name('sponsorUsernameExits');

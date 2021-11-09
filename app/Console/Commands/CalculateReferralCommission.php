@@ -48,7 +48,8 @@ class CalculateReferralCommission extends Command
     {
         set_time_limit(0);
         \DB::transaction(function () {
-            // $result_date = ($this->argument('date')) ? Carbon::createFromFormat('Y-m-d H:i:s', $this->argument('date').' 00:00:00')->subDay()->format('Y-m-d') : Carbon::today()->subDay()->format('Y-m-d');
+            $result_date = ($this->argument('date')) ? Carbon::createFromFormat('Y-m-d H:i:s', $this->argument('date').' 00:00:00')->format('Y-m-d') : Carbon::today()->format('Y-m-d');
+
             StackingPool::where('status',0)->update(['status' => 1]);
             $stakingpools = StackingPool::where('status',1)->get();
             foreach($stakingpools as $stakingpool){
@@ -58,9 +59,15 @@ class CalculateReferralCommission extends Command
                 $sum_rank_percent = 0;
 
                 foreach ($upline_users as $key => $value) {
+                    // echo $value->id.'--'.$stakingpool->user_id.'=='.$stakingpool->id.'=='.$result_date;die('testq');
                     if(count($value->active_staking_history) == 0){
                         continue;
                     }
+                    $todaysPool = ReferralCommission::where(["user_id" => $value->id, "from_user_id" => $stakingpool->user_id,'stacking_pool_id' => $stakingpool->id])->whereDate('created_at',$result_date)->count();
+                    if($todaysPool > 0){
+                        continue;
+                    }
+
                     $package_detail = Package::where('amount','<=',$value->userwallet->stacking_pool)->orderBy('amount','desc')->first();
                     if(!$package_detail){
                         continue;
