@@ -20,7 +20,7 @@ class CalculateReferralCommission extends Command
      *
      * @var string
      */
-    protected $signature = 'calculate:directreferral {date?}';
+    protected $signature = 'calculate:directreferral {pool_id}';
 
     /**
      * The console command description.
@@ -48,10 +48,10 @@ class CalculateReferralCommission extends Command
     {
         set_time_limit(0);
         \DB::transaction(function () {
-            $result_date = ($this->argument('date')) ? Carbon::createFromFormat('Y-m-d H:i:s', $this->argument('date').' 00:00:00')->format('Y-m-d') : Carbon::today()->format('Y-m-d');
+            $result_date = Carbon::today()->format('Y-m-d');
 
             StackingPool::where('status',0)->update(['status' => 1]);
-            $stakingpools = StackingPool::where('status',1)->get();
+            $stakingpools = StackingPool::where('status',1)->where('id',$this->argument('pool_id'))->get();
             foreach($stakingpools as $stakingpool){
                 $user = $stakingpool->user_detail;
                 $upline_users = Helper::getUplineSponsor($user);

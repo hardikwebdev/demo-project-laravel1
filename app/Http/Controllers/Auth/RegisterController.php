@@ -289,12 +289,11 @@ class RegisterController extends Controller
     public function testResetMail(Request $request)
     {
         $token = Str::random(30);
-        $email = 'test@gmail.com';
-        $routeUrl = url('password/reset/' . $token . '?email=' . $email);
-        \Mail::send('emails.reset', ['routeUrl' => $routeUrl], function (
-            $message
-        ) use ($email) {
-            $message->to($email, 'Welcome')->subject('Password Reset');
+        $email = 'shital.savaliya@aipxperts.com';
+        $routeUrl = url('password/reset/'.$token.'?email='.$email);
+        \Mail::send('emails.reset',['routeUrl' =>$routeUrl], function($message) use($email )  {
+            $message->to($email, 'Welcome')
+            ->subject('Password Reset');
         });
         // dd("Mail Sent.");
     }

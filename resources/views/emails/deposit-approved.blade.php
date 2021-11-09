@@ -4,7 +4,7 @@
 <head>
   <meta content="width=device-width,initial-scale=1" name="viewport">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Welcome to Defix</title>
+  <title>Welcome to DefiXFinance</title>
   <link href='http://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700' rel='stylesheet' type='text/css'>
   <style type="text/css">
     @import url('http://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
@@ -131,7 +131,7 @@
                                 <table cellpadding="0" cellspacing="0" border="0" width="800" align="center">
                                   <tr>
                                     <td align="center" style="padding:45px 0px;" class="td-pad-20">
-                                      <a style="text-decoration:none; outline:none;" href="#" title="Defix">
+                                      <a style="text-decoration:none; outline:none;" href="#" title="DefiXFinance">
                                         <img src="{{ asset('images/email/white-logo.png')}}" width="350" style="display:block;" />
                                       </a>
                                     </td>
@@ -142,7 +142,7 @@
                                 <table cellpadding="0" cellspacing="0" border="0" width="800" align="center">
                                   <tr>
                                     <td align="center">
-                                      <a style="text-decoration:none; outline:none;" href="#" title="Defix">
+                                      <a style="text-decoration:none; outline:none;" href="#" title="DefiXFinance">
                                         <img src="{{ asset('images/email/banner.jpg')}}" width="100%" style="display:block;" />
                                       </a>
                                     </td>
@@ -173,19 +173,17 @@
                                           <td>
                                             <table align="center" cellpadding="0" cellspacing="0" border="0" width="500">
                                               <tr>
-                                                <td class="size-20" align="center" style="font-weight:600; font-size:28px; color:black; font-family:poppins; mso-line-height-rule: exactly; text-align:center; line-height:42px;">DefixFinance Withdrawal Verification</td>
+                                                <td class="size-20" align="center" style="font-weight:600; font-size:28px; color:black; font-family:poppins; mso-line-height-rule: exactly; text-align:center; line-height:42px;">[DefixFinance] Dear {{ $user->name}}, 
+                                                  <br> Your Deposit is Approved</td>
                                                 </tr>
                                                 <tr>
-                                                  <td class="pad-B20" align="center" style="font-weight:400; font-size:14px; color:#5c5c5c; font-family:poppins; mso-line-height-rule: exactly; line-height:26px; padding:10px 0px 10px;">Dear Esteemed Client, <br/>
-                                                    A withdrawal request has been made on your account. If you want to
-                                                    continue, please click the link below. If it is not you, please login your
-                                                    account and change your password immediately</td>
+                                                  <td class="pad-B20" align="center" style="font-weight:400; font-size:14px; color:#5c5c5c; font-family:poppins; mso-line-height-rule: exactly; line-height:26px; padding:10px 0px 10px;"> Dear {{ $user->name }}, <br/>
+                                                    Your deposit made on {{ date("d-M-Y",strtotime($user->created_at)) }} of the amount {{ number_format($amount, 2)}} has been
+                                                      received/approved. You will see the amount in your Crypto. You may
+                                                      use this amount to invest in any staking pool network of your choice.
+                                                      Please login to your investor portal and start your investment!
+                                                  </td>
                                                   </tr>
-                                                  <tr>
-                                                    <td class="pad-B20" align="center" style="font-weight:bold; font-size:16px; color:black; font-family:poppins; mso-line-height-rule: exactly; line-height:26px; padding:10px 0px 10px;">
-                                                      <a href="{{$routeUrl}}">I confirm my request to withdraw</a>
-                                                    </td>
-                                                    </tr>
 
                                                 </table>
                                               </td>
@@ -195,7 +193,26 @@
                                       </tr>
                                     </table>
                                     <!-- End Welcome -->
-                      
+                                    <!-- Start Features -->
+                                    <table width="800" cellpadding="0" cellspacing="0" border="0" align="center">
+                                      <tr>
+                                        <td align="center" style="background:#ffffff; padding:0px 40px 40px;" bgcolor="#ffffff" class="pad-LRB">
+                                          <table align="center" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                              <td>
+                                                <table align="center" cellpadding="0" cellspacing="0" border="0" width="490">
+                                                  <tr>
+                                                    <td align="center" valign="top" style="padding-bottom:30px;" class="pad-B20">
+                                                      {{-- <a title="See All Features" href="" style="background-color:#ffc424; border:solid 1px #ffc424; border-radius:2px;color:#ffffff;display:inline-block;font-family:Poppins; font-weight:400; font-size:14px; line-height:56px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;mso-hide:all;outline:none;">LOGIN NOW <img src="arrow.png" alt="" style="vertical-align: middle; padding-left: 10px; width: 25px;"></a> --}}
+                                                    </td>
+                                                  </tr>
+                                                </table>
+                                              </td>
+                                            </tr>
+                                          </table>
+                                        </td>
+                                      </tr>
+                                    </table>
 
                       <!-- End Features -->
      
@@ -209,7 +226,7 @@
                                   <td align="left" valign="top">
                                     <table cellpadding="0" cellspacing="0" border="0" align="left" class="wd-auto">
                                       <td style="font-family:poppins;font-size:9px;color:#bcbcbc"><strong>General Advice:</strong> All information in this website is of general advise only. We strongly advise that you consider the advise in regards to your financial objectives, situation and needs.
-                                        Defix Group Limited makes no guarantee of its accuracy and completeness and is not responsible for errors of transmission of factual or analytical data. The opinions in this website
+                                        DefiXFinance Group Limited makes no guarantee of its accuracy and completeness and is not responsible for errors of transmission of factual or analytical data. The opinions in this website
                                         constitute the present judgment of the issuer, which is subject to change without notice.
                                         <br>
                                         <br>

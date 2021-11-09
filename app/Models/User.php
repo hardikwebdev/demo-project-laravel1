@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Helpers\Helper;
+use App\Notifications\PasswordResetRequest;
 
 class User extends Authenticatable
 {
@@ -66,13 +67,19 @@ class User extends Authenticatable
     protected $dates = [ 'deleted_at' ];
     // protected $appends = [ 'sale_left','sale_right' ];
 
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new PasswordResetRequest($token));
+    }
+    
+
     //sponsers detail
     public function sponsor() {
         return $this->belongsTo(User::class, 'sponsor_id', 'id');
     }
 
     //placement username detail
-     public function placementusername() {
+    public function placementusername() {
         return $this->belongsTo(User::class, 'placement_id', 'id');
     }
 

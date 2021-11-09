@@ -483,10 +483,10 @@ form{
 }
 label.error,label.sucess,.cus-error-sponsor,.cus-error-placement{
     font-weight: 700;
-    color: red;
+    color: #ffffff;
 }
 .cus-error-sponsor,.cus-error-placement{
-    color: #c71d25 !important;
+    color: #ffffff !important;
 }
 
 .wizard > .actions .disabled a, .wizard > .actions .disabled a:hover, .wizard > .actions .disabled a:active {

@@ -18,6 +18,7 @@ use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use App\Models\Setting;
 use App\Models\StackingPoolPackage;
+use App\Models\Package;
 
 class AccountController extends Controller
 {
@@ -190,10 +191,16 @@ class AccountController extends Controller
         $accumulateRightSale    = Helper::getTotalgroupsalesRight($this->user);
         $todaysLeftSale         = Helper::getTotalgroupsalesTodayLeft($this->user);
         $todaysRightSale        = Helper::getTotalgroupsalesTodayRight($this->user);
-        $todaysLeftCarryFw      = ($todaysLeftSale > $todaysRightSale) ? ($todaysLeftSale - $todaysRightSale) : 0;
-        $todaysRightCarryFw     = ($todaysRightSale > $todaysLeftSale) ? ($todaysRightSale - $todaysLeftSale) : 0;
-        $dailyMaxCommission     = Setting::where('key','daily_direct_pairing_limit')->value('value');
-        $dailyMaxCommission     = ($dailyMaxCommission > 0) ? $dailyMaxCommission : 0;
+        $todaysLeftCarryFw      = ($todaysLeftSale > $todaysRightSale) ? $this->user->userwallet->carry_forward : 0;
+        $todaysRightCarryFw     = ($todaysRightSale > $todaysLeftSale) ? $this->user->userwallet->carry_forward : 0;
+        $packageamount = $this->user->userwallet->stacking_pool;//Helper::getTotalgroupsales($user);
+        $package_detail = Package::where('amount','<=',$packageamount)->orderBy('amount','desc')->first();
+
+
+             /* daily limit */
+        $daily_limit = ($package_detail) ? $package_detail->daily_limit : 1000;
+
+        $dailyMaxCommission     = $daily_limit;
 
         $totalCommission        = Helper::getTotalgroupsales($this->user);
 
