@@ -173,7 +173,7 @@
                                           <td>
                                             <table align="center" cellpadding="0" cellspacing="0" border="0" width="500">
                                               <tr>
-                                                <td class="size-20" align="center" style="font-weight:600; font-size:28px; color:black; font-family:poppins; mso-line-height-rule: exactly; text-align:center; line-height:42px;">[DefixFinance] Dear {{ $user->name}}, 
+                                                <td class="size-20" align="center" style="font-weight:600; font-size:28px; color:black; font-family:poppins; mso-line-height-rule: exactly; text-align:center; line-height:42px;">Dear {{ $user->name}}, 
                                                   <br> Your Deposit is Approved</td>
                                                 </tr>
                                                 <tr>
