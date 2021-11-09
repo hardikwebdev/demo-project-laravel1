@@ -380,6 +380,12 @@ class Helper {
         $date = str_replace('-','',$date);
         $defixFinanceID = 'DEF'.$userId.$date;
         return $defixFinanceID;
+    }
+    public static function sendMail($user, $amount){
+        \Mail::send('emails.deposit-approved',['user' => $user, 'amount' => $amount], function($message) use($user)  {
+            $message->to($user->email, 'Welcome')
+            ->subject('Your Deposit Approved');
+        });
     } 
 
 }

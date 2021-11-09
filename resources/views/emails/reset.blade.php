@@ -120,7 +120,7 @@
       <td align="center" valign="top">
         <table cellpadding="0" cellspacing="0" border="0" width="900" align="center">
           <tr>
-            <td class="pad-LRB" align="center" valign="top" bgcolor="#547be9" style="background-image: url('public/images/email/background.jpg'); -webkit-background-size:cover; -moz-background-size:cover; -o-background-size:cover; background-size:cover; background-position:center top; background-repeat:no-repeat; padding:0px;">
+            <td class="pad-LRB" align="center" valign="top" bgcolor="#547be9" style="background-image: url({{ asset('images/email/background.jpg') }}); -webkit-background-size:cover; -moz-background-size:cover; -o-background-size:cover; background-size:cover; background-position:center top; background-repeat:no-repeat; padding:0px;">
                             <!--[if gte mso 9]>
                                 <v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="mso-width-percent:1000;min-height:2392px;mso-position-horizontal:center;">
                                     <v:fill type="tile" src="images/wc-bg.jpg" color="#eaeaea"  />
