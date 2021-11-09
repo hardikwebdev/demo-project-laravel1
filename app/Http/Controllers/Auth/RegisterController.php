@@ -12,6 +12,9 @@ use App\Models\UserBank;
 use App\Models\UserAgreement;
 use App\Models\UserWallet;
 use App\Helpers\Helper;
+use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -187,10 +190,37 @@ class RegisterController extends Controller
         ]);
         Helper::updateDownline($user->id);
         $routeUrl = route('login');
-        // \Mail::send('emails.welcome-email',['routeUrl' =>$routeUrl, 'user' => $user], function($message) use($data )  {
-        //     $message->to($data['email'], 'Welcome')
-        //     ->subject('Defix Welcome');
-        // });
+        \Mail::send('emails.welcome-email',['routeUrl' =>$routeUrl, 'user' => $user], function($message) use($data )  {
+            $message->to($data['email'], 'Welcome')
+            ->subject('Defix Welcome');
+        });
         return $user;        
+    }
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        // $this->guard()->login($user);
+
+        /*if ($response = $this->registered($request, $user)) {
+            return $response;
+        }
+
+        return $request->wantsJson()
+                    ? new JsonResponse([], 201)
+                    : redirect($this->redirectPath());*/
+        return redirect()->route('login')->with('success',trans('custom.successfully_registered_verify_account') );                    
+    }
+    public function testResetMail(Request $request){
+        $token = Str::random(30);
+        $email = 'test@gmail.com';
+        $routeUrl = url('password/reset/'.$token.'?email='.$email);
+        \Mail::send('emails.reset',['routeUrl' =>$routeUrl], function($message) use($email )  {
+            $message->to($email, 'Welcome')
+            ->subject('Password Reset');
+        });
+        dd("Mail Sent.");
     }
 }

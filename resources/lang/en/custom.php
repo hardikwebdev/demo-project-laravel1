@@ -13,7 +13,7 @@ return [
     |
     */
     // Login page
-    'welcome_text' => 'Welcome to Vextrader',
+    'welcome_text' => 'Welcome to Defix',
     'welcome_text_desc' => 'Member Login',
     'sign_in' => 'Sign In',
     'sign_up' => 'Create Account',
@@ -104,11 +104,11 @@ return [
     'share_referral_link' => 'Share Referral Link',
     'ok' => 'Ok',
     'regi_age_msgs' => 'Notification: Age Restriction <br><br>
-    The legal age to open an account with Vextrader shall be 18 years old and above. Any individual which is under the age of 18 years old are considered minor and is not allowed to open an account. <br><br>
+    The legal age to open an account with Defix shall be 18 years old and above. Any individual which is under the age of 18 years old are considered minor and is not allowed to open an account. <br><br>
     Thank you',
     'points_warning' => 'To unlock the features of your Member Login, kindly proceed for funding of account.',
     'click_here_add_points' => 'Click here to fund in your account.',
-    'buy_package_message'=> 'Please buy a package to activate your account and to access all the features of the Vextrader',
+    'buy_package_message'=> 'Please buy a package to activate your account and to access all the features of the Defix',
     'click_here_add_package' => 'Click here to add package.',
     'verify' => 'Verify',
     /*Registration*/
@@ -128,14 +128,14 @@ return [
     'repeat_password' => 'Repeat Password',
     'enter_your_password_again' => 'Enter your password again',
     'user_agreement' => 'User Agreement',
-    'user_agreement_desc' => '<p>Trading foreign exchange, spot precious metals and any other product carries a high level of risk to your capital and you should only trade or invest with money you can afford to lose. We encourage you to consider your investment objectives, your risk tolerance and trading experience when deciding to deal in Vextrader. The possibility exists that you could sustain a loss of some or all of your initial investment and therefore you should not speculate, invest or hedge with capital you cannot afford to lose, that is borrowed or urgently needed or necessary for personal or family subsistence. Foreign exchange trading may not be suitable for all investors, so please ensure that you fully understand the risks involved and seek independent advice if you have any doubts. There is no guarantee past performance will be indicative of future results. The information on this site may be accessed worldwide however it is not directed at residents in any country or jurisdiction where such distribution or use would be contrary to local law or regulation.</p>',
+    'user_agreement_desc' => '<p>Trading foreign exchange, spot precious metals and any other product carries a high level of risk to your capital and you should only trade or invest with money you can afford to lose. We encourage you to consider your investment objectives, your risk tolerance and trading experience when deciding to deal in Defix. The possibility exists that you could sustain a loss of some or all of your initial investment and therefore you should not speculate, invest or hedge with capital you cannot afford to lose, that is borrowed or urgently needed or necessary for personal or family subsistence. Foreign exchange trading may not be suitable for all investors, so please ensure that you fully understand the risks involved and seek independent advice if you have any doubts. There is no guarantee past performance will be indicative of future results. The information on this site may be accessed worldwide however it is not directed at residents in any country or jurisdiction where such distribution or use would be contrary to local law or regulation.</p>',
     'aml_policy_statement' => 'AML Policy Statement',
     'risk_disclosure_statement' => 'Risk Disclosure Statement',
     'POA' => 'POA', 
     'managed_account' => 'Managed Account', 
     'signature' => 'Signature',
     'signature_fullname' => 'Your Signature (Fullname)',
-    'terms_desc' => 'I understand that as an Vextrader customer, it is my responsibility to review all necessary information on Vextrader Terms and Conditions. I am aware of the risks associated trading and will seek advice and further my education on starting any trading  activity.',
+    'terms_desc' => 'I understand that as an Defix customer, it is my responsibility to review all necessary information on Defix Terms and Conditions. I am aware of the risks associated trading and will seek advice and further my education on starting any trading  activity.',
     'already_have_account' => 'Already have an account?',
     'sign_in' => 'Sign In',
     /** Upload Proof */
@@ -158,7 +158,7 @@ return [
     'fund_trans'=>'Fund Transfer Only',
     'downlines_username' => 'Member Username',
     'verify_username' => 'Verify Username',
-    'transfer_downlines_OTM' => 'Transfer to Member Vextrader Wallet',
+    'transfer_downlines_OTM' => 'Transfer to Member Defix Wallet',
     'total_deposit' => 'Total Deposit',
     'funds_wallet' => 'Funds Wallet',
     'profile_detail' => 'Profile Detail',
@@ -184,7 +184,7 @@ return [
     'clicking_proceed_understand_payment_proof_editable_submission' => 'By clicking proceed, I hereby understand that the amount that I keyed in, and the payment Proof that I uploaded is correct and non-editable after submission',
     'fund_top_funds_text' => '<p><strong>:date</strong><br><strong>RMB</strong><br><strong>账户名称 :</strong> :acc_name<br><strong>银行名称 :</strong> :acc_holder<br><strong>银行账号 :</strong>:acc_no <br><strong>开户网点 :</strong> :acc_branch </p>',
     'fund_top_funds_text_1' => '<p><strong>(USD 1 : RMB  :amount)</strong><br><strong>(USD 1 : NTD :bank_ntd_rate)</strong><br><strong>(USD 1 : HKD  :bank_hkd_amount)</strong><br><strong>(USD 1 : YEN 112)</strong><br><strong>(USD 1 : USDT :bank_usdt_amount)</strong></p>',
-    'st_fund_top_funds_text' => '<p> <strong> PT Vextrader Kapital Account</strong> <p class="m-b-xs"><strong>:date</strong></p><p class="m-b-xs"><strong>IDR</strong></p><p class="m-b-xs"><strong>账户名称 :</strong>:acc_name</p><p class="m-b-xs"><strong>银行名称 :</strong> :acc_holder</p><p class="m-b-xs"><strong>银行账号 :</strong>:acc_no</p><p class="m-b-xs"><strong>开户网点 :</strong> :acc_branch</p><p class="m-b-xs"><strong>SWIFT :</strong> NISPIDJA Tower</p><p class="m-b-xs"><strong>(USD 1 : IDR 14,153.80)</strong></p>',
+    'st_fund_top_funds_text' => '<p> <strong> PT Defix Kapital Account</strong> <p class="m-b-xs"><strong>:date</strong></p><p class="m-b-xs"><strong>IDR</strong></p><p class="m-b-xs"><strong>账户名称 :</strong>:acc_name</p><p class="m-b-xs"><strong>银行名称 :</strong> :acc_holder</p><p class="m-b-xs"><strong>银行账号 :</strong>:acc_no</p><p class="m-b-xs"><strong>开户网点 :</strong> :acc_branch</p><p class="m-b-xs"><strong>SWIFT :</strong> NISPIDJA Tower</p><p class="m-b-xs"><strong>(USD 1 : IDR 14,153.80)</strong></p>',
     'st_fund_top_funds_text_1' => '<p> <strong> China Account</strong> <p class="m-b-xs"><strong>2019-09-11</strong></p><p class="m-b-xs"><strong>RMB</strong></p><p class="m-b-xs"><strong>账户名称 :</strong> :acc_name</p><p class="m-b-xs"><strong>银行名称 :</strong> :acc_holder</p><p class="m-b-xs"><strong>银行账号 :</strong> :acc_no</p><p class="m-b-xs"><strong>开户网点 :</strong> :acc_branch</p><p class="m-b-xs"><strong>(USD 1 : RMB :amount)</strong></p><p class="m-b-xs"><strong>(USD 1 : NTD :ntd_amount)</strong></p><p class="m-b-xs"><strong>(USD 1 : HKD :hkd_amount)</strong></p><p class="m-b-xs"><strong>(USD 1 : YEN  :yen_wmount)</strong></p><p class="m-b-xs"><strong>(USD 1 : USDT :usd_amount</strong></p>',
     'upload_bank_proof_img' => 'Please upload bank proof in pdf,jpeg,jpg,png',
     'funds_balance' => 'Funds Balance',
@@ -224,14 +224,14 @@ return [
     'transfer_to_withdrawal_wallet' => 'Transfer to Withdrawal Wallet',
     'transfer_mt_topup_wallet' => 'Transfer to MT4 Topup Wallet',
     'transfer_funds_wallet' => 'Transfer to Funds Wallet',
-    'transfer_OTM_wallet' => 'Transfer to Vextrader Wallet',
+    'transfer_OTM_wallet' => 'Transfer to Defix Wallet',
     'pips_rebate_history' => 'Lot Rebate History',
     'pips_rebate_wallet_transfer_history' => 'Lot Rebate Wallet Transfer History',
     'withdrawal_wallet' => 'Withdrawal wallet',
-    'OTM_wallet' => 'Vextrader Wallet',
-    'OTM_balance' => 'Vextrader Balance',
+    'OTM_wallet' => 'Defix Wallet',
+    'OTM_balance' => 'Defix Balance',
     /**pips rebate long text  */
-    'pips_wallet_desc' => '<p>Lot Rebate Wallet allows you to view all your pip rebate earnings from Vextrader trading.</p>
+    'pips_wallet_desc' => '<p>Lot Rebate Wallet allows you to view all your pip rebate earnings from Defix trading.</p>
     <p>You can transfer your earnings to your Funds Wallet, Withdrawal Wallet.</p>',
     'withdrawl_pips_rebate_tnc' => '<ul class="dis"><li>Transfer your commission into Withdrawal wallet allows you to submit request for withdrawal.</li><li>Any fund/commission that has been transferred to Withdrawal Wallet is irreversible.</li></ul>',
     'st_withdrawl_pips_rebate_tnc' => '<ul class="dis"><li>Transfer your commission into Self-trading Withdrawal wallet allows you to submit request for withdrawal.</li><li>Any fund/commission that has been transferred to Self-trading Withdrawal Wallet is irreversible.</li></ul>',
@@ -241,8 +241,8 @@ return [
     <li>Any fund/commission that has been transferred to MT4 Top Up Wallet is irreversible.</li>
     </ul>',
     'otm_pips_rebate_tnc' => '<ul class="dis">
-    <li>Transfer your fund/commission into Vextrader wallet allows you to book hotel at Vextrader Hotel website. </li>
-    <li>Any fund/commission that has been transferred to Vextrader Wallet is irreversible.</li>
+    <li>Transfer your fund/commission into Defix wallet allows you to book hotel at Defix Hotel website. </li>
+    <li>Any fund/commission that has been transferred to Defix Wallet is irreversible.</li>
     </ul>',
     /**Lot Cash Wallet */
     'pips_commission' => 'Lot Commission',
@@ -263,7 +263,7 @@ return [
     'overriding_wallet_transfer_history' => 'Overriding Wallet Transfer History',
     /**long text overriding */
     'overriding_wallet_desc' => '<p>Overriding Wallet allows you to view all your commission earnings from your downlines package purchased. (Distribute every 30 days from customers package purchased/upgraded.)</p>
-    <p>You can transfer your earnings to your Funds Wallet, Withdrawal Wallet & Vextrader Wallet.</p>',
+    <p>You can transfer your earnings to your Funds Wallet, Withdrawal Wallet & Defix Wallet.</p>',
     
     /** Leader bonus wallet **/
     'leader_bonus' => 'Leader Bonus',
@@ -273,7 +273,7 @@ return [
     'leader_bonus_wallet_transfer_history' => 'Leader Bonus Wallet Transfer History',
     /**Long text  */
     'leader_bon_wallet_desc' => '<p>Leader Bonus Wallet allows you to view all your commission earnings from your downlines Lot Commission.</p>
-    <p>You can transfer your earnings to your Funds Wallet, Withdrawal Wallet & Vextrader Wallet.</p>',
+    <p>You can transfer your earnings to your Funds Wallet, Withdrawal Wallet & Defix Wallet.</p>',
     /** Profit sharing Wallet **/
     'profit_sharing' => 'Profit sharing',
     'profit_sharing_wallet' => 'Profit Sharing Wallet',
@@ -300,8 +300,8 @@ return [
     /**Mt4  long ext  **/
     'mt4_wallet_desc' => '<p>MT4 Wallet allows you to submit request to transfer fund from your MT4 account.</p>
     <p>Approval is based on the fund management profit, any amount above the profit submitted shall be rejected.</p>
-    <p>You can transfer your earnings to your Funds Wallet, Withdrawal Wallet & Vextrader Wallet.</p>',
-    'request_mt4_terms' => '<ul class="dis"><li>You can easily withdrawal funds to your MT4 Wallet by using the "Request fund transfer from MT4"</li>'.PHP_EOL.'<li>Approval is based on the fund management profit, any amount above the profit submitted shall be rejected</li>'.PHP_EOL.'<li>Processing time is at least 2 business day(s) for request fund transfer from MT4 </li>'.PHP_EOL.'<li>60% of the requested amount shall be credited to the MT4 Wallet</li>'.PHP_EOL.'<li>For withdrawal of MT4 Wallet funds, kindly transfer the designated amount to Withdrawal Wallet</li>'.PHP_EOL.'<li>You still need to be sent the full withdrawal request to support@Vextrader.com and receive confirmation replies before it coming to this page to fill up this form.</li>'.PHP_EOL.'<li>For left over profits that is not in the multiple of 50, you can withdraw in the capital withdrawal form during your full withdrawals.</li></ul>',
+    <p>You can transfer your earnings to your Funds Wallet, Withdrawal Wallet & Defix Wallet.</p>',
+    'request_mt4_terms' => '<ul class="dis"><li>You can easily withdrawal funds to your MT4 Wallet by using the "Request fund transfer from MT4"</li>'.PHP_EOL.'<li>Approval is based on the fund management profit, any amount above the profit submitted shall be rejected</li>'.PHP_EOL.'<li>Processing time is at least 2 business day(s) for request fund transfer from MT4 </li>'.PHP_EOL.'<li>60% of the requested amount shall be credited to the MT4 Wallet</li>'.PHP_EOL.'<li>For withdrawal of MT4 Wallet funds, kindly transfer the designated amount to Withdrawal Wallet</li>'.PHP_EOL.'<li>You still need to be sent the full withdrawal request to support@Defix.com and receive confirmation replies before it coming to this page to fill up this form.</li>'.PHP_EOL.'<li>For left over profits that is not in the multiple of 50, you can withdraw in the capital withdrawal form during your full withdrawals.</li></ul>',
     'sure_cap_withdraw' => 'Are you sure you want to withdraw your Capital?',
     'process_irreversible' => 'This process is irreversible and might prevent you from getting any future payouts if your capital drops below our minimum requirements.',
     'msg_with_request_email' => 'Please check your email and click the link in the email to verify your identity.',
@@ -323,7 +323,7 @@ return [
     'waiting_cap_email_conf_msg' => 'Please click the link sent to you for confirmation',
     'waiting_cap_admin_conf_msg' => 'Please wait for admin to perform MT4 detachment',
     'pending_mt4_requests' => 'Your previous request is pending yet.',
-    'conf_cap_with_info' => '<p>By clicking yes below, I agree to the terms and conditions in regards to the withdrawal of capital and subsequent termination of account if my capital drops below the minimum requirements.</p> <p>By requesting to withdraw my full capital, I will no longer be eligible to receive any new:</p> <ul> <li>Trading profit</li> <li>Lot Rebate</li> <li>Downline Lot Rebate</li> <li>Profit Sharing</li> </ul> <p>Upon full withdrawal, my account will be terminated and I will be unable to re-register or open any new accounts with Vextrader & its affiliates within 6 months.</p>',
+    'conf_cap_with_info' => '<p>By clicking yes below, I agree to the terms and conditions in regards to the withdrawal of capital and subsequent termination of account if my capital drops below the minimum requirements.</p> <p>By requesting to withdraw my full capital, I will no longer be eligible to receive any new:</p> <ul> <li>Trading profit</li> <li>Lot Rebate</li> <li>Downline Lot Rebate</li> <li>Profit Sharing</li> </ul> <p>Upon full withdrawal, my account will be terminated and I will be unable to re-register or open any new accounts with Defix & its affiliates within 6 months.</p>',
     'conf_cap_with' => 'Confirmation on capital withdrawal & account termination',
     /**Withdrawl Wallet **/
     'USDT_address' => 'USDT Address',
@@ -362,7 +362,7 @@ return [
     'reference_number' => 'Reference Number',
     'MT4_details' => 'MT4 Details',
     /**long text */
-    'transfer_fund_tnc' => '<ul class="dis"><li>Vextrader reserves the right to require additional proof of funding from you at any time.</li>
+    'transfer_fund_tnc' => '<ul class="dis"><li>Defix reserves the right to require additional proof of funding from you at any time.</li>
     <li>We reserve the right to apply a processing fee if a third-party payment is made</li>
     <li>Processing time for funding shall be 2-3 business day(s)</li>
     <li>Our Operation Hours for funding are as follows:<br>
@@ -448,20 +448,20 @@ return [
     'trading_tv_desc' => 'Watch the latest trading information & news here so you can make your trades smarter. Listen to the experts monitor & research the market so you get the latest & most informed information.',
     /* Help & guide */
     'help_guides' => 'Help & Guides',
-    'OTM_trade_account_registration_reset'=>'Vextrader Account Registration & Reset',
-    'OTM_trade_member_login_user_guide'=>'Vextrader - Member Login User Guide',
-    'OTM_trade_FAQ'=>'Vextrader - FAQ',
+    'OTM_trade_account_registration_reset'=>'Defix Account Registration & Reset',
+    'OTM_trade_member_login_user_guide'=>'Defix - Member Login User Guide',
+    'OTM_trade_FAQ'=>'Defix - FAQ',
     'download_MT5'=>'Download MT5',
     
     /**Welcome Email**/
-    'congratulations' => 'Congratulations on becoming a Vextrader Member!',
+    'congratulations' => 'Congratulations on becoming a Defix Member!',
     'dear_client' => 'Dear Valuable Client,',
-    'thank_you_for_opening' => 'Thank you for opening an account with Vextrader. As one of the leaders in this industry, we can assure you that our products and our services will not disappoint you. Our Finance Department will process your application within the next 24 hour(s).',
-    'your_login_details' => 'Your login details for Vextrader are',
+    'thank_you_for_opening' => 'Thank you for opening an account with Defix. As one of the leaders in this industry, we can assure you that our products and our services will not disappoint you. Our Finance Department will process your application within the next 24 hour(s).',
+    'your_login_details' => 'Your login details for Defix are',
     'date_register' => 'Date Register',
-    'at_otm_capital' => 'At Vextrader, we strive to provide our most exclusive level of service with priority and tailored advice to help you build, manage and protect your wealth. We are constantly improving our technology base so that you get the highest quality execution and access to the world’s leading liquidity providers covering more than 80% of the market. Furthermore, we are constantly adding to our product offering and improving our conditions, so that you can continue benefiting from the best opportunities.',
+    'at_otm_capital' => 'At Defix, we strive to provide our most exclusive level of service with priority and tailored advice to help you build, manage and protect your wealth. We are constantly improving our technology base so that you get the highest quality execution and access to the world’s leading liquidity providers covering more than 80% of the market. Furthermore, we are constantly adding to our product offering and improving our conditions, so that you can continue benefiting from the best opportunities.',
     'confidential_the_email' => '<strong>CONFIDENTIALITY:</strong> This e-mail and any files transmitted with it are confidential and intended solely for the use of the recipient(s) only. Any review, retransmission, dissemination or other use of, or taking any action in reliance upon this information by persons or entities other than the intended recipient(s) is prohibited. If you have received this e-mail in error please notify the sender immediately and destroy the material whether stored on a computer or otherwise.',
-    'disclaimer' => '<strong>DISCLAIMER:</strong> Any views or opinions presented within this e-mail are solely those of the author and do not necessarily represent those of Vextrader, unless otherwise specifically stated. The content of this message does not constitute Investment Advice.',
+    'disclaimer' => '<strong>DISCLAIMER:</strong> Any views or opinions presented within this e-mail are solely those of the author and do not necessarily represent those of Defix, unless otherwise specifically stated. The content of this message does not constitute Investment Advice.',
     
     /*Help & Support*/
     'help_support' => 'Help & Support',
@@ -500,9 +500,9 @@ return [
     'this_week_income_source' => 'This Week Income Source',
     'latest_network_sales' => 'Latest Network Sales',
     'wallet' => 'Wallet',
-    'dashboard_disclaimer' => '<p><strong class="text-white">Risk Disclosure:</strong> Investing in financial instruments are associated with an increased level of risk arising from the leverage use, which can work in your favor or against you. Before you decide to open an account, make sure you are fully aware of the financial risk level according to your financial abilities, knowledge, analytical skills, practical trading skills, as well as an understanding of your own risk tolerance and self-control. Any opinions, news, research, analyses or other information shown on Vextrader’s website, login or email are provided as general market commentary and do not constitute investment advice. This information is not directed/intended for distribution to or use by residents of certain countries/jurisdictions including but not limited to USA, North Korea, Denmark, France and Belgium. Vextrader does not offer its services to residents of certain jurisdictions/countries including but not limited to USA, North Korea, Denmark, France and Belgium. Vextrader holds the right to alter the above lists of countries at its own discretion.</p>
+    'dashboard_disclaimer' => '<p><strong class="text-white">Risk Disclosure:</strong> Investing in financial instruments are associated with an increased level of risk arising from the leverage use, which can work in your favor or against you. Before you decide to open an account, make sure you are fully aware of the financial risk level according to your financial abilities, knowledge, analytical skills, practical trading skills, as well as an understanding of your own risk tolerance and self-control. Any opinions, news, research, analyses or other information shown on Defix’s website, login or email are provided as general market commentary and do not constitute investment advice. This information is not directed/intended for distribution to or use by residents of certain countries/jurisdictions including but not limited to USA, North Korea, Denmark, France and Belgium. Defix does not offer its services to residents of certain jurisdictions/countries including but not limited to USA, North Korea, Denmark, France and Belgium. Defix holds the right to alter the above lists of countries at its own discretion.</p>
     <p><strong class="text-white">Privacy Policy:</strong> We are committed to ensuring that your information is secure. In order to prevent unauthorized access or disclosure, we have put in place suitable physical, electronic and managerial procedures to safeguard and secure the information we collect online.</p>',
-    'risk_disclosure'=>'Investing in financial instruments are associated with an increased level of risk arising from the leverage use, which can work in your favor or against you. Before you decide to open an account, make sure you are fully aware of the financial risk level according to your financial abilities, knowledge, analytical skills, practical trading skills, as well as an understanding of your own risk tolerance and self-control. Any opinions, news, research, analyses or other information shown on Vextrader’s website, login or email are provided as general market commentary and do not constitute investment advice. This information is not directed/intended for distribution to or use by residents of certain countries/jurisdictions including but not limited to USA, North Korea, Denmark, France and Belgium. Vextrader does not offer its services to residents of certain jurisdictions/countries including but not limited to USA, North Korea, Denmark, France and Belgium. Vextrader holds the right to alter the above lists of countries at its own discretion.',
+    'risk_disclosure'=>'Investing in financial instruments are associated with an increased level of risk arising from the leverage use, which can work in your favor or against you. Before you decide to open an account, make sure you are fully aware of the financial risk level according to your financial abilities, knowledge, analytical skills, practical trading skills, as well as an understanding of your own risk tolerance and self-control. Any opinions, news, research, analyses or other information shown on Defix’s website, login or email are provided as general market commentary and do not constitute investment advice. This information is not directed/intended for distribution to or use by residents of certain countries/jurisdictions including but not limited to USA, North Korea, Denmark, France and Belgium. Defix does not offer its services to residents of certain jurisdictions/countries including but not limited to USA, North Korea, Denmark, France and Belgium. Defix holds the right to alter the above lists of countries at its own discretion.',
     'privacy_policy'=>'We are committed to ensuring that your information is secure. In order to prevent unauthorized access or disclosure, we have put in place suitable physical, electronic and managerial procedures to safeguard and secure the information we collect online',
     /*Controller message */
     'package_not_found' => 'Package not found',
@@ -522,7 +522,7 @@ return [
     'requested_amount_transfered_fun_wallet' => 'The requested amount is transferred to given users fund wallet',
     'requested_amount_transfered_withdrawal' => 'The requested amount is transferred to withdrawal balance',
     'requested_amount_transfered_MT4_Top_up' => 'The requested amount is transferred to MT4 Top-up Wallet',
-    'requested_amount_transfered_Otm' => 'The requested amount is transferred to Vextrader wallet',
+    'requested_amount_transfered_Otm' => 'The requested amount is transferred to Defix wallet',
     'requested_amount_transfered_funds' => 'The requested amount is transferred to Funds wallet',
     'requested_amount_transfered_st_withdrawal' => 'The requested amount is transferred to SelfTrading withdrawal wallet',
     'ticket_not_found_different_tickets_' => 'Ticket is not found.Please try with different tickets.',
@@ -541,14 +541,14 @@ return [
     'your_package_upgraded_1' => 'Your package is upgraded to $:amount',
     'account_verified' => 'Your account has been verified.',
     'password_successfully_reset' => 'Your password has been successfully reset',
-    'successfully_registered_verify_account' => 'Thank you. You are successfully registered with Vextrader. You can login and check your account.',
+    'successfully_registered_verify_account' => 'Thank you. You are successfully registered with Defix. You can login and check your account.',
     'password_Reset_link_sent' => 'Password Reset link has been sent to your registered email id.',
 
     'account_update_success' => 'Account detail update successfully.',
 
     'ticket_message_admin' => 'Ticket message sent to admin.',
     'ticket_closed' => 'Ticket has been closed.',
-    'OTM_wallet_balance_less_ticket' => 'Your Vextrader wallet balance is less than the tkt amount.',
+    'OTM_wallet_balance_less_ticket' => 'Your Defix wallet balance is less than the tkt amount.',
     'withdrawl_request_verified' => 'Your Withdrawl Request has been verified',
     'withdrawl_request_already_verified' => 'Your Withdrawl Request already verified',
     'withdrawl_request_not_valid' => 'Your Withdrawl Request key not valid',
@@ -630,14 +630,14 @@ return [
     <li>The company reserves the right to change the processing time for capital withdrawals without prior notification.</li>
     <li>The company has the right to investigate, cancel, and/ or impose fees/ charges on any withdrawal request originating from a trading account with no trading activity.</li>
     <li>The company cannot be held liable for any deposit/ withdrawal processing delays that are caused by payment systems.</li>
-    <li>If you withdraw your capital, you will not be allowed to register for a new account with Vextrader and all its affiliates within 6 months.</li>
+    <li>If you withdraw your capital, you will not be allowed to register for a new account with Defix and all its affiliates within 6 months.</li>
     <li>The company reserves the right to change any terms and conditions of capital withdrawal without prior announcements.</li>
     </ul>',
 
     'mt4with_step2_q1' => 'Why have you decided to withdraw your capital?',
-    'mt4with_step2_q2' => 'How would you improve Vextrader?',
+    'mt4with_step2_q2' => 'How would you improve Defix?',
     'mt4with_step2_q3' => 'What are your objectives for investment?',
-    'mt4with_step2_q4' => 'Do you plan on reinvesting into Vextrader in the future?',
+    'mt4with_step2_q4' => 'Do you plan on reinvesting into Defix in the future?',
     'mt4with_step2_q5' => 'Have you invested in other platforms? If yes, what are they?',
 
     'upl_ic_proof' => 'Upload IC Proof with Selfie',
@@ -708,13 +708,13 @@ return [
     'news_events' => 'News & Events',
     'industry_tools' => 'Industry Tools',
     'industry_tool_iframe' => 'https://www.youtube.com/embed/mXuR_SRP-XI',
-    'footer_desc'=>'<p><strong>General Advice:</strong> All information in this website is of general advise only. We strongly advise that you consider the advise in regards to your financial objectives, situation and needs. Vextrader makes no guarantee of its accuracy and completeness and is not responsible for errors of transmission of factual or analytical data. The opinions in this website constitute the present judgment of the issuer, which is subject to change without notice.</p><p><strong>Legal Risk Disclosure:</strong> Please note that foreign exchange on margin carries a high level of risk, and may not be suitable for all investors. The high degree of leverage can work against you as well as for you. Before deciding to invest in foreign exchange you should carefully consider your investment objectives, level of experience and risk appetite. The possibility exists that you could sustain a loss of some or all of your initial investment and therefore you should not invest money that you cannot afford to lose. You should be aware of all the risks associated with foreign exchange trading, and seek advice from an independent financial advisor.</p><p><strong>Restricted Regions:</strong> Vextrader does not provide services for the residents of certain countries, such as Iran, Cuba, Sudan, Syria and North Korea.</p>',
-    'footer_copyrights' => 'All Rights Reserved © '.date('Y').' Vextrader',
-    'login_footer_desc'=>'<p>General Advice: All information in this website is of general advise only. We strongly advise that you consider the advise in regards to your financial objectives, situation and needs. Vextrader makes no guarantee of its accuracy and completeness and is not responsible for errors of transmission of factual or analytical data. The opinions in this website constitute the present judgment of the issuer, which is subject to change without notice.<br><br>Legal Risk Disclosure: Please note that foreign exchange on margin carries a high level of risk, and may not be suitable for all investors. The high degree of leverage can work against you as well as for you. Before deciding to invest in foreign exchange you should carefully consider your investment objectives, level of experience and risk appetite. The possibility exists that you could sustain a loss of some or all of your initial investment and therefore you should not invest money that you cannot afford to lose. You should be aware of all the risks associated with foreign exchange trading, and seek advice from an independent financial advisor.<br><br>Restricted Regions: Vextrader does not provide services for the residents of certain countries, such as Iran, Cuba, Sudan, Syria and North Korea.</p>',
+    'footer_desc'=>'<p><strong>General Advice:</strong> All information in this website is of general advise only. We strongly advise that you consider the advise in regards to your financial objectives, situation and needs. Defix makes no guarantee of its accuracy and completeness and is not responsible for errors of transmission of factual or analytical data. The opinions in this website constitute the present judgment of the issuer, which is subject to change without notice.</p><p><strong>Legal Risk Disclosure:</strong> Please note that foreign exchange on margin carries a high level of risk, and may not be suitable for all investors. The high degree of leverage can work against you as well as for you. Before deciding to invest in foreign exchange you should carefully consider your investment objectives, level of experience and risk appetite. The possibility exists that you could sustain a loss of some or all of your initial investment and therefore you should not invest money that you cannot afford to lose. You should be aware of all the risks associated with foreign exchange trading, and seek advice from an independent financial advisor.</p><p><strong>Restricted Regions:</strong> Defix does not provide services for the residents of certain countries, such as Iran, Cuba, Sudan, Syria and North Korea.</p>',
+    'footer_copyrights' => 'All Rights Reserved © '.date('Y').' Defix',
+    'login_footer_desc'=>'<p>General Advice: All information in this website is of general advise only. We strongly advise that you consider the advise in regards to your financial objectives, situation and needs. Defix makes no guarantee of its accuracy and completeness and is not responsible for errors of transmission of factual or analytical data. The opinions in this website constitute the present judgment of the issuer, which is subject to change without notice.<br><br>Legal Risk Disclosure: Please note that foreign exchange on margin carries a high level of risk, and may not be suitable for all investors. The high degree of leverage can work against you as well as for you. Before deciding to invest in foreign exchange you should carefully consider your investment objectives, level of experience and risk appetite. The possibility exists that you could sustain a loss of some or all of your initial investment and therefore you should not invest money that you cannot afford to lose. You should be aware of all the risks associated with foreign exchange trading, and seek advice from an independent financial advisor.<br><br>Restricted Regions: Defix does not provide services for the residents of certain countries, such as Iran, Cuba, Sudan, Syria and North Korea.</p>',
     'privacy_policy_label'=>'Privacy Policy',
     'terms_and_condition'=>'Terms Of Use',
     'user_agreement_desc_new'=>'<p>By filling up the form above and proceeding, you represent and warrant that: </p><ul><li type="a">all registration information you submit is truthful and accurate;</li><li type="a">you will maintain the accuracy of such information;</li><li type="a">you will keep your password confidential and will be responsible for all use of your password and account;</li><li type="a">you are not a minor in the jurisdiction in which you reside;</li><li type="a">your use of the Company Services does not violate any applicable law or regulation.</li></ul><p>
-    You also agree to: (a) provide true, accurate, current and complete information about yourself as prompted by the Website’s registration form and (b) maintain and promptly update registration data to keep it true, accurate, current and complete. If you provide any information that is untrue, inaccurate, not current or incomplete, or Vextrader has reasonable grounds to suspect that such information is untrue, inaccurate, not current or incomplete, Vextrader has the right to suspend or terminate your account and refuse any and all current or future use of the Website (or any portion thereof).</p><p>By signing up you also agree to the Terms Of Use, Risk Disclosure, Anti-Money Laundring and Privacy Policy Agreements.</p>',
+    You also agree to: (a) provide true, accurate, current and complete information about yourself as prompted by the Website’s registration form and (b) maintain and promptly update registration data to keep it true, accurate, current and complete. If you provide any information that is untrue, inaccurate, not current or incomplete, or Defix has reasonable grounds to suspect that such information is untrue, inaccurate, not current or incomplete, Defix has the right to suspend or terminate your account and refuse any and all current or future use of the Website (or any portion thereof).</p><p>By signing up you also agree to the Terms Of Use, Risk Disclosure, Anti-Money Laundring and Privacy Policy Agreements.</p>',
     // Choose investment 
     'choose_investment_program' => 'Choose Investment Program',
     'view_program' => 'View Program',
@@ -844,13 +844,13 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="card-link" data-toggle="collapse" href="#collapseOne" aria-expanded="true">
-    1. What does Vextrader offer to its clients?
+    1. What does Defix offer to its clients?
     </a>
     </div>
     <div id="collapseOne" class="collapse show" data-parent="#accordion">
     <div class="card-body">
-    <p>One of Vextrader’s signature product is the Managed Account Services.</p>
-    <p>Vextrader’s managed account is an investment portfolio that is managed by a professional manager who makes and actions investment decisions based on an investment strategy, which has been determined as suitable for meeting a client’s objectives. Our available investment strategy is the Matrix, Prism and Paladin. Targeted profit shall be between 6%-20%</p>
+    <p>One of Defix’s signature product is the Managed Account Services.</p>
+    <p>Defix’s managed account is an investment portfolio that is managed by a professional manager who makes and actions investment decisions based on an investment strategy, which has been determined as suitable for meeting a client’s objectives. Our available investment strategy is the Matrix, Prism and Paladin. Targeted profit shall be between 6%-20%</p>
     <p>A share split agreed which is 70% being paid to the investor’s account and 30% deductible being paid to the fund manager/company.</p>
     </div>
     </div>
@@ -859,12 +859,12 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
-    2. How does Vextrader makes money?
+    2. How does Defix makes money?
     </a>
     </div>
     <div id="collapseTwo" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>Vextrader is compensated via spreads, which are the difference between the bid and ask prices. On Managed Account, Vextrader is compensated via profit sharing basis. </p>
+    <p>Defix is compensated via spreads, which are the difference between the bid and ask prices. On Managed Account, Defix is compensated via profit sharing basis. </p>
     </div>
     </div>
     </div>
@@ -872,17 +872,17 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-    3. What is Vextrader Anti-Money Laundering policy?
+    3. What is Defix Anti-Money Laundering policy?
     </a>
     </div>
     <div id="collapseThree" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>On an ongoing basis, Vextrader shall review all account activity for evidence of suspicious transactions that may be indicative of money laundering activities. This review may include surveillance of:<br>
+    <p>On an ongoing basis, Defix shall review all account activity for evidence of suspicious transactions that may be indicative of money laundering activities. This review may include surveillance of:<br>
     1) money flows into and out of accounts.<br>
     2) the origin and destination of wire transfers.<br>
     3) other activity outside the normal course of business.
     </p>
-    <p>In order to be fully compliant with applicable regulatory requirements, Vextrader may occasionally reach out for additional information and/or documentation from clients.</p>
+    <p>In order to be fully compliant with applicable regulatory requirements, Defix may occasionally reach out for additional information and/or documentation from clients.</p>
     </div>
     </div>
     </div>
@@ -890,12 +890,12 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link" data-toggle="collapse" href="#collapsefour">
-    4. How much money do I need to start with Vextrader?
+    4. How much money do I need to start with Defix?
     </a>
     </div>
     <div id="collapsefour" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>To start with Vextrader the minimum amount shall be USD 1,000<br>
+    <p>To start with Defix the minimum amount shall be USD 1,000<br>
     Our available package:
     <ul>
     <li>USD 1,000</li>
@@ -954,7 +954,7 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link" data-toggle="collapse" href="#collapseeight">
-    8. How do I make money with Vextrader?
+    8. How do I make money with Defix?
     </a>
     </div>
     <div id="collapseeight" class="collapse" data-parent="#accordion">
@@ -989,7 +989,7 @@ return [
     </div>
     <div id="collapseten" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>Client can register 3 accounts with Vextrader</p>
+    <p>Client can register 3 accounts with Defix</p>
     </div>
     </div>
     </div>
@@ -1001,7 +1001,7 @@ return [
     </div>
     <div id="collapseeleven" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>To submit for capital withdrawal, please go to <a href="https://account.vextrader.net/capital-withdraw">this page</a> to fill up the request form.</p>
+    <p>To submit for capital withdrawal, please go to <a href="https://account.Defix.net/capital-withdraw">this page</a> to fill up the request form.</p>
     </div>
     </div>
     </div>
@@ -1013,7 +1013,7 @@ return [
     </div>
     <div id="collapsetwelve" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>Kindly send us a message <a href="https://account.vextrader.net/help-support">here</a>.</p>
+    <p>Kindly send us a message <a href="https://account.Defix.net/help-support">here</a>.</p>
     </div>
     </div>
     </div>
@@ -1029,7 +1029,7 @@ return [
     <h4>7. I have deposited, but the funds havent come yet?</h4>
     <p>All initial deposit or further topups to your MT5 account will be processed within 7 working days. If you wish to have priority deposit, please notify our support team via the ticketing system. </p>
 
-    <h4>8. How do I make money with Vextrader?</h4>
+    <h4>8. How do I make money with Defix?</h4>
     <p>Client will get rebate upon introduction of new clients. Rebate is a part of the partner revenue and the commission process is fully automated. </p>
 
     <h4>9. When is the disbursement of commission?</h4>
@@ -1041,23 +1041,23 @@ return [
     </p>
 
     <h4>10. How many account can I register?</h4>
-    <p>Client can register 3 accounts with Vextrader</p>
+    <p>Client can register 3 accounts with Defix</p>
 
     <h4>11. Where can I submit withdrawal for my initial capital?</h4>
-    <p>To submit for capital withdrawal, please go to <a href="https://account.vextrader.net/capital-withdraw">this page</a> to fill up the request form.</p>
+    <p>To submit for capital withdrawal, please go to <a href="https://account.Defix.net/capital-withdraw">this page</a> to fill up the request form.</p>
 
     <h4>12. I still have more questions</h4>
-    <p>Kindly send us a message <a href="https://account.vextrader.net/help-support">here</a>.</p>',
+    <p>Kindly send us a message <a href="https://account.Defix.net/help-support">here</a>.</p>',
     
     'videotitle'=> 'Video Guides',
     'pdftitle'=> 'Company Introduction',
-    'pdflinks'=> '<a target="_blank" href="/download/v7s8a/Vextrader-Company-Profile-(ENG)-v2.2.pdf">1. Vextrader Corporate Profile</a><img class="img-fluid cus-img-faq" src='.asset("new-customer/images/PDF.png").'><br><a target="_blank" href="/download/v7s8a/Vextrader-User-Guide-ENG-1.0.pdf">2. Vextrader User Guide</a><img class="img-fluid cus-img-faq" src='.asset("new-customer/images/PDF.png").'>',
+    'pdflinks'=> '<a target="_blank" href="/download/v7s8a/Defix-Company-Profile-(ENG)-v2.2.pdf">1. Defix Corporate Profile</a><img class="img-fluid cus-img-faq" src='.asset("new-customer/images/PDF.png").'><br><a target="_blank" href="/download/v7s8a/Defix-User-Guide-ENG-1.0.pdf">2. Defix User Guide</a><img class="img-fluid cus-img-faq" src='.asset("new-customer/images/PDF.png").'>',
     
     'vidlinkso'=> '<a target="_blank" href="/download/v7s8a/vd/Registration-ENG.mp4">1. Registration</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'><br><a target="_blank" href="/download/v7s8a/vd/Dashboard-ENG.mp4">2. Dashboard Overview</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'><br><a target="_blank" href="/download/v7s8a/vd/Funding-ENG.mp4">3. Funding</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'>',
     
     'vidlinkstw'=> '<a target="_blank" href="/download/v7s8a/vd/Buy-Package-ENG.mp4">4. Buy Package</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'><br><a target="_blank" href="/download/v7s8a/vd/Cash-Report-ENG.mp4">5. Cash Wallet & Reports</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'><br><a target="_blank" href="/download/v7s8a/vd/KYC-Withdrawal-ENG.mp4">6. KYC & Withdrawal</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'>',
     
-    'vidlinksth'=> '<a target="_blank" href="/download/v7s8a/vd/Vextrader-Rankings-Breakdown.mp4">7. Rankings Breakdown</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'><br><a target="_blank" href="/download/v7s8a/vd/Types-of-Payouts-in-Vextrader.mp4">8. Types of Payout</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'><br><a target="_blank" href="/download/v7s8a/vd/How-to-Choose-Trading-Strategy.mp4">9. Trading Strategy Selection</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'>',
+    'vidlinksth'=> '<a target="_blank" href="/download/v7s8a/vd/Defix-Rankings-Breakdown.mp4">7. Rankings Breakdown</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'><br><a target="_blank" href="/download/v7s8a/vd/Types-of-Payouts-in-Defix.mp4">8. Types of Payout</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'><br><a target="_blank" href="/download/v7s8a/vd/How-to-Choose-Trading-Strategy.mp4">9. Trading Strategy Selection</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'>',
 
     'withdrawal_popup_txt'=>'Are you sure you want to transfer $ :amount to :wallet wallet?',
     'trading_strategy_popup_txt'=>'Are you sure you want to choose <span style="color:#c00f06;font-weight:700">:plan</span> as your preferred trading strategy? Once selected the trading strategy will not be changeable until account closure.',
@@ -1076,7 +1076,7 @@ return [
     'beneficiary_success'=>'Beneficiary Detail update successful',
     'response_transaction' => 'Your payment request is submitted successfully and transaction processing now.',
     'buy_first_package' => 'Thank you for buying your package, your Metatrader 5 ID details will be setup and login details appear in your dashboard within 1-3 working days.',
-    'buy_usdt_txt_taiwan' => '<h4>Steps to funding using USDT</h4><ol><li>Go to our dedicated portal <a target="_blank" href=":link">Buy USDT</a> if you do not own USDT.</li><li>During purchase, please put your Vextrader username in the Member ID column at the website.</li><li>Once purchase is successful, come back to this page and upload your purchase proof.</li><li>If you already have USDT, please transfer to this USDT address <br><b style="color:#0091FF">(The conversion rate is 1:1.00 for USD to USDT and subject to change due to market fluctuations)</b> :<br><span style="color:#0091FF;font-weight:700">0xFcf6DDdCf26C283E8BE187803cAf8CDd234982ca</span><li>After payment is made, please upload the transfer proof as well.</li></ol>',   
+    'buy_usdt_txt_taiwan' => '<h4>Steps to funding using USDT</h4><ol><li>Go to our dedicated portal <a target="_blank" href=":link">Buy USDT</a> if you do not own USDT.</li><li>During purchase, please put your Defix username in the Member ID column at the website.</li><li>Once purchase is successful, come back to this page and upload your purchase proof.</li><li>If you already have USDT, please transfer to this USDT address <br><b style="color:#0091FF">(The conversion rate is 1:1.00 for USD to USDT and subject to change due to market fluctuations)</b> :<br><span style="color:#0091FF;font-weight:700">0xFcf6DDdCf26C283E8BE187803cAf8CDd234982ca</span><li>After payment is made, please upload the transfer proof as well.</li></ol>',   
     'send_new_email' => 'Send Email',
     'remarks' => 'Remarks',
     'max' => [
@@ -1171,12 +1171,12 @@ return [
     'investment_plan' => 'Investment Plan',
     'investment_expiry' => 'Investment Expiry',
     'close_investment_popup' => 'Your investment plan is still valid, you are not eligible to withdraw any investment profit.',
-    'stock_popup_title' => 'VEXSTOCKS+ REMINDER',
+    'stock_popup_title' => 'DefSTOCKS+ REMINDER',
     'investment_desc' => 'Your Stacking Pool Investment is expiring Within 7 days peirlod, you may continue your current investment with new plan or close your inestment ',
     'change_plan_txt' => 'Continue investment with new duration:',
     'close_investment' => 'Close Investment',
-    'capital_investment_desc' => 'Your have active VexStocks+ Investment. Please close all your investment befor you may proceed with full capital withdrawal.<br><a href="#link" style="text-decoration:underline;">Click here to return to VexStocks+ Investment</a>',
-    'capital_investment_descin' => 'Your have active VexStocks+ Investment. Please close all your investment befor you may proceed with full capital withdrawal.',
+    'capital_investment_desc' => 'Your have active DefStocks+ Investment. Please close all your investment befor you may proceed with full capital withdrawal.<br><a href="#link" style="text-decoration:underline;">Click here to return to DefStocks+ Investment</a>',
+    'capital_investment_descin' => 'Your have active DefStocks+ Investment. Please close all your investment befor you may proceed with full capital withdrawal.',
     'equity' => 'Equity',
     
     
@@ -1187,12 +1187,12 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link" data-toggle="collapse" href="#collapse1" aria-expanded="true">
-    1. What is the difference between vextrader funds management program and VexStocks+? 
+    1. What is the difference between Defix funds management program and DefStocks+? 
     </a>
     </div>
     <div id="collapse1" class="collapse show" data-parent="#accordion">
     <div class="card-body">
-    <p>Vextrader Funds Management program are for investors looking for a higher return in a shorter period, hence we trade exclusively in the forex market which is more volatile. Vextrader Market Portfolio have assets that are traditionally more long term such as stocks and ETFs so it’s more suitable for long term investors.</p>
+    <p>Defix Funds Management program are for investors looking for a higher return in a shorter period, hence we trade exclusively in the forex market which is more volatile. Defix Market Portfolio have assets that are traditionally more long term such as stocks and ETFs so it’s more suitable for long term investors.</p>
 
     <p>These two wonderful programs are still under our popular IB program which provides various extra earnings to an introducer.</p>
     </div>
@@ -1222,7 +1222,7 @@ return [
     </div>
     <div id="collapse3" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>VexStocks+ is a very exclusive offering and only opened to serious and existing Vextrader Funds Management Program investors.</p>
+    <p>DefStocks+ is a very exclusive offering and only opened to serious and existing Defix Funds Management Program investors.</p>
     </div>
     </div>
     </div>
@@ -1275,7 +1275,7 @@ return [
     <li>6 months</li>
     <li>12 months</li>
     </ul>
-    <img class="stock0-faq-img" src="../../../public/images/VexStocks_Summary.png" alt="stockimg" style="max-width: 100%; max-height: 100%;">
+    <img class="stock0-faq-img" src="../../../public/images/DefStocks_Summary.png" alt="stockimg" style="max-width: 100%; max-height: 100%;">
     
     <p>The longer the investment period, the higher profit percentage will be given to the investor. The company will also bear more loss percentage in a longer investment period.</p>
     </div>
@@ -1317,7 +1317,7 @@ return [
     </div>
     <div id="collapse9" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>Over time, the value of individual stock in a diversified portfolio moves up and down, drifting away from their target weights. Our system takes into account market movements, predictions and our preset risk management score to close open trades and open new ones automatically. The re-balancing mechanism closes and opens positions periodically, to keep the asset allocation ratio, and maintain the VexStocks+ strategy.</p>
+    <p>Over time, the value of individual stock in a diversified portfolio moves up and down, drifting away from their target weights. Our system takes into account market movements, predictions and our preset risk management score to close open trades and open new ones automatically. The re-balancing mechanism closes and opens positions periodically, to keep the asset allocation ratio, and maintain the DefStocks+ strategy.</p>
     </div>
     </div>
     </div>
@@ -1330,7 +1330,7 @@ return [
     </div>
     <div id="collapse10" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>Your existing network is unaffected but enhanced with this new program. You can still use your existing network and every investor into VexStocks+ in your network will be counted as sales which helps your rankings.</p>
+    <p>Your existing network is unaffected but enhanced with this new program. You can still use your existing network and every investor into DefStocks+ in your network will be counted as sales which helps your rankings.</p>
     </div>
     </div>
     </div>
@@ -1343,7 +1343,7 @@ return [
     </div>
     <div id="collapse11" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>It is not possible to close individual positions within the VexStocks+. You would need to close the investment completely.</p>
+    <p>It is not possible to close individual positions within the DefStocks+. You would need to close the investment completely.</p>
     </div>
     </div>
     </div>
@@ -1383,12 +1383,12 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link" data-toggle="collapse" href="#collapse14">
-    14. What factors do you take into account when re-balancing VexStocks+?
+    14. What factors do you take into account when re-balancing DefStocks+?
     </a>
     </div>
     <div id="collapse14" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>Over time, the value of individual ETFs in a diversified portfolio moves up and down, drifting away from their target weights. For example, over the long term, stocks generally rise faster than ETFs, so the stock portion of your portfolio will go up relative to the ETF portion. The re-balancing mechanism closes and opens positions periodically, to keep the asset allocation ratio, and maintain the VexStocks+ strategy.</p>
+    <p>Over time, the value of individual ETFs in a diversified portfolio moves up and down, drifting away from their target weights. For example, over the long term, stocks generally rise faster than ETFs, so the stock portion of your portfolio will go up relative to the ETF portion. The re-balancing mechanism closes and opens positions periodically, to keep the asset allocation ratio, and maintain the DefStocks+ strategy.</p>
     </div>
     </div>
     </div>
@@ -1414,7 +1414,7 @@ return [
     </div>
     <div id="collapse16" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>The risk score shows the risk the investor is taking, and is calculated using a special formula we have developed at Vextrader. The score is calculated for each user from 1 to 10, where 1 is the lowest possible risk, and 10 is the highest possible risk.</p>
+    <p>The risk score shows the risk the investor is taking, and is calculated using a special formula we have developed at Defix. The score is calculated for each user from 1 to 10, where 1 is the lowest possible risk, and 10 is the highest possible risk.</p>
     </div>
     </div>
     </div>
@@ -1423,11 +1423,11 @@ return [
     ',
     // Stock FAQ ends
     
-    'stock_faq_title' => 'VexStocks+ FAQ',
-    'stock_request_submited_review' => 'Your investment into VexStocks+ is succesful.',
+    'stock_faq_title' => 'DefStocks+ FAQ',
+    'stock_request_submited_review' => 'Your investment into DefStocks+ is succesful.',
     'stock_wallet_tnc' => '<ul class="dis"><li>You can transfer this amount to your fund wallet or withdrawal wallet.</li><li>This transfer is irreversible so please consider before submitting the request.</li></ul>',
     'investors' => 'Investors',
-    'stock_investment' => 'VexStocks+ Investment',
+    'stock_investment' => 'DefStocks+ Investment',
     'no_transaction_found' => 'No transaction found!',
     'transaction_approved' => 'Transaction already approved. You can not cancel request.',
     'transaction_already_cancelled' => 'Transaction already cancelled. ',

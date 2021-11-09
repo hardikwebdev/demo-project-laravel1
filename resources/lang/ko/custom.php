@@ -126,7 +126,7 @@ return [
     'repeat_password' => '비밀번호를 반복해서 입력하세요.',
     'enter_your_password_again' => '비밀번호를 다시 입력하세요.',
     'user_agreement' => '사용자 동의사항',
-    'user_agreement_desc' => '<p>벡스트레이더 그룹 리미티드(Vextrader Group Limited)는 캐나다 FINTRAC(Financial Transactions and Reports Analysis Center)에서 라이센스를 부여받았고 규제를 받습니다. MSB 라이센스 번호: M20464600</p><p>외환, 현물 귀금속 및 다른 상품들을 거래하는 것은 자본에 높은 수준의 위험을 가져오고 여러분은 잃어도 괜찮은 금액의 돈으로만 거래하거나 투자해야 합니다. Vextrader Group Limited에서 거래를 결정할 때는 투자 목표, 위험 허용 범위 및 거래 경험을 고려하시기 바랍니다. 초기 투자의 일부 또는 전부를 손실할 수 있으므로, 개인 또는 가족의 생존을 위해 필요한 차입 또는 긴급하게 필요한 자본으로 추측하거나 투자하거나 위험을 회피해서는 안 됩니다. 외환거래는 모든 투자자에게 적합하지 않을 수 있으므로 관련된 리스크를 충분히 이해하고 의심스러운 점이 있으면 독립적인 조언을 구하시기 바랍니다. 과거의 실적이 미래의 결과를 나타낼 것이라는 보장은 없습니다. 이 사이트의 정보는 전세계적으로 액세스할 수 있지만, 이러한 배포 또는 사용이 지역 법률 또는 규정에 위배되는 국가 또는 관할 지역의 거주자를 대상으로 하지는 않습니다.</p>',
+    'user_agreement_desc' => '<p>벡스트레이더 그룹 리미티드(Defix Group Limited)는 캐나다 FINTRAC(Financial Transactions and Reports Analysis Center)에서 라이센스를 부여받았고 규제를 받습니다. MSB 라이센스 번호: M20464600</p><p>외환, 현물 귀금속 및 다른 상품들을 거래하는 것은 자본에 높은 수준의 위험을 가져오고 여러분은 잃어도 괜찮은 금액의 돈으로만 거래하거나 투자해야 합니다. Defix Group Limited에서 거래를 결정할 때는 투자 목표, 위험 허용 범위 및 거래 경험을 고려하시기 바랍니다. 초기 투자의 일부 또는 전부를 손실할 수 있으므로, 개인 또는 가족의 생존을 위해 필요한 차입 또는 긴급하게 필요한 자본으로 추측하거나 투자하거나 위험을 회피해서는 안 됩니다. 외환거래는 모든 투자자에게 적합하지 않을 수 있으므로 관련된 리스크를 충분히 이해하고 의심스러운 점이 있으면 독립적인 조언을 구하시기 바랍니다. 과거의 실적이 미래의 결과를 나타낼 것이라는 보장은 없습니다. 이 사이트의 정보는 전세계적으로 액세스할 수 있지만, 이러한 배포 또는 사용이 지역 법률 또는 규정에 위배되는 국가 또는 관할 지역의 거주자를 대상으로 하지는 않습니다.</p>',
     'aml_policy_statement' => 'AML 정책 명세서',
     'risk_disclosure_statement' => '리스크 설명 명세서',
     'POA' => 'POA', 
@@ -180,7 +180,7 @@ return [
     'clicking_proceed_understand_payment_proof_editable_submission' => '계속을 클릭하면 입력한 금액과 업로드한 지불 증빙서가 정확하고 하위 메시지 이후 편집이 불가능하다는 것을 인정합니다.',
     'fund_top_funds_text' => '<p><strong>:date</strong><br><strong>RMB</strong><br><strong>账户名称 :</strong> :acc_name<br><strong>银行名称 :</strong> :acc_holder<br><strong>银行账号 :</strong>:acc_no <br><strong>开户网点 :</strong> :acc_branch </p>',
     'fund_top_funds_text_1' => '<p><strong>(USD 1 : RMB  :amount)</strong><br><strong>(USD 1 : NTD :bank_ntd_rate)</strong><br><strong>(USD 1 : HKD  :bank_hkd_amount)</strong><br><strong>(USD 1 : YEN 112)</strong><br><strong>(USD 1 : USDT :bank_usdt_amount)</strong></p>',
-    'st_fund_top_funds_text' => '<p> <strong> PT Vextrader Kapital Account</strong> <p class="m-b-xs"><strong>:date</strong></p><p class="m-b-xs"><strong>IDR</strong></p><p class="m-b-xs"><strong>账户名称 :</strong>:acc_name</p><p class="m-b-xs"><strong>银行名称 :</strong> :acc_holder</p><p class="m-b-xs"><strong>银行账号 :</strong>:acc_no</p><p class="m-b-xs"><strong>开户网点 :</strong> :acc_branch</p><p class="m-b-xs"><strong>SWIFT :</strong> NISPIDJA Tower</p><p class="m-b-xs"><strong>(USD 1 : IDR 14,153.80)</strong></p>',
+    'st_fund_top_funds_text' => '<p> <strong> PT Defix Kapital Account</strong> <p class="m-b-xs"><strong>:date</strong></p><p class="m-b-xs"><strong>IDR</strong></p><p class="m-b-xs"><strong>账户名称 :</strong>:acc_name</p><p class="m-b-xs"><strong>银行名称 :</strong> :acc_holder</p><p class="m-b-xs"><strong>银行账号 :</strong>:acc_no</p><p class="m-b-xs"><strong>开户网点 :</strong> :acc_branch</p><p class="m-b-xs"><strong>SWIFT :</strong> NISPIDJA Tower</p><p class="m-b-xs"><strong>(USD 1 : IDR 14,153.80)</strong></p>',
     'st_fund_top_funds_text_1' => '<p> <strong> China Account</strong> <p class="m-b-xs"><strong>2019-09-11</strong></p><p class="m-b-xs"><strong>RMB</strong></p><p class="m-b-xs"><strong>账户名称 :</strong> :acc_name</p><p class="m-b-xs"><strong>银行名称 :</strong> :acc_holder</p><p class="m-b-xs"><strong>银行账号 :</strong> :acc_no</p><p class="m-b-xs"><strong>开户网点 :</strong> :acc_branch</p><p class="m-b-xs"><strong>(USD 1 : RMB :amount)</strong></p><p class="m-b-xs"><strong>(USD 1 : NTD :ntd_amount)</strong></p><p class="m-b-xs"><strong>(USD 1 : HKD :hkd_amount)</strong></p><p class="m-b-xs"><strong>(USD 1 : YEN  :yen_wmount)</strong></p><p class="m-b-xs"><strong>(USD 1 : USDT :usd_amount</strong></p>',
     'upload_bank_proof_img' => '은행 증빙을 pdf,jpeg,jpg,png 포맷으로 제출해주세요',
     'funds_balance' => '잔액',
@@ -299,7 +299,7 @@ return [
     'mt4_wallet_desc' => '<p>MT4 지갑을 사용하면 MT4 계좌로부터 송금 요청을 할 수 있습니다.</p>
     <p>승인은 기금운용이익에 기초하여 이루어지며, 제출된 이익 이상의 금액은 거부됩니다.</p>
     <p>수익금을 펀드 지갑, 출금 지갑 & 벡스트레이더 지갑으로 이체할 수 있습니다.</p>',
-    'request_mt4_terms' => '<ul class="dis"><li>"MT4에서 자금 이체 요청"을 사용하면 쉽게 MT4로 자금을 인출할 수 있습니다."</li>'.PHP_EOL.'<li>승인은 기금운용이익에 기초하여 이루어지며, 제출된 이익 이상의 금액은 거부됩니다.</li>'.PHP_EOL.'<li>MT4에서 자금 이체를 요청하는 경우 처리 시간이 최소 2영업일입니다. </li>'.PHP_EOL.'<li>요청된 금액의 60%를 MT4 지갑에 입금해야 합니다.</li>'.PHP_EOL.'<li>MT4 지만펀드의 출금은 지정된 금액을 출금지갑으로 이체해 주시기 바랍니다.</li>'.PHP_EOL.'<li>이 양식을 작성하려면 전체 출금 요청을 support@Vextrader.com으로 전송하고 확인 응답을 받아야 합니다.</li>'.PHP_EOL.'<li>50의 배수에 포함되지 않은 잔여 이익의 경우, 전액 인출시 자본금 인출 형태로 인출할 수 있습니다.</li></ul>',
+    'request_mt4_terms' => '<ul class="dis"><li>"MT4에서 자금 이체 요청"을 사용하면 쉽게 MT4로 자금을 인출할 수 있습니다."</li>'.PHP_EOL.'<li>승인은 기금운용이익에 기초하여 이루어지며, 제출된 이익 이상의 금액은 거부됩니다.</li>'.PHP_EOL.'<li>MT4에서 자금 이체를 요청하는 경우 처리 시간이 최소 2영업일입니다. </li>'.PHP_EOL.'<li>요청된 금액의 60%를 MT4 지갑에 입금해야 합니다.</li>'.PHP_EOL.'<li>MT4 지만펀드의 출금은 지정된 금액을 출금지갑으로 이체해 주시기 바랍니다.</li>'.PHP_EOL.'<li>이 양식을 작성하려면 전체 출금 요청을 support@Defix.com으로 전송하고 확인 응답을 받아야 합니다.</li>'.PHP_EOL.'<li>50의 배수에 포함되지 않은 잔여 이익의 경우, 전액 인출시 자본금 인출 형태로 인출할 수 있습니다.</li></ul>',
     'sure_cap_withdraw' => '정말 자본을 인출하고 싶으신가요?',
     'process_irreversible' => '이 프로세스는 되돌릴 수 없으며 자본금이 최소 요구 사항 이하로 떨어질 경우 향후 지불을 받지 못할 수 있습니다.',
     'msg_with_request_email' => '이메일을 확인하고 이메일에서 링크를 클릭하여 신원을 확인하세요.',
@@ -702,9 +702,9 @@ return [
     'news_events' => '뉴스와 이벤트',
     'industry_tools' => '산업 도구',
     'industry_tool_iframe' => 'https://www.youtube.com/embed/mXuR_SRP-XI',
-    'footer_desc'=>'<p><strong>General Advice:</strong> 이 웹사이트의 모든 정보는 일반적인 조언에 불과합니다. 귀사의 재무 목표, 상황 및 요구 사항에 대한 조언을 고려하시기 바랍니다. Vextrader Group Limited는 정확성과 완전성을 보장하지 않으며 사실 또는 분석 데이터의 전송 오류에 대한 책임을 지지 않습니다. 본 웹사이트의 의견은 예고 없이 변경될 수 있는 발행자의 현재 판단을 구성합니다.</p><p><strong>법률적 위험 공개:</strong> 마진 외환은 위험도가 높기 때문에 모든 투자자들에게는 적합하지 않을 수 있다는 점에 유의하시기 바랍니다. 높은 수준의 지렛대는 여러분뿐만 아니라 여러분에게도 불리하게 작용할 수 있습니다. 외환 투자를 결정하기 전에 투자 목표, 경험 수준 및 식욕 위험을 신중하게 고려해야 합니다. 초기 투자액의 일부 또는 전부를 손실할 수 있으므로 손실할 수 없는 돈을 투자해서는 안 됩니다. 외환 거래와 관련된 모든 위험을 알고, 독립적인 금융 조언자의 조언을 구해야 합니다.</p><p><strong>제한 지역:</strong>벡스트레이더 그룹 리미티드는 이란, 쿠바, 수단, 시리아, 북한 등 특정 국가의 주민들에게 서비스를 제공하지 않습니다.',
+    'footer_desc'=>'<p><strong>General Advice:</strong> 이 웹사이트의 모든 정보는 일반적인 조언에 불과합니다. 귀사의 재무 목표, 상황 및 요구 사항에 대한 조언을 고려하시기 바랍니다. Defix Group Limited는 정확성과 완전성을 보장하지 않으며 사실 또는 분석 데이터의 전송 오류에 대한 책임을 지지 않습니다. 본 웹사이트의 의견은 예고 없이 변경될 수 있는 발행자의 현재 판단을 구성합니다.</p><p><strong>법률적 위험 공개:</strong> 마진 외환은 위험도가 높기 때문에 모든 투자자들에게는 적합하지 않을 수 있다는 점에 유의하시기 바랍니다. 높은 수준의 지렛대는 여러분뿐만 아니라 여러분에게도 불리하게 작용할 수 있습니다. 외환 투자를 결정하기 전에 투자 목표, 경험 수준 및 식욕 위험을 신중하게 고려해야 합니다. 초기 투자액의 일부 또는 전부를 손실할 수 있으므로 손실할 수 없는 돈을 투자해서는 안 됩니다. 외환 거래와 관련된 모든 위험을 알고, 독립적인 금융 조언자의 조언을 구해야 합니다.</p><p><strong>제한 지역:</strong>벡스트레이더 그룹 리미티드는 이란, 쿠바, 수단, 시리아, 북한 등 특정 국가의 주민들에게 서비스를 제공하지 않습니다.',
     'footer_copyrights' => '무단 전재 금지 © '.date('Y').' 벡스트레이더 그룹 유한 책임 회사는 벡스트레이더로 운영합니다.',
-    'login_footer_desc'=>'<p>General Advice: All information in this website is of general advise only. We strongly advise that you consider the advise in regards to your financial objectives, situation and needs. Vextrader makes no guarantee of its accuracy and completeness and is not responsible for errors of transmission of factual or analytical data. The opinions in this website constitute the present judgment of the issuer, which is subject to change without notice.<br><br>Legal Risk Disclosure: Please note that foreign exchange on margin carries a high level of risk, and may not be suitable for all investors. The high degree of leverage can work against you as well as for you. Before deciding to invest in foreign exchange you should carefully consider your investment objectives, level of experience and risk appetite. The possibility exists that you could sustain a loss of some or all of your initial investment and therefore you should not invest money that you cannot afford to lose. You should be aware of all the risks associated with foreign exchange trading, and seek advice from an independent financial advisor.<br><br>Restricted Regions: Vextrader does not provide services for the residents of certain countries, such as Iran, Cuba, Sudan, Syria and North Korea.</p>',
+    'login_footer_desc'=>'<p>General Advice: All information in this website is of general advise only. We strongly advise that you consider the advise in regards to your financial objectives, situation and needs. Defix makes no guarantee of its accuracy and completeness and is not responsible for errors of transmission of factual or analytical data. The opinions in this website constitute the present judgment of the issuer, which is subject to change without notice.<br><br>Legal Risk Disclosure: Please note that foreign exchange on margin carries a high level of risk, and may not be suitable for all investors. The high degree of leverage can work against you as well as for you. Before deciding to invest in foreign exchange you should carefully consider your investment objectives, level of experience and risk appetite. The possibility exists that you could sustain a loss of some or all of your initial investment and therefore you should not invest money that you cannot afford to lose. You should be aware of all the risks associated with foreign exchange trading, and seek advice from an independent financial advisor.<br><br>Restricted Regions: Defix does not provide services for the residents of certain countries, such as Iran, Cuba, Sudan, Syria and North Korea.</p>',
     'privacy_policy_label'=>'개인정보 보호 정책',
     'terms_and_condition'=>'이용약관',
     'user_agreement_desc_new'=>'<p>위의 양식을 작성하고 진행함으로써 다음과 같은 내용을 대표하고 보증합니다.: </p>
@@ -832,13 +832,13 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="card-link" data-toggle="collapse" href="#collapseOne" aria-expanded="true">
-    1. 벡스트레이더(Vextrader)는 고객에게 무엇을 제공합니까?
+    1. 벡스트레이더(Defix)는 고객에게 무엇을 제공합니까?
     </a>
     </div>
     <div id="collapseOne" class="collapse show" data-parent="#accordion">
     <div class="card-body">
-    <p>Vextrader의 대표 제품 중 하나는 관리 계정 서비스입니다.</p>
-    <p>Vextrader의 관리 계정은 전문경영인이 투자전략에 따라 투자결정을 내리고 행동하는 투자포트폴리오로, 고객의 목표 달성에 적합하다고 판단되었습니다. 우리의 투자 전략은 매트릭스, 프리즘, 팔라딘입니다. 목표이익은 6%~20% 사이여야 합니다.</p>
+    <p>Defix의 대표 제품 중 하나는 관리 계정 서비스입니다.</p>
+    <p>Defix의 관리 계정은 전문경영인이 투자전략에 따라 투자결정을 내리고 행동하는 투자포트폴리오로, 고객의 목표 달성에 적합하다고 판단되었습니다. 우리의 투자 전략은 매트릭스, 프리즘, 팔라딘입니다. 목표이익은 6%~20% 사이여야 합니다.</p>
     <p>주식 분할 합의는 투자자의 계좌에 70%, 펀드매니저/회사에 30%의 차감금을 지급합니다.</p>
     </div>
     </div>
@@ -847,12 +847,12 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
-    2. Vextrader는 어떻게 돈을 버나요?
+    2. Defix는 어떻게 돈을 버나요?
     </a>
     </div>
     <div id="collapseTwo" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>Vextrader는 입찰 가격과 요청 가격의 차이인 스프레드를 통해 보상됩니다. 관리 계정에서 Vextrader는 이익 공유 기준으로 보상됩니다. </p>
+    <p>Defix는 입찰 가격과 요청 가격의 차이인 스프레드를 통해 보상됩니다. 관리 계정에서 Defix는 이익 공유 기준으로 보상됩니다. </p>
     </div>
     </div>
     </div>
@@ -860,17 +860,17 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-    3. Vextrader 자금세탁방지 정책은 무엇입니까?
+    3. Defix 자금세탁방지 정책은 무엇입니까?
     </a>
     </div>
     <div id="collapseThree" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>Vextrader는 지속적으로 모든 계정 활동을 검토하여 자금세탁 활동을 나타낼 수 있는 의심스러운 거래의 증거를 확인할 것입니다. 이 검토에는 다음 사항에 대한 감시가 포함될 수 있습니다. <br>
+    <p>Defix는 지속적으로 모든 계정 활동을 검토하여 자금세탁 활동을 나타낼 수 있는 의심스러운 거래의 증거를 확인할 것입니다. 이 검토에는 다음 사항에 대한 감시가 포함될 수 있습니다. <br>
     1) 자금이 계정으로 입금 및 인출<br>
     2) 전신송금의 출처와 목적지<br>
     3) 정상적인 업무 외 다른 활동
     </p>
-    <p>적용 가능한 규제 요건을 완벽하게 준수하기 위해 Vextrader는 때때로 고객에게 추가 정보 및/또는 문서를 요청할 수 있습니다.</p>
+    <p>적용 가능한 규제 요건을 완벽하게 준수하기 위해 Defix는 때때로 고객에게 추가 정보 및/또는 문서를 요청할 수 있습니다.</p>
     
     </div>
     </div>
@@ -879,12 +879,12 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link" data-toggle="collapse" href="#collapsefour">
-    4. Vextrader를 시작하려면 돈이 얼마나 필요하나요?
+    4. Defix를 시작하려면 돈이 얼마나 필요하나요?
     </a>
     </div>
     <div id="collapsefour" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>Vextrader를 시작하려면 최소 금액이 USD 1,000이어야 합니다.<br>
+    <p>Defix를 시작하려면 최소 금액이 USD 1,000이어야 합니다.<br>
     사용 가능한 패키지는 다음과 같습니다.<ul>
     <li>USD 1,000</li>
     <li>USD 3,000</li>
@@ -942,7 +942,7 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link" data-toggle="collapse" href="#collapseeight">
-    8. Vextrader로 돈을 벌려면 어떻게 해야 하나요?
+    8. Defix로 돈을 벌려면 어떻게 해야 하나요?
     </a>
     </div>
     <div id="collapseeight" class="collapse" data-parent="#accordion">
@@ -977,7 +977,7 @@ return [
     </div>
     <div id="collapseten" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>고객은 Vextrader에 3개의 계정을 등록할 수 있습니다.</p>
+    <p>고객은 Defix에 3개의 계정을 등록할 수 있습니다.</p>
     </div>
     </div>
     </div>
@@ -989,7 +989,7 @@ return [
     </div>
     <div id="collapseeleven" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>자금 인출을 신청하려면 이 페이지로 이동하여 요청서를 작성해 주십시오. <a href="https://account.vextrader.net/capital-withdraw">here</a></p>
+    <p>자금 인출을 신청하려면 이 페이지로 이동하여 요청서를 작성해 주십시오. <a href="https://account.Defix.net/capital-withdraw">here</a></p>
     </div>
     </div>
     </div>
@@ -1001,7 +1001,7 @@ return [
     </div>
     <div id="collapsetwelve" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>여기로 메시지를 보내 주십시오. <a href="https://account.vextrader.net/help-support">here</a>.</p>
+    <p>여기로 메시지를 보내 주십시오. <a href="https://account.Defix.net/help-support">here</a>.</p>
     </div>
     </div>
     </div>
@@ -1017,7 +1017,7 @@ return [
     <h4>7. 입금했는데 아직 자금이 안 들어왔나요?</h4>
     <p>MT5 계정에 대한 모든 초기 예금 또는 추가 예금은 영업일 7일 이내에 처리됩니다. 우선예금을 원하시면 티켓팅 시스템을 통해 저희 지원팀에 알려주시기 바랍니다.</p>
 
-    <h4>8. Vextrader로 돈을 벌려면 어떻게 해야 하나요?</h4>
+    <h4>8. Defix로 돈을 벌려면 어떻게 해야 하나요?</h4>
     <p>고객은 새로운 고객을 소개하면 리베이트를 받을 것입니다. 리베이트는 파트너 수익의 일부이며 커미션 프로세스는 완전히 자동화됩니다.</p>
 
     <h4>9.커미션 지출은 언제입니까?</h4>
@@ -1030,25 +1030,25 @@ return [
     </p>
 
     <h4>10. 몇 개의 계정을 등록할 수 있습니까?</h4>
-    <p>고객은 Vextrader에 3개의 계정을 등록할 수 있습니다.</p>
+    <p>고객은 Defix에 3개의 계정을 등록할 수 있습니다.</p>
 
     <h4>11. 초기 자금을 인출하려면 어디서 신청해야 하나요?</h4>
-    <p>자금 인출을 신청하려면 이 페이지로 이동하여 요청서를 작성해 주십시오. <a href="https://account.vextrader.net/capital-withdraw">here</a></p>
+    <p>자금 인출을 신청하려면 이 페이지로 이동하여 요청서를 작성해 주십시오. <a href="https://account.Defix.net/capital-withdraw">here</a></p>
 
     <h4>12. 아직 질문이 더 있습니다.</h4>
-    <p>여기로 메시지를 보내 주십시오. <a href="https://account.vextrader.net/help-support">here</a>.</p>',
+    <p>여기로 메시지를 보내 주십시오. <a href="https://account.Defix.net/help-support">here</a>.</p>',
     
     
     
     'videotitle'=> '비디오 가이드',
     'pdftitle'=> '회사 소개',
-    'pdflinks'=> '<a target="_blank" href="/download/v7s8a/Vextrader-Company-Profile-v2.1-KOR.pdf">1. Vextrader Corporate Profile</a><img class="img-fluid cus-img-faq" src='.asset("new-customer/images/PDF.png").'><br><a target="_blank" href="/download/v7s8a/Vextrader-Affiliate-Plan-v2.0-KOR.pdf">2. 벡스트레이더 계열사 프로그램 요약</a><img class="img-fluid cus-img-faq" src='.asset("new-customer/images/PDF.png").'><br><a target="_blank" href="/download/v7s8a/Vextrader-User-Guide-ENG-1.0.pdf">3. 벡스트레이더 사용자 가이드</a><img class="img-fluid cus-img-faq" src='.asset("new-customer/images/PDF.png").'>',
+    'pdflinks'=> '<a target="_blank" href="/download/v7s8a/Defix-Company-Profile-v2.1-KOR.pdf">1. Defix Corporate Profile</a><img class="img-fluid cus-img-faq" src='.asset("new-customer/images/PDF.png").'><br><a target="_blank" href="/download/v7s8a/Defix-Affiliate-Plan-v2.0-KOR.pdf">2. 벡스트레이더 계열사 프로그램 요약</a><img class="img-fluid cus-img-faq" src='.asset("new-customer/images/PDF.png").'><br><a target="_blank" href="/download/v7s8a/Defix-User-Guide-ENG-1.0.pdf">3. 벡스트레이더 사용자 가이드</a><img class="img-fluid cus-img-faq" src='.asset("new-customer/images/PDF.png").'>',
     
     'vidlinkso'=> '<a target="_blank" href="/download/v7s8a/vd/Registration-ENG.mp4">1. 등록</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'><br><a target="_blank" href="/download/v7s8a/vd/Dashboard-ENG.mp4">2. 대시보드 요약</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'><br><a target="_blank" href="/download/v7s8a/vd/Funding-ENG.mp4">3. 펀딩</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'>',
     
     'vidlinkstw'=> '<a target="_blank" href="/download/v7s8a/vd/Buy-Package-ENG.mp4">4. 패키지 구매</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'><br><a target="_blank" href="/download/v7s8a/vd/Cash-Report-ENG.mp4">5. 현금 지갑 및 보고</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'><br><a target="_blank" href="/download/v7s8a/vd/KYC-Withdrawal-ENG.mp4">6. KYC 및 인출</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'>',
     
-    'vidlinksth'=> '<a target="_blank" href="/download/v7s8a/vd/Vextrader-Rankings-Breakdown.mp4">7. 매니저 급 세목</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'><br><a target="_blank" href="/download/v7s8a/vd/Types-of-Payouts-in-Vextrader.mp4">8. 지출 유형</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'><br><a target="_blank" href="/download/v7s8a/vd/How-to-Choose-Trading-Strategy.mp4">9. 거래 전략 선택</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'>',
+    'vidlinksth'=> '<a target="_blank" href="/download/v7s8a/vd/Defix-Rankings-Breakdown.mp4">7. 매니저 급 세목</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'><br><a target="_blank" href="/download/v7s8a/vd/Types-of-Payouts-in-Defix.mp4">8. 지출 유형</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'><br><a target="_blank" href="/download/v7s8a/vd/How-to-Choose-Trading-Strategy.mp4">9. 거래 전략 선택</a><img class="img-fluid cus-img-video" src='.asset("new-customer/images/Video.png").'>',
 
     'withdrawal_popup_txt'=>'$금액을 _지갑에 이체하시겠습니까?',
     'trading_strategy_popup_txt'=>'_계획을 선호하는 거래 전략으로 선택하시겠어요? 일단 선택하면 계좌가 종료될 때까지 거래 전략을 변경할 수 없습니다.',
@@ -1125,7 +1125,7 @@ return [
     'buying'=> '구매',
     'avg_risk_score'=> '평균 위험 점수',
     'ref'=> '참조',
-    'max_3_identfication_allowed' => '이미 Vextrader으로 최대 3 개 계정을 등록',
+    'max_3_identfication_allowed' => '이미 Defix으로 최대 3 개 계정을 등록',
     'lastrange'=> '반환 12 개월 지속',
     'sell_popup_txt'=> '당신은 당신이 투자를 닫으시겠습니까?',
     'success_close_investment'=> '투자가 성공적으로 종료',
@@ -1181,12 +1181,12 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link" data-toggle="collapse" href="#collapse1" aria-expanded="true">
-    1. What is the difference between vextrader funds management program and VexStocks+? 
+    1. What is the difference between Defix funds management program and VexStocks+? 
     </a>
     </div>
     <div id="collapse1" class="collapse show" data-parent="#accordion">
     <div class="card-body">
-    <p>Vextrader Funds Management program are for investors looking for a higher return in a shorter period, hence we trade exclusively in the forex market which is more volatile. Vextrader Market Portfolio have assets that are traditionally more long term such as stocks and ETFs so it’s more suitable for long term investors.</p>
+    <p>Defix Funds Management program are for investors looking for a higher return in a shorter period, hence we trade exclusively in the forex market which is more volatile. Defix Market Portfolio have assets that are traditionally more long term such as stocks and ETFs so it’s more suitable for long term investors.</p>
 
     <p>These two wonderful programs are still under our popular IB program which provides various extra earnings to an introducer.</p>
     </div>
@@ -1216,7 +1216,7 @@ return [
     </div>
     <div id="collapse3" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>VexStocks+ is a very exclusive offering and only opened to serious and existing Vextrader Funds Management Program investors.</p>
+    <p>VexStocks+ is a very exclusive offering and only opened to serious and existing Defix Funds Management Program investors.</p>
     </div>
     </div>
     </div>
@@ -1408,7 +1408,7 @@ return [
     </div>
     <div id="collapse16" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>The risk score shows the risk the investor is taking, and is calculated using a special formula we have developed at Vextrader. The score is calculated for each user from 1 to 10, where 1 is the lowest possible risk, and 10 is the highest possible risk.</p>
+    <p>The risk score shows the risk the investor is taking, and is calculated using a special formula we have developed at Defix. The score is calculated for each user from 1 to 10, where 1 is the lowest possible risk, and 10 is the highest possible risk.</p>
     </div>
     </div>
     </div>

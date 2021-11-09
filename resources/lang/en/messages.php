@@ -684,7 +684,7 @@ $lang['mt4_withdraw_tnc'] = '<ul class="dis">
 <li>Processing time is at least 2 business day(s) for request fund transfer from MT4 </li>
 <li>60% of the requested amount shall be credited to the MT4 Wallet</li>
 <li>For withdrawal of MT4 Wallet funds, kindly transfer the designated amount to Withdrawal Wallet</li>
-<li>You still need to be sent the full withdrawal request to support@Vextrader.com and receive confirmation replies before it coming to this page to fill up this form.</sli>
+<li>You still need to be sent the full withdrawal request to support@Defix.com and receive confirmation replies before it coming to this page to fill up this form.</sli>
 <li>For left over profits that is not in the multiple of 50, you can withdraw in the capital withdrawal form during your full withdrawals.</li>
 </ul>';
 
@@ -741,7 +741,7 @@ $lang['failed'] = 'Failed';
 $lang['pt_otm_acc'] = 'PT OTM Kapital Account';
 $lang['china_acc'] = 'China Account';
 $lang['gotost'] = 'Go To Self Trade';
-$lang['gototrade'] = 'Go To Vextrader';
+$lang['gototrade'] = 'Go To Defix';
 $lang['withdraw_trading'] = 'Withdraw Trading';
 $lang['stw_req_hist'] = 'ST Widhdraw Request History';
 $lang['st_faq'] = 'Self Trade - FAQ';
@@ -752,10 +752,10 @@ $lang['st_withdraw_tnc'] = '<ul class="dis">
     <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</li>
 </ul>';
 $lang['st_acc_tnc'] = '<ul class="dis">
-This account is for Vextrader members who wishes to trade their own funds while still enjoying the benefits of a OTM’s network commission.</br>
+This account is for Defix members who wishes to trade their own funds while still enjoying the benefits of a OTM’s network commission.</br>
     You will have access to:</br>
     1.  Fund Wallet
-        <li>-   This wallet is for you to topup to your Vextrader Self Trading Account.</li>
+        <li>-   This wallet is for you to topup to your Defix Self Trading Account.</li>
         <li>-   There will be two bank account shown here: PT OTM Kapital and a China bank account.</li>
     2.  Pips Commission Wallet
         <li>This wallet allows you to view all earnings from your downline’s trading pips. You can transfer funds here to withdrawal wallet for bank withdrawal.</li>

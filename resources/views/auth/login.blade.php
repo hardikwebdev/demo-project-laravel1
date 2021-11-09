@@ -4,6 +4,12 @@
 @section('content')
     <div class="row w-100 mx-0">
         <div class="col-12 col-lg-6 mx-auto">
+            @if(Session::has('success'))
+            <div class="alert alert-success alert-dismissable">
+                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                {{ Session::get('success') }}
+            </div>
+            @endif
             @if (Session::has('error'))
                 <div class="alert alert-danger alert-dismissable">
                     <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
