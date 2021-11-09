@@ -194,7 +194,7 @@
         </div>
     </div>
 </div>
-{{-- <div class="row d-flex ">
+<div class="row d-flex ">
     <div class=" col-sm-6 m-t-lg">
         <div class="ibox-content ibox-border-rad cus-heght-full">
             <h4 class="p-b-sm">User Agreement</h4>
@@ -208,48 +208,57 @@
                 <div class="col-sm-6">
                     <div class="col-sm-12">
                         <div class="checkbox ">
-                            {!! Form::checkbox('terms_condition[]', 'aml_policy_statement', isset($user->user_agreement) && @$user->user_agreement->aml_policy_statement != 0 ? true : false, ['class' => 'ml-0', 'id' => 'checkbox1']) !!}
-                            <label for="checkbox1">
-                                <a href="{{ asset('AML.pdf') }}" target="_blank"
-                                    class="font-regular text-darkGrey">AML Policy Statement</a>
+                            {!! Form::checkbox('terms_condition[]', 'antimoney_laundering', isset($user->user_agreement) && @$user->user_agreement->antimoney_laundering != 0 ? true : false, ['class' => 'ml-0', 'id' => 'antimoney_laundering']) !!}
+                            <label for="antimoney_laundering">
+                                <a href="{{asset('terms/antimoney_laundering.pdf')}}" target="_blank" class="font-regular text-darkGrey">Anti-Money Laundering</a>
                             </label>
                         </div>
                     </div>
                     <div class="col-sm-12 ">
                         <div class="checkbox ">
-                            {!! Form::checkbox('terms_condition[]', 'risk_disclosure_statement', isset($user->user_agreement) && @$user->user_agreement->risk_disclosure_statement != 0 ? true : false, ['class' => 'ml-0', 'id' => 'checkbox2']) !!}
+                            {!! Form::checkbox('terms_condition[]', 'coockie_policy', isset($user->user_agreement) && @$user->user_agreement->coockie_policy != 0 ? true : false, ['class' => 'ml-0', 'id' => 'coockie_policy']) !!}
+
+                            <label for="coockie_policy">
+                                <a href="{{asset('terms/coockie_policy.pdf')}}" target="_blank" class="font-regular text-darkGrey">Cookie Policy</a>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 ">
+                        <div class="checkbox ">
+                            {!! Form::checkbox('terms_condition[]', 'privacy_policy', isset($user->user_agreement) && @$user->user_agreement->privacy_policy != 0 ? true : false, ['class' => 'ml-0', 'id' => ' privacy_policy']) !!}
+                            <label for=" privacy_policy">
+                                <a href="{{asset('terms/privacy_policy.pdf')}}" target="_blank" class="font-regular text-darkGrey">Privacy Policy</a>
+                            </label>
+                        </div>
+                    </div>
 
 
-                            <label for="checkbox2">
-                                <a href="{{ asset('Risk-Disclosure.pdf') }}" target="_blank"
-                                    class="font-regular text-darkGrey">Risk Disclosure Statement</a>
-                            </label>
-                        </div>
-                    </div>
                     <div class="col-sm-12 ">
                         <div class="checkbox ">
-                            {!! Form::checkbox('terms_condition[]', 'client_agreement', isset($user->user_agreement) && @$user->user_agreement->user_agreement != 0 ? true : false, ['class' => 'ml-0', 'id' => 'checkbox3']) !!}
-                            <label for="checkbox3">
-                                <a href="{{ asset('TC.pdf') }}" target="_blank"
-                                    class="font-regular text-darkGrey">Terms and Condition</a>
+                            {!! Form::checkbox('terms_condition[]', 'risk_disclosure', isset($user->user_agreement) && @$user->user_agreement->risk_disclosure  != 0 ? true : false, ['class' => 'ml-0', 'id' => 'user_agreement']) !!}
+                            <label for="risk_disclosure">
+                                <a href="{{asset('terms/risk_disclosure.pdf')}}" target="_blank" class="font-regular text-darkGrey">Risk Disclosure</a>
                             </label>
                         </div>
                     </div>
+
                     <div class="col-sm-12 ">
                         <div class="checkbox ">
-                            {!! Form::checkbox('terms_condition[]', 'poa', isset($user->user_agreement) && @$user->user_agreement->poa != 0 ? true : false, ['class' => 'ml-0', 'id' => 'checkbox4']) !!}
-                            <label for="checkbox4">
-                                <a href="{{ asset('Privacy-Policy.pdf') }}" target="_blank"
-                                    class="font-regular text-darkGrey">Privacy Policy</a>
+                            {!! Form::checkbox('terms_condition[]', 'terms_and_condition', isset($user->user_agreement) && @$user->user_agreement->terms_and_condition != 0 ? true : false, ['class' => 'ml-0', 'id' => 'terms_and_condition']) !!}
+                            <label for="terms_and_condition">
+                                <a href="{{asset('terms/terms_and_condition.pdf')}}" target="_blank" class="font-regular text-darkGrey">Terms Of Use</a>
                             </label>
                         </div>
                     </div>
+
+                    <label id="terms_condition_edit_error_msg"style="color:#c71d25 !important;font-weight: 600;"></label>
                 </div>
             </div>
             <span class="help-block text-danger">{{ $errors->first('terms_condition') }}</span>
         </div>
     </div>
-</div> --}}
+</div>
 <div class="row d-flex ">
     <div class="col-sm-6">
         <div class="ibox-content ibox-border-rad cus-heght-full m-t-lg">

@@ -46,7 +46,6 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
-
     }
 
     /**
@@ -59,11 +58,38 @@ class RegisterController extends Controller
     {
         $rules = [
             'fullname' => ['required', 'string', 'max:255'],
-            'username' => ['required', 'string', 'max:255','alpha_num','unique:users,username,NULL,id,deleted_at,NULL'],
-            'sponsor_username' => ['required', 'string', 'max:255','exists:users,username'],
-            'placement_username' => ['required', 'string', 'max:255','exists:users,username'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email,NULL,id,deleted_at,NULL'],
-            'password' => ['required', 'string', 'min:8','same:password_confirmation'],
+            'username' => [
+                'required',
+                'string',
+                'max:255',
+                'alpha_num',
+                'unique:users,username,NULL,id,deleted_at,NULL',
+            ],
+            'sponsor_username' => [
+                'required',
+                'string',
+                'max:255',
+                'exists:users,username',
+            ],
+            'placement_username' => [
+                'required',
+                'string',
+                'max:255',
+                'exists:users,username',
+            ],
+            'email' => [
+                'required',
+                'string',
+                'email',
+                'max:255',
+                'unique:users,email,NULL,id,deleted_at,NULL',
+            ],
+            'password' => [
+                'required',
+                'string',
+                'min:8',
+                'same:password_confirmation',
+            ],
             'ic_number' => 'required',
             'address' => 'required',
             'country' => 'required',
@@ -82,40 +108,53 @@ class RegisterController extends Controller
 
             // 'terms_condition' => 'required|array|min:4',
             // 'iagree' => 'required',
-
         ];
 
         // if($data['country'] == '131'){
         //     $rules['ic_number'] = 'max:12';
         // }
-        $usernameExits = User::where('username',$data['placement_username'])->where('status','active')->exists();
+        $usernameExits = User::where('username', $data['placement_username'])
+            ->where('status', 'active')
+            ->exists();
         $isValid = false;
         if ($usernameExits != null) {
-            $placement = User::where('username',$data['placement_username'])->where('status','active')->first();
-            $placementCount = User::where('placement_id',$placement->id)->where('status','active')->where('child_position',$data['child_position'])->count();
-            if($placementCount > 0){
+            $placement = User::where('username', $data['placement_username'])
+                ->where('status', 'active')
+                ->first();
+            $placementCount = User::where('placement_id', $placement->id)
+                ->where('status', 'active')
+                ->where('child_position', $data['child_position'])
+                ->count();
+            if ($placementCount > 0) {
                 $isValid = false;
             }
-            $user = User::where('username',$data['sponsor_check'])->where('status','active')->first();
+            $user = User::where('username', $data['sponsor_check'])
+                ->where('status', 'active')
+                ->first();
             // $user_reference = UserReferral::where('user_id',$user->id)->first();
             // $upline_ids = $user_reference!=null?(array)$user_reference->downline_ids:[];
             $upline_ids = Helper::getAllDownlineIds($user->id);
 
             $isValid = false;
 
-            if($placementCount == 0 && $placement && (in_array($placement->id, $upline_ids) || empty($upline_ids) || $placement->username == $user->username)){
+            if (
+                $placementCount == 0 &&
+                $placement &&
+                (in_array($placement->id, $upline_ids) ||
+                    empty($upline_ids) ||
+                    $placement->username == $user->username)
+            ) {
                 $isValid = true;
             }
-
         } else {
             $isValid = false;
         }
         $validator = Validator::make($data, $rules);
-        $validator->after(function($validator) use ($isValid)
-        {
-            if (!$isValid)
-            {
-                $validator->errors()->add('placement_username', 'Invalid placement position');
+        $validator->after(function ($validator) use ($isValid) {
+            if (!$isValid) {
+                $validator
+                    ->errors()
+                    ->add('placement_username', 'Invalid placement position');
             }
         });
 
@@ -132,22 +171,25 @@ class RegisterController extends Controller
     {
         // echo "<pre>";
         // print_r($data);die();
-         $terms_condition = [];
-        if(isset($data['terms_condition'])){
+        $terms_condition = [];
+        if (isset($data['terms_condition'])) {
             $terms_condition = $data['terms_condition'];
         }
-    
+
         \Log::channel('authlog')->debug($data);
-        
+
         $securePassword = Hash::make($data['secure_password']);
-        $sponsor_id = User::where('username',$data['sponsor_username'])->where('status','active')->first();
-        $placement_id = User::where('username',$data['placement_username'])->where('status','active')->first();
+        $sponsor_id = User::where('username', $data['sponsor_username'])
+            ->where('status', 'active')
+            ->first();
+        $placement_id = User::where('username', $data['placement_username'])
+            ->where('status', 'active')
+            ->first();
 
-
-       $user = User::create([
+        $user = User::create([
             'name' => $data['fullname'],
-            'sponsor_id' => ($sponsor_id != null ) ? $sponsor_id->id : '0',
-            'placement_id' => ($placement_id != null ) ? $placement_id->id : '0',
+            'sponsor_id' => $sponsor_id != null ? $sponsor_id->id : '0',
+            'placement_id' => $placement_id != null ? $placement_id->id : '0',
             'child_position' => $data['child_position'],
             'username' => $data['username'],
             'address' => $data['address'],
@@ -173,34 +215,60 @@ class RegisterController extends Controller
             'swift_code' => $data['swift_code'],
             'bank_country_id' => $data['bank_country_id'],
         ]);
-        // if(isset($data['terms_condition'])){
-        //     $userAgreement = UserAgreement::create([
-        //         'user_id' => $user->id,
-        //         'aml_policy_statement' => (in_array('aml_policy_statement', $terms_condition)) ? 1 : 0,
-        //         'risk_disclosure_statement' => (in_array('risk_disclosure_statement', $terms_condition)) ? 1 : 0,
-        //         'user_agreement' => (in_array('client_agreement', $terms_condition)) ? 1 : 0,
-        //         'poa' => (in_array('poa', $terms_condition)) ? 1 : 0,
-        //         'user_signature' => $data['fullname'],
-        //         'date_of_registration' => date('Y-m-d'),
-        //     ]);
-        // }
+        if (isset($data['terms_condition'])) {
+            $userAgreement = UserAgreement::create([
+                'user_id' => $user->id,
+
+                'antimoney_laundering' => in_array(
+                    'antimoney_laundering',
+                    $terms_condition
+                )
+                    ? 1
+                    : 0,
+                'coockie_policy' => in_array('coockie_policy', $terms_condition)
+                    ? 1
+                    : 0,
+                'privacy_policy' => in_array('privacy_policy', $terms_condition)
+                    ? 1
+                    : 0,
+                'risk_disclosure' => in_array(
+                    'risk_disclosure',
+                    $terms_condition
+                )
+                    ? 1
+                    : 0,
+                'terms_and_condition' => in_array(
+                    'terms_and_condition',
+                    $terms_condition
+                )
+                    ? 1
+                    : 0,
+                // 'user_signature' => $data['signature'],
+                'date_of_registration' => date('Y-m-d H:i:s'),
+            ]);
+        }
 
         $UserWallet = UserWallet::create([
             'user_id' => $user->id,
         ]);
         Helper::updateDownline($user->id);
         $routeUrl = route('login');
-        \Mail::send('emails.welcome-email',['routeUrl' =>$routeUrl, 'user' => $user], function($message) use($data )  {
-            $message->to($data['email'], 'Welcome')
-            ->subject('Defix Welcome');
-        });
-        return $user;        
+        \Mail::send(
+            'emails.welcome-email',
+            ['routeUrl' => $routeUrl, 'user' => $user],
+            function ($message) use ($data) {
+                $message
+                    ->to($data['email'], 'Welcome')
+                    ->subject('Defix Welcome');
+            }
+        );
+        return $user;
     }
     public function register(Request $request)
     {
         $this->validator($request->all())->validate();
 
-        event(new Registered($user = $this->create($request->all())));
+        event(new Registered(($user = $this->create($request->all()))));
 
         // $this->guard()->login($user);
 
@@ -211,15 +279,22 @@ class RegisterController extends Controller
         return $request->wantsJson()
                     ? new JsonResponse([], 201)
                     : redirect($this->redirectPath());*/
-        return redirect()->route('login')->with('success',trans('custom.successfully_registered_verify_account') );                    
+        return redirect()
+            ->route('login')
+            ->with(
+                'success',
+                trans('custom.successfully_registered_verify_account')
+            );
     }
-    public function testResetMail(Request $request){
+    public function testResetMail(Request $request)
+    {
         $token = Str::random(30);
         $email = 'test@gmail.com';
-        $routeUrl = url('password/reset/'.$token.'?email='.$email);
-        \Mail::send('emails.reset',['routeUrl' =>$routeUrl], function($message) use($email )  {
-            $message->to($email, 'Welcome')
-            ->subject('Password Reset');
+        $routeUrl = url('password/reset/' . $token . '?email=' . $email);
+        \Mail::send('emails.reset', ['routeUrl' => $routeUrl], function (
+            $message
+        ) use ($email) {
+            $message->to($email, 'Welcome')->subject('Password Reset');
         });
         // dd("Mail Sent.");
     }
