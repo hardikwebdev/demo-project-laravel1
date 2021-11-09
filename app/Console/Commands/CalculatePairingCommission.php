@@ -47,8 +47,20 @@ class CalculatePairingCommission extends Command
     public function handle()
     {
         $users = User::where('status','active')->whereHas('placementLeft')->whereHas('placementRight')->orderBy('id','asc')->get();
-        // print_r($users);die();
         foreach($users as $user){
+            $result_date = ($this->argument('date')) ? Carbon::createFromFormat('Y-m-d H:i:s', $this->argument('date').' 00:00:00')->format('Y-m-d') : Carbon::today()->format('Y-m-d');
+
+            /* testing purpose */
+            PairingCommission::where(["user_id" => $user->id])->whereDate('created_at',$result_date)->delete();
+            NftWalletHistory::where(["user_id" => $user->id,'description' => 'Pairing commission'])->whereDate('created_at',$result_date)->delete();
+            CommissionWalletHistory::where(["user_id" => $user->id,'description' => 'Pairing commission'])->whereDate('created_at',$result_date)->delete();
+
+            $todaysPool = PairingCommission::where(["user_id" => $user->id])->whereDate('created_at',$result_date)->count();
+
+            if($todaysPool > 0){
+                continue;
+            }
+
             $leftDownlineGroupsaleActual = $leftDownlineGroupsale  = Helper::getTotalgroupsalesTodayLeft($user); 
             $rightDownlineGroupsaleActual = $rightDownlineGroupsale = Helper::getTotalgroupsalesTodayRight($user);
             if($leftDownlineGroupsaleActual == 0 && $rightDownlineGroupsaleActual == 0){
@@ -115,7 +127,7 @@ class CalculatePairingCommission extends Command
                 $history_data["type"] = "1";
                 $history_data["amount"] = $nft_commission_amount;
                 $history_data["user_id"] = $user->id;
-                $history_data["description"] = 'Pairing commission.';
+                $history_data["description"] = 'Pairing commission';
                 $history_data["final_amount"] = $commission_wallet->nft_wallet + $nft_commission_amount;
 
                 NftWalletHistory::create($history_data);

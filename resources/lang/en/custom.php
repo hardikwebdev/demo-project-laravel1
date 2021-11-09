@@ -130,7 +130,7 @@ return [
     'user_agreement' => 'User Agreement',
     'user_agreement_desc' => '<p>Trading foreign exchange, spot precious metals and any other product carries a high level of risk to your capital and you should only trade or invest with money you can afford to lose. We encourage you to consider your investment objectives, your risk tolerance and trading experience when deciding to deal in Vextrader. The possibility exists that you could sustain a loss of some or all of your initial investment and therefore you should not speculate, invest or hedge with capital you cannot afford to lose, that is borrowed or urgently needed or necessary for personal or family subsistence. Foreign exchange trading may not be suitable for all investors, so please ensure that you fully understand the risks involved and seek independent advice if you have any doubts. There is no guarantee past performance will be indicative of future results. The information on this site may be accessed worldwide however it is not directed at residents in any country or jurisdiction where such distribution or use would be contrary to local law or regulation.</p>',
     'aml_policy_statement' => 'AML Policy Statement',
-    'risk_disclosure_statement' => 'Risk Disclosure Statement',
+    'risk_disclosure_statement' => 'Risk Disclosure',
     'POA' => 'POA', 
     'managed_account' => 'Managed Account', 
     'signature' => 'Signature',
@@ -1549,5 +1549,6 @@ return [
     'no_ticket_found' => 'No Ticket found',
     'staking_popup_title' => 'STAKING POOL REMINDER',
     'commission_history' => 'Commission History',
-
+    'antimoney-laundering' => 'Anti-Money Laundering',
+    'coockie-policy' => 'Cookie Policy',
 ];
