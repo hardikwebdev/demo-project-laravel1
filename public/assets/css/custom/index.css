@@ -481,10 +481,13 @@ form{
 .success-verify,.cus-success-sponsor,.cus-success-placement,.cus-error-sponsor , .wizard > .content > .body .cus-error-sponsor,.cus-error-placement,.wizard > .content > .body .cus-error-placement{
     display: none;
 }
-label.error,label.sucess,.cus-error-sponsor,.cus-error-placement{
+label.sucess,.cus-error-sponsor,.cus-error-placement{
     font-weight: 700;
     color: #ffffff;
     font-size: 14px;
+}
+label.error{
+    color: #8a1f11;
 }
 .cus-error-sponsor,.cus-error-placement{
     color: #ffffff !important;
