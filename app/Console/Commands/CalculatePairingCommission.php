@@ -48,8 +48,8 @@ class CalculatePairingCommission extends Command
     public function handle()
     {
         $users = User::where('status','active')->whereHas('placementLeft')->whereHas('placementRight')->orderBy('id','asc')->get();
+        $result_date = ($this->argument('date')) ? Carbon::createFromFormat('Y-m-d H:i:s', $this->argument('date').' 00:00:00')->format('Y-m-d') : Carbon::today()->format('Y-m-d');
         foreach($users as $user){
-            $result_date = ($this->argument('date')) ? Carbon::createFromFormat('Y-m-d H:i:s', $this->argument('date').' 00:00:00')->format('Y-m-d') : Carbon::today()->format('Y-m-d');
 
             /* testing purpose */
             // StackingPool::where(["user_id" => $user->id])->whereDate('created_at',$result_date)->delete();
@@ -77,16 +77,16 @@ class CalculatePairingCommission extends Command
                 $rightDownlineGroupsale += $cf;
             }
 
-            $packageamount  = Helper::getTotalgroupsales($user); //$user->userwallet->stacking_pool;
+            $packageamount  = $user->userwallet->stacking_pool;
             $package_detail = Package::where('amount','<=',$packageamount)->orderBy('amount','desc')->first();
             if(!$package_detail){
                 continue;
             }
 
-             /* daily limit */
+            /* daily limit */
             $daily_limit = ($package_detail) ? $package_detail->daily_limit : 100;
 
-             /* pairing value */
+            /* pairing value */
             $pairing_value = ($package_detail) ? $package_detail->network_pairing : 10;
 
             if($leftDownlineGroupsale < $rightDownlineGroupsale && $leftDownlineGroupsale != 0){
@@ -160,10 +160,10 @@ class CalculatePairingCommission extends Command
                 CommissionWalletHistory::create($history_data);
                 $commission_wallet->increment('commission_wallet',$pairing_commission_amount);
                 /* testing purpose */
-                StackingPool::where(["user_id" => $user->id])->whereDate('created_at',$result_date)->delete();
 
             }
         }
+        StackingPool::whereDate('created_at',$result_date)->delete();
         return Command::SUCCESS;
     }
 }

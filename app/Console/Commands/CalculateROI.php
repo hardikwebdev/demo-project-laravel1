@@ -7,6 +7,9 @@ use App\Models\StackingPool;
 use Carbon\Carbon;
 use App\Models\Setting;
 use App\Models\UserWallet;
+use App\Models\Package;
+use App\Models\NftWalletHistory;
+use App\Models\YieldWalletHistory;
 
 class CalculateROI extends Command
 {
@@ -53,6 +56,7 @@ class CalculateROI extends Command
                 if(!$package_detail){
                     continue;
                 }
+                $apypercent = 0;
                 if($stakingpool->staking_period == 24){
                     $apypercent = $this->rand_float($package_detail->stacking_actual24_start,$package_detail->stacking_actual24_end);
                     $roi = $stakingpool->amount * ($apypercent / 100);
@@ -79,14 +83,14 @@ class CalculateROI extends Command
                 $data["user_id"] = $stakingpool->user_id;
                 $data["actual_commission_amount"] = $roi;
                 $data["amount"] = $roiamount;
+                $data["type"] = '1';
 
                 $data["stacking_pool_id"] = $stakingpool->id;
                 $data["description"] = 'ROI';
-                $data["actual_percent"] = $level_commission_percent;
-                $data["percent"] = $package_detail->direct_refferal;
+                $data["percent"] = $apypercent;
 
-                ReferralCommission::create($data);
-                $commission_wallet->increment('referral_commission',$commission_amount_actual);
+                YieldWalletHistory::create($data);
+                $commission_wallet->increment('yield_wallet',$roiamount);
             }
         });
         return Command::SUCCESS;
