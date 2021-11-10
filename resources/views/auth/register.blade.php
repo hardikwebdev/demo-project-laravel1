@@ -9,99 +9,99 @@ $local_url = url('locale');
 @section('content')
 <div class="row w-100 mx-0">
   <div class="col-12 col-lg-10 mx-auto">
-   <div class="row align-items-center login-gradient rounded py-4 p-md-5">
-    <div class="col-12 text-center">
-        <img src="{{ asset('assets/images/assets/Register_Account/Group83.png') }}" class="img-fluid" alt="logo">
-    </div>
-    <div class="col-12 mt-5 text-white">
-        <h2 class="font-weight-bold">@lang('custom.register_account')</h2>
-        <h5 class="text-light-pink">{{ __('custom.sign_up_desc') }}</h5>
-    </div>
+     <div class="row align-items-center login-gradient rounded py-4 p-md-5">
+        <div class="col-12 text-center">
+            <img src="{{ asset('assets/images/assets/Register_Account/Group83.png') }}" class="img-fluid" alt="logo">
+        </div>
+        <div class="col-12 mt-5 text-white">
+            <h2 class="font-weight-bold">@lang('custom.register_account')</h2>
+            <h5 class="text-light-pink">{{ __('custom.sign_up_desc') }}</h5>
+        </div>
 
-    <div class="col-12">
-     <form method="post" action="{{ route('register') }}" class="customer-register py-5" id="form-wizards-register">
-        @csrf
-        <h1>{{trans('custom.personal_detail')}}</h1>
-        <fieldset>
-            <div class="row justify-content-center mt-5">
-             <div class="col-12 col-xl-6">
-              <div class="row">
-               <div class="col-12">
-                <h4 class="text-white">{{trans('custom.verify_sponsor_username')}}</h4>
+        <div class="col-12">
+           <form method="post" action="{{ route('register') }}" class="customer-register py-5" id="form-wizards-register">
+            @csrf
+            <h1>{{trans('custom.personal_detail')}}</h1>
+            <fieldset>
+                <div class="row justify-content-center mt-5">
+                   <div class="col-12 col-xl-6">
+                      <div class="row">
+                         <div class="col-12">
+                            <h4 class="text-white">{{trans('custom.verify_sponsor_username')}}</h4>
+                        </div>
+                        <div class="col-12 col-lg-7 pr-lg-0">
+                         <input id="sponsor_username" type="text"
+                         class="form-control grey-ph h-auto py-4 rounded-0 @error('sponsor_username') is-invalid @enderror" name="sponsor_username"
+                         value="{{($userName != '') ? $userName : ''}}" autocomplete="sponsor_username" autofocus
+                         placeholder="@lang('custom.sponsor_name_placeholder')"
+                         {{($userName != '') ? 'readonly' : ''}}>
+                         <input id="sponsor_check" type="hidden"
+                         class="form-control grey-ph h-auto py-4 rounded-0 @error('sponsor_check') is-invalid @enderror" name="sponsor_check"
+                         value="" autocomplete="sponsor_check" autofocus
+                         placeholder="{{trans('custom.sponsor_username')}}">
+                         <label
+                         class="cus-error-sponsor">{{trans('custom.sponsor_user_not_found_not__valid_sponsor')}}</label>
+                         <label class="cus-success-sponsor sucess"
+                         style="display:none">{{trans('custom.sponsor_username_verified')}}</label>
+                         @error('sponsor_username')
+                         <span class="invalid-feedback" role="alert">
+                             <strong>{{ $message }}</strong>
+                         </span>
+                         @enderror
+                         <label id="sponsor_username-error" class="error" for="sponsor_username"></label>
+                     </div>
+                     <div class="col-12 col-lg-5 mt-2 mt-lg-0">
+                        <a href="javascript:void(0)" class="btn bg-warning text-white py-4 font-weight-bold rounded-0 font-18 d-flex verify-sponser text-uppercase">{{trans('custom.verify')}} <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-3 align-middle" alt=""></a>
+                    </div>
+                </div>
             </div>
-            <div class="col-12 col-lg-7 pr-lg-0">
-               <input id="sponsor_username" type="text"
-               class="form-control grey-ph h-auto py-4 rounded-0 @error('sponsor_username') is-invalid @enderror" name="sponsor_username"
-               value="{{($userName != '') ? $userName : ''}}" autocomplete="sponsor_username" autofocus
-               placeholder="@lang('custom.sponsor_name_placeholder')"
-               {{($userName != '') ? 'readonly' : ''}}>
-               <input id="sponsor_check" type="hidden"
-               class="form-control grey-ph h-auto py-4 rounded-0 @error('sponsor_check') is-invalid @enderror" name="sponsor_check"
-               value="" autocomplete="sponsor_check" autofocus
-               placeholder="{{trans('custom.sponsor_username')}}">
-               <label
-               class="cus-error-sponsor">{{trans('custom.sponsor_user_not_found_not__valid_sponsor')}}</label>
-               <label class="cus-success-sponsor sucess"
-               style="display:none">{{trans('custom.sponsor_username_verified')}}</label>
-               @error('sponsor_username')
-               <span class="invalid-feedback" role="alert">
-                   <strong>{{ $message }}</strong>
-               </span>
-               @enderror
-               <label id="sponsor_username-error" class="error" for="sponsor_username"></label>
-           </div>
-           <div class="col-12 col-lg-5 mt-2 mt-lg-0">
-            <a href="javascript:void(0)" class="btn bg-warning text-white py-4 font-weight-bold rounded-0 font-18 d-flex verify-sponser text-uppercase">{{trans('custom.verify')}} <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-3 align-middle" alt=""></a>
+            <div class="col-12 col-xl-6 mt-5 mt-xl-0">
+                <div class="row">
+                   <div class="col-12">
+                      <h4 class="text-white">{{trans('custom.verify_placement_username')}}</h4>
+                  </div>
+                  <div class="col-12 col-lg-7 pr-lg-0">
+                    <input id="placement_username" type="text"
+                    class="form-control grey-ph h-auto py-4 rounded-0 @error('placement_username') is-invalid @enderror" id="placement_username" name="placement_username"
+                    value="{{($userName != '') ? $userName : ''}}" autocomplete="placement_username" autofocus
+                    placeholder="@lang('custom.placement_name_placeholder')"
+                    {{($userName != '') ? 'readonly' : ''}}>
+                    <input id="placement_check" type="hidden"
+                    class="form-control grey-ph h-auto py-4 rounded-0 @error('placement_check') is-invalid @enderror" name="placement_check"
+                    value="{{($userName != '') ? $userName : ''}}" autocomplete="placement_check" autofocus
+                    placeholder="{{trans('custom.placement_username')}}">
+                    <label
+                    class="cus-error-placement">{{trans('custom.placement_user_not_found_not__valid_placement')}}</label>
+                    <label class="cus-success-placement sucess"
+                    style="display:{{($userName != '') ? 'block' : 'none'}}">{{trans('custom.placement_username_verified')}}</label>
+                    @error('placement_username')
+                    <span class="invalid-feedback" role="alert">
+                       <strong>{{ $message }}</strong>
+                   </span>
+                   @enderror
+                   <label id="placement_username-error" class="error" for="placement_username"></label>
+               </div>
+               <div class="col-12 col-lg-5 mt-3 mt-lg-0">
+                <a href="javascript:void(0)"  class="btn bg-warning text-white py-4 font-weight-bold rounded-0 font-18 d-flex text-uppercase verify-placement">{{trans('custom.verify')}} <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-3 align-middle" alt=""></a>
+            </div>
         </div>
     </div>
-</div>
-<div class="col-12 col-xl-6 mt-5 mt-xl-0">
-    <div class="row">
-     <div class="col-12">
-      <h4 class="text-white">{{trans('custom.verify_placement_username')}}</h4>
+    <div class="col-12 text-center mt-4">
+       <label class="cus-radio">
+          <input class="d-none" type="radio" name="child_position" value="left" checked>
+          <span class="text-uppercase">{{trans('custom.left') }}</span>
+      </label>
+      <label class="cus-radio">
+          <input class="d-none" type="radio" name="child_position" value="right">
+          <span class="text-uppercase">{{trans('custom.right') }}</span>
+      </label>
   </div>
-  <div class="col-12 col-lg-7 pr-lg-0">
-    <input id="placement_username" type="text"
-    class="form-control grey-ph h-auto py-4 rounded-0 @error('placement_username') is-invalid @enderror" id="placement_username" name="placement_username"
-    value="{{($userName != '') ? $userName : ''}}" autocomplete="placement_username" autofocus
-    placeholder="@lang('custom.placement_name_placeholder')"
-    {{($userName != '') ? 'readonly' : ''}}>
-    <input id="placement_check" type="hidden"
-    class="form-control grey-ph h-auto py-4 rounded-0 @error('placement_check') is-invalid @enderror" name="placement_check"
-    value="{{($userName != '') ? $userName : ''}}" autocomplete="placement_check" autofocus
-    placeholder="{{trans('custom.placement_username')}}">
-    <label
-    class="cus-error-placement">{{trans('custom.placement_user_not_found_not__valid_placement')}}</label>
-    <label class="cus-success-placement sucess"
-    style="display:{{($userName != '') ? 'block' : 'none'}}">{{trans('custom.placement_username_verified')}}</label>
-    @error('placement_username')
-    <span class="invalid-feedback" role="alert">
-     <strong>{{ $message }}</strong>
- </span>
- @enderror
- <label id="placement_username-error" class="error" for="placement_username"></label>
-</div>
-<div class="col-12 col-lg-5 mt-3 mt-lg-0">
-    <a href="javascript:void(0)"  class="btn bg-warning text-white py-4 font-weight-bold rounded-0 font-18 d-flex text-uppercase verify-placement">{{trans('custom.verify')}} <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-3 align-middle" alt=""></a>
-</div>
-</div>
-</div>
-<div class="col-12 text-center mt-4">
- <label class="cus-radio">
-  <input class="d-none" type="radio" name="child_position" value="left" checked>
-  <span class="text-uppercase">{{trans('custom.left') }}</span>
-</label>
-<label class="cus-radio">
-  <input class="d-none" type="radio" name="child_position" value="right">
-  <span class="text-uppercase">{{trans('custom.right') }}</span>
-</label>
-</div>
 
-<div class="col-12">
- <hr class="border border-white mt-4">
+  <div class="col-12">
+   <hr class="border border-white mt-4">
 </div>
 <div class="col-12 mt-4">
- <h4 class="text-white">{{trans('custom.personal_detail')}}</h4>
+   <h4 class="text-white">{{trans('custom.personal_detail')}}</h4>
 </div>
 <div class="col-12 col-md-4 mt-2 pt-1 pr-md-0">
     <input id="fullname" type="text" class="form-control grey-ph h-auto py-4 rounded-0 @error('fullname') is-invalid @enderror"
@@ -110,20 +110,20 @@ $local_url = url('locale');
 
     @error('fullname')
     <span class="invalid-feedback" role="alert">
-       <strong>{{ $message }}</strong>
-   </span>
-   @enderror
-</div>
-<div class="col-12 col-md-4 mt-2 pt-1 pr-md-0 pl-md-2">
- <input id="username" type="text" class="form-control grey-ph h-auto py-4 rounded-0 @error('username') is-invalid @enderror"
- name="username" value="{{ old('username') }}" autocomplete="username" autofocus
- placeholder="{{trans('custom.username')}}">
-
- @error('username')
- <span class="invalid-feedback" role="alert">
      <strong>{{ $message }}</strong>
  </span>
  @enderror
+</div>
+<div class="col-12 col-md-4 mt-2 pt-1 pr-md-0 pl-md-2">
+   <input id="username" type="text" class="form-control grey-ph h-auto py-4 rounded-0 @error('username') is-invalid @enderror"
+   name="username" value="{{ old('username') }}" autocomplete="username" autofocus
+   placeholder="{{trans('custom.username')}}">
+
+   @error('username')
+   <span class="invalid-feedback" role="alert">
+       <strong>{{ $message }}</strong>
+   </span>
+   @enderror
 </div>
 <div class="col-12 col-md-4 mt-2 pt-1 pl-md-2">
     <input id="ic_number" type="text" class="form-control grey-ph h-auto py-4 rounded-0 @error('ic_number') is-invalid @enderror" name="ic_number" value="{{ old('ic_number') }}" maxlength="12" autocomplete="ic_number" autofocus
@@ -131,21 +131,21 @@ $local_url = url('locale');
 
     @error('ic_number')
     <span class="invalid-feedback" role="alert">
-       <strong>{{ $errors->first('ic_number') }}</strong>
-   </span>
-   @enderror
-</div>
-<div class="col-12 col-md-4 mt-2 pt-1 pr-md-0">
- <input id="phone_number" type="text"
- class="form-control grey-ph h-auto py-4 rounded-0 @error('phone_number') is-invalid @enderror" name="phone_number"
- value="{{ old('phone_number') }}" autocomplete="phone_number" autofocus
- placeholder="{{trans('custom.phone_number')}}">
-
- @error('phone_number')
- <span class="invalid-feedback" role="alert">
-     <strong>{{ $message }}</strong>
+     <strong>{{ $errors->first('ic_number') }}</strong>
  </span>
  @enderror
+</div>
+<div class="col-12 col-md-4 mt-2 pt-1 pr-md-0">
+   <input id="phone_number" type="text"
+   class="form-control grey-ph h-auto py-4 rounded-0 @error('phone_number') is-invalid @enderror" name="phone_number"
+   value="{{ old('phone_number') }}" autocomplete="phone_number" autofocus
+   placeholder="{{trans('custom.phone_number')}}">
+
+   @error('phone_number')
+   <span class="invalid-feedback" role="alert">
+       <strong>{{ $message }}</strong>
+   </span>
+   @enderror
 </div>
 <div class="col-12 col-md-8 mt-2 pt-1 pl-md-2">
     <input id="address" type="text" class="form-control grey-ph h-auto py-4 rounded-0 @error('address') is-invalid @enderror"
@@ -154,9 +154,9 @@ $local_url = url('locale');
 
     @error('address')
     <span class="invalid-feedback" role="alert">
-       <strong>{{ $message }}</strong>
-   </span>
-   @enderror
+     <strong>{{ $message }}</strong>
+ </span>
+ @enderror
 </div>
 <div class="col-12 col-md-4 mt-2 pt-1 pr-md-0">
     <input id="state" type="text" class="form-control grey-ph h-auto py-4 rounded-0 @error('state') is-invalid @enderror"
@@ -165,17 +165,17 @@ $local_url = url('locale');
 
     @error('state')
     <span class="invalid-feedback" role="alert">
-       <strong>{{ $message }}</strong>
-   </span>
-   @enderror
+     <strong>{{ $message }}</strong>
+ </span>
+ @enderror
 </div>
 <div class="col-12 col-md-4 mt-2 pt-1 pr-md-0 pl-md-2">
- {{Form::select('country',[null => trans('custom.select_country')] + $country,'',['class' => 'form-control text-grey font-weight-bold h-auto py-4 rounded-0','id'=>'country_id'])}}
- @error('country')
- <span class="invalid-feedback" role="alert">
-   <strong>{{ $message }}</strong>
-</span>
-@enderror
+   {{Form::select('country',[null => trans('custom.select_country')] + $country,'',['class' => 'form-control text-grey font-weight-bold h-auto py-4 rounded-0','id'=>'country_id'])}}
+   @error('country')
+   <span class="invalid-feedback" role="alert">
+     <strong>{{ $message }}</strong>
+ </span>
+ @enderror
 </div>
 <div class="col-12 col-md-4 mt-2 pt-1 pl-md-2">
     <input id="city" type="text" class="form-control grey-ph h-auto py-4 rounded-0 @error('city') is-invalid @enderror"
@@ -184,9 +184,9 @@ $local_url = url('locale');
 
     @error('city')
     <span class="invalid-feedback" role="alert">
-       <strong>{{ $message }}</strong>
-   </span>
-   @enderror
+     <strong>{{ $message }}</strong>
+ </span>
+ @enderror
 </div>
 <div class="col-12 col-md-6 mt-2 pt-1 pr-md-0">
     <input id="email" type="text" class="form-control grey-ph h-auto py-4 rounded-0 @error('email') is-invalid @enderror"
@@ -195,22 +195,22 @@ $local_url = url('locale');
 
     @error('email')
     <span class="invalid-feedback" role="alert">
-       <strong>{{ $message }}</strong>
-   </span>
-   @enderror
+     <strong>{{ $message }}</strong>
+ </span>
+ @enderror
 
 </div>
 <div class="col-12 col-md-6 mt-2 pt-1 pl-md-2">
-   <input id="confirm_email" type="text"
-   class="form-control grey-ph h-auto py-4 rounded-0 @error('confirm_email') is-invalid @enderror" name="confirm_email"
-   value="{{ old('confirm_email') }}" id="confirm_email" autocomplete="confirm_email" autofocus
-   placeholder="{{trans('custom.repeat_email')}}">
+ <input id="confirm_email" type="text"
+ class="form-control grey-ph h-auto py-4 rounded-0 @error('confirm_email') is-invalid @enderror" name="confirm_email"
+ value="{{ old('confirm_email') }}" id="confirm_email" autocomplete="confirm_email" autofocus
+ placeholder="{{trans('custom.repeat_email')}}">
 
-   @error('confirm_email')
-   <span class="invalid-feedback" role="alert">
-       <strong>{{ $message }}</strong>
-   </span>
-   @enderror
+ @error('confirm_email')
+ <span class="invalid-feedback" role="alert">
+     <strong>{{ $message }}</strong>
+ </span>
+ @enderror
 </div>
 <div class="col-12 col-md-6 mt-2 pt-1 pr-md-0">
     <input id="password" type="password"
@@ -219,34 +219,34 @@ $local_url = url('locale');
 
     @error('password')
     <span class="invalid-feedback" role="alert">
-       <strong>{{ $message }}</strong>
-   </span>
-   @enderror
+     <strong>{{ $message }}</strong>
+ </span>
+ @enderror
 </div>
 <div class="col-12 col-md-6 mt-2 pt-1 pl-md-2">
- <input id="password_confirmation" type="password"
- class="form-control grey-ph h-auto py-4 rounded-0 @error('password_confirmation') is-invalid @enderror"
- name="password_confirmation" value="{{ old('password_confirmation') }}"
- autocomplete="password_confirmation" autofocus id="password_confirmation"
- placeholder="{{ trans('custom.repeat_password') }}">
+   <input id="password_confirmation" type="password"
+   class="form-control grey-ph h-auto py-4 rounded-0 @error('password_confirmation') is-invalid @enderror"
+   name="password_confirmation" value="{{ old('password_confirmation') }}"
+   autocomplete="password_confirmation" autofocus id="password_confirmation"
+   placeholder="{{ trans('custom.repeat_password') }}">
 
- @error('password_confirmation')
- <span class="invalid-feedback" role="alert">
-   <strong>{{ $message }}</strong>
-</span>
-@enderror
+   @error('password_confirmation')
+   <span class="invalid-feedback" role="alert">
+     <strong>{{ $message }}</strong>
+ </span>
+ @enderror
 </div>
 <div class="col-12 col-md-6 mt-2 pt-1 pr-md-0">
-   <input id="secure_password" type="password"
-   class="form-control grey-ph h-auto py-4 rounded-0 @error('secure_password') is-invalid @enderror" name="secure_password"
-   value="{{ old('secure_password') }}" autocomplete="secure_password" autofocus
-   placeholder="{{ trans('custom.security_password') }}">
+ <input id="secure_password" type="password"
+ class="form-control grey-ph h-auto py-4 rounded-0 @error('secure_password') is-invalid @enderror" name="secure_password"
+ value="{{ old('secure_password') }}" autocomplete="secure_password" autofocus
+ placeholder="{{ trans('custom.security_password') }}">
 
-   @error('secure_password')
-   <span class="invalid-feedback" role="alert">
-       <strong>{{ $message }}</strong>
-   </span>
-   @enderror
+ @error('secure_password')
+ <span class="invalid-feedback" role="alert">
+     <strong>{{ $message }}</strong>
+ </span>
+ @enderror
 </div>
 <div class="col-12 col-md-6 mt-2 pt-1 pl-md-2">
     <input id="confirm_secure_password" type="password"
@@ -257,42 +257,42 @@ $local_url = url('locale');
 
     @error('confirm_secure_password')
     <span class="invalid-feedback" role="alert">
-       <strong>{{ $message }}</strong>
-   </span>
-   @enderror
+     <strong>{{ $message }}</strong>
+ </span>
+ @enderror
 </div>
 </div>              
 </fieldset>
 <h1 class="text-uppercase">{{trans('custom.bank_details')}}</h1>
 <fieldset>
- <div class="row justify-content-center mt-5">       
-  <div class="col-12">
-   <h4 class="text-white">{{trans('custom.bank_details')}}</h4>
-</div>               
-<div class="col-12 col-md-6 mt-2 pt-1 pr-md-0">
-    <input id="bank_name" type="text" class="form-control grey-ph h-auto py-4 rounded-0 @error('bank_name') is-invalid @enderror"
-    name="bank_name" value="{{ old('bank_name') }}" autocomplete="bank_name" autofocus
-    placeholder="{{ trans('custom.name_of_bank') }}">
+   <div class="row justify-content-center mt-5">       
+      <div class="col-12">
+         <h4 class="text-white">{{trans('custom.bank_details')}}</h4>
+     </div>               
+     <div class="col-12 col-md-6 mt-2 pt-1 pr-md-0">
+        <input id="bank_name" type="text" class="form-control grey-ph h-auto py-4 rounded-0 @error('bank_name') is-invalid @enderror"
+        name="bank_name" value="{{ old('bank_name') }}" autocomplete="bank_name" autofocus
+        placeholder="{{ trans('custom.name_of_bank') }}">
 
-    @error('bank_name')
-    <span class="invalid-feedback" role="alert">
-       <strong>{{ $message }}</strong>
-   </span>
-   @enderror
-</div>
-<div class="col-12 col-md-6 mt-2 pt-1 pl-md-2">
-   <input id="acc_holder_name" type="text"
-   class="form-control grey-ph h-auto py-4 rounded-0 @error('acc_holder_name') is-invalid @enderror" name="acc_holder_name"
-   value="{{ old('acc_holder_name') }}" autocomplete="acc_holder_name" autofocus
-   placeholder="{{ trans('custom.name_account_holder') }}">
+        @error('bank_name')
+        <span class="invalid-feedback" role="alert">
+         <strong>{{ $message }}</strong>
+     </span>
+     @enderror
+ </div>
+ <div class="col-12 col-md-6 mt-2 pt-1 pl-md-2">
+     <input id="acc_holder_name" type="text"
+     class="form-control grey-ph h-auto py-4 rounded-0 @error('acc_holder_name') is-invalid @enderror" name="acc_holder_name"
+     value="{{ old('acc_holder_name') }}" autocomplete="acc_holder_name" autofocus
+     placeholder="{{ trans('custom.name_account_holder') }}">
 
-   @error('acc_holder_name')
-   <span class="invalid-feedback" role="alert">
-       <strong>{{ $message }}</strong>
-   </span>
-   @enderror
-</div>
-<div class="col-12 col-md-6 mt-2 pt-1 pr-md-0">
+     @error('acc_holder_name')
+     <span class="invalid-feedback" role="alert">
+         <strong>{{ $message }}</strong>
+     </span>
+     @enderror
+ </div>
+ <div class="col-12 col-md-6 mt-2 pt-1 pr-md-0">
     <input id="bank_branch" type="text"
     class="form-control grey-ph h-auto py-4 rounded-0 @error('bank_branch') is-invalid @enderror" name="bank_branch"
     value="{{ old('bank_branch') }}" autocomplete="bank_branch" autofocus
@@ -300,9 +300,9 @@ $local_url = url('locale');
 
     @error('bank_branch')
     <span class="invalid-feedback" role="alert">
-       <strong>{{ $message }}</strong>
-   </span>
-   @enderror
+     <strong>{{ $message }}</strong>
+ </span>
+ @enderror
 </div>
 <div class="col-12 col-md-6 mt-2 pt-1 pl-md-2">
   <input id="swift_code" type="text"
@@ -312,9 +312,9 @@ $local_url = url('locale');
 
   @error('swift_code')
   <span class="invalid-feedback" role="alert">
-   <strong>{{ $message }}</strong>
-</span>
-@enderror
+     <strong>{{ $message }}</strong>
+ </span>
+ @enderror
 </div>
 <div class="col-12 col-md-6 mt-2 pt-1 pr-md-0">
   <input id="acc_number" type="text"
@@ -324,18 +324,18 @@ $local_url = url('locale');
 
   @error('acc_number')
   <span class="invalid-feedback" role="alert">
-   <strong>{{ $message }}</strong>
-</span>
-@enderror
+     <strong>{{ $message }}</strong>
+ </span>
+ @enderror
 </div>
 <div class="col-12 col-md-6 mt-2 pt-1 pl-md-2">
 
-   {{Form::select('bank_country_id',[null => trans('custom.select_bank_account_country')] + $country,'',['class' => 'form-control text-grey font-weight-bold h-auto py-4 rounded-0'])}}
-   @error('bank_country_id')
-   <span class="invalid-feedback" role="alert">
-       <strong>{{ $message }}</strong>
-   </span>
-   @enderror
+ {{Form::select('bank_country_id',[null => trans('custom.select_bank_account_country')] + $country,'',['class' => 'form-control text-grey font-weight-bold h-auto py-4 rounded-0'])}}
+ @error('bank_country_id')
+ <span class="invalid-feedback" role="alert">
+     <strong>{{ $message }}</strong>
+ </span>
+ @enderror
 </div>
 </div>
 </fieldset>
@@ -343,25 +343,63 @@ $local_url = url('locale');
 <fieldset>
   <div class="row justify-content-center mt-5">
     <div class="col-12">
-     <h4 class="text-white">Verify Sponsor Name</h4>
- </div>
- <div class="col-12">
-     <hr class="border border-white">
- </div>
- <div class="col-12 text-white">
-   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet,
-     consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
- </p>
- <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
- <p class="mt-4">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
- <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
- </p>
- <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+       <h4 class="text-white">Verify Sponsor Name</h4>
+   </div>
+   <div class="col-12">
+       <hr class="border border-white">
+   </div>
+   <div class="col-12 text-white">
+     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet,
+       consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+   </p>
+   <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+   <p class="mt-4">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+   <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+   </p>
+   <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 </div>
 </div>
-<div class="row mt-5 mb-3">
-   <div class="col-12 col-md-6">
-     <div class="card rounded-0">
+
+<div class="row mt-3 mb-3">
+<div class="col-12 col-md-6 form-group row">
+   <div class="col-md-12 user-agrrement-errro">
+      <label class="m-checkbox">
+         <input class="chk_agreements " type="checkbox" id="antimoney_laundering" name="terms_condition[]" value="antimoney_laundering" >
+         <a href="{{asset('terms/antimoney_laundering.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.antimoney-laundering') }}</a>
+         <span></span>
+     </label>
+ </div>
+ <div class="col-md-12">
+  <label class="m-checkbox">
+     <input class="chk_agreements " type="checkbox" name="terms_condition[]" value="coockie_policy" id="coockie_policy" >
+     <a href="{{asset('terms/coockie_policy.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.coockie-policy') }}</a>
+     <span></span>
+ </label>
+</div>                             
+<div class="col-md-12 ">
+  <label class="m-checkbox">
+     <input class="chk_agreements " type="checkbox" id="privacy_policy" name="terms_condition[]" value="privacy_policy" >
+     <a href="{{asset('terms/privacy_policy.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.privacy_policy_label') }}</a>
+     <span></span>
+ </label>
+</div>
+<div class="col-md-12">
+  <label class="m-checkbox">
+     <input class="chk_agreements " type="checkbox" id="risk_disclosure" name="terms_condition[]" value="risk_disclosure" >
+     <a href="{{asset('terms/risk_disclosure.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.risk_disclosure_statement') }}</a>
+     <span></span>
+ </label>
+</div>
+<div class="col-md-12">
+  <label class="m-checkbox">
+     <input class="chk_agreements " type="checkbox" id="terms_and_condition" name="terms_condition[]" value="terms_and_condition" >
+     <a href="{{asset('terms/terms_and_condition.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.terms_and_condition') }}</a>
+     <span></span>
+ </label>
+</div>
+</div>
+ <div class="col-12 col-md-6">
+   <div class="card rounded-0">
       <div class="card-body">
         <label class="" for="">{{__('custom.signature')}}</label>
         <br/>
@@ -373,43 +411,6 @@ $local_url = url('locale');
 </div>
 </div>
 </div>
-<div class="form-group  row">
- <div class="col-md-3 user-agrrement-errro">
-  <label class="m-checkbox">
-   <input class="chk_agreements " type="checkbox" id="antimoney_laundering" name="terms_condition[]" value="antimoney_laundering" >
-   <a href="{{asset('terms/antimoney_laundering.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.antimoney-laundering') }}</a>
-   <span></span>
-</label>
-</div>
-<div class="col-md-2">
-  <label class="m-checkbox">
-   <input class="chk_agreements " type="checkbox" name="terms_condition[]" value="coockie_policy" id="coockie_policy" >
-   <a href="{{asset('terms/coockie_policy.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.coockie-policy') }}</a>
-   <span></span>
-</label>
-</div>                             
-<div class="col-md-3 ">
-  <label class="m-checkbox">
-   <input class="chk_agreements " type="checkbox" id="privacy_policy" name="terms_condition[]" value="privacy_policy" >
-   <a href="{{asset('terms/privacy_policy.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.privacy_policy_label') }}</a>
-   <span></span>
-</label>
-</div>
-<div class="col-md-2">
-  <label class="m-checkbox">
-   <input class="chk_agreements " type="checkbox" id="risk_disclosure" name="terms_condition[]" value="risk_disclosure" >
-   <a href="{{asset('terms/risk_disclosure.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.risk_disclosure_statement') }}</a>
-   <span></span>
-</label>
-</div>
-<div class="col-md-2">
-  <label class="m-checkbox">
-   <input class="chk_agreements " type="checkbox" id="terms_and_condition" name="terms_condition[]" value="terms_and_condition" >
-   <a href="{{asset('terms/terms_and_condition.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.terms_and_condition') }}</a>
-   <span></span>
-</label>
-</div>
-</div>
 </fieldset>
 </form> 
 </div>
@@ -419,10 +420,10 @@ $local_url = url('locale');
 @endsection
 @section('scripts')
 <script type="text/javascript">
- $(document).on("change", "input[name=child_position]", function(e) {
-    $("#placement_check").val('');
-});
- $(document).on("click", ".verify-sponser", function(e) {
+    $(document).on("change", "input[name=child_position]", function(e) {
+        $("#placement_check").val('');
+    });
+    $(document).on("click", ".verify-sponser", function(e) {
         // alert('ad');
         var $this = this;
         var sponsor_username = $("#sponsor_username").val();
@@ -453,7 +454,7 @@ $local_url = url('locale');
         });
     });
 
- $(document).on("click", ".verify-placement", function(e) {
+    $(document).on("click", ".verify-placement", function(e) {
         // alert('ad');
         var $this = this;
         var placement_username = $('#placement_username').val();
@@ -579,39 +580,39 @@ $local_url = url('locale');
    // );
 
    $("#form-wizards-register").steps({
-       bodyTag: "fieldset",
-       labels:{
-          finish: '<button class="btn bg-warning text-white py-4 px-5 font-weight-bold rounded-0 mt-4 mt-md-2 font-18 text-uppercase" id="finish">{{trans("custom.finish")}}</button>',
-          next: '<button class="btn bg-warning text-white py-4 px-5 font-weight-bold rounded-0 mt-4 mt-md-2 font-18 text-uppercase">{{trans("custom.next")}} <img src="{{ asset("assets/images/assets/Staking_Pools/Group179.png") }}" class="img-fluid ml-3 align-middle" alt=""></button>',
-          previous: '<button class="btn bg-transparent border-warning text-white py-4 px-5 mt-4 mt-md-2 font-weight-bold rounded-0 font-18 text-uppercase"><img src="{{ asset("assets/images/assets/Staking_Pools/Group179.png") }}" class="img-fluid mr-3 align-middle" alt="" style="transform: rotate(180deg);">{{trans("custom.previous")}}</button>'
-      },
-      onInit: function (event, current) {
-        var sigpad = $('#sigpad').signature({syncField: '#signature', syncFormat: 'PNG'});
-        $('#clear').click(function(e) {
-            e.preventDefault();
-            sigpad.signature('clear');
-            $("#signature").val('');
-        });
-        $('.actions > ul > li:first-child').attr('style', 'display:none');
-    },
-    onStepChanging: function (event, currentIndex, newIndex)
-    {
-      $('.actions > ul > li:first-child').attr('style', 'display:block');
+     bodyTag: "fieldset",
+     labels:{
+      finish: '<button class="btn bg-warning text-white py-4 px-5 font-weight-bold rounded-0 mt-4 mt-md-2 font-18 text-uppercase" id="finish">{{trans("custom.finish")}}</button>',
+      next: '<button class="btn bg-warning text-white py-4 px-5 font-weight-bold rounded-0 mt-4 mt-md-2 font-18 text-uppercase">{{trans("custom.next")}} <img src="{{ asset("assets/images/assets/Staking_Pools/Group179.png") }}" class="img-fluid ml-3 align-middle" alt=""></button>',
+      previous: '<button class="btn bg-transparent border-warning text-white py-4 px-5 mt-4 mt-md-2 font-weight-bold rounded-0 font-18 text-uppercase"><img src="{{ asset("assets/images/assets/Staking_Pools/Group179.png") }}" class="img-fluid mr-3 align-middle" alt="" style="transform: rotate(180deg);">{{trans("custom.previous")}}</button>'
+  },
+  onInit: function (event, current) {
+    var sigpad = $('#sigpad').signature({syncField: '#signature', syncFormat: 'PNG'});
+    $('#clear').click(function(e) {
+        e.preventDefault();
+        sigpad.signature('clear');
+        $("#signature").val('');
+    });
+    $('.actions > ul > li:first-child').attr('style', 'display:none');
+},
+onStepChanging: function (event, currentIndex, newIndex)
+{
+  $('.actions > ul > li:first-child').attr('style', 'display:block');
 
 
             // Always allow going backward even if the current step contains invalid fields!
             if (currentIndex > newIndex)
             {
-               return true;
-           }
+             return true;
+         }
 
             // Forbid suppressing "Warning" step if the user is to young
             if (newIndex === 2 && Number($("#age").val()) < 18)
             {
-               return false;
-           }
+             return false;
+         }
 
-           var form = $(this);
+         var form = $(this);
 
             // Clean up if user went backward before
             if (currentIndex < newIndex)
@@ -632,18 +633,18 @@ $local_url = url('locale');
             // Suppress (skip) "Warning" step if the user is old enough.
             if (currentIndex === 2 && Number($("#age").val()) >= 18)
             {
-               $(this).steps("next");
-           }
+             $(this).steps("next");
+         }
 
             // Suppress (skip) "Warning" step if the user is old enough and wants to the previous step.
             if (currentIndex === 2 && priorIndex === 3)
             {
-               $(this).steps("previous");
-           }
-       },
-       onFinishing: function (event, currentIndex)
-       {
-           var form = $(this);
+             $(this).steps("previous");
+         }
+     },
+     onFinishing: function (event, currentIndex)
+     {
+         var form = $(this);
 
             // Disable validation on fields that are disabled.
             // At this point it's recommended to do an overall check (mean ignoring only disabled fields)
@@ -660,18 +661,18 @@ $local_url = url('locale');
             form.submit();
         }
     }).validate({
-     errorPlacement: function (error, element)
-     {
+       errorPlacement: function (error, element)
+       {
         element.after(error);
     },
     ignore: "input[type='text']:hidden",
     rules: {
       sponsor_username: {
-       required: true,
-       alphanumeric : true,
-       minlength: 3,
-       maxlength: 50,
-       issponserverified: true,
+         required: true,
+         alphanumeric : true,
+         minlength: 3,
+         maxlength: 50,
+         issponserverified: true,
                            // remote: {
                            //     url: sponsorUsernameExits,
                            //     type: "post",
@@ -689,60 +690,60 @@ $local_url = url('locale');
                            // }
                        },
                        placement_username: {
-                         required: true,
-                         checksponserverified: true,
-                         isplacementverified:true
+                           required: true,
+                           checksponserverified: true,
+                           isplacementverified:true
 
-                     },
-                     sponsor_check: {
+                       },
+                       sponsor_check: {
+                           required: true,
+                       },
+                       placement_check: {
+                           required: true,
+                       },
+                       fullname: {
                          required: true,
+                         maxlength: 50,
                      },
-                     placement_check: {
+                     username: {
                          required: true,
-                     },
-                     fullname: {
-                       required: true,
-                       maxlength: 50,
-                   },
-                   username: {
-                       required: true,
-                       alphanumeric : true,
-                       minlength: 3,
-                       maxlength: 50,
-                       remote: {
+                         alphanumeric : true,
+                         minlength: 3,
+                         maxlength: 50,
+                         remote: {
                           url: usernameExits,
                           type: "post",
                           data: {
-                             _token: $("input[name=_token]").val()
-                         },
-                         dataFilter: function(data) {
-                            var data = JSON.parse(data);
-                            if (data.valid != true) {
-                                return false;
-                            } else {
-                                return true;
-                            }
+                           _token: $("input[name=_token]").val()
+                       },
+                       dataFilter: function(data) {
+                        var data = JSON.parse(data);
+                        if (data.valid != true) {
+                            return false;
+                        } else {
+                            return true;
                         }
                     }
-                },
-                address: {
-                   required: true,
-                   maxlength: 100,
-               },
-               city: {
-                   required: true,
-                   maxlength: 50,
-               },
-               state: {
-                   required: true,
-                   maxlength: 50,
-               },
-               country: {
-                   required: true,
-               },
-               ic_number: {
-                   required: true,
-                   alphanumeric1: true,
+                }
+            },
+            address: {
+             required: true,
+             maxlength: 100,
+         },
+         city: {
+             required: true,
+             maxlength: 50,
+         },
+         state: {
+             required: true,
+             maxlength: 50,
+         },
+         country: {
+             required: true,
+         },
+         ic_number: {
+             required: true,
+             alphanumeric1: true,
                            // max3allowed:true,
                          //   maxlength: function(){
                          //      if($('#country_id').val() == '131'){
@@ -772,90 +773,90 @@ $local_url = url('locale');
                          //  }
                      },
                      email: {
-                       required: true,
-                       email: true,
-                       maxlength: 50,
-                       remote: {
+                         required: true,
+                         email: true,
+                         maxlength: 50,
+                         remote: {
                           url: emailExists,
                           type: "post",
                           data: {
-                             _token: $("input[name=_token]").val()
-                         },
-                         dataFilter: function(data) {
-                             var data = JSON.parse(data);
-                             if (data.valid != true) {
-                                return false;
-                            } else {
-                                return true;
-                            }
+                           _token: $("input[name=_token]").val()
+                       },
+                       dataFilter: function(data) {
+                           var data = JSON.parse(data);
+                           if (data.valid != true) {
+                            return false;
+                        } else {
+                            return true;
                         }
                     }
-                },
-                confirm_email: {
-                   required: true,
-                   equalTo: "#email"
-               },
-               phone_number: {
-                   required: true,
-                   number: true,
-                   minlength:10,
-                   maxlength: 15,
-               },
-               password: {
-                   required: true,
-                   minlength:8,
-                   maxlength: 15
-               },
-               password_confirmation: {
-                   required: true,
-                   equalTo: "#password"
-               },
-               secure_password: {
-                   required: true,
-                   minlength:8,
-                   maxlength: 15
-               },
-               confirm_secure_password: {
-                   required: true,
-                   equalTo: "#secure_password"
-               },
-               bank_name:{
-                   required: true,
-                   maxlength: 50,
-               },
-               acc_holder_name:{
-                   required: true,
-                   maxlength: 50,
-                   equalTo: "#fullname"
-               },
-               acc_number:{
-                   required: true,
+                }
+            },
+            confirm_email: {
+             required: true,
+             equalTo: "#email"
+         },
+         phone_number: {
+             required: true,
+             number: true,
+             minlength:10,
+             maxlength: 15,
+         },
+         password: {
+             required: true,
+             minlength:8,
+             maxlength: 15
+         },
+         password_confirmation: {
+             required: true,
+             equalTo: "#password"
+         },
+         secure_password: {
+             required: true,
+             minlength:8,
+             maxlength: 15
+         },
+         confirm_secure_password: {
+             required: true,
+             equalTo: "#secure_password"
+         },
+         bank_name:{
+             required: true,
+             maxlength: 50,
+         },
+         acc_holder_name:{
+             required: true,
+             maxlength: 50,
+             equalTo: "#fullname"
+         },
+         acc_number:{
+             required: true,
                            // number: true,
                            maxlength: 20,
                        },
                        swift_code:{
-                           required: true,
+                         required: true,
                            // number: true,
                            maxlength: 20,
                        },
                        bank_branch:{
-                           required: true,
-                           maxlength: 50,
-                       },
-                       bank_country_id:{
-                           required: true,
-                       },
-                       signature:{
-                           required: true,
+                         required: true,
+                         maxlength: 50,
+                     },
+                     bank_country_id:{
+                         required: true,
+                     },
+                     signature:{
+                         required: true,
                            // maxlength: 50,
                        },
                        // d_date:{
                        //     required: true,
                        // },
                        'terms_condition[]':{
-                           required: true,
-                           minlength: 4
-                       },
+                         required: true,
+                         minlength: 4
+                     },
       //                  // iagree:{
       //                  //     required: true,
       //                  // }
@@ -863,115 +864,115 @@ $local_url = url('locale');
   messages: {
 
     sponsor_username: {
-     minlength: please_enter_least_3_characters,
-     maxlength: please_enter_no_more_than_50,
-     remote: please_check_sponsor_username_not_valid,
+       minlength: please_enter_least_3_characters,
+       maxlength: please_enter_no_more_than_50,
+       remote: please_check_sponsor_username_not_valid,
+   },
+   sponsor_check:{
+       required: please_enter_sponsor_name
+   },
+   placement_username: {
+       required: please_enter_placement_name,
+   },
+   placement_check:{
+       required: please_enter_placement_name
+   },
+   fullname: {
+       required: fullname_required,
+       maxlength: please_enter_no_more_than_50,
+   },
+   username: {
+       required: username_required_field,
+       minlength: please_enter_least_3_characters,
+       maxlength: please_enter_no_more_than_50,
+       remote: username_already_exists,
+   },
+   address: {
+       required: address_required_field,
+       maxlength: please_enter_no_more_than_100,
+   },
+   city: {
+       required: city_required_field,
+       maxlength: please_enter_no_more_than_50,
+   },
+   state: {
+       required: state_required_field,
+       maxlength: please_enter_no_more_than_50,
+   },
+   country: {
+       required: country_required_field,
+   },
+   ic_number: {
+       required: ic_required_field,
+       maxlength: please_enter_no_more_than_20,
+       remote: identification_alread_use
+   },
+   email: {
+       required: eamil_required_field,
+       email: please_enter_valid_email_address,
+       maxlength: please_enter_no_more_than_50,
+       remote: email_already_exists
+   },
+   confirm_email: {
+       required: eamil_required_field,
+       equalTo: please_enter_same_value
+   },
+   phone_number: {
+       required: phone_number_required_field,
+       number: enter_valid_number,
+       minlength:please_enter_least_10_characters,
+       maxlength: please_enter_no_more_than_15,
+   },
+   password: {
+       required: password_required_field,
+       minlength:please_enter_least_8_characters,
+       maxlength: please_enter_no_more_than_15
+   },
+   password_confirmation: {
+       required: repeatpassword_required_field,
+       equalTo: please_enter_same_value
+   },
+   secure_password: {
+       required: securepassword_required_field,
+       minlength:please_enter_least_8_characters,
+       maxlength: please_enter_no_more_than_15
+   },
+   confirm_secure_password: {
+       required: repeatsecurepassword_required_field,
+       equalTo: please_enter_same_value
+   },
+   bank_name:{
+       required: bankname_required_field,
+       maxlength: please_enter_no_more_than_50,
+   },
+   acc_holder_name:{
+       required: accountholder_required_field,
+       maxlength: please_enter_no_more_than_50,
+       equalTo: account_holder_name_and_full_name_same
+   },
+   acc_number:{
+       required: accountnumber_required_field,
+       maxlength: please_enter_no_more_than_20,
+   },
+   swift_code:{
+       required: swift_code_required_field,
+       maxlength: please_enter_no_more_than_20,
+   },
+   bank_branch:{
+       required: bank_branch_required_field,
+       maxlength: please_enter_no_more_than_50,
+   },
+   bank_country_id:{
+       required: bank_country_required_field,
+   },
+   signature:{
+       required: signature_required_field,
+       maxlength: please_enter_no_more_than_50,
+   },
+   'terms_condition[]':{
+     required: select_all,
+     minlength: please_select_atleast_4_checkboxes
  },
- sponsor_check:{
-     required: please_enter_sponsor_name
- },
- placement_username: {
-     required: please_enter_placement_name,
- },
- placement_check:{
-     required: please_enter_placement_name
- },
- fullname: {
-     required: fullname_required,
-     maxlength: please_enter_no_more_than_50,
- },
- username: {
-     required: username_required_field,
-     minlength: please_enter_least_3_characters,
-     maxlength: please_enter_no_more_than_50,
-     remote: username_already_exists,
- },
- address: {
-     required: address_required_field,
-     maxlength: please_enter_no_more_than_100,
- },
- city: {
-     required: city_required_field,
-     maxlength: please_enter_no_more_than_50,
- },
- state: {
-     required: state_required_field,
-     maxlength: please_enter_no_more_than_50,
- },
- country: {
-     required: country_required_field,
- },
- ic_number: {
-     required: ic_required_field,
-     maxlength: please_enter_no_more_than_20,
-     remote: identification_alread_use
- },
- email: {
-     required: eamil_required_field,
-     email: please_enter_valid_email_address,
-     maxlength: please_enter_no_more_than_50,
-     remote: email_already_exists
- },
- confirm_email: {
-     required: eamil_required_field,
-     equalTo: please_enter_same_value
- },
- phone_number: {
-     required: phone_number_required_field,
-     number: enter_valid_number,
-     minlength:please_enter_least_10_characters,
-     maxlength: please_enter_no_more_than_15,
- },
- password: {
-     required: password_required_field,
-     minlength:please_enter_least_8_characters,
-     maxlength: please_enter_no_more_than_15
- },
- password_confirmation: {
-     required: repeatpassword_required_field,
-     equalTo: please_enter_same_value
- },
- secure_password: {
-     required: securepassword_required_field,
-     minlength:please_enter_least_8_characters,
-     maxlength: please_enter_no_more_than_15
- },
- confirm_secure_password: {
-     required: repeatsecurepassword_required_field,
-     equalTo: please_enter_same_value
- },
- bank_name:{
-     required: bankname_required_field,
-     maxlength: please_enter_no_more_than_50,
- },
- acc_holder_name:{
-     required: accountholder_required_field,
-     maxlength: please_enter_no_more_than_50,
-     equalTo: account_holder_name_and_full_name_same
- },
- acc_number:{
-     required: accountnumber_required_field,
-     maxlength: please_enter_no_more_than_20,
- },
- swift_code:{
-     required: swift_code_required_field,
-     maxlength: please_enter_no_more_than_20,
- },
- bank_branch:{
-     required: bank_branch_required_field,
-     maxlength: please_enter_no_more_than_50,
- },
- bank_country_id:{
-     required: bank_country_required_field,
- },
- signature:{
-     required: signature_required_field,
-     maxlength: please_enter_no_more_than_50,
- },
-                   'terms_condition[]':{
-                       required: select_all,
-                       minlength: please_select_atleast_4_checkboxes
-                   },
                    // 'iagree':{
                    //     required: select_all,
                    // },

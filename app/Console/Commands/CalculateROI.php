@@ -4,6 +4,9 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use App\Models\StackingPool;
+use Carbon\Carbon;
+use App\Models\Setting;
+use App\Models\UserWallet;
 
 class CalculateROI extends Command
 {
@@ -42,17 +45,56 @@ class CalculateROI extends Command
         \DB::transaction(function () {
             $result_date = ($this->argument('date')) ? Carbon::createFromFormat('Y-m-d H:i:s', $this->argument('date').' 00:00:00')->subDay()->format('Y-m-d') : Carbon::today()->subDay()->format('Y-m-d');
 
-
             
             $stakingpools = StackingPool::where('status',1)->get();
             foreach($stakingpools as $stakingpool){
                 $staking_pool_package = $stakingpool->staking_pool_package;
-
-                if($stakingpool->staking_period == 12){
-                    // $staking_period = $staking_pool_package->
+                $package_detail = Package::where('amount','<=',$stakingpool->amount)->orderBy('amount','desc')->first();
+                if(!$package_detail){
+                    continue;
                 }
+                if($stakingpool->staking_period == 24){
+                    $apypercent = $this->rand_float($package_detail->stacking_actual24_start,$package_detail->stacking_actual24_end);
+                    $roi = $stakingpool->amount * ($apypercent / 100);
+                }else{
+                    $apypercent = $this->rand_float($package_detail->stacking_actual12_start,$package_detail->stacking_actual12_end);
+                    $roi = $stakingpool->amount * ($apypercent / 100);
+                }
+                $commission_wallet = UserWallet::where('user_id',$stakingpool->user_id)->first();
+
+                $nft_commission = Setting::where('key','nft_commission')->value('value');
+                $nft_commission = ($nft_commission > 0) ? $nft_commission/100 : 0.2; 
+                $nft_commission_amount = $roi * $nft_commission;
+                $roiamount = $roi - $nft_commission_amount;
+
+                $history_data["type"] = "1";
+                $history_data["amount"]  = $nft_commission_amount;
+                $history_data["user_id"] = $stakingpool->user_id;
+                $history_data["description"]  = 'ROI';
+                $history_data["final_amount"] = $commission_wallet->nft_wallet + $nft_commission_amount;
+
+                NftWalletHistory::create($history_data);
+                $commission_wallet->increment('nft_wallet',$nft_commission_amount);
+
+                $data["user_id"] = $stakingpool->user_id;
+                $data["actual_commission_amount"] = $roi;
+                $data["amount"] = $roiamount;
+
+                $data["stacking_pool_id"] = $stakingpool->id;
+                $data["description"] = 'ROI';
+                $data["actual_percent"] = $level_commission_percent;
+                $data["percent"] = $package_detail->direct_refferal;
+
+                ReferralCommission::create($data);
+                $commission_wallet->increment('referral_commission',$commission_amount_actual);
             }
         });
         return Command::SUCCESS;
+    }
+
+    function rand_float($st_num=0,$end_num=1,$mul=1000000)
+    {
+        if ($st_num>$end_num) return false;
+        return mt_rand($st_num*$mul,$end_num*$mul)/$mul;
     }
 }

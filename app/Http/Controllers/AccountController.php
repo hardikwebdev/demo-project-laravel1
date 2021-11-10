@@ -347,7 +347,7 @@ class AccountController extends Controller
             $file = $request->file('profile_image');
             
             $image = $request->file('profile_image');
-            $filename=time() .'.'. $image->getClientOriginalExtension();        
+            $filename = time() .'.'. $image->getClientOriginalExtension();        
             $image->move(public_path('uploads/user'), $filename);
 
             User::where('id',auth()->id())->update(['profile_image'=>$filename]);

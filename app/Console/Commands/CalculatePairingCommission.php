@@ -12,6 +12,7 @@ use App\Models\CommissionWalletHistory;
 use App\Models\UserWallet;
 use App\Models\Setting;
 use App\Models\NftWalletHistory;
+use App\Models\StackingPool;
 
 class CalculatePairingCommission extends Command
 {
@@ -51,9 +52,10 @@ class CalculatePairingCommission extends Command
             $result_date = ($this->argument('date')) ? Carbon::createFromFormat('Y-m-d H:i:s', $this->argument('date').' 00:00:00')->format('Y-m-d') : Carbon::today()->format('Y-m-d');
 
             /* testing purpose */
-            PairingCommission::where(["user_id" => $user->id])->whereDate('created_at',$result_date)->delete();
-            NftWalletHistory::where(["user_id" => $user->id,'description' => 'Pairing commission'])->whereDate('created_at',$result_date)->delete();
-            CommissionWalletHistory::where(["user_id" => $user->id,'description' => 'Pairing commission'])->whereDate('created_at',$result_date)->delete();
+            // StackingPool::where(["user_id" => $user->id])->whereDate('created_at',$result_date)->delete();
+            // PairingCommission::where(["user_id" => $user->id])->whereDate('created_at',$result_date)->delete();
+            // NftWalletHistory::where(["user_id" => $user->id,'description' => 'Pairing commission'])->whereDate('created_at',$result_date)->delete();
+            // CommissionWalletHistory::where(["user_id" => $user->id,'description' => 'Pairing commission'])->whereDate('created_at',$result_date)->delete();
 
             $todaysPool = PairingCommission::where(["user_id" => $user->id])->whereDate('created_at',$result_date)->count();
 
@@ -61,7 +63,7 @@ class CalculatePairingCommission extends Command
                 continue;
             }
 
-            $leftDownlineGroupsaleActual = $leftDownlineGroupsale  = Helper::getTotalgroupsalesTodayLeft($user); 
+            $leftDownlineGroupsaleActual  = $leftDownlineGroupsale  = Helper::getTotalgroupsalesTodayLeft($user); 
             $rightDownlineGroupsaleActual = $rightDownlineGroupsale = Helper::getTotalgroupsalesTodayRight($user);
             if($leftDownlineGroupsaleActual == 0 && $rightDownlineGroupsaleActual == 0){
                 continue;
@@ -157,6 +159,9 @@ class CalculatePairingCommission extends Command
 
                 CommissionWalletHistory::create($history_data);
                 $commission_wallet->increment('commission_wallet',$pairing_commission_amount);
+                /* testing purpose */
+                StackingPool::where(["user_id" => $user->id])->whereDate('created_at',$result_date)->delete();
+
             }
         }
         return Command::SUCCESS;

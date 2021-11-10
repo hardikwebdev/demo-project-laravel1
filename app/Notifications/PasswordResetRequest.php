@@ -43,7 +43,7 @@ class PasswordResetRequest extends Notification
     {
         $routeUrl = url('password/reset/'.$this->token.'?email='.$notifiable->getEmailForPasswordReset());
 
-          return (new MailMessage)
+        return (new MailMessage)
                     ->subject('Password Reset')
                     ->markdown('emails.reset', ['routeUrl' => $routeUrl]);
     }
