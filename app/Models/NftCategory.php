@@ -17,4 +17,10 @@ class NftCategory extends Model
         }
         return '';
     }
+    public function product(){
+        $instance =$this->hasMany(NftProduct::class,'category_id');
+        $instance->getQuery()->where(['status' => 'active', 'is_deleted' => '0']);
+        // return $this->hasMany(NftProduct::class,'category_id');
+        return $instance;
+    }
 }

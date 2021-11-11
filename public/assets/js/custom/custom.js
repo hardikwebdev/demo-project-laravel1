@@ -760,3 +760,16 @@ function copyToClipboard(elem) {
     jQuery('.copy_text').show().fadeOut(1500);
     return succeed;
 }
+$("#purchase_product").validate({
+    ignore: "input[type='text']:hidden",
+    rules: {
+        security_password: {
+            required: true,
+        },
+    },
+    messages: {
+        security_password: {
+            required: securepassword_required_field,
+        },
+    }
+});

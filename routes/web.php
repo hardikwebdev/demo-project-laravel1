@@ -81,7 +81,9 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::get('/commission_wallet', 'App\Http\Controllers\WalletController@commission_wallet')->name('commission_wallet');
         Route::post('/commission_wallet-request', 'App\Http\Controllers\WalletController@commissionWalletStore')->name('commission-wallet-store');
         Route::get('/nft_wallet', 'App\Http\Controllers\WalletController@nft_wallet')->name('nft_wallet');
-        Route::get('/nft_marketplace', 'App\Http\Controllers\HomeController@nft_marketplace')->name('nft_marketplace');
+        Route::get('/nft_marketplace', 'App\Http\Controllers\NFTMarketplaceController@index')->name('nft_marketplace');
+        Route::get('/nft_marketplace/{id}', 'App\Http\Controllers\NFTMarketplaceController@productDetail')->name('nftproduct');
+        Route::post('/nft_marketplace/purchase-product', 'App\Http\Controllers\NFTMarketplaceController@purchaseProduct')->name('purchase-product');
         // Route::get('/withdrawal', 'App\Http\Controllers\HomeController@withdrawal')->name('withdrawal');
         Route::get('/ledger', 'App\Http\Controllers\LedgerController@ledger')->name('ledger');
         Route::post('/ledger/staking-export', 'App\Http\Controllers\LedgerController@stakingPoolExport')->name('reports-staking-pool-export');
@@ -93,7 +95,6 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::post('/nft-wallet-address-upadte', 'App\Http\Controllers\AccountController@updateNFTWalletAddress')->name('nft-wallet-address-update');
         Route::get('/my_collection', 'App\Http\Controllers\HomeController@my_collection')->name('my_collection');
         // Route::get('/help_support', 'App\Http\Controllers\HomeController@help_support')->name('help_support');
-        Route::get('/nftproduct', 'App\Http\Controllers\HomeController@nftproduct')->name('nftproduct');
         Route::get('/sell_nft', 'App\Http\Controllers\HomeController@sell_nft')->name('sell_nft');
         Route::get('/withdrawal', 'App\Http\Controllers\WithdrawalController@index')->name('withdrawal');
         Route::post('/withdrawal-request', 'App\Http\Controllers\WithdrawalController@withdrawalRequest')->name('withdrawal-request');

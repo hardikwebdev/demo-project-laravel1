@@ -53,12 +53,12 @@
         </ul>
       </div>
     </li>
-   <!--  <li class="nav-item">
+    <li class="nav-item">
       <a class="nav-link" href="{{ route('nft_marketplace') }}">
         <img src="{{ asset('assets/images/assets/Dashboard/Group951.png') }}" class="cus-sidebar-icon" alt="">
         <span class="menu-title">NFT Marketplace </span>
       </a>
-    </li> -->
+    </li>
     <li class="nav-item">
       <a class="nav-link" href="{{ route('withdrawal') }}">
         <img src="{{ asset('assets/images/assets/Dashboard/Group850.png') }}" class="cus-sidebar-icon" alt="">

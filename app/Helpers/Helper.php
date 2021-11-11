@@ -386,6 +386,11 @@ class Helper {
             $message->to($user->email, 'Welcome')
             ->subject('Your Deposit Approved');
         });
+    }
+    public static function orderID($userId ,$date){
+        $date = str_replace('-','',$date);
+        $orderID = 'DEFNFT'.$userId.$date;
+        return $orderID;
     } 
 
 }
