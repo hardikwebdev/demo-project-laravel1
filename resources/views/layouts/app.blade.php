@@ -57,7 +57,7 @@ $('.alert-success').fadeIn().delay(4000).fadeOut();
 $('.alert-danger').fadeIn().delay(4000).fadeOut();
  var sponsorUsernameExits = "{{route('sponsorUsernameExits')}}";
  var placementUsernameExits = "{{route('placementUsernameExits')}}";
-
+ var viewbrackdown = "{{ route('view.breakdown', ':id') }}";
  var emailExists = "{{route('emailExists')}}";
  var usernameExits = "{{route('usernameExits')}}";
 </script>

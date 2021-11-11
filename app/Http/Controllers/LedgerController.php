@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\StackingPool;
 use App\Models\StackingPoolPackage;
 use App\Models\PairingCommission;
+use App\Models\ReferralCommission;
 use Auth;
 use Rap2hpoutre\FastExcel\FastExcel;
+use App\Models\YieldWalletHistory;
 
 class LedgerController extends Controller
 {
@@ -19,16 +21,60 @@ class LedgerController extends Controller
     }
     public function ledger(Request $request){
         $stackingpool = StackingPool::with('staking_pool_package')->where('user_id', '=', $this->user->id)->paginate(20);
+
         $stackingPoolPackage = StackingPoolPackage::where(['is_deleted' => '0', 'status' => 'active'])->pluck('name', 'id');
+
+
         $paring_commissions = PairingCommission::where('user_id', '=', $this->user->id)->paginate(20);
+
+        $referral_commission = ReferralCommission::with(['from_user_detail' => function ($query) {
+                $query->withTrashed();
+            },
+            'staking_pool_package',
+        ])->where('user_id', '=', $this->user->id)->paginate(20);
+
+    
+        $roi = YieldWalletHistory::with('user_detail')->where('user_id', '=', $this->user->id)->where('description', '=', 'ROI')->paginate(20);
+        
+
+        // if($request->type == 1){
+        //         $where = [];
+        //         if ($request->get('start_date')) {
+        //             $where[] = ['created_at', ">=", date("Y-m-d H:i:s", strtotime($request->get('start_date')))];
+        //         }
+        //         if ($request->get('end_date')) {
+        //             $where[] = ['created_at', "<=", date("Y-m-d 23:59:59", strtotime($request->get('end_date')))];
+        //         }
+        //         if ($request->get('stackingpoolpackage')) {
+        //             $where[] = ['stacking_pool_package_id', "=", $request->stackingpoolpackage];
+        //         }
+
+        //         $stackingpool = $stackingpool->where($where);
+        // }
+
+       
+
+
+
         if ($request->ajax()) {
-            return view('reports.partials.staking_pools_history', compact('stackingpool'));
-        }
-        if ($request->ajax()) {
-            return view('reports.partials.nodes_management_history', compact('paring_commissions'));
-        }
-        return view('reports.index', compact('stackingpool', 'stackingPoolPackage', 'paring_commissions'));
+            if($request->htype == 1){
+                return view('reports.partials.staking_pools_history', compact('stackingpool'));
+            }elseif($request->htype == 2){
+                return view('reports.partials.nodes_management_history', compact('paring_commissions'));
+            }elseif($request->htype == 3){
+                return view('reports.partials.referral_commissions', compact('referral_commission'));
+            }elseif($request->htype == 4){
+                return view('reports.partials.roi', compact('roi'));
+            }else{
+                return view('reports.index', compact('stackingpool', 'stackingPoolPackage', 'paring_commissions','referral_commission','roi'));
+            }
+        } 
+        return view('reports.index', compact('stackingpool', 'stackingPoolPackage', 'paring_commissions','referral_commission','roi'));
     }
+
+
+
+
     public function stakingPoolExport(Request $request){
         $where = [];
         if ($request->get('start_date')) {
@@ -57,6 +103,9 @@ class LedgerController extends Controller
         });
         return response()->download($file_name);
     }
+
+
+
     public function pairingCommissionsExport(Request $request){
         $where = [];
         if ($request->get('c_start_date')) {
@@ -84,5 +133,13 @@ class LedgerController extends Controller
             ];
         });
         return response()->download($file_name);
+    }
+
+
+
+    public function viewbreakdown(Request $request,$id){
+        $stackingpool = StackingPool::with('staking_pool_package')->find($id);
+        $view = view("reports.modal.viewbreakdown",compact('stackingpool'))->render();
+        return response()->json(['viewbreakdown'=>$view]);
     }
 }

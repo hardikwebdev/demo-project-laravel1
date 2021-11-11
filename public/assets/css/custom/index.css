@@ -535,6 +535,9 @@ span.page-link, a.page-link {
 .second-ajax-pag > nav {
     float: right;
 }
+.second-ajax-report > nav {
+    float: right;
+}
 .position-absolute{
     position: absolute !important;
     bottom: 36px;

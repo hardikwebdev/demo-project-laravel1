@@ -7,6 +7,7 @@
           <th>STAKING POOLS</th>
           <th>DURATION</th>
           <th>DATE</th>
+          <th>ACTION</th>
         </tr>
       </thead>
       <tbody>
@@ -17,6 +18,7 @@
           <td>{{ (@$value->staking_pool_package->name)?$value->staking_pool_package->name:'-' }}</td>
           <td>{{ $value->stacking_period }}</td>
           <td>{{ date("d/m/Y",strtotime($value->created_at)) }}</td>
+          <td><a target="_blank" onclick="showbreakdown({{ $value->id }})" style="color: #007bff;">{{ trans('custom.view')}}</a></td>
         </tr>
         @endforeach
         @else
@@ -31,7 +33,7 @@
 <div class="row align-items-center mt-5">
   <div class="col-12 text-right">
     <div class="text-secondary">
-      <div class="second-ajax-pag">
+      <div class="second-ajax-report">
         @if($stackingpool->count() > 0){{ $stackingpool->render() }}@endif
       </div>
     </div>
