@@ -374,7 +374,7 @@ class Helper {
 
        // count  withdrawal Request
     public static function getwithdrawalRequestCount(){
-        return WithdrawalRequest::where('type','0')->where('status','0')->count();
+        return WithdrawalRequest::where('status','0')->count();
      }
     public static function defixFinanceID($userId ,$date){
         $date = str_replace('-','',$date);
@@ -387,5 +387,4 @@ class Helper {
             ->subject('Your Deposit Approved');
         });
     } 
-
 }

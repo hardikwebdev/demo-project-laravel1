@@ -313,6 +313,28 @@ $(document).ready(function(){
       },
 
   });
+  $("#withdrawalform-bank").validate({
+    rules: {
+         amount: {
+            required: true,
+            number:true,
+            positiveNumber:true,
+            minlength: 0,
+            min:100,                
+            max:10000000
+         },
+         secure_password: {
+            required: true,
+         },
+         upload_proof_bank:{
+          required: true,
+          extension:'png|jpeg|jpg' 
+         }         
+    },
+    messages:{
+    },
+
+});
   $("#cryptowalletform-coin").validate({
       rules: {
            amount: {
@@ -331,24 +353,7 @@ $(document).ready(function(){
       },
 
   });
-  $("#withdrawalform").validate({
-      rules: {
-           amount: {
-              required: true,
-              number:true,
-              positiveNumber:true,
-              minlength: 0,
-              min:100,                
-              max:10000000
-           },
-           secure_password: {
-              required: true,
-           }        
-      },
-      messages:{
-      },
-
-  });
+  
   /*function getData(page,htype = 0){
       $.ajax(
       {

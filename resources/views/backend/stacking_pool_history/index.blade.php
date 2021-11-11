@@ -35,9 +35,12 @@
                             {!! Form::text('username',old('username',isset($data['username'])?$data['username']:''),['class'=>'form-control','placeholder'=>'Username','autocomplete'=>'off']) !!}
                         </div>  
                     </div>
-                    <div class="form-group">                                
-                        {!! Form::select('status',['1'=>'Active','2'=>'Closed'],old('status',@$data['status']),['class'=>'form-control','placeholder'=>'All Status']) !!}
-                    </div>         
+                    <div class="col-xs-12 col-md-2">
+                        <div class="form-group">                                
+                            {!! Form::select('status',['1'=>'Active','2'=>'Closed'],old('status',@$data['status']),['class'=>'form-control','placeholder'=>'All Status']) !!}
+                        </div>
+                    </div>
+                          
                     <button class="btn btn-primary" type="submit"><i class="fa fa-filter"></i> Search</button>
                     <a class="btn btn-danger" href="{{route('stacking_pool_history.index')}}">Clear</a>
                 </div>

@@ -272,7 +272,8 @@
           <div class="col-12 col-xl-7">
             <div class="bg-news p-4 d-flex flex-column justify-content-end" style="background-image: url({{$value->image}});">
               <h5 class="text-white">{{__('custom.news')}}</h5>
-              <h3 class="text-white">{!! \Illuminate\Support\Str::limit($value->title,50) !!}</h3>
+              <h3 class="text-white"><a class="text-white text-decoration-none"
+                 href="{{ route('news-and-events.show', $value->id) }}">{!! \Illuminate\Support\Str::limit($value->title,50) !!}</a></h3>
               <p class="text-white font-12">{!! \Illuminate\Support\Str::limit($value->details,100) !!}</p>
             </div>
           </div>
@@ -285,7 +286,8 @@
                 <img src="{{$value->image}}" class="img-fluid" alt="">
               </div>
               <div class="ml-3 border-bottom pb-3">
-                <p class="font-12 mb-1">{!! \Illuminate\Support\Str::limit($value->title,50) !!}</p>
+                <p class="font-12 mb-1"><a class="text-dark text-decoration-none"
+                  href="{{ route('news-and-events.show', $value->id) }}">{!! \Illuminate\Support\Str::limit($value->title,50) !!}</a></p>
                 <h5 class="font-weight-bold">{!! \Illuminate\Support\Str::limit($value->details,50) !!}</h5>
               </div>
             </div>

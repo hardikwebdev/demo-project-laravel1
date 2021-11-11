@@ -10,4 +10,11 @@ class UsdtAddress extends Model
     use HasFactory;
 
     Protected $fillable = ['name','value','image'];
+
+    public function getImageAttribute($value)
+    {
+        if($value!='' && file_exists(public_path('uploads/qr_image/'.$value))){
+            return asset('uploads/qr_image/'.$value);
+        }
+    }
 }

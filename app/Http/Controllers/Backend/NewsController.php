@@ -9,7 +9,6 @@ use App\Models\News;
 class NewsController extends Controller
 {
     public function __construct(Request $request){
-        $this->path = storage_path('logs/news_log/'.date("Y-m-d").'.log');
         $this->limit = $request->limit?$request->limit:10; 
     }
     /**
