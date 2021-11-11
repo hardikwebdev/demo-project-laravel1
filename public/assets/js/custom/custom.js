@@ -1,4 +1,5 @@
 $(document).ready(function(){
+   $('.onloadformsubmit').submit() 
   $('.dashboard-slider').slick({
       infinite: true,
       slidesToShow: 1,

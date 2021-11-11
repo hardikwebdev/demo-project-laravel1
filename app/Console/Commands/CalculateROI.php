@@ -91,6 +91,8 @@ class CalculateROI extends Command
 
                 YieldWalletHistory::create($data);
                 $commission_wallet->increment('yield_wallet',$roiamount);
+                $commission_wallet->increment('roi',$roiamount);
+
             }
         });
         return Command::SUCCESS;

@@ -213,12 +213,13 @@
             <h4 class="text-grey">{{__('custom.earning_breakdown')}}</h4>
           </div>
           <div class="col-12 col-md-6 text-md-right pr-xl-5">
-            <span class="text-grey d-flex align-items-center justify-content-end font-12">ROI <h4 class="font-weight-bold text-pink mb-0 ml-4">$20,000</h4></span>
-            <span class="text-grey d-flex align-items-center justify-content-end font-12 mt-1">{{__('custom.direct_refferal')}} <h4 class="font-weight-bold text-violate mb-0 ml-4">$40,000</h4></span>
-            <span class="text-grey d-flex align-items-center justify-content-end font-12 mt-1">{{__('custom.pairing')}} <h4 class="font-weight-bold text-success mb-0 ml-4">$20,000</h4></span>
+            <span class="text-grey d-flex align-items-center justify-content-end font-12">{{__('custom.roi')}} <h4 class="font-weight-bold text-pink mb-0 ml-4">${{($user->userwallet) ? number_format($user->userwallet->roi,2):''}}</h4></span>
+            <span class="text-grey d-flex align-items-center justify-content-end font-12 mt-1">{{__('custom.direct_refferal')}} <h4 class="font-weight-bold text-violate mb-0 ml-4">${{($user->userwallet) ? number_format($user->userwallet->referral_commission,2):''}}</h4></span>
+            <span class="text-grey d-flex align-items-center justify-content-end font-12 mt-1">{{__('custom.pairing')}} <h4 class="font-weight-bold text-success mb-0 ml-4">${{($user->userwallet) ? number_format($user->userwallet->pairing_commission,2):''}}</h4></span>
           </div>
           <div class="col-12">
-            <img src="{{ asset('assets/images/assets/Dashboard/Group1052.png') }}" class="img-fluid h-350" alt="logo"/>
+            <div class="" id="hightlinechart" class="img-fluid rounded-right w-100" alt="" style="height: 336px;"></div>
+            <!-- <img src="{{ asset('assets/images/assets/Dashboard/Group1052.png') }}" class="img-fluid h-350" alt="logo"/> -->
           </div>
         </div>
       </div>
@@ -232,18 +233,19 @@
             <h4 class="text-grey">{{__('custom.commission_breakdown')}}</h4>
           </div>
           <div class="col-12 col-md-6 text-md-right">
-            <select class="rounded-0 font-weight-bold border-violate font-12 p-2 px-3">
+           <!--  <select class="rounded-0 font-weight-bold border-violate font-12 p-2 px-3">
               <option value="">{{__('custom.this_month')}}</option>
-            </select>
+            </select> -->
           </div>
           <div class="col-12 text-center mt-3">
-            <img src="{{ asset('assets/images/assets/Dashboard/Group1056.png') }}" class="img-fluid" alt="logo"/>
+             <div class="" id="commissionpiechart" class="img-fluid rounded-right w-100" alt="" style="height: 336px;"></div>
+            <!-- <img src="{{ asset('assets/images/assets/Dashboard/Group1056.png') }}" class="img-fluid" alt="logo"/> -->
           </div>
         </div>
         <div class="row mt-4">
           <div class="col-12 col-md-4 text-center mt-3">
-            <p class="d-flex align-items-center justify-content-center mb-0 text-grey"><span class="count bg-pink d-block mr-2"></span>ROI</p>
-            <h4 class="text-black font-weight-bold mt-2">${{($user->userwallet) ? number_format($user->userwallet->yield_wallet,2) : '' }}</h4>
+            <p class="d-flex align-items-center justify-content-center mb-0 text-grey"><span class="count bg-pink d-block mr-2"></span>{{__('custom.roi')}}</p>
+            <h4 class="text-black font-weight-bold mt-2">${{($user->userwallet) ? number_format($user->userwallet->roi,2) : '' }}</h4>
           </div>
           <div class="col-12 col-md-4 text-center mt-3">
             <p class="d-flex align-items-center justify-content-center mb-0 text-grey"><span class="count bg-violate d-block mr-2"></span>{{__('custom.direct_refferal')}}</p>
@@ -346,7 +348,7 @@
         <div class="card bg-yield-wallet">
           <div class="card-body text-white">
             <p class="mb-4">{{__('custom.yield_wallet')}}  </p>
-            <p class="fs-30 mb-2">${{($user->userwallet) ? number_format($user->userwallet->  yield_wallet,2) : '' }}</p>
+            <p class="fs-30 mb-2">${{($user->userwallet) ? number_format($user->userwallet->yield_wallet,2) : '' }}</p>
             <p class="font-10">{{__('custom.balance')}}</p>
           </div>
         </div>
@@ -376,21 +378,137 @@
 @if($planExpired)
 @foreach($expired_stacking_pools as $stacking_pool)
 <div class="modal fade bs-example-modal-center" tabindex="-1" role="dialog" aria-labelledby="points-alert" aria-hidden="true" style="display: none;" id="planExpired{{$stacking_pool->id}}" >
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content cus-blue-bg text-white">
-            <div class="modal-header">
-                <h5 class="modal-title mt-0"><span class="mdi mdi-alert"></span> {{trans('custom.staking_popup_title')}}</h5>
-            </div>
-            <div class="modal-body">
-                <div class="font-16">
-                    <?php $text = str_replace('#link',route('stakepool',$stacking_pool->stacking_pool_package_id),str_replace(':Stock',$stacking_pool->name_en,str_replace(':Date', $stacking_pool->end_date,str_replace(':Month', $stacking_pool->staking_period, trans('custom.plan_expired'))))); ?>
-                    {!! $text !!}
-                </div>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content cus-blue-bg text-white">
+      <div class="modal-header">
+        <h5 class="modal-title mt-0"><span class="mdi mdi-alert"></span> {{trans('custom.staking_popup_title')}}</h5>
+      </div>
+      <div class="modal-body">
+        <div class="font-16">
+          <?php $text = str_replace('#link',route('stakepool',$stacking_pool->stacking_pool_package_id),str_replace(':Stock',$stacking_pool->name_en,str_replace(':Date', $stacking_pool->end_date,str_replace(':Month', $stacking_pool->staking_period, trans('custom.plan_expired'))))); ?>
+          {!! $text !!}
+        </div>
 
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
 </div>
 @endforeach
 @endif
+@endsection
+@section('scripts')
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/series-label.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script type="text/javascript">
+  Highcharts.chart('hightlinechart', {
+    exporting:false,
+    title: {
+      text: '{{ __('custom.commissions') }}'
+    },
+    yAxis: {
+      title: {
+        text: ''
+      }
+    },
+
+    xAxis: {
+      accessibility: {
+        rangeDescription: ''
+      },
+      categories: {!! json_encode(array_values($months)) !!}
+    },
+
+    legend: {
+      layout: 'horizontal',
+      align: 'center',
+      verticalAlign: 'bottom'
+    },
+
+    plotOptions: {
+      series: {
+        label: {
+          connectorAllowed: false
+        },
+      }
+    },
+
+    series: [{
+      name: "{{ __('custom.roi') }}",
+      data: {!! json_encode($graph['roi_commission']) !!}
+    }, {
+      name: "{{ __('custom.referral_commission') }}",
+      data: {!! json_encode($graph['referral_commission']) !!}
+    }, {
+      name: "{{ __('custom.pairing_commission') }}",
+      data: {!! json_encode($graph['pairing_commission']) !!}
+    }],
+
+    responsive: {
+      rules: [{
+        condition: {
+          maxWidth: 500
+        },
+        chartOptions: {
+          legend: {
+            layout: 'horizontal',
+            align: 'center',
+            verticalAlign: 'bottom'
+          }
+        }
+      }]
+    }
+
+  });
+  Highcharts.chart('commissionpiechart', {
+    exporting:false,
+    chart: {
+      plotBackgroundColor: null,
+      plotBorderWidth: 0,
+      plotShadow: false
+    },
+    title: {
+      text: "{{ __('custom.commissions') }}",
+      align: 'center',
+      verticalAlign: 'middle',
+      y: 60
+    },
+    tooltip: {
+      pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    accessibility: {
+      point: {
+        valueSuffix: '%'
+      }
+    },
+    plotOptions: {
+      pie: {
+        dataLabels: {
+          enabled: true,
+          distance: -50,
+          style: {
+            fontWeight: 'bold',
+            color: 'white'
+          }
+        },
+        startAngle: -90,
+        endAngle: 360,
+        center: ['50%', '50%'],
+        size: '70%'
+      }
+    },
+    series: [{
+      type: 'pie',
+      name: "{{ __('custom.commissions') }}",
+      innerSize: '80%',
+      data: [
+      ["{{ __('custom.roi') }}", {{($user->userwallet) ? number_format($user->userwallet->roi,2) : '' }}],
+      ["{{ __('custom.referral_commission') }}", {{($user->userwallet) ? number_format($user->userwallet->referral_commission,2) : '' }}],
+      ["{{ __('custom.pairing_commission') }}", {{($user->userwallet) ? number_format($user->userwallet->pairing_commission,2) : '' }}]
+      ]
+    }]
+  });
+</script>
 @endsection

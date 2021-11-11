@@ -18,7 +18,7 @@
         @if(\Auth::user()->country_id == 131)
         <li><a class="text-warning border border-warning py-3 px-5 d-block fund-usdt-bank" data-toggle="tab" data-value="myr-usdt" href="#menu1">{{ trans('custom.online_payment')}}</a></li>
         @endif
-        <!--  <li><a class="text-warning border border-warning py-3 px-5 d-block fund-usdt-bank" data-toggle="tab" data-value="myr-usdt" href="#menu2">{{ trans('custom.coin_payment')}}</a></li> -->
+         <li><a class="text-warning border border-warning py-3 px-5 d-block fund-usdt-bank" data-toggle="tab" data-value="myr-usdt" href="#menu2">{{ trans('custom.coin_payment')}}</a></li>
       </ul>
     </div>
 

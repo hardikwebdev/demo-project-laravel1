@@ -57,11 +57,11 @@ class CalculatePairingCommission extends Command
             // NftWalletHistory::where(["user_id" => $user->id,'description' => 'Pairing commission'])->whereDate('created_at',$result_date)->delete();
             // CommissionWalletHistory::where(["user_id" => $user->id,'description' => 'Pairing commission'])->whereDate('created_at',$result_date)->delete();
 
-            $todaysPool = PairingCommission::where(["user_id" => $user->id])->whereDate('created_at',$result_date)->count();
+            // $todaysPool = PairingCommission::where(["user_id" => $user->id])->whereDate('created_at',$result_date)->count();
 
-            if($todaysPool > 0){
-                continue;
-            }
+            // if($todaysPool > 0){
+            //     continue;
+            // }
 
             $leftDownlineGroupsaleActual  = $leftDownlineGroupsale  = Helper::getTotalgroupsalesTodayLeft($user); 
             $rightDownlineGroupsaleActual = $rightDownlineGroupsale = Helper::getTotalgroupsalesTodayRight($user);

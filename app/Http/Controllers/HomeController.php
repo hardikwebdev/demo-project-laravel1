@@ -12,6 +12,16 @@ use App\Models\News;
 use App\Models\StackingPool;
 use App\Models\UserWallet;
 use App\Models\CommissionWalletHistory;
+use App\Models\PairingCommission;
+use App\Models\ReferralCommission;
+use App\Models\YieldWalletHistory;
+
+use DB;
+use Carbon\Carbon;
+use Carbon\CarbonPeriod;
+use App\Models\Setting;
+use App\Models\Package;
+use App\Helpers\Helper;
 
 class HomeController extends Controller
 {
@@ -22,7 +32,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-       $this->middleware(function ($request, $next) {
+     $this->middleware(function ($request, $next) {
         $this->user = Auth::user();
         return $next($request);
     });
@@ -57,8 +67,53 @@ class HomeController extends Controller
         //     $locale = 'cn';
         // }
         $news = News::where(['status' => 'active', 'lang' => $locale])->orderBy('created_at', 'desc')->take(5)->get();
+        $allDownlineids = Helper::getAllDownlineIds($this->user->id,1);
+        $allDownlineids = (is_array($allDownlineids)) ? $allDownlineids : [];
 
-        return view('dashboard',compact('user','sliders','staking_pool','news','nft_cats'));
+        $pairing_commissions = PairingCommission::select(DB::raw("sum(pairing_commission) as amount"),DB::raw("DATE_FORMAT(created_at,'%Y-%m') as year"))->where('user_id',$user->id)->groupBy('year')->get()->toArray();
+        $referral_commissions = ReferralCommission::select(DB::raw("sum(amount) as amount"),DB::raw("DATE_FORMAT(created_at,'%Y-%m') as year"))->where('user_id',$user->id)->groupBy('year')->get()->toArray();
+        $roi_commissions = YieldWalletHistory::select(DB::raw("sum(amount) as amount"),DB::raw("DATE_FORMAT(created_at,'%Y-%m') as year"))->where('description','ROI')->where('user_id',$user->id)->groupBy('year')->get()->toArray();
+
+
+        /* get last 12 month series */
+        $start = Carbon::today()->subMonths(12);
+        $i = 0;
+        foreach (CarbonPeriod::create($start, '1 month', Carbon::today()) as $month) {
+            $months[] = $month->format('Y-m');
+            $i++;
+        }
+
+        /* collect series data for each month */
+        $graph['sale_left'] = [];
+        $graph['sale_right'] = [];
+        $graph['pairing_commission'] = [];
+
+        foreach ($months as $key => $month) {
+            foreach($referral_commissions as $sale){
+                if($sale['year'] == $month){
+                    $graph['referral_commission'][] = $sale['amount'];
+                }else{
+                    $graph['referral_commission'][] = 0;
+                }
+            }
+
+            foreach($roi_commissions as $sale){
+                if($sale['year'] == $month){
+                    $graph['roi_commission'][] = $sale['amount'];
+                }else{
+                    $graph['roi_commission'][] = 0;
+                }
+            }
+
+            foreach($pairing_commissions as $sale){
+                if($sale['year'] == $month){
+                    $graph['pairing_commission'][] = $sale['amount'];
+                }else{
+                    $graph['pairing_commission'][] = 0;
+                }
+            }
+        }
+        return view('dashboard',compact('user','sliders','staking_pool','news','nft_cats','graph','months'));
     }
 
     public function crypto_wallets(){

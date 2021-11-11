@@ -55,6 +55,11 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
     Route::get('calculate-pairing-commission', 'App\Http\Controllers\CommonController@pairingCommission')->name('calculate-pairing');
     Route::get('calculate-referral-commission', 'App\Http\Controllers\CommonController@referralCommission')->name('calculate-referral');
     Route::any('online-payment-response/my/{slug}', 'App\Http\Controllers\WalletController@online_payment_callback_my')->name('online-payment-my-response');
+    //payment confrim usdt
+    Route::any('wallets/usdt-payment-confirm', 'App\Http\Controllers\WalletController@usdtPaymnetConfirm')->name('usdtPaymnetConfirm');
+    //payment cancel url usdt   
+    Route::get('wallets/usdt-payment-cancel/{id}', 'App\Http\Controllers\WalletController@usdtPaymnetCancel')->name('usdtPaymnetCancel');
+    Route::any('wallets/coinpayment-ipn', 'App\Http\Controllers\WalletController@paymnetIpn')->name('PaymnetIpn');
 
     Route::middleware(['auth','verified','Checkuseractive'])->group(function () {
 

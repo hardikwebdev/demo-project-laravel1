@@ -35,7 +35,6 @@ class AccountController extends Controller
         $country  = Country::pluck('country_name','id')->toArray();
 
         return view('accounts.register',compact('userName','country'));
-
     }
 
     /* validate user */
@@ -122,8 +121,7 @@ class AccountController extends Controller
         $sponsor_id = User::where('username',$data['sponsor_username'])->where('status','active')->first();
         $placement_id = User::where('username',$data['placement_username'])->where('status','active')->first();
 
-
-       $user = User::create([
+        $user = User::create([
             'name' => $data['fullname'],
             'sponsor_id' => ($sponsor_id != null ) ? $sponsor_id->id : '0',
             'placement_id' => ($placement_id != null ) ? $placement_id->id : '0',
@@ -193,7 +191,7 @@ class AccountController extends Controller
         $todaysRightSale        = Helper::getTotalgroupsalesTodayRight($this->user);
         $todaysLeftCarryFw      = ($todaysLeftSale > $todaysRightSale) ? $this->user->userwallet->carry_forward : 0;
         $todaysRightCarryFw     = ($todaysRightSale > $todaysLeftSale) ? $this->user->userwallet->carry_forward : 0;
-        $packageamount = $this->user->userwallet->stacking_pool;//Helper::getTotalgroupsales($user);
+        $packageamount          = $this->user->userwallet->stacking_pool;//Helper::getTotalgroupsales($user);
         $package_detail = Package::where('amount','<=',$packageamount)->orderBy('amount','desc')->first();
 
 
