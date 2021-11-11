@@ -59,7 +59,7 @@
                             </div>
                             <div class="col-12 col-md-6">
                               <h4 class="text-black mb-0 font-weight-bold">{{ $staking_pool_count}}</h4>
-                              <span class="text-secondary font-10">Total Staking Packag</span>
+                              <span class="text-secondary font-10">Total Staking Package</span>
                             </div>
                           </div>
                         </div>

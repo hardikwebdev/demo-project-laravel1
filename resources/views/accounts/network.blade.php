@@ -102,9 +102,9 @@
     init(users,1);
   });
   Highcharts.chart('hightlinechart', {
-
+    exporting:false,
     title: {
-      text: 'Commision & Sales'
+      text: "{{ __('custom.commissionsale') }}"
     },
     yAxis: {
       title: {

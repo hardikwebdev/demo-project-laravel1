@@ -57,11 +57,11 @@ class CalculatePairingCommission extends Command
             // NftWalletHistory::where(["user_id" => $user->id,'description' => 'Pairing commission'])->whereDate('created_at',$result_date)->delete();
             // CommissionWalletHistory::where(["user_id" => $user->id,'description' => 'Pairing commission'])->whereDate('created_at',$result_date)->delete();
 
-            $todaysPool = PairingCommission::where(["user_id" => $user->id])->whereDate('created_at',$result_date)->count();
+            // $todaysPool = PairingCommission::where(["user_id" => $user->id])->whereDate('created_at',$result_date)->count();
 
-            if($todaysPool > 0){
-                continue;
-            }
+            // if($todaysPool > 0){
+            //     continue;
+            // }
 
             $leftDownlineGroupsaleActual  = $leftDownlineGroupsale  = Helper::getTotalgroupsalesTodayLeft($user); 
             $rightDownlineGroupsaleActual = $rightDownlineGroupsale = Helper::getTotalgroupsalesTodayRight($user);
@@ -76,6 +76,7 @@ class CalculatePairingCommission extends Command
             if($user->userwallet->carry_forward_to == 'right'){
                 $rightDownlineGroupsale += $cf;
             }
+
 
             $packageamount  = $user->userwallet->stacking_pool;
             $package_detail = Package::where('amount','<=',$packageamount)->orderBy('amount','desc')->first();
@@ -100,14 +101,22 @@ class CalculatePairingCommission extends Command
             }
             if($rightDownlineGroupsale == 0){
                 $groupsale = $leftDownlineGroupsale;
-                $carry_forward = 0;
+                $carry_forward = $leftDownlineGroupsale;
                 $pairing_got_from = 'right';
             }
             if($leftDownlineGroupsale == 0){
                 $groupsale = $rightDownlineGroupsale;
-                $carry_forward = 0;
+                $carry_forward = $rightDownlineGroupsale;
                 $pairing_got_from = 'left';
             }
+
+            if($leftDownlineGroupsale == 0 || $rightDownlineGroupsale == 0){
+                $carry_forward_to = ($carry_forward > 0) ? (($pairing_got_from == 'left') ? 'right' : 'left') : null;
+                $user->userwallet->carry_forward_to = $carry_forward_to;
+                $user->userwallet->save();
+                continue;
+            }
+
             // echo $groupsale; echo $rightDownlineGroupsale;
             // die();
 

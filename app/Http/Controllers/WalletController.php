@@ -53,7 +53,15 @@ class WalletController extends Controller
             $convertedRateMYR = Model\Setting::where('key','bank_myr_amount')->value('value');
             $banks = Model\Bank::where('currency','MYR')->orderBy('name')->pluck('name','code');
         }
-        return view('crypto_wallet.index', compact('convertedRateUSDT', 'convertedRateMYR', 'cryptowallet', 'userWallet', 'banks'));
+        $usdtaddresses = Model\UsdtAddress::where('status',1)->get();
+        if(\Session::get('usdt')){
+            $usdtaddress = Model\UsdtAddress::where('status',1)->where('value',\Session::get('usdt'))->first();
+
+        }else{
+
+            $usdtaddress = Model\UsdtAddress::where('status',1)->first();
+        }
+        return view('crypto_wallet.index', compact('convertedRateUSDT', 'convertedRateMYR', 'cryptowallet', 'userWallet', 'banks', 'usdtaddresses', 'usdtaddress'));
     }
     public function cryptoWalletForm(Request $request){
             $usercheck = Model\User::where('id',$this->user->id)->where('status','active')->where('deleted_at', null)->first();
@@ -96,6 +104,9 @@ class WalletController extends Controller
                             $image->move(public_path('uploads/upload_bank_proof'), $filename);
                             
                             $fundWallet->trans_slip = $filename;
+                            $usdtdetail = $request->usdt_address;
+                            $usdt = Model\UsdtAddress::where('value',$usdtdetail)->where('status',1)->select('id','name','value')->first();
+                            $fundWallet->usdt_detail =  json_encode($usdt);
                         }
                         $fundWallet->unique_no = $uniqu_no;
                         $fundWallet->save();
@@ -153,27 +164,27 @@ class WalletController extends Controller
                         }
                     }     
 
-                    if($request->payment_method == 'coinpayment'){
+                    if($request->payment_method == 'coin-payment'){
 
                         $fundWallet = new Model\CryptoWallet;
                         Model\CryptoWalletOnlinePayment::where(['user_id'=>$this->user->id,'status'=>'0'])->update(['status'=>'2']);
                         $model =  new Model\CryptoWalletOnlinePayment();
                         $model->order_id = uniqid();
                         $model->user_id = $usercheck->id;
-                        $model->usd_amount = $request->amount_USD;
+                        $model->usd_amount = $request->amount;
                         $model->deposite_amount = $request->amount;
                         $model->payment_date = date('Y-m-d'); 
                         $model->time = time();
                         $model->save();
                         $fundWallet->user_id = $this->user->id;
-                        $fundWallet->usd_amount = $request->amount_USD;
+                        $fundWallet->usd_amount = $request->amount;
 
                         $fundWallet->amount = $request->amount;
                         $fundWallet->status = 0;
                         $fundWallet->action_date = Carbon::now();
                         $fundWallet->unique_no = $uniqu_no;
 
-                        $fundWallet->usd_amount = ($request->amount_USD != '') ? $request->amount_USD : 0;
+                        $fundWallet->usd_amount = ( $request->amount != '') ?  $request->amount : 0;
                         $fundWallet->type = 2;
                         $fundWallet->order_id = uniqid();
                         $fundWallet->save();
@@ -198,7 +209,7 @@ class WalletController extends Controller
                         $rl_currency = 'USD';
                         $bit_currencies = 'USDT.ERC20';
 
-                        return view('fund_wallet/usdtform',compact('usercheck','merchant_key','fundWallet','first_name','last_name','usdtPaymnetConfirm','usdtPaymnetCancel','rl_currency','bit_currencies','paymnetIpnUrl'));
+                        return view('crypto_wallet/usdtform',compact('usercheck','merchant_key','fundWallet','first_name','last_name','usdtPaymnetConfirm','usdtPaymnetCancel','rl_currency','bit_currencies','paymnetIpnUrl'));
                     }               
 
                     Session::flash('success',trans('custom.payment_request_submited_review')); 
@@ -214,6 +225,130 @@ class WalletController extends Controller
             return redirect()->route('crypto_wallets')->withInput($request->input());
         }
         return redirect()->route('crypto_wallets');
+    }
+    /**
+     * Usdt usdtPaymnetConfirm 
+     */
+    public function usdtPaymnetConfirm(Request $request){
+        Session::flash('error',trans('custom.your_payment_progress_now_fund_confirmed'));   
+        return redirect()->route('crypto_wallets');
+    }
+    /**
+     * Usdt usdt Paymnet Cancel 
+     */
+    public function usdtPaymnetCancel(Request $request){
+        $fid = base64_decode($request->id);
+        $cryptoWallet = Model\CryptoWallet::where('id',$fid)->first();
+        if($cryptoWallet != null){
+            $cryptoWallet->status = 3;
+            $cryptoWallet->save();
+            Session::flash('error',trans('custom.payment_declined'));   
+            return redirect()->route('crypto_wallets');
+        }
+        Session::flash('error',trans('Order ID is not valid'));   
+        return redirect()->route('crypto_wallets');
+    }
+
+    /**
+     * Coin payment Ipn Config
+     * 
+     */
+    public function paymnetIpn(Request $request){
+        $merchant_id = env('USDT_MERCHANT_KEY');
+        $secret = env('USDT_SECRET_KEY');
+        \Log::channel('fundlog')->debug('Error==>>>>>>>>>>>>>Proceed Payment Start.');
+
+        if(!isset($_SERVER['HTTP_HMAC']) || empty($_SERVER['HTTP_HMAC'])){
+            \Log::channel('fundlog')->debug('No HMAC signature sent');
+
+            die("No HMAC signature sent");
+        }
+
+        $merchant = isset($_POST['merchant']) ? $_POST['merchant']:'';
+        if(empty($merchant)){
+            \Log::channel('fundlog')->debug('No Merchant ID passed');
+
+            die("No Merchant ID passed");
+        }
+
+        if($merchant != $merchant_id){
+            \Log::channel('fundlog')->debug('Invalid Merchant ID');
+
+            die("Invalid Merchant ID");
+        }
+
+        $request = file_get_contents('php://input');
+        if($request === FALSE || empty($request)){
+            \Log::channel('fundlog')->debug('Error reading POST data');
+
+            die("Error reading POST data");
+        }
+
+        $hmac = hash_hmac("sha512", $request, $secret);
+        if($hmac != $_SERVER['HTTP_HMAC']){
+            \Log::channel('fundlog')->debug('HMAC signature does not match');
+
+            die("HMAC signature does not match");
+        }
+
+
+        $client_orderid = trim($_POST['item_number']);
+        $status = $_POST['status'];
+
+        //get order details from database
+        $fundWallet = Model\CryptoWallet::where('order_id',$client_orderid)->first();
+        $fundWallet->action_date = Carbon::now();
+        \Log::channel('fundlog')->debug(json_encode($_POST));
+        if($fundWallet && $fundWallet['status'] == 0  && $status == '100'){
+        // die($status);
+            $fundWallet->status = 1;
+            $fundWallet->transaction_id = trim($_POST['txn_id']);
+            $fundWallet->payment_ipn_response = serialize($_REQUEST);
+            $fundWallet->save();
+           
+            // UserWallet::where('user_id',$fundWallet['user_id'])->increment('dm_balance',$fundWallet->dm_amount+$fundWallet->promotional_bonus);
+            Helper::updaterankpackage($fundWallet);
+
+            // $user_wallet = UserWallet::where('user_id',$fundWallet['user_id'])->first();
+            // $curr_amount = $fundWallet->user_detail->package_detail!=null?$fundWallet->user_detail->package_detail->amount:0.00;
+
+            // $usdt_amount = DmWallet::where('status','1')->sum('amount') + $fundWallet->amount;
+            // $package_detail = Model\Package::where('amount','<=',$usdt_amount)->orderBy('amount','desc')->first();
+            // if($package_detail!=null && $package_detail->id != $fundWallet->user_detail->package_id){
+
+            //     if($curr_amount > 0){
+            //         $reduce_amount = $package_detail->amount - $curr_amount;
+            //     }else{
+            //         $reduce_amount = $package_detail->amount;
+            //     }
+
+            //     $PackageHistory = new Model\PackageHistory;
+            //     $PackageHistory->user_id = $fundWallet->user_id;
+            //     $PackageHistory->package_amount = $package_detail->amount;
+            //         $PackageHistory->type = 1; // for Upgrade package
+            //         $PackageHistory->paid_amount = $reduce_amount;
+            //         $PackageHistory->updated_at = date('Y-m-d');
+            //         $PackageHistory->save();   
+
+            //         User::where('id',$fundWallet->user_id)->update(['package_id'=>$package_detail->id]);
+            //         \Artisan::call('calculate:usdtdmcommission '.$fundWallet->id);
+            //     }
+
+            // Helper::generate_pdf($fundWallet);
+            }else if($fundWallet && $fundWallet['status'] == 0 && $status == -1){
+            $fundWallet->status = 3; //canceled
+            $fundWallet->paynet_ipn_response = serialize($_REQUEST);
+            $fundWallet->save();
+
+        }else{
+            $fundWallet->status = 4; //Falied
+            // $fundWallet->paynet_ipn_response = serialize($_REQUEST);
+            $fundWallet->save();
+
+        }
+        \Log::channel('fundlog')->debug('Error==>>>>>>>>>>>>>Proceed Payment End.');
+        return 'IPN OK';
+
     }
     public function yieldWallet(Request $request){
 
