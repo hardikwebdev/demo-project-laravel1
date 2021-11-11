@@ -184,31 +184,31 @@ class AccountController extends Controller
               ->map(function($query) use (&$additionalusers){
                     $query->sale_left = Helper::getTotalgroupsalesLeft($query);
                     $query->sale_right = Helper::getTotalgroupsalesRight($query);
-                    if(count($query->placementLeft) == 0){
-                        // die();
-                        $data = $query;
-                        $data['name']  = 'emptynode';
+                    // if(count($query->placementLeft) == 0){
+                    //     // die();
+                    //     $data = $query;
+                    //     $data['name']  = 'emptynode';
 
-                        $data['username']  = 'emptynode';
-                        $data['parent']  = $query['id'];
-                        $data['profile_image'] = 'http://localhost/defix-web/assets/images/avatar.png';
-                        $data['sale_left'] = 0;
-                        $data['sale_right'] = 0;
-                        $additionalusers[] = $data->toArray();
-                    }
-                    if(count($query->placementRight) == 0){
-                        $data = $query;
-                        $data['name']  = 'emptynode';
+                    //     $data['username']  = 'emptynode';
+                    //     $data['parent']  = $query['id'];
+                    //     $data['profile_image'] = 'http://localhost/defix-web/assets/images/avatar.png';
+                    //     $data['sale_left'] = 0;
+                    //     $data['sale_right'] = 0;
+                    //     $additionalusers[] = $data->toArray();
+                    // }
+                    // if(count($query->placementRight) == 0){
+                    //     $data = $query;
+                    //     $data['name']  = 'emptynode';
 
-                        $data['username']  = 'emptynode';
-                        $data['parent']  = $query['id'];
-                        $data['profile_image'] = 'http://localhost/defix-web/assets/images/avatar.png';
-                        $data['sale_left'] = 0;
-                        $data['sale_right'] = 0;
-                        $additionalusers[] = $data->toArray();
-                    }
-                    unset($query->placementLeft);
-                    unset($query->placementRight);
+                    //     $data['username']  = 'emptynode';
+                    //     $data['parent']  = $query['id'];
+                    //     $data['profile_image'] = 'http://localhost/defix-web/assets/images/avatar.png';
+                    //     $data['sale_left'] = 0;
+                    //     $data['sale_right'] = 0;
+                    //     $additionalusers[] = $data->toArray();
+                    // }
+                    // unset($query->placementLeft);
+                    // unset($query->placementRight);
 
                     return $query;
               })->toArray();
