@@ -77,9 +77,6 @@ class CalculatePairingCommission extends Command
                 $rightDownlineGroupsale += $cf;
             }
 
-            if($leftDownlineGroupsale == 0 || $rightDownlineGroupsale == 0){
-                continue;
-            }
 
             $packageamount  = $user->userwallet->stacking_pool;
             $package_detail = Package::where('amount','<=',$packageamount)->orderBy('amount','desc')->first();
@@ -104,14 +101,22 @@ class CalculatePairingCommission extends Command
             }
             if($rightDownlineGroupsale == 0){
                 $groupsale = $leftDownlineGroupsale;
-                $carry_forward = 0;
+                $carry_forward = $leftDownlineGroupsale;
                 $pairing_got_from = 'right';
             }
             if($leftDownlineGroupsale == 0){
                 $groupsale = $rightDownlineGroupsale;
-                $carry_forward = 0;
+                $carry_forward = $rightDownlineGroupsale;
                 $pairing_got_from = 'left';
             }
+
+            if($leftDownlineGroupsale == 0 || $rightDownlineGroupsale == 0){
+                $carry_forward_to = ($carry_forward > 0) ? (($pairing_got_from == 'left') ? 'right' : 'left') : null;
+                $user->userwallet->carry_forward_to = $carry_forward_to;
+                $user->userwallet->save();
+                continue;
+            }
+
             // echo $groupsale; echo $rightDownlineGroupsale;
             // die();
 
