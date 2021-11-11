@@ -21,7 +21,7 @@
                     <input type="hidden" name="item_number" value="{{$fundWallet->order_id}}">
                     <input type="hidden" name="currency" value="{{$rl_currency}}">
                     <input type="hidden" name="allow_currencies" value="{{$bit_currencies}}">
-                    <input type="hidden" name="amountf" value="{{$fundWallet->amount}}">
+                    <input type="hidden" name="amountf" value="{{$fundWallet->usd_amount}}">
                     <input type="hidden" name="want_shipping" value="0">
                     <input type="hidden" name="first_name" value="{{$first_name}}">
                     <input type="hidden" name="last_name" value="{{$last_name}}">
