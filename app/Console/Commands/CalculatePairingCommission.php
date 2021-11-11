@@ -65,9 +65,9 @@ class CalculatePairingCommission extends Command
 
             $leftDownlineGroupsaleActual  = $leftDownlineGroupsale  = Helper::getTotalgroupsalesTodayLeft($user); 
             $rightDownlineGroupsaleActual = $rightDownlineGroupsale = Helper::getTotalgroupsalesTodayRight($user);
-            if($leftDownlineGroupsaleActual == 0 && $rightDownlineGroupsaleActual == 0){
-                continue;
-            }
+            // if($leftDownlineGroupsaleActual == 0 && $rightDownlineGroupsaleActual == 0){
+            //     continue;
+            // }
             $cf = $user->userwallet->carry_forward;
             $carry_forward_to = 0;
             if($user->userwallet->carry_forward_to == 'left'){
@@ -76,7 +76,9 @@ class CalculatePairingCommission extends Command
             if($user->userwallet->carry_forward_to == 'right'){
                 $rightDownlineGroupsale += $cf;
             }
-
+            if($leftDownlineGroupsale == 0 && $rightDownlineGroupsale == 0){
+                continue;
+            }
 
             $packageamount  = $user->userwallet->stacking_pool;
             $package_detail = Package::where('amount','<=',$packageamount)->orderBy('amount','desc')->first();
