@@ -442,13 +442,13 @@
 
     series: [{
       name: "{{ __('custom.roi') }}",
-      data: {!! json_encode($graph['roi_commission']) !!}
+      data: {!! json_encode((isset($graph['roi_commission'])) ? $graph['roi_commission'] : [] ) !!}
     }, {
       name: "{{ __('custom.referral_commission') }}",
-      data: {!! json_encode($graph['referral_commission']) !!}
+      data: {!! json_encode(isset($graph['referral_commission']) ? $graph['referral_commission'] : [] ) !!}
     }, {
       name: "{{ __('custom.pairing_commission') }}",
-      data: {!! json_encode($graph['pairing_commission']) !!}
+      data: {!! json_encode((isset($graph['pairing_commission'])) ? $graph['pairing_commission'] : []) !!}
     }],
 
     responsive: {
