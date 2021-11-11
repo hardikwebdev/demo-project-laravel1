@@ -294,7 +294,7 @@ class Helper {
 
      public static function getDirectDownlineIds($sponsor_id){
         
-       $direct_downline = User::where(['status'=>"active",'sponsor_id'=>$sponsor_id])->where('id','!=',$sponsor_id)->pluck('id')->toArray();  
+       $direct_downline = User::where(['status'=>"active",'placement_id'=>$sponsor_id])->where('id','!=',$sponsor_id)->pluck('id')->toArray();  
        
        return $direct_downline;     
     }

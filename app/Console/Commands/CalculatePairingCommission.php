@@ -12,6 +12,7 @@ use App\Models\CommissionWalletHistory;
 use App\Models\UserWallet;
 use App\Models\Setting;
 use App\Models\NftWalletHistory;
+use App\Models\StackingPool;
 
 class CalculatePairingCommission extends Command
 {
@@ -47,13 +48,14 @@ class CalculatePairingCommission extends Command
     public function handle()
     {
         $users = User::where('status','active')->whereHas('placementLeft')->whereHas('placementRight')->orderBy('id','asc')->get();
+        $result_date = ($this->argument('date')) ? Carbon::createFromFormat('Y-m-d H:i:s', $this->argument('date').' 00:00:00')->format('Y-m-d') : Carbon::today()->format('Y-m-d');
         foreach($users as $user){
-            $result_date = ($this->argument('date')) ? Carbon::createFromFormat('Y-m-d H:i:s', $this->argument('date').' 00:00:00')->format('Y-m-d') : Carbon::today()->format('Y-m-d');
 
             /* testing purpose */
-            PairingCommission::where(["user_id" => $user->id])->whereDate('created_at',$result_date)->delete();
-            NftWalletHistory::where(["user_id" => $user->id,'description' => 'Pairing commission'])->whereDate('created_at',$result_date)->delete();
-            CommissionWalletHistory::where(["user_id" => $user->id,'description' => 'Pairing commission'])->whereDate('created_at',$result_date)->delete();
+            // StackingPool::where(["user_id" => $user->id])->whereDate('created_at',$result_date)->delete();
+            // PairingCommission::where(["user_id" => $user->id])->whereDate('created_at',$result_date)->delete();
+            // NftWalletHistory::where(["user_id" => $user->id,'description' => 'Pairing commission'])->whereDate('created_at',$result_date)->delete();
+            // CommissionWalletHistory::where(["user_id" => $user->id,'description' => 'Pairing commission'])->whereDate('created_at',$result_date)->delete();
 
             $todaysPool = PairingCommission::where(["user_id" => $user->id])->whereDate('created_at',$result_date)->count();
 
@@ -61,7 +63,7 @@ class CalculatePairingCommission extends Command
                 continue;
             }
 
-            $leftDownlineGroupsaleActual = $leftDownlineGroupsale  = Helper::getTotalgroupsalesTodayLeft($user); 
+            $leftDownlineGroupsaleActual  = $leftDownlineGroupsale  = Helper::getTotalgroupsalesTodayLeft($user); 
             $rightDownlineGroupsaleActual = $rightDownlineGroupsale = Helper::getTotalgroupsalesTodayRight($user);
             if($leftDownlineGroupsaleActual == 0 && $rightDownlineGroupsaleActual == 0){
                 continue;
@@ -75,16 +77,16 @@ class CalculatePairingCommission extends Command
                 $rightDownlineGroupsale += $cf;
             }
 
-            $packageamount = $user->userwallet->stacking_pool;//Helper::getTotalgroupsales($user);
+            $packageamount  = $user->userwallet->stacking_pool;
             $package_detail = Package::where('amount','<=',$packageamount)->orderBy('amount','desc')->first();
             if(!$package_detail){
                 continue;
             }
 
-             /* daily limit */
+            /* daily limit */
             $daily_limit = ($package_detail) ? $package_detail->daily_limit : 100;
 
-             /* pairing value */
+            /* pairing value */
             $pairing_value = ($package_detail) ? $package_detail->network_pairing : 10;
 
             if($leftDownlineGroupsale < $rightDownlineGroupsale && $leftDownlineGroupsale != 0){
@@ -157,8 +159,11 @@ class CalculatePairingCommission extends Command
 
                 CommissionWalletHistory::create($history_data);
                 $commission_wallet->increment('commission_wallet',$pairing_commission_amount);
+                /* testing purpose */
+
             }
         }
+        StackingPool::whereDate('created_at',$result_date)->delete();
         return Command::SUCCESS;
     }
 }
