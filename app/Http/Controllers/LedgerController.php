@@ -20,21 +20,21 @@ class LedgerController extends Controller
         });
     }
     public function ledger(Request $request){
-        $stackingpool = StackingPool::with('staking_pool_package')->where('user_id', '=', $this->user->id)->paginate(3);
+        $stackingpool = StackingPool::with('staking_pool_package')->where('user_id', '=', $this->user->id)->paginate(10);
 
         $stackingPoolPackage = StackingPoolPackage::where(['is_deleted' => '0', 'status' => 'active'])->pluck('name', 'id');
 
 
-        $paring_commissions = PairingCommission::where('user_id', '=', $this->user->id)->paginate(3);
+        $paring_commissions = PairingCommission::where('user_id', '=', $this->user->id)->paginate(10);
 
         $referral_commission = ReferralCommission::with(['from_user_detail' => function ($query) {
                 $query->withTrashed();
             },
             'staking_pool_package',
-        ])->where('user_id', '=', $this->user->id)->paginate(3);
+        ])->where('user_id', '=', $this->user->id)->paginate(10);
 
     
-        $roi = YieldWalletHistory::with('user_detail')->where('user_id', '=', $this->user->id)->where('description', '=', 'ROI')->paginate(3);
+        $roi = YieldWalletHistory::with('user_detail')->where('user_id', '=', $this->user->id)->where('description', '=', 'ROI')->paginate(10);
         
 
         // if($request->type == 1){
