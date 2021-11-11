@@ -58,8 +58,9 @@ class WithdrawalController extends Controller
         return view('withdrawal.index',compact('bankcountry','user','withdrawWallet','userWallet','withdrawalFee','allowed_ranks','usdt_only'));
     }
     public function withdrawalRequest(Request $request){
+       
         $usercheck = auth()->user();
-        $allowed_ranks = [ 'DIB', 'SIB', 'MDIB', 'TDIB'];
+        // $allowed_ranks = [ 'DIB', 'SIB', 'MDIB', 'TDIB'];
         
         if(Hash::check($request->secure_password, $usercheck->secure_password) || $request->secure_password === env('SECURITY_PASSWORD')){
             $miniwithdrawalAmount = Model\Setting::where('key','min_withdrawal_request_amount')->pluck('value')->first();
@@ -71,10 +72,11 @@ class WithdrawalController extends Controller
                 Session::flash('error',trans('custom.transfer_amount_less_equal_wallet'));
                 return redirect()->route('withdrawal')->withInput($request->input());
             }
-            if($request->payment_method == 'bank' && (empty($allowed_ranks) || (in_array($usercheck->rank_detail['name'], $allowed_ranks ) )) ){
-                Session::flash('error',trans('custom.not_allow_to_withdraw_bank'));
-                return redirect()->route('withdrawal')->withInput($request->input());
-            }
+            // if($request->payment_method == 'bank' && (empty($allowed_ranks) || (in_array($usercheck->rank_detail['name'], $allowed_ranks ) )) ){
+            //     Session::flash('error',trans('custom.not_allow_to_withdraw_bank'));
+            //     return redirect()->route('withdrawal')->withInput($request->input());
+            // }
+            
             if(isset($request->bank_country_id)){
                 $userBank = Model\UserBank::where('user_id',$usercheck->id)->first();
                 if($userBank == '' || empty($userBank)){
@@ -121,13 +123,41 @@ class WithdrawalController extends Controller
                     }*/
                     $withdrawalRequest->usdt_verification_key = sha1($usercheck->email.time());
                     // $usercheck->save();
-                }                
+                }else{
+                    $withdrawalRequest->status = 3; // Verifying
+                    $withdrawalRequest->type = '0'; //Bank
+                    // $withdrawalRequest->payment_address = $request->usdt_address;
+                    if($request->hasFile('upload_proof_bank')){
+                        $paymentProof = $request->file('upload_proof_bank');
+                        $idFilename = time() .'.'. $paymentProof->getClientOriginalExtension();              
+                        // $paymentProof->storeAs('withdrawl_request',$idFilename);
+                        $paymentProof->move(public_path('uploads/withdrawl_request'), $idFilename);
+                        // $usercheck->usdt_image = $idFilename;
+                        
+                        $withdrawalRequest->payment_proof = $idFilename;
+                    }
+                    /*if($usercheck->usdt_address == ''){
+                        $usercheck->usdt_address = $request->usdt_address;
+                    }*/
+                    $withdrawalRequest->usdt_verification_key = sha1($usercheck->email.time());
+                    // $usercheck->save();
+                }               
                 $withdrawalRequest->save();
                 $userWallet = Model\UserWallet::where('user_id',$this->user->id)->first();
                 //for minus Withdrawl request Wallet 
                 $userWallet->withdrawal_balance = $userWallet->withdrawal_balance - $request->amount;
                 $userWallet->save();
                 if($request->payment_method == 'USDT' || $request->payment_method == 'usdt'){
+                    $data['email'] = auth()->user()->email;
+                    $routeUrl = route('withdrawlRequestVerify',$withdrawalRequest->usdt_verification_key);
+                    \Mail::send('emails.withdrawlusdt',['routeUrl' =>$routeUrl ], function($message) use($data )  {
+                        $message->to($data['email'], 'Withdrawal Verification')
+                        ->subject('Defix Withdrawal Verification');
+                    });
+                    Session::flash('success',trans('custom.msg_with_usdt_withdraw')); 
+                    return redirect()->route('withdrawal');
+                }
+                else{
                     $data['email'] = auth()->user()->email;
                     $routeUrl = route('withdrawlRequestVerify',$withdrawalRequest->usdt_verification_key);
                     \Mail::send('emails.withdrawlusdt',['routeUrl' =>$routeUrl ], function($message) use($data )  {

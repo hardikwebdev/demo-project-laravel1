@@ -1556,4 +1556,6 @@ return [
     'commission-wallet' => 'Commission  Wallet',
     'accounts' => 'Account',
     'my-account' => 'My Account',
+    'news' => 'News',
+    'news-events' => 'News & Events'
 ];
