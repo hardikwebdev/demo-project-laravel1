@@ -177,13 +177,46 @@ class AccountController extends Controller
         $referral = Helper::getAllDownlineIdsTree($this->user->id);
         // echo "<pre>"; print_r($referral);die();
         $referral = array_merge($referral, [$this->user->id]);
+        $additionalusers = [];
+        
         $users    = User::whereIn('id',$referral)->where('status','active')->select('id','id as key','username as name','placement_id as parent','profile_image')->orderBy('child_position','asc')
               ->get()
-              ->map(function($query){
+              ->map(function($query) use (&$additionalusers){
                     $query->sale_left = Helper::getTotalgroupsalesLeft($query);
                     $query->sale_right = Helper::getTotalgroupsalesRight($query);
+                    if(count($query->placementLeft) == 0){
+                        // die();
+                        $data = $query;
+                        $data['name']  = 'emptynode';
+
+                        $data['username']  = 'emptynode';
+                        $data['parent']  = $query['id'];
+                        $data['profile_image'] = 'http://localhost/defix-web/assets/images/avatar.png';
+                        $data['sale_left'] = 0;
+                        $data['sale_right'] = 0;
+                        $additionalusers[] = $data->toArray();
+                    }
+                    if(count($query->placementRight) == 0){
+                        $data = $query;
+                        $data['name']  = 'emptynode';
+
+                        $data['username']  = 'emptynode';
+                        $data['parent']  = $query['id'];
+                        $data['profile_image'] = 'http://localhost/defix-web/assets/images/avatar.png';
+                        $data['sale_left'] = 0;
+                        $data['sale_right'] = 0;
+                        $additionalusers[] = $data->toArray();
+                    }
+                    unset($query->placementLeft);
+                    unset($query->placementRight);
+
                     return $query;
               })->toArray();
+        $users = array_merge($users,$additionalusers);      
+
+        //  echo "<pre>";
+        // print_r($users);
+        // die();
 
         $accumulateLeftSale     = Helper::getTotalgroupsalesLeft($this->user);
         $accumulateRightSale    = Helper::getTotalgroupsalesRight($this->user);

@@ -1561,5 +1561,6 @@ return [
     'pairing_commission' => 'Pairing Commission',
     'commissions' => 'Commissions',
     'commissionsale' => 'Commission & Sales',
-
+    'news' => 'News',
+    'news-events' => 'News & Events'
 ];

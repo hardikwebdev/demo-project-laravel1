@@ -71,6 +71,7 @@
         <span class="menu-title">{{trans('custom.Ledger')}}</span>
       </a>
     </li>
+    
     <li class="nav-item">
       <a class="nav-link collapsed" data-toggle="collapse" href="#account" aria-expanded="false" aria-controls="tables">
         <img src="{{ asset('assets/images/assets/Dashboard/Group851.png') }}" class="cus-sidebar-icon" alt="">
@@ -88,6 +89,25 @@
         </ul>
       </div>
     </li>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-toggle="collapse" href="#news" aria-expanded="false" aria-controls="tables">
+        <img src="{{ asset('assets/images/assets/Dashboard/Group2.png') }}" class="cus-sidebar-icon-news" alt="">
+        <span class="menu-title">{{trans('custom.news')}}</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="news">
+        <ul class="nav flex-column sub-menu rounded-bottom">
+          <li class="nav-item"> 
+            <a class="nav-link pl-0" href="{{ route('news-and-events.index') }}">{{trans('custom.news-events')}}</a>
+          </li>
+          <!-- <li class="nav-item"> 
+            <a class="nav-link pl-0" href="{{ route('my_collection') }}">My Collection</a>
+          </li> -->
+        </ul>
+      </div>
+    </li>
+   
     <li class="nav-item">
       <a class="nav-link" href="{{ route('help_support.index') }}">
         <img src="{{ asset('assets/images/assets/Dashboard/Path1214.png') }}" class="cus-sidebar-icon" alt="">

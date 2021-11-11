@@ -53,7 +53,15 @@ class WalletController extends Controller
             $convertedRateMYR = Model\Setting::where('key','bank_myr_amount')->value('value');
             $banks = Model\Bank::where('currency','MYR')->orderBy('name')->pluck('name','code');
         }
-        return view('crypto_wallet.index', compact('convertedRateUSDT', 'convertedRateMYR', 'cryptowallet', 'userWallet', 'banks'));
+        $usdtaddresses = Model\UsdtAddress::where('status',1)->get();
+        if(\Session::get('usdt')){
+            $usdtaddress = Model\UsdtAddress::where('status',1)->where('value',\Session::get('usdt'))->first();
+
+        }else{
+
+            $usdtaddress = Model\UsdtAddress::where('status',1)->first();
+        }
+        return view('crypto_wallet.index', compact('convertedRateUSDT', 'convertedRateMYR', 'cryptowallet', 'userWallet', 'banks', 'usdtaddresses', 'usdtaddress'));
     }
     public function cryptoWalletForm(Request $request){
             $usercheck = Model\User::where('id',$this->user->id)->where('status','active')->where('deleted_at', null)->first();
@@ -96,6 +104,9 @@ class WalletController extends Controller
                             $image->move(public_path('uploads/upload_bank_proof'), $filename);
                             
                             $fundWallet->trans_slip = $filename;
+                            $usdtdetail = $request->usdt_address;
+                            $usdt = Model\UsdtAddress::where('value',$usdtdetail)->where('status',1)->select('id','name','value')->first();
+                            $fundWallet->usdt_detail =  json_encode($usdt);
                         }
                         $fundWallet->unique_no = $uniqu_no;
                         $fundWallet->save();

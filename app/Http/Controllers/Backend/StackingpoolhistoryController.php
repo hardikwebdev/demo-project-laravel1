@@ -47,8 +47,8 @@ class StackingpoolhistoryController extends Controller
             } else {
                 $stacking_pool_history = $stacking_pool_history->where(
                     'status',
-                    '0'
-                )->orWhere('status','1');
+                    '1'
+                );
             }
         }
 
@@ -114,8 +114,8 @@ class StackingpoolhistoryController extends Controller
                 } else {
                     $stacking_pool_history = $stacking_pool_history->where(
                         'status',
-                        '0'
-                    )->orWhere('status','1');
+                        '1'
+                    );
                 }
             }
     

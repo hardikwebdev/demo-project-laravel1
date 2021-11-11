@@ -170,6 +170,7 @@
                     <span class="nav-label">Settings</span><span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse" style="">
                     <li class=" @if(\Request::is('admin/setting')) {{'active'}} @endif"><a href="{{route('setting.index')}}"><span class="cus-sub-menu">General Setting</span></a></li>
+                    <li class=" @if(strstr(\Request::route()->getName(),'usdt_address')) {{'active'}} @endif"><a href="{{route('usdt_address.index')}}"><span class="cus-sub-menu">USDT Address</span></a></li>
                     {{-- <li class=" @if(\Request::is('admin/package_setting') || \Request::is('admin/package_setting/*')) {{'active'}} @endif"><a href="{{route('package_setting.index')}}"><span class="cus-sub-menu">Package Setting</span></a></li> --}}
                     {{-- <li class=" @if(\Request::is('admin/rank_setting')|| \Request::is('admin/rank_setting/*')) {{'active'}} @endif"><a href="{{route('rank_setting.index')}}"><span class="cus-sub-menu">Rank Setting</span></a></li> --}}
                     {{-- <li class=" @if(\Request::is('admin/investment-plans')|| \Request::is('admin/investment-plans/*')) {{'active'}} @endif"><a href="{{route('investment-plans.index')}}"><span class="cus-sub-menu">Investment Plans</span></a></li> --}}

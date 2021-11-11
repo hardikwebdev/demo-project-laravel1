@@ -274,7 +274,8 @@
           <div class="col-12 col-xl-7">
             <div class="bg-news p-4 d-flex flex-column justify-content-end" style="background-image: url({{$value->image}});">
               <h5 class="text-white">{{__('custom.news')}}</h5>
-              <h3 class="text-white">{!! \Illuminate\Support\Str::limit($value->title,50) !!}</h3>
+              <h3 class="text-white"><a class="text-white text-decoration-none"
+                 href="{{ route('news-and-events.show', $value->id) }}">{!! \Illuminate\Support\Str::limit($value->title,50) !!}</a></h3>
               <p class="text-white font-12">{!! \Illuminate\Support\Str::limit($value->details,100) !!}</p>
             </div>
           </div>
@@ -287,7 +288,8 @@
                 <img src="{{$value->image}}" class="img-fluid" alt="">
               </div>
               <div class="ml-3 border-bottom pb-3">
-                <p class="font-12 mb-1">{!! \Illuminate\Support\Str::limit($value->title,50) !!}</p>
+                <p class="font-12 mb-1"><a class="text-dark text-decoration-none"
+                  href="{{ route('news-and-events.show', $value->id) }}">{!! \Illuminate\Support\Str::limit($value->title,50) !!}</a></p>
                 <h5 class="font-weight-bold">{!! \Illuminate\Support\Str::limit($value->details,50) !!}</h5>
               </div>
             </div>
@@ -403,6 +405,9 @@
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 <script type="text/javascript">
+  Highcharts.setOptions({
+   colors: ['#d900ff', '#4c27bb', '#57B657']
+ });
   Highcharts.chart('hightlinechart', {
     exporting:false,
     title: {
@@ -470,7 +475,7 @@
       plotShadow: false
     },
     title: {
-      text: "{{ __('custom.commissions') }}",
+      text: "",
       align: 'center',
       verticalAlign: 'middle',
       y: 60
@@ -501,7 +506,7 @@
     },
     series: [{
       type: 'pie',
-      name: "{{ __('custom.commissions') }}",
+      name: "",
       innerSize: '80%',
       data: [
       ["{{ __('custom.roi') }}", {{($user->userwallet) ? number_format($user->userwallet->roi,2) : '' }}],
@@ -510,5 +515,6 @@
       ]
     }]
   });
+  
 </script>
 @endsection

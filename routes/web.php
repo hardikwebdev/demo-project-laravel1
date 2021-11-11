@@ -1,34 +1,36 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Backend\UserController;
-use App\Http\Controllers\Backend\NewsController;
-use App\Http\Controllers\Backend\AdminSupportController;
-
-use App\Http\Controllers\Backend\RankController;
-use App\Http\Controllers\Backend\SettingController;
-use App\Http\Controllers\Backend\AdminWithdrawalRequest;
-use App\Http\Controllers\Backend\PackageController;
-use App\Http\Controllers\Backend\PoolPackageController;
-use App\Http\Controllers\Backend\YieldWalletController;
-use App\Http\Controllers\Backend\CryptoWalletsPaymentController;
-use App\Http\Controllers\Backend\CryptocreditrequestController;
-use App\Http\Controllers\Backend\NftWalletsPaymentController;
-use App\Http\Controllers\Backend\NftcreditrequestController;
-use App\Http\Controllers\Backend\NftpurchaseController;
-use App\Http\Controllers\Backend\NftpurchaserequestController;
-use App\Http\Controllers\Backend\NFTCategoryController;
-use App\Http\Controllers\Backend\NFTProductController;
-use App\Http\Controllers\Backend\Usercryptowallet;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\Usernftwallet;
-use App\Http\Controllers\Backend\UseryieldwalletController;
-use App\Http\Controllers\Backend\UsercommissionwalletController;
-use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Backend\NewsController;
+use App\Http\Controllers\Backend\RankController;
+
+use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\NewsandEventsController;
 use App\Http\Controllers\SupportTicketController;
+use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Backend\Usercryptowallet;
+use App\Http\Controllers\Backend\PackageController;
+use App\Http\Controllers\Backend\SettingController;
+use App\Http\Controllers\Backend\NFTProductController;
+use App\Http\Controllers\Backend\NFTCategoryController;
+use App\Http\Controllers\Backend\NftpurchaseController;
+use App\Http\Controllers\Backend\PoolPackageController;
+use App\Http\Controllers\Backend\UsdtAddressController;
+use App\Http\Controllers\Backend\YieldWalletController;
+use App\Http\Controllers\Backend\AdminSupportController;
+use App\Http\Controllers\Backend\AdminWithdrawalRequest;
+use App\Http\Controllers\Backend\UseryieldwalletController;
+use App\Http\Controllers\Backend\NftcreditrequestController;
+use App\Http\Controllers\Backend\NftWalletsPaymentController;
 use App\Http\Controllers\Backend\StackingpoolscoinController;
-use App\Http\Controllers\Backend\StackingpoolhistoryController;
+use App\Http\Controllers\Backend\NftpurchaserequestController;
+use App\Http\Controllers\Backend\CryptocreditrequestController;
 use App\Http\Controllers\Backend\ReferralcommissionsController;
+use App\Http\Controllers\Backend\StackingpoolhistoryController;
+use App\Http\Controllers\Backend\CryptoWalletsPaymentController;
+use App\Http\Controllers\Backend\UsercommissionwalletController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -108,7 +110,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::get('help-support-close/{slug}', [SupportTicketController::class, 'supportClose'])->name('supportClose');
         Route::post('help-support-replay-message', [SupportTicketController::class, 'supportReplayPost'])->name('supportReplayPost');
 
-
+        Route::resource('news-and-events', NewsandEventsController::class);
     });
 
 
@@ -203,6 +205,9 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 
             //Stacking Pools Coin
             Route::resource('stacking-pools-coin', StackingpoolscoinController::class);
+
+            //usdt Address
+            Route::resource('usdt_address', UsdtAddressController::class);
         });
     });
 

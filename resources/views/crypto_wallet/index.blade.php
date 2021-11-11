@@ -2,6 +2,11 @@
 @section('title', __('custom.crypto_wallet'))
 @section('page_title', __('custom.crypto_wallet'))
 @section('content')
+<style type="text/css">
+.cpybtn{
+    margin: 10px;
+}
+</style>
 <div class="content-wrapper">
   <div class="row mt-5 pt-5">
     <div class="col-12">
@@ -42,6 +47,47 @@
             <div class="card-body p-md-5">
               @include('crypto_wallet.common')
               {{Form::open(['route' => 'cryptoWalletForm','class' => '','id' =>'cryptowalletform','enctype' => 'multipart/form-data'])}}
+              @if($usdtaddress)
+              <?php $qrcode = $usdtaddress->value;
+              if(\Session::get('usdt')){
+                  $qrcode = \Session::get('usdt');
+              }
+              ?>
+              <div class="form-group row fund-usdt">
+                 <div class="col-lg-8 form-group-sub row nopadding ">
+                  @if($usdtaddress->image != '')
+                  <div class="col-lg-8">
+                      <img src="{{$usdtaddress->image}}" class="center"  id="qr_image">
+                  </div>
+                  @else
+                  <div class="image-qr-dah col-lg-4">
+                      {!! QrCode::size(140)->generate($qrcode); !!}
+                  </div>
+                  @endif
+                  <div class="col-lg-8 row nopadding">
+                      <label class="mb-2 bmd-label-static nopadding">@lang('custom.type_of_payment_address')
+                          :<span class="text-red">*</span></label>
+                          <div class="col-lg-8 form-group-sub select-bank-hide nopadding ">
+                              <div class="form-group ">
+                                  <div class="from-inner-space">
+                                      <select name="usdt_address" class="form-control" id="usdt_address">
+                                          @foreach($usdtaddresses as $usdtaddress)
+                                          <option value="{{$usdtaddress->value}}" image="{{$usdtaddress->getOriginal('image')}}"  @if(\Session::get('usdt') == $usdtaddress->value) selected @endif>{{$usdtaddress->name}}</option>
+                                          @endforeach
+                                      </select>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-lg-8 nopadding">
+                              <input type="text" readonly value="{{$qrcode}}" class="form-control" id="copy-class-textaddress">
+                          </div>
+                          <div class="col-lg-8 nopadding">
+                              <a href="javascript:;" class="btn btn-primary cpybtn" id="copy_address">{{trans('custom.click_to_copy')}}  <span style="display: none;" class="copy_text text-white ">{{trans('custom.copied')}}</span></a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              @endif
               <div class="row mt-4">
                 <div class="col-12 col-md-4 mt-4 mt-md-0">
                   <input type="hidden" name="payment_method" value="usdt">
@@ -144,6 +190,11 @@
       var val =  $(this).val();
       var usdRate =  $(this).attr('data-myr-rate');
       $('.usdt-myr-converted_amount').val((val * usdRate).toFixed(2));
+    });
+    var image_path = "{{asset('uploads/qr_image/')}}";
+    $('#usdt_address').change(function(e){
+        $('#copy-class-textaddress').val($(this).val());
+        $('#qr_image').attr('src', image_path+'/'+e.target.selectedOptions[0].getAttribute("image"));
     });
   </script>
   @endsection
