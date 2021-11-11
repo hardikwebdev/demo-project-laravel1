@@ -2,6 +2,20 @@
 @section('title', __('custom.Ledger'))
 @section('page_title', __('custom.Ledger'))
 @section('content')
+<style type="text/css">
+    .stackingpool-second-ajax-report{
+        float: right;
+    }
+    .nodes-management-second-ajax-report{
+        float: right;
+    }
+    .referral-commission-second-ajax-report{
+        float: right;
+    }
+    .roi-second-ajax-report{
+        float: right;
+    }
+</style>
     <div class="content-wrapper">
         <div class="row justify-content-center mt-5 pt-5">
             <div class="col-12" id="titlebar">
@@ -55,7 +69,7 @@
                             </div>
                         </div>
                         {{ Form::close() }}
-                        <div class="table-responsive table-history">
+                        <div class="table-responsive stackingpool-table-history">
                             @include('reports.partials.staking_pools_history')
                         </div>
                     </div>
@@ -85,7 +99,7 @@
                             </div>
                         </div>
                         {{ Form::close() }}
-                        <div class="table-responsive table-history">
+                        <div class="table-responsive nodes-management-table-history">
                             @include('reports.partials.nodes_management_history')
                         </div>
                     </div>
@@ -115,7 +129,7 @@
                           </div> --}}
                         </div>
                         {{ Form::close() }}
-                        <div class="table-responsive table-history">
+                        <div class="table-responsive referral-commission-table-history">
                             @include('reports.partials.referral_commissions')
                         </div>
                     </div>
@@ -146,7 +160,7 @@
                         </div> --}}
                         </div>
                         {{ Form::close() }}
-                        <div class="table-responsive table-history">
+                        <div class="table-responsive roi-table-history">
                             @include('reports.partials.roi')
                         </div>
                     </div>

@@ -33,7 +33,7 @@
 <div class="row align-items-center mt-5">
   <div class="col-12 text-right">
     <div class="text-secondary">
-      <div class="second-ajax-report">
+      <div class="stackingpool-second-ajax-report">
         @if($stackingpool->count() > 0){{ $stackingpool->render() }}@endif
       </div>
     </div>
