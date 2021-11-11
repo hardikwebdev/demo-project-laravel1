@@ -29,7 +29,7 @@
   <div class="row align-items-center mt-5">
     <div class="col-12 text-right">
       <div class="text-secondary">
-        <div class="second-ajax-report">
+        <div class="roi-second-ajax-report">
           @if($roi->count() > 0){{ $roi->render() }}@endif
         </div>
       </div>

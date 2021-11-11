@@ -173,6 +173,106 @@ $(document).on('click', '.second-ajax-report .pagination a',function(event)
    $('.cus-spinner-full').hide(200);
  });
 });
+$(document).on('click', '.stackingpool-second-ajax-report .pagination a',function(event)
+{
+   event.preventDefault();
+   $('.datas').append('<div class="cus-spinner-full"><div class="sk-spinner sk-spinner-three-bounce"><div class="sk-bounce1"></div><div class="sk-bounce2"></div><div class="sk-bounce3"></div></div></div>');
+   $(this).parent('li').removeClass('active');
+   $(this).parent('li').addClass('active');
+   var myurl = $(this).attr('href');
+   var page=$(this).attr('href').split('page=')[1];
+   var htype=$('ul#ledgerreport').find('li > a.active').attr('data-type');
+    $.ajax(
+   {
+     url: '?page=' + page,
+     type: "get",
+     datatype: "html",
+     data:{
+       htype: htype,
+     },
+   }).done(function(data){
+    $(".stackingpool-table-history").empty().html(data);
+    location.hash = page;
+  }).fail(function(jqXHR, ajaxOptions, thrownError){
+   alert('No response from server');   
+   $('.cus-spinner-full').hide(200);
+ });
+});
+$(document).on('click', '.nodes-management-second-ajax-report .pagination a',function(event)
+{
+   event.preventDefault();
+   $('.datas').append('<div class="cus-spinner-full"><div class="sk-spinner sk-spinner-three-bounce"><div class="sk-bounce1"></div><div class="sk-bounce2"></div><div class="sk-bounce3"></div></div></div>');
+   $(this).parent('li').removeClass('active');
+   $(this).parent('li').addClass('active');
+   var myurl = $(this).attr('href');
+   var page=$(this).attr('href').split('page=')[1];
+   var htype=$('ul#ledgerreport').find('li > a.active').attr('data-type');
+    $.ajax(
+   {
+     url: '?page=' + page,
+     type: "get",
+     datatype: "html",
+     data:{
+       htype: htype,
+     },
+   }).done(function(data){
+    $(".nodes-management-table-history").empty().html(data);
+    location.hash = page;
+  }).fail(function(jqXHR, ajaxOptions, thrownError){
+   alert('No response from server');   
+   $('.cus-spinner-full').hide(200);
+ });
+});
+$(document).on('click', '.referral-commission-second-ajax-report .pagination a',function(event)
+{
+   event.preventDefault();
+   $('.datas').append('<div class="cus-spinner-full"><div class="sk-spinner sk-spinner-three-bounce"><div class="sk-bounce1"></div><div class="sk-bounce2"></div><div class="sk-bounce3"></div></div></div>');
+   $(this).parent('li').removeClass('active');
+   $(this).parent('li').addClass('active');
+   var myurl = $(this).attr('href');
+   var page=$(this).attr('href').split('page=')[1];
+   var htype=$('ul#ledgerreport').find('li > a.active').attr('data-type');
+    $.ajax(
+   {
+     url: '?page=' + page,
+     type: "get",
+     datatype: "html",
+     data:{
+       htype: htype,
+     },
+   }).done(function(data){
+    $(".referral-commission-table-history").empty().html(data);
+    location.hash = page;
+  }).fail(function(jqXHR, ajaxOptions, thrownError){
+   alert('No response from server');   
+   $('.cus-spinner-full').hide(200);
+ });
+});
+$(document).on('click', '.roi-second-ajax-report .pagination a',function(event)
+{
+   event.preventDefault();
+   $('.datas').append('<div class="cus-spinner-full"><div class="sk-spinner sk-spinner-three-bounce"><div class="sk-bounce1"></div><div class="sk-bounce2"></div><div class="sk-bounce3"></div></div></div>');
+   $(this).parent('li').removeClass('active');
+   $(this).parent('li').addClass('active');
+   var myurl = $(this).attr('href');
+   var page=$(this).attr('href').split('page=')[1];
+   var htype=$('ul#ledgerreport').find('li > a.active').attr('data-type');
+    $.ajax(
+   {
+     url: '?page=' + page,
+     type: "get",
+     datatype: "html",
+     data:{
+       htype: htype,
+     },
+   }).done(function(data){
+    $(".roi-table-history").empty().html(data);
+    location.hash = page;
+  }).fail(function(jqXHR, ajaxOptions, thrownError){
+   alert('No response from server');   
+   $('.cus-spinner-full').hide(200);
+ });
+});
 
 $( ".ledger-report" ).click(function() {
     // var htype=$('ul#ledgerreport').find('li > a.active').attr('data-type');
