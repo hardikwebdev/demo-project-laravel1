@@ -1562,5 +1562,6 @@ return [
     'commissions' => 'Commissions',
     'commissionsale' => 'Commission & Sales',
     'news' => 'News',
-    'news-events' => 'News & Events'
+    'news-events' => 'News & Events',
+    'amount-breakdown' => 'Amount Breakdown'
 ];

@@ -11,6 +11,7 @@ use Auth;
 use Rap2hpoutre\FastExcel\FastExcel;
 use App\Models\YieldWalletHistory;
 
+
 class LedgerController extends Controller
 {
     public function __construct(){
@@ -138,7 +139,13 @@ class LedgerController extends Controller
 
 
     public function viewbreakdown(Request $request,$id){
-        $stackingpool = StackingPool::with('staking_pool_package')->find($id);
+        // $stackingpool = StackingPool::with('staking_pool_package')->find($id);
+        $stackingpool = ReferralCommission::with([
+            'from_user_detail' => function ($query) {
+                $query->withTrashed();
+            },
+            'staking_pool_package',
+        ])->where('user_id', '=', $this->user->id)->where('stacking_pool_id', '=', $id)->orderBy('id', 'desc')->paginate(3);
         $view = view("reports.modal.viewbreakdown",compact('stackingpool'))->render();
         return response()->json(['viewbreakdown'=>$view]);
     }

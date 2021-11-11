@@ -291,8 +291,9 @@ function showbreakdown(bid)
         type:'GET',
         dataType: "json" ,
         success:function(response){
-            $(response.viewbreakdown).insertAfter( $( "#titlebar" ) );
-            $("#view-breakdown").modal('toggle');  
+            // console.log(response);
+             $(response.viewbreakdown).insertAfter( $( "#titlebar" ) );
+             $("#view-breakdown").modal('toggle');  
         },
     });
 }
