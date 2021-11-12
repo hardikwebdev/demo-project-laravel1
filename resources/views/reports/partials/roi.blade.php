@@ -4,7 +4,8 @@
         <thead class="table-gradient">
           <tr>
             <th>AMOUNT</th>
-            {{-- <th>STAKING POOLS</th> --}}
+            <th>PERCENT</th>
+            <th>STAKING POOL AMOUNT</th>
             <th>DATE</th>
           </tr>
         </thead>
@@ -13,7 +14,8 @@
           @foreach($roi as $key => $value)
           <tr>
             <td>{{ number_format($value->amount, 2) }}</td>
-            {{-- <td>{{ (@$value->stacking_pool->name)?$value->stacking_pool->name:'-' }}</td> --}}
+            <td>{{ (@$value->percent)?$value->percent:0 }}</td>
+            <td>{{ (@$value->stacking_pool->amount)?$value->stacking_pool->amount:0 }}</td>
             <td>{{ date("d/m/Y",strtotime($value->created_at)) }}</td>
           </tr>
           @endforeach

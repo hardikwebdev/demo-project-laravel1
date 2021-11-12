@@ -94,10 +94,18 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::get('/nft_wallet', 'App\Http\Controllers\WalletController@nft_wallet')->name('nft_wallet');
         Route::get('/nft_marketplace', 'App\Http\Controllers\HomeController@nft_marketplace')->name('nft_marketplace');
         // Route::get('/withdrawal', 'App\Http\Controllers\HomeController@withdrawal')->name('withdrawal');
+        // Ledger route
         Route::get('/ledger', 'App\Http\Controllers\LedgerController@ledger')->name('ledger');
+        Route::post('/stackingpoolpackageajax', 'App\Http\Controllers\LedgerController@stackingpoolpackageAjax')->name('stackingpoolpackage-ajax');
+        Route::post('/pairingcommissionajax', 'App\Http\Controllers\LedgerController@pairingCommissionAjax')->name('pairingcommissionajax');
+        Route::post('/referralcommissionajax', 'App\Http\Controllers\LedgerController@referralCommissionAjax')->name('referralcommissionajax');
+        Route::post('/roiajx', 'App\Http\Controllers\LedgerController@roiAjax')->name('roiajax');
         Route::get('/view-breakdown/{id}', 'App\Http\Controllers\LedgerController@viewbreakdown')->name('view.breakdown');
         Route::post('/ledger/staking-export', 'App\Http\Controllers\LedgerController@stakingPoolExport')->name('reports-staking-pool-export');
         Route::post('/ledger/pairing-commissions-export', 'App\Http\Controllers\LedgerController@pairingCommissionsExport')->name('reports-pairing-commissions-export');
+        Route::post('/ledger/referral-commissions-export', 'App\Http\Controllers\LedgerController@referralCommissionsExport')->name('referral-commissions-export');
+        Route::post('/ledger/roi-export', 'App\Http\Controllers\LedgerController@roiExport')->name('roi-export');
+        
         Route::get('/account', 'App\Http\Controllers\AccountController@profile')->name('account');
         Route::post('/personal-detail-upadte', 'App\Http\Controllers\AccountController@updatePersonalDetail')->name('personal-detail-upadte');
         Route::post('/bank-detail-upadte', 'App\Http\Controllers\AccountController@updateBankDetail')->name('bank-detail-upadte');
