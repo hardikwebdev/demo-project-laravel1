@@ -109,6 +109,8 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::get('/sell_nft', 'App\Http\Controllers\HomeController@sell_nft')->name('sell_nft');
         Route::get('/withdrawal', 'App\Http\Controllers\WithdrawalController@index')->name('withdrawal');
         Route::post('/withdrawal-request', 'App\Http\Controllers\WithdrawalController@withdrawalRequest')->name('withdrawal-request');
+
+        Route::get('/faq', 'App\Http\Controllers\HomeController@helpandfaq')->name('helpandfaq');
         // Route::resource('help-support', 'App\Http\Controllers\SupportTicketController')->name('help-support');
         Route::resource('help_support', SupportTicketController::class);
         Route::get('help-support-replay/{id}', [SupportTicketController::class, 'supportReplay'])->name('supportReplay');

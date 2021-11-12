@@ -57,7 +57,7 @@
         <div class="text-center text-white NFT-collection">
           <!-- <h4>LAUNCHING SOON</h4>
             <h3>NFT COLLECTIONS</h3> -->
-            <button class="btn bg-transparent text-warning border-warning px-3 rounded-0 font-10 mt-2">{{__('custom.explore')}} <img src="{{ $slider->url }}" class="img-fluid ml-2 d-inline align-middle" alt=""></button>
+            {{-- <button class="btn bg-transparent text-warning border-warning px-3 rounded-0 font-10 mt-2">{{__('custom.explore')}} <img src="{{ $slider->url }}" class="img-fluid ml-2 d-inline align-middle" alt=""></button> --}}
           </div>
         </div>
         @endforeach
@@ -215,7 +215,7 @@
           <div class="col-12 col-md-6 text-md-right pr-xl-5">
             <span class="text-grey d-flex align-items-center justify-content-end font-12">{{__('custom.apr_monthly')}} <h4 class="font-weight-bold text-pink mb-0 ml-4">${{($user->userwallet) ? number_format($user->userwallet->roi,2):''}}</h4></span>
             <span class="text-grey d-flex align-items-center justify-content-end font-12 mt-1">{{__('custom.direct_refferal')}} <h4 class="font-weight-bold text-violate mb-0 ml-4">${{($user->userwallet) ? number_format($user->userwallet->referral_commission,2):''}}</h4></span>
-            <span class="text-grey d-flex align-items-center justify-content-end font-12 mt-1">{{__('custom.pairing')}} <h4 class="font-weight-bold text-success mb-0 ml-4">${{($user->userwallet) ? number_format($user->userwallet->pairing_commission,2):''}}</h4></span>
+            <span class="text-grey d-flex align-items-center justify-content-end font-12 mt-1">{{__('custom.balancing_commission')}} <h4 class="font-weight-bold text-success mb-0 ml-4">${{($user->userwallet) ? number_format($user->userwallet->pairing_commission,2):''}}</h4></span>
           </div>
           <div class="col-12">
             <div class="" id="hightlinechart" class="img-fluid rounded-right w-100" alt="" style="height: 336px;"></div>
@@ -246,7 +246,7 @@
         </div>
         <div class="row mt-4">
           <div class="col-12 col-md-4 text-center mt-3">
-            <p class="d-flex align-items-center justify-content-center mb-0 text-grey"><span class="count bg-pink d-block mr-2"></span>{{__('custom.roi')}}</p>
+            <p class="d-flex align-items-center justify-content-center mb-0 text-grey"><span class="count bg-pink d-block mr-2"></span>{{__('custom.apr_monthly')}}</p>
             <h4 class="text-black font-weight-bold mt-2">${{($user->userwallet) ? number_format($user->userwallet->roi,2) : '' }}</h4>
           </div>
           <div class="col-12 col-md-4 text-center mt-3">
@@ -254,7 +254,7 @@
             <h4 class="text-black font-weight-bold mt-2">${{($user->userwallet) ? number_format($user->userwallet->referral_commission,2):''}}</h4>
           </div>
           <div class="col-12 col-md-4 text-center mt-3">
-            <p class="d-flex align-items-center justify-content-center mb-0 text-grey"><span class="count bg-success d-block mr-2"></span>{{__('custom.pairing')}}</p>
+            <p class="d-flex align-items-center justify-content-center mb-0 text-grey"><span class="count bg-success d-block mr-2"></span>{{__('custom.balancing_commission')}}</p>
             <h4 class="text-black font-weight-bold mt-2">${{($user->userwallet) ? number_format($user->userwallet->pairing_commission,2):''}}</h4>
           </div>
         </div>
@@ -443,13 +443,13 @@
     },
 
     series: [{
-      name: "{{ __('custom.roi') }}",
+      name: "{{ __('custom.apr_monthly') }}",
       data: {!! json_encode((isset($graph['roi_commission'])) ? $graph['roi_commission'] : [] ) !!}
     }, {
       name: "{{ __('custom.referral_commission') }}",
       data: {!! json_encode(isset($graph['referral_commission']) ? $graph['referral_commission'] : [] ) !!}
     }, {
-      name: "{{ __('custom.pairing_commission') }}",
+      name: "{{ __('custom.balancing_commission') }}",
       data: {!! json_encode((isset($graph['pairing_commission'])) ? $graph['pairing_commission'] : []) !!}
     }],
 
@@ -511,9 +511,9 @@
       name: "",
       innerSize: '80%',
       data: [
-      ["{{ __('custom.roi') }}", {{($user->userwallet) ? number_format($user->userwallet->roi,2) : '' }}],
+      ["{{ __('custom.apr_monthly') }}", {{($user->userwallet) ? number_format($user->userwallet->roi,2) : '' }}],
       ["{{ __('custom.referral_commission') }}", {{($user->userwallet) ? number_format($user->userwallet->referral_commission,2) : '' }}],
-      ["{{ __('custom.pairing_commission') }}", {{($user->userwallet) ? number_format($user->userwallet->pairing_commission,2) : '' }}]
+      ["{{ __('custom.balancing_commission') }}", {{($user->userwallet) ? number_format($user->userwallet->pairing_commission,2) : '' }}]
       ]
     }]
   });

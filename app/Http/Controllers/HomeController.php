@@ -182,4 +182,9 @@ class HomeController extends Controller
         return view('mynetworkdownline',compact('downlineUser'));
     }
 
+
+    public function helpandfaq(){
+        return view('help_faq.faq');
+    }
+
 }

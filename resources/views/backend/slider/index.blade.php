@@ -44,12 +44,12 @@
                         <tr class="row-user-{{$row->id}}">
 
                             <td>{{@$row->title}}</td>                             
-                            <td> <a class="blueimp-link" href="{{asset('uploads/slider/'.$row->image)}}" data-gallery="" target="_blank" title='{{$row->title}}'>
-                                            <img onerror="this.src='{{asset('backend/media/no_found.png')}}'" src="{{asset('uploads/slider/'.$row->image)}}" width="auto" height="50px">
+                            <td> <a class="blueimp-link" href="{{asset($row->image)}}" data-gallery="" target="_blank" title='{{$row->title}}'>
+                                            <img onerror="this.src='{{asset('backend/media/no_found.png')}}'" src="{{asset($row->image)}}" width="auto" height="50px">
                                         </a></td>  
                                   <td width="10%">      
 
-                                    <a class="blueimp-link" href="{{asset('uploads/slider/'.$row->mobile_image)}}" data-gallery="" target="_blank" title='{{$row->title}}'>
+                                    <a class="blueimp-link" href="{{asset($row->mobile_image)}}" data-gallery="" target="_blank" title='{{$row->title}}'>
                                             <img onerror="this.src='{{asset('backend/media/no_found.png')}}'" src="{{asset('uploads/slider/'.$row->mobile_image)}}" width="auto" height="50px">
                                         </a>
 <!--                                     <img src="{{asset('uploads/slider/'.$row->image)}}" alt="Banner Image" class="img-fluid img-responsive investment-graph-image"></td>
