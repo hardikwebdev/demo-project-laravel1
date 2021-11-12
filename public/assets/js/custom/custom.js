@@ -123,6 +123,7 @@ $(document).ready(function(){
     $('.cus-spinner-full').hide(200);
   });
  });
+
  function getData(page,htype = 0){
     $.ajax(
     {
@@ -141,6 +142,174 @@ $(document).ready(function(){
 });
 }
 
+
+
+
+
+//for Ledger
+
+
+$(document).on('click', '.second-ajax-report .pagination a',function(event)
+{
+   event.preventDefault();
+   $('.datas').append('<div class="cus-spinner-full"><div class="sk-spinner sk-spinner-three-bounce"><div class="sk-bounce1"></div><div class="sk-bounce2"></div><div class="sk-bounce3"></div></div></div>');
+   $(this).parent('li').removeClass('active');
+   $(this).parent('li').addClass('active');
+   var myurl = $(this).attr('href');
+   var page=$(this).attr('href').split('page=')[1];
+   var htype=$('ul#ledgerreport').find('li > a.active').attr('data-type');
+    $.ajax(
+   {
+     url: '?page=' + page,
+     type: "get",
+     datatype: "html",
+     data:{
+       htype: htype,
+     },
+   }).done(function(data){
+    $(".table-history").empty().html(data);
+    location.hash = page;
+  }).fail(function(jqXHR, ajaxOptions, thrownError){
+   alert('No response from server');   
+   $('.cus-spinner-full').hide(200);
+ });
+});
+$(document).on('click', '.stackingpool-second-ajax-report .pagination a',function(event)
+{
+   event.preventDefault();
+   $('.datas').append('<div class="cus-spinner-full"><div class="sk-spinner sk-spinner-three-bounce"><div class="sk-bounce1"></div><div class="sk-bounce2"></div><div class="sk-bounce3"></div></div></div>');
+   $(this).parent('li').removeClass('active');
+   $(this).parent('li').addClass('active');
+   var myurl = $(this).attr('href');
+   var page=$(this).attr('href').split('page=')[1];
+   var htype=$('ul#ledgerreport').find('li > a.active').attr('data-type');
+    $.ajax(
+   {
+     url: '?page=' + page,
+     type: "get",
+     datatype: "html",
+     data:{
+       htype: htype,
+     },
+   }).done(function(data){
+    $(".stackingpool-table-history").empty().html(data);
+    location.hash = page;
+  }).fail(function(jqXHR, ajaxOptions, thrownError){
+   alert('No response from server');   
+   $('.cus-spinner-full').hide(200);
+ });
+});
+$(document).on('click', '.nodes-management-second-ajax-report .pagination a',function(event)
+{
+   event.preventDefault();
+   $('.datas').append('<div class="cus-spinner-full"><div class="sk-spinner sk-spinner-three-bounce"><div class="sk-bounce1"></div><div class="sk-bounce2"></div><div class="sk-bounce3"></div></div></div>');
+   $(this).parent('li').removeClass('active');
+   $(this).parent('li').addClass('active');
+   var myurl = $(this).attr('href');
+   var page=$(this).attr('href').split('page=')[1];
+   var htype=$('ul#ledgerreport').find('li > a.active').attr('data-type');
+    $.ajax(
+   {
+     url: '?page=' + page,
+     type: "get",
+     datatype: "html",
+     data:{
+       htype: htype,
+     },
+   }).done(function(data){
+    $(".nodes-management-table-history").empty().html(data);
+    location.hash = page;
+  }).fail(function(jqXHR, ajaxOptions, thrownError){
+   alert('No response from server');   
+   $('.cus-spinner-full').hide(200);
+ });
+});
+$(document).on('click', '.referral-commission-second-ajax-report .pagination a',function(event)
+{
+   event.preventDefault();
+   $('.datas').append('<div class="cus-spinner-full"><div class="sk-spinner sk-spinner-three-bounce"><div class="sk-bounce1"></div><div class="sk-bounce2"></div><div class="sk-bounce3"></div></div></div>');
+   $(this).parent('li').removeClass('active');
+   $(this).parent('li').addClass('active');
+   var myurl = $(this).attr('href');
+   var page=$(this).attr('href').split('page=')[1];
+   var htype=$('ul#ledgerreport').find('li > a.active').attr('data-type');
+    $.ajax(
+   {
+     url: '?page=' + page,
+     type: "get",
+     datatype: "html",
+     data:{
+       htype: htype,
+     },
+   }).done(function(data){
+    $(".referral-commission-table-history").empty().html(data);
+    location.hash = page;
+  }).fail(function(jqXHR, ajaxOptions, thrownError){
+   alert('No response from server');   
+   $('.cus-spinner-full').hide(200);
+ });
+});
+$(document).on('click', '.roi-second-ajax-report .pagination a',function(event)
+{
+   event.preventDefault();
+   $('.datas').append('<div class="cus-spinner-full"><div class="sk-spinner sk-spinner-three-bounce"><div class="sk-bounce1"></div><div class="sk-bounce2"></div><div class="sk-bounce3"></div></div></div>');
+   $(this).parent('li').removeClass('active');
+   $(this).parent('li').addClass('active');
+   var myurl = $(this).attr('href');
+   var page=$(this).attr('href').split('page=')[1];
+   var htype=$('ul#ledgerreport').find('li > a.active').attr('data-type');
+    $.ajax(
+   {
+     url: '?page=' + page,
+     type: "get",
+     datatype: "html",
+     data:{
+       htype: htype,
+     },
+   }).done(function(data){
+    $(".roi-table-history").empty().html(data);
+    location.hash = page;
+  }).fail(function(jqXHR, ajaxOptions, thrownError){
+   alert('No response from server');   
+   $('.cus-spinner-full').hide(200);
+ });
+});
+
+$( ".ledger-report" ).click(function() {
+    // var htype=$('ul#ledgerreport').find('li > a.active').attr('data-type');
+    // getData(1,5);
+});
+
+
+
+function showbreakdown(bid)
+{
+
+    view = viewbrackdown.replace(':id', bid);
+    $.ajax({
+        url:view,
+        type:'GET',
+        dataType: "json" ,
+        success:function(response){
+            // console.log(response);
+             $(response.viewbreakdown).insertAfter( $( "#titlebar" ) );
+             $("#view-breakdown").modal('toggle');  
+        },
+    });
+}
+
+
+
+
+// $(document).on('click', '.ledger-report,',function(event){
+//     event.preventDefault();
+    
+//     $('.datas').append('<div class="cus-spinner-full"><div class="sk-spinner sk-spinner-three-bounce"><div class="sk-bounce1"></div><div class="sk-bounce2"></div><div class="sk-bounce3"></div></div></div>');
+//     // var page=$(this).attr('href').split('page=')[1];
+    
+//     var htype = $(this).attr('data-type');
+//     getData(0,htype);
+// });
 
 
     /*************************step wizard***************************/
@@ -398,6 +567,14 @@ $(document).ready(function(){
       var htype = $(this).attr('data-type');
       getData(0,htype);
   });
+
+
+
+
+
+
+
+
   //Suport ticket 
   $("#support-ticket").validate({
       ignore: "input[type='text']:hidden",

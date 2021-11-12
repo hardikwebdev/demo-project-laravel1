@@ -16,6 +16,7 @@ use App\Models\UserWallet;
 use App\Models\ReferralCommission;
 use App\Models\PairingCommission;
 
+
 class CommonController extends Controller
 {
     public function pairingCommission(){
@@ -537,6 +538,7 @@ class CommonController extends Controller
                     return redirect()->route('withdrawal')->with(['error'=>trans('custom.withdrawl_request_already_verified')]);    
                 }
                 $withderawRequest->status = 0;
+                $withderawRequest->action_date = Carbon::now();
                 $withderawRequest->save();
                 return redirect()->route('withdrawal')->with(['success'=>trans('custom.withdrawl_request_verified')]);
             }

@@ -82,7 +82,7 @@
 </div>
 <div class="row">
   <div class="col-12">
-    <p class="text-white">{{__('custom.staking_solutions')}}</p>
+    <p class="text-white" style="font-weight: 700 !important;font-size: 1.187rem;">{{__('custom.staking_network_pools')}}</p>
   </div>
   <div class="col-12">
     <div class="stacking-slider">
@@ -92,8 +92,8 @@
       <div>
         <div class="bg-card-{{$i}} text-center p-4 pb-5 rounded mx-2">
           <img src="{{asset('assets/images/assets/Dashboard/Group929.png')}}" class="img-fluid card-img-top" alt="">
-          <h4 class="text-white">{{$stakingpool->name}}</h4>
-          <p class="text-white font-12">{!! \Illuminate\Support\Str::limit($stakingpool->description,50) !!}</p>
+          <h4 class="text-white" style="font-size: 40px;">{{$stakingpool->name}}</h4>
+          {{-- <p class="text-white font-12">{!! \Illuminate\Support\Str::limit($stakingpool->description,50) !!}</p> --}}
           <hr/>
           <p class="text-white font-12">{{__('custom.expected_anual_rate')}}</p>
           <h3 class="text-white font-weight-bold">{{$stakingpool->stacking_display_start}}% - {{$stakingpool->stacking_display_end}}%</h3>
@@ -112,8 +112,8 @@
         @elseif($i == 2)
         <div class="bg-card-2 text-center p-4 pb-5 rounded mx-2">
           <img src="{{ asset('assets/images/assets/Dashboard/Group929.png') }}" class="img-fluid card-img-top" alt="">
-          <h4 class="text-white">{{$stakingpool->name}}</h4>
-          <p class="text-white font-12">{!! \Illuminate\Support\Str::limit($stakingpool->description,50) !!}</p>
+          <h4 class="text-white" style="font-size: 40px;">{{$stakingpool->name}}</h4>
+          {{-- <p class="text-white font-12">{!! \Illuminate\Support\Str::limit($stakingpool->description,50) !!}</p> --}}
           <hr/>
           <p class="text-white font-12">{{__('custom.expected_anual_rate')}}</p>
           <h3 class="text-white font-weight-bold">{{$stakingpool->stacking_display_start}}% - {{$stakingpool->stacking_display_end}}%</h3>
@@ -132,8 +132,8 @@
         @elseif($i == 3)
         <div class="bg-card-3 text-center p-4 pb-5 rounded mx-2 ">
           <img src="{{ asset('assets/images/assets/Dashboard/Group929.png') }}" class="img-fluid card-img-top" alt="">
-          <h4 class="text-white">{{$stakingpool->name}}</h4>
-          <p class="font-12 text-white">{!! \Illuminate\Support\Str::limit($stakingpool->description,50) !!}</p>
+          <h4 class="text-white" style="font-size: 40px;">{{$stakingpool->name}}</h4>
+          {{-- <p class="font-12 text-white">{!! \Illuminate\Support\Str::limit($stakingpool->description,50) !!}</p> --}}
           <hr/>
           <p class="text-white font-12">{{__('custom.expected_anual_rate')}}</p>
           <h3 class="text-white font-weight-bold">{{$stakingpool->stacking_display_start}}% - {{$stakingpool->stacking_display_end}}%</h3>
@@ -153,8 +153,8 @@
       <div>
         <div class="bg-card-4 text-center p-4 pb-5 rounded mx-2 position-relative">
           <img src="{{ asset('assets/images/assets/Dashboard/Group929.png') }}" class="img-fluid card-img-top" alt="">
-          <h4>{{$stakingpool->name}}</h4>
-          <p class="font-12">{!! \Illuminate\Support\Str::limit($stakingpool->description,50) !!}</p>
+          <h4 style="font-size: 40px;">{{$stakingpool->name}}</h4>
+          {{-- <p class="font-12">{!! \Illuminate\Support\Str::limit($stakingpool->description,50) !!}</p> --}}
           <hr/>
           <p class="text-blue font-12">{{__('custom.expected_anual_rate')}}</p>
           <h3 class="text-blue font-weight-bold">{{$stakingpool->stacking_display_start}}% - {{$stakingpool->stacking_display_end}}%</h3>
@@ -184,7 +184,7 @@
 </div>
 <div class="row mt-5">
   <div class="col-12">
-    <p class="text-white">{{__('custom.last_nfts')}}</p>
+    <p class="text-white" style="font-weight: 700 !important;font-size: 1.187rem;">{{__('custom.last_nfts')}}</p>
   </div>
   @foreach($nft_cats as $category)
   <div class="col-12 col-md-6 col-lg-4">
@@ -213,7 +213,7 @@
             <h4 class="text-grey">{{__('custom.earning_breakdown')}}</h4>
           </div>
           <div class="col-12 col-md-6 text-md-right pr-xl-5">
-            <span class="text-grey d-flex align-items-center justify-content-end font-12">{{__('custom.roi')}} <h4 class="font-weight-bold text-pink mb-0 ml-4">${{($user->userwallet) ? number_format($user->userwallet->roi,2):''}}</h4></span>
+            <span class="text-grey d-flex align-items-center justify-content-end font-12">{{__('custom.apr_monthly')}} <h4 class="font-weight-bold text-pink mb-0 ml-4">${{($user->userwallet) ? number_format($user->userwallet->roi,2):''}}</h4></span>
             <span class="text-grey d-flex align-items-center justify-content-end font-12 mt-1">{{__('custom.direct_refferal')}} <h4 class="font-weight-bold text-violate mb-0 ml-4">${{($user->userwallet) ? number_format($user->userwallet->referral_commission,2):''}}</h4></span>
             <span class="text-grey d-flex align-items-center justify-content-end font-12 mt-1">{{__('custom.pairing')}} <h4 class="font-weight-bold text-success mb-0 ml-4">${{($user->userwallet) ? number_format($user->userwallet->pairing_commission,2):''}}</h4></span>
           </div>

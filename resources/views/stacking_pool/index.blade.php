@@ -10,8 +10,8 @@
     <div class="col-12 col-md-6 col-xl-4 @if($j > 4) mt-5 pt-md-5 @endif">
       <div class="bg-card-1 text-center p-4 pb-5 rounded">
         <img src="{{ asset('assets/images/assets/Dashboard/Group929.png') }}" class="img-fluid card-img-top w-300" alt="">
-        <h4 class="text-white font-weight-bold">{{$stackingpool->name}}</h4>
-        <p class="text-white font-12">{!! \Illuminate\Support\Str::limit($stackingpool->description,50) !!}</p>
+        <h4 class="text-white font-weight-bold" style="font-size: 40px;">{{$stackingpool->name}}</h4>
+        {{-- <p class="text-white font-12">{!! \Illuminate\Support\Str::limit($stackingpool->description,50) !!}</p> --}}
         <p class="border-top border-white mt-4 w-75 mx-auto"></p>
         <p class="text-white font-12">{{__('custom.expected_anual_rate')}}</p>
         <h3 class="text-white font-weight-bold">{{$stackingpool->stacking_display_start}}% - {{$stackingpool->stacking_display_end}}%</h3>
@@ -30,8 +30,8 @@
     <div class="col-12 col-md-6 col-xl-4 mt-5 @if($j > 4) pt-md-5 @else  mt-md-0 @endif">
       <div class="bg-card-2 text-center p-4 pb-5 rounded">
         <img src="{{ asset('assets/images/assets/Dashboard/Group929.png') }}" class="img-fluid card-img-top w-300" alt="">
-        <h4 class="text-white font-weight-bold">{{$stackingpool->name}}</h4>
-        <p class="text-white font-12">{!! \Illuminate\Support\Str::limit($stackingpool->description,50) !!}</p>
+        <h4 class="text-white font-weight-bold" style="font-size: 40px;">{{$stackingpool->name}}</h4>
+        {{-- <p class="text-white font-12">{!! \Illuminate\Support\Str::limit($stackingpool->description,50) !!}</p> --}}
         <hr/>
         <p class="text-white font-12">{{__('custom.expected_anual_rate')}}</p>
         <h3 class="text-white font-weight-bold">{{$stackingpool->stacking_display_start}}% - {{$stackingpool->stacking_display_end}}%</h3>
@@ -50,8 +50,8 @@
     <div class="col-12 col-md-6 col-xl-4 mt-5 @if($j > 4) pt-md-5 @else  mt-xl-0 pt-md-5 pt-xl-0 @endif">
       <div class="bg-card-3 text-center p-4 pb-5 rounded">
         <img src="{{ asset('assets/images/assets/Dashboard/Group929.png') }}" class="img-fluid card-img-top w-300" alt="">
-        <h4 class="text-white font-weight-bold">{{$stackingpool->name}}</h4>
-        <p class="text-white font-12">{!! \Illuminate\Support\Str::limit($stackingpool->description,50) !!}</p>
+        <h4 class="text-white font-weight-bold" style="font-size: 40px;">{{$stackingpool->name}}</h4>
+        {{-- <p class="text-white font-12">{!! \Illuminate\Support\Str::limit($stackingpool->description,50) !!}</p> --}}
         <hr/>
         <p class="text-white font-12">{{__('custom.expected_anual_rate')}}</p>
         <h3 class="text-white font-weight-bold">{{$stackingpool->stacking_display_start}}% - {{$stackingpool->stacking_display_end}}%</h3>
@@ -70,8 +70,8 @@
     <div class="col-12 col-md-6 col-xl-4 mt-5 pt-md-5">
       <div class="bg-card-4 text-center p-4 pb-5 rounded position-relative">
         <img src="{{ asset('assets/images/assets/Dashboard/Group929.png') }}" class="img-fluid card-img-top w-300" alt="">
-        <h4 class="font-weight-bold">{{$stackingpool->name}}</h4>
-        <p class="font-12">{!! \Illuminate\Support\Str::limit($stackingpool->description,50) !!}</p>
+        <h4 class="font-weight-bold" style="font-size: 40px;">{{$stackingpool->name}}</h4>
+        {{-- <p class="font-12">{!! \Illuminate\Support\Str::limit($stackingpool->description,50) !!}</p> --}}
         <hr/>
         <p class="text-blue font-12">{{__('custom.expected_anual_rate')}}</p>
         <h3 class="text-blue font-weight-bold">{{$stackingpool->stacking_display_start}}% - {{$stackingpool->stacking_display_end}}%</h3>

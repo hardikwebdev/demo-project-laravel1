@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>{{config('app.name', 'Defix Finance ')}} | @yield('title','Home')</title>
+  <title>{{config('app.name', 'DefiXFinance ')}} | @yield('title','Home')</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="{{ asset('assets/css/custom/feather.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/themify-icons.css') }}">
@@ -22,6 +22,9 @@
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
+    @php
+    $local_url = url('locale');
+    @endphp
     @include('layouts.header')
     <div class="container-fluid page-body-wrapper">
      @include('layouts.sidebar')
@@ -57,7 +60,7 @@ $('.alert-success').fadeIn().delay(4000).fadeOut();
 $('.alert-danger').fadeIn().delay(4000).fadeOut();
  var sponsorUsernameExits = "{{route('sponsorUsernameExits')}}";
  var placementUsernameExits = "{{route('placementUsernameExits')}}";
-
+ var viewbrackdown = "{{ route('view.breakdown', ':id') }}";
  var emailExists = "{{route('emailExists')}}";
  var usernameExits = "{{route('usernameExits')}}";
 </script>

@@ -51,7 +51,7 @@
 <div class="row align-items-center mt-5">
   <div class="col-12 text-right">
     <div class="text-secondary">
-      <div class="second-ajax-pag">
+      <div class="nodes-management-second-ajax-report">
         @if($paring_commissions->count() > 0){{ $paring_commissions->render() }}@endif
       </div>
     </div>
