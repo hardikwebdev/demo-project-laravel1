@@ -582,7 +582,7 @@ return [
     'please_enter_no_more_than_20' => 'Please enter no more than 12 characters',
     
     'please_check_sponsor_username_not_valid' => 'Please check sponsor username is not valid',
-    'please_select_atleast_4_checkboxes' => 'Please choose atleast 4 checkboxboxes',
+    'please_select_atleast_4_checkboxes' => 'All the check list must be checked in order to finish registration',
     'please_enter_sponsor_name' => 'Please enter sponsor name',
     'username_required_field' => 'Username is required field',
     'username_already_exists' => 'Username is already exists',
@@ -1562,5 +1562,7 @@ return [
     'commissions' => 'Commissions',
     'commissionsale' => 'Commission & Sales',
     'news' => 'News',
-    'news-events' => 'News & Events'
+    'news-events' => 'News & Events',
+    'two_decimal_message' => 'No more than 2 decimal allowed',
+
 ];

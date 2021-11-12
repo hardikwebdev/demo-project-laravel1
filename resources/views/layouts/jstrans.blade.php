@@ -96,7 +96,7 @@ var monthly_sales_growth = "{{trans('custom.monthly_sales_growth')}}";
 var weekly_total_earning = "{{trans('custom.weekly_total_earning')}}";
 var package_bought = "{{trans('custom.package_bought')}}";
 
-var please_select_atleast_4_checkboxes = "{{trans('custom.package_bought')}}";
+var please_select_atleast_4_checkboxes = "{{trans('custom.please_select_atleast_4_checkboxes')}}";
 var err_field_req = "{{trans('custom.err_field_req')}}";
 // var package_bought = "{{trans('custom.trading_strategy_popup_txt')}}";
 var err_field_req = "{{trans('custom.err_field_req')}}";
@@ -116,5 +116,6 @@ var previous = '{{trans("custom.previous")}}';
 var arrow = '{{ asset("assets/images/assets/Dashboard/Group948.png") }}';
 var max = {{ (isset($max_stake)) ? $max_stake : 0 }};
 var min = {{ (isset($min_stake)) ? $min_stake : 0 }};
+var two_decimal_message = '{{trans("custom.two_decimal_message")}}';
 
 </script>

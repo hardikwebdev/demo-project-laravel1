@@ -180,6 +180,14 @@ $(document).ready(function(){
        },
        'Value must be greater than 0'
    );
+   $.validator.addMethod("twoDigitDecimal", function(value, element) {
+    var length = value.substring(value.indexOf('.'), value.indexOf('.').length).length;
+    if(value.indexOf('.') != -1 && length > 3){
+        console.log('test');
+        return false;
+    }
+    return true;
+}, two_decimal_message);
    $.validator.addMethod("regex", function(value, element, regexpr) {          
     return regexpr.test(value);
   }, "Please enter a valid value.");
@@ -189,7 +197,8 @@ $(document).ready(function(){
               required: true,
               positiveNumber:true,
               minlength: 0,
-              maxlength: 6,
+              // maxlength: 6,
+              twoDigitDecimal:true
            },
            secure_password: {
               required: true,
@@ -209,7 +218,8 @@ $(document).ready(function(){
               required: true,
               positiveNumber:true,
               minlength: 0,
-              maxlength: 6,
+              // maxlength: 6,
+              twoDigitDecimal:true
            },
            bank_id: {
               required: true,

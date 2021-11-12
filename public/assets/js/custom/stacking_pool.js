@@ -13,7 +13,7 @@ $("#staking_pool").validate({
             number: true,
             positiveNumber:true,
             minlength: 0,
-            maxlength: 6,
+            // maxlength: 6,
             min:min, 
             max:max, 
         },
