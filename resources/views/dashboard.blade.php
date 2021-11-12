@@ -38,7 +38,7 @@
       </div>
       <div class="row px-4 mt-4">
         <div class="col-md-6">
-          <h4 class="text-secondary mb-0">{{$user->email}}</h4>
+          <h4 class="text-secondary mb-0" style="font-size: 15px">{{$user->email}}</h4>
           <span class="text-secondary font-12">{{trans('custom.email')}}</span>
         </div>
         <div class="col-md-6">
