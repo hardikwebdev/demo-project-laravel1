@@ -220,7 +220,13 @@
                margin: new go.Margin(0, 0, 0, 3)
              },
              new go.Binding("text", "child_position",function(sl){
-              return "Position: "+sl;
+              var a = '';
+              if(sl == 'left'){
+                a = "A node";
+              }else{
+                a = "B node";
+              }
+              return "Position: "+a;
             }).makeTwoWay()),
               $(go.TextBlock, textStyle(),
               {
