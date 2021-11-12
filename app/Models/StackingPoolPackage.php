@@ -23,4 +23,11 @@ class StackingPoolPackage extends Model
         }
         return '';
     }
+
+    public function getSymbolAttribute($value){
+        if(file_exists(public_path('uploads/pool-package-symbol/'.$value)) && $value){
+            return asset('uploads/pool-package-symbol/'.$value);     
+        }
+        return '';
+    }
 }
