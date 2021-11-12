@@ -3,9 +3,9 @@
 @section('page_title', __('custom.staking_pools'))
 @section('content')
 <div class="content-wrapper mt-5">
-  <div class="row mt-5 pt-md-5">
+  <div class="row pt-md-5">
     <?php $i = 1; $j = 1; ?>
-    <div class="row mt-5">
+    <div class="row">
     @foreach($staking_pool as $stackingpool)
     @if($i == 1)
       <div class="col-12 col-md-6 w-xl-20 mt-5">
