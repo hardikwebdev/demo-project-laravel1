@@ -1510,6 +1510,12 @@ $("#pool_package_create").validate({
             required: true,
             maxlength:255
          },
+         image: {
+            required: true,
+         },
+         symbol: {
+            required: true,
+         },
          stacking_display_start: {
             required: true,
             number:true,
@@ -1526,6 +1532,12 @@ $("#pool_package_create").validate({
     messages:{
         name: {
             required: 'Please enter name',
+        },
+        image: {
+            required: 'Image is required.',
+        },
+        symbol: {
+            required: 'Symbol is required.',
         },
         stacking_display_start: {
             required: 'Please enter stacking display start',

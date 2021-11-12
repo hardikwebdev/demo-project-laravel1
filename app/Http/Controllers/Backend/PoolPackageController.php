@@ -50,7 +50,8 @@ class PoolPackageController extends Controller
              ],
             'stacking_display_start' => 'required',            
             'stacking_display_end' => 'required',
-            'image' => 'mimes:jpeg,jpg,png,gif'          
+            'image' => 'required|mimes:jpeg,jpg,png,gif',
+            'symbol' => 'required|mimes:jpeg,jpg,png,gif'           
         ]);
         /* validation end */
         try {
@@ -70,6 +71,17 @@ class PoolPackageController extends Controller
                 // $image= $request->image->storeAs('pool-package',$file_name);
                 $image= $request->image->move($path, $file_name);  
                 $package->image = $file_name;
+            }
+            if($request->symbol){
+
+                $path = public_path('uploads/pool-package-symbol');
+                if(!\File::isDirectory($path)) {
+                    \File::makeDirectory($path, 0775, true, true);
+                }
+                $file_name = time().'_pool_package_symbol.'.$request->symbol->getClientOriginalExtension();
+                // $image= $request->image->storeAs('pool-package',$file_name);
+                $image= $request->symbol->move($path, $file_name);  
+                $package->symbol = $file_name;
             }
             $package->save();
             return redirect()->route('pool-packages.index')->with(["success"=>"Package created successfully"]);
@@ -122,7 +134,8 @@ class PoolPackageController extends Controller
              ],
             'stacking_display_start' => 'required',            
             'stacking_display_end' => 'required',
-            'image' => 'mimes:jpeg,jpg,png,gif'
+            'image' => 'mimes:jpeg,jpg,png,gif',
+            'symbol' => 'mimes:jpeg,jpg,png,gif' 
         ]);
         /* validation end */
         try {
@@ -142,6 +155,17 @@ class PoolPackageController extends Controller
                 // $image= $request->image->storeAs('pool-package',$file_name);
                 $image= $request->image->move(public_path('uploads/pool-package'),$file_name);
                 $package->image = $file_name;
+            }
+            if($request->symbol){
+
+                $path = public_path('uploads/pool-package-symbol');
+                if(!\File::isDirectory($path)) {
+                    \File::makeDirectory($path, 0775, true, true);
+                }
+                $file_name = time().'_pool_package_symbol.'.$request->symbol->getClientOriginalExtension();
+                // $image= $request->image->storeAs('pool-package',$file_name);
+                $image= $request->symbol->move($path, $file_name);  
+                $package->symbol = $file_name;
             }
             $package->save();
             return redirect()->route('pool-packages.index')->with(["success"=>"Package Update successfully"]);
