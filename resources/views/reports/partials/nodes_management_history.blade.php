@@ -9,6 +9,7 @@
           <th>CARRY FORWARD RIGHT</th>
           <th>DAILY LIMIT</th>
           <th>PERCENTAGE</th>
+          <th>COMMISSION</th>
           <th>DATE</th>
         </tr>
       </thead>
@@ -34,6 +35,7 @@
           </td>
           <td>{{ $value->daily_limit}}</td>
           <td>{{ $value->pairing_percent}}%</td>
+          <td>{{ '$'.$value->pairing_commission}}</td>
           <td>{{ date("d/m/Y",strtotime($value->created_at)) }}</td>
         </tr>
         @endforeach
