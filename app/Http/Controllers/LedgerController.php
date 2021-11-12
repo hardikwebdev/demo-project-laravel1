@@ -31,10 +31,11 @@ class LedgerController extends Controller
         $referral_commission = ReferralCommission::with(['from_user_detail' => function ($query) {
                 $query->withTrashed();
             },
-            'staking_pool_package',
+            'staking_pool' => function ($query) {
+                $query->with('staking_pool_package');
+            }
         ])->where('user_id', '=', $this->user->id)->paginate(10);
 
-    
         $roi = YieldWalletHistory::with('user_detail')->where('user_id', '=', $this->user->id)->where('description', '=', 'ROI')->paginate(10);
         
 
@@ -144,7 +145,6 @@ class LedgerController extends Controller
             'from_user_detail' => function ($query) {
                 $query->withTrashed();
             },
-            'staking_pool_package',
         ])->where('user_id', '=', $this->user->id)->where('stacking_pool_id', '=', $id)->orderBy('id', 'desc')->paginate(3);
         $view = view("reports.modal.viewbreakdown",compact('stackingpool'))->render();
         return response()->json(['viewbreakdown'=>$view]);

@@ -15,7 +15,7 @@
           <tr>
             <td>{{ $value->from_user_detail->username }}</td>
             <td>{{ number_format($value->amount, 2) }}</td>
-            <td>{{ (@$value->staking_pool_package->name)?$value->staking_pool_package->name:'-' }}</td>
+            <td>{{ (@$value->staking_pool->staking_pool_package->name)?$value->staking_pool->staking_pool_package->name:'-' }}</td>
             <td>{{ date("d/m/Y",strtotime($value->created_at)) }}</td>
           </tr>
           @endforeach
