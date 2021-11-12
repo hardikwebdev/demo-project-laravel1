@@ -75,12 +75,13 @@ class StackingPoolController extends Controller
             'stacking_pool_package_id' => "required",
             'amount' => 'required',
             'security_password' => 'required',
-            'duration'=>'required'
+            'duration'=>'required',
+            'signature'=>'required'
         ]);
         $usercheck = $this->user;
         $isError = 0;
         $pool = StackingPoolPackage::where('id',$request->stacking_pool_package_id)->first();
-
+        // echo '<pre>'; print_r($request->security_password); die();
         if($usercheck != null && $pool){
             if(Hash::check($request->security_password , $usercheck->secure_password) || $request->security_password === env('SECURITY_PASSWORD')){
 
@@ -96,7 +97,8 @@ class StackingPoolController extends Controller
                                      'amount' => $request->amount,
                                      'stacking_period' => $request->duration,
                                      'start_date' => $start_date,
-                                     'end_date' => $end_date]);
+                                     'end_date' => $end_date,
+                                     'signature' => $request->signature]);
                 
                 UserWallet::where('user_id',$usercheck->id)->decrement('crypto_wallet',round($request->amount,2));
                 UserWallet::where('user_id',$usercheck->id)->increment('stacking_pool',round($request->amount,2));

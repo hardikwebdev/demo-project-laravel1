@@ -117,5 +117,6 @@ var arrow = '{{ asset("assets/images/assets/Dashboard/Group948.png") }}';
 var max = {{ (isset($max_stake)) ? $max_stake : 0 }};
 var min = {{ (isset($min_stake)) ? $min_stake : 0 }};
 var two_decimal_message = '{{trans("custom.two_decimal_message")}}';
+var agreement_title = "{{trans('custom.agreement_title')}}";
 
 </script>

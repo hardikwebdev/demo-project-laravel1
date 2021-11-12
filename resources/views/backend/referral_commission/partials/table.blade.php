@@ -17,7 +17,7 @@
                         <td>{{ $i++ }}</td>
                         <td>{{ $row->user_detail->username ?? ""}}</td>
                         <td>{{ $row->from_user_detail->username ?? "" }}</td>
-                        <td>{{ $row->staking_pool_package->name ?? "" }}</td>
+                        <td>{{ $row->staking_pool->staking_pool_package->name ?? "" }}</td>
                         <td>
                             {{ number_format($row->amount, 2) }}
                         </td>

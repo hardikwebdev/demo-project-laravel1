@@ -159,8 +159,8 @@ class AccountController extends Controller
     public function createMember(Request $request){
         $this->validator($request->all())->validate();
         $user = $this->create($request->all());
-        // \Mail::send('emails.welcome-email', ['user'=>(object)$input,'title'=>"Welcome to Defix Finance"], function($message) use($user)  {
-        //     $message->to($user->email,"Defix Finance")->subject("Welcome to Defix Finance");                      
+        // \Mail::send('emails.welcome-email', ['user'=>(object)$input,'title'=>"Welcome to DefiXFinance"], function($message) use($user)  {
+        //     $message->to($user->email,"DefiXFinance")->subject("Welcome to DefiXFinance");                      
         // });
         return redirect('/')->with(['success' => trans('auth.success_register')]);
 

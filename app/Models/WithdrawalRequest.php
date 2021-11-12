@@ -11,6 +11,8 @@ class WithdrawalRequest extends Model
 
     protected $table = "withdrawal_requests";
 
+    protected $dates = ['created_at', 'updated_at', 'action_date'];
+    
     public function getCreatedDateAttribute(){
         return date('d-M-Y H:i:s',strtotime($this->created_at));
     }

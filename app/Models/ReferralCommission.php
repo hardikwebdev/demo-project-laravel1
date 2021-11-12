@@ -19,7 +19,7 @@ class ReferralCommission extends Model
         return $this->hasOne('App\Models\User','id','from_user_id');
     }
 
-    public function staking_pool_package(){
-        return $this->hasOne('App\Models\StackingPoolPackage','id','stacking_pool_id');
+    public function staking_pool(){
+        return $this->hasOne('App\Models\StackingPool','id','stacking_pool_id');
     }
 }

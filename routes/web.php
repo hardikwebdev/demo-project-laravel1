@@ -39,6 +39,10 @@ Route::get('/admin', function(){
     return redirect()->route('admin.login');
 });
 
+Route::get('locale/{locale}', function ($locale) {
+	Session::put('locale', $locale);
+	return redirect()->back();
+});
 Route::group(['middleware' => 'prevent-back-history'],function(){
 
     Auth::routes();
@@ -91,6 +95,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::get('/nft_marketplace', 'App\Http\Controllers\HomeController@nft_marketplace')->name('nft_marketplace');
         // Route::get('/withdrawal', 'App\Http\Controllers\HomeController@withdrawal')->name('withdrawal');
         Route::get('/ledger', 'App\Http\Controllers\LedgerController@ledger')->name('ledger');
+        Route::get('/view-breakdown/{id}', 'App\Http\Controllers\LedgerController@viewbreakdown')->name('view.breakdown');
         Route::post('/ledger/staking-export', 'App\Http\Controllers\LedgerController@stakingPoolExport')->name('reports-staking-pool-export');
         Route::post('/ledger/pairing-commissions-export', 'App\Http\Controllers\LedgerController@pairingCommissionsExport')->name('reports-pairing-commissions-export');
         Route::get('/account', 'App\Http\Controllers\AccountController@profile')->name('account');

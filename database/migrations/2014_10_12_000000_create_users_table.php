@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->longText('secure_password')->nullable();
             $table->string('identification_number')->nullable();
             $table->string('phone_number')->nullable();
-            $table->string('signature')->nullable();
+            $table->text('signature')->nullable();
             $table->string('profile_image')->nullable()->default(0);
             $table->text('address')->nullable();
             $table->string('city')->nullable();

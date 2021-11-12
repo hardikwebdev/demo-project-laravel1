@@ -13,9 +13,32 @@ $local_url = url('locale');
         <div class="col-12 text-center">
             <img src="{{ asset('assets/images/assets/Register_Account/Group83.png') }}" class="img-fluid" alt="logo">
         </div>
-        <div class="col-12 mt-5 text-white">
+        {{-- <div class="col-12 mt-5 text-white">
             <h2 class="font-weight-bold">@lang('custom.register_account')</h2>
             <h5 class="text-light-pink">{{ __('custom.sign_up_desc') }}</h5>
+        </div> --}}
+        <div class="col-12 mt-5 text-white">
+            <div class="row">
+                <div class="col col-md-10">
+                    <h2 class="font-weight-bold">@lang('custom.register_account')</h2>
+                    <h5 class="text-light-pink">{{ __('custom.sign_up_desc') }}</h5>
+                </div>
+                <div class="col col-md-2">
+                    <div class="">
+                        <div class="navigation-cus">
+                           <div class="cus-dropdown text-right mb-3 select-lang-de">
+                              <select style=" height:35px;" class="form-control cus-bg-tra-b" data-width="fit"
+                                 onchange="javascript:window.location.href='<?php echo $local_url; ?>/'+this.value;">
+                                 <option <?php if(app()->getLocale() == 'en'){ echo 'selected' ;} ?> value="en"
+                                    data-content='<span class="flag-icon flag-icon-us"></span> English'>English</option>
+                                 <option <?php if(app()->getLocale() == 'cn'){ echo 'selected' ;} ?> value="cn"
+                                    data-content='<span class="flag-icon flag-icon-cn"></span> China'>中文(Chinese)</option>
+                              </select>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="col-12">
