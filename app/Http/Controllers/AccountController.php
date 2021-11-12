@@ -222,8 +222,8 @@ class AccountController extends Controller
         $accumulateRightSale    = Helper::getTotalgroupsalesRight($this->user);
         $todaysLeftSale         = Helper::getTotalgroupsalesTodayLeft($this->user);
         $todaysRightSale        = Helper::getTotalgroupsalesTodayRight($this->user);
-        $todaysLeftCarryFw      = ($todaysLeftSale > $todaysRightSale) ? $this->user->userwallet->carry_forward : 0;
-        $todaysRightCarryFw     = ($todaysRightSale > $todaysLeftSale) ? $this->user->userwallet->carry_forward : 0;
+        $todaysLeftCarryFw      = ($this->user->userwallet->carry_forward > 0 && $this->user->userwallet->carry_forward_to == 'left') ? $this->user->userwallet->carry_forward : 0;
+        $todaysRightCarryFw     = ($this->user->userwallet->carry_forward > 0 && $this->user->userwallet->carry_forward_to == 'right') ? $this->user->userwallet->carry_forward : 0;
         $packageamount          = $this->user->userwallet->stacking_pool;//Helper::getTotalgroupsales($user);
         $package_detail = Package::where('amount','<=',$packageamount)->orderBy('amount','desc')->first();
 
