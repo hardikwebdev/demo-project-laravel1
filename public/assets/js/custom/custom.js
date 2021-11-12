@@ -94,6 +94,10 @@ $(document).ready(function(){
   $( "#datepicker2" ).datepicker({ dateFormat: 'dd-mm-yy',maxDate: 0 });    
   $( "#datepicker3" ).datepicker({ dateFormat: 'dd-mm-yy',maxDate: 0 });    
   $( "#datepicker4" ).datepicker({ dateFormat: 'dd-mm-yy',maxDate: 0 });    
+  $( "#datepicker5" ).datepicker({ dateFormat: 'dd-mm-yy',maxDate: 0 });    
+  $( "#datepicker6" ).datepicker({ dateFormat: 'dd-mm-yy',maxDate: 0 });    
+  $( "#datepicker7" ).datepicker({ dateFormat: 'dd-mm-yy',maxDate: 0 });    
+  $( "#datepicker8" ).datepicker({ dateFormat: 'dd-mm-yy',maxDate: 0 });    
 
 });
 
@@ -183,13 +187,20 @@ $(document).on('click', '.stackingpool-second-ajax-report .pagination a',functio
    var myurl = $(this).attr('href');
    var page=$(this).attr('href').split('page=')[1];
    var htype=$('ul#ledgerreport').find('li > a.active').attr('data-type');
+   var start_date = $('#datepicker1').val();
+   var end_date = $('#datepicker2').val();
+   var stackingpoolpackage = $('#stackingpoolpackage').val();
     $.ajax(
    {
      url: '?page=' + page,
      type: "get",
      datatype: "html",
+     cache: false,
      data:{
        htype: htype,
+       start_date: start_date,
+       end_date: end_date,
+       stackingpoolpackage: stackingpoolpackage
      },
    }).done(function(data){
     $(".stackingpool-table-history").empty().html(data);
@@ -199,6 +210,7 @@ $(document).on('click', '.stackingpool-second-ajax-report .pagination a',functio
    $('.cus-spinner-full').hide(200);
  });
 });
+
 $(document).on('click', '.nodes-management-second-ajax-report .pagination a',function(event)
 {
    event.preventDefault();
@@ -208,6 +220,8 @@ $(document).on('click', '.nodes-management-second-ajax-report .pagination a',fun
    var myurl = $(this).attr('href');
    var page=$(this).attr('href').split('page=')[1];
    var htype=$('ul#ledgerreport').find('li > a.active').attr('data-type');
+   var c_start_date = $('#datepicker3').val();
+   var c_end_date = $('#datepicker4').val();
     $.ajax(
    {
      url: '?page=' + page,
@@ -215,6 +229,8 @@ $(document).on('click', '.nodes-management-second-ajax-report .pagination a',fun
      datatype: "html",
      data:{
        htype: htype,
+       c_start_date: c_start_date,
+       c_end_date: c_end_date,
      },
    }).done(function(data){
     $(".nodes-management-table-history").empty().html(data);
@@ -233,6 +249,8 @@ $(document).on('click', '.referral-commission-second-ajax-report .pagination a',
    var myurl = $(this).attr('href');
    var page=$(this).attr('href').split('page=')[1];
    var htype=$('ul#ledgerreport').find('li > a.active').attr('data-type');
+   var start_date = $('#datepicker3').val();
+   var end_date = $('#datepicker4').val();
     $.ajax(
    {
      url: '?page=' + page,
@@ -240,9 +258,37 @@ $(document).on('click', '.referral-commission-second-ajax-report .pagination a',
      datatype: "html",
      data:{
        htype: htype,
+       start_date: start_date,
+       end_date: end_date,
      },
    }).done(function(data){
     $(".referral-commission-table-history").empty().html(data);
+    location.hash = page;
+  }).fail(function(jqXHR, ajaxOptions, thrownError){
+   alert('No response from server');   
+   $('.cus-spinner-full').hide(200);
+ });
+});
+$(document).on('click', '.model-second-ajax-report .pagination a',function(event)
+{
+   event.preventDefault();
+   $('.datas').append('<div class="cus-spinner-full"><div class="sk-spinner sk-spinner-three-bounce"><div class="sk-bounce1"></div><div class="sk-bounce2"></div><div class="sk-bounce3"></div></div></div>');
+   $(this).parent('li').removeClass('active');
+   $(this).parent('li').addClass('active');
+   var myurl = $(this).attr('href');
+   var page=$(this).attr('href').split('page=')[1];
+   var htype=$('ul#ledgerreport').find('li > a.active').attr('data-type');
+    $.ajax(
+   {
+     // url: '?page=' + page,
+     url: myurl,
+     type: "get",
+     datatype: "html",
+     data:{
+       htype: htype,
+     },
+   }).done(function(data){
+    $(".model-table-history").empty().html(data);
     location.hash = page;
   }).fail(function(jqXHR, ajaxOptions, thrownError){
    alert('No response from server');   
@@ -258,6 +304,8 @@ $(document).on('click', '.roi-second-ajax-report .pagination a',function(event)
    var myurl = $(this).attr('href');
    var page=$(this).attr('href').split('page=')[1];
    var htype=$('ul#ledgerreport').find('li > a.active').attr('data-type');
+   var start_date = $('#datepicker7').val();
+   var end_date = $('#datepicker8').val();
     $.ajax(
    {
      url: '?page=' + page,
@@ -265,6 +313,8 @@ $(document).on('click', '.roi-second-ajax-report .pagination a',function(event)
      datatype: "html",
      data:{
        htype: htype,
+       start_date: start_date,
+       end_date: end_date,
      },
    }).done(function(data){
     $(".roi-table-history").empty().html(data);
