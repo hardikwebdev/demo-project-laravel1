@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>{{config('app.name', 'Defix Finance ')}} | @yield('title','Home')</title>
+  <title>{{config('app.name', 'DefiXFinance ')}} | @yield('title','Home')</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="{{ asset('assets/css/custom/feather.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/themify-icons.css') }}">
