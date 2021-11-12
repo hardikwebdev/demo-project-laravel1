@@ -237,7 +237,7 @@
              },
              new go.Binding("text", "title").makeTwoWay(),
              new go.Binding("text", "sale_left",function(sl){
-              return "Sale Left: "+sl;
+              return "A Balancing Com.: "+sl;
             }).makeTwoWay()),
 
               $(go.TextBlock, textStyle(),
@@ -248,7 +248,7 @@
                margin: new go.Margin(0, 0, 0, 3)
              },
              new go.Binding("text", "sale_right",function(sr){
-              return "Sale Right: "+sr;
+              return "B Balancing Com.: "+sr;
             }).makeTwoWay()),
 
               // $(go.TextBlock, textStyle(),
