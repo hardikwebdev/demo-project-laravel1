@@ -219,6 +219,16 @@
                minSize: new go.Size(10, 16),
                margin: new go.Margin(0, 0, 0, 3)
              },
+             new go.Binding("text", "child_position",function(sl){
+              return "Position: "+sl;
+            }).makeTwoWay()),
+              $(go.TextBlock, textStyle(),
+              {
+               row: 3, column: 1, columnSpan: 4,
+               // editable: true, isMultiline: false,
+               minSize: new go.Size(10, 16),
+               margin: new go.Margin(0, 0, 0, 3)
+             },
              new go.Binding("text", "title").makeTwoWay(),
              new go.Binding("text", "sale_left",function(sl){
               return "Sale Left: "+sl;
@@ -226,9 +236,9 @@
 
               $(go.TextBlock, textStyle(),
               {
-               row: 3, column: 1, columnSpan: 4,
+               row: 4, column: 1, columnSpan: 4,
                // editable: true, isMultiline: false,
-               minSize: new go.Size(20, 40),
+               minSize: new go.Size(10, 16),
                margin: new go.Margin(0, 0, 0, 3)
              },
              new go.Binding("text", "sale_right",function(sr){

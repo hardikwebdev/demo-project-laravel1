@@ -223,7 +223,7 @@ class LedgerController extends Controller
             'from_user_detail' => function ($query) {
                 $query->withTrashed();
             },
-        ])->where('user_id', '=', $this->user->id)->where('stacking_pool_id', '=', $id)->orderBy('id', 'desc')->orderBy('created_at', 'desc')->paginate(10);
+        ])->where('user_id', '=', $this->user->id)->where('stacking_pool_id', '=', $id)->orderBy('id', 'desc')->paginate(3);
         $view = view("reports.modal.viewbreakdown",compact('stackingpool'))->render();
         return response()->json(['viewbreakdown'=>$view]);
     }

@@ -3,25 +3,13 @@
         <h4 class="font-weight-bold">{{ trans('custom.terms_conditions')}}</h4>
     </div>
     <div class="col-12 col-md-6 col-xl-4">
-        <ul class="text-grey">
-            <li>{{ trans('custom.withdrawal_fee_is_usd_10')}}</li>
-            <li>{{ trans('custom.conversion_rate_of_usd_to_usdt_is_0_95')}}</li>
-            <li>{{ trans('custom.members_that_have_funded_in_usdt_previousl')}}</li>
-        </ul>
+        {!! trans('custom.withdrawal_wallet_terms_and_conditions1') !!}
     </div>
     <div class="col-12 col-md-6 col-xl-4">
-        <ul class="text-grey">
-            <li>{{ trans('custom.withdrawal_fee_is_usd_10')}}</li>
-            <li>{{ trans('custom.conversion_rate_of_usd_to_usdt_is_0_95')}}</li>
-            <li>{{ trans('custom.members_that_have_funded_in_usdt_previousl')}}</li>
-        </ul>
+        {!! trans('custom.withdrawal_wallet_terms_and_conditions2') !!}
     </div>
     <div class="col-12 col-md-6 col-xl-4">
-        <ul class="text-grey">
-            <li>{{ trans('custom.withdrawal_fee_is_usd_10')}}</li>
-            <li>{{ trans('custom.conversion_rate_of_usd_to_usdt_is_0_95')}}</li>
-            <li>{{ trans('custom.members_that_have_funded_in_usdt_previousl')}}</li>
-        </ul>
+        {!! trans('custom.withdrawal_wallet_terms_and_conditions3') !!}
     </div>
     <div class="col-12 mt-4">
         <div class="login-gradient rounded text-white py-4 px-md-5 text-center text-md-left">

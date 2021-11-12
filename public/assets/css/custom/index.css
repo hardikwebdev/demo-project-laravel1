@@ -546,6 +546,18 @@ span.page-link, a.page-link {
     background-color: #16181d !important;
     border: 1px solid #16181d !important;
 }
+.alpha-top-img{
+    margin-top: -60px;
+    width: 50px;
+}
+.alpha-bottom-img{
+    width: 130px;
+}
+  @media screen and (min-width: 1300px) {
+    .w-xl-20{
+        max-width: 20% !important;
+    }
+  }
 /*.card-1-btn {
     left: 10%;
 }

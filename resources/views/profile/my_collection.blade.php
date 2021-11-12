@@ -44,7 +44,7 @@
                           <div class="row align-iems-center justify-content-between">
                             <div class="col-12 col-md-6">
                               <h4 class="text-black mb-0 font-weight-bold">28928475</h4>
-                              <span class="text-secondary font-10">Defix Finance ID</span>
+                              <span class="text-secondary font-10">DefiXFinance ID</span>
                             </div>
                             <div class="col-12 col-md-6">
                               <h4 class="text-black mb-0 font-weight-bold">******5749</h4>

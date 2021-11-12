@@ -45,7 +45,7 @@
                           <div class="row align-iems-center justify-content-between">
                             <div class="col-12 col-md-6">
                               <h4 class="text-black mb-0 font-weight-bold">{{ Helper::defixFinanceID($user->id, date("d-m-Y",strtotime($user->created_at)))}}</h4>
-                              <span class="text-secondary font-10">Defix Finance ID</span>
+                              <span class="text-secondary font-10">DefiXFinance ID</span>
                             </div>
                             <div class="col-12 col-md-6">
                               <h4 class="text-black mb-0 font-weight-bold">******{{ substr($user->phone_number, -4)}}</h4>

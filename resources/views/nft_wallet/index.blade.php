@@ -29,25 +29,19 @@
                           <h4 class="font-weight-bold">Terms & Conditions</h4>
                         </div>
                         <div class="col-12 col-md-6 col-xl-4">
-                          <ul class="text-grey">
-                            <li>Withdrawal Fee is USD 10</li>
-                            <li>Conversion rate of USD to USDT is 0.95</li>
-                            <li>Members that have funded in USDT previousl</li>
-                          </ul>
+                         
+                            {!! trans('custom.nft_wallet_terms_and_conditions1') !!}
+                          
                         </div>
                         <div class="col-12 col-md-6 col-xl-4">
-                          <ul class="text-grey">
-                            <li>Withdrawal Fee is USD 10</li>
-                            <li>Conversion rate of USD to USDT is 0.95</li>
-                            <li>Members that have funded in USDT previousl</li>
-                          </ul>
+                         
+                            {!! trans('custom.nft_wallet_terms_and_conditions2') !!}
+                          
                         </div>
                         <div class="col-12 col-md-6 col-xl-4">
-                          <ul class="text-grey">
-                            <li>Withdrawal Fee is USD 10</li>
-                            <li>Conversion rate of USD to USDT is 0.95</li>
-                            <li>Members that have funded in USDT previousl</li>
-                          </ul>
+                          
+                            {!! trans('custom.nft_wallet_terms_and_conditions3') !!}
+
                         </div>
                       </div>
                       <div class="row mt-4">

@@ -114,5 +114,13 @@
         <span class="menu-title">{{trans('custom.help_support')}}</span>
       </a>
     </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="{{ route('helpandfaq') }}">
+        <img src="{{ asset('assets/images/assets/Dashboard/Group1.png') }}" class="cus-sidebar-icon" alt="">
+        <span class="menu-title">{{trans('custom.help_and_faq')}}</span>
+      </a>
+    </li>
+    
   </ul>
 </nav>

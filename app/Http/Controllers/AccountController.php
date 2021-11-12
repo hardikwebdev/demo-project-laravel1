@@ -159,8 +159,8 @@ class AccountController extends Controller
     public function createMember(Request $request){
         $this->validator($request->all())->validate();
         $user = $this->create($request->all());
-        // \Mail::send('emails.welcome-email', ['user'=>(object)$input,'title'=>"Welcome to Defix Finance"], function($message) use($user)  {
-        //     $message->to($user->email,"Defix Finance")->subject("Welcome to Defix Finance");                      
+        // \Mail::send('emails.welcome-email', ['user'=>(object)$input,'title'=>"Welcome to DefiXFinance"], function($message) use($user)  {
+        //     $message->to($user->email,"DefiXFinance")->subject("Welcome to DefiXFinance");                      
         // });
         return redirect('/')->with(['success' => trans('auth.success_register')]);
 
@@ -179,7 +179,7 @@ class AccountController extends Controller
         $referral = array_merge($referral, [$this->user->id]);
         $additionalusers = [];
         
-        $users    = User::whereIn('id',$referral)->where('status','active')->select('id','id as key','username as name','placement_id as parent','profile_image')->orderBy('child_position','asc')
+        $users    = User::whereIn('id',$referral)->where('status','active')->select('id','id as key','username as name','placement_id as parent','profile_image','child_position')->orderBy('child_position','asc')
               ->get()
               ->map(function($query) use (&$additionalusers){
                     $query->sale_left = Helper::getTotalgroupsalesLeft($query);
@@ -212,7 +212,7 @@ class AccountController extends Controller
 
                     return $query;
               })->toArray();
-        $users = array_merge($users,$additionalusers);      
+        // $users = array_merge($users,$additionalusers);      
 
         //  echo "<pre>";
         // print_r($users);
@@ -222,8 +222,8 @@ class AccountController extends Controller
         $accumulateRightSale    = Helper::getTotalgroupsalesRight($this->user);
         $todaysLeftSale         = Helper::getTotalgroupsalesTodayLeft($this->user);
         $todaysRightSale        = Helper::getTotalgroupsalesTodayRight($this->user);
-        $todaysLeftCarryFw      = ($todaysLeftSale > $todaysRightSale) ? $this->user->userwallet->carry_forward : 0;
-        $todaysRightCarryFw     = ($todaysRightSale > $todaysLeftSale) ? $this->user->userwallet->carry_forward : 0;
+        $todaysLeftCarryFw      = ($this->user->userwallet->carry_forward > 0 && $this->user->userwallet->carry_forward_to == 'left') ? $this->user->userwallet->carry_forward : 0;
+        $todaysRightCarryFw     = ($this->user->userwallet->carry_forward > 0 && $this->user->userwallet->carry_forward_to == 'right') ? $this->user->userwallet->carry_forward : 0;
         $packageamount          = $this->user->userwallet->stacking_pool;//Helper::getTotalgroupsales($user);
         $package_detail = Package::where('amount','<=',$packageamount)->orderBy('amount','desc')->first();
 

@@ -39,6 +39,10 @@ Route::get('/admin', function(){
     return redirect()->route('admin.login');
 });
 
+Route::get('locale/{locale}', function ($locale) {
+	Session::put('locale', $locale);
+	return redirect()->back();
+});
 Route::group(['middleware' => 'prevent-back-history'],function(){
 
     Auth::routes();
@@ -113,6 +117,8 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::get('/sell_nft', 'App\Http\Controllers\HomeController@sell_nft')->name('sell_nft');
         Route::get('/withdrawal', 'App\Http\Controllers\WithdrawalController@index')->name('withdrawal');
         Route::post('/withdrawal-request', 'App\Http\Controllers\WithdrawalController@withdrawalRequest')->name('withdrawal-request');
+
+        Route::get('/faq', 'App\Http\Controllers\HomeController@helpandfaq')->name('helpandfaq');
         // Route::resource('help-support', 'App\Http\Controllers\SupportTicketController')->name('help-support');
         Route::resource('help_support', SupportTicketController::class);
         Route::get('help-support-replay/{id}', [SupportTicketController::class, 'supportReplay'])->name('supportReplay');

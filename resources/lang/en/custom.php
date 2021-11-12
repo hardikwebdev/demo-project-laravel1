@@ -582,7 +582,7 @@ return [
     'please_enter_no_more_than_20' => 'Please enter no more than 12 characters',
     
     'please_check_sponsor_username_not_valid' => 'Please check sponsor username is not valid',
-    'please_select_atleast_4_checkboxes' => 'Please choose atleast 4 checkboxboxes',
+    'please_select_atleast_4_checkboxes' => 'All the check list must be checked in order to finish registration',
     'please_enter_sponsor_name' => 'Please enter sponsor name',
     'username_required_field' => 'Username is required field',
     'username_already_exists' => 'Username is already exists',
@@ -1515,15 +1515,14 @@ return [
     'net_pairing_left' => 'NET PAIRING LEFT',
     'net_pairing_right' => 'NET PAIRING RIGHT',
     'commission_earned' => 'COMMISSION EARNED',
-    'wc_text' => 'Hi, #name welcome back to Defix Finance Dashboard.',
-    'staking_solutions' => 'Staking Solutions',
+    'wc_text' => 'Hi, #name welcome back to DefiXFinance Dashboard.',
+    'staking_network_pools' => 'Staking Network Pools',
     'last_nfts' => 'Latest non-fungible token (NFT)',
     'earning_breakdown' => 'Earnings Breakdown',
     'direct_refferal' => 'Direct Referral',
     'pairing' => 'Pairing',
     'commission_breakdown' => 'Commission breakdown',
     'this_month' => 'THIS MONTH',
-    'earning_breakdown' => 'Earnings',
     'trading_news' => 'Trading News',
     'crypto_wallet' => 'Crypto wallet',
     'yield_wallet' => 'Yield wallet',
@@ -1563,5 +1562,332 @@ return [
     'commissionsale' => 'Commission & Sales',
     'news' => 'News',
     'news-events' => 'News & Events',
-    'amount-breakdown' => 'Amount Breakdown'
+    'two_decimal_message' => 'No more than 2 decimal allowed',
+    'amount-breakdown' => 'Amount Breakdown',
+    'apr_monthly' => 'APR (monthly)',
+    'balancing_commission' => 'Balancing Commission',
+    'help_and_faq' => 'Help & FAQ',
+
+
+     /* Crypto wallet Terms & Conditions USDT*/
+
+     'crypto_wallet_terms_and_conditions1_usdt' => '<ul class="text-grey">
+       <li>Please select the type of USDT protocol.</li>
+       <li>Transfer to the stated ERC20 or TRC20 address only.</li>
+       <li>All deposits are final and no refund requests shall be entertained.</li>
+     </ul>',
+
+
+     'crypto_wallet_terms_and_conditions2_usdt' => '<ul class="text-grey">
+       <li>Input the amount you wish to deposit.</li>
+       <li>Once transfer is made, please upload payment proof that shows transaction ID.</li>
+       <li>All deposit requests will be approved within 1 working day.</li>
+     </ul>',
+
+
+     'crypto_wallet_terms_and_conditions3_usdt' => '<ul class="text-grey">
+       <li>The conversion rate of USDT to USD will be auto calculated accordingly.</li>
+     </ul>',
+
+
+     
+
+
+      /* Crypto wallet Terms & Conditions Payment Gateway*/
+      'crypto_wallet_terms_and_conditions1_payment_gateway' => '<ul class="text-grey">
+       <li>Please enter the amount you want to deposit in USD.</li>
+       <li>You will be redirected to the payment gateway page to make your payment.</li>
+     </ul>',
+
+
+     'crypto_wallet_terms_and_conditions2_payment_gateway' => '<ul class="text-grey">
+       <li>The system will auto convert the USD amount to your local fiat currency.</li>
+       <li>Once payment is confirmed the amount will be credited into this wallet.</li>
+     </ul>',
+
+
+     'crypto_wallet_terms_and_conditions3_payment_gateway' => '<ul class="text-grey">
+       <li>The local fiat currency shown is based on your registered country.</li>
+       <li>All deposits are final and no refund requests shall be entertained.</li>
+     </ul>',
+
+
+       /* Yield Wallet Terms & Conditions*/
+
+       'yield_wallet_terms_and_conditions1' => '<ul class="text-grey">
+       <li>This wallet will be auto credited with your staking rewards.</li>
+       <li>You can transfer the balance here to your Crypto wallet, NFT wallet or Withdrawal wallet.</li>
+     </ul>',
+
+       'yield_wallet_terms_and_conditions2' => '<ul class="text-grey">
+       <li>80% will be deposited into this wallet and 20% of will be added to your NFT wallet.</li>
+     </ul>',
+
+       'yield_wallet_terms_and_conditions3' => '<ul class="text-grey">
+       <li>The credit period will be 30 days from your staking deposit date.</li>
+     </ul>',
+
+
+       
+
+
+
+
+       /* Commission Wallet Terms & Conditions*/
+       'commission_wallet_terms_and_conditions1' => '<ul class="text-grey">
+       <li>You will receive your direct referral commission and balancing commission deposited into this wallet.</li>
+       <li>Balancing commission will be calculated daily (GMT +7) and credited after calculations are completed.</li>
+     </ul>',
+
+
+     'commission_wallet_terms_and_conditions2' => '<ul class="text-grey">
+       <li>80% of your commission will be deposited into this wallet and 20% will be deposited into the NFT wallet.</li>
+       <li>You can transfer the balance here to your Crypto wallet, NFT wallet or Withdrawal wallet.</li>
+     </ul>',
+
+
+     'commission_wallet_terms_and_conditions3' => '<ul class="text-grey">
+       <li>Direct referral commission will be credited immediately upon successful staking by your referral.</li>
+       <li>An active staking investment of $1000 is required to be eligible to collect affiliate commissions.</li>
+     </ul>',
+
+      
+
+       /* NFT Wallet Terms & Conditions*/
+
+       'nft_wallet_terms_and_conditions1' => '<ul class="text-grey">
+       <li>20% of your staking reward yields and commission will be credited into this wallet.</li>
+       <li>NFT wallet credits can be used to buy NFTs from the marketplace.</li>
+     </ul>',
+
+
+     'nft_wallet_terms_and_conditions2' => '<ul class="text-grey">
+       <li>You can also topup directly into this wallet using USDT or payment gateway.</li>
+     </ul>',
+
+
+     'nft_wallet_terms_and_conditions3' => '<ul class="text-grey">
+       <li>All deposits are final and no refunds will be entertained.</li>
+     </ul>',
+
+
+
+
+        /* Withdrawal Wallet Terms & Conditions*/
+        'withdrawal_wallet_terms_and_conditions1' => '<ul class="text-grey">
+       <li>You can transfer funds from your commission and yield wallet to this wallet.</li>
+       <li>The conversion rate of USD to USDT is 0:0.95.</li>
+       <li>The conversion rate of USD to your local currency is dependent on the market rate. Please message the support team to inquire about the latest conversion rate.</li>
+     </ul>',
+
+
+     'withdrawal_wallet_terms_and_conditions2' => '<ul class="text-grey">
+       <li>You can withdraw the funds here to your TRC20 or ERC20 wallet.</li>
+       <li>The withdrawal window is from the 1st to 6th of each month.</li>
+       <li>All withdrawals will be processed from the 7th to 15th of each month.</li>
+     </ul>',
+
+
+     'withdrawal_wallet_terms_and_conditions3' => '<ul class="text-grey">
+       <li>All withdrawal requests will incur a withdrawal fee of USD10.</li>
+       <li>You can withdraw the funds here to your local country bank account (where available).</li>
+       <li>All withdrawals that have been approved are final.</li>
+     </ul>',
+
+
+     
+     'helpone'=> '
+    <div id="accordion">
+
+    <div class="card">
+    <div class="card-header">
+    <a class="card-link text-dark" data-toggle="collapse" href="#collapseOne" aria-expanded="true">
+    1. Who is DefiXFinance?
+    </a>
+    </div>
+    <div id="collapseOne" class="collapse show" data-parent="#accordion">
+    <div class="card-body">
+    <p>Established September 2019 in Russia, DefiXFinance is launched by a group of blockchain enthusiasts with an objective to bring the opportunities of the crypto world to the general public. Since then, DefiXFinance has grown to offer keen investors a comprehensive suite of products including staking pools, liquidity pools and a private & exclusive NFT marketplace. In the short span of 2 years, the company has grown to a team of 70, based around Russia, Europe and Asia, serving more than 10,000 active investors.</p>
+    </div>
+    </div>
+    </div>
+
+    <div class="card">
+    <div class="card-header">
+    <a class="collapsed card-link text-dark" data-toggle="collapse" href="#collapseTwo">
+    2.  What does DefiXFinance offer?
+    </a>
+    </div>
+    <div id="collapseTwo" class="collapse" data-parent="#accordion">
+    <div class="card-body">
+    <p>DefiXFinance’s main offering is our immensely popular staking & liquidity pools program. By leveraging on the pool of funds invested by our institutional and retail investors, DefixFinance is able to stake across a wide variety of Proof of Stake tokens and earns millions in staking rewards for our investors.
+    </p>
+    </div>
+    </div>
+    </div>
+
+    <div class="card">
+    <div class="card-header">
+    <a class="collapsed card-link text-dark" data-toggle="collapse" href="#collapseThree">
+    3. How are the staking pool networks curated?
+    </a>
+    </div>
+    <div id="collapseThree" class="collapse" data-parent="#accordion">
+    <div class="card-body">
+    <p> DefiXFinance staking networks are managed daily by our team of traders to ensure the best risk-reward ratio and profits for our investors. By staking different tokens with variable risks and rewards in the same network, DefiXFinance ensures consistent & high staking rewards despite the volatility of each token.
+    </p>
+    </div>
+    </div>
+    </div>
+
+    <div class="card">
+    <div class="card-header">
+    <a class="collapsed card-link text-dark" data-toggle="collapse" href="#collapsefour">
+    4. How are the staking reward yields calculated?
+    </a>
+    </div>
+    <div id="collapsefour" class="collapse" data-parent="#accordion">
+    <div class="card-body">
+    <p> The monthly returns on your staking investments are dependent on the size of your investment, the entry date, the staking period and the tokens price movements. In very basic terms, the larger and longer the investment amount, the higher the percentage of returns as the probability of staking rewards increases.
+    </p>
+    </div>
+    </div>
+    </div>
+
+    <div class="card">
+    <div class="card-header">
+    <a class="collapsed card-link text-dark" data-toggle="collapse" href="#collapsefive">
+    5. What is the DefiXFinance NFT marketplace?
+    </a>
+    </div>
+    <div id="collapsefive" class="collapse" data-parent="#accordion">
+    <div class="card-body">
+    <p>DefixFinance NFT marketplace is a platform that aims to build a new creative economy—a world where creators can value their work in entirely new ways, and build stronger connections with their supporters. art buyers and investors. DefixFinance bridges crypto and culture to foster a network of mutual support between artists, creators, and collectors.</p>
+    </div>
+    </div>
+    </div>
+    
+    <div class="card">
+    <div class="card-header">
+    <a class="collapsed card-link text-dark" data-toggle="collapse" href="#collapsesix">
+    6. Who creates the NFT art found at the marketplace?
+    </a>
+    </div>
+    <div id="collapsesix" class="collapse" data-parent="#accordion">
+    <div class="card-body">
+    <p>Since 2019, DefixFinance has worked with various artists to produce NFT art and sell them to its private investors. These NFT artists are meticulously picked by DefixFinance for their artistic expression, mass market appeal and imaginative creations. These NFT artists partners with DefixFinance so they can focus on their craft as the sale of their art through DefixFinance platform is almost guaranteed to fetch a high price.</p>
+    </div>
+    </div>
+    </div>
+    
+    <div class="card">
+    <div class="card-header">
+    <a class="collapsed card-link text-dark" data-toggle="collapse" href="#collapseseven">
+    7. Can I transfer the NFT art I bought at DefiXFinance to my crypto wallet?
+    </a>
+    </div>
+    <div id="collapseseven" class="collapse" data-parent="#accordion">
+    <div class="card-body">
+    <p>Yes! You can transfer the NFT art from your NFT Collection page to your own crypto wallet.
+    </p>
+    </div>
+    </div>
+    </div>
+    
+    <div class="card">
+    <div class="card-header">
+    <a class="collapsed card-link text-dark" data-toggle="collapse" href="#collapseeight">
+    8. How do I sell the NFT I have bought from the marketplace?
+    </a>
+    </div>
+    <div id="collapseeight" class="collapse" data-parent="#accordion">
+    <div class="card-body">
+    <p>You can sell the NFT from your Collection page. You can sell it anytime and at any price. The success of the sale will depend on the current demand for the NFT art from other DefiXFinance buyers.
+    You can also choose to transfer the NFT to your crypto wallet and sell it at any public NFT marketplaces that supports the ETH protocol such as Opensea.
+    </p>
+    </div>
+    </div>
+    </div>
+    
+    <div class="card">
+    <div class="card-header">
+    <a class="collapsed card-link text-dark" data-toggle="collapse" href="#collapsenine">
+    9. How does the DefiXFinance affiliate program work?
+    </a>
+    </div>
+    <div id="collapsenine" class="collapse" data-parent="#accordion">
+    <div class="card-body">
+    <p>The DefiXFinance affiliate program consists of two types of payout:</p>
+    <ul>
+    <li>Direct Referral</li>
+    <small>Based on the size of your investment, you are entitled to varying percentage of referral commission for all staking investments made by your referral. The commission payout is immediate.</small>  
+    <li>Balancing Commission</li>
+    <small>Based on the size of your investment, you are entitled to varying percentage of balancing commission. The balancing commission is based on the total staking investment made between the A node and B node networks in your affiliate group. It is calculated daily and the commission automatically credited into your commission wallet.</small>
+    </ul>
+    <p>Take note an active investment of $1000 is required to be eligible to collect affiliate commissions.</p>
+    </div>
+    </div>
+    </div>
+
+    <div class="card">
+    <div class="card-header">
+    <a class="collapsed card-link text-dark" data-toggle="collapse" href="#collapseten">
+    10. How are my earnings split?
+    </a>
+    </div>
+    <div id="collapseten" class="collapse" data-parent="#accordion">
+    <div class="card-body">
+    <p>All your earnings from staking, direct referral and nodes balancing commission are split 20/80. 80% will go into their respective wallets of Yield wallet or Commission Wallet while 20% will go into your NFT wallet. 
+    </p>
+    </div>
+    </div>
+    </div>
+
+
+    <div class="card">
+    <div class="card-header">
+    <a class="collapsed card-link text-dark" data-toggle="collapse" href="#collapseeleven">
+    11. How do I withdraw my earnings?
+    </a>
+    </div>
+    <div id="collapseeleven" class="collapse" data-parent="#accordion">
+    <div class="card-body">
+    <p>You can transfer all your earnings from their respective wallets to the Withdrawal wallet. You then have options to withdraw to your local cryptocurrency wallet or local bank (where available). 
+    </p>
+    </div>
+    </div>
+    </div>
+
+
+    <div class="card">
+    <div class="card-header">
+    <a class="collapsed card-link text-dark" data-toggle="collapse" href="#collapsetwelve">
+    12. What happens after my staking contract has matured?
+    </a>
+    </div>
+    <div id="collapsetwelve" class="collapse" data-parent="#accordion">
+    <div class="card-body">
+    <p>Once your staking contract has matured, you will have an option to renew your contract or withdraw your capital. If you choose to withdraw your capital, your investment will be transferred to the Maturity wallet where you can put your capital up to be purchased by other investors looking to use those credits for activities in DefiXFinance such as buying NFTs or using our other products. 
+    </p>
+    </div>
+    </div>
+    </div>
+    </div>',
+
+    'staking_terms' => '<ul class="text-grey"><li>You can stake in this staking pool network using funds from your Crypto wallet.</li>
+    <li>Please select the desired staking period of 12 months or 24 months.</li>
+    <li>All staking rewards will be credited 30 days from the date of staking.</li>
+    <li>Each staking deposit will be tied to its own contract period. There is no overlap between deposits.</li>
+    <li>Your monthly staking reward is dependent on the amount of deposit and the fluctuations of the token value in the market.</li>
+    <li>Once your staking contract is matured you have a choice to extend your contract or withdraw your capital from the Maturity wallet.</li>
+    <li>All staking deposits are final and no refunds will be entertained.</li></ul>',
+    'staking_agreement' => '<ul><li>I agree that by clicking confirm below I adhere to all the terms and conditions stated.</li>
+    <li>I agree that by proceeding my staking contract will start and no cancellation is allowed.</li>
+    <li>I understand that the monthly staking rewards is dependent on the blockchain network, protocol and token value in the market.</li>
+    <li>I agree that by proceeding I allow the company to control my investment based on the strategies best determined by the company.</li>
+    <li>I agree that the company has all rights to change the terms and conditions to reflect the landscape and performance of the market at any times.</li></ul>',
+    'agreement_title' => 'Deposit Agreement #title',
+    'accept_terms' => 'I have read and agree to the terms of service.',
+    'last_month' => 'Last Month',
+
 ];
