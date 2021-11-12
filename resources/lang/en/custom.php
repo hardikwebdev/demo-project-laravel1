@@ -582,7 +582,7 @@ return [
     'please_enter_no_more_than_20' => 'Please enter no more than 12 characters',
     
     'please_check_sponsor_username_not_valid' => 'Please check sponsor username is not valid',
-    'please_select_atleast_4_checkboxes' => 'Please choose atleast 4 checkboxboxes',
+    'please_select_atleast_4_checkboxes' => 'All the check list must be checked in order to finish registration',
     'please_enter_sponsor_name' => 'Please enter sponsor name',
     'username_required_field' => 'Username is required field',
     'username_already_exists' => 'Username is already exists',
@@ -1562,6 +1562,7 @@ return [
     'commissionsale' => 'Commission & Sales',
     'news' => 'News',
     'news-events' => 'News & Events',
+    'two_decimal_message' => 'No more than 2 decimal allowed',
     'amount-breakdown' => 'Amount Breakdown',
     'apr_monthly' => 'APR (monthly)',
     'balancing_commission' => 'Balancing Commission',
@@ -1873,6 +1874,20 @@ return [
     </div>
     </div>',
 
-      
+    'staking_terms' => '<ul class="text-grey"><li>You can stake in this staking pool network using funds from your Crypto wallet.</li>
+    <li>Please select the desired staking period of 12 months or 24 months.</li>
+    <li>All staking rewards will be credited 30 days from the date of staking.</li>
+    <li>Each staking deposit will be tied to its own contract period. There is no overlap between deposits.</li>
+    <li>Your monthly staking reward is dependent on the amount of deposit and the fluctuations of the token value in the market.</li>
+    <li>Once your staking contract is matured you have a choice to extend your contract or withdraw your capital from the Maturity wallet.</li>
+    <li>All staking deposits are final and no refunds will be entertained.</li></ul>',
+    'staking_agreement' => '<ul><li>I agree that by clicking confirm below I adhere to all the terms and conditions stated.</li>
+    <li>I agree that by proceeding my staking contract will start and no cancellation is allowed.</li>
+    <li>I understand that the monthly staking rewards is dependent on the blockchain network, protocol and token value in the market.</li>
+    <li>I agree that by proceeding I allow the company to control my investment based on the strategies best determined by the company.</li>
+    <li>I agree that the company has all rights to change the terms and conditions to reflect the landscape and performance of the market at any times.</li></ul>',
+    'agreement_title' => 'Deposit Agreement #title',
+    'accept_terms' => 'I have read and agree to the terms of service.',
+    'last_month' => 'Last Month',
 
 ];

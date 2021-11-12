@@ -233,9 +233,11 @@
             <h4 class="text-grey">{{__('custom.commission_breakdown')}}</h4>
           </div>
           <div class="col-12 col-md-6 text-md-right">
-           <!--  <select class="rounded-0 font-weight-bold border-violate font-12 p-2 px-3">
+            <select class="rounded-0 font-weight-bold border-violate font-12 p-2 px-3">
               <option value="">{{__('custom.this_month')}}</option>
-            </select> -->
+              <option value="">{{__('custom.last_month')}}</option>
+
+            </select>
           </div>
           <div class="col-12 text-center mt-3">
              <div class="" id="commissionpiechart" class="img-fluid rounded-right w-100" alt="" style="height: 336px;"></div>

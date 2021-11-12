@@ -389,7 +389,8 @@ $local_url = url('locale');
       <label class="m-checkbox">
          <input class="chk_agreements " type="checkbox" id="antimoney_laundering" name="terms_condition[]" value="antimoney_laundering" >
          <a href="{{asset('terms/antimoney_laundering.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.antimoney-laundering') }}</a>
-         <span></span>
+         <span></span><br>
+         <label id="terms_condition[]-error" class="error" for="terms_condition[]"></label>
      </label>
  </div>
  <div class="col-md-12">
@@ -641,8 +642,8 @@ onStepChanging: function (event, currentIndex, newIndex)
             if (currentIndex < newIndex)
             {
                 // To remove error styles
-                $(".body:eq(" + newIndex + ") label.error", form).remove();
-                $(".body:eq(" + newIndex + ") .error", form).removeClass("error");
+                $(".body:eq(" + newIndex + ") label.error", form).text('');
+                $(".body:eq(" + newIndex + ") .error", form).text("");
             }
 
             // Disable validation on fields that are disabled or hidden.
@@ -878,7 +879,7 @@ onStepChanging: function (event, currentIndex, newIndex)
                        // },
                        'terms_condition[]':{
                          required: true,
-                         minlength: 4
+                         minlength: 5
                      },
       //                  // iagree:{
       //                  //     required: true,
