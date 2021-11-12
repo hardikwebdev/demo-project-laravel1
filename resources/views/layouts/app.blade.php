@@ -22,6 +22,9 @@
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
+    @php
+    $local_url = url('locale');
+    @endphp
     @include('layouts.header')
     <div class="container-fluid page-body-wrapper">
      @include('layouts.sidebar')

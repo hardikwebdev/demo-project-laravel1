@@ -39,6 +39,10 @@ Route::get('/admin', function(){
     return redirect()->route('admin.login');
 });
 
+Route::get('locale/{locale}', function ($locale) {
+	Session::put('locale', $locale);
+	return redirect()->back();
+});
 Route::group(['middleware' => 'prevent-back-history'],function(){
 
     Auth::routes();
