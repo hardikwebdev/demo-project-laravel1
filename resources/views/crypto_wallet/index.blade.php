@@ -157,11 +157,14 @@
               @include('crypto_wallet.common')
               {{Form::open(['route' => 'cryptoWalletForm','class' => '','id' =>'cryptowalletform-coin','enctype' => 'multipart/form-data'])}}
               <div class="row mt-4">
-                <div class="col-12 col-md-6 mt-4 mt-md-0">
+                <div class="col-12 col-md-4 mt-4 mt-md-0">
                   <input type="hidden" name="payment_method" value="coin-payment">
-                  {{Form::text('amount',old('amount'),['class' => 'form-control grey-ph h-auto py-4 border-0 shadow usdttt','placeholder' => trans('custom.amount_USD'),'data-usdrate' => @$convertedRateMYR])}}
+                  {{Form::text('amount',old('amount'),['class' => 'form-control grey-ph h-auto py-4 border-0 shadow credit_amount usdttt','placeholder' => trans('custom.amount_USD'),'data-usdrate' => @$convertedRateUSDT])}}
                 </div>
-                <div class="col-12 col-md-6 mt-4 mt-md-0">
+                <div class="col-12 col-md-4 mt-4 mt-md-0">
+                  {{Form::text('converted_amount',old('converted_amount'),['class' => 'form-control grey-ph h-auto py-4 border-0 shadow usdt-converted_amount','placeholder' => trans('custom.usdt_amount') ,'readonly'=>'true'])}}
+                </div>
+                <div class="col-12 col-md-4 mt-4 mt-md-0">
                   <input type="password" name="secure_password" class="form-control grey-ph h-auto py-4 border-0 shadow" placeholder="{{ trans('custom.security_password')}}">
                 </div>
                 <div class="col-12 col-xl-6 mt-4">

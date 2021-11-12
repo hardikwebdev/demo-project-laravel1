@@ -172,7 +172,7 @@ class WalletController extends Controller
                         $model->order_id = uniqid();
                         $model->user_id = $usercheck->id;
                         $model->usd_amount = $request->amount;
-                        $model->deposite_amount = $request->amount;
+                        $model->deposite_amount = $request->converted_amount;
                         $model->payment_date = date('Y-m-d'); 
                         $model->time = time();
                         $model->save();
