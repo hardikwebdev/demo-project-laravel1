@@ -192,7 +192,7 @@
             $(go.Panel, "Table",
             {
               minSize: new go.Size(80, NaN),
-              maxSize: new go.Size(100, NaN),
+              maxSize: new go.Size(150, NaN),
               margin: new go.Margin(4, 4, 0, 4),
               defaultAlignment: go.Spot.Left
             },
@@ -212,44 +212,44 @@
              new go.Binding("text", "name").makeTwoWay()),
               // $(go.TextBlock, "Title: ", textStyle(),
               //    { row: 1, column: 0 }),
-              $(go.TextBlock, textStyle(),
-              {
-               row: 2, column: 1, columnSpan: 4,
-               // editable: true, isMultiline: false,
-               minSize: new go.Size(10, 16),
-               margin: new go.Margin(0, 0, 0, 3)
-             },
-             new go.Binding("text", "child_position",function(sl){
-              var a = '';
-              if(sl == 'left'){
-                a = "A node";
-              }else{
-                a = "B node";
-              }
-              return "Position: "+a;
-            }).makeTwoWay()),
-              $(go.TextBlock, textStyle(),
-              {
-               row: 3, column: 1, columnSpan: 4,
-               // editable: true, isMultiline: false,
-               minSize: new go.Size(10, 16),
-               margin: new go.Margin(0, 0, 0, 3)
-             },
-             new go.Binding("text", "title").makeTwoWay(),
-             new go.Binding("text", "sale_left",function(sl){
-              return "A Balancing Com.: "+sl;
-            }).makeTwoWay()),
+            //   $(go.TextBlock, textStyle(),
+            //   {
+            //    row: 2, column: 1, columnSpan: 4,
+            //    // editable: true, isMultiline: false,
+            //    minSize: new go.Size(10, 16),
+            //    margin: new go.Margin(0, 0, 0, 3)
+            //  },
+            //  new go.Binding("text", "child_position",function(sl){
+            //   var a = '';
+            //   if(sl == 'left'){
+            //     a = "A node";
+            //   }else{
+            //     a = "B node";
+            //   }
+            //   return "Position: "+a;
+            // }).makeTwoWay()),
+            //   $(go.TextBlock, textStyle(),
+            //   {
+            //    row: 3, column: 1, columnSpan: 4,
+            //    // editable: true, isMultiline: false,
+            //    minSize: new go.Size(10, 16),
+            //    margin: new go.Margin(0, 0, 0, 3)
+            //  },
+            //  new go.Binding("text", "title").makeTwoWay(),
+            //  new go.Binding("text", "sale_left",function(sl){
+            //   return "A Balancing Com.: "+sl;
+            // }).makeTwoWay()),
 
-              $(go.TextBlock, textStyle(),
-              {
-               row: 4, column: 1, columnSpan: 4,
-               // editable: true, isMultiline: false,
-               minSize: new go.Size(10, 16),
-               margin: new go.Margin(0, 0, 0, 3)
-             },
-             new go.Binding("text", "sale_right",function(sr){
-              return "B Balancing Com.: "+sr;
-            }).makeTwoWay()),
+            //   $(go.TextBlock, textStyle(),
+            //   {
+            //    row: 4, column: 1, columnSpan: 4,
+            //    // editable: true, isMultiline: false,
+            //    minSize: new go.Size(10, 16),
+            //    margin: new go.Margin(0, 0, 0, 3)
+            //  },
+            //  new go.Binding("text", "sale_right",function(sr){
+            //   return "B Balancing Com.: "+sr;
+            // }).makeTwoWay()),
 
               // $(go.TextBlock, textStyle(),
               //    { row: 2, column: 0 },
