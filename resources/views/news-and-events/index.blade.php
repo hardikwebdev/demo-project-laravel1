@@ -2,9 +2,15 @@
 @section('title', __('custom.news-events'))
 @section('page_title', __('custom.news-events'))
 @section('content')
-    <div class="content-wrapper mt-5">
+    <div class="content-wrapper">
+        <div class="ml-2 mb-4 d-none-desk d-md-block">
+      <h2 class="text-warning font-weight-bold">@yield('page_title','Dashboard')</h2>
+      @if(Route::currentRouteName() == 'dashboard')
+      <p class="text-white">{{str_replace('#name',auth()->user()->name,__('custom.wc_text'))}}</p>
+      @endif
+    </div>
         <div class="row justify-content-center mt-3">
-            <div class="col-12 mt-4">
+            <div class="col-12">
                 <div class="tab-content border-0">
                     <div id="home" class="tab-pane active">
                         <div class="card">

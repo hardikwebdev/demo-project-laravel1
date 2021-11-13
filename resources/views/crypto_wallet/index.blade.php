@@ -7,8 +7,14 @@
     margin: 10px;
 }
 </style>
-<div class="content-wrapper">
-  <div class="row mt-5 pt-5">
+<div class="content-wrapper crypto-wallet">
+    <div class="ml-2 mb-4 d-none-desk d-md-block">
+      <h2 class="text-warning font-weight-bold">@yield('page_title','Dashboard')</h2>
+      @if(Route::currentRouteName() == 'dashboard')
+      <p class="text-white">{{str_replace('#name',auth()->user()->name,__('custom.wc_text'))}}</p>
+      @endif
+    </div>
+  <div class="row mt-3">
     <div class="col-12">
       <div class="login-gradient rounded text-white py-4 px-5">
         <h2 class="mb-0 font-weight-bold">${{ number_format($userWallet->crypto_wallet, 2)}}</h2>
@@ -21,9 +27,8 @@
       <ul class="nav nav-tabs justify-content-center account-tabs border-0">
         <li><a class="text-warning border border-warning py-3 px-5 d-block fund-usdt-bank active" data-value="usdt" data-toggle="tab" href="#home">{{ trans('custom.usdt')}}</a></li>
         @if(\Auth::user()->country_id == 131)
-        <li><a class="text-warning border border-warning py-3 px-5 d-block fund-usdt-bank" data-toggle="tab" data-value="myr-usdt" href="#menu1">{{ trans('custom.online_payment')}}</a></li>
+        
         @endif
-         <li><a class="text-warning border border-warning py-3 px-5 d-block fund-usdt-bank" data-toggle="tab" data-value="myr-usdt" href="#menu2">{{ trans('custom.coin_payment')}}</a></li>
       </ul>
     </div>
 

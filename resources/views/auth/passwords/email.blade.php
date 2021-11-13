@@ -4,7 +4,7 @@ $local_url = url('locale');
 @endphp
 @section('content')
     <div class="row w-100 mx-0">
-        <div class="col-12 col-lg-6 mx-auto">
+        <div class="col-12 col-lg-4 mx-auto">
             @if (Session::has('message'))
                 <div class="alert alert-success alert-dismissable">
                     {{ Session::get('message') }}
@@ -30,22 +30,12 @@ $local_url = url('locale');
 
             <form method="POST" action="{{ route('password.email') }}" id="sendpasswordresetlink">
                 @csrf
-                <div class="row align-items-center justify-content-center login-gradient rounded p-3 p-md-5">
-                    <div class="col-12 text-center">
-                        <img src="{{ asset('assets/images/assets/Register_Account/Group83.png') }}" class="img-fluid"
+                <div class="row align-items-center justify-content-center login-box login-gradient rounded p-3 p-md-5">
+                    <div class="col-12 text-center login-logo">
+                        <img src="{{ asset('assets/images/assets/defixfinance-logo-white.png') }}" class="img-fluid"
                             alt="logo">
                     </div>
-                    {{-- <div class="col-12 text-center mt-5">
-                        <h2 class="font-weight-bold text-white">{{ __('custom.forgot_password') }}</h2>
-                    </div> --}}
-                    <div class="col-12 text-center mt-5">
-                        <div class="row">
-                            <div class="col col-md-8">
-                                <h2 class="font-weight-bold text-white">{{ __('custom.forgot_password') }}</h2>
-                            </div>
-                            <div class="col col-md-4">
-                                <div class="">
-                                    <div class="navigation-cus">
+                    <div class="navigation-cus">
                                        <div class="cus-dropdown text-right mb-3 select-lang-de">
                                           <select style=" height:35px;" class="form-control cus-bg-tra-b" data-width="fit"
                                              onchange="javascript:window.location.href='<?php echo $local_url; ?>/'+this.value;">
@@ -56,7 +46,13 @@ $local_url = url('locale');
                                           </select>
                                        </div>
                                     </div>
-                                </div>
+                    {{-- <div class="col-12 text-center mt-5">
+                        <h2 class="font-weight-bold text-white">{{ __('custom.forgot_password') }}</h2>
+                    </div> --}}
+                    <div class="col-12 text-center mt-5">
+                        <div class="row">
+                            <div class="col col-md-12">
+                                <h3 class="font-weight-bold text-white">{{ __('custom.forgot_password') }}</h3>
                             </div>
                         </div>
                     </div>

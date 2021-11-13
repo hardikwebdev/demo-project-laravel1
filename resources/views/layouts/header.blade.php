@@ -1,15 +1,11 @@
- <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row shadow-none">
+ <nav class="navbar col-lg-12 col-12 p-0 d-flex flex-row shadow-none">
   <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
     {{-- <a class="navbar-brand brand-logo p-4" href="{{route('dashboard')}}"><img src="{{ asset('assets/images/assets/Dashboard/Group1030.png') }}" class="img-fluid h-auto" alt="logo"/></a>
     <a class="navbar-brand brand-logo-mini" href="{{route('dashboard')}}"><img src="{{ asset('assets/images/assets/Dashboard/Group1030.png') }}" alt="logo"/></a> --}}
-    <a class="navbar-brand brand-logo p-4" href="{{route('dashboard')}}"><img src="{{ asset('assets/images/assets/Register_Account/Group83.png') }}" class="img-fluid h-auto" alt="logo"/></a>
-    <a class="navbar-brand brand-logo-mini" href="{{route('dashboard')}}"><img src="{{ asset('assets/images/assets/Register_Account/Group83.png') }}" alt="logo"/></a>
+    <a class="navbar-brand brand-logo p-4" href="{{route('dashboard')}}"><img src="{{ asset('assets/images/assets/defixfinance-logo.png') }}" class="img-fluid h-auto" alt="logo"/></a>
+    <a class="navbar-brand brand-logo-mini" href="{{route('dashboard')}}"><img src="https://defixfinance.com/wp-content/uploads/2021/09/defix-favicon.png" alt="logo"/></a>
   </div>
   <div class="navbar-menu-wrapper d-flex align-items-end justify-content-end justify-content-md-between">
-    <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-      <span class="icon-menu"></span>
-    </button>
-
     <div class="ml-4 d-none d-md-block">
       <h2 class="text-warning font-weight-bold">@yield('page_title','Dashboard')</h2>
       @if(Route::currentRouteName() == 'dashboard')

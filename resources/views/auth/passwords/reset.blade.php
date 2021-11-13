@@ -4,7 +4,7 @@ $local_url = url('locale');
 @endphp
   @section('content')
       <div class="row w-100 mx-0">
-          <div class="col-12 col-lg-6 mx-auto">
+          <div class="col-12 col-lg-4 mx-auto">
               @if (session()->has('status'))
                   <div class="my-5 container alert alert-danger" style="width:500px;" id="danger">
                       {{ session()->get('status') }}
@@ -29,9 +29,9 @@ $local_url = url('locale');
               <form method="POST" action="{{ route('password.update') }}" id="passwordupdate">
                   @csrf
                   <input type="hidden" name="token" value="{{ $token }}">
-                  <div class="row align-items-center justify-content-center login-gradient rounded p-3 p-md-5">
+                  <div class="row align-items-center justify-content-center login-box login-gradient rounded p-3 p-md-5">
                       <div class="col-12 text-center">
-                          <img src="{{ asset('assets/images/assets/Register_Account/Group83.png') }}"
+                          <img src="{{ asset('assets/images/assets/defixfinance-logo-white.png') }}"
                               class="img-fluid" alt="logo">
                       </div>
                       {{-- <div class="col-12 text-center mt-5">

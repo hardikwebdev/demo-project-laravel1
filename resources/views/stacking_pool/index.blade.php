@@ -2,13 +2,19 @@
 @section('title', __('custom.staking_pools'))
 @section('page_title', __('custom.staking_pools'))
 @section('content')
-<div class="content-wrapper mt-5">
-  <div class="row pt-md-5">
+<div class="staking-main content-wrapper">
+    <div class="ml-2 mb-4 d-none-desk d-md-block">
+      <h2 class="text-warning font-weight-bold">@yield('page_title','Dashboard')</h2>
+      @if(Route::currentRouteName() == 'dashboard')
+      <p class="text-white">{{str_replace('#name',auth()->user()->name,__('custom.wc_text'))}}</p>
+      @endif
+    </div>
+  <div class="row">
     <?php $i = 1; $j = 1; ?>
     <div class="row">
     @foreach($staking_pool as $stackingpool)
     @if($i == 1)
-      <div class="col-12 col-md-6 w-xl-20 mt-5">
+      <div class="col-12 col-md-3 mt-5">
         <div class="bg-card-4 text-center p-4 rounded">
           <img src="{{$stackingpool->symbol}}" class="img-fluid alpha-top-img" alt="">
           <h4 class="text-blue font-weight-bold">{{$stackingpool->name}}</h4>
@@ -48,7 +54,7 @@
       </div>
     </div> -->
     @elseif($i == 2)
-        <div class="col-12 col-md-6 w-xl-20 mt-5">
+        <div class="col-12 col-md-3 mt-5">
               <div class="bg-card-2 text-center p-4 rounded">
           <img src="{{$stackingpool->symbol}}" class="img-fluid alpha-top-img" alt="">
           <h4 class="text-white font-weight-bold">{{$stackingpool->name}}</h4>
@@ -87,7 +93,7 @@
       </div>
     </div> -->
     @elseif($i == 3)
-     <div class="col-12 col-md-6 w-xl-20 mt-5">
+     <div class="col-12 col-md-3 mt-5">
               <div class="bg-card-3 text-center p-4 rounded">
                 <img src="{{$stackingpool->symbol}}" class="img-fluid alpha-top-img" alt="">
                 <h4 class="text-white font-weight-bold">{{$stackingpool->name}}</h4>
@@ -126,7 +132,7 @@
       </div>
     </div> -->
     @elseif($i == 4)
-    <div class="col-12 col-md-6 w-xl-20 mt-5">
+    <div class="col-12 col-md-3 mt-5">
               <div class="bg-card-1 text-center p-4 rounded">
                 <img src="{{$stackingpool->symbol}}" class="img-fluid alpha-top-img" alt="">
                 <h4 class="text-white font-weight-bold">{{$stackingpool->name}}</h4>

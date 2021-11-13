@@ -17,7 +17,13 @@
     }
 </style>
     <div class="content-wrapper">
-        <div class="row justify-content-center mt-5 pt-5">
+        <div class="ml-2 mb-4 d-none-desk d-md-block">
+      <h2 class="text-warning font-weight-bold">@yield('page_title','Dashboard')</h2>
+      @if(Route::currentRouteName() == 'dashboard')
+      <p class="text-white">{{str_replace('#name',auth()->user()->name,__('custom.wc_text'))}}</p>
+      @endif
+    </div>
+        <div class="row justify-content-center mt-3">
             <div class="col-12" id="titlebar">
                 <ul class="nav nav-tabs justify-content-center account-tabs border-0" id="ledgerreport">
                     <li><a class="text-warning border border-warning py-3 px-5 d-block active ledger-report"

@@ -2,7 +2,13 @@
 
 @section('content')
 <div class="content-wrapper">
-  <div class="row mt-5 pt-5">
+    <div class="ml-2 mb-4 d-none-desk d-md-block">
+      <h2 class="text-warning font-weight-bold">@yield('page_title','Dashboard')</h2>
+      @if(Route::currentRouteName() == 'dashboard')
+      <p class="text-white">{{str_replace('#name',auth()->user()->name,__('custom.wc_text'))}}</p>
+      @endif
+    </div>
+  <div class="row mt-3 pt-0">
    <div class="col-12 col-xl-12">
 
      @if(Session::has('success'))
@@ -80,7 +86,7 @@
     </div>
   </div>
 </div>
-<div class="row">
+<div class="row mt-3">
   <div class="col-12">
     <p class="text-white" style="font-weight: 700 !important;font-size: 1.187rem;">{{__('custom.staking_network_pools')}}</p>
   </div>
@@ -90,14 +96,17 @@
       @foreach($staking_pool as $stakingpool)
       @if($i == 1)
       <div>
-        <div class="bg-card-{{$i}} text-center p-4 pb-5 rounded mx-2">
-          <img src="{{asset('assets/images/assets/Dashboard/Group929.png')}}" class="img-fluid card-img-top" alt="">
-          <h4 class="text-white" style="font-size: 40px;">{{$stakingpool->name}}</h4>
+        <div class="bg-card-{{$i}} text-center p-4 pb-3 rounded mx-2">
+          <img class="stake-logo" src="https://defixfinance.com/wp-content/uploads/2021/10/greek-icon-09.png" class="img-fluid card-img-top" alt="">
+            
+          <h4 class="text-white">{{$stakingpool->name}}</h4>
           {{-- <p class="text-white font-12">{!! \Illuminate\Support\Str::limit($stakingpool->description,50) !!}</p> --}}
           <hr/>
           <p class="text-white font-12">{{__('custom.expected_anual_rate')}}</p>
           <h3 class="text-white font-weight-bold">{{$stakingpool->stacking_display_start}}% - {{$stakingpool->stacking_display_end}}%</h3>
+            <img class="stake-tokens-logo" src="http://defixfinance.com/wp-content/uploads/2021/10/3-crypto9.png"/>
           @if($stakingpool->investedAmount > 0)
+            
           <div class="d-flex justify-content-around mt-2">
             <p class="text-white font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
             <button class="btn bg-blue text-white rounded-0 px-4">${{number_format($stakingpool->investedAmount,2)}}</button>
@@ -110,13 +119,14 @@
       </div>
       <div>
         @elseif($i == 2)
-        <div class="bg-card-2 text-center p-4 pb-5 rounded mx-2">
-          <img src="{{ asset('assets/images/assets/Dashboard/Group929.png') }}" class="img-fluid card-img-top" alt="">
-          <h4 class="text-white" style="font-size: 40px;">{{$stakingpool->name}}</h4>
+        <div class="bg-card-2 text-center p-4 pb-3 rounded mx-2">
+          <img class="stake-logo" src="https://defixfinance.com/wp-content/uploads/2021/10/greek-icon-08.png" class="img-fluid card-img-top" alt="">
+          <h4 class="text-white">{{$stakingpool->name}}</h4>
           {{-- <p class="text-white font-12">{!! \Illuminate\Support\Str::limit($stakingpool->description,50) !!}</p> --}}
           <hr/>
           <p class="text-white font-12">{{__('custom.expected_anual_rate')}}</p>
           <h3 class="text-white font-weight-bold">{{$stakingpool->stacking_display_start}}% - {{$stakingpool->stacking_display_end}}%</h3>
+            <img class="stake-tokens-logo" src="http://defixfinance.com/wp-content/uploads/2021/10/3-crypto8.png"/>
           @if($stakingpool->investedAmount > 0)
           <div class="d-flex justify-content-around mt-2">
             <p class="text-white font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
@@ -130,14 +140,14 @@
       </div>
       <div>
         @elseif($i == 3)
-        <div class="bg-card-3 text-center p-4 pb-5 rounded mx-2 ">
-          <img src="{{ asset('assets/images/assets/Dashboard/Group929.png') }}" class="img-fluid card-img-top" alt="">
-          <h4 class="text-white" style="font-size: 40px;">{{$stakingpool->name}}</h4>
+        <div class="bg-card-3 text-center p-4 pb-3 rounded mx-2 ">
+          <img class="stake-logo" src="https://defixfinance.com/wp-content/uploads/2021/10/greek-icon-07.png" class="img-fluid card-img-top">
+          <h4 class="text-white">{{$stakingpool->name}}</h4>
           {{-- <p class="font-12 text-white">{!! \Illuminate\Support\Str::limit($stakingpool->description,50) !!}</p> --}}
           <hr/>
           <p class="text-white font-12">{{__('custom.expected_anual_rate')}}</p>
           <h3 class="text-white font-weight-bold">{{$stakingpool->stacking_display_start}}% - {{$stakingpool->stacking_display_end}}%</h3>
-          
+          <img class="stake-tokens-logo" src="http://defixfinance.com/wp-content/uploads/2021/10/3-crypto7.png"/>
           @if($stakingpool->investedAmount > 0)
           <div class="d-flex justify-content-around mt-2">
             <p class="text-white font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
@@ -151,13 +161,14 @@
       </div>
       @elseif($i == 4)
       <div>
-        <div class="bg-card-4 text-center p-4 pb-5 rounded mx-2 position-relative">
-          <img src="{{ asset('assets/images/assets/Dashboard/Group929.png') }}" class="img-fluid card-img-top" alt="">
-          <h4 style="font-size: 40px;">{{$stakingpool->name}}</h4>
+        <div class="bg-card-4 text-center p-4 pb-3 rounded mx-2 position-relative">
+          <img class="stake-logo" src="https://defixfinance.com/wp-content/uploads/2021/10/greek-icon-06.png" class="img-fluid card-img-top">
+          <h4>{{$stakingpool->name}}</h4>
           {{-- <p class="font-12">{!! \Illuminate\Support\Str::limit($stakingpool->description,50) !!}</p> --}}
           <hr/>
           <p class="text-blue font-12">{{__('custom.expected_anual_rate')}}</p>
           <h3 class="text-blue font-weight-bold">{{$stakingpool->stacking_display_start}}% - {{$stakingpool->stacking_display_end}}%</h3>
+            <img class="stake-tokens-logo" src="http://defixfinance.com/wp-content/uploads/2021/10/3-crypto6.png"/>
           @if($stakingpool->investedAmount > 0)
           <div class="d-flex justify-content-around mt-2">
             <p class="text-dark font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
@@ -184,16 +195,24 @@
 </div>
 <div class="row mt-5">
   <div class="col-12">
-    <p class="text-white" style="font-weight: 700 !important;font-size: 1.187rem;">{{__('custom.last_nfts')}}</p>
+    <p class="text-white mb-3" style="font-weight: 700 !important;font-size: 1.187rem;">Latest non-fungible token (NFT)</p>
   </div>
-  @foreach($nft_cats as $category)
-  <div class="col-12 col-md-6 col-lg-4">
-    <div class="bg-bullkong rounded d-flex align-items-end px-4 py-3 text-white" style="background-image:url({{$category->image}})">
-      <h3>{{$category->name}}</h3>
+    <div class="col-12 col-md-6 col-lg-4">
+    <div class="bg-bullkong rounded d-flex align-items-end px-4 py-3 text-white" style="background-image:url(https://app.defixfinance.com/uploads/nft-category/1636783527_nft_category.jpg)">
+      <h3>The Legends</h3>
     </div>
   </div>
-  @endforeach
-  <!-- <div class="col-12 col-md-6 col-lg-4 mt-4 mt-md-0">
+    <div class="col-12 col-md-6 col-lg-4">
+    <div class="bg-bullkong rounded d-flex align-items-end px-4 py-3 text-white" style="background-image:url(https://app.defixfinance.com/public/assets/images/assets/nft/car-2.gif)">
+      <h3>Cyber Autos</h3>
+    </div>
+  </div>
+    <div class="col-12 col-md-6 col-lg-4">
+    <div class="bg-bullkong rounded d-flex align-items-end px-4 py-3 text-white" style="background-image:url(https://app.defixfinance.com/public/assets/images/assets/nft/Number-8.gif)">
+      <h3>Lucky Numbers</h3>
+    </div>
+  </div>
+    <!-- <div class="col-12 col-md-6 col-lg-4 mt-4 mt-md-0">
     <div class="bg-newface rounded d-flex align-items-end px-4 py-3 text-white">
       <h3>NEW FACE #087</h3>
     </div>
@@ -240,14 +259,14 @@
             </select>
           </div>
           <div class="col-12 text-center mt-3">
-             <div class="" id="commissionpiechart" class="img-fluid rounded-right w-100" alt="" style="height: 336px;"></div>
+             <div id="commissionpiechart" class="img-fluid rounded-right w-100" alt="" style="height: 336px;">{{trans('custom.no_data_found')}}</div>
             <!-- <img src="{{ asset('assets/images/assets/Dashboard/Group1056.png') }}" class="img-fluid" alt="logo"/> -->
           </div>
         </div>
         <div class="row mt-4">
           <div class="col-12 col-md-4 text-center mt-3">
             <p class="d-flex align-items-center justify-content-center mb-0 text-grey"><span class="count bg-pink d-block mr-2"></span>{{__('custom.apr_monthly')}}</p>
-            <h4 class="text-black font-weight-bold mt-2">${{($user->userwallet) ? number_format($user->userwallet->roi,2) : '' }}</h4>
+            <h4 class="text-black font-weight-bold mt-2">${{ ($user->userwallet) ? number_format($user->userwallet->roi,2) : '' }}</h4>
           </div>
           <div class="col-12 col-md-4 text-center mt-3">
             <p class="d-flex align-items-center justify-content-center mb-0 text-grey"><span class="count bg-violate d-block mr-2"></span>{{__('custom.direct_refferal')}}</p>
@@ -262,7 +281,7 @@
     </div>
   </div>
 </div>
-<div class="row">
+<div class="row dashboard-news">
   <div class="col-12">
     <div class="card">
       <div class="card-body">
@@ -275,11 +294,14 @@
           @if($key  == 0)
           <div class="col-12 col-xl-7">
             <div class="bg-news p-4 d-flex flex-column justify-content-end" style="background-image: url({{$value->image}});">
-              <h5 class="text-white">{{__('custom.news')}}</h5>
-              <h3 class="text-white"><a class="text-white text-decoration-none"
-                 href="{{ route('news-and-events.show', $value->id) }}">{!! \Illuminate\Support\Str::limit($value->title,50) !!}</a></h3>
-              <p class="text-white font-12">{!! \Illuminate\Support\Str::limit($value->details,100) !!}</p>
+              
             </div>
+              <div class="pt-3">
+              <h5>{{__('custom.news')}}</h5>
+              <h3><a class="text-decoration-none"
+                 href="{{ route('news-and-events.show', $value->id) }}">{!! \Illuminate\Support\Str::limit($value->title,50) !!}</a></h3>
+              <p class="font-12">{!! \Illuminate\Support\Str::limit($value->details,100) !!}</p>
+                  </div>
           </div>
           @else
           @if($key == 1)
@@ -469,6 +491,7 @@
     }
 
   });
+  @if($user->userwallet->roi != 0 || $user->userwallet->referral_commission != 0 || $user->userwallet->pairing_commission != 0)
   Highcharts.chart('commissionpiechart', {
     exporting:false,
     chart: {
@@ -517,6 +540,6 @@
       ]
     }]
   });
-  
+  @endif
 </script>
 @endsection

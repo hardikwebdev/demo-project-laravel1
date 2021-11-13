@@ -3,7 +3,13 @@
 @section('page_title', __('custom.help_support'))
 @section('content')
 <div class="content-wrapper">
-	<div class="row mt-5 pt-5">
+    <div class="ml-2 mb-4 d-none-desk d-md-block">
+      <h2 class="text-warning font-weight-bold">@yield('page_title','Dashboard')</h2>
+      @if(Route::currentRouteName() == 'dashboard')
+      <p class="text-white">{{str_replace('#name',auth()->user()->name,__('custom.wc_text'))}}</p>
+      @endif
+    </div>
+	<div class="row mt-3">
 		<div class="col-12">
 			@if(Session::has('success'))
 		    <div class="alert alert-success alert-dismissable">

@@ -1,0 +1,168 @@
+.navigation-cus select {
+    background-color: transparent;
+}
+nav#sidebar.sidebar-offcanvas {
+    margin-top: 0px;
+}
+body {
+    background-color: #16181d;
+}
+.stacking-slider .slick-list {
+    padding-top: 1.5rem;
+}
+.container-fluid.page-body-wrapper {
+    padding-top: 0px;
+}
+.login-logo img {
+    width: 450px;
+}
+.slick-list h4 {
+    text-transform: uppercase;
+    font-size: 25px !important;
+    font-weight: 600;
+}
+.stacking-slider .slick-slide a.btn {
+    font-size: 15px;
+}
+.login-box .navigation-cus {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+img.stake-tokens-logo {
+    margin: 0 auto;
+    margin-top: -17px;
+    margin-bottom: -10px;
+}
+.slick-list img.stake-logo {
+    /* position: absolute; */
+    top: 0;
+    width: 120px;
+    margin: 0 auto;
+    margin-top: -60px;
+    margin-bottom: 14px;
+}
+
+a.navbar-brand.brand-logo.p-4 {
+    padding-right: 0px !important;
+}
+.staking-main a.btn {
+    font-size: 15px;
+}
+.staking-main h4 {
+    text-transform: uppercase;
+}
+.main-panel .content-wrapper {
+    padding-top:0px
+}
+.dashboard-news .d-flex.align-items-center.mt-3:last-child {
+    display: none !important;
+}
+.login-box select.form-control.cus-bg-tra-b {
+    background-color: transparent;
+}
+h1,h2,h3,h4,h5,h6, a {
+    font-family:'EUROSTIB' !important
+}
+.login-box input, .login-box input::placeholder, .login-box select, .login-box select option {
+    background-color: transparent !important;
+    color: #fff !important;
+    border-color: #fff;
+    border-radius: 5px !important;
+}
+.wizard > .content > .body input.error {
+    background: transparent;
+    border: 1px solid #e80008;
+}
+span.invalid-feedback {
+    color: #fff !important;
+    text-align: center;
+}
+.bg-login-img .alert-success {
+    color: #fff;
+    background-color: rgba(87, 182, 87, 1);
+    border-color: #50a750;
+    font-size: 15px;
+    z-index:999
+}
+.countryf.col-12.col-md-4 {
+    padding-right:16px
+}
+.customer-register.wizard li a {
+    text-transform: uppercase;
+    border: 0px !important;
+}
+.customer-register.wizard > .steps .disabled a {
+    background-color: rgba(255,255,255,0.4) !important;
+}
+@media only screen and (min-width: 600px) {
+.steps ul li.first a { border-radius: 5px 0px 0px 5px !important; }
+.steps ul li.last a { border-radius: 0px 5px 5px 0px !important; }
+.wizard > .steps > ul > li { 
+    width:33% !important
+}
+    .register-inner .col-12.text-right.leftright {
+margin-top:-30px    
+}
+    .d-none-desk {
+        display:none !important
+    }
+}
+@media only screen and (max-width: 600px) {
+    .col-12.text-center.login-logo {
+        margin-top:40px
+    }
+    .navbar .navbar-brand-wrapper .brand-logo-mini img {
+    width: 174%;
+    max-width: none;
+    margin: auto;
+    height: auto;
+    padding-left: 18px;
+    z-index: 99999;
+}
+    .navbar .navbar-brand-wrapper, .navbar .navbar-menu-wrapper {
+    height: 100px !important;
+}
+    .text-center.navbar-brand-wrapper.d-flex.align-items-center.justify-content-center {
+        z-index:999
+}
+}
+.bankc.col-12 {
+padding-right: 16px;
+    padding-bottom: 1px;
+}
+.sigbox .card {
+    background-color:transparent !important
+}
+.registerbox a.btn {
+    font-size: 15px;
+    border-radius:5px !important
+}
+.registerbox label, .wizard > .content > .body label.error {
+    margin-top: 5px;
+    color:#fff !important;
+    font-size:14px
+}
+.leftright .cus-radio [type=radio]:checked + span {
+    opacity: 1;
+    background: #ffc100;
+    border-color: #ffc100;
+}
+
+.leftright .cus-radio span.text-uppercase {
+    padding: 10px 15px;
+    font-size: 15px;
+    border-radius: 5px;
+    background: transparent;
+    border: 1px solid;
+    opacity: 0.5;
+}
+.login-box input:focus, .login-box select:focus, .wizard > .content > .body input.error {
+    background-color: rgba(0,0,0,0.6) !important;
+}
+.ticks label.m-checkbox a {
+    font-size: 17px;
+    margin-left: 5px;
+}
+
+

@@ -3,7 +3,13 @@
 @section('page_title', __('custom.commission_wallet'))
 @section('content')
 <div class="content-wrapper">
-	<div class="row mt-5 pt-5">
+    <div class="ml-2 mb-4 d-none-desk d-md-block">
+      <h2 class="text-warning font-weight-bold">@yield('page_title','Dashboard')</h2>
+      @if(Route::currentRouteName() == 'dashboard')
+      <p class="text-white">{{str_replace('#name',auth()->user()->name,__('custom.wc_text'))}}</p>
+      @endif
+    </div>
+	<div class="row mt-3">
 		<div class="col-12">
 			<div class="yield-gradient rounded text-white py-4 px-5">
 				<h2 class="mb-0 font-weight-bold">${{ number_format($userWallet->commission_wallet, 2) }}</h2>

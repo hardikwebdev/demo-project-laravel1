@@ -25,7 +25,7 @@ return [
     'sign_up' => 'Sign Up',
     'sign_up_desc' => 'Enter the following to create your account',
     'address' => 'Address',
-    'sponsor_name_placeholder' => 'Sponsor Name',
+    'sponsor_name_placeholder' => 'Introducer Name',
     
     //Comman label
     'wallets' => 'Wallets',
@@ -114,11 +114,11 @@ return [
     /*Registration*/
     'enter_details_account' => 'Enter your details to create your account',
     'sign_up' => 'Sign up',
-    'verify_sponsor_username' => 'Verify Sponsor Name',
+    'verify_sponsor_username' => 'Verify Introducer Name',
     'sponsor_username' => 'Sponsor Username',
-    'enter_sponsor_username' => 'Enter Sponsor Username',
-    'sponsor_user_not_found_not__valid_sponsor' => 'The sponsor user is not found or not a valid sponsor. Please enter another sponsor username.',
-    'sponsor_username_verified' => 'The sponsor username is verified.',
+    'enter_sponsor_username' => 'Enter Introducer Username',
+    'sponsor_user_not_found_not__valid_sponsor' => 'The introducer user is not found or not a valid sponsor. Please enter another sponsor username.',
+    'sponsor_username_verified' => 'The introducer username is verified.',
     'upline_username_verified' => 'The upline or downline username is verified.',
     'personal_detail' => 'Personal Detail',
     'enter_your_personal_detail' => 'Enter your personal details',
