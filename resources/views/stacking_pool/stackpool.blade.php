@@ -3,7 +3,7 @@
  @section('page_title', __('custom.staking_pool'))
 
  @section('content')
- <div class="content-wrapper">
+ <div class="content-wrapper staking-pool-indi">
   <div class="row align-items-center mt-5 pt-5">
     <div class="col-12 col-xl-5">
       <div class="card">
@@ -18,7 +18,7 @@
             <!-- <div class="col-12 mt-2">
               <p class="font-12">{{$stakingpool->description}}</p>
             </div> -->
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-12">
               <p class="border-violate my-3"></p>
             </div>
             <div class="col-12 col-md-7">

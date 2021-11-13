@@ -75,7 +75,7 @@
               <div class="form-group row fund-usdt">
                  <div class="col-lg-8 form-group-sub row nopadding ">
                   @if($usdtaddress->image != '')
-                  <div class="col-lg-8">
+                  <div style="text-align:center" class="col-lg-3">
                       <img src="{{$usdtaddress->image}}" class="center"  id="qr_image">
                   </div>
                   @else
@@ -83,10 +83,11 @@
                       {!! QrCode::size(140)->generate($qrcode); !!}
                   </div>
                   @endif
-                  <div class="col-lg-8 row nopadding">
-                      <label class="mb-2 bmd-label-static nopadding">@lang('custom.type_of_payment_address')
-                          :<span class="text-red">*</span></label>
+                  <div class="col-lg-9 row nopadding">
+                      
                           <div class="col-lg-8 form-group-sub select-bank-hide nopadding ">
+                              <label class="mb-2 bmd-label-static nopadding">@lang('custom.type_of_payment_address')
+                          :<span class="text-red">*</span></label>
                               <div class="form-group ">
                                   <div class="from-inner-space">
                                       <select name="usdt_address" class="form-control" id="usdt_address">

@@ -3,9 +3,9 @@
 {{-- @section('page_title', __('custom.news-events')) --}}
 @section('page_title', __($news->title))
 @section('content')
-    <div class="content-wrapper mt-5">
-        <div class="row justify-content-center mt-3">
-            <div class="col-12 mt-4">
+    <div class="content-wrapper news-indi">
+        <div class="row justify-content-center">
+            <div class="col-12">
                 <div class="tab-content border-0">
                     <div id="home" class="tab-pane active">
                         <div class="card">

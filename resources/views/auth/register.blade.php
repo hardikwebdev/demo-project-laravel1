@@ -391,7 +391,7 @@ $local_url = url('locale');
    <div class="col-md-12 user-agrrement-errro">
       <label class="m-checkbox">
          <input class="chk_agreements " type="checkbox" id="antimoney_laundering" name="terms_condition[]" value="antimoney_laundering" >
-         <a href="{{asset('terms/antimoney_laundering.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.antimoney-laundering') }}</a>
+         <a href="{{asset('terms/DefiXFinance-Anti-Money-Laundering.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.antimoney-laundering') }}</a>
          <span></span><br>
          <label id="terms_condition[]-error" class="error" for="terms_condition[]"></label>
      </label>
@@ -399,28 +399,28 @@ $local_url = url('locale');
  <div class="col-md-12">
   <label class="m-checkbox">
      <input class="chk_agreements " type="checkbox" name="terms_condition[]" value="coockie_policy" id="coockie_policy" >
-     <a href="{{asset('terms/coockie_policy.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.coockie-policy') }}</a>
+     <a href="{{asset('DefiXFinance-Cookie-Policy.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.coockie-policy') }}</a>
      <span></span>
  </label>
 </div>                             
 <div class="col-md-12 ">
   <label class="m-checkbox">
      <input class="chk_agreements " type="checkbox" id="privacy_policy" name="terms_condition[]" value="privacy_policy" >
-     <a href="{{asset('terms/privacy_policy.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.privacy_policy_label') }}</a>
+     <a href="{{asset('terms/DefiXFinance-Privacy-Policy.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.privacy_policy_label') }}</a>
      <span></span>
  </label>
 </div>
 <div class="col-md-12">
   <label class="m-checkbox">
      <input class="chk_agreements " type="checkbox" id="risk_disclosure" name="terms_condition[]" value="risk_disclosure" >
-     <a href="{{asset('terms/risk_disclosure.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.risk_disclosure_statement') }}</a>
+     <a href="{{asset('terms/DefiXFinance-Risk-Disclosure.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.risk_disclosure_statement') }}</a>
      <span></span>
  </label>
 </div>
 <div class="col-md-12">
   <label class="m-checkbox">
      <input class="chk_agreements " type="checkbox" id="terms_and_condition" name="terms_condition[]" value="terms_and_condition" >
-     <a href="{{asset('terms/terms_and_condition.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.terms_and_condition') }}</a>
+     <a href="{{asset('terms/DefiXFinance-Terms-of-Use.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.terms_and_condition') }}</a>
      <span></span>
  </label>
 </div>

@@ -14,7 +14,7 @@
             width: 100% !important;
             margin: 0;
             padding: 0;
-            font-family: poppins;
+            font-family: Helvetica;
             }
             .ReadMsgBody {
             width: 100%;
@@ -100,7 +100,7 @@
             }
             @media only screen and (min-width: 576px) {
             .pt-md-40{
-            padding-top: 40px;
+            padding-top: 0px;
             }
             }
         </style>
@@ -157,12 +157,12 @@
                                                     <td>
                                                         <table align="center" cellpadding="0" cellspacing="0" border="0" width="500">
                                                             <tr>
-                                                                <td class="size-20" align="center" style="font-weight:600; font-size:28px; color:black; font-family:poppins; mso-line-height-rule: exactly; text-align:center; line-height:42px;">Welcome {{ $user->name }} to DefiXFinance
+                                                                <td class="size-20" align="center" style="font-weight:600; font-size:28px; color:black; font-family:Helvetica; mso-line-height-rule: exactly; text-align:center; line-height:42px;">Welcome {{ $user->name }} to DefiXFinance
                                                                     <br> Digital Finance Revolution
                                                                 </td>
                                                             </tr>
                                                             <tr>
-                                                                <td class="pad-B20" align="center" style="font-weight:400; font-size:14px; color:#5c5c5c; font-family:poppins; mso-line-height-rule: exactly; line-height:26px; padding:10px 0px 40px;"> Welcome {{ $user->name }} to DefiXFinance, the world’s leading blockchain,
+                                                                <td class="pad-B20" align="center" style="font-weight:400; font-size:14px; color:#5c5c5c; font-family:Helvetica; mso-line-height-rule: exactly; line-height:26px; padding:10px 0px 40px;"> Welcome {{ $user->name }} to DefiXFinance, the world’s leading blockchain,
                                                                     Defi and NFT investment platform. We are honored and heartily
                                                                     welcome you to join our community of crypto enthusiasts and investors as we create, disrupt and innovate the cryptocurrency market.
                                                                     You can find your registered details below.
@@ -185,18 +185,24 @@
                                                     <td>
                                                         <table align="center" cellpadding="0" cellspacing="0" border="0" width="490">
                                                             <tr>
-                                                                <td class="size-20" align="center" style="font-weight:400; font-size:24px; color:black; font-family:poppins; mso-line-height-rule: exactly; text-align:center; line-height:36px; font-weight:bold;">Your Details</td>
+                                                                <td class="size-20" align="center" style="font-weight:400; font-size:24px; color:black; font-family:Helvetica; mso-line-height-rule: exactly; text-align:center; line-height:36px; font-weight:bold;">Your Details</td>
                                                             </tr>
                                                             <tr>
                                                                 <td class="pad-B20" align="center" style="padding-bottom:40px;">
                                                                     <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top: 40px;">
                                                                         <tr>
-                                                                            <td class="key-list" align="left" style="font-size:18px; font-weight:400; color:#5c5c5c; font-family:poppins; line-height:30px;"><span style="color:black; font-weight:bold;">Name:</span> {{ $user->name}} </td>
-                                                                            <td class="key-list" align="left" style="font-size:18px; font-weight:400; color:#5c5c5c; font-family:poppins; line-height:30px;"><span style="color:black; font-weight:bold;">Email:</span> {{ $user->email}} </td>
+                                                                            <td class="key-list" align="left" style="font-size:18px; font-weight:400; color:#5c5c5c; font-family:Helvetica; line-height:30px;"><span style="color:black; font-weight:bold;">Name:</span> {{ $user->name}} </td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td class="key-list pt-md-40" align="left" style="font-size:18px; font-weight:400; color:#5c5c5c; font-family:poppins; line-height:30px;"><span style="color:black; font-weight:bold;">Username:</span> {{ $user->username}}</td>
-                                                                            <td class="key-list pt-md-40" align="left" style="font-size:18px; font-weight:400; color:#5c5c5c; font-family:poppins; line-height:30px;"><span style="color:black; font-weight:bold;">Country:</span> {{ $user->country->country_name}}
+                                                                            <td class="key-list" align="left" style="font-size:18px; font-weight:400; color:#5c5c5c; font-family:Helvetica; line-height:30px;"><span style="color:black; font-weight:bold;">Email:</span> {{ $user->email}} </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="key-list pt-md-40" align="left" style="font-size:18px; font-weight:400; color:#5c5c5c; font-family:Helvetica; line-height:30px;"><span style="color:black; font-weight:bold;">Username:</span> {{ $user->username}}</td>
+                                                                            
+                                                                        </tr>
+                                                                        <tr>
+                                                                            
+                                                                            <td class="key-list pt-md-40" align="left" style="font-size:18px; font-weight:400; color:#5c5c5c; font-family:Helvetica; line-height:30px;"><span style="color:black; font-weight:bold;">Country:</span> {{ $user->country->country_name}}
                                                                             </td>
                                                                         </tr>
                                                                     </table>
@@ -204,17 +210,17 @@
                                                             </tr>
                                                             <tr>
                                                                 <td align="center" valign="top" style="padding-bottom:50px;" class="pad-B20">
-                                                                    <a title="See All Features" href="{{ $routeUrl}}" style="background-color:#ffc424; border:solid 1px #ffc424; border-radius:2px;color:#ffffff;display:inline-block;font-family:Poppins; font-weight:400; font-size:14px; line-height:56px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;mso-hide:all;outline:none;">LOGIN NOW <img src="{{ asset('images/email/arrow.png')}}" alt="" style="vertical-align: middle; padding-left: 10px; width: 25px;"></a>
+                                                                    <a title="See All Features" href="{{ $routeUrl}}" style="background-color:#ffc424; border:solid 1px #ffc424; border-radius:2px;color:#ffffff;display:inline-block;font-family:Helvetica; font-weight:400; font-size:14px; line-height:56px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;mso-hide:all;outline:none;">LOGIN NOW <img src="{{ asset('images/email/arrow.png')}}" alt="" style="vertical-align: middle; padding-left: 10px; width: 25px;"></a>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td class="pad-B20" align="center">
                                                                     <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top: 40px;">
                                                                         <tr>
-                                                                            <td class="key-list" align="left" style="font-size:18px; font-weight:400; color:#5c5c5c; font-family:poppins; line-height:30px;">Sincerely, </td>
+                                                                            <td class="key-list" align="left" style="font-size:18px; font-weight:400; color:#5c5c5c; font-family:Helvetica; line-height:30px;">Sincerely, </td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td class="key-list" align="left" style="font-size:18px; font-weight:400; color:#5c5c5c; font-family:poppins; line-height:30px;">DefiXFinance Team</td>
+                                                                            <td class="key-list" align="left" style="font-size:18px; font-weight:400; color:#5c5c5c; font-family:Helvetica; line-height:30px;">DefiXFinance Team</td>
                                                                         </tr>
                                                                     </table>
                                                                 </td>
@@ -235,7 +241,7 @@
                                                 <tr>
                                                     <td align="left" valign="top">
                                                         <table cellpadding="0" cellspacing="0" border="0" align="left" class="wd-auto">
-                                                            <td style="font-family:poppins;font-size:9px;color:#bcbcbc"><strong>General Advice:</strong> All information in this website is of general advise only. We strongly advise that you consider the advise in regards to your financial objectives, situation and needs.
+                                                            <td style="font-family:Helvetica;font-size:9px;color:#bcbcbc"><strong>General Advice:</strong> All information in this website is of general advise only. We strongly advise that you consider the advise in regards to your financial objectives, situation and needs.
                                                                 Defix Group Limited makes no guarantee of its accuracy and completeness and is not responsible for errors of transmission of factual or analytical data. The opinions in this website
                                                                 constitute the present judgment of the issuer, which is subject to change without notice.
                                                                 <br>

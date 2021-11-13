@@ -24,10 +24,34 @@ body {
 .stacking-slider .slick-slide a.btn {
     font-size: 15px;
 }
+.dashboard-news img.img-fluid {
+    border-radius: 5px;
+}
 .login-box .navigation-cus {
     position: absolute;
     right: 15px;
     top: 15px;
+}
+.news-indi #newsimg {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+img#qr_image {
+    width: 100%;
+}
+.dashboard-slider .slick-slide img {
+    border-radius: 5px;
+}
+.staking-pool-indi .alpha-symbol {
+    width: 85px;
+    height: 85px;
+    background: white;
+    margin-top: -55px;
+    font-size: 85px;}
+}
+.dashboard-news .bg-news {
+    border-radius: 5px !important;
 }
 img.stake-tokens-logo {
     margin: 0 auto;
