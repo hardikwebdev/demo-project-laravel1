@@ -1,5 +1,6 @@
 @extends('layouts.app')
-
+@section('title', __('custom.nft_marketplace'))
+@section('page_title', __('custom.nft_marketplace'))
 @section('content')
  <div class="content-wrapper">
           <div class="row mt-5 pt-5">

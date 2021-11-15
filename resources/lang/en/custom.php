@@ -1890,5 +1890,6 @@ return [
     'agreement_title' => 'Deposit Agreement #title',
     'accept_terms' => 'I have read and agree to the terms of service.',
     'last_month' => 'Last Month',
+    'nft_marketplace' => 'NFT Marketplace',
 
 ];

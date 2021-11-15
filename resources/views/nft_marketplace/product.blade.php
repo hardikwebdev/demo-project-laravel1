@@ -108,15 +108,17 @@
 		</div>
 		<div class="col-12">
 			<div class="bull-kong-slider">
+				@foreach($othrt_products as $value)
 				<div>
 					<div class="bg-white p-3 rounded mx-2">
-						<img src="{{ asset('assets/images/assets/NFT_Marketplace/Group1044.png') }}" class="img-fluid mx-auto" alt="">
+						<img src="{{ asset('uploads/nft-product/'.$value->image) }}" class="img-fluid mx-auto" alt="">
 						<div class="mt-3">
-							<h4 class="text-blue font-weight-bold">BULL KONG #7097</h4>
+							<h4 class="text-blue font-weight-bold">{{ $value->name }} #{{ $value->id }}</h4>
 						</div>
 					</div>
 				</div>
-				<div>
+				@endforeach
+				{{-- <div>
 					<div class="bg-white p-3 rounded mx-2">
 						<img src="{{ asset('assets/images/assets/NFT_Marketplace/Group1045.png') }}" class="img-fluid mx-auto" alt="">
 						<div class="mt-3">
@@ -139,7 +141,7 @@
 							<h4 class="text-blue font-weight-bold">BULL KONG #7097</h4>
 						</div>
 					</div>
-				</div>
+				</div> --}}
 			</div>
 		</div>
 	</div>

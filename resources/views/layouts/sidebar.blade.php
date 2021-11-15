@@ -83,9 +83,9 @@
           <li class="nav-item"> 
             <a class="nav-link pl-0" href="{{ route('account') }}">{{trans('custom.my-account')}}</a>
           </li>
-          <!-- <li class="nav-item"> 
+          <li class="nav-item"> 
             <a class="nav-link pl-0" href="{{ route('my_collection') }}">My Collection</a>
-          </li> -->
+          </li>
         </ul>
       </div>
     </li>
