@@ -78,7 +78,9 @@ $local_url = url('locale');
                         <hr class="w-100 border border-white my-3" />
                     </div>
                     <div class="col-12 text-center mt-3">
-                        <h4 class="text-light-pink">{{ __('custom.not_amember') }}<a href="{{ route('register') }}"
+                        <h4 class="text-light-pink">
+                            <a href="https://app.defixfinance.com" class="text-white ml-2">Login</a>&nbsp;&nbsp; | 
+                            <a href="{{ route('register') }}"
                                 class="text-white ml-2">{{ __('custom.sign_up') }}</a></h4>
                     </div>
                 </div>

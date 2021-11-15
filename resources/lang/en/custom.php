@@ -1676,7 +1676,7 @@ return [
         /* Withdrawal Wallet Terms & Conditions*/
         'withdrawal_wallet_terms_and_conditions1' => '<ul class="text-grey">
        <li>You can transfer funds from your commission and yield wallet to this wallet.</li>
-       <li>The conversion rate of USD to USDT is 0:0.95.</li>
+       <li>The conversion rate of USD to USDT is 1:0.95.</li>
        <li>The conversion rate of USD to your local currency is dependent on the market rate. Please message the support team to inquire about the latest conversion rate.</li>
      </ul>',
 

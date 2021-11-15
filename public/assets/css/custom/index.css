@@ -512,8 +512,8 @@ label.error{
 }
 
 .wizard > .actions .disabled a, .wizard > .actions .disabled a:hover, .wizard > .actions .disabled a:active {
-     background: transparent !important; 
-    /* color: #aaa; */
+ background: transparent !important; 
+ /* color: #aaa; */
 }
 
 .cus-success-sponsor.sucess, .cus-success-placement.sucess{
@@ -553,11 +553,28 @@ span.page-link, a.page-link {
 .alpha-bottom-img{
     width: 130px;
 }
-  @media screen and (min-width: 1300px) {
+@media screen and (min-width: 1300px) {
     .w-xl-20{
         max-width: 20% !important;
     }
-  }
+}
+.centButton {
+    justify-content: center;
+    /*display: flex;*/
+}
+.centButton > .cpybtn {
+    margin: 0px !important;
+    border-radius: 0px !important;
+}
+@media screen and (min-width: 992px) {
+
+    .nopadding {
+        padding: 0 !important;
+    }
+    .nopadding > .form-group {
+        margin-bottom: 0 !important;
+    }
+}
 /*.card-1-btn {
     left: 10%;
 }

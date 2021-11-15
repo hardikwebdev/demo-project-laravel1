@@ -21,7 +21,8 @@
           <p class="border-top border-blue mt-3 mx-auto"></p>
           <p class="text-secondary font-12">{{__('custom.expected_anual_rate')}}</p>
           <h3 class="text-blue font-weight-bold">{{$stackingpool->stacking_display_start}}% - {{$stackingpool->stacking_display_end}}%</h3>
-          <img src="{{$stackingpool->icon}}" class="img-fluid alpha-bottom-img mt-4" alt="">
+          <div><img class="stake-logo" src="{{$stackingpool->image}}" class="img-fluid alpha-bottom-img mt-4" alt="">
+            </div>
          @if($stackingpool->investedAmount > 0)
         <div class="d-flex justify-content-around mt-2">
           <p class="text-dark font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
@@ -61,7 +62,8 @@
           <p class="border-top border-white mt-3 mx-auto"></p>
           <p class="text-white font-12">{{__('custom.expected_anual_rate')}}</p>
           <h3 class="text-blue font-weight-bold">{{$stackingpool->stacking_display_start}}% - {{$stackingpool->stacking_display_end}}%</h3>
-          <img src="{{$stackingpool->icon}}" class="img-fluid alpha-bottom-img mt-4" alt="">
+          <div><img class="stake-logo" src="{{$stackingpool->image}}" class="img-fluid alpha-bottom-img mt-4" alt="">
+            </div>
            @if($stackingpool->investedAmount > 0)
         <div class="d-flex justify-content-around mt-2">
           <p class="text-white font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
@@ -100,7 +102,8 @@
                 <p class="border-top border-white mt-3 mx-auto"></p>
                 <p class="text-white font-12">{{__('custom.expected_anual_rate')}}</p>
                 <h3 class="text-white font-weight-bold">{{$stackingpool->stacking_display_start}}% - {{$stackingpool->stacking_display_end}}%</h3>
-                <img src="{{$stackingpool->icon}}" class="img-fluid alpha-bottom-img mt-4" alt="">
+                <div><img class="stake-logo" src="{{$stackingpool->image}}" class="img-fluid alpha-bottom-img mt-4" alt="">
+            </div>
                 @if($stackingpool->investedAmount > 0)
         <div class="d-flex justify-content-around mt-2">
           <p class="text-white font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
@@ -139,7 +142,8 @@
                 <p class="border-top border-white mt-3 mx-auto"></p>
                 <p class="text-white font-12">{{__('custom.expected_anual_rate')}}</p>
                 <h3 class="text-white font-weight-bold">{{$stackingpool->stacking_display_start}}% - {{$stackingpool->stacking_display_end}}%</h3>
-                <img src="{{$stackingpool->icon}}" class="img-fluid alpha-bottom-img mt-4" alt="">
+                <div><img class="stake-logo" src="{{$stackingpool->image}}" class="img-fluid alpha-bottom-img mt-4" alt="">
+            </div>
                   @if($stackingpool->investedAmount > 0)
         <div class="d-flex justify-content-around mt-2">
           <p class="text-white font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>

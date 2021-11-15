@@ -1,6 +1,14 @@
 .navigation-cus select {
     background-color: transparent;
 }
+p.dix.pt-3.text-white {
+    font-size: smaller;
+}
+div#myDiagramDiv {
+background-image: url(https://app.defixfinance.com/public/assets/images/assets/nodebg.jpg) !important;
+    background-size: cover;
+    border-radius:5px
+}
 nav#sidebar.sidebar-offcanvas {
     margin-top: 0px;
 }
@@ -12,6 +20,9 @@ body {
 }
 .container-fluid.page-body-wrapper {
     padding-top: 0px;
+}
+button.btn {
+    border-radius: 5px !important;
 }
 .login-logo img {
     width: 450px;
@@ -26,6 +37,9 @@ body {
 }
 .dashboard-news img.img-fluid {
     border-radius: 5px;
+}
+.staking-main .alpha-top-img {
+    width: 100px;
 }
 .login-box .navigation-cus {
     position: absolute;
@@ -42,13 +56,15 @@ img#qr_image {
 }
 .dashboard-slider .slick-slide img {
     border-radius: 5px;
+    min-height: auto;
 }
 .staking-pool-indi .alpha-symbol {
     width: 85px;
     height: 85px;
     background: white;
+    font-size: 85px;
+    margin: 0 auto;
     margin-top: -55px;
-    font-size: 85px;}
 }
 .dashboard-news .bg-news {
     border-radius: 5px !important;
@@ -61,10 +77,14 @@ img.stake-tokens-logo {
 .slick-list img.stake-logo {
     /* position: absolute; */
     top: 0;
-    width: 120px;
+    width: 100px;
     margin: 0 auto;
     margin-top: -60px;
     margin-bottom: 14px;
+}
+.staking-main img.stake-logo {
+    margin-top: -20px;
+    margin-bottom: -15px;
 }
 
 a.navbar-brand.brand-logo.p-4 {
@@ -75,8 +95,9 @@ a.navbar-brand.brand-logo.p-4 {
 }
 .staking-main h4 {
     text-transform: uppercase;
-}
-.main-panel .content-wrapper {
+    font-size: 25px;
+    margin-top: 10px;
+}.main-panel .content-wrapper {
     padding-top:0px
 }
 .dashboard-news .d-flex.align-items-center.mt-3:last-child {
@@ -102,6 +123,10 @@ span.invalid-feedback {
     color: #fff !important;
     text-align: center;
 }
+.staking-pool-indi img.stake-logo {
+    width: 100%;
+    margin-top: -13px;
+}
 .bg-login-img .alert-success {
     color: #fff;
     background-color: rgba(87, 182, 87, 1);
@@ -123,7 +148,8 @@ span.invalid-feedback {
 .steps ul li.first a { border-radius: 5px 0px 0px 5px !important; }
 .steps ul li.last a { border-radius: 0px 5px 5px 0px !important; }
 .wizard > .steps > ul > li { 
-    width:33% !important
+    width:33% !important;
+        margin:0px !important
 }
     .register-inner .col-12.text-right.leftright {
 margin-top:-30px    
@@ -131,10 +157,22 @@ margin-top:-30px
     .d-none-desk {
         display:none !important
     }
+    nav.navbar .navbar-brand-wrapper {
+    height: 120px;
+}
+    nav.navbar .navbar-menu-wrapper {
+    height: 100px;
+}
 }
 @media only screen and (max-width: 600px) {
     .col-12.text-center.login-logo {
         margin-top:40px
+    }
+    .wallet-dashboard .col-12 .card {
+    background-size: 130%;
+}
+    .row.dashboard-news .bg-news {
+        min-height:120px
     }
     .navbar .navbar-brand-wrapper .brand-logo-mini img {
     width: 174%;

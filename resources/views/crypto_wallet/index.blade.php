@@ -75,20 +75,21 @@
               <div class="form-group row fund-usdt">
                  <div class="col-lg-8 form-group-sub row nopadding ">
                   @if($usdtaddress->image != '')
-                  <div style="text-align:center" class="col-lg-3">
-                      <img src="{{$usdtaddress->image}}" class="center"  id="qr_image">
+
+                  <div class="image-qr-dah col-lg-4">
+                      <img src="{{$usdtaddress->image}}" class="center"  id="qr_image" style="width: 140px;">
                   </div>
                   @else
                   <div class="image-qr-dah col-lg-4">
                       {!! QrCode::size(140)->generate($qrcode); !!}
                   </div>
                   @endif
-                  <div class="col-lg-9 row nopadding">
-                      
+
+                  <div class="col-lg-8 row nopadding">
                           <div class="col-lg-8 form-group-sub select-bank-hide nopadding ">
-                              <label class="mb-2 bmd-label-static nopadding">@lang('custom.type_of_payment_address')
-                          :<span class="text-red">*</span></label>
                               <div class="form-group ">
+                                <label class="mb-2 bmd-label-static nopadding">@lang('custom.type_of_payment_address')
+                                  :<span class="text-red">*</span></label>
                                   <div class="from-inner-space">
                                       <select name="usdt_address" class="form-control" id="usdt_address">
                                           @foreach($usdtaddresses as $usdtaddress)
@@ -101,7 +102,7 @@
                           <div class="col-lg-8 nopadding">
                               <input type="text" readonly value="{{$qrcode}}" class="form-control" id="copy-class-textaddress">
                           </div>
-                          <div class="col-lg-8 nopadding">
+                          <div class="col-lg-4 nopadding centButton">
                               <a href="javascript:;" class="btn btn-primary cpybtn" id="copy_address">{{trans('custom.click_to_copy')}}  <span style="display: none;" class="copy_text text-white ">{{trans('custom.copied')}}</span></a>
                           </div>
                       </div>
