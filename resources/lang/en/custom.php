@@ -1891,5 +1891,27 @@ return [
     'accept_terms' => 'I have read and agree to the terms of service.',
     'last_month' => 'Last Month',
     'nft_marketplace' => 'NFT Marketplace',
+    'nft_collection' => 'NFT Collection',
+    'collection' => 'COLLECTION',
+    'buy_now' => 'BUY NOW',
+    'trading_history' => 'Trading History',
+    'nft_marketplace_tc' => '<ul class="text-secondary mt-4">
+                <li class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                labore et dolore magna aliqua.</li>
+                <li class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                labore et dolore magna aliqua.</li>
+                <li class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                labore et dolore magna aliqua.</li>
+                <li class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                labore et dolore magna aliqua.</li>
+            </ul>',
+    'other_collection' => 'Other Collection',
+    'product_not_found' => 'Product not found',
+    'no_collection_found' => 'No Collection Found',
+    'my_collection' => 'My Collection',
+    'defixfinance_id' => 'DefiXFinance ID',
+    'total_staking_package' => 'Total Staking Package',
+    'on_sale' => 'ON SALE',
+    'sell_nft' => 'Sell NFT',
 
 ];

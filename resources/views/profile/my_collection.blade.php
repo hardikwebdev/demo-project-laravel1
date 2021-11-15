@@ -3,7 +3,7 @@
 @section('page_title', __('custom.my_collection'))
 @section('content')
 <div class="content-wrapper">
-          <div class="row mt-5 pt-5">
+          {{-- <div class="row mt-5 pt-5">
             <div class="col-12 col-xl-4 grid-margin stretch-card mb-0">
               <div class="card tale-bg overflow-hidden bg-white pb-3">
                 <div class="bg-warning p-4 pb-5">
@@ -120,22 +120,192 @@
                 </div>
               </div>
             </div>
+          </div> --}}
+          <div class="row mt-3">
+            <div class="col-12 col-xl-4 grid-margin stretch-card mb-0">
+              <div class="card tale-bg overflow-hidden bg-white pb-3">
+                <div class="bg-warning p-4 pb-5">
+                  <h4 class="text-white pb-2">{{ __('custom.my_profile')}}</h4>
+                </div>
+                <div class="px-4 cus-my-profile-img">
+                  <img src="{{asset($user->profile_image)}}" class="rounded-circle img-fluid" alt="">
+                  {{-- <a href="#profile-upload" data-toggle="modal" data-target="#profile-upload" class="font-10 d-block"><u>Edit Photo</u></a> --}}
+                </div>
+                <div class="row px-4 mt-4">
+                  <div class="col-md-6">
+                      <h4 class="text-dark font-weight-bold mb-0">{{ @$user->name}}</h4>
+                      <span class="text-secondary font-12">{{ __('custom.full_name')}}</span>
+                  </div>
+                </div>
+                <div class="row px-4 mt-4">
+                  <div class="col-md-6">
+                      <h4 class="text-secondary mb-0">{{ @$user->email}}</h4>
+                      <span class="text-secondary font-12">{{ __('custom.email')}}</span>
+                  </div>
+                  <div class="col-md-6">
+                    <h4 class="text-secondary mb-0">{{ @$user->phone_number}}</h4>
+                    <span class="text-secondary font-12">{{ __('custom.phone_number')}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-xl-8 mt-4 mt-xl-0">
+              <div class="row">
+                <div class="col-12">
+                  <div class="card">
+                    <div class="card-body pb-xl-1 pt-xl-2">
+                      <div class="row align-items-center">
+                        <div class="col-12 col-xl-4">
+                          <div class="row align-iems-center justify-content-between">
+                            <div class="col-12 col-md-6">
+                              <h4 class="text-black mb-0 font-weight-bold">{{ Helper::defixFinanceID($user->id, date("d-m-Y",strtotime($user->created_at)))}}</h4>
+                              <span class="text-secondary font-10">{{ __('custom.defixfinance_id')}}</span>
+                            </div>
+                            <div class="col-12 col-md-6">
+                              <h4 class="text-black mb-0 font-weight-bold">******{{ substr($user->phone_number, -4)}}</h4>
+                              <span class="text-secondary font-10">{{ __('custom.phone_number')}}</span>
+                            </div>
+                          </div>
+                          <div class="row align-iems-center justify-content-between mt-4">
+                            <div class="col-12 col-md-6">
+                              <h4 class="text-black mb-0 font-weight-bold">{{ date("d/m/Y",strtotime($user->created_at)) }}</h4>
+                              <span class="text-secondary font-10">{{ __('custom.date_joined')}}</span>
+                            </div>
+                            <div class="col-12 col-md-6">
+                              <h4 class="text-black mb-0 font-weight-bold">{{ $staking_pool_count}}</h4>
+                              <span class="text-secondary font-10">{{ __('custom.total_staking_package')}}</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12 col-xl-8">
+                          <div class="collection-slider">
+                            <?php $i = 1; ?>
+                            @foreach($staking_pool as $stakingpool)
+                            @if($i == 1)
+                            <div>
+                              <div class="bg-card-{{$i}} text-center p-4 pb-5 rounded mx-2">
+                                <img src="{{asset('assets/images/assets/Dashboard/Group929.png')}}" class="img-fluid card-img-top" alt="">
+                                <h4 class="text-white">{{$stakingpool->name}}</h4>
+                                <p class="text-white font-12">{!! \Illuminate\Support\Str::limit($stakingpool->description,50) !!}</p>
+                                <hr/>
+                                <p class="text-white font-12">{{__('custom.expected_anual_rate')}}</p>
+                                <h3 class="text-white font-weight-bold">{{$stakingpool->stacking_display_start}}% - {{$stakingpool->stacking_display_end}}%</h3>
+                                @if($stakingpool->investedAmount > 0)
+                                <div class="d-flex justify-content-around mt-2">
+                                  <p class="text-white font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
+                                  <button class="btn bg-blue text-white rounded-0 px-4">${{number_format($stakingpool->investedAmount,2)}}</button>
+                                </div>
+                                <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2 card-1-btn position-absolute" href="{{ route('stakepool',$stakingpool->id) }}">{{__('custom.stake')}} <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle w-25" alt=""></a>
+                                @else
+                                <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2" href="{{ route('stakepool',$stakingpool->id) }}">{{__('custom.stake')}} <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle" alt=""></a>
+                                @endif
+                              </div>
+                            </div>
+                            <div>
+                              @elseif($i == 2)
+                              <div class="bg-card-2 text-center p-4 pb-5 rounded mx-2">
+                                <img src="{{ asset('assets/images/assets/Dashboard/Group929.png') }}" class="img-fluid card-img-top" alt="">
+                                <h4 class="text-white">{{$stakingpool->name}}</h4>
+                                <p class="text-white font-12">{!! \Illuminate\Support\Str::limit($stakingpool->description,50) !!}</p>
+                                <hr/>
+                                <p class="text-white font-12">{{__('custom.expected_anual_rate')}}</p>
+                                <h3 class="text-white font-weight-bold">{{$stakingpool->stacking_display_start}}% - {{$stakingpool->stacking_display_end}}%</h3>
+                                @if($stakingpool->investedAmount > 0)
+                                <div class="d-flex justify-content-around mt-2">
+                                  <p class="text-white font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
+                                  <button class="btn bg-blue text-white rounded-0 px-4">${{number_format($stakingpool->investedAmount,2)}}</button>
+                                </div>
+                                <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2 card-2-btn position-absolute" href="{{ route('stakepool',$stakingpool->id) }}">{{__('custom.stake')}} <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle w-25" alt=""></a>
+                                @else
+                                <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2" href="{{ route('stakepool',$stakingpool->id) }}">{{__('custom.stake')}} <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle" alt=""></a>
+                                @endif
+                              </div>
+                            </div>
+                            <div>
+                              @elseif($i == 3)
+                              <div class="bg-card-3 text-center p-4 pb-5 rounded mx-2 ">
+                                <img src="{{ asset('assets/images/assets/Dashboard/Group929.png') }}" class="img-fluid card-img-top" alt="">
+                                <h4 class="text-white">{{$stakingpool->name}}</h4>
+                                <p class="font-12 text-white">{!! \Illuminate\Support\Str::limit($stakingpool->description,50) !!}</p>
+                                <hr/>
+                                <p class="text-white font-12">{{__('custom.expected_anual_rate')}}</p>
+                                <h3 class="text-white font-weight-bold">{{$stakingpool->stacking_display_start}}% - {{$stakingpool->stacking_display_end}}%</h3>
+                                
+                                @if($stakingpool->investedAmount > 0)
+                                <div class="d-flex justify-content-around mt-2">
+                                  <p class="text-white font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
+                                  <button class="btn bg-blue text-white rounded-0 px-4">${{number_format($stakingpool->investedAmount,2)}}</button>
+                                </div>
+                                <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2 card-3-btn position-absolute" href="{{ route('stakepool',$stakingpool->id) }}">{{__('custom.stake')}} <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle w-25" alt=""></a>
+                                @else
+                                <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2" href="{{ route('stakepool',$stakingpool->id) }}">{{__('custom.stake')}} <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle" alt=""></a>
+                                @endif
+                              </div>
+                            </div>
+                            @elseif($i == 4)
+                            <div>
+                              <div class="bg-card-4 text-center p-4 pb-5 rounded mx-2 position-relative">
+                                <img src="{{ asset('assets/images/assets/Dashboard/Group929.png') }}" class="img-fluid card-img-top" alt="">
+                                <h4>{{$stakingpool->name}}</h4>
+                                <p class="font-12">{!! \Illuminate\Support\Str::limit($stakingpool->description,50) !!}</p>
+                                <hr/>
+                                <p class="text-blue font-12">{{__('custom.expected_anual_rate')}}</p>
+                                <h3 class="text-blue font-weight-bold">{{$stakingpool->stacking_display_start}}% - {{$stakingpool->stacking_display_end}}%</h3>
+                                @if($stakingpool->investedAmount > 0)
+                                <div class="d-flex justify-content-around mt-2">
+                                  <p class="text-dark font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
+                                  <button class="btn bg-blue text-white rounded-0 px-4">${{number_format($stakingpool->investedAmount,2)}}</button>
+                                </div>
+                                <a class="btn bg-warning text-white px-3 rounded-0 font-10 mt-2 card-4-btn" href="{{ route('stakepool',$stakingpool->id) }}">{{__('custom.stake')}} <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-2 d-inline align-middle w-25" alt=""></a>
+                                @else
+                                <a class="btn bg-warning text-white px-3 rounded-0 font-10 mt-2" href="{{ route('stakepool',$stakingpool->id) }}">{{__('custom.stake')}} <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-2 d-inline align-middle" alt=""></a>
+
+                                @endif
+                              </div>
+                            </div>
+                            @endif
+                            <?php 
+                            $i++; 
+                            if($i == 5){
+                              $i=1;
+                            }
+                            ?>
+
+                            @endforeach
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="row mt-5">
-            <div class="col-12 col-md-6 col-xl-3">
-              <a class="min-h-252 bg-white p-3 rounded mx-2 d-block" href="{{ route('sell_nft') }}">
+          <div class="row mt-5 w-100">
+            @if(count($collections) > 0)
+            @foreach($collections as $value)
+            <div class="col-12 col-md-6 col-xl-3" style="padding-top: 20px;">
+              <a class="min-h-252 bg-white p-3 rounded mx-2 d-block w-100" href="{{route('nftproduct', $value->product_id)}}">
                 <div class="position-relative overflow-hidden">
-                  <img src="{{ asset('assets/images/assets/NFT_Marketplace/Group1044.png') }}" class="img-fluid w-100" alt="">
-                  <span class="sale-label">ON SALE</span>
+                  <img src="{{ asset('uploads/nft-product/'.$value->nftproduct->image) }}" class="img-fluid w-100" alt="">
+                  @if($value->status == 2)
+                  <span class="sale-label">{{ __('custom.on_sale')}}</span>
+                  @endif
                 </div>
                 <div class="mt-3">
-                  <h4 class="text-blue font-weight-bold">BULL KONG #7097</h4>
-                  <h3 class="text-black font-weight-bold">$20,000</h3>
-                  <span class="text-secondary">03/8/2021</span>
+                  <h4 class="text-blue font-weight-bold">{{ $value->nftproduct->name }} #{{ $value->product_id}}</h4>
+                  <h3 class="text-black font-weight-bold">${{ $value->amount }}</h3>
+                  <span class="text-secondary">{{ date("d/m/Y",strtotime($value->created_at)) }}</span>
                 </div>
               </a>
             </div>
-            <div class="col-12 col-md-6 col-xl-3 mt-4 mt-md-0">
+            @endforeach
+            @else
+              <div class="col-12">
+                <p class="text-white font-weight-bold">{{ __('custom.no_collection_found')}}</p>
+              </div>
+            @endif
+           {{--  <div class="col-12 col-md-6 col-xl-3 mt-4 mt-md-0">
               <div class="min-h-252 bg-white p-3 rounded mx-2">
                 <img src="{{ asset('assets/images/assets/NFT_Marketplace/Group1045.png') }}" class="img-fluid w-100" alt="">
                 <div class="mt-3">
@@ -144,29 +314,29 @@
                   <span class="text-secondary">03/8/2021</span>
                 </div>
               </div>
-            </div>
-            <div class="col-12 col-md-6 col-xl-3 mt-4 mt-xl-0">
-              <div class="min-h-252 bg-white p-3 rounded mx-2">
-                <div class="position-relative overflow-hidden">
-                  <img src="{{ asset('assets/images/assets/NFT_Marketplace/Group1046.png') }}" class="img-fluid w-100" alt="">
-                  <span class="sale-label">ON SALE</span>
-                </div>
-                <div class="mt-3">
-                  <h4 class="text-blue font-weight-bold">KONG BOSS#7097</h4>
-                  <h3 class="text-black font-weight-bold">$20,000</h3>
-                  <span class="text-secondary">03/8/2021</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-md-6 col-xl-3 mt-4 mt-xl-0">
-              <div class="min-h-252 bg-white p-3 rounded mx-2">
-                <img src="{{ asset('assets/images/assets/NFT_Marketplace/Group1047.png') }}" class="img-fluid w-100" alt="">
-                <div class="mt-3">
-                  <h4 class="text-blue font-weight-bold">BULL KONG #7097</h4>
-                  <h3 class="text-black font-weight-bold">$20,000</h3>
-                  <span class="text-secondary">03/8/2021</span>
+            </div> --}}
+             {{--  <div class="col-12 col-md-6 col-xl-3 mt-4 mt-xl-0">
+                <div class="min-h-252 bg-white p-3 rounded mx-2">
+                  <div class="position-relative overflow-hidden">
+                    <img src="{{ asset('assets/images/assets/NFT_Marketplace/Group1046.png') }}" class="img-fluid w-100" alt="">
+                    <span class="sale-label">ON SALE</span>
+                  </div>
+                  <div class="mt-3">
+                    <h4 class="text-blue font-weight-bold">KONG BOSS#7097</h4>
+                    <h3 class="text-black font-weight-bold">$20,000</h3>
+                    <span class="text-secondary">03/8/2021</span>
+                  </div>
                 </div>
               </div>
-            </div>
+              <div class="col-12 col-md-6 col-xl-3 mt-4 mt-xl-0">
+                <div class="min-h-252 bg-white p-3 rounded mx-2">
+                  <img src="{{ asset('assets/images/assets/NFT_Marketplace/Group1047.png') }}" class="img-fluid w-100" alt="">
+                  <div class="mt-3">
+                    <h4 class="text-blue font-weight-bold">BULL KONG #7097</h4>
+                    <h3 class="text-black font-weight-bold">$20,000</h3>
+                    <span class="text-secondary">03/8/2021</span>
+                  </div>
+                </div>
+              </div> --}}
           </div>
 @endsection

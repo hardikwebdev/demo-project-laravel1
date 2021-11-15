@@ -1,8 +1,8 @@
 <table class="table table-dark trading-table text-center">
 	<thead class="table-gradient">
 		<tr>
-			<th>AMOUNT</th>
-			<th>DATE</th>
+			<th>{{ __('custom.amount')}}</th>
+			<th>{{ __('custom.date')}}</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -18,26 +18,6 @@
 		    <td colspan="10" class="no-records text-center">{{trans('custom.no_data_found')}}</td>
 		</tr>
 		@endif
-		{{-- <tr>
-			<td>$20,000</td>
-			<td>12/09/2021</td>
-		</tr>
-		<tr>
-			<td>$20,000</td>
-			<td>12/09/2021</td>
-		</tr>
-		<tr>
-			<td>$20,000</td>
-			<td>12/09/2021</td>
-		</tr>
-		<tr>
-			<td>$20,000</td>
-			<td>12/09/2021</td>
-		</tr>
-		<tr>
-			<td>$20,000</td>
-			<td>12/09/2021</td>
-		</tr> --}}
 	</tbody>
 </table>
 <div class="col-12 text-right">

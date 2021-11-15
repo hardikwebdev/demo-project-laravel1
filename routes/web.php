@@ -113,9 +113,10 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::post('/bank-detail-upadte', 'App\Http\Controllers\AccountController@updateBankDetail')->name('bank-detail-upadte');
         Route::post('/update-profile-image', 'App\Http\Controllers\AccountController@updateImage')->name('updateImage');
         Route::post('/nft-wallet-address-upadte', 'App\Http\Controllers\AccountController@updateNFTWalletAddress')->name('nft-wallet-address-update');
-        Route::get('/my_collection', 'App\Http\Controllers\HomeController@my_collection')->name('my_collection');
+        Route::get('/my_collection', 'App\Http\Controllers\AccountController@my_collection')->name('my_collection');
         // Route::get('/help_support', 'App\Http\Controllers\HomeController@help_support')->name('help_support');
-        Route::get('/sell_nft', 'App\Http\Controllers\HomeController@sell_nft')->name('sell_nft');
+        Route::get('/sell_nft', 'App\Http\Controllers\AccountController@sell_nft')->name('sell_nft');
+        Route::get('/viewnftsell/{id}', 'App\Http\Controllers\AccountController@viewNFTSell')->name('view.nftsell');
         Route::get('/withdrawal', 'App\Http\Controllers\WithdrawalController@index')->name('withdrawal');
         Route::post('/withdrawal-request', 'App\Http\Controllers\WithdrawalController@withdrawalRequest')->name('withdrawal-request');
 

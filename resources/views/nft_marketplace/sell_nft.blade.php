@@ -1,22 +1,29 @@
 @extends('layouts.app')
-
+@section('title', __('custom.sell_nft'))
+@section('page_title', __('custom.sell_nft'))
 @section('content')
   <div class="content-wrapper">
           <div class="row mt-5 pt-5">
-            <div class="col-12 col-md-6 col-xl-3">
-              <div class="bg-white p-3 rounded mx-2" data-toggle="modal" data-target="#bullKongModal">
+            @if(count($collections) > 0)
+            @foreach($collections as $value)
+            <div class="col-12 col-md-6 col-xl-3" onclick="showNFTSell({{$value->product_id}})">
+              <div class="bg-white p-3 rounded mx-2" data-toggle="modal" @if($value->status != 2) data-target="#bullKongModal{{$value->product_id}}" @endif>
                 <div class="position-relative overflow-hidden">
-                  <img src="{{ asset('assets/images/assets/NFT_Marketplace/Group1044.png') }}" class="img-fluid w-100" alt="">
-                  <span class="sale-label">ON SALE</span>
+                  <img src="{{ asset('uploads/nft-product/'.$value->nftproduct->image) }}" class="img-fluid w-100" alt="">
+                  @if($value->status == 2)
+                  <span class="sale-label">{{ __('custom.on_sale')}}</span>
+                  @endif
                 </div>
                 <div class="mt-3">
-                  <h4 class="text-blue font-weight-bold">BULL KONG #7097</h4>
-                  <h3 class="text-black font-weight-bold">$20,000</h3>
-                  <span class="text-secondary">03/8/2021</span>
+                  <h4 class="text-blue font-weight-bold">{{ $value->nftproduct->name }} #{{ $value->product_id}}</h4>
+                  <h3 class="text-black font-weight-bold">${{ $value->amount }}</h3>
+                  <span class="text-secondary">{{ date("d/m/Y",strtotime($value->created_at)) }}</span>
                 </div>
               </div>
             </div>
-            <div class="col-12 col-md-6 col-xl-3 mt-4 mt-md-0">
+            @endforeach
+            @endif
+            {{-- <div class="col-12 col-md-6 col-xl-3 mt-4 mt-md-0">
               <div class="bg-white p-3 rounded mx-2" data-toggle="modal" data-target="#bullKongModal">
                 <img src="{{ asset('assets/images/assets/NFT_Marketplace/Group1045.png') }}" class="img-fluid w-100" alt="">
                 <div class="mt-3">
@@ -48,7 +55,7 @@
                   <span class="text-secondary">03/8/2021</span>
                 </div>
               </div>
-            </div>
+            </div> --}}
           </div>
           <div class="row mt-5">
             <div class="col-12">
@@ -176,7 +183,7 @@
               </table>
             </div>
           </div>
-          <div class="row align-items-center mt-5">
+          <div class="row align-items-center mt-5" id="nftsellview">
             <div class="col-12 text-right">
               <div class="text-secondary">
                 <img src="{{ asset('assets/images/assets/Sell_NFT/Path599.png') }}" class="img-fluid rotate-180" alt="">
@@ -193,9 +200,10 @@
                 <img src="{{ asset('assets/images/assets/Sell_NFT/Path599.png') }}" class="img-fluid " alt="">
               </div>
             </div>
+          </div>  
         <!----------------------------------------------- modal------------------------------------------------->
 
-          <div class="modal fade" id="bullKongModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          {{-- <div class="modal fade" id="bullKongModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
               <div class="modal-content border-0 bg-transparent">
                 <div class="modal-body">
@@ -226,5 +234,5 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> --}}
 @endsection

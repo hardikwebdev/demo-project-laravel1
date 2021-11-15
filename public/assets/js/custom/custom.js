@@ -1016,3 +1016,18 @@ $("#purchase_product").validate({
         },
     }
 });
+function showNFTSell(bid)
+{
+
+  view = viewnftsell.replace(':id', bid);
+  $.ajax({
+    url:view,
+    type:'GET',
+    dataType: "json" ,
+    success:function(response){
+            // console.log(response);
+            $(response.viewNFTSell).insertAfter( $( "#nftsellview" ) );
+            $("#bullKongModal").modal('toggle');  
+          },
+        });
+}

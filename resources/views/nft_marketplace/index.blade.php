@@ -5,13 +5,13 @@
  <div class="content-wrapper">
           <div class="row mt-5 pt-5">
             <div class="col-12">
-              <p class="text-white">NFT Collection</p>
+              <p class="text-white">{{ trans('custom.nft_collection') }}</p>
             </div>
             @foreach($nft_cats as $category)
             <div class="col-12 col-md-6 col-lg-4">
               <div class="bg-bullkong rounded d-flex flex-column align-items-center justify-content-center text-white" style="background-image:url({{$category->image}})">
                 <h3>{{$category->name}}</h3>
-                <h3>COLLECTION</h3>
+                <h3>{{ trans('custom.collection')}}</h3>
               </div>
             </div>
             @endforeach
@@ -31,7 +31,7 @@
           @foreach($nft_cats as $category)
           <div class="row mt-5">
             <div class="col-12">
-              <p class="text-white">{{ $category->name}} Collection</p>
+              <p class="text-white">{{ $category->name}} {{ trans('custom.collection')}}</p>
             </div>
             <div class="col-12">
               <div class="bull-kong-slider">

@@ -24,11 +24,11 @@ class NFTMarketplaceController extends Controller
     public function productDetail($id, Request $request){
         $product = NftProduct::find($id);
         if (empty($product)) {
-            Session::flash('error', "Product not found");
+            Session::flash('error', trans('custom.product_not_found'));
             return redirect()->back();
         }
         $othrt_products = NftProduct::where(['category_id' => $product->category_id, "status" => 'active', "is_deleted" => '0'])->where('id', "!=", $id)->get();
-        $checkProduct = NftPurchaseHistory::where('product_id', $id)->where('status', '1')->count();
+        $checkProduct = NftPurchaseHistory::where('product_id', $id)->count();
         $purchaseHistory = NftPurchaseHistory::where('product_id', $id)->orderBy('id','desc')->paginate(6);
         if($request->ajax()) {
             return view('nft_marketplace.nft_purchase_history', compact('purchaseHistory'));

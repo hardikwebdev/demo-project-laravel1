@@ -19,6 +19,8 @@ use Carbon\CarbonPeriod;
 use App\Models\Setting;
 use App\Models\StackingPoolPackage;
 use App\Models\Package;
+use App\Models\NftPurchaseHistory;
+use App\Models\NftProduct;
 
 class AccountController extends Controller
 {
@@ -386,5 +388,28 @@ class AccountController extends Controller
             return redirect()->back()->with(['success'=> 'Update Image Successfully']);
         }     
         return redirect()->back();
+    }
+    public function my_collection(Request $request){
+        $user = User::with('userbank')->where('id',Auth::user()->id)->where('status','active')->where('deleted_at', null)->first();
+        $country  = Country::pluck('country_name','id')->toArray();
+        $staking_pool_count = StackingPool::where('user_id', $this->user->id)->where('status', ['0', '1'])->count();
+        $staking_pool = StackingPoolPackage::orderBy('id','desc')
+                                            ->limit(8)
+                                            ->get()
+                                            ->map(function($pool) use ($user){
+                                                $pool->investedAmount = StackingPool::where('user_id',$user->id)->where('stacking_pool_package_id',$pool->id)->sum('amount');
+                                                return $pool;
+                                            });
+        $collections = NftPurchaseHistory::with('nftproduct')->where('user_id', $this->user->id)->get();
+        return view('profile.my_collection', compact('country', 'user', 'staking_pool', 'staking_pool_count', 'collections'));
+    }
+    public function sell_nft(){
+        $collections = NftPurchaseHistory::with('nftproduct')->where('user_id', $this->user->id)->get();
+        return view('nft_marketplace.sell_nft', compact('collections'));
+    }
+    public function viewNFTSell($id, Request $request){
+        $product = NftProduct::where('id', $id)->first();
+        $view = view("nft_marketplace.nft_sell_modal",compact('product'))->render();
+        return response()->json(['viewNFTSell'=>$view]);
     }
 }

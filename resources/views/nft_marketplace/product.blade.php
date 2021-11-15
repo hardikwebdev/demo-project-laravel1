@@ -1,5 +1,6 @@
 @extends('layouts.app')
-
+@section('title', __('custom.nft_marketplace'))
+@section('page_title', __('custom.nft_marketplace'))
 @section('content')
 <div class="content-wrapper">
 	<div class="row align-items-center mt-5 pt-5">
@@ -37,7 +38,7 @@
 						@enderror
 					</div>
 					<div class="col-12 col-xl-4 mt-4 mt-lg-0">
-						<button type="submit" class="btn bg-warning text-white p-4 rounded-0">BUY NOW <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-2 d-inline align-middle w-25" alt=""></button>
+						<button type="submit" class="btn bg-warning text-white p-4 rounded-0">{{ trans('custom.buy_now')}} <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-2 d-inline align-middle w-25" alt=""></button>
 					</div>
 				</div>
 			</form>	
@@ -47,101 +48,36 @@
 	</div>
 	<div class="row mt-5">
 		<div class="col-12">
-			<p class="text-white pb-3">Trading History</p>
+			<p class="text-white pb-3">{{ trans('custom.trading_history')}}</p>
 		</div>
 		<div class="col-12 col-md-6">
-			{{-- <table class="table table-dark trading-table text-center">
-				<thead class="table-gradient">
-					<tr>
-						<th>AMOUNT</th>
-						<th>DATE</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>$20,000</td>
-						<td>12/09/2021</td>
-					</tr>
-					<tr>
-						<td>$20,000</td>
-						<td>12/09/2021</td>
-					</tr>
-					<tr>
-						<td>$20,000</td>
-						<td>12/09/2021</td>
-					</tr>
-					<tr>
-						<td>$20,000</td>
-						<td>12/09/2021</td>
-					</tr>
-					<tr>
-						<td>$20,000</td>
-						<td>12/09/2021</td>
-					</tr>
-					<tr>
-						<td>$20,000</td>
-						<td>12/09/2021</td>
-					</tr>
-				</tbody>
-			</table> --}}
 			<div class="table-responsive table-history">
 			  @include('nft_marketplace.nft_purchase_history')
 			</div>
 		</div>
 		<div class="col-12 col-md-6 mt-4 mt-md-0">
-			<h4 class=" text-white">Terms & Conditions</h4>
-			<ul class="text-secondary mt-4">
-				<li class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-				labore et dolore magna aliqua.</li>
-				<li class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-				labore et dolore magna aliqua.</li>
-				<li class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-				labore et dolore magna aliqua.</li>
-				<li class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-				labore et dolore magna aliqua.</li>
-			</ul>
+			<h4 class=" text-white">{{ trans('custom.terms_conditions')}}</h4>
+			{!!__('custom.nft_marketplace_tc')!!}
 		</div>
 	</div>
 	<div class="row mt-5">
 		<div class="col-12">
-			<p class="text-white pb-3">Other Bull Kong’s Collection</p>
+			<p class="text-white pb-3">{{ __('custom.other_collection')}}</p>
 		</div>
 		<div class="col-12">
 			<div class="bull-kong-slider">
 				@foreach($othrt_products as $value)
 				<div>
+					<a href="{{route('nftproduct', $value->id)}}">
 					<div class="bg-white p-3 rounded mx-2">
 						<img src="{{ asset('uploads/nft-product/'.$value->image) }}" class="img-fluid mx-auto" alt="">
 						<div class="mt-3">
 							<h4 class="text-blue font-weight-bold">{{ $value->name }} #{{ $value->id }}</h4>
 						</div>
 					</div>
+					</a>
 				</div>
 				@endforeach
-				{{-- <div>
-					<div class="bg-white p-3 rounded mx-2">
-						<img src="{{ asset('assets/images/assets/NFT_Marketplace/Group1045.png') }}" class="img-fluid mx-auto" alt="">
-						<div class="mt-3">
-							<h4 class="text-blue font-weight-bold">KONG #7097</h4>
-						</div>
-					</div>
-				</div>
-				<div>
-					<div class="bg-white p-3 rounded mx-2">
-						<img src="{{ asset('assets/images/assets/NFT_Marketplace/Group1046.png') }}" class="img-fluid mx-auto" alt="">
-						<div class="mt-3">
-							<h4 class="text-blue font-weight-bold">KONG BOSS#7097</h4>
-						</div>
-					</div>
-				</div>
-				<div>
-					<div class="bg-white p-3 rounded mx-2">
-						<img src="{{ asset('assets/images/assets/NFT_Marketplace/Group1047.png') }}" class="img-fluid mx-auto" alt="">
-						<div class="mt-3">
-							<h4 class="text-blue font-weight-bold">BULL KONG #7097</h4>
-						</div>
-					</div>
-				</div> --}}
 			</div>
 		</div>
 	</div>

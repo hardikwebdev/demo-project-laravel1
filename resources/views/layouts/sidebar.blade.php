@@ -53,10 +53,10 @@
         </ul>
       </div>
     </li>
-    <li class="nav-item">
+    <li class="nav-item {{(\Request::is('nft_marketplace/*')) ? 'active':''}}">
       <a class="nav-link" href="{{ route('nft_marketplace') }}">
         <img src="{{ asset('assets/images/assets/Dashboard/Group951.png') }}" class="cus-sidebar-icon" alt="">
-        <span class="menu-title">NFT Marketplace </span>
+        <span class="menu-title">{{ __('custom.nft_marketplace')}} </span>
       </a>
     </li>
     <li class="nav-item">
@@ -84,7 +84,10 @@
             <a class="nav-link pl-0" href="{{ route('account') }}">{{trans('custom.my-account')}}</a>
           </li>
           <li class="nav-item"> 
-            <a class="nav-link pl-0" href="{{ route('my_collection') }}">My Collection</a>
+            <a class="nav-link pl-0" href="{{ route('my_collection') }}">{{ __('custom.my_collection')}}</a>
+          </li>
+          <li class="nav-item"> 
+            <a class="nav-link pl-0" href="{{ route('sell_nft') }}">{{ __('custom.sell_nft')}}</a>
           </li>
         </ul>
       </div>
