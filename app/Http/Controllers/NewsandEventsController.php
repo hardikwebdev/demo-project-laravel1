@@ -70,7 +70,7 @@ class NewsandEventsController extends Controller
         }
         $news = News::where('id', $id)->where(['status' => 'active','lang' => $locale])->orderBy('created_at', 'desc')->first();
         if($news==null){
-            return redirect()->route('user-news');
+            return redirect()->route('news-and-events.index');
         }
         return view('news-and-events.news-detail', compact('news'));
     }

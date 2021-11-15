@@ -15,5 +15,12 @@ class Slider extends Model
         }
         return '';
     }
+
+    public function getMobileImageAttribute($value){
+        if(file_exists(public_path('uploads/slider/'.$value)) && $value){
+            return asset('uploads/slider/'.$value);     
+        }
+        return '';
+    }
 }
 
