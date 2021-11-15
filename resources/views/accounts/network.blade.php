@@ -6,8 +6,14 @@
 <link rel="stylesheet" href="{{ asset('assets/tree/extensions/DataInspector.css') }}" />
 @endsection
 @section('content')
-<div class="content-wrapper">
-  <div class="row mt-5 pt-5">
+<div class="content-wrapper nodes">
+    <div class="ml-2 mb-4 d-none-desk d-md-block">
+      <h2 class="text-warning font-weight-bold">@yield('page_title','Dashboard')</h2>
+      @if(Route::currentRouteName() == 'dashboard')
+      <p class="text-white">{{str_replace('#name',auth()->user()->name,__('custom.wc_text'))}}</p>
+      @endif
+    </div>
+  <div class="row mt-3">
     <div class="col-12 col-xl-8">
       <!-- <img src="{{ asset('assets/images/assets/Node_Management/Group1055.png') }}" class="img-fluid w-100" alt="" style="height: 460px;"> -->
       <div id="myDiagramDiv" style="background-color: #ffffff; border: solid 1px #000000;min-height: 460px;"></div>
@@ -102,9 +108,9 @@
     init(users,1);
   });
   Highcharts.chart('hightlinechart', {
-
+    exporting:false,
     title: {
-      text: 'Commision & Sales'
+      text: "{{ __('custom.commissionsale') }}"
     },
     yAxis: {
       title: {

@@ -35,7 +35,6 @@ class AccountController extends Controller
         $country  = Country::pluck('country_name','id')->toArray();
 
         return view('accounts.register',compact('userName','country'));
-
     }
 
     /* validate user */
@@ -122,8 +121,7 @@ class AccountController extends Controller
         $sponsor_id = User::where('username',$data['sponsor_username'])->where('status','active')->first();
         $placement_id = User::where('username',$data['placement_username'])->where('status','active')->first();
 
-
-       $user = User::create([
+        $user = User::create([
             'name' => $data['fullname'],
             'sponsor_id' => ($sponsor_id != null ) ? $sponsor_id->id : '0',
             'placement_id' => ($placement_id != null ) ? $placement_id->id : '0',
@@ -161,8 +159,8 @@ class AccountController extends Controller
     public function createMember(Request $request){
         $this->validator($request->all())->validate();
         $user = $this->create($request->all());
-        // \Mail::send('emails.welcome-email', ['user'=>(object)$input,'title'=>"Welcome to Defix Finance"], function($message) use($user)  {
-        //     $message->to($user->email,"Defix Finance")->subject("Welcome to Defix Finance");                      
+        // \Mail::send('emails.welcome-email', ['user'=>(object)$input,'title'=>"Welcome to DefiXFinance"], function($message) use($user)  {
+        //     $message->to($user->email,"DefiXFinance")->subject("Welcome to DefiXFinance");                      
         // });
         return redirect('/')->with(['success' => trans('auth.success_register')]);
 
@@ -179,21 +177,54 @@ class AccountController extends Controller
         $referral = Helper::getAllDownlineIdsTree($this->user->id);
         // echo "<pre>"; print_r($referral);die();
         $referral = array_merge($referral, [$this->user->id]);
-        $users    = User::whereIn('id',$referral)->where('status','active')->select('id','id as key','username as name','placement_id as parent','profile_image')->orderBy('child_position','asc')
+        $additionalusers = [];
+        
+        $users    = User::whereIn('id',$referral)->where('status','active')->select('id','id as key','username as name','placement_id as parent','profile_image','child_position')->orderBy('child_position','asc')
               ->get()
-              ->map(function($query){
+              ->map(function($query) use (&$additionalusers){
                     $query->sale_left = Helper::getTotalgroupsalesLeft($query);
                     $query->sale_right = Helper::getTotalgroupsalesRight($query);
+                    // if(count($query->placementLeft) == 0){
+                    //     // die();
+                    //     $data = $query;
+                    //     $data['name']  = 'emptynode';
+
+                    //     $data['username']  = 'emptynode';
+                    //     $data['parent']  = $query['id'];
+                    //     $data['profile_image'] = 'http://localhost/defix-web/assets/images/avatar.png';
+                    //     $data['sale_left'] = 0;
+                    //     $data['sale_right'] = 0;
+                    //     $additionalusers[] = $data->toArray();
+                    // }
+                    // if(count($query->placementRight) == 0){
+                    //     $data = $query;
+                    //     $data['name']  = 'emptynode';
+
+                    //     $data['username']  = 'emptynode';
+                    //     $data['parent']  = $query['id'];
+                    //     $data['profile_image'] = 'http://localhost/defix-web/assets/images/avatar.png';
+                    //     $data['sale_left'] = 0;
+                    //     $data['sale_right'] = 0;
+                    //     $additionalusers[] = $data->toArray();
+                    // }
+                    // unset($query->placementLeft);
+                    // unset($query->placementRight);
+
                     return $query;
               })->toArray();
+        // $users = array_merge($users,$additionalusers);      
+
+        //  echo "<pre>";
+        // print_r($users);
+        // die();
 
         $accumulateLeftSale     = Helper::getTotalgroupsalesLeft($this->user);
         $accumulateRightSale    = Helper::getTotalgroupsalesRight($this->user);
         $todaysLeftSale         = Helper::getTotalgroupsalesTodayLeft($this->user);
         $todaysRightSale        = Helper::getTotalgroupsalesTodayRight($this->user);
-        $todaysLeftCarryFw      = ($todaysLeftSale > $todaysRightSale) ? $this->user->userwallet->carry_forward : 0;
-        $todaysRightCarryFw     = ($todaysRightSale > $todaysLeftSale) ? $this->user->userwallet->carry_forward : 0;
-        $packageamount = $this->user->userwallet->stacking_pool;//Helper::getTotalgroupsales($user);
+        $todaysLeftCarryFw      = ($this->user->userwallet->carry_forward > 0 && $this->user->userwallet->carry_forward_to == 'left') ? $this->user->userwallet->carry_forward : 0;
+        $todaysRightCarryFw     = ($this->user->userwallet->carry_forward > 0 && $this->user->userwallet->carry_forward_to == 'right') ? $this->user->userwallet->carry_forward : 0;
+        $packageamount          = $this->user->userwallet->stacking_pool;//Helper::getTotalgroupsales($user);
         $package_detail = Package::where('amount','<=',$packageamount)->orderBy('amount','desc')->first();
 
 

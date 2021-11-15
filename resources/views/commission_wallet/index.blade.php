@@ -3,7 +3,13 @@
 @section('page_title', __('custom.commission_wallet'))
 @section('content')
 <div class="content-wrapper">
-	<div class="row mt-5 pt-5">
+    <div class="ml-2 mb-4 d-none-desk d-md-block">
+      <h2 class="text-warning font-weight-bold">@yield('page_title','Dashboard')</h2>
+      @if(Route::currentRouteName() == 'dashboard')
+      <p class="text-white">{{str_replace('#name',auth()->user()->name,__('custom.wc_text'))}}</p>
+      @endif
+    </div>
+	<div class="row mt-3">
 		<div class="col-12">
 			<div class="yield-gradient rounded text-white py-4 px-5">
 				<h2 class="mb-0 font-weight-bold">${{ number_format($userWallet->commission_wallet, 2) }}</h2>
@@ -33,25 +39,13 @@
 					  <h4 class="font-weight-bold">{{ trans('custom.terms_conditions')}}</h4>
 					</div>
 					<div class="col-12 col-md-6 col-xl-4">
-					  <ul class="text-grey">
-					    <li>{{ trans('custom.withdrawal_fee_is_usd_10')}}</li>
-					    <li>{{ trans('custom.conversion_rate_of_usd_to_usdt_is_0_95')}}</li>
-					    <li>{{ trans('custom.members_that_have_funded_in_usdt_previousl')}}</li>
-					  </ul>
+						{!! trans('custom.commission_wallet_terms_and_conditions1') !!}
 					</div>
 					<div class="col-12 col-md-6 col-xl-4">
-					  <ul class="text-grey">
-					    <li>{{ trans('custom.withdrawal_fee_is_usd_10')}}</li>
-					    <li>{{ trans('custom.conversion_rate_of_usd_to_usdt_is_0_95')}}</li>
-					    <li>{{ trans('custom.members_that_have_funded_in_usdt_previousl')}}</li>
-					  </ul>
+						{!! trans('custom.commission_wallet_terms_and_conditions2') !!}
 					</div>
 					<div class="col-12 col-md-6 col-xl-4">
-					  <ul class="text-grey">
-					    <li>{{ trans('custom.withdrawal_fee_is_usd_10')}}</li>
-					    <li>{{ trans('custom.conversion_rate_of_usd_to_usdt_is_0_95')}}</li>
-					    <li>{{ trans('custom.members_that_have_funded_in_usdt_previousl')}}</li>
-					  </ul>
+						{!! trans('custom.commission_wallet_terms_and_conditions3') !!}
 					</div>
 					</div>
 					{{Form::open(['route' => 'commission-wallet-store','class' => 'confirm-submit','id' =>'commission-wallet-confirm','enctype' => 'multipart/form-data'])}}

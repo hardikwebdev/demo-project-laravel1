@@ -29,15 +29,24 @@ class ReferralcommissionsController extends Controller
             'from_user_detail' => function ($query) {
                 $query->withTrashed();
             },
-            'staking_pool_package',
+            'staking_pool' => function ($query) {
+                $query->with('staking_pool_package');
+            },
         ]);
 
-
+       
         if(!empty($request->get('pool'))){
-            $referral_commission = $referral_commission->where(
-                'stacking_pool_id',$request->get('pool'));
+
+            // $referral_commission = $referral_commission->where(
+            //     'stacking_pool_id',$request->get('pool'));
+                $referral_commission = $referral_commission->whereHas('staking_pool',function($query) use ($request){
+                    $query->where('stacking_pool_package_id',$request->get('pool'));
+                });
+
             $name = StackingPoolPackage::find($request->get('pool'));
         }
+
+    
 
         if(!empty($request->get('user'))){
             $referral_commission = $referral_commission->where(
@@ -50,6 +59,11 @@ class ReferralcommissionsController extends Controller
         ->orderBy('id', 'desc')
         ->paginate($this->limit);
 
+        // $referral_commission = $referral_commission
+        // ->orderBy('id', 'desc')
+        // ->get();
+
+        // dd( $referral_commission);
         return view(
             'backend.referral_commission.index',
             compact('referral_commission','total_amount','name')

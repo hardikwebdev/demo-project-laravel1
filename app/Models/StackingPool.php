@@ -21,6 +21,7 @@ class StackingPool extends Model
         'commission',
         'start_date',
         'end_date',
+        'signature',
         'created_at',
         'updated_at'
     ];

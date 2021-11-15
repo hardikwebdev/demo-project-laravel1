@@ -2,233 +2,325 @@
 @section('title', __('custom.Ledger'))
 @section('page_title', __('custom.Ledger'))
 @section('content')
-<div class="content-wrapper">
-          <div class="row justify-content-center mt-5 pt-5">
-            <div class="col-12">
-              <ul class="nav nav-tabs justify-content-center account-tabs border-0">
-                <li><a class="text-warning border border-warning py-3 px-5 d-block active" data-toggle="tab" href="#home">STAKING POOLS</a></li>
-                <li class="mt-3 mt-md-0"><a class="text-warning border border-warning py-3 px-5 d-block" data-toggle="tab" href="#menu1">NODES MANAGEMENT</a></li>
-               <!--  <li class="mt-3 mt-md-0"><a class="text-warning border border-warning py-3 px-5 d-block" data-toggle="tab" href="#menu2">NFT MARKETPLACE</a></li> -->
-              </ul>
+<style type="text/css">
+    .stackingpool-second-ajax-report{
+        float: right;
+    }
+    .nodes-management-second-ajax-report{
+        float: right;
+    }
+    .referral-commission-second-ajax-report{
+        float: right;
+    }
+    .roi-second-ajax-report{
+        float: right;
+    }
+</style>
+    <div class="content-wrapper">
+        <div class="ml-2 mb-4 d-none-desk d-md-block">
+      <h2 class="text-warning font-weight-bold">@yield('page_title','Dashboard')</h2>
+      @if(Route::currentRouteName() == 'dashboard')
+      <p class="text-white">{{str_replace('#name',auth()->user()->name,__('custom.wc_text'))}}</p>
+      @endif
+    </div>
+        <div class="row justify-content-center mt-3">
+            <div class="col-12" id="titlebar">
+                <ul class="nav nav-tabs justify-content-center account-tabs border-0" id="ledgerreport">
+                    <li><a class="text-warning border border-warning py-3 px-5 d-block active ledger-report"
+                            data-toggle="tab" href="#home" data-type="1">STAKING POOLS</a></li>
+                    <li class="mt-3 mt-md-0"><a class="text-warning border border-warning py-3 px-5 d-block ledger-report"
+                            data-toggle="tab" href="#menu1" data-type="2">NODES MANAGEMENT</a></li>
+                    <li class="mt-3 mt-md-0"><a class="text-warning border border-warning py-3 px-5 d-block ledger-report"
+                            data-toggle="tab" href="#menu2" data-type="3">REFERRAL COMMISSION</a></li>
+                    <li class="mt-3 mt-md-0"><a class="text-warning border border-warning py-3 px-5 d-block ledger-report"
+                            data-toggle="tab" href="#menu3" data-type="4">ROI</a></li>
+                    <!--  <li class="mt-3 mt-md-0"><a class="text-warning border border-warning py-3 px-5 d-block" data-toggle="tab" href="#menu2">NFT MARKETPLACE</a></li> -->
+                </ul>
             </div>
+
+
+
+
 
             <div class="col-12 mt-5">
-              <div class="tab-content border-0">
-                <div id="home" class="tab-pane active">
-                  {!! Form::open(['route' => 'reports-staking-pool-export','enctype' => 'multipart/form-data','method'=>'POST', 'id'=>'export-staking-pool'])!!}
-                  <div class="row align-items-center justify-content-center">
-                    <div class="col-12 col-md-3 col-xl-auto pr-md-0 mt-3">
-                        <p class="text-white font-weight-bold mb-0">FILTER DATE</p>
-                    </div>
-                    <div class="col-12 col-md-4 col-xl-auto mt-3">
-                        <input name="start_date" type="text" class="form-control bg-transparent font-12 w-123" id="datepicker1" placeholder="Start Date" autocomplete="off">
-                    </div>
-                    <div class="col-12 col-md-1 col-xl-auto px-md-0 mt-3">
-                        <p class="text-white font-weight-bold mb-0 font-12 text-center">TO</p>
-                    </div>
-                    <div class="col-12 col-md-4 col-xl-auto mt-3">
-                        <input name="end_date" type="text" class="form-control bg-transparent font-12 w-123" id="datepicker2" placeholder="End Date" autocomplete="off">
-                    </div>
-                    <div class="col-12 col-md-3 col-xl-auto pr-md-0 mt-3">
-                      <p class="text-white font-weight-bold mb-0">STAKING POOL</p>
-                    </div>
-                    <div class="col-12 col-md-3 col-xl-auto mt-3 d-flex align-items-end">
-                      {!! Form::select('stackingpoolpackage',$stackingPoolPackage,old('stackingpoolpackage'),['class'=>'form-control font-12 bg-transparent w-123','placeholder'=> 'Select Stacking Pool Package' ,'id'=>'stackingpoolpackage']) !!}
-                    </div>
-                    <div class="col-12 col-xl-auto ml-lg-auto mt-3 text-center">
-                      <button class="btn bg-warning text-white py-3 px-4 rounded-sm">EXPORT <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-3 d-inline align-middle" alt=""></button>
-                    </div>
-                  </div>
-                  <div class="row align-items-center justify-content-center">
-                    <div class="col-12 col-md-3 col-xl-auto pr-md-0 mt-3">
-                        {{-- <p class="text-white font-weight-bold mb-0">FILTER DATE</p> --}}
-                    </div>
-                    <div class="col-12 col-md-4 col-xl-auto mt-3">
-                        <label id="datepicker1-error" style="display: none;" class="error" for="datepicker1">Start Date must be less then End Date</label>
-                        {{-- <input name="start_date" type="text" class="form-control bg-transparent font-12 w-123" id="datepicker1" placeholder="Start Date" autocomplete="off"> --}}
-                    </div>
-                    <div class="col-12 col-md-1 col-xl-auto px-md-0 mt-3">
-                        {{-- <p class="text-white font-weight-bold mb-0 font-12 text-center">TO</p> --}}
-                    </div>
-                    <div class="col-12 col-md-4 col-xl-auto mt-3">
-                        <label style="display:none" id="datepicker2-error" class="error" for="datepicker2">End Date must be greater then Start Date</label>
-                        {{-- <input name="end_date" type="text" class="form-control bg-transparent font-12 w-123" id="datepicker2" placeholder="End Date" autocomplete="off"> --}}
-                    </div>
-                    <div class="col-12 col-md-3 col-xl-auto pr-md-0 mt-3">
-                      {{-- <p class="text-white font-weight-bold mb-0">STAKING POOL</p> --}}
-                    </div>
-                    <div class="col-12 col-md-3 col-xl-auto mt-3 d-flex align-items-end">
-                    </div>
-                    <div class="col-12 col-xl-auto ml-lg-auto mt-3 text-center">
-                    </div>
-                  </div>
-                  {{ Form::close() }}
-                  <div class="table-responsive table-history">
-                    @include('reports.partials.staking_pools_history')
-                  </div>
-                </div>
-                <div id="menu1" class="tab-pane">
-                  {!! Form::open(['route' => 'reports-pairing-commissions-export','enctype' => 'multipart/form-data','method'=>'POST', 'id'=>'reports-pairing-commissions-export'])!!}
-                  <div class="row align-items-center justify-content-center">
-                    <div class="col-12 col-md-2 col-xl-auto pr-md-0 mt-3">
-                        <p class="text-white font-weight-bold mb-0">FILTER DATE</p>
-                    </div>
-                    <div class="col-12 col-md-3 col-xl-auto mt-3">
-                        <input name="c_start_date" type="text" class="form-control bg-transparent font-12 w-123" id="datepicker3" placeholder="Start Date" autocomplete="off">
-                    </div>
-                    <div class="col-12 col-md-auto col-xl-auto px-md-0 mt-3">
-                        <p class="text-white font-weight-bold mb-0 font-12 text-center">TO</p>
-                    </div>
-                    <div class="col-12 col-md-3 col-xl-auto mt-3">
-                        <input name="c_end_date" type="text" class="form-control bg-transparent font-12 w-123" id="datepicker4" placeholder="End Date" autocomplete="off">
-                    </div>
-                    <div class="col-12 col-md-auto col-xl-auto ml-md-auto mt-3 text-center">
-                      <button class="btn bg-warning text-white py-3 px-4 rounded-sm">EXPORT <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-3 d-inline align-middle" alt=""></button>
-                    </div>
-                  </div>
-                  {{ Form::close() }}
-                  <div class="table-responsive table-history">
-                    @include('reports.partials.nodes_management_history')
-                  </div>
-                </div>
-                <div id="menu2" class="tab-pane">
-                  <div class="row align-items-center justify-content-center">
-                    <div class="col-12 col-md-2 col-xl-auto pr-md-0 mt-3">
-                        <p class="text-white font-weight-bold mb-0">FILTER DATE</p>
-                    </div>
-                    <div class="col-12 col-md-3 col-xl-auto mt-3">
-                        <input type="text" class="form-control bg-transparent font-12 w-123" id="datepicker1" placeholder="OCT 12, 2020 ">
-                    </div>
-                    <div class="col-12 col-md-auto col-xl-auto px-md-0 mt-3">
-                        <p class="text-white font-weight-bold mb-0 font-12 text-center">TO</p>
-                    </div>
-                    <div class="col-12 col-md-3 col-xl-auto mt-3">
-                        <input type="text" class="form-control bg-transparent font-12 w-123" id="datepicker2" placeholder="OCT 28, 2020">
-                    </div>
-                    <div class="col-12 col-md-auto col-xl-auto ml-md-auto mt-3 text-center">
-                      <button class="btn bg-warning text-white py-3 px-4 rounded-sm">EXPORT <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-3 d-inline align-middle" alt=""></button>
-                    </div>
-                  </div> 
+                <div class="tab-content border-0">
+                    <div id="home" class="tab-pane active">
+                        {!! Form::open(['route' => 'reports-staking-pool-export', 'enctype' => 'multipart/form-data', 'method' => 'POST', 'id' => 'export-staking-pool']) !!}
+                        <div class="row align-items-center justify-content-center">
+                            <div class="col-12 col-md-3 col-xl-auto pr-md-0 mt-3">
+                                <p class="text-white font-weight-bold mb-0">FILTER DATE</p>
+                            </div>
+                            <div class="col-12 col-md-4 col-xl-auto mt-3">
+                                <input name="start_date" type="text" class="form-control bg-transparent font-12 w-123"
+                                    id="datepicker1" placeholder="Start Date" autocomplete="off">
+                            </div>
+                            <div class="col-12 col-md-1 col-xl-auto px-md-0 mt-3">
+                                <p class="text-white font-weight-bold mb-0 font-12 text-center">TO</p>
+                            </div>
+                            <div class="col-12 col-md-4 col-xl-auto mt-3">
+                                <input name="end_date" type="text" class="form-control bg-transparent font-12 w-123"
+                                    id="datepicker2" placeholder="End Date" autocomplete="off">
+                            </div>
+                            <div class="col-12 col-md-3 col-xl-auto pr-md-0 mt-3">
+                                <p class="text-white font-weight-bold mb-0">STAKING POOL</p>
+                            </div>
+                            <div class="col-12 col-md-3 col-xl-auto mt-3 d-flex align-items-end">
+                                {!! Form::select('stackingpoolpackage', $stackingPoolPackage, old('stackingpoolpackage'), ['class' => 'form-control font-12 bg-transparent w-123', 'placeholder' => 'Select Stacking Pool Package', 'id' => 'stackingpoolpackage']) !!}
+                            </div>
+                            <div class="col-12 col-xl-auto ml-lg-auto mt-3 text-center">
+                                <a href="#" class="btn bg-warning text-white py-3 px-4 rounded-sm" id="staking_pool_filter">Filter</a>
+                                <a href="#" onclick="resetFormStakingPool()" class="btn bg-warning text-white py-3 px-4 rounded-sm" id="staking_pool_filter">Clear</a>
 
-                  <div class="row mt-4">
-                    <div class="col-12">
-                      <table class="table table-dark trading-table text-center table-responsive-xl">
-                        <thead class="table-gradient">
-                          <tr>
-                            <th>NFT</th>
-                            <th>NAME</th>
-                            <th>AMOUNT</th>
-                            <th>ORDER ID</th>
-                            <th>DATE</th>
-                            <th>STATUS</th>
-                            <th>&nbsp;</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <td colspan="10" class="no-records text-center">No data found</td>
-                          {{-- <tr>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group553.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                            <td>BULL KONG #7097</td>
-                            <td>$30,000.00</td>
-                            <td>39475910</td>
-                            <td>3/02/2021</td>
-                            <td class="text-warning">SOLD</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group559.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                            <td>BULL KONG #7097</td>
-                            <td>$30,000.00</td>
-                            <td>39475910</td>
-                            <td>3/02/2021</td>
-                            <td class="text-info">PENDING</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group553.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                            <td>BULL KONG #7097</td>
-                            <td>$30,000.00</td>
-                            <td>39475910</td>
-                            <td>3/02/2021</td>
-                            <td class="text-warning">SOLD</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group559.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                            <td>BULL KONG #7097</td>
-                            <td>$30,000.00</td>
-                            <td>39475910</td>
-                            <td>3/02/2021</td>
-                            <td class="text-danger">REJECT</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group553.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                            <td>BULL KONG #7097</td>
-                            <td>$30,000.00</td>
-                            <td>39475910</td>
-                            <td>3/02/2021</td>
-                            <td class="text-warning">SOLD</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group559.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                            <td>BULL KONG #7097</td>
-                            <td>$30,000.00</td>
-                            <td>39475910</td>
-                            <td>3/02/2021</td>
-                            <td class="text-info">PENDING</td>
-                            <td>
-                              <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}" class="img-fluid rounded-0 w-auto h-auto" alt="">
-                            </td>
-                          </tr> --}}
-                        </tbody>
-                      </table>
+                                <button class="btn bg-warning text-white py-3 px-4 rounded-sm">EXPORT <img
+                                        src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}"
+                                        class="img-fluid ml-3 d-inline align-middle" alt=""></button>
+                            </div>
+                        </div>
+                        <div class="row align-items-center justify-content-center">
+                            <div class="col-12 col-md-3 col-xl-auto pr-md-0 mt-3">
+                            </div>
+                            <div class="col-12 col-md-4 col-xl-auto mt-3">
+                                <label style="display:none" id="datepicker1-error" class="error" for="datepicker1">Start Date must be less then End Date</label>
+                            </div>
+                            <div class="col-12 col-md-1 col-xl-auto px-md-0 mt-3">
+                            </div>
+                            <div class="col-12 col-md-4 col-xl-auto mt-3">
+                                <label style="display:none" id="datepicker2-error" class="error" for="datepicker2">Start Date must be less then End Date</label>
+                                
+                            </div>
+                        </div>
+                        {{ Form::close() }}
+                        <div class="table-responsive stackingpool-table-history">
+                            @include('reports.partials.staking_pools_history')
+                        </div>
                     </div>
-                  </div>
 
-                  {{-- <div class="row align-items-center mt-5">
-                    <div class="col-12 text-right">
-                      <div class="text-secondary">
-                        <img src="{{ asset('assets/images/assets/Sell_NFT/Path599.png') }}" class="img-fluid rotate-180" alt="">
-                        <span class="font-12 mx-1">1</span>
-                        <span class="font-12 mx-1 bg-warning px-1">2</span>
-                        <span class="font-12 mx-1">3</span>
-                        <span class="font-12 mx-1">4</span>
-                        <span class="font-12 mx-1">5</span>
-                        <span class="font-12 mx-1">6</span>
-                        <span class="font-12 mx-1">7</span>
-                        <span class="font-12 mx-1">8</span>
-                        <span class="font-12 mx-1">9</span>
-                        <span class="font-12 mx-1">10</span>
-                        <img src="{{ asset('assets/images/assets/Sell_NFT/Path599.png') }}" class="img-fluid " alt="">
-                      </div>
+
+                    <div id="menu1" class="tab-pane">
+                        {!! Form::open(['route' => 'reports-pairing-commissions-export', 'enctype' => 'multipart/form-data', 'method' => 'POST', 'id' => 'reports-pairing-commissions-export']) !!}
+                        <div class="row align-items-center justify-content-center">
+                            <div class="col-12 col-md-2 col-xl-auto pr-md-0 mt-3">
+                                <p class="text-white font-weight-bold mb-0">FILTER DATE</p>
+                            </div>
+                            <div class="col-12 col-md-3 col-xl-auto mt-3">
+                                <input name="c_start_date" type="text" class="form-control bg-transparent font-12 w-123"
+                                    id="datepicker3" placeholder="Start Date" autocomplete="off">
+                            </div>
+                            <div class="col-12 col-md-auto col-xl-auto px-md-0 mt-3">
+                                <p class="text-white font-weight-bold mb-0 font-12 text-center">TO</p>
+                            </div>
+                            <div class="col-12 col-md-3 col-xl-auto mt-3">
+                                <input name="c_end_date" type="text" class="form-control bg-transparent font-12 w-123"
+                                    id="datepicker4" placeholder="End Date" autocomplete="off">
+                            </div>
+                            <div class="col-12 col-md-auto col-xl-auto ml-md-auto mt-3 text-center">
+                                <a href="#" class="btn bg-warning text-white py-3 px-4 rounded-sm" id="node_filter">Filter</a>
+                                <a href="#" onclick="resetFormNode()" class="btn bg-warning text-white py-3 px-4 rounded-sm" id="node_filter_clear">Clear</a>
+                                <button class="btn bg-warning text-white py-3 px-4 rounded-sm">EXPORT <img
+                                        src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}"
+                                        class="img-fluid ml-3 d-inline align-middle" alt=""></button>
+                            </div>
+                        </div>
+                        {{ Form::close() }}
+                        <div class="table-responsive nodes-management-table-history">
+                            @include('reports.partials.nodes_management_history')
+                        </div>
                     </div>
-                  </div> --}}
+
+
+                    <div id="menu2" class="tab-pane">
+                        {!! Form::open(['route' => 'referral-commissions-export', 'enctype' => 'multipart/form-data', 'method' => 'POST', 'id' => 'referral_commission_form']) !!}
+                        <div class="row align-items-center justify-content-center">
+                            <div class="col-12 col-md-2 col-xl-auto pr-md-0 mt-3">
+                              <p class="text-white font-weight-bold mb-0">FILTER DATE</p>
+                          </div>
+                          <div class="col-12 col-md-3 col-xl-auto mt-3">
+                              <input name="r_start_date" type="text" class="form-control bg-transparent font-12 w-123"
+                                  id="datepicker5" placeholder="Start Date" autocomplete="off">
+                          </div>
+                          <div class="col-12 col-md-auto col-xl-auto px-md-0 mt-3">
+                              <p class="text-white font-weight-bold mb-0 font-12 text-center">TO</p>
+                          </div>
+                          <div class="col-12 col-md-3 col-xl-auto mt-3">
+                              <input name="r_end_date" type="text" class="form-control bg-transparent font-12 w-123"
+                                  id="datepicker6" placeholder="End Date" autocomplete="off">
+                          </div>
+                          <div class="col-12 col-md-auto col-xl-auto ml-md-auto mt-3 text-center">
+                                <a href="#" class="btn bg-warning text-white py-3 px-4 rounded-sm" id="referral_filter">Filter</a>
+                                <a href="#" onclick="resetFormReferral()" class="btn bg-warning text-white py-3 px-4 rounded-sm" id="referral_filter_clear">Clear</a>
+                                <button class="btn bg-warning text-white py-3 px-4 rounded-sm">EXPORT <img
+                                      src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}"
+                                      class="img-fluid ml-3 d-inline align-middle" alt=""></button>
+                          </div>
+                        </div>
+                        {{ Form::close() }}
+                        <div class="table-responsive referral-commission-table-history">
+                            @include('reports.partials.referral_commissions')
+                        </div>
+                    </div>
+
+
+
+                    <div id="menu3" class="tab-pane">
+                        {!! Form::open(['route' => 'roi-export', 'enctype' => 'multipart/form-data', 'method' => 'POST', 'id' => 'roi-form']) !!}
+                        <div class="row align-items-center justify-content-center">
+                            <div class="col-12 col-md-2 col-xl-auto pr-md-0 mt-3">
+                            <p class="text-white font-weight-bold mb-0">FILTER DATE</p>
+                        </div>
+                        <div class="col-12 col-md-3 col-xl-auto mt-3">
+                            <input name="ro_start_date" type="text" class="form-control bg-transparent font-12 w-123"
+                                id="datepicker7" placeholder="Start Date" autocomplete="off">
+                        </div>
+                        <div class="col-12 col-md-auto col-xl-auto px-md-0 mt-3">
+                            <p class="text-white font-weight-bold mb-0 font-12 text-center">TO</p>
+                        </div>
+                        <div class="col-12 col-md-3 col-xl-auto mt-3">
+                            <input name="ro_end_date" type="text" class="form-control bg-transparent font-12 w-123"
+                                id="datepicker8" placeholder="End Date" autocomplete="off">
+                        </div>
+                        <div class="col-12 col-md-auto col-xl-auto ml-md-auto mt-3 text-center">
+                            <a href="#" class="btn bg-warning text-white py-3 px-4 rounded-sm" id="roi_filter">Filter</a>
+                                <a href="#" onclick="resetFormROI()" class="btn bg-warning text-white py-3 px-4 rounded-sm" id="roi_filter_clear">Clear</a>
+                            <button class="btn bg-warning text-white py-3 px-4 rounded-sm">EXPORT <img
+                                    src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}"
+                                    class="img-fluid ml-3 d-inline align-middle" alt=""></button>
+                        </div>
+                        </div>
+                        {{ Form::close() }}
+                        <div class="table-responsive roi-table-history">
+                            @include('reports.partials.roi')
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-@endsection
+        </div>
+    @endsection
+    @section('scripts')
+    <script type="text/javascript">
+        $(document).on("click", "#staking_pool_filter", function(e) {
+               var start_date = $('#datepicker1').val();
+               var end_date = $('#datepicker2').val();
+               var stackingpoolpackage = $('#stackingpoolpackage').val();
+
+               $.ajax({
+                   type: "POST",
+                   url:"{{ route('stackingpoolpackage-ajax') }}",
+                   cache: false,
+                   data: {
+                       _token: $("input[name=_token]").val(),
+                       start_date:start_date,
+                       end_date:end_date,
+                       stackingpoolpackage:stackingpoolpackage
+                   },
+                   success: function(data) {
+                    $(".stackingpool-table-history").html(data);
+                   }
+               });
+        });
+        function resetFormStakingPool() {
+            document.getElementById("export-staking-pool").reset();
+        }
+        $(document).on("click", "#node_filter", function(e) {
+               var start_date = $('#datepicker3').val();
+               var end_date = $('#datepicker4').val();
+
+               $.ajax({
+                   type: "POST",
+                   url:"{{ route('pairingcommissionajax') }}",
+                   cache: false,
+                   data: {
+                       _token: $("input[name=_token]").val(),
+                       start_date:start_date,
+                       end_date:end_date,
+                   },
+                   success: function(data) {
+                    $(".nodes-management-table-history").html(data);
+                   }
+               });
+        });
+        function resetFormNode() {
+            document.getElementById("reports-pairing-commissions-export").reset();
+            $.ajax({
+                type: "POST",
+                url:"{{ route('pairingcommissionajax') }}",
+                cache: false,
+                data: {
+                    _token: $("input[name=_token]").val(),
+                    start_date:'',
+                    end_date:'',
+                },
+                success: function(data) {
+                 $(".nodes-management-table-history").html(data);
+                }
+            });
+        }
+        $(document).on("click", "#referral_filter", function(e) {
+               var start_date = $('#datepicker5').val();
+               var end_date = $('#datepicker6').val();
+
+               $.ajax({
+                   type: "POST",
+                   url:"{{ route('referralcommissionajax') }}",
+                   cache: false,
+                   data: {
+                       _token: $("input[name=_token]").val(),
+                       start_date:start_date,
+                       end_date:end_date,
+                   },
+                   success: function(data) {
+                    $(".referral-commission-table-history").html(data);
+                   }
+               });
+        });
+        function resetFormReferral() {
+            document.getElementById("referral_commission_form").reset();
+            $.ajax({
+                type: "POST",
+                url:"{{ route('referralcommissionajax') }}",
+                cache: false,
+                data: {
+                    _token: $("input[name=_token]").val(),
+                    start_date:'',
+                    end_date:'',
+                },
+                success: function(data) {
+                 $(".referral-commission-table-history").html(data);
+                }
+            });
+        }
+        $(document).on("click", "#roi_filter", function(e) {
+               var start_date = $('#datepicker7').val();
+               var end_date = $('#datepicker8').val();
+
+               $.ajax({
+                   type: "POST",
+                   url:"{{ route('roiajax') }}",
+                   cache: false,
+                   data: {
+                       _token: $("input[name=_token]").val(),
+                       start_date:start_date,
+                       end_date:end_date,
+                   },
+                   success: function(data) {
+                    $(".roi-table-history").html(data);
+                   }
+               });
+        });
+        function resetFormROI() {
+            document.getElementById("roi-form").reset();
+            $.ajax({
+                type: "POST",
+                url:"{{ route('roiajax') }}",
+                cache: false,
+                data: {
+                    _token: $("input[name=_token]").val(),
+                    start_date:'',
+                    end_date:'',
+                },
+                success: function(data) {
+                 $(".roi-table-history").html(data);
+                }
+            });
+        }
+    </script>
+    @endsection

@@ -3,7 +3,13 @@
 @section('page_title', __('custom.withdrawals'))
 @section('content')
 <div class="content-wrapper">
-<div class="row mt-5 pt-5">
+    <div class="ml-2 mb-4 d-none-desk d-md-block">
+      <h2 class="text-warning font-weight-bold">@yield('page_title','Dashboard')</h2>
+      @if(Route::currentRouteName() == 'dashboard')
+      <p class="text-white">{{str_replace('#name',auth()->user()->name,__('custom.wc_text'))}}</p>
+      @endif
+    </div>
+<div class="row mt-3">
     <div class="col-12">
         <div class="withdrawal-gradient rounded text-white py-4 px-5">
             <h2 class="mb-0 font-weight-bold">${{number_format($userWallet->withdrawal_balance, 2)}}</h2>
@@ -73,7 +79,7 @@
                 <div class="card">
                     <div class="card-body p-md-5">
                         @include('withdrawal.common')
-                        {{Form::open(['route' => 'withdrawal-request','class' => '','id' =>'withdrawalform','enctype' => 'multipart/form-data'])}}
+                        {{Form::open(['route' => 'withdrawal-request','class' => '','id' =>'withdrawalform-bank','enctype' => 'multipart/form-data'])}}
                         <div class="row mt-4">
                             <div class="col-12 col-md-4 mt-4 mt-md-0">
                                 <input type="hidden" name="payment_method" value="bank">
@@ -81,6 +87,20 @@
                             </div>
                             <div class="col-12 col-md-4 mt-4 mt-md-0">
                                 <input type="password" name="secure_password" class="form-control grey-ph h-auto py-4 border-0 shadow" placeholder="{{ trans('custom.security_password')}}">
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-12 col-md-6 mt-4 mt-md-0">
+                                <div class="fallback">
+                                    <input name="upload_proof_bank" type="file" class="dropify" id="upload_proof_bank"/>
+                                    <p>Bank Proof png, jpg, jpeg</p>
+                                        @error('upload_proof_bank')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
+                                </div>
+                                <label style="display:none;" id="upload_proof_bank-error" class="error" for="upload_proof_bank"></label>  
                             </div>
                         </div>
                         <div class="row mt-4">

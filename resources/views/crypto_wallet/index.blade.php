@@ -7,8 +7,14 @@
     margin: 10px;
 }
 </style>
-<div class="content-wrapper">
-  <div class="row mt-5 pt-5">
+<div class="content-wrapper crypto-wallet">
+    <div class="ml-2 mb-4 d-none-desk d-md-block">
+      <h2 class="text-warning font-weight-bold">@yield('page_title','Dashboard')</h2>
+      @if(Route::currentRouteName() == 'dashboard')
+      <p class="text-white">{{str_replace('#name',auth()->user()->name,__('custom.wc_text'))}}</p>
+      @endif
+    </div>
+  <div class="row mt-3">
     <div class="col-12">
       <div class="login-gradient rounded text-white py-4 px-5">
         <h2 class="mb-0 font-weight-bold">${{ number_format($userWallet->crypto_wallet, 2)}}</h2>
@@ -21,9 +27,8 @@
       <ul class="nav nav-tabs justify-content-center account-tabs border-0">
         <li><a class="text-warning border border-warning py-3 px-5 d-block fund-usdt-bank active" data-value="usdt" data-toggle="tab" href="#home">{{ trans('custom.usdt')}}</a></li>
         @if(\Auth::user()->country_id == 131)
-        <li><a class="text-warning border border-warning py-3 px-5 d-block fund-usdt-bank" data-toggle="tab" data-value="myr-usdt" href="#menu1">{{ trans('custom.online_payment')}}</a></li>
+        
         @endif
-        <!--  <li><a class="text-warning border border-warning py-3 px-5 d-block fund-usdt-bank" data-toggle="tab" data-value="myr-usdt" href="#menu2">{{ trans('custom.coin_payment')}}</a></li> -->
       </ul>
     </div>
 
@@ -45,7 +50,21 @@
         <div id="home" class="tab-pane active">
           <div class="card">
             <div class="card-body p-md-5">
-              @include('crypto_wallet.common')
+              {{-- @include('crypto_wallet.common') --}}
+              <div class="row">
+                <div class="col-12 pb-3">
+                  <h4 class="font-weight-bold">{{ trans('custom.terms_conditions')}}</h4>
+                </div>
+                <div class="col-12 col-md-6 col-xl-4">
+                  {!! trans('custom.crypto_wallet_terms_and_conditions1_usdt') !!}
+                </div>
+                <div class="col-12 col-md-6 col-xl-4">
+                  {!! trans('custom.crypto_wallet_terms_and_conditions2_usdt') !!}
+                </div>
+                <div class="col-12 col-md-6 col-xl-4">
+                  {!! trans('custom.crypto_wallet_terms_and_conditions3_usdt') !!}
+                </div>
+                </div>
               {{Form::open(['route' => 'cryptoWalletForm','class' => '','id' =>'cryptowalletform','enctype' => 'multipart/form-data'])}}
               @if($usdtaddress)
               <?php $qrcode = $usdtaddress->value;
@@ -56,8 +75,8 @@
               <div class="form-group row fund-usdt">
                  <div class="col-lg-8 form-group-sub row nopadding ">
                   @if($usdtaddress->image != '')
-                  <div class="col-lg-8">
-                      <img src="{{$usdtaddress->image}}" class="center"  id="qr_image">
+                  <div class="image-qr-dah col-lg-4">
+                      <img src="{{$usdtaddress->image}}" class="center"  id="qr_image" style="width: 140px;">
                   </div>
                   @else
                   <div class="image-qr-dah col-lg-4">
@@ -65,10 +84,10 @@
                   </div>
                   @endif
                   <div class="col-lg-8 row nopadding">
-                      <label class="mb-2 bmd-label-static nopadding">@lang('custom.type_of_payment_address')
-                          :<span class="text-red">*</span></label>
                           <div class="col-lg-8 form-group-sub select-bank-hide nopadding ">
                               <div class="form-group ">
+                                <label class="mb-2 bmd-label-static nopadding">@lang('custom.type_of_payment_address')
+                                  :<span class="text-red">*</span></label>
                                   <div class="from-inner-space">
                                       <select name="usdt_address" class="form-control" id="usdt_address">
                                           @foreach($usdtaddresses as $usdtaddress)
@@ -81,7 +100,7 @@
                           <div class="col-lg-8 nopadding">
                               <input type="text" readonly value="{{$qrcode}}" class="form-control" id="copy-class-textaddress">
                           </div>
-                          <div class="col-lg-8 nopadding">
+                          <div class="col-lg-4 nopadding centButton">
                               <a href="javascript:;" class="btn btn-primary cpybtn" id="copy_address">{{trans('custom.click_to_copy')}}  <span style="display: none;" class="copy_text text-white ">{{trans('custom.copied')}}</span></a>
                           </div>
                       </div>
@@ -126,7 +145,7 @@
         <div id="menu1" class="tab-pane">
           <div class="card">
             <div class="card-body p-md-5">
-              @include('crypto_wallet.common')
+              {{-- @include('crypto_wallet.common') --}}
               {{Form::open(['route' => 'cryptoWalletForm','class' => '','id' =>'cryptowalletform-myr','enctype' => 'multipart/form-data'])}}
               <div class="row mt-4">
                 <input type="hidden" name="payment_method" value="secureautopay">
@@ -154,14 +173,31 @@
         <div id="menu2" class="tab-pane">
           <div class="card">
             <div class="card-body p-md-5">
-              @include('crypto_wallet.common')
+              {{-- @include('crypto_wallet.common') --}}
+              <div class="row">
+                <div class="col-12 pb-3">
+                  <h4 class="font-weight-bold">{{ trans('custom.terms_conditions')}}</h4>
+                </div>
+                <div class="col-12 col-md-6 col-xl-4">
+                  {!! trans('custom.crypto_wallet_terms_and_conditions1_payment_gateway') !!}
+                </div>
+                <div class="col-12 col-md-6 col-xl-4">
+                  {!! trans('custom.crypto_wallet_terms_and_conditions2_payment_gateway') !!}
+                </div>
+                <div class="col-12 col-md-6 col-xl-4">
+                  {!! trans('custom.crypto_wallet_terms_and_conditions3_payment_gateway') !!}
+                </div>
+                </div>
               {{Form::open(['route' => 'cryptoWalletForm','class' => '','id' =>'cryptowalletform-coin','enctype' => 'multipart/form-data'])}}
               <div class="row mt-4">
-                <div class="col-12 col-md-6 mt-4 mt-md-0">
+                <div class="col-12 col-md-4 mt-4 mt-md-0">
                   <input type="hidden" name="payment_method" value="coin-payment">
-                  {{Form::text('amount',old('amount'),['class' => 'form-control grey-ph h-auto py-4 border-0 shadow usdttt','placeholder' => trans('custom.amount_USD'),'data-usdrate' => @$convertedRateMYR])}}
+                  {{Form::text('amount',old('amount'),['class' => 'form-control grey-ph h-auto py-4 border-0 shadow credit_amount usdttt','placeholder' => trans('custom.amount_USD'),'data-usdrate' => @$convertedRateUSDT])}}
                 </div>
-                <div class="col-12 col-md-6 mt-4 mt-md-0">
+                <div class="col-12 col-md-4 mt-4 mt-md-0">
+                  {{Form::text('converted_amount',old('converted_amount'),['class' => 'form-control grey-ph h-auto py-4 border-0 shadow usdt-converted_amount','placeholder' => trans('custom.usdt_amount') ,'readonly'=>'true'])}}
+                </div>
+                <div class="col-12 col-md-4 mt-4 mt-md-0">
                   <input type="password" name="secure_password" class="form-control grey-ph h-auto py-4 border-0 shadow" placeholder="{{ trans('custom.security_password')}}">
                 </div>
                 <div class="col-12 col-xl-6 mt-4">

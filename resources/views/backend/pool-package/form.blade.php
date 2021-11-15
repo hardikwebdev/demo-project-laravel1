@@ -34,9 +34,9 @@
     <div class="row">    
         <div class="col-sm-6 pl-0 ">
             <div class="form-group">
-                <label>Description</label>                 
-                {!! Form::textarea('description', old('description'), ['class' => 'form-control form-control', 'rows' => 6,'placeholder' => 'Enter Description']) !!}
-                <span class="help-block text-danger">{{ $errors->first('description') }}</span>
+                <label>Symbol  @if(@$package->symbol)- <a href="{{asset('uploads/pool-package-symbol/'.@$package->symbol)}}" target="_blank">{{@$package->symbol}}</a>@endif</label>
+                {!! Form::file('symbol',['class'=>'form-control']) !!}
+                <span class="help-block text-danger">{{ $errors->first('symbol') }}</span>
             </div>
         </div>
         <div class="col-sm-6 pl-0 ">
@@ -47,6 +47,15 @@
                 <label>{!! Form::radio('status','inactive',@$package->status=='active'?true:false,[]) !!} Inactive</label>
                 <span class="help-block text-danger">{{ $errors->first('status') }}</span>
             </div> 
+        </div>
+    </div>    
+    <div class="row">    
+        <div class="col-sm-6 pl-0 ">
+            <div class="form-group">
+                <label>Description</label>                 
+                {!! Form::textarea('description', old('description'), ['class' => 'form-control form-control', 'rows' => 6,'placeholder' => 'Enter Description']) !!}
+                <span class="help-block text-danger">{{ $errors->first('description') }}</span>
+            </div>
         </div>
     </div>    
 </div>

@@ -7,19 +7,47 @@ $local_url = url('locale');
 @endphp
 @extends('layouts.guest')
 @section('content')
-<div class="row w-100 mx-0">
-  <div class="col-12 col-lg-10 mx-auto">
-     <div class="row align-items-center login-gradient rounded py-4 p-md-5">
-        <div class="col-12 text-center">
-            <img src="{{ asset('assets/images/assets/Register_Account/Group83.png') }}" class="img-fluid" alt="logo">
+<style>
+    ul li {
+        list-style:disc
+    }
+    li {
+        margin-left:20px
+    }
+</style>
+<div class="row w-100 mx-0 registerbox">
+  <div class="col-12 col-lg-8 mx-auto">
+     <div class="row align-items-center login-gradient login-box rounded py-4 p-md-5">
+        <div class="col-12 text-center login-logo">
+            <a href="https://defixfinance.com"><img src="{{ asset('assets/images/assets/defixfinance-logo-white.png') }}" class="img-fluid" alt="logo"></a>
         </div>
-        <div class="col-12 mt-5 text-white">
+         <div class="navigation-cus">
+                           <div class="cus-dropdown text-right mb-3 select-lang-de">
+                              <select style=" height:35px;" class="form-control cus-bg-tra-b" data-width="fit"
+                                 onchange="javascript:window.location.href='<?php echo $local_url; ?>/'+this.value;">
+                                 <option <?php if(app()->getLocale() == 'en'){ echo 'selected' ;} ?> value="en"
+                                    data-content='<span class="flag-icon flag-icon-us"></span> English'>English</option>
+                                 <option <?php if(app()->getLocale() == 'cn'){ echo 'selected' ;} ?> value="cn"
+                                    data-content='<span class="flag-icon flag-icon-cn"></span> China'>中文(Chinese)</option>
+                              </select>
+                           </div>
+                        </div>
+        {{-- <div class="col-12 mt-5 text-white">
             <h2 class="font-weight-bold">@lang('custom.register_account')</h2>
             <h5 class="text-light-pink">{{ __('custom.sign_up_desc') }}</h5>
+        </div> --}}
+        <div class="col-12 mt-5 text-center text-white">
+            <div class="row">
+                <div class="col col-md-12">
+                    <h2 class="font-weight-bold">@lang('custom.register_account')</h2>
+                    <h5 class="text-light-pink">{{ __('custom.sign_up_desc') }}</h5>
+                </div>
+                
+            </div>
         </div>
 
         <div class="col-12">
-           <form method="post" action="{{ route('register') }}" class="customer-register py-5" id="form-wizards-register">
+           <form method="post" action="{{ route('register') }}" class="customer-register py-4" id="form-wizards-register">
             @csrf
             <h1>{{trans('custom.personal_detail')}}</h1>
             <fieldset>
@@ -86,7 +114,7 @@ $local_url = url('locale');
             </div>
         </div>
     </div>
-    <div class="col-12 text-center mt-4">
+    <div class="col-12 text-right leftright">
        <label class="cus-radio">
           <input class="d-none" type="radio" name="child_position" value="left" checked>
           <span class="text-uppercase">{{trans('custom.left') }}</span>
@@ -159,6 +187,17 @@ $local_url = url('locale');
  @enderror
 </div>
 <div class="col-12 col-md-4 mt-2 pt-1 pr-md-0">
+    <input id="city" type="text" class="form-control grey-ph h-auto py-4 rounded-0 @error('city') is-invalid @enderror"
+    name="city" value="{{ old('city') }}" autocomplete="city" autofocus
+    placeholder="{{trans('custom.city')}}">
+
+    @error('city')
+    <span class="invalid-feedback" role="alert">
+     <strong>{{ $message }}</strong>
+ </span>
+ @enderror
+</div>
+<div class="col-12 col-md-4 mt-2 pt-1 pr-md-0 pl-md-2">
     <input id="state" type="text" class="form-control grey-ph h-auto py-4 rounded-0 @error('state') is-invalid @enderror"
     name="state" value="{{ old('state') }}" autocomplete="state" autofocus
     placeholder="{{trans('custom.state')}}">
@@ -169,21 +208,10 @@ $local_url = url('locale');
  </span>
  @enderror
 </div>
-<div class="col-12 col-md-4 mt-2 pt-1 pr-md-0 pl-md-2">
+<div class="countryf col-12 col-md-4 mt-2 pt-1 pl-md-2">
    {{Form::select('country',[null => trans('custom.select_country')] + $country,'',['class' => 'form-control text-grey font-weight-bold h-auto py-4 rounded-0','id'=>'country_id'])}}
    @error('country')
    <span class="invalid-feedback" role="alert">
-     <strong>{{ $message }}</strong>
- </span>
- @enderror
-</div>
-<div class="col-12 col-md-4 mt-2 pt-1 pl-md-2">
-    <input id="city" type="text" class="form-control grey-ph h-auto py-4 rounded-0 @error('city') is-invalid @enderror"
-    name="city" value="{{ old('city') }}" autocomplete="city" autofocus
-    placeholder="{{trans('custom.city')}}">
-
-    @error('city')
-    <span class="invalid-feedback" role="alert">
      <strong>{{ $message }}</strong>
  </span>
  @enderror
@@ -265,10 +293,7 @@ $local_url = url('locale');
 </fieldset>
 <h1 class="text-uppercase">{{trans('custom.bank_details')}}</h1>
 <fieldset>
-   <div class="row justify-content-center mt-5">       
-      <div class="col-12">
-         <h4 class="text-white">{{trans('custom.bank_details')}}</h4>
-     </div>               
+   <div class="row justify-content-center mt-5">                     
      <div class="col-12 col-md-6 mt-2 pt-1 pr-md-0">
         <input id="bank_name" type="text" class="form-control grey-ph h-auto py-4 rounded-0 @error('bank_name') is-invalid @enderror"
         name="bank_name" value="{{ old('bank_name') }}" autocomplete="bank_name" autofocus
@@ -328,7 +353,7 @@ $local_url = url('locale');
  </span>
  @enderror
 </div>
-<div class="col-12 col-md-6 mt-2 pt-1 pl-md-2">
+<div class="bankc col-12 col-md-6 mt-2 pt-1 pl-md-2">
 
  {{Form::select('bank_country_id',[null => trans('custom.select_bank_account_country')] + $country,'',['class' => 'form-control text-grey font-weight-bold h-auto py-4 rounded-0'])}}
  @error('bank_country_id')
@@ -342,31 +367,33 @@ $local_url = url('locale');
 <h1>{{ trans('custom.user_agreement') }}</h1>
 <fieldset>
   <div class="row justify-content-center mt-5">
-    <div class="col-12">
-       <h4 class="text-white">Verify Sponsor Name</h4>
-   </div>
-   <div class="col-12">
-       <hr class="border border-white">
-   </div>
    <div class="col-12 text-white">
-     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet,
-       consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-   </p>
-   <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-   <p class="mt-4">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-   <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-   </p>
-   <p class="mt-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <h4>By creating an account at DefiXFinance, you agree and comply that:</h4>
+<ul><li>All input information is accurate and true to your best knowledge;</li>
+<li>You adhere to provide additional information to prove such validity if required;</li>
+<li>The security of your account (password) is your responsibility and any breach that stems from your personal password being leaked is your responsibility;</li>
+<li>You are of adult age in the jurisdiction in which you reside;</li>
+<li>Your use of DefiXFinance products and offerings do not violate any applicable law or regulation;</li>
+<li>Your use of the service is at your sole risk. The service is provided on an "As is" and "As available" basis. Except as otherwise expressly provided herein, defixfinance expressly disclaims all warranties of any kind, whether express, implied or statutory, including, but not limited to the implied warranties of merchantability, fitness for a particular purpose, title, and non-infringement.</li>
+
+<li>You understand and agree that the above dispute procedures shall be your sole remedy in the event of dispute between you and defixfinance regarding any aspect of the service (including the enrolment process) and that you are waiving your right to lead or participate in a lawsuit involving other persons, such as a class action.</li>
+
+<li>You agree that DefiXFinance, in its sole discretion and without liability to you or any third party, may suspend or terminate your use of service (or any part thereof) and remove and discard any content within the service, for any reason, including, without limitation, for lack of use or if DefiXFinance believes that you have violated or acted inconsistently with the letter or spirit of these terms of service.</li>
+     </ul>
 </div>
 </div>
 
-<div class="row mt-3 mb-3">
+<div class="row mt-3 mb-3 ticks">
 <div class="col-12 col-md-6 form-group row">
+    <div class="col-md-12"><h4 style="color:#fff">Please tick the following the complete your registration:</h4>
+    <p style="color:#fff">I agree I have read the following documents and adhere to the terms and conditions that has been outlined in the documents below:</p>
+    </div>
    <div class="col-md-12 user-agrrement-errro">
       <label class="m-checkbox">
          <input class="chk_agreements " type="checkbox" id="antimoney_laundering" name="terms_condition[]" value="antimoney_laundering" >
          <a href="{{asset('terms/antimoney_laundering.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.antimoney-laundering') }}</a>
-         <span></span>
+         <span></span><br>
+         <label id="terms_condition[]-error" class="error" for="terms_condition[]"></label>
      </label>
  </div>
  <div class="col-md-12">
@@ -398,7 +425,7 @@ $local_url = url('locale');
  </label>
 </div>
 </div>
- <div class="col-12 col-md-6">
+ <div class="col-12 col-md-6 sigbox">
    <div class="card rounded-0">
       <div class="card-body">
         <label class="" for="">{{__('custom.signature')}}</label>
@@ -618,8 +645,8 @@ onStepChanging: function (event, currentIndex, newIndex)
             if (currentIndex < newIndex)
             {
                 // To remove error styles
-                $(".body:eq(" + newIndex + ") label.error", form).remove();
-                $(".body:eq(" + newIndex + ") .error", form).removeClass("error");
+                $(".body:eq(" + newIndex + ") label.error", form).text('');
+                $(".body:eq(" + newIndex + ") .error", form).text("");
             }
 
             // Disable validation on fields that are disabled or hidden.
@@ -855,7 +882,7 @@ onStepChanging: function (event, currentIndex, newIndex)
                        // },
                        'terms_condition[]':{
                          required: true,
-                         minlength: 4
+                         minlength: 5
                      },
       //                  // iagree:{
       //                  //     required: true,

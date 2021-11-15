@@ -1,7 +1,10 @@
   @extends('layouts.guest')
+  @php
+$local_url = url('locale');
+@endphp
   @section('content')
       <div class="row w-100 mx-0">
-          <div class="col-12 col-lg-6 mx-auto">
+          <div class="col-12 col-lg-4 mx-auto">
               @if (session()->has('status'))
                   <div class="my-5 container alert alert-danger" style="width:500px;" id="danger">
                       {{ session()->get('status') }}
@@ -26,14 +29,36 @@
               <form method="POST" action="{{ route('password.update') }}" id="passwordupdate">
                   @csrf
                   <input type="hidden" name="token" value="{{ $token }}">
-                  <div class="row align-items-center justify-content-center login-gradient rounded p-3 p-md-5">
+                  <div class="row align-items-center justify-content-center login-box login-gradient rounded p-3 p-md-5">
                       <div class="col-12 text-center">
-                          <img src="{{ asset('assets/images/assets/Register_Account/Group83.png') }}"
+                          <img src="{{ asset('assets/images/assets/defixfinance-logo-white.png') }}"
                               class="img-fluid" alt="logo">
                       </div>
-                      <div class="col-12 text-center mt-5">
+                      {{-- <div class="col-12 text-center mt-5">
                           <h2 class="font-weight-bold text-white">{{ trans('custom.reset_password') }}</h2>
-                      </div>
+                      </div> --}}
+                      <div class="col-12 text-center mt-5">
+                        <div class="row">
+                            <div class="col col-md-8">
+                                <h2 class="font-weight-bold text-white">{{ trans('custom.reset_password') }}</h2>
+                            </div>
+                            <div class="col col-md-4">
+                                <div class="">
+                                    <div class="navigation-cus">
+                                       <div class="cus-dropdown text-right mb-3 select-lang-de">
+                                          <select style=" height:35px;" class="form-control cus-bg-tra-b" data-width="fit"
+                                             onchange="javascript:window.location.href='<?php echo $local_url; ?>/'+this.value;">
+                                             <option <?php if(app()->getLocale() == 'en'){ echo 'selected' ;} ?> value="en"
+                                                data-content='<span class="flag-icon flag-icon-us"></span> English'>English</option>
+                                             <option <?php if(app()->getLocale() == 'cn'){ echo 'selected' ;} ?> value="cn"
+                                                data-content='<span class="flag-icon flag-icon-cn"></span> China'>中文(Chinese)</option>
+                                          </select>
+                                       </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                       <div class="col-12 mt-5">
                           <input id="email" type="email"
                               class="form-control grey-ph h-auto py-4 rounded-0 @error('email') is-invalid @enderror"

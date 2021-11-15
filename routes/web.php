@@ -1,34 +1,36 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Backend\UserController;
-use App\Http\Controllers\Backend\NewsController;
-use App\Http\Controllers\Backend\AdminSupportController;
-
-use App\Http\Controllers\Backend\RankController;
-use App\Http\Controllers\Backend\SettingController;
-use App\Http\Controllers\Backend\AdminWithdrawalRequest;
-use App\Http\Controllers\Backend\PackageController;
-use App\Http\Controllers\Backend\PoolPackageController;
-use App\Http\Controllers\Backend\YieldWalletController;
-use App\Http\Controllers\Backend\CryptoWalletsPaymentController;
-use App\Http\Controllers\Backend\CryptocreditrequestController;
-use App\Http\Controllers\Backend\NftWalletsPaymentController;
-use App\Http\Controllers\Backend\NftcreditrequestController;
-use App\Http\Controllers\Backend\NftpurchaseController;
-use App\Http\Controllers\Backend\NftpurchaserequestController;
-use App\Http\Controllers\Backend\NFTCategoryController;
-use App\Http\Controllers\Backend\NFTProductController;
-use App\Http\Controllers\Backend\Usercryptowallet;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\Usernftwallet;
-use App\Http\Controllers\Backend\UseryieldwalletController;
-use App\Http\Controllers\Backend\UsercommissionwalletController;
-use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Backend\NewsController;
+use App\Http\Controllers\Backend\RankController;
+
+use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\NewsandEventsController;
 use App\Http\Controllers\SupportTicketController;
+use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Backend\Usercryptowallet;
+use App\Http\Controllers\Backend\PackageController;
+use App\Http\Controllers\Backend\SettingController;
+use App\Http\Controllers\Backend\NFTProductController;
+use App\Http\Controllers\Backend\NFTCategoryController;
+use App\Http\Controllers\Backend\NftpurchaseController;
+use App\Http\Controllers\Backend\PoolPackageController;
+use App\Http\Controllers\Backend\UsdtAddressController;
+use App\Http\Controllers\Backend\YieldWalletController;
+use App\Http\Controllers\Backend\AdminSupportController;
+use App\Http\Controllers\Backend\AdminWithdrawalRequest;
+use App\Http\Controllers\Backend\UseryieldwalletController;
+use App\Http\Controllers\Backend\NftcreditrequestController;
+use App\Http\Controllers\Backend\NftWalletsPaymentController;
 use App\Http\Controllers\Backend\StackingpoolscoinController;
-use App\Http\Controllers\Backend\StackingpoolhistoryController;
+use App\Http\Controllers\Backend\NftpurchaserequestController;
+use App\Http\Controllers\Backend\CryptocreditrequestController;
 use App\Http\Controllers\Backend\ReferralcommissionsController;
+use App\Http\Controllers\Backend\StackingpoolhistoryController;
+use App\Http\Controllers\Backend\CryptoWalletsPaymentController;
+use App\Http\Controllers\Backend\UsercommissionwalletController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -37,6 +39,10 @@ Route::get('/admin', function(){
     return redirect()->route('admin.login');
 });
 
+Route::get('locale/{locale}', function ($locale) {
+	Session::put('locale', $locale);
+	return redirect()->back();
+});
 Route::group(['middleware' => 'prevent-back-history'],function(){
 
     Auth::routes();
@@ -55,6 +61,11 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
     Route::get('calculate-pairing-commission', 'App\Http\Controllers\CommonController@pairingCommission')->name('calculate-pairing');
     Route::get('calculate-referral-commission', 'App\Http\Controllers\CommonController@referralCommission')->name('calculate-referral');
     Route::any('online-payment-response/my/{slug}', 'App\Http\Controllers\WalletController@online_payment_callback_my')->name('online-payment-my-response');
+    //payment confrim usdt
+    Route::any('wallets/usdt-payment-confirm', 'App\Http\Controllers\WalletController@usdtPaymnetConfirm')->name('usdtPaymnetConfirm');
+    //payment cancel url usdt   
+    Route::get('wallets/usdt-payment-cancel/{id}', 'App\Http\Controllers\WalletController@usdtPaymnetCancel')->name('usdtPaymnetCancel');
+    Route::any('wallets/coinpayment-ipn', 'App\Http\Controllers\WalletController@paymnetIpn')->name('PaymnetIpn');
 
     Route::middleware(['auth','verified','Checkuseractive'])->group(function () {
 
@@ -85,9 +96,18 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::get('/nft_marketplace/{id}', 'App\Http\Controllers\NFTMarketplaceController@productDetail')->name('nftproduct');
         Route::post('/nft_marketplace/purchase-product', 'App\Http\Controllers\NFTMarketplaceController@purchaseProduct')->name('purchase-product');
         // Route::get('/withdrawal', 'App\Http\Controllers\HomeController@withdrawal')->name('withdrawal');
+        // Ledger route
         Route::get('/ledger', 'App\Http\Controllers\LedgerController@ledger')->name('ledger');
+        Route::post('/stackingpoolpackageajax', 'App\Http\Controllers\LedgerController@stackingpoolpackageAjax')->name('stackingpoolpackage-ajax');
+        Route::post('/pairingcommissionajax', 'App\Http\Controllers\LedgerController@pairingCommissionAjax')->name('pairingcommissionajax');
+        Route::post('/referralcommissionajax', 'App\Http\Controllers\LedgerController@referralCommissionAjax')->name('referralcommissionajax');
+        Route::post('/roiajx', 'App\Http\Controllers\LedgerController@roiAjax')->name('roiajax');
+        Route::get('/view-breakdown/{id}', 'App\Http\Controllers\LedgerController@viewbreakdown')->name('view.breakdown');
         Route::post('/ledger/staking-export', 'App\Http\Controllers\LedgerController@stakingPoolExport')->name('reports-staking-pool-export');
         Route::post('/ledger/pairing-commissions-export', 'App\Http\Controllers\LedgerController@pairingCommissionsExport')->name('reports-pairing-commissions-export');
+        Route::post('/ledger/referral-commissions-export', 'App\Http\Controllers\LedgerController@referralCommissionsExport')->name('referral-commissions-export');
+        Route::post('/ledger/roi-export', 'App\Http\Controllers\LedgerController@roiExport')->name('roi-export');
+        
         Route::get('/account', 'App\Http\Controllers\AccountController@profile')->name('account');
         Route::post('/personal-detail-upadte', 'App\Http\Controllers\AccountController@updatePersonalDetail')->name('personal-detail-upadte');
         Route::post('/bank-detail-upadte', 'App\Http\Controllers\AccountController@updateBankDetail')->name('bank-detail-upadte');
@@ -98,13 +118,15 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::get('/sell_nft', 'App\Http\Controllers\HomeController@sell_nft')->name('sell_nft');
         Route::get('/withdrawal', 'App\Http\Controllers\WithdrawalController@index')->name('withdrawal');
         Route::post('/withdrawal-request', 'App\Http\Controllers\WithdrawalController@withdrawalRequest')->name('withdrawal-request');
+
+        Route::get('/faq', 'App\Http\Controllers\HomeController@helpandfaq')->name('helpandfaq');
         // Route::resource('help-support', 'App\Http\Controllers\SupportTicketController')->name('help-support');
         Route::resource('help_support', SupportTicketController::class);
         Route::get('help-support-replay/{id}', [SupportTicketController::class, 'supportReplay'])->name('supportReplay');
         Route::get('help-support-close/{slug}', [SupportTicketController::class, 'supportClose'])->name('supportClose');
         Route::post('help-support-replay-message', [SupportTicketController::class, 'supportReplayPost'])->name('supportReplayPost');
 
-
+        Route::resource('news-and-events', NewsandEventsController::class);
     });
 
 
@@ -199,6 +221,9 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 
             //Stacking Pools Coin
             Route::resource('stacking-pools-coin', StackingpoolscoinController::class);
+
+            //usdt Address
+            Route::resource('usdt_address', UsdtAddressController::class);
         });
     });
 

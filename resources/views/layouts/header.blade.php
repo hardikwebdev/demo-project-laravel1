@@ -1,13 +1,11 @@
- <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row shadow-none">
+ <nav class="navbar col-lg-12 col-12 p-0 d-flex flex-row shadow-none">
   <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-    <a class="navbar-brand brand-logo p-4" href="{{route('dashboard')}}"><img src="{{ asset('assets/images/assets/Dashboard/Group1030.png') }}" class="img-fluid h-auto" alt="logo"/></a>
-    <a class="navbar-brand brand-logo-mini" href="{{route('dashboard')}}"><img src="{{ asset('assets/images/assets/Dashboard/Group1030.png') }}" alt="logo"/></a>
+    {{-- <a class="navbar-brand brand-logo p-4" href="{{route('dashboard')}}"><img src="{{ asset('assets/images/assets/Dashboard/Group1030.png') }}" class="img-fluid h-auto" alt="logo"/></a>
+    <a class="navbar-brand brand-logo-mini" href="{{route('dashboard')}}"><img src="{{ asset('assets/images/assets/Dashboard/Group1030.png') }}" alt="logo"/></a> --}}
+    <a class="navbar-brand brand-logo p-4" href="{{route('dashboard')}}"><img src="{{ asset('assets/images/assets/defixfinance-logo.png') }}" class="img-fluid h-auto" alt="logo"/></a>
+    <a class="navbar-brand brand-logo-mini" href="{{route('dashboard')}}"><img src="https://defixfinance.com/wp-content/uploads/2021/09/defix-favicon.png" alt="logo"/></a>
   </div>
   <div class="navbar-menu-wrapper d-flex align-items-end justify-content-end justify-content-md-between">
-    <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-      <span class="icon-menu"></span>
-    </button>
-
     <div class="ml-4 d-none d-md-block">
       <h2 class="text-warning font-weight-bold">@yield('page_title','Dashboard')</h2>
       @if(Route::currentRouteName() == 'dashboard')
@@ -16,6 +14,21 @@
     </div>
     <ul class="navbar-nav navbar-nav-right">
       <li class="nav-item nav-profile dropdown align-self-md-end">
+        <div class="ml-2 mx-5">
+          <div class="">
+            <div class="navigation-cus">
+               <div class="cus-dropdown text-right mb-3 select-lang-de mt-3">
+                  <select style=" height:35px;" class="form-control cus-bg-tra-b" data-width="fit"
+                     onchange="javascript:window.location.href='<?php echo $local_url; ?>/'+this.value;">
+                     <option <?php if(app()->getLocale() == 'en'){ echo 'selected' ;} ?> value="en"
+                        data-content='<span class="flag-icon flag-icon-us"></span> English'>English</option>
+                     <option <?php if(app()->getLocale() == 'cn'){ echo 'selected' ;} ?> value="cn"
+                        data-content='<span class="flag-icon flag-icon-cn"></span> China'>中文(Chinese)</option>
+                  </select>
+               </div>
+            </div>
+        </div>
+        </div>
         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
           <img src="{{auth()->user()->profile_image}}" alt="">
         </a>

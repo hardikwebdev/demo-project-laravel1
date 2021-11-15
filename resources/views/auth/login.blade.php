@@ -1,9 +1,11 @@
 @extends('layouts.guest')
 @section('title', __('custom.sign_in'))
-
+@php
+$local_url = url('locale');
+@endphp
 @section('content')
     <div class="row w-100 mx-0">
-        <div class="col-12 col-lg-6 mx-auto">
+        <div class="col-12 col-lg-4 mx-auto">
             @if(Session::has('success'))
             <div class="alert alert-success alert-dismissable">
                 <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
@@ -17,16 +19,36 @@
                 </div>
             @endif
             <form method="POST" action="{{ route('login') }}">
-                <div class="row align-items-center justify-content-center login-gradient rounded p-3 p-md-5">
-                    <div class="col-12 text-center">
-                        <img src="{{ asset('assets/images/assets/Register_Account/Group83.png') }}" class="img-fluid"
-                            alt="logo">
+                <div class="row align-items-center justify-content-center login-box login-gradient rounded p-3 p-md-5">
+                    <div class="col-12 text-center login-logo">
+                        <a href="https://defixfinance.com">
+                        <img src="{{ asset('assets/images/assets/defixfinance-logo-white.png') }}" class="img-fluid"
+                            alt="logo"></a>
                     </div>
+                    <div class="navigation-cus">
+                                       <div class="cus-dropdown text-right mb-3 select-lang-de">
+                                          <select style=" height:35px;" class="form-control cus-bg-tra-b" data-width="fit"
+                                             onchange="javascript:window.location.href='<?php echo $local_url; ?>/'+this.value;">
+                                             <option <?php if(app()->getLocale() == 'en'){ echo 'selected' ;} ?> value="en"
+                                                data-content='<span class="flag-icon flag-icon-us"></span> English'>English</option>
+                                             <option <?php if(app()->getLocale() == 'cn'){ echo 'selected' ;} ?> value="cn"
+                                                data-content='<span class="flag-icon flag-icon-cn"></span> China'>中文(Chinese)</option>
+                                          </select>
+                                       </div>
+                                    </div>
+                    {{-- <div class="col-12 text-center mt-5">
+                        <h3 class="font-weight-bold text-white">{{ __('custom.welcome_text_desc') }}</h3>
+                    </div> --}}
                     <div class="col-12 text-center mt-5">
-                        <h2 class="font-weight-bold text-white">{{ __('custom.welcome_text_desc') }}</h2>
+                        <div class="row">
+                            <div class="col col-md-12">
+                                <h3 class="font-weight-bold text-white">{{ __('custom.welcome_text_desc') }}</h3>
+                            </div>
+                            
+                        </div>
                     </div>
                     @csrf
-                    <div class="col-12 mt-5">
+                    <div class="col-12 mt-3">
                         <input id="username" type="username"
                             class="form-control grey-ph h-auto py-4 rounded-0 @error('username') is-invalid @enderror"
                             placeholder="{{ __('custom.username') }}" name="username" value="{{ old('username') }}"

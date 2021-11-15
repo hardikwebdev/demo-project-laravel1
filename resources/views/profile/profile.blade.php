@@ -2,8 +2,14 @@
 @section('title', __('custom.profile'))
 @section('page_title', __('custom.profile'))
 @section('content')
-<div class="content-wrapper">
-          <div class="row mt-5 pt-5">
+<div class="content-wrapper profile login-box">
+    <div class="ml-2 mb-4 d-none-desk d-md-block">
+      <h2 class="text-warning font-weight-bold">@yield('page_title','Dashboard')</h2>
+      @if(Route::currentRouteName() == 'dashboard')
+      <p class="text-white">{{str_replace('#name',auth()->user()->name,__('custom.wc_text'))}}</p>
+      @endif
+    </div>
+          <div class="row mt-3">
             <div class="col-12 col-xl-4 grid-margin stretch-card mb-0">
               <div class="card tale-bg overflow-hidden bg-white pb-3">
                 <div class="bg-warning p-4 pb-5">
@@ -45,7 +51,7 @@
                           <div class="row align-iems-center justify-content-between">
                             <div class="col-12 col-md-6">
                               <h4 class="text-black mb-0 font-weight-bold">{{ Helper::defixFinanceID($user->id, date("d-m-Y",strtotime($user->created_at)))}}</h4>
-                              <span class="text-secondary font-10">Defix Finance ID</span>
+                              <span class="text-secondary font-10">DefiXFinance ID</span>
                             </div>
                             <div class="col-12 col-md-6">
                               <h4 class="text-black mb-0 font-weight-bold">******{{ substr($user->phone_number, -4)}}</h4>
@@ -59,7 +65,7 @@
                             </div>
                             <div class="col-12 col-md-6">
                               <h4 class="text-black mb-0 font-weight-bold">{{ $staking_pool_count}}</h4>
-                              <span class="text-secondary font-10">Total Staking Packag</span>
+                              <span class="text-secondary font-10">Total Staking Package</span>
                             </div>
                           </div>
                         </div>

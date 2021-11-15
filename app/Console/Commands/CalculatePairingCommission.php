@@ -57,17 +57,17 @@ class CalculatePairingCommission extends Command
             // NftWalletHistory::where(["user_id" => $user->id,'description' => 'Pairing commission'])->whereDate('created_at',$result_date)->delete();
             // CommissionWalletHistory::where(["user_id" => $user->id,'description' => 'Pairing commission'])->whereDate('created_at',$result_date)->delete();
 
-            $todaysPool = PairingCommission::where(["user_id" => $user->id])->whereDate('created_at',$result_date)->count();
+            // $todaysPool = PairingCommission::where(["user_id" => $user->id])->whereDate('created_at',$result_date)->count();
 
-            if($todaysPool > 0){
-                continue;
-            }
+            // if($todaysPool > 0){
+            //     continue;
+            // }
 
             $leftDownlineGroupsaleActual  = $leftDownlineGroupsale  = Helper::getTotalgroupsalesTodayLeft($user); 
             $rightDownlineGroupsaleActual = $rightDownlineGroupsale = Helper::getTotalgroupsalesTodayRight($user);
-            if($leftDownlineGroupsaleActual == 0 && $rightDownlineGroupsaleActual == 0){
-                continue;
-            }
+            // if($leftDownlineGroupsaleActual == 0 && $rightDownlineGroupsaleActual == 0){
+            //     continue;
+            // }
             $cf = $user->userwallet->carry_forward;
             $carry_forward_to = 0;
             if($user->userwallet->carry_forward_to == 'left'){
@@ -75,6 +75,9 @@ class CalculatePairingCommission extends Command
             }
             if($user->userwallet->carry_forward_to == 'right'){
                 $rightDownlineGroupsale += $cf;
+            }
+            if($leftDownlineGroupsale == 0 && $rightDownlineGroupsale == 0){
+                continue;
             }
 
             $packageamount  = $user->userwallet->stacking_pool;
@@ -100,23 +103,33 @@ class CalculatePairingCommission extends Command
             }
             if($rightDownlineGroupsale == 0){
                 $groupsale = $leftDownlineGroupsale;
-                $carry_forward = 0;
+                $carry_forward = $leftDownlineGroupsale;
                 $pairing_got_from = 'right';
             }
             if($leftDownlineGroupsale == 0){
                 $groupsale = $rightDownlineGroupsale;
-                $carry_forward = 0;
+                $carry_forward = $rightDownlineGroupsale;
                 $pairing_got_from = 'left';
             }
-            // echo $groupsale; echo $rightDownlineGroupsale;
+            $carry_forward_to = ($carry_forward > 0) ? (($pairing_got_from == 'left') ? 'right' : 'left') : null;
+
+            // echo $carry_forward_to.'--'; echo $rightDownlineGroupsale;
             // die();
+            if($leftDownlineGroupsale == 0 || $rightDownlineGroupsale == 0){
+                $carry_forward_to = ($carry_forward > 0) ? (($pairing_got_from == 'left') ? 'right' : 'left') : null;
+                $user->userwallet->carry_forward = $carry_forward;
+
+                $user->userwallet->carry_forward_to = $carry_forward_to;
+                $user->userwallet->save();
+                continue;
+            }
+
 
             $pairing_commission = ($groupsale * $pairing_value) / 100;
             $pairing_commission = ($pairing_commission > $daily_limit) ? $daily_limit : $pairing_commission;
 
             $user->userwallet->pairing_commission = $user->userwallet->pairing_commission + $pairing_commission;
             $user->userwallet->carry_forward = $carry_forward;
-            $carry_forward_to = ($carry_forward > 0) ? (($pairing_got_from == 'left') ? 'right' : 'left') : null;
             $user->userwallet->carry_forward_to = $carry_forward_to;
             $user->userwallet->save();
 

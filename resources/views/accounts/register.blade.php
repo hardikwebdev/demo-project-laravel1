@@ -3,8 +3,14 @@
 @section('page_title', __('custom.register_user'))
 
 @section('content')
-    <div class="content-wrapper">
-        <div class="row w-100 mx-0 mt-5 pt-5">
+    <div class="content-wrapper register-inner login-box">
+        <div class="ml-2 mb-4 d-none-desk d-md-block">
+      <h2 class="text-warning font-weight-bold">@yield('page_title','Dashboard')</h2>
+      @if(Route::currentRouteName() == 'dashboard')
+      <p class="text-white">{{str_replace('#name',auth()->user()->name,__('custom.wc_text'))}}</p>
+      @endif
+    </div>
+        <div class="row w-100 mx-0 mt-3 registerbox">
             <div class="col-12 mx-auto">
                 <div class="row align-items-center login-gradient rounded py-4 p-md-5">
                     <!-- <div class="col-12 text-center">
@@ -98,7 +104,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-12 text-center mt-4">
+                                    <div class="col-12 text-right leftright">
                                         <label class="cus-radio">
                                             <input class="d-none" type="radio" name="child_position" value="left"
                                                 checked>
@@ -356,7 +362,7 @@
                                             </span>
                                         @enderror
                                     </div>
-                                    <div class="col-12 col-md-6 mt-2 pt-1 pl-md-2">
+                                    <div class="bankc col-12 col-md-6 mt-2 pt-1 pl-md-2">
                                         {{ Form::select('bank_country_id', [null => trans('custom.select_bank_account_country')] + $country, '', ['class' => 'form-control text-grey font-weight-bold h-auto py-4 rounded-0']) }}
                                         @error('bank_country_id')
                                             <span class="invalid-feedback" role="alert">
