@@ -5,9 +5,9 @@
   <meta content="width=device-width,initial-scale=1" name="viewport">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>Welcome to DefiXFinance</title>
-  <link href='http://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700' rel='stylesheet' type='text/css'>
+  <link href="http://fonts.cdnfonts.com/css/helvetica-neue-9" rel='stylesheet' type='text/css'>
   <style type="text/css">
-    @import url('http://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
+    @import url('http://fonts.cdnfonts.com/css/helvetica-neue-9');
     html {
       width: 100% !important;
     }
@@ -16,7 +16,7 @@
       width: 100% !important;
       margin: 0;
       padding: 0;
-      font-family: poppins;
+      font-family: 'Helvetica Neue';
     }
     
     .ReadMsgBody {
@@ -132,7 +132,7 @@
                                   <tr>
                                     <td align="center" style="padding:45px 0px;" class="td-pad-20">
                                       <a style="text-decoration:none; outline:none;" href="#" title="DefiXFinance">
-                                        <img src="{{ asset('images/email/white-logo.png')}}" width="350" style="display:block;" />
+                                        <img src="{{ asset('images/email/defixfinance-logo-white.png')}}" width="350" style="display:block;" />
                                       </a>
                                     </td>
                                   </tr>
@@ -173,20 +173,20 @@
                                           <td>
                                             <table align="center" cellpadding="0" cellspacing="0" border="0" width="500">
                                               <tr>
-                                                <td class="size-20" align="center" style="font-weight:600; font-size:28px; color:black; font-family:poppins; mso-line-height-rule: exactly; text-align:center; line-height:42px;">Reset Password</td>
+                                                <td class="size-20" align="center" style="font-weight:600; font-size:28px; color:black; font-family:'Helvetica Neue'; mso-line-height-rule: exactly; text-align:center; line-height:42px;">Reset Password</td>
                                                 </tr>
                                                 <tr>
-                                                  <td class="pad-B20" align="center" style="font-weight:400; font-size:14px; color:#5c5c5c; font-family:poppins; mso-line-height-rule: exactly; line-height:26px; padding:10px 0px 40px;">
+                                                  <td class="pad-B20" align="center" style="font-weight:400; font-size:14px; color:#5c5c5c; font-family:Helvetica Neue; mso-line-height-rule: exactly; line-height:26px; padding:10px 0px 40px;">
                                                     Resetting your password is easy. Just press the button below and
                                                     follow the instructions. We'll have you up and running in no time.</td>
                                                   </tr>
                                                   <tr>
                                                     <td align="center" valign="top" style="padding-bottom:30px;" class="pad-B20">
-                                                      <a title="VERIFY NOW" href="{{ $routeUrl}}" style="background-color:#ffc424; border:solid 1px #ffc424; border-radius:2px;color:#ffffff;display:inline-block;font-family:Poppins; font-weight:400; font-size:14px; line-height:56px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;mso-hide:all;outline:none;">VERIFY NOW <img src="{{('images/email/arrow.png')}}" alt="" style="vertical-align: middle; padding-left: 10px; width: 25px;"></a>
+                                                      <a title="VERIFY NOW" href="{{ $routeUrl}}" style="background-color:#ffc424; border:solid 1px #ffc424; border-radius:2px;color:#ffffff;display:inline-block;font-family:Helvetica Neue; font-weight:400; font-size:14px; line-height:56px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;mso-hide:all;outline:none;">VERIFY NOW <img src="{{('images/email/arrow.png')}}" alt="" style="vertical-align: middle; padding-left: 10px; width: 25px;"></a>
                                                     </td>
                                                   </tr>
                                                   <tr>
-                                                    <td class="pad-B20" align="center" style="font-weight:400; font-size:14px; color:#5c5c5c; font-family:poppins; mso-line-height-rule: exactly; line-height:26px; padding:10px 0px 10px;">
+                                                    <td class="pad-B20" align="center" style="font-weight:400; font-size:14px; color:#5c5c5c; font-family:Helvetica Neue; mso-line-height-rule: exactly; line-height:26px; padding:10px 0px 10px;">
                                                       If that doesn't work, copy and paste the following link in your browser:
                                                     </td>
                                                     </tr>
@@ -208,10 +208,10 @@
                                               <td>
                                                 <table align="center" cellpadding="0" cellspacing="0" border="0" width="490">
                                                   <tr>
-                                                    <td class="size-20" align="center" style="font-weight:400; font-size:20px; color:black; font-family:poppins; mso-line-height-rule: exactly; text-align:center; line-height:36px; font-weight:bold;">Thank you for using our application!</td>
+                                                    <td class="size-20" align="center" style="font-weight:400; font-size:20px; color:black; font-family:Helvetica Neue; mso-line-height-rule: exactly; text-align:center; line-height:36px; font-weight:bold;">Thank you for using our application!</td>
                                                   </tr>
                                                   <tr>
-                                                    <td class="pad-B20" align="center" style="font-weight:400; font-size:14px; color:#5c5c5c; font-family:poppins; mso-line-height-rule: exactly; line-height:26px; padding:10px 0px 40px;">
+                                                    <td class="pad-B20" align="center" style="font-weight:400; font-size:14px; color:#5c5c5c; font-family:Helvetica Neue; mso-line-height-rule: exactly; line-height:26px; padding:10px 0px 40px;">
                                                       If you have any questions, please contact to admin at <br/>
                                                       <a href="" style="color: #231f20; text-decoration: none;">support@defixfinance.com</a>
                                                     </td>
@@ -220,10 +220,10 @@
                                                     <td class="pad-B20" align="center">
                                                       <table cellpadding="0" cellspacing="0" border="0" width="100%">
                                                         <tr>
-                                                          <td class="key-list" align="left" style="font-size:18px; font-weight:400; color:#5c5c5c; font-family:poppins; line-height:30px;">Sincerely, </td>
+                                                          <td class="key-list" align="left" style="font-size:18px; font-weight:400; color:#5c5c5c; font-family:Helvetica Neue; line-height:30px;">Sincerely, </td>
                                                         </tr>
                                                         <tr>
-                                                          <td class="key-list" align="left" style="font-size:18px; font-weight:400; color:#5c5c5c; font-family:poppins; line-height:30px;">DefiXFinance Team</td>
+                                                          <td class="key-list" align="left" style="font-size:18px; font-weight:400; color:#5c5c5c; font-family:Helvetica Neue; line-height:30px;">DefiXFinance Team</td>
                                                         </tr>
                                                       </table>
                                                     </td>
@@ -247,7 +247,7 @@
                                 <tr>
                                   <td align="left" valign="top">
                                     <table cellpadding="0" cellspacing="0" border="0" align="left" class="wd-auto">
-                                      <td style="font-family:poppins;font-size:9px;color:#bcbcbc"><strong>General Advice:</strong> All information in this website is of general advise only. We strongly advise that you consider the advise in regards to your financial objectives, situation and needs.
+                                      <td style="font-family:Helvetica Neue;font-size:9px;color:#bcbcbc"><strong>General Advice:</strong> All information in this website is of general advise only. We strongly advise that you consider the advise in regards to your financial objectives, situation and needs.
                                         DefiXFinance Group Limited makes no guarantee of its accuracy and completeness and is not responsible for errors of transmission of factual or analytical data. The opinions in this website
                                         constitute the present judgment of the issuer, which is subject to change without notice.
                                         <br>

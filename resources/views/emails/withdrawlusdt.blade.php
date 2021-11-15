@@ -5,9 +5,9 @@
   <meta content="width=device-width,initial-scale=1" name="viewport">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>Welcome to Defix</title>
-  <link href='http://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.cdnfonts.com/css/helvetica-neue-9' rel='stylesheet' type='text/css'>
   <style type="text/css">
-    @import url('http://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
+    @import url('http://fonts.cdnfonts.com/css/helvetica-neue-9');
     html {
       width: 100% !important;
     }
@@ -16,7 +16,7 @@
       width: 100% !important;
       margin: 0;
       padding: 0;
-      font-family: poppins;
+      font-family: 'Helvetica Neue';
     }
     
     .ReadMsgBody {
@@ -132,7 +132,7 @@
                                   <tr>
                                     <td align="center" style="padding:45px 0px;" class="td-pad-20">
                                       <a style="text-decoration:none; outline:none;" href="#" title="Defix">
-                                        <img src="{{ asset('images/email/white-logo.png')}}" width="350" style="display:block;" />
+                                        <img src="{{ asset('images/email/defixfinance-logo-white.png')}}" width="350" style="display:block;" />
                                       </a>
                                     </td>
                                   </tr>
@@ -173,16 +173,16 @@
                                           <td>
                                             <table align="center" cellpadding="0" cellspacing="0" border="0" width="500">
                                               <tr>
-                                                <td class="size-20" align="center" style="font-weight:600; font-size:28px; color:black; font-family:poppins; mso-line-height-rule: exactly; text-align:center; line-height:42px;">DefixFinance Withdrawal Verification</td>
+                                                <td class="size-20" align="center" style="font-weight:600; font-size:28px; color:black; font-family:'Helvetica Neue'; mso-line-height-rule: exactly; text-align:center; line-height:42px;">DefixFinance Withdrawal Verification</td>
                                                 </tr>
                                                 <tr>
-                                                  <td class="pad-B20" align="center" style="font-weight:400; font-size:14px; color:#5c5c5c; font-family:poppins; mso-line-height-rule: exactly; line-height:26px; padding:10px 0px 10px;">Dear Esteemed Client, <br/>
+                                                  <td class="pad-B20" align="center" style="font-weight:400; font-size:14px; color:#5c5c5c; font-family:'Helvetica Neue'; mso-line-height-rule: exactly; line-height:26px; padding:10px 0px 10px;">Dear Esteemed Client, <br/>
                                                     A withdrawal request has been made on your account. If you want to
                                                     continue, please click the link below. If it is not you, please login your
                                                     account and change your password immediately</td>
                                                   </tr>
                                                   <tr>
-                                                    <td class="pad-B20" align="center" style="font-weight:bold; font-size:16px; color:black; font-family:poppins; mso-line-height-rule: exactly; line-height:26px; padding:10px 0px 10px;">
+                                                    <td class="pad-B20" align="center" style="font-weight:bold; font-size:16px; color:black; font-family:'Helvetica Neue'; mso-line-height-rule: exactly; line-height:26px; padding:10px 0px 10px;">
                                                       <a href="{{$routeUrl}}">I confirm my request to withdraw</a>
                                                     </td>
                                                     </tr>
@@ -208,7 +208,7 @@
                                 <tr>
                                   <td align="left" valign="top">
                                     <table cellpadding="0" cellspacing="0" border="0" align="left" class="wd-auto">
-                                      <td style="font-family:poppins;font-size:9px;color:#bcbcbc"><strong>General Advice:</strong> All information in this website is of general advise only. We strongly advise that you consider the advise in regards to your financial objectives, situation and needs.
+                                      <td style="font-family:'Helvetica Neue';font-size:9px;color:#bcbcbc"><strong>General Advice:</strong> All information in this website is of general advise only. We strongly advise that you consider the advise in regards to your financial objectives, situation and needs.
                                         Defix Group Limited makes no guarantee of its accuracy and completeness and is not responsible for errors of transmission of factual or analytical data. The opinions in this website
                                         constitute the present judgment of the issuer, which is subject to change without notice.
                                         <br>
