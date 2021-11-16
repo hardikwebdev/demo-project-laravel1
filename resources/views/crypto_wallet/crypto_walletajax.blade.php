@@ -13,7 +13,7 @@
             <th>{{ trans('custom.payment_proof')}}</th>
             <th>{{ trans('custom.description')}}</th>
             <th>{{ trans('custom.status')}}</th>
-            <th>&nbsp;</th> 
+            <th>&nbsp;</th>  
           </tr>
         </thead>
         <tbody>
@@ -42,11 +42,13 @@
             @if($value->status == 2)
             <td class="text-danger">{{ trans('custom.rejected')}}</td>
             @endif
+            <td class="text-danger">
             @if($value->status == 1 && $value->certificate_id != '')
             <a href="{{asset('uploads/pdf/'.$value->certificate_id.'.pdf')}}" target="_blank" class="text-danger printReport">
               <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
             </a>
             @endif
+            </td>
           </tr>
           @endforeach
           @else
