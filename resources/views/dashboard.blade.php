@@ -363,7 +363,53 @@
                 </div>
             </div>
         </div>
-
+<div class="row mt-5">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-12 col-md-6 col-xl-3">
+                    <div class="card bg-crypto-wallet">
+                        <div class="card-body text-white">
+                            <p class="mb-4">{{ __('custom.crypto_wallet') }} </p>
+                            <p class="fs-30 mb-2">
+                                ${{ $user->userwallet ? number_format($user->userwallet->crypto_wallet, 2) : '' }}</p>
+                            <p class="font-10">{{ __('custom.balance') }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-3 mt-4 mt-md-0">
+                    <div class="card bg-yield-wallet">
+                        <div class="card-body text-white">
+                            <p class="mb-4">{{ __('custom.yield_wallet') }} </p>
+                            <p class="fs-30 mb-2">
+                                ${{ $user->userwallet ? number_format($user->userwallet->yield_wallet, 2) : '' }}</p>
+                            <p class="font-10">{{ __('custom.balance') }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-3 mt-4 mt-xl-0">
+                    <div class="card bg-commission-wallet">
+                        <div class="card-body text-white">
+                            <p class="mb-4">{{ __('custom.commission_wallet') }} </p>
+                            <p class="fs-30 mb-2">
+                                ${{ $user->userwallet ? number_format($user->userwallet->commission_wallet, 2) : '' }}
+                            </p>
+                            <p class="font-10">{{ __('custom.balance') }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-3 mt-4 mt-xl-0">
+                    <div class="card bg-NFT-wallet">
+                        <div class="card-body text-white">
+                            <p class="mb-4">{{ __('custom.nft_wallet') }} </p>
+                            <p class="fs-30 mb-2">
+                                ${{ $user->userwallet ? number_format($user->userwallet->nft_wallet, 2) : '' }}</p>
+                            <p class="font-10">{{ __('custom.balance') }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
         <div class="row dashboard-news">
             <div class="col-12">
                 <div class="card">
@@ -449,53 +495,7 @@
         </div>
     </div>
 
-    <div class="row mt-5">
-        <div class="col-12">
-            <div class="row">
-                <div class="col-12 col-md-6 col-xl-3">
-                    <div class="card bg-crypto-wallet">
-                        <div class="card-body text-white">
-                            <p class="mb-4">{{ __('custom.crypto_wallet') }} </p>
-                            <p class="fs-30 mb-2">
-                                ${{ $user->userwallet ? number_format($user->userwallet->crypto_wallet, 2) : '' }}</p>
-                            <p class="font-10">{{ __('custom.balance') }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-xl-3 mt-4 mt-md-0">
-                    <div class="card bg-yield-wallet">
-                        <div class="card-body text-white">
-                            <p class="mb-4">{{ __('custom.yield_wallet') }} </p>
-                            <p class="fs-30 mb-2">
-                                ${{ $user->userwallet ? number_format($user->userwallet->yield_wallet, 2) : '' }}</p>
-                            <p class="font-10">{{ __('custom.balance') }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-xl-3 mt-4 mt-xl-0">
-                    <div class="card bg-commission-wallet">
-                        <div class="card-body text-white">
-                            <p class="mb-4">{{ __('custom.commission_wallet') }} </p>
-                            <p class="fs-30 mb-2">
-                                ${{ $user->userwallet ? number_format($user->userwallet->commission_wallet, 2) : '' }}
-                            </p>
-                            <p class="font-10">{{ __('custom.balance') }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-xl-3 mt-4 mt-xl-0">
-                    <div class="card bg-NFT-wallet">
-                        <div class="card-body text-white">
-                            <p class="mb-4">{{ __('custom.nft_wallet') }} </p>
-                            <p class="fs-30 mb-2">
-                                ${{ $user->userwallet ? number_format($user->userwallet->nft_wallet, 2) : '' }}</p>
-                            <p class="font-10">{{ __('custom.balance') }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
     <!-- content-wrapper ends -->
     @if ($planExpired)
         @foreach ($expired_stacking_pools as $stacking_pool)
