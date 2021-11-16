@@ -230,7 +230,7 @@
                 </div>
             </div>
         </div>
-        <div class="row mt-5">
+        <!--<div class="row mt-5">
             <div class="col-12">
                 <p class="text-white mb-3" style="font-weight: 700 !important;font-size: 1.187rem;">
                     {{ __('custom.last_nfts') }}</p>
@@ -272,8 +272,8 @@
             <div class="bg-bullkong rounded d-flex align-items-end px-4 py-3 text-white" style="background-image:url(https://app.defixfinance.com/public/assets/images/assets/nft/Number-8.gif)">
               <h3>Lucky Numbers</h3>
             </div>
-          </div> -->
-        </div>
+          </div> ->
+        </div> -->
         <div class="row mt-5">
             <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
