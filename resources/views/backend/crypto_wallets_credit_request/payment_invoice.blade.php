@@ -1,4 +1,4 @@
-{{-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -58,9 +58,10 @@
 
         <table width="80%" style="padding-top: 30px;">
           <tr>
-            <td  align="center" style="font-size:16px; color:white; font-family:poppins; text-align:center; display: flex; justify-content: space-between;">
-              <span style="display: flex; align-items: center; width: 50%;">
-                Name: <input type="text" style="color:white;border: 1px solid white; background-color: transparent; padding:10px; margin-left: auto; width: 73%;" value="{{ $user->name }}">
+            {{-- <td  align="center" style="font-size:16px; color:white; font-family:poppins; text-align:center; display: flex; justify-content: space-between;"> --}}
+              <td  align="center" style="font-size:16px; color:white; font-family:poppins; text-align:center;">
+              {{-- <span style="display: flex; align-items: center; width: 50%;">
+                Name: <input type="text" style="color:white;border: 1px solid white; background-color: transparent; padding:10px; margin-left: auto; width: 73%;" value="{{ $user->name ?? "" }}">
               </span>
               <span style="display: flex; align-items: center;">
                 FUNDING METHOD: <form style="display: flex; align-items: center;">
@@ -69,7 +70,26 @@
                   <input type="checkbox" id="vehicle2" name="vehicle2" style="margin-left: 10px;" value="BANK">
                   <label for="vehicle2" style="margin-left: 5px;"> BANK</label><br>
                 </form>
-              </span>
+              </span> --}}
+              <div style="width: 10%;display:inline-block;">
+                <span style="font-size:16px; color:white; font-family:poppins; vertical-align: center;"> Name</span>
+              </div>
+              <div style="width: 30%;display:inline-block;">
+                <input type="text" style="color:white;border: 1px solid white; background-color: transparent; padding:10px; margin-left: auto; width: 73%;" value="{{ $user->name ?? "" }}">
+              </div>
+              <div style="width: 60%;display:inline-block;">
+                <div style="width: 30%;display:inline-block;">
+                  <span style="font-size:16px; color:white; font-family:poppins;">  FUNDING METHOD:</span>
+                </div>
+                <div style="width: 35%;display:inline-block;">
+                  <input type="checkbox" id="vehicle1" name="vehicle1" style="margin-left: 10px;display:inline-block" value="USDT" checked>
+                  <label for="vehicle1" style="margin-left: 5px;display:inline-block"> USDT</label><br>
+                </div>
+                <div style="width: 35%;display:inline-block;">
+                  <input type="checkbox" id="vehicle2" name="vehicle2" style="margin-left: 10px;display:inline-block" value="BANK">
+                  <label for="vehicle2" style="margin-left: 5px;display:inline-block"> BANK</label><br>
+                </div>
+             </div>
             </td>
           </tr>
         </table>
@@ -77,8 +97,14 @@
         <table width="80%" style="padding-top: 30px;">
           <tr>
             <td  align="center" style="font-size:16px; color:white; font-family:poppins; text-align:center;">
-              <div style="display: flex; align-items: center;">
-                FROM: <input type="text" style="border: 1px solid white;color:white;background-color: transparent; padding:10px; width: 87%; margin-left: auto;" value="{{ (!empty($usdt_address)) ? ($usdt_address) : ("-") }}">
+              {{-- <div style="display: flex; align-items: center;">
+                FROM: <input type="text" style="border: 1px solid white;color:white;background-color: transparent; padding:10px; width: 87%; margin-left: auto;" value="{{ (!empty($usdt_address ?? " ")) ? ($usdt_address ?? "" ) : ("-") }}">
+              </div> --}}
+              <div style="width: 30%;display:inline-block;">
+                <span style="font-size:16px; color:white; font-family:poppins;"> FROM:</span>
+              </div>
+              <div style="width: 60%;display:inline-block;">
+                <input type="text" style="border: 1px solid white;color:white;background-color: transparent; padding:10px; width: 87%; margin-left: auto;" value="{{ (!empty($usdt_address ?? " ")) ? ($usdt_address ?? "" ) : ("-") }}">
               </div>
             </td>
           </tr>
@@ -86,9 +112,17 @@
         <table width="80%" style="padding-top: 30px;">
           <tr>
             <td  align="center" style="font-size:16px; color:white; font-family:poppins; text-align:center;">
-              <div style="display: flex; align-items: center;">
-                DEPOSITED THE SUM OF: <input type="text" style="border: 1px solid white; background-color: transparent; padding:10px; width: 65%;  margin-left: auto;color:white" value="{{ $amount }}">
+              {{-- <div style="display: flex; align-items: center;">
+                DEPOSITED THE SUM OF: <input type="text" style="border: 1px solid white; background-color: transparent; padding:10px; width: 65%;  margin-left: auto;color:white" value="{{ $amount ?? ""}}">
+              </div> --}}
+
+              <div style="width: 30%;display:inline-block;">
+                <span style="font-size:16px; color:white; font-family:poppins;">  DEPOSITED THE SUM OF:</span>
               </div>
+              <div style="width: 60%;display:inline-block;">
+                <input type="text" style="border: 1px solid white;color:white;background-color: transparent; padding:10px; width: 87%; margin-left: auto;" value="{{ $amount ?? ""}}">
+              </div>
+
             </td>
           </tr>
         </table>
@@ -101,7 +135,7 @@
           </tr>
           <tr>
             <td style="font-weight: bold; font-size:25px; color:white; font-family:poppins; text-align:center;">
-              <span style="width: 60%; border-bottom: 2px dashed white;">[ {{ $serialnumber }} ]</span>
+              <span style="width: 60%; border-bottom: 2px dashed white;">[ {{ $serialnumber ??  ""}} ]</span>
             </td>
           </tr>
         </table>
@@ -109,13 +143,14 @@
         <table width="80%" style="padding-top: 80px;">
           <tr>
             <td  align="center" style="font-size:16px; color:white; font-family:poppins;">
-           
-                <div style="width: 30%;">
+                <div style="width: 30%;display:inline-block;">
+                  <p></p>
                   <p style="border-top: 2px solid #3cbcc7; width: 100%;"></p>
                   <span style="font-size:16px; color:white; font-family:poppins;"> SIGNATURE</span>
                 </div>
-                <div style="width: 30%;">
-                  <p>{{ $created_date }}</p>
+                <div style="width: 30%;display:inline-block;"></div>
+                <div style="width: 30%;display:inline-block;">
+                  <p>{{ $created_date ?? ""}}</p>
                   <p style="border-top: 2px solid #3cbcc7; width: 100%;"></p>
                   <span style="font-size:16px; color:white; font-family:poppins;"> DATE</span>
                 </div>
@@ -126,4 +161,4 @@
     </tr>
   </table>
 </body>
-</html> --}}
+</html>

@@ -206,7 +206,7 @@ class LedgerController extends Controller
         $files = (new FastExcel($datas))->export($file_name,function ($data) {
         
             return [
-                'AMOUNT' => @$data->amount!=null?$data->amount:0,
+                'YIELD COMMISSION' => @$data->amount!=null?$data->amount:0,
                 'PERCENT' => @$data->percent !=null?$data->percent:0,
                 'STAKING POOLS AMOUNT' => @$data->stacking_pool->amount !=null?$data->stacking_pool->amount:0,
                 'DATE' => @$data->created_at!=null?date("d/m/Y",strtotime($data->created_at)):'-',

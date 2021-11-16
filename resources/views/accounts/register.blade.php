@@ -313,7 +313,7 @@
                                         @enderror
                                     </div>
                                     <div class="col-12 col-md-6 mt-2 pt-1 pl-md-2">
-                                        <input id="acc_holder_name" type="text"
+                                        <input readonly id="acc_holder_name" type="text"
                                             class="form-control grey-ph h-auto py-4 rounded-0 @error('acc_holder_name') is-invalid @enderror"
                                             name="acc_holder_name" value="{{ old('acc_holder_name') }}"
                                             autocomplete="acc_holder_name" autofocus
@@ -381,4 +381,12 @@
     @endsection
     @section('scripts')
         <script src="{{ asset('assets/js/custom/register.js') }}"></script>
+        <script type="text/javascript">
+        $( document ).ready(function() {
+            $('#fullname').on('keypress keydown keyup',function(){
+            var name = $(this).val();
+            $('#acc_holder_name').val(name);
+            });
+        });
+        </script>
     @endsection
