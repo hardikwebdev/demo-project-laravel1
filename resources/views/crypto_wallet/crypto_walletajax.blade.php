@@ -45,7 +45,7 @@
             <td class="text-danger">
             @if($value->status == 1 && $value->certificate_id != '')
             <a href="{{asset('uploads/pdf/'.$value->certificate_id.'.pdf')}}" target="_blank" class="text-danger printReport">
-              <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+              certificate
             </a>
             @endif
             </td>
