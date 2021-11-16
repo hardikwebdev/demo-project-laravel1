@@ -213,7 +213,7 @@ class CryptocreditrequestController extends Controller
                         // }
                         // $date = Carbon::now();
                         $amount = $fund_wallet->amount;
-                        \Helper::sendMail($user, $amount);
+                        // \Helper::sendMail($user, $amount);
                         $user_wallet = UserWallet::where('user_id',$fund_wallet->user_id)->increment('crypto_wallet',$fund_wallet->amount);
                     }
                     $date = date('d-m-y');
