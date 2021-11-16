@@ -206,7 +206,7 @@
                 <div class="col-sm-12  ">        
                     <div class="form-group">
                         <label>Name of Account Holder</label> 
-                        {!! Form::text('acc_holder_name',old('acc_holder_name'),['class'=>'form-control','placeholder'=>'Enter Account Holder Name']) !!}
+                        {!! Form::text('acc_holder_name',old('acc_holder_name'),['class'=>'form-control','placeholder'=>'Enter Account Holder Name','readonly','id'=> 'acc_holder_name']) !!}
                         <span class="help-block text-danger">{{ $errors->first('acc_holder_name') }}</span>
                     </div>       
                 </div>

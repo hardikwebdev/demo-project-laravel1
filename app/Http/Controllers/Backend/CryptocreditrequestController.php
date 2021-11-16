@@ -206,7 +206,7 @@ class CryptocreditrequestController extends Controller
                     if($request->status == 1 || $request->status == '1'){
                         $user = User::find($fund_wallet->user_id);
 
-                        // \Helper::generate_pdf($fund_wallet);
+                        \Helper::generate_pdf($fund_wallet);
                         // $pdf->stream('payment_invoice_'.time());
                         // if($count == 0){
                         // Helper::gw_send_sms("APIKHW9E4Z5SP", "APIKHW9E4Z5SPKHW9E", "Defix", $fund_wallet->user_detail->phone_number, "Welcome ".$fund_wallet->user_detail->name." to Defix, Taking You Higher. Login now and start your journey today!");

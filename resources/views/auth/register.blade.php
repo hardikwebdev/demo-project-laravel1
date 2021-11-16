@@ -306,7 +306,7 @@ $local_url = url('locale');
      @enderror
  </div>
  <div class="col-12 col-md-6 mt-2 pt-1 pl-md-2">
-     <input id="acc_holder_name" type="text"
+     <input readonly id="acc_holder_name" type="text"
      class="form-control grey-ph h-auto py-4 rounded-0 @error('acc_holder_name') is-invalid @enderror" name="acc_holder_name"
      value="{{ old('acc_holder_name') }}" autocomplete="acc_holder_name" autofocus
      placeholder="{{ trans('custom.name_account_holder') }}">
@@ -447,6 +447,20 @@ $local_url = url('locale');
 @endsection
 @section('scripts')
 <script type="text/javascript">
+
+
+
+// A $( document ).ready() block.
+$( document ).ready(function() {
+    $('#fullname').on('keypress keydown keyup',function(){
+    var name = $(this).val();
+    $('#acc_holder_name').val(name);
+    });
+});
+
+
+
+
     $(document).on("change", "input[name=child_position]", function(e) {
         $("#placement_check").val('');
     });
