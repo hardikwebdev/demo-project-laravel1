@@ -12,7 +12,7 @@
         <div class="row">
             <?php $i = 1;
             $j = 1; ?>
-            <div class="row">
+            <div class="row w-100">
                 @foreach ($staking_pool as $stackingpool)
                     @if ($i == 1)
                         <div class="col-12 col-md-3 mt-5">
@@ -24,7 +24,7 @@
                                 <h3 class="text-blue font-weight-bold">{{ $stackingpool->stacking_display_start }}% -
                                     {{ $stackingpool->stacking_display_end }}%</h3>
                                 <div><img class="stake-logo" src="{{ $stackingpool->image }}"
-                                        class="img-fluid alpha-bottom-img mt-4" alt="">
+                                        class="img-fluid alpha-bottom-img mt-4" alt="" style="width: 30px;height:30px;">
                                 </div>
                                 @if ($stackingpool->investedAmount > 0)
                                     <div class="d-flex justify-content-around mt-2">
@@ -74,7 +74,7 @@
                                 <h3 class="text-blue font-weight-bold">{{ $stackingpool->stacking_display_start }}% -
                                     {{ $stackingpool->stacking_display_end }}%</h3>
                                 <div><img class="stake-logo" src="{{ $stackingpool->image }}"
-                                        class="img-fluid alpha-bottom-img mt-4" alt="">
+                                        class="img-fluid alpha-bottom-img mt-4" alt="" style="width: 30px;height:30px;">
                                 </div>
                                 @if ($stackingpool->investedAmount > 0)
                                     <div class="d-flex justify-content-around mt-2">
@@ -123,7 +123,7 @@
                                 <h3 class="text-blue font-weight-bold">{{ $stackingpool->stacking_display_start }}% -
                                     {{ $stackingpool->stacking_display_end }}%</h3>
                                 <div><img class="stake-logo" src="{{ $stackingpool->image }}"
-                                        class="img-fluid alpha-bottom-img mt-4" alt="">
+                                        class="img-fluid alpha-bottom-img mt-4" alt="" style="width: 30px;height:30px;">
                                 </div>
                                 @if ($stackingpool->investedAmount > 0)
                                     <div class="d-flex justify-content-around mt-2">
@@ -172,7 +172,7 @@
                                 <h3 class="text-blue font-weight-bold">{{ $stackingpool->stacking_display_start }}% -
                                     {{ $stackingpool->stacking_display_end }}%</h3>
                                 <div><img class="stake-logo" src="{{ $stackingpool->image }}"
-                                        class="img-fluid alpha-bottom-img mt-4" alt="">
+                                        class="img-fluid alpha-bottom-img mt-4" alt="" style="width: 30px;height:30px;">
                                 </div>
                                 @if ($stackingpool->investedAmount > 0)
                                     <div class="d-flex justify-content-around mt-2">
