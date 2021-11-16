@@ -16,7 +16,7 @@ class CreateNftCategoriesTable extends Migration
         Schema::create('nft_categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->string('image');
             $table->timestamps();
         });

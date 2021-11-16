@@ -60,8 +60,8 @@ class CommonController extends Controller
         $usernameExits = User::where('username',$request->placement_username)->where('status','active')->exists();
         if ($usernameExits != null) {
             $placement = User::where('username',$request->placement_username)->where('status','active')->first();
-            $placementCount = User::where('placement_id',$placement->id)->where('status','active')->where('child_position',$request->child_position)->count();
-            if($placementCount > 0){
+            $placementCount = User::where('placement_id',$placement->id)->where('status','active')->count();
+            if($placementCount >= 2){
                 $isValid = false;
             }
             $user = User::where('username',$request->sponsor_check)->where('status','active')->first();
@@ -70,10 +70,10 @@ class CommonController extends Controller
             $upline_ids = Helper::getAllDownlineIds($user->id);
             $isValid = false;
             // echo "<pre>";
-            // print_r($user->id.'-'.$placement->id);
+            // print_r();
             //     die('test2');
 
-            if($placementCount == 0 && $placement && (in_array($placement->id, $upline_ids) || empty($upline_ids) || $placement->username == $user->username) && $user->id <= $placement->id){
+            if($placementCount < 2 && $placement && (in_array($placement->id, $upline_ids) || empty($upline_ids) || $placement->username == $user->username) && $user->id <= $placement->id){
                 $isValid = true;
             }
 

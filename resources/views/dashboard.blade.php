@@ -104,7 +104,7 @@
                                     <h3 class="text-white font-weight-bold">{{ $stakingpool->stacking_display_start }}% -
                                         {{ $stakingpool->stacking_display_end }}%</h3>
                                     <img class="stake-tokens-logo my-3" src="{{ $stakingpool->image }}"
-                                        style="width: 70px;height:70px;" />
+                                        style="max-width: 100%;" />
                                     @if ($stakingpool->investedAmount > 0)
 
                                         <div class="d-flex justify-content-around mt-2">
@@ -136,7 +136,7 @@
                                     <h3 class="text-white font-weight-bold">{{ $stakingpool->stacking_display_start }}% -
                                         {{ $stakingpool->stacking_display_end }}%</h3>
                                     <img class="stake-tokens-logo my-3" src="{{ $stakingpool->image }}"
-                                        style="width: 70px;height:70px;" />
+                                        style="max-width: 100%;" />
                                     @if ($stakingpool->investedAmount > 0)
                                         <div class="d-flex justify-content-around mt-2">
                                             <p class="text-white font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
@@ -167,7 +167,7 @@
                                     <h3 class="text-white font-weight-bold">{{ $stakingpool->stacking_display_start }}% -
                                         {{ $stakingpool->stacking_display_end }}%</h3>
                                     <img class="stake-tokens-logo my-3" src="{{ $stakingpool->image }}"
-                                        style="width: 70px;height:70px;" />
+                                        style="max-width: 100%;" />
                                     @if ($stakingpool->investedAmount > 0)
                                         <div class="d-flex justify-content-around mt-2">
                                             <p class="text-white font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
@@ -198,7 +198,7 @@
                                     <h3 class="text-blue font-weight-bold">{{ $stakingpool->stacking_display_start }}% -
                                         {{ $stakingpool->stacking_display_end }}%</h3>
                                     <img class="stake-tokens-logo my-3" src="{{ $stakingpool->image }}"
-                                        style="width: 70px;height:70px;" />
+                                        style="max-width: 100%;" />
                                     @if ($stakingpool->investedAmount > 0)
                                         <div class="d-flex justify-content-around mt-2">
                                             <p class="text-dark font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>

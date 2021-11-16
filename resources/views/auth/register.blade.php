@@ -114,7 +114,7 @@ $local_url = url('locale');
             </div>
         </div>
     </div>
-    <div class="col-12 text-right leftright">
+    <!-- <div class="col-12 text-right leftright">
        <label class="cus-radio">
           <input class="d-none" type="radio" name="child_position" value="left" checked>
           <span class="text-uppercase">{{trans('custom.left') }}</span>
@@ -123,7 +123,7 @@ $local_url = url('locale');
           <input class="d-none" type="radio" name="child_position" value="right">
           <span class="text-uppercase">{{trans('custom.right') }}</span>
       </label>
-  </div>
+  </div> -->
 
   <div class="col-12">
    <hr class="border border-white mt-4">
@@ -461,9 +461,9 @@ $( document ).ready(function() {
 
 
 
-    $(document).on("change", "input[name=child_position]", function(e) {
-        $("#placement_check").val('');
-    });
+    // $(document).on("change", "input[name=child_position]", function(e) {
+    //     $("#placement_check").val('');
+    // });
     $(document).on("click", ".verify-sponser", function(e) {
         // alert('ad');
         var $this = this;
@@ -500,7 +500,7 @@ $( document ).ready(function() {
         var $this = this;
         var placement_username = $('#placement_username').val();
         var sponsor_check = $("#sponsor_check").val();
-        var child_position = $("input[name='child_position']:checked").val();
+        // var child_position = $("input[name='child_position']:checked").val();
 
         $.ajax({
             type: "POST",
@@ -510,7 +510,7 @@ $( document ).ready(function() {
                 _token: $("input[name=_token]").val(),
                 placement_username:placement_username,
                 sponsor_check:sponsor_check,
-                child_position:child_position
+                // child_position:child_position
             },
             success: function(data) {
                 var parsed_data = JSON.parse(data);

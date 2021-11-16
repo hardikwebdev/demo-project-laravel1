@@ -104,7 +104,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-12 text-right leftright">
+                                    <!-- <div class="col-12 text-right leftright">
                                         <label class="cus-radio">
                                             <input class="d-none" type="radio" name="child_position" value="left"
                                                 checked>
@@ -114,7 +114,7 @@
                                             <input class="d-none" type="radio" name="child_position" value="right">
                                             <span class="text-uppercase">{{ trans('custom.right') }}</span>
                                         </label>
-                                    </div>
+                                    </div> -->
 
                                     <div class="col-12">
                                         <hr class="border border-white mt-4">

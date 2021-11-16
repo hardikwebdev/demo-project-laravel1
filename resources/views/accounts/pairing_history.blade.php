@@ -12,6 +12,8 @@
             <th class="text-uppercase">%</th>
             <th class="text-uppercase">{{ __('custom.daily_max_commission') }}</th>
             <th class="text-uppercase">{{ __('custom.commission_earned') }}</th>
+            <th>COMMISSION WALLET</th>
+            <th>NFT WALLET</th>
             <th class="text-uppercase">{{ __('custom.date') }}</th>
           </tr>
         </thead>
@@ -25,7 +27,9 @@
             <td>${{($commission->commission_got_from == 'right') ? $commission->actual_amount : 0 }}</td>
             <td>{{$commission->pairing_percent}}%</td>
             <td>${{$commission->daily_limit}}</td>
-            <td>${{$commission->pairing_commission}}</td>
+            <td>{{ '$'.$value->actual_commission_amount}}</td>
+            <td>{{ '$'.$value->pairing_commission}}</td>
+            <td>{{ '$'.$value->actual_commission_amount-$value->pairing_commission}}</td>
             <td>{{$commission->created_at}}</td>
           </tr>
           @endforeach
