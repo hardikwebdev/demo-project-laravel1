@@ -13,6 +13,7 @@ use App\Models\SupportTicket;
 use App\Models\WithdrawalRequest;
 use App\Models\NftPurchaseHistory;
 use App\Models\SupportTicketMessages;
+use PDF;
 
 
 class Helper {
@@ -387,4 +388,29 @@ class Helper {
             ->subject('Your Deposit Approved');
         });
     } 
+
+
+
+    public static function generate_pdf($fund_wallet){
+        $date = time();
+        $user = User::find($fund_wallet->user_id);
+       
+        $fund_wallet->certificate_id= self::certificateId(rand(10,100),$date);
+        $fund_wallet->save();
+        $created_date = Carbon::parse($fund_wallet->created_at)->format('d F Y');
+        $amount = $fund_wallet->amount;
+        $serialnumber = $fund_wallet->certificate_id;
+        $usdt_address = $fund_wallet->usdt_detail;
+        $pdf = PDF::loadView('backend.crypto_wallets_credit_request.payment_invoice',compact('user','created_date','amount','serialnumber','usdt_address'));
+        if(!\File::isDirectory(public_path('uploads/pdf'))) {
+            \File::makeDirectory(public_path('uploads/pdf'),  $mode = 0755, $recursive = true);
+        }
+        $pdf->save(public_path().'/uploads/pdf/'.$fund_wallet->certificate_id.'.pdf');           
+   }
+
+   public static function certificateId($certificateId = 'DEFIXFINANCE29072020821' ,$date){
+    $date = str_replace('-','',$date);
+    $certificatId = 'DEFIXFINANCE'.$date.$certificateId;
+    return $certificatId;
+  }
 }

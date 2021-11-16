@@ -16,7 +16,7 @@
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-content">
-                    {!! Form::model($slider,['route' => ['slider.update',$slider->id],'autocomplete'=>'false','id'=>'slider-form','files'=>true,'method'=>'POST']) !!}
+                    {!! Form::model($slider,['route' => ['slider.update',$slider->id],'autocomplete'=>'false','id'=>'slider-form-edit','files'=>true,'method'=>'POST']) !!}
                     @method('PUT')
                         @include('backend.slider.form')
                     {!! Form::close() !!}       

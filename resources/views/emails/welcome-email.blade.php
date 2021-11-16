@@ -4,9 +4,9 @@
         <meta content="width=device-width,initial-scale=1" name="viewport">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>Welcome to DefiXFinance</title>
-        <link href='http://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700' rel='stylesheet' type='text/css'>
+        <link href="http://fonts.cdnfonts.com/css/helvetica-neue-9" rel='stylesheet' type='text/css'>
         <style type="text/css">
-            @import url('http://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
+            @import url('http://fonts.cdnfonts.com/css/helvetica-neue-9');
             html {
             width: 100% !important;
             }
@@ -123,7 +123,7 @@
                                     <tr>
                                         <td align="center" style="padding:45px 0px;" class="td-pad-20">
                                             <a style="text-decoration:none; outline:none;" href="#" title="DefiXFinance">
-                                            <img src="{{ asset('images/email/white-logo.png')}}" width="350" style="display:block;" />
+                                            <img src="{{ asset('images/email/defixfinance-logo-white.png')}}" width="350" style="display:block;" />
                                             </a>
                                         </td>
                                     </tr>
@@ -158,11 +158,13 @@
                                                         <table align="center" cellpadding="0" cellspacing="0" border="0" width="500">
                                                             <tr>
                                                                 <td class="size-20" align="center" style="font-weight:600; font-size:28px; color:black; font-family:Helvetica; mso-line-height-rule: exactly; text-align:center; line-height:42px;">Welcome {{ $user->name }} to DefiXFinance
+
                                                                     <br> Digital Finance Revolution
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td class="pad-B20" align="center" style="font-weight:400; font-size:14px; color:#5c5c5c; font-family:Helvetica; mso-line-height-rule: exactly; line-height:26px; padding:10px 0px 40px;"> Welcome {{ $user->name }} to DefiXFinance, the world’s leading blockchain,
+
                                                                     Defi and NFT investment platform. We are honored and heartily
                                                                     welcome you to join our community of crypto enthusiasts and investors as we create, disrupt and innovate the cryptocurrency market.
                                                                     You can find your registered details below.
@@ -186,10 +188,26 @@
                                                         <table align="center" cellpadding="0" cellspacing="0" border="0" width="490">
                                                             <tr>
                                                                 <td class="size-20" align="center" style="font-weight:400; font-size:24px; color:black; font-family:Helvetica; mso-line-height-rule: exactly; text-align:center; line-height:36px; font-weight:bold;">Your Details</td>
+
                                                             </tr>
                                                             <tr>
                                                                 <td class="pad-B20" align="center" style="padding-bottom:40px;">
                                                                     <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top: 40px;">
+                                                                        {{-- <tr>
+                                                                            <td class="key-list" align="left" style="font-size:18px; font-weight:400; color:#5c5c5c; font-family:'Helvetica Neue'; line-height:30px;"><span style="color:black; font-weight:bold;">Name:</span> {{ $user->name}} </td>
+                                                                            <td class="key-list" align="left" style="font-size:18px; font-weight:400; color:#5c5c5c; font-family:'Helvetica Neue'; line-height:30px;"><span style="color:black; font-weight:bold;">Email:</span> {{ $user->email}} </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="key-list pt-md-40" align="left" style="font-size:18px; font-weight:400; color:#5c5c5c; font-family:'Helvetica Neue'; line-height:30px;"><span style="color:black; font-weight:bold;">Username:</span> {{ $user->username}}</td>
+                                                                            <td class="key-list pt-md-40" align="left" style="font-size:18px; font-weight:400; color:#5c5c5c; font-family:'Helvetica Neue'; line-height:30px;"><span style="color:black; font-weight:bold;">Country:</span> {{ $user->country->country_name}}
+                                                                            </td>
+                                                                        </tr> --}}
+                                                                        <tr>
+                                                                            <td class="key-list" align="left" style="font-size:18px; font-weight:400; color:#5c5c5c; font-family:'Helvetica Neue'; line-height:30px;"><span style="color:black; font-weight:bold;">Name:</span> {{ $user->name}} </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="key-list" align="left" style="font-size:18px; font-weight:400; color:#5c5c5c; font-family:'Helvetica Neue'; line-height:30px;"><span style="color:black; font-weight:bold;">Email:</span> {{ $user->email}} </td>
+                                                                        </tr>
                                                                         <tr>
                                                                             <td class="key-list" align="left" style="font-size:18px; font-weight:400; color:#5c5c5c; font-family:Helvetica; line-height:30px;"><span style="color:black; font-weight:bold;">Name:</span> {{ $user->name}} </td>
                                                                         </tr>
@@ -203,6 +221,7 @@
                                                                         <tr>
                                                                             
                                                                             <td class="key-list pt-md-40" align="left" style="font-size:18px; font-weight:400; color:#5c5c5c; font-family:Helvetica; line-height:30px;"><span style="color:black; font-weight:bold;">Country:</span> {{ $user->country->country_name}}
+
                                                                             </td>
                                                                         </tr>
                                                                     </table>
@@ -211,6 +230,7 @@
                                                             <tr>
                                                                 <td align="center" valign="top" style="padding-bottom:50px;" class="pad-B20">
                                                                     <a title="See All Features" href="{{ $routeUrl}}" style="background-color:#ffc424; border:solid 1px #ffc424; border-radius:2px;color:#ffffff;display:inline-block;font-family:Helvetica; font-weight:400; font-size:14px; line-height:56px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;mso-hide:all;outline:none;">LOGIN NOW <img src="{{ asset('images/email/arrow.png')}}" alt="" style="vertical-align: middle; padding-left: 10px; width: 25px;"></a>
+
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -221,6 +241,7 @@
                                                                         </tr>
                                                                         <tr>
                                                                             <td class="key-list" align="left" style="font-size:18px; font-weight:400; color:#5c5c5c; font-family:Helvetica; line-height:30px;">DefiXFinance Team</td>
+
                                                                         </tr>
                                                                     </table>
                                                                 </td>
@@ -242,6 +263,7 @@
                                                     <td align="left" valign="top">
                                                         <table cellpadding="0" cellspacing="0" border="0" align="left" class="wd-auto">
                                                             <td style="font-family:Helvetica;font-size:9px;color:#bcbcbc"><strong>Disclaimer:</strong> DefiXFinance has made every attempt to ensure the accuracy and reliability of the information provided on this website. The information is provided “as is” without warranty of any kind. DefiXFinance makes no representations and gives no warranties of whatever nature in respect, including but not limited to the accuracy or completeness of any information, facts and/or opinions contained therein.
+
                                                                 <br>
                                                                 <br>
                                                                 Your use of the service is at your sole risk. The service is provided on an "As is" and "As available" basis. Except as otherwise expressly provided herein, DefiXFinance expressly disclaims all warranties of any kind, whether express, implied or statutory, including, but not limited to the implied warranties of merchantability, fitness for a particular purpose, title, and non-infringement.

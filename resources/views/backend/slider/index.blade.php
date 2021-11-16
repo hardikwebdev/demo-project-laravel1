@@ -50,7 +50,7 @@
                                   <td width="10%">      
 
                                     <a class="blueimp-link" href="{{asset($row->mobile_image)}}" data-gallery="" target="_blank" title='{{$row->title}}'>
-                                            <img onerror="this.src='{{asset('backend/media/no_found.png')}}'" src="{{asset('uploads/slider/'.$row->mobile_image)}}" width="auto" height="50px">
+                                            <img onerror="this.src='{{asset('backend/media/no_found.png')}}'" src="{{asset($row->mobile_image)}}" width="auto" height="50px">
                                         </a>
 <!--                                     <img src="{{asset('uploads/slider/'.$row->image)}}" alt="Banner Image" class="img-fluid img-responsive investment-graph-image"></td>
  -->                                <!-- <td>{{@$row->startdate}}</td>                             

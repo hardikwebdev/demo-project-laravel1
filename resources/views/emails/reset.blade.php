@@ -5,9 +5,9 @@
   <meta content="width=device-width,initial-scale=1" name="viewport">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>Welcome to DefiXFinance</title>
-  <link href='http://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700' rel='stylesheet' type='text/css'>
+  <link href="http://fonts.cdnfonts.com/css/helvetica-neue-9" rel='stylesheet' type='text/css'>
   <style type="text/css">
-    @import url('http://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
+    @import url('http://fonts.cdnfonts.com/css/helvetica-neue-9');
     html {
       width: 100% !important;
     }
@@ -16,7 +16,7 @@
       width: 100% !important;
       margin: 0;
       padding: 0;
-      font-family: poppins;
+      font-family: 'Helvetica Neue';
     }
     
     .ReadMsgBody {
@@ -132,7 +132,7 @@
                                   <tr>
                                     <td align="center" style="padding:45px 0px;" class="td-pad-20">
                                       <a style="text-decoration:none; outline:none;" href="#" title="DefiXFinance">
-                                        <img src="{{ asset('images/email/white-logo.png')}}" width="350" style="display:block;" />
+                                        <img src="{{ asset('images/email/defixfinance-logo-white.png')}}" width="350" style="display:block;" />
                                       </a>
                                     </td>
                                   </tr>
@@ -187,6 +187,7 @@
                                                   </tr>
                                                   <tr>
                                                     <td class="pad-B20" align="center" style="font-weight:400; font-size:14px; color:#5c5c5c; font-family:Helvetica; mso-line-height-rule: exactly; line-height:26px; padding:10px 0px 10px;">
+
                                                       If that doesn't work, copy and paste the following link in your browser:
                                                     </td>
                                                     </tr>
@@ -224,6 +225,7 @@
                                                         </tr>
                                                         <tr>
                                                           <td class="key-list" align="left" style="font-size:18px; font-weight:400; color:#5c5c5c; font-family:Helvetica; line-height:30px;">DefiXFinance Team</td>
+
                                                         </tr>
                                                       </table>
                                                     </td>
