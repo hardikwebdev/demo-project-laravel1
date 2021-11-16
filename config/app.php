@@ -168,6 +168,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+        Jenssegers\Agent\AgentServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -235,6 +236,7 @@ return [
         'FastExcel' => Rap2hpoutre\FastExcel\Facades\FastExcel::class,
         'Helper' => App\Helpers\Helper::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        'Agent' => Jenssegers\Agent\Facades\Agent::class,
     ],
 
 ];

@@ -56,16 +56,30 @@
             </div>
             <div class="col-12 col-xl-8">
                 <div class="dashboard-slider">
+                    @if((new \Jenssegers\Agent\Agent())->isDesktop())
                     @foreach ($sliders as $slider)
-                        <div class="position-relative">
-                            <img src="{{ $slider->image }}" class="img-fluid min-height-280" alt="">
-                            <div class="text-center text-white NFT-collection">
-                                <!-- <h4>LAUNCHING SOON</h4>
-                <h3>NFT COLLECTIONS</h3> -->
-                                {{-- <button class="btn bg-transparent text-warning border-warning px-3 rounded-0 font-10 mt-2">{{__('custom.explore')}} <img src="{{ $slider->url }}" class="img-fluid ml-2 d-inline align-middle" alt=""></button> --}}
-                            </div>
+                    <div class="position-relative">
+                        <img src="{{ $slider->image }}" class="img-fluid min-height-280" alt="">
+                        <div class="text-center text-white NFT-collection">
+                            <!-- <h4>LAUNCHING SOON</h4>
+            <h3>NFT COLLECTIONS</h3> -->
+                            {{-- <button class="btn bg-transparent text-warning border-warning px-3 rounded-0 font-10 mt-2">{{__('custom.explore')}} <img src="{{ $slider->url }}" class="img-fluid ml-2 d-inline align-middle" alt=""></button> --}}
                         </div>
-                    @endforeach
+                    </div>
+                @endforeach
+                    @else
+                    @foreach ($sliders as $slider)
+                    <div class="position-relative">
+                        <img src="{{ $slider->mobile_image }}" class="img-fluid min-height-280" alt="">
+                        <div class="text-center text-white NFT-collection">
+                            <!-- <h4>LAUNCHING SOON</h4>
+            <h3>NFT COLLECTIONS</h3> -->
+                            {{-- <button class="btn bg-transparent text-warning border-warning px-3 rounded-0 font-10 mt-2">{{__('custom.explore')}} <img src="{{ $slider->url }}" class="img-fluid ml-2 d-inline align-middle" alt=""></button> --}}
+                        </div>
+                    </div>
+                @endforeach
+                    @endif
+                  
                     <!-- <div class="position-relative">
             <img src="{{ asset('assets/images/assets/Dashboard/Group912.png') }}" class="img-fluid min-height-280" alt="">
             <div class="text-center text-white NFT-collection">
@@ -351,16 +365,19 @@
                                 @foreach ($news as $key => $value)
                                     @if ($key == 0)
                                         <div class="col-12 col-xl-7">
-                                            <div class="bg-news p-4 d-flex flex-column justify-content-end"
-                                                style="background-image: url({{ $value->image }});">
-
+                                            <a href="{{ route('news-and-events.show', $value->id) }}">
+                                                <div class="bg-news p-4 d-flex flex-column justify-content-end"
+                                                style="background-image: url({{ $value->image }});">    
                                             </div>
+                                            </a>
+                                          
                                             <div class="pt-3">
                                                 <h5>{{ __('custom.news') }}</h5>
-                                                <h3><a class="text-decoration-none"
+                                                <h3><a class="text-decoration-none text-dark"
                                                         href="{{ route('news-and-events.show', $value->id) }}">{!! \Illuminate\Support\Str::limit($value->title, 50) !!}</a>
                                                 </h3>
-                                                <p class="font-12">{!! \Illuminate\Support\Str::limit($value->details, 100) !!}</p>
+                                                <p class="font-12"><a class="text-decoration-none text-dark"
+                                                    href="{{ route('news-and-events.show', $value->id) }}">{!! \Illuminate\Support\Str::limit($value->details, 100) !!}</a></p>
                                             </div>
                                         </div>
                                     @else
@@ -369,13 +386,14 @@
                                         @endif
                                         <div class="d-flex align-items-center {{ $key > 1 ? 'mt-3' : '' }}">
                                             <div>
-                                                <img src="{{ $value->image }}" class="img-news" alt="" style="width: 200px; height:100px;">
+                                                <a href="{{ route('news-and-events.show', $value->id) }}"><img src="{{ $value->image }}" class="img-fluid" alt=""></a>
                                             </div>
                                             <div class="ml-3 border-bottom pb-3">
                                                 <p class="font-12 mb-1"><a class="text-dark text-decoration-none"
                                                         href="{{ route('news-and-events.show', $value->id) }}">{!! \Illuminate\Support\Str::limit($value->title, 50) !!}</a>
                                                 </p>
-                                                <h5 class="font-weight-bold">{!! \Illuminate\Support\Str::limit($value->details, 50) !!}</h5>
+                                                <h5 class="font-weight-bold"><a class="text-dark text-decoration-none"
+                                                    href="{{ route('news-and-events.show', $value->id) }}">{!! \Illuminate\Support\Str::limit($value->details, 50) !!}</a></h5>
                                             </div>
                                         </div>
                 <!-- <div class="d-flex align-items-center mt-3">

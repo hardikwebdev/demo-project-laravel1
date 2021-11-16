@@ -191,6 +191,11 @@ $('#country_id').on('change',function(e){
 //     sigpad.signature('clear');
 //     $("#signature").val('');
 // });
+$('#fullname').on('keypress keydown keyup',function(){
+    var name = $(this).val();
+    $('#acc_holder_name').val(name);
+});
+
 
 $("#customer_register").validate({
     ignore: "input[type='text']:hidden",

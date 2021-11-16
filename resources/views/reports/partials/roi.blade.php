@@ -3,7 +3,7 @@
       <table class="table table-dark trading-table text-center table-responsive-sm datas">
         <thead class="table-gradient">
           <tr>
-            <th>AMOUNT</th>
+            <th>YIELD COMMISSION</th>
             <th>PERCENT</th>
             <th>STAKING POOL AMOUNT</th>
             <th>DATE</th>
