@@ -50,7 +50,7 @@
         <div class="col-12 col-md-6">
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center">
-              <img src="{{ asset('images/assets/Artboard2_copy5/Rectangle385.png') }}" class="img-fluid w-70" alt="">
+              <img src="{{$coin->icon}}" class="img-fluid w-70" alt="">
               <h4>{{$coin->name}}</h4>
             </div>
             <div>
