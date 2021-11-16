@@ -38,9 +38,9 @@
                             <span class="text-secondary font-12">{{ trans('custom.full_name') }}</span>
                         </div>
                         <!--  <div class="col-md-6">
-              <h4 class="text-dark font-weight-bold mb-0">{{ $user->rank ? $user->rank->name : '-' }}</h4>
-              <span class="text-secondary font-12">{{ trans('custom.current_rank') }}</span>
-            </div> -->
+                  <h4 class="text-dark font-weight-bold mb-0">{{ $user->rank ? $user->rank->name : '-' }}</h4>
+                  <span class="text-secondary font-12">{{ trans('custom.current_rank') }}</span>
+                </div> -->
                     </div>
                     <div class="row px-4 mt-4">
                         <div class="col-md-6">
@@ -56,46 +56,29 @@
             </div>
             <div class="col-12 col-xl-8">
                 <div class="dashboard-slider">
-                    @if((new \Jenssegers\Agent\Agent())->isDesktop())
-                    @foreach ($sliders as $slider)
-                    <div class="position-relative">
-                        <img src="{{ $slider->image }}" class="img-fluid min-height-280" alt="">
-                        <div class="text-center text-white NFT-collection">
-                            <!-- <h4>LAUNCHING SOON</h4>
-            <h3>NFT COLLECTIONS</h3> -->
-                            {{-- <button class="btn bg-transparent text-warning border-warning px-3 rounded-0 font-10 mt-2">{{__('custom.explore')}} <img src="{{ $slider->url }}" class="img-fluid ml-2 d-inline align-middle" alt=""></button> --}}
-                        </div>
-                    </div>
-                @endforeach
+                    @if ((new \Jenssegers\Agent\Agent())->isDesktop())
+                        @foreach ($sliders as $slider)
+                            <div class="position-relative">
+                                <img src="{{ $slider->image }}" class="img-fluid min-height-280" alt="">
+                                <div class="text-center text-white NFT-collection">
+                                    <!-- <h4>LAUNCHING SOON</h4>
+      <h3>NFT COLLECTIONS</h3> -->
+                                    {{-- <button class="btn bg-transparent text-warning border-warning px-3 rounded-0 font-10 mt-2">{{__('custom.explore')}} <img src="{{ $slider->url }}" class="img-fluid ml-2 d-inline align-middle" alt=""></button> --}}
+                                </div>
+                            </div>
+                        @endforeach
                     @else
-                    @foreach ($sliders as $slider)
-                    <div class="position-relative">
-                        <img src="{{ $slider->mobile_image }}" class="img-fluid min-height-280" alt="">
-                        <div class="text-center text-white NFT-collection">
-                            <!-- <h4>LAUNCHING SOON</h4>
-            <h3>NFT COLLECTIONS</h3> -->
-                            {{-- <button class="btn bg-transparent text-warning border-warning px-3 rounded-0 font-10 mt-2">{{__('custom.explore')}} <img src="{{ $slider->url }}" class="img-fluid ml-2 d-inline align-middle" alt=""></button> --}}
-                        </div>
-                    </div>
-                @endforeach
+                        @foreach ($sliders as $slider)
+                            <div class="position-relative">
+                                <img src="{{ $slider->mobile_image }}" class="img-fluid min-height-280" alt="">
+                                <div class="text-center text-white NFT-collection">
+                                    <!-- <h4>LAUNCHING SOON</h4>
+      <h3>NFT COLLECTIONS</h3> -->
+                                    {{-- <button class="btn bg-transparent text-warning border-warning px-3 rounded-0 font-10 mt-2">{{__('custom.explore')}} <img src="{{ $slider->url }}" class="img-fluid ml-2 d-inline align-middle" alt=""></button> --}}
+                                </div>
+                            </div>
+                        @endforeach
                     @endif
-                  
-                    <!-- <div class="position-relative">
-            <img src="{{ asset('assets/images/assets/Dashboard/Group912.png') }}" class="img-fluid min-height-280" alt="">
-            <div class="text-center text-white NFT-collection">
-              <h4>LAUNCHING SOON</h4>
-              <h3>NFT COLLECTIONS</h3>
-              <button class="btn bg-transparent text-warning border-warning px-3 rounded-0 font-10 mt-2">EXPLORE <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle" alt=""></button>
-            </div>
-          </div>
-          <div class="position-relative">
-            <img src="{{ asset('assets/images/assets/Dashboard/Group912.png') }}" class="img-fluid min-height-280" alt="">
-            <div class="text-center text-white NFT-collection">
-              <h4>LAUNCHING SOON</h4>
-              <h3>NFT COLLECTIONS</h3>
-              <button class="btn bg-transparent text-warning border-warning px-3 rounded-0 font-10 mt-2">EXPLORE <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle" alt=""></button>
-            </div>
-          </div> -->
                 </div>
             </div>
         </div>
@@ -120,7 +103,8 @@
                                     <p class="text-white font-12">{{ __('custom.expected_anual_rate') }}</p>
                                     <h3 class="text-white font-weight-bold">{{ $stakingpool->stacking_display_start }}% -
                                         {{ $stakingpool->stacking_display_end }}%</h3>
-                                    <img class="stake-tokens-logo my-3" src="{{ $stakingpool->image }}" style="width: 70px;height:70px;"/>
+                                    <img class="stake-tokens-logo my-3" src="{{ $stakingpool->image }}"
+                                        style="width: 70px;height:70px;" />
                                     @if ($stakingpool->investedAmount > 0)
 
                                         <div class="d-flex justify-content-around mt-2">
@@ -151,7 +135,8 @@
                                     <p class="text-white font-12">{{ __('custom.expected_anual_rate') }}</p>
                                     <h3 class="text-white font-weight-bold">{{ $stakingpool->stacking_display_start }}% -
                                         {{ $stakingpool->stacking_display_end }}%</h3>
-                                    <img class="stake-tokens-logo my-3" src="{{ $stakingpool->image }}" style="width: 70px;height:70px;"/>
+                                    <img class="stake-tokens-logo my-3" src="{{ $stakingpool->image }}"
+                                        style="width: 70px;height:70px;" />
                                     @if ($stakingpool->investedAmount > 0)
                                         <div class="d-flex justify-content-around mt-2">
                                             <p class="text-white font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
@@ -181,7 +166,8 @@
                                     <p class="text-white font-12">{{ __('custom.expected_anual_rate') }}</p>
                                     <h3 class="text-white font-weight-bold">{{ $stakingpool->stacking_display_start }}% -
                                         {{ $stakingpool->stacking_display_end }}%</h3>
-                                    <img class="stake-tokens-logo my-3" src="{{ $stakingpool->image }}" style="width: 70px;height:70px;"/>
+                                    <img class="stake-tokens-logo my-3" src="{{ $stakingpool->image }}"
+                                        style="width: 70px;height:70px;" />
                                     @if ($stakingpool->investedAmount > 0)
                                         <div class="d-flex justify-content-around mt-2">
                                             <p class="text-white font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
@@ -211,7 +197,8 @@
                                     <p class="text-blue font-12">{{ __('custom.expected_anual_rate') }}</p>
                                     <h3 class="text-blue font-weight-bold">{{ $stakingpool->stacking_display_start }}% -
                                         {{ $stakingpool->stacking_display_end }}%</h3>
-                                    <img class="stake-tokens-logo my-3" src="{{ $stakingpool->image }}" style="width: 70px;height:70px;"/>
+                                    <img class="stake-tokens-logo my-3" src="{{ $stakingpool->image }}"
+                                        style="width: 70px;height:70px;" />
                                     @if ($stakingpool->investedAmount > 0)
                                         <div class="d-flex justify-content-around mt-2">
                                             <p class="text-dark font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
@@ -257,20 +244,20 @@
                 </div>
             @endforeach
             <!--   <div class="col-12 col-md-6 col-lg-4">
-        <div class="bg-bullkong rounded d-flex align-items-end px-4 py-3 text-white" style="background-image:url(https://app.defixfinance.com/uploads/nft-category/1636783527_nft_category.jpg)">
-          <h3>The Legends</h3>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="bg-bullkong rounded d-flex align-items-end px-4 py-3 text-white" style="background-image:url(https://app.defixfinance.com/public/assets/images/assets/nft/car-2.gif)">
-          <h3>Cyber Autos</h3>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="bg-bullkong rounded d-flex align-items-end px-4 py-3 text-white" style="background-image:url(https://app.defixfinance.com/public/assets/images/assets/nft/Number-8.gif)">
-          <h3>Lucky Numbers</h3>
-        </div>
-      </div> -->
+            <div class="bg-bullkong rounded d-flex align-items-end px-4 py-3 text-white" style="background-image:url(https://app.defixfinance.com/uploads/nft-category/1636783527_nft_category.jpg)">
+              <h3>The Legends</h3>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="bg-bullkong rounded d-flex align-items-end px-4 py-3 text-white" style="background-image:url(https://app.defixfinance.com/public/assets/images/assets/nft/car-2.gif)">
+              <h3>Cyber Autos</h3>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="bg-bullkong rounded d-flex align-items-end px-4 py-3 text-white" style="background-image:url(https://app.defixfinance.com/public/assets/images/assets/nft/Number-8.gif)">
+              <h3>Lucky Numbers</h3>
+            </div>
+          </div> -->
         </div>
         <div class="row mt-5">
             <div class="col-md-6 grid-margin stretch-card">
@@ -284,17 +271,20 @@
                                 <span
                                     class="text-grey d-flex align-items-center justify-content-end font-12">{{ __('custom.apr_monthly') }}
                                     <h4 class="font-weight-bold text-pink mb-0 ml-4">
-                                        ${{ $user->userwallet ? number_format($user->userwallet->roi, 2) : '' }}</h4></span>
+                                        ${{ $user->userwallet ? number_format($user->userwallet->roi, 2) : '' }}</h4>
+                                </span>
                                 <span
                                     class="text-grey d-flex align-items-center justify-content-end font-12 mt-1">{{ __('custom.direct_refferal') }}
                                     <h4 class="font-weight-bold text-violate mb-0 ml-4">
                                         ${{ $user->userwallet ? number_format($user->userwallet->referral_commission, 2) : '' }}
-                                    </h4></span>
+                                    </h4>
+                                </span>
                                 <span
                                     class="text-grey d-flex align-items-center justify-content-end font-12 mt-1">{{ __('custom.balancing_commission') }}
                                     <h4 class="font-weight-bold text-success mb-0 ml-4">
                                         ${{ $user->userwallet ? number_format($user->userwallet->pairing_commission, 2) : '' }}
-                                    </h4></span>
+                                    </h4>
+                                </span>
                             </div>
                             <div class="col-12">
                                 <div class="" id="hightlinechart" class="img-fluid rounded-right w-100"
@@ -313,9 +303,12 @@
                                 <h4 class="text-grey">{{ __('custom.commission_breakdown') }}</h4>
                             </div>
                             <div class="col-12 col-md-6 text-md-right">
-                                <select class="rounded-0 font-weight-bold border-violate font-12 p-2 px-3">
-                                    <option value="">{{ __('custom.this_month') }}</option>
-                                    <option value="">{{ __('custom.last_month') }}</option>
+                                <select name="grphfilter"
+                                    class="rounded-0 font-weight-bold border-violate font-12 p-2 px-3 grphfilter">
+                                    <option value="{{ \Carbon\Carbon::now()->format('m') }}">
+                                        {{ __('custom.this_month') }}</option>
+                                    <option value="{{ \Carbon\Carbon::now()->subMonth()->format('m') }}">
+                                        {{ __('custom.last_month') }}</option>
 
                                 </select>
                             </div>
@@ -329,15 +322,16 @@
                             <div class="col-12 col-md-4 text-center mt-3">
                                 <p class="d-flex align-items-center justify-content-center mb-0 text-grey"><span
                                         class="count bg-pink d-block mr-2"></span>{{ __('custom.apr_monthly') }}</p>
-                                <h4 class="text-black font-weight-bold mt-2">
-                                    ${{ $user->userwallet ? number_format($user->userwallet->roi, 2) : '' }}</h4>
+                                <h4 class="text-black font-weight-bold mt-2"><span id="apr_monthly">
+                                        ${{ number_format($commissionData[\Carbon\Carbon::now()->format('m')]['apr_monthly'][1], 2) }}</span>
+                                </h4>
                             </div>
                             <div class="col-12 col-md-4 text-center mt-3">
                                 <p class="d-flex align-items-center justify-content-center mb-0 text-grey"><span
                                         class="count bg-violate d-block mr-2"></span>{{ __('custom.direct_refferal') }}
                                 </p>
-                                <h4 class="text-black font-weight-bold mt-2">
-                                    ${{ $user->userwallet ? number_format($user->userwallet->referral_commission, 2) : '' }}
+                                <h4 class="text-black font-weight-bold mt-2"><span id="referral_commission">
+                                        ${{ number_format($commissionData[\Carbon\Carbon::now()->format('m')]['referral_commission'][1], 2) }}</span>
                                 </h4>
                             </div>
                             <div class="col-12 col-md-4 text-center mt-3">
@@ -345,7 +339,8 @@
                                         class="count bg-success d-block mr-2"></span>{{ __('custom.balancing_commission') }}
                                 </p>
                                 <h4 class="text-black font-weight-bold mt-2">
-                                    ${{ $user->userwallet ? number_format($user->userwallet->pairing_commission, 2) : '' }}
+                                    <span
+                                        id="balancing_commission">${{ number_format($commissionData[\Carbon\Carbon::now()->format('m')]['balancing_commission'][1], 2) }}</span>
                                 </h4>
                             </div>
                         </div>
@@ -364,68 +359,68 @@
                             @if ($news != null)
                                 @foreach ($news as $key => $value)
                                     @if ($key == 0)
-                                        <div class="col-12 col-xl-7">
-                                            <a href="{{ route('news-and-events.show', $value->id) }}">
-                                                <div class="bg-news p-4 d-flex flex-column justify-content-end"
-                                                style="background-image: url({{ $value->image }});">    
-                                            </div>
-                                            </a>
-                                          
-                                            <div class="pt-3">
-                                                <h5>{{ __('custom.news') }}</h5>
-                                                <h3><a class="text-decoration-none text-dark"
-                                                        href="{{ route('news-and-events.show', $value->id) }}">{!! \Illuminate\Support\Str::limit($value->title, 50) !!}</a>
-                                                </h3>
-                                                <p class="font-12"><a class="text-decoration-none text-dark"
-                                                    href="{{ route('news-and-events.show', $value->id) }}">{!! \Illuminate\Support\Str::limit($value->details, 100) !!}</a></p>
-                                            </div>
-                                        </div>
+                                    <div class="col-12 col-xl-7">
+                                      <a href="{{ route('news-and-events.show', $value->id) }}">
+                                          <div class="bg-news p-4 d-flex flex-column justify-content-end"
+                                          style="background-image: url({{ $value->image }});">    
+                                      </div>
+                                      </a>
+                                    
+                                      <div class="pt-3">
+                                          <h5>{{ __('custom.news') }}</h5>
+                                          <h3><a class="text-decoration-none text-dark"
+                                                  href="{{ route('news-and-events.show', $value->id) }}">{!! \Illuminate\Support\Str::limit($value->title, 50) !!}</a>
+                                          </h3>
+                                          <p class="font-12"><a class="text-decoration-none text-dark"
+                                              href="{{ route('news-and-events.show', $value->id) }}">{!! \Illuminate\Support\Str::limit($value->details, 100) !!}</a></p>
+                                      </div>
+                                  </div>
                                     @else
                                         @if ($key == 1)
                                             <div class="col-12 col-xl-5 mt-4 mt-xl-0">
                                         @endif
                                         <div class="d-flex align-items-center {{ $key > 1 ? 'mt-3' : '' }}">
-                                            <div>
-                                                <a href="{{ route('news-and-events.show', $value->id) }}"><img src="{{ $value->image }}" class="img-fluid" alt=""></a>
-                                            </div>
-                                            <div class="ml-3 border-bottom pb-3">
-                                                <p class="font-12 mb-1"><a class="text-dark text-decoration-none"
-                                                        href="{{ route('news-and-events.show', $value->id) }}">{!! \Illuminate\Support\Str::limit($value->title, 50) !!}</a>
-                                                </p>
-                                                <h5 class="font-weight-bold"><a class="text-dark text-decoration-none"
-                                                    href="{{ route('news-and-events.show', $value->id) }}">{!! \Illuminate\Support\Str::limit($value->details, 50) !!}</a></h5>
-                                            </div>
-                                        </div>
-                <!-- <div class="d-flex align-items-center mt-3">
-                  <div>
-                    <img src="{{ asset('assets/images/assets/Dashboard/Group898.png') }}" class="img-fluid" alt="">
-                  </div>
-                  <div class="ml-3 border-bottom pb-3">
-                    <p class="font-12 mb-1">NEWS</p>
-                    <h5 class="font-weight-bold">These are the major companies that accept
-                    crypto as payment</h5>
-                  </div>
-                </div>
-                <div class="d-flex align-items-center mt-3">
-                  <div>
-                    <img src="{{ asset('assets/images/assets/Dashboard/Group900.png') }}" class="img-fluid" alt="">
-                  </div>
-                  <div class="ml-3 border-bottom pb-3">
-                    <p class="font-12 mb-1">NEWS</p>
-                    <h5 class="font-weight-bold">These are the major companies that accept
-                    crypto as payment</h5>
-                  </div>
-                </div>
-                <div class="d-flex align-items-center mt-3">
-                  <div>
-                    <img src="{{ asset('assets/images/assets/Dashboard/Group902.png') }}" class="img-fluid" alt="">
-                  </div>
-                  <div class="ml-3 border-bottom pb-3">
-                    <p class="font-12 mb-1">NEWS</p>
-                    <h5 class="font-weight-bold">These are the major companies that accept
-                    crypto as payment</h5>
-                  </div>
-                </div> -->
+                                          <div>
+                                              <a href="{{ route('news-and-events.show', $value->id) }}"><img src="{{ $value->image }}" class="img-fluid" alt=""></a>
+                                          </div>
+                                          <div class="ml-3 border-bottom pb-3">
+                                              <p class="font-12 mb-1"><a class="text-dark text-decoration-none"
+                                                      href="{{ route('news-and-events.show', $value->id) }}">{!! \Illuminate\Support\Str::limit($value->title, 50) !!}</a>
+                                              </p>
+                                              <h5 class="font-weight-bold"><a class="text-dark text-decoration-none"
+                                                  href="{{ route('news-and-events.show', $value->id) }}">{!! \Illuminate\Support\Str::limit($value->details, 50) !!}</a></h5>
+                                          </div>
+                                      </div>
+                                        <!-- <div class="d-flex align-items-center mt-3">
+                      <div>
+                        <img src="{{ asset('assets/images/assets/Dashboard/Group898.png') }}" class="img-fluid" alt="">
+                      </div>
+                      <div class="ml-3 border-bottom pb-3">
+                        <p class="font-12 mb-1">NEWS</p>
+                        <h5 class="font-weight-bold">These are the major companies that accept
+                        crypto as payment</h5>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center mt-3">
+                      <div>
+                        <img src="{{ asset('assets/images/assets/Dashboard/Group900.png') }}" class="img-fluid" alt="">
+                      </div>
+                      <div class="ml-3 border-bottom pb-3">
+                        <p class="font-12 mb-1">NEWS</p>
+                        <h5 class="font-weight-bold">These are the major companies that accept
+                        crypto as payment</h5>
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center mt-3">
+                      <div>
+                        <img src="{{ asset('assets/images/assets/Dashboard/Group902.png') }}" class="img-fluid" alt="">
+                      </div>
+                      <div class="ml-3 border-bottom pb-3">
+                        <p class="font-12 mb-1">NEWS</p>
+                        <h5 class="font-weight-bold">These are the major companies that accept
+                        crypto as payment</h5>
+                      </div>
+                    </div> -->
                                         @if ($key == count($news) - 1)
                         </div>
                         @endif
@@ -437,6 +432,7 @@
             </div>
         </div>
     </div>
+  </div>
     <div class="row mt-5">
         <div class="col-12">
             <div class="row">
@@ -518,6 +514,7 @@
         Highcharts.setOptions({
             colors: ['#d900ff', '#4c27bb', '#57B657']
         });
+        var commissionData = {!! json_encode($commissionData) !!};
         Highcharts.chart('hightlinechart', {
             exporting: false,
             title: {
@@ -577,7 +574,13 @@
             }
         });
         @if ($user->userwallet->roi != 0 || $user->userwallet->referral_commission != 0 || $user->userwallet->pairing_commission != 0)
-            Highcharts.chart('commissionpiechart', {
+            var monthData = [];
+        
+            @if (count($commissionData) && isset($commissionData[\Carbon\Carbon::now()->format('m')]))
+                monthData = {!! json_encode($commissionData[\Carbon\Carbon::now()->format('m')]) !!};
+            @endif
+            console.log(monthData);
+            var performance = Highcharts.chart('commissionpiechart', {
             exporting:false,
             chart: {
             plotBackgroundColor: null,
@@ -619,14 +622,30 @@
             name: "",
             innerSize: '80%',
             data: [
-            ["{{ __('custom.apr_monthly') }}", {{ $user->userwallet ? number_format($user->userwallet->roi, 2) : '' }}],
-            ["{{ __('custom.referral_commission') }}",
-            {{ $user->userwallet ? number_format($user->userwallet->referral_commission, 2) : '' }}],
-            ["{{ __('custom.balancing_commission') }}",
-            {{ $user->userwallet ? number_format($user->userwallet->pairing_commission, 2) : '' }}]
+            monthData['apr_monthly'],
+            monthData['balancing_commission'],
+            monthData['referral_commission'],
+        
             ]
             }]
             });
         @endif
+        $(document).on('change', '.grphfilter', function() {
+            var month = $(this).val();
+            var data = commissionData;
+            console.log(month);
+
+            var graphData = data[month];
+            var final = [graphData['apr_monthly'],
+                graphData['balancing_commission'],
+                graphData['referral_commission']
+            ];
+            $('#apr_monthly').text('$' + graphData['apr_monthly'][1]);
+            $('#referral_commission').text('$' + graphData['referral_commission'][1]);
+            $('#balancing_commission').text('$' + graphData['balancing_commission'][1]);
+
+            performance.series[0].setData(final);
+
+        })
     </script>
 @endsection

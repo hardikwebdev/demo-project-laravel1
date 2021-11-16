@@ -113,7 +113,37 @@ class HomeController extends Controller
                 }
             }
         }
-        return view('dashboard',compact('user','sliders','staking_pool','news','nft_cats','graph','months'));
+
+         /* commission graph */
+        $commissionData = [];
+        /* last month */
+        $lastyear = Carbon::now()->subMonth()->format('Y');
+        $lastmonth = Carbon::now()->subMonth()->format('m');
+        $commissionData[$lastmonth]['apr_monthly'][] = __('custom.apr_monthly');
+        $commissionData[$lastmonth]['apr_monthly'][] = round(PairingCommission::whereYear('created_at',$lastyear)->whereMonth('created_at',$lastmonth)->where('user_id',$user->id)->sum('pairing_commission'),2);
+
+        $commissionData[$lastmonth]['referral_commission'][] = __('custom.referral_commission');
+        $commissionData[$lastmonth]['referral_commission'][] = round(ReferralCommission::whereYear('created_at',$lastyear)->whereMonth('created_at',$lastmonth)->where('user_id',$user->id)->sum('amount'),2);
+
+        $commissionData[$lastmonth]['balancing_commission'][] = __('custom.balancing_commission');
+        $commissionData[$lastmonth]['balancing_commission'][] = round(YieldWalletHistory::whereYear('created_at',$lastyear)->whereMonth('created_at',$lastmonth)->where('description','ROI')->where('user_id',$user->id)->sum('amount'),2);
+
+        /* this month */
+        $year = Carbon::now()->format('Y');
+        $month = Carbon::now()->format('m');
+
+        $commissionData[$month]['apr_monthly'][] = __('custom.apr_monthly');
+        $commissionData[$month]['apr_monthly'][] = round(PairingCommission::whereYear('created_at',$year)->whereMonth('created_at',$month)->where('user_id',$user->id)->sum('pairing_commission'),2);
+
+        $commissionData[$month]['referral_commission'][] = __('custom.referral_commission');
+        $commissionData[$month]['referral_commission'][] = round(ReferralCommission::whereYear('created_at',$year)->whereMonth('created_at',$month)->where('user_id',$user->id)->sum('amount'),2);
+
+        $commissionData[$month]['balancing_commission'][] = __('custom.balancing_commission');
+        $commissionData[$month]['balancing_commission'][] = round(YieldWalletHistory::whereYear('created_at',$year)->whereMonth('created_at',$month)->where('description','ROI')->where('user_id',$user->id)->sum('amount'),2);
+
+        // echo "<pre>";
+        // print_r($commissionData);die();
+        return view('dashboard',compact('user','sliders','staking_pool','news','nft_cats','graph','months','commissionData'));
     }
 
     public function crypto_wallets(){
