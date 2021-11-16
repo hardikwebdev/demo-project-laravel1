@@ -237,10 +237,10 @@
             </div>
             @foreach ($nft_cats as $category)
                 <div class="col-12 col-md-6 col-lg-4">
-                    <div class="bg-bullkong rounded d-flex align-items-end px-4 py-3 text-white"
+                    <a href="{{route('nft_marketplace')}}" class="bg-bullkong rounded d-flex align-items-end px-4 py-3 text-white"
                         style="background-image:url({{ $category->image }})">
                         <h3>{{ $category->name }}</h3>
-                    </div>
+                    </a>
                 </div>
             @endforeach
             <!--   <div class="col-12 col-md-6 col-lg-4">
