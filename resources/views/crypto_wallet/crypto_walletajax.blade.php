@@ -42,11 +42,13 @@
             @if($value->status == 2)
             <td class="text-danger">{{ trans('custom.rejected')}}</td>
             @endif
+            <td class="text-danger">
             @if($value->status == 1 && $value->certificate_id != '')
-            <td class="text-danger"><a href="{{asset('uploads/pdf/'.$value->certificate_id.'.pdf')}}" target="_blank" class="text-danger printReport">
+            <a href="{{asset('uploads/pdf/'.$value->certificate_id.'.pdf')}}" target="_blank" class="text-danger printReport">
               <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
-            </a></td>
+            </a>
             @endif
+            </td>
           </tr>
           @endforeach
           @else
