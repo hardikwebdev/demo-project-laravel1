@@ -17,7 +17,7 @@
               </div>
             </div>
           </div>
-          <div class="row justify-content-center mt-5">
+          <div class="row justify-content-center mt-4">
             <div class="col-12">
               <ul class="nav nav-tabs justify-content-center account-tabs border-0">
                 <li><a class="text-warning border border-warning py-3 px-5 d-block active" data-toggle="tab" href="#home">USDT</a></li>
@@ -25,7 +25,7 @@
               </ul>
             </div>
 
-            <div class="col-12 mt-4">
+            <div class="col-12">
               <div class="tab-content border-0">
                 <div id="home" class="tab-pane active">
                   <div class="card">

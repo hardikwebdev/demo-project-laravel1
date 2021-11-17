@@ -11,6 +11,12 @@
 	<link href="{{asset('backend/css/animate.css')}}" rel="stylesheet">
 	<link href="{{asset('backend/css/style.css')}}" rel="stylesheet">
 
+	<link rel="icon" href="https://defixfinance.com/wp-content/uploads/2021/09/cropped-defix-favicon-32x32.png" sizes="32x32" />
+	<link rel="icon" href="https://defixfinance.com/wp-content/uploads/2021/09/cropped-defix-favicon-192x192.png" sizes="192x192" />
+	<link rel="apple-touch-icon" href="https://defixfinance.com/wp-content/uploads/2021/09/cropped-defix-favicon-180x180.png" />
+	<meta name="msapplication-TileImage" content="https://defixfinance.com/wp-content/uploads/2021/09/cropped-defix-favicon-270x270.png" />
+
+	
 	<!-- Jasny css -->
 	<link href="{{asset('backend/css/plugins/jasny/jasny-bootstrap.min.css')}}" rel="stylesheet">
 	<link href="{{asset('backend/css/plugins/chosen/bootstrap-chosen.css')}}" rel="stylesheet">

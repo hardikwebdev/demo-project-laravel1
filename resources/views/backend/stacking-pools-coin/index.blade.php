@@ -50,7 +50,7 @@
                                                 </td>
                                                 <td> 
                                                     @if (!empty($row->icon))
-                                                    <img src="{{asset('uploads/package_coin/'.$row->icon)}}" width="auto" height="50px">
+                                                    <img src="{{asset($row->icon)}}" width="auto" height="50px">
                                                     @else
                                                         
                                                     @endif

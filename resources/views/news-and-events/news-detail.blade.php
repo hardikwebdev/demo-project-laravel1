@@ -1,12 +1,19 @@
 @extends('layouts.app')
 @section('title', __('custom.news-events'))
-{{-- @section('page_title', __('custom.news-events')) --}}
-@section('page_title', __($news->title))
+@section('page_title', __('custom.news-events'))
+{{-- @section('page_title', __($news->title)) --}}
 @section('content')
-    <div class="content-wrapper mt-5">
-        <div class="row justify-content-center mt-3">
-            <div class="col-12 mt-4">
+    <div class="content-wrapper news-indi">
+        <div class="row justify-content-center">
+            <div class="col-12">
                 <div class="tab-content border-0">
+                    <div class="row mt-3 mb-5">
+                        <div class="col-12">
+                            <div class="withdrawal-gradient rounded text-white py-4 px-5">
+                                <h2 class="mb-0 font-weight-bold">{{ $news->title }}</h2>
+                            </div>
+                        </div>
+                    </div>
                     <div id="home" class="tab-pane active">
                         <div class="card">
                             <div class="card-body p-md-5">

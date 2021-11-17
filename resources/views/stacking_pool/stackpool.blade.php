@@ -3,14 +3,20 @@
  @section('page_title', __('custom.staking_pool'))
 
  @section('content')
- <div class="content-wrapper">
-  <div class="row align-items-center mt-5 pt-5">
+ <div class="content-wrapper staking-pool-indi">
+     <div class="ml-2 mb-4 d-none-desk d-md-block">
+    <h2 class="text-warning font-weight-bold">@yield('page_title','Dashboard')</h2>
+    @if(Route::currentRouteName() == 'dashboard')
+    <p class="text-white">{{str_replace('#name',auth()->user()->name,__('custom.wc_text'))}}</p>
+    @endif
+  </div>
+  <div class="row align-items-center pt-5">
     <div class="col-12 col-xl-5">
       <div class="card">
         <div class="card-body">
           <div class="row px-md-4 py-2">
             <div class="col-12 col-md-4">
-              <h1 class="text-violate border-violate rounded-circle font-weight-bold text-center alpha-symbol">{{substr($stakingpool->name,0,1)}}</h1>
+              <h1 class="text-violate border-violate rounded-circle font-weight-bold text-center alpha-symbol"><img class="stake-logo" src="{{$stakingpool->symbol}}" class="img-fluid card-img-top" alt=""></h1>
             </div>
             <div class="col-12 col-md-8">
               <h3 class="text-blue font-weight-bold">{{$stakingpool->name}}</h3>
@@ -18,7 +24,7 @@
             <!-- <div class="col-12 mt-2">
               <p class="font-12">{{$stakingpool->description}}</p>
             </div> -->
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-12">
               <p class="border-violate my-3"></p>
             </div>
             <div class="col-12 col-md-7">
@@ -44,11 +50,11 @@
         <div class="col-12 col-md-6">
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center">
-              <img src="{{ asset('images/assets/Artboard2_copy5/Rectangle385.png') }}" class="img-fluid w-70" alt="">
+              <img src="{{$coin->icon}}" class="img-fluid w-70" alt="">
               <h4>{{$coin->name}}</h4>
             </div>
             <div>
-              <h3>${{$coin->price}}</h3>
+              <!-- <h3>${{$coin->price}}</h3> -->
             </div>
           </div>
           <p class="border-bottom border-white"></p>

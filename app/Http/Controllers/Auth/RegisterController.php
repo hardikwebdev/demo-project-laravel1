@@ -104,8 +104,8 @@ class RegisterController extends Controller
             'bank_branch' => 'required',
             'acc_number' => 'required',
             'bank_country_id' => 'required',
-            'child_position' => 'required',
 
+            // 'child_position' => 'required',
             // 'terms_condition' => 'required|array|min:4',
             // 'iagree' => 'required',
         ];
@@ -123,9 +123,9 @@ class RegisterController extends Controller
                 ->first();
             $placementCount = User::where('placement_id', $placement->id)
                 ->where('status', 'active')
-                ->where('child_position', $data['child_position'])
+                // ->where('child_position', $data['child_position'])
                 ->count();
-            if ($placementCount > 0) {
+            if ($placementCount >= 2) {
                 $isValid = false;
             }
             $user = User::where('username', $data['sponsor_check'])
@@ -138,7 +138,7 @@ class RegisterController extends Controller
             $isValid = false;
 
             if (
-                $placementCount == 0 &&
+                $placementCount < 2 &&
                 $placement &&
                 (in_array($placement->id, $upline_ids) ||
                     empty($upline_ids) ||
@@ -186,11 +186,14 @@ class RegisterController extends Controller
             ->where('status', 'active')
             ->first();
 
+        $placement = User::where('placement_id',$placement_id->id)->first();
+        $child_position = ($placement && $placement->child_position == 'left') ? 'right' : 'left';
+
         $user = User::create([
             'name' => $data['fullname'],
             'sponsor_id' => $sponsor_id != null ? $sponsor_id->id : '0',
             'placement_id' => $placement_id != null ? $placement_id->id : '0',
-            'child_position' => $data['child_position'],
+            'child_position' => $child_position,
             'username' => $data['username'],
             'address' => $data['address'],
             'city' => $data['city'],

@@ -176,7 +176,7 @@ class CalculatePairingCommission extends Command
 
             }
         }
-        StackingPool::whereDate('created_at',$result_date)->delete();
+        // StackingPool::whereDate('created_at',$result_date)->delete();
         return Command::SUCCESS;
     }
 }

@@ -15,4 +15,11 @@ class StackingPoolCoin extends Model
         return $this->hasOne('App\Models\StackingPoolPackage','id','stacking_pool_package_id');
     }
 
+    public function getIconAttribute($value){
+        if(file_exists(public_path('uploads/package_coin/'.$value)) && $value){
+            return asset('uploads/package_coin/'.$value);     
+        }
+        return '';
+    }
+
 }

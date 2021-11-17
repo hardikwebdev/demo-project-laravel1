@@ -118,10 +118,10 @@ class LedgerController extends Controller
         $files = (new FastExcel($datas))->export($file_name,function ($data) {
         
             return [
-                'AMOUNT' => $data->amount!=null?$data->amount:0,
-                'STAKING POOLS' => $data->staking_pool_package->name!=null?$data->staking_pool_package->name:'-',
-                'DURATION' => $data->stacking_period!=null?$data->stacking_period:'-',
-                'DATE' => $data->created_at!=null?date("d/m/Y",strtotime($data->created_at)):'-',
+                trans('custom.AMOUNT') => $data->amount!=null?$data->amount:0,
+                trans('custom.STAKING_POOLS') => $data->staking_pool_package->name!=null?$data->staking_pool_package->name:'-',
+                trans('custom.DURATION') => $data->stacking_period!=null?$data->stacking_period:'-',
+                trans('custom.DATE') => $data->created_at!=null?date("d/m/Y",strtotime($data->created_at)):'-',
             ];
         });
         return response()->download($file_name);
@@ -146,13 +146,16 @@ class LedgerController extends Controller
         $files = (new FastExcel($datas))->export($file_name,function ($data) {
         
             return [
-                'SALES LEFT' => $data->left_sale!=null?$data->left_sale:0,
-                'SALES RIGHT' => $data->right_sale!=null?$data->right_sale:0,
-                'CARRY FORWARD LEFT' => $data->commission_got_from == 'right'?$data->carry_forward:0,
-                'CARRY FORWARD RIGHT' => $data->commission_got_from == 'left'?$data->carry_forward:0,
-                'DAILY LIMIT' => $data->daily_limit!=null?$data->daily_limit:0,
-                'PERCENTAGE' => $data->pairing_percent!=null?$data->pairing_percent.'%':0,
-                'DATE' => $data->created_at!=null?date("d/m/Y",strtotime($data->created_at)):'-',
+                trans('custom.SALES_LEFT') => $data->left_sale!=null?$data->left_sale:0,
+                trans('custom.SALES_RIGHT') => $data->right_sale!=null?$data->right_sale:0,
+                trans('custom.CARRY_FORWARD_LEFT') => $data->commission_got_from == 'right'?$data->carry_forward:0,
+                trans('custom.CARRY_FORWARD_RIGHT') => $data->commission_got_from == 'left'?$data->carry_forward:0,
+                trans('custom.DAILY_LIMIT') => $data->daily_limit!=null?$data->daily_limit:0,
+                trans('custom.PERCENTAGE') => $data->pairing_percent!=null?$data->pairing_percent.'%':0,
+                trans('custom.COMMISSION_EARNED') => '$'.$data->actual_commission_amount,
+                trans('custom.COMMISSION_WALLET') => '$'.$data->pairing_commission,
+                trans('custom.NFT_WALLET') => '$'.$data->actual_commission_amount-$data->pairing_commission,
+                trans('custom.DATE') => $data->created_at!=null?date("d/m/Y",strtotime($data->created_at)):'-',
             ];
         });
         return response()->download($file_name);
@@ -180,11 +183,13 @@ class LedgerController extends Controller
         $files = (new FastExcel($datas))->export($file_name,function ($data) {
         
             return [
-                'FROM USER' => $data->from_user_detail->username!=null?$data->from_user_detail->username:'',
-                'COMMISSION' => @$data->amount!=null?$data->amount:0,
-                'STAKING POOLS' => @$data->staking_pool->staking_pool_package->name !=null?$data->staking_pool->staking_pool_package->name:'',
-                'STAKING POOLS AMOUNT' => @$data->staking_pool->amount !=null?$data->staking_pool->amount:0,
-                'DATE' => @$data->created_at!=null?date("d/m/Y",strtotime($data->created_at)):'-',
+                trans('custom.FROM_USER') => $data->from_user_detail->username!=null?$data->from_user_detail->username:'',
+                trans('custom.COMMISSION') => number_format($data->actual_commission_amount, 2),
+                trans('custom.STAKING_POOLS') => @$data->staking_pool->staking_pool_package->name !=null?$data->staking_pool->staking_pool_package->name:'',
+                trans('custom.STAKING_POOL_AMOUNT') => @$data->staking_pool->amount !=null?$data->staking_pool->amount:0,
+                trans('custom.COMMISSION_WALLET_80') => number_format($data->amount, 2),
+                trans('custom.NFT_WALLET_20') => number_format($data->actual_commission_amount-$data->amount, 2),
+                trans('custom.DATE') => @$data->created_at!=null?date("d/m/Y",strtotime($data->created_at)):'-',
             ];
         });
         return response()->download($file_name);
@@ -206,10 +211,15 @@ class LedgerController extends Controller
         $files = (new FastExcel($datas))->export($file_name,function ($data) {
         
             return [
-                'AMOUNT' => @$data->amount!=null?$data->amount:0,
-                'PERCENT' => @$data->percent !=null?$data->percent:0,
-                'STAKING POOLS AMOUNT' => @$data->stacking_pool->amount !=null?$data->stacking_pool->amount:0,
-                'DATE' => @$data->created_at!=null?date("d/m/Y",strtotime($data->created_at)):'-',
+                trans('custom.YIELD_AMOUNT') => number_format($data->actual_commission_amount, 2),
+                trans('custom.YIELD_WALLET') => number_format($data->amount, 2),
+                trans('custom.NFT_WALLET') => number_format($data->actual_commission_amount-$data->amount, 2),
+                trans('custom.YIELD') => (@$data->percent)?$data->percent:0,
+                trans('custom.STACKING_AMOUNT') => (@$data->stacking_pool->amount)?$data->stacking_pool->amount:0,
+                trans('custom.STAKING_POOLS') => (@$data->stacking_pool->staking_pool_package)?$data->stacking_pool->staking_pool_package->name:0,
+                trans('custom.STACKING_DATE') => date("d/m/Y",strtotime($data->stacking_pool->created_at)),
+                trans('custom.DURATION') => date("d/m/Y",strtotime($data->stacking_pool->duration)),
+                trans('custom.DATE') => date("d/m/Y",strtotime($data->created_at)),
             ];
         });
         return response()->download($file_name);

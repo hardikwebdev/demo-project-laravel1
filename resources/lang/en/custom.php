@@ -1677,7 +1677,7 @@ return [
         /* Withdrawal Wallet Terms & Conditions*/
         'withdrawal_wallet_terms_and_conditions1' => '<ul class="text-grey">
        <li>You can transfer funds from your commission and yield wallet to this wallet.</li>
-       <li>The conversion rate of USD to USDT is 0:0.95.</li>
+       <li>The conversion rate of USD to USDT is 1:0.95.</li>
        <li>The conversion rate of USD to your local currency is dependent on the market rate. Please message the support team to inquire about the latest conversion rate.</li>
      </ul>',
 
@@ -1708,7 +1708,7 @@ return [
     </div>
     <div id="collapseOne" class="collapse show" data-parent="#accordion">
     <div class="card-body">
-    <p>Established September 2019 in Russia, DefiXFinance is launched by a group of blockchain enthusiasts with an objective to bring the opportunities of the crypto world to the general public. Since then, DefiXFinance has grown to offer keen investors a comprehensive suite of products including staking pools, liquidity pools and a private & exclusive NFT marketplace. In the short span of 2 years, the company has grown to a team of 70, based around Russia, Europe and Asia, serving more than 10,000 active investors.</p>
+    <p>Established September 2019 in Russia, DefiXFinance is launched by a group of blockchain enthusiasts with an objective to bring the opportunities of the crypto world to the general public. Since then, DefiXFinance has grown to offer keen investors a comprehensive suite of products including staking pools, liquidity pools and a private & exclusive NFT marketplace. In the short span of 2 years, the company has grown to a large and diverse team of experts, based around Russia, Europe and Asia, serving investors all over the world.</p>
     </div>
     </div>
     </div>
@@ -1789,7 +1789,7 @@ return [
     </div>
     <div id="collapseseven" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>Yes! You can transfer the NFT art from your NFT Collection page to your own crypto wallet.
+    <p>Yes! You can transfer the NFT art from your NFT Collection page to your own crypto wallet. You just need a crypto wallet that supports ERC, fill up the form at My Collection page and your NFT collections can be transferred there.
     </p>
     </div>
     </div>
@@ -1914,4 +1914,65 @@ return [
     'on_sale' => 'ON SALE',
     'sell_nft' => 'Sell NFT',
 
-];
+
+    'STAKING_POOLS'=>'STAKING POOLS',
+    'NODES_MANAGEMENT'=>'NODES MANAGEMENT',
+    'REFERRAL_COMMISSION'=>'REFERRAL COMMISSION',
+    'ROI'=>'ROI',
+    'FILTER_DATE'=>'FILTER DATE',
+    'AMOUNT'=>'AMOUNT',
+    'DURATION'=>'DURATION',
+    'DATE'=>'DATE',
+    'ACTION'=>'ACTION',
+
+    'SALES_LEFT'=>'SALES LEFT',
+    'SALES_RIGHT'=>'SALES RIGHT',
+    'CARRY_FORWARD_LEFT'=>'CARRY FORWARD LEFT',
+    'CARRY_FORWARD_RIGHT'=>'CARRY FORWARD RIGHT',
+    'DAILY_LIMIT'=>'DAILY LIMIT',
+    'PERCENTAGE'=>'PERCENTAGE',
+    'COMMISSION_EARNED'=>'COMMISSION EARNED',
+    'COMMISSION_WALLET'=>'COMMISSION WALLET',
+    'NFT_WALLET'=>'NFT WALLET',
+
+
+    'FROM_USER'=>'FROM USER',
+    'COMMISSION'=>'COMMISSION',
+    'STAKING_POOL_AMOUNT'=>'STAKING POOLS AMOUNT',
+    'COMMISSION_WALLET_80'=>'COMMISSION WALLET(80%)',
+    'NFT_WALLET_20'=>'NFT_WALLET(20%)',
+   
+    'STACKING_AMOUNT'=>'STACKING AMOUNT',
+    'STACKING_DATE'=>'STACKING DATE',
+    'YIELD'=>'YIELD',
+    'YIELD_AMOUNT'=>'YIELD AMOUNT',
+    'YIELD_WALLET'=>'YIELD WALLET',
+    'NFT_WALLET'=>'NFT_WALLET',
+    'TO' => 'TO',
+    'Clear' => 'Clear',
+    'EXPORT' => 'EXPORT',
+    'Filter' => 'Filter',
+    'start_date' => 'Start Date',
+    'end_date' => 'End Date',
+    'select_stacking_pool_package' => 'Select Stacking Pool Package',
+    'start_date_must_be_less_then_end_date' => 'Start Date must be less then End Date',
+    'end_date_must_be_greater_than_start_date' => 'End Date must be greater than Start Date',
+
+    'edit_photo' => 'Edit Photo',
+    'defixfinance_id' => 'DefiXFinance ID',
+    'total_staking_package' => 'Total Staking Package',
+    'PERSONAL_DETAILS' => 'PERSONAL DETAILS',
+    'BANK_DETAILS' => 'BANK DETAILS',
+    'NFT_WALLET_DETAILS' => 'NFT WALLET DETAILS',
+    'wallet_address' => 'Wallet Address',
+    'UPDATE_PROFILE' => 'UPDATE PROFILE',
+    'UPDATE_ACCOUNT' => 'UPDATE ACCOUNT',
+    'enter_nft_wallet_address' => 'Enter NFT Wallet Address',
+    'upload_profile_image' => 'Upload Profile Image',
+    'profile_extension_png_jpg_jpeg' => 'Profile extension png, jpg, jpeg',
+    'accountdetails' => 'ACCOUNT DETAILS',
+    'UPDATE_BANK_DETAILS' => 'UPDATE BANK DETAILS',
+    'UPDATE_NFT_WALLET_ADDRESS' => 'UPDATE NFT WALLET ADDRESS',
+    'UPDATE_PASSWORD' =>'UPDATE PASSWORD',
+    'UPDATE_SECURE_PASSWORD' =>'UPDATE SECURE PASSWORD'
+ ];

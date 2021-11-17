@@ -191,6 +191,11 @@ $('#country_id').on('change',function(e){
 //     sigpad.signature('clear');
 //     $("#signature").val('');
 // });
+$('#fullname').on('keypress keydown keyup',function(){
+    var name = $(this).val();
+    $('#acc_holder_name').val(name);
+});
+
 
 $("#customer_register").validate({
     ignore: "input[type='text']:hidden",
@@ -1127,6 +1132,52 @@ $("#slider-form").validate({
             maxlength:255
          },
          mobile_image: {
+            required: true,
+            extension:'png|jpeg|jpg'
+         },  
+          url: {
+            required: true,
+            regex: /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/
+         },
+         image:{
+            required: true,
+            extension:'png|jpeg|jpg'
+         }
+         // daterange: {
+         //    required: true
+         // },         
+    },
+    messages:{
+        title: {
+            required: 'Please enter title',
+        },      
+        mobile_image: {
+            required: 'Please Upload mobile-image',
+            extension: "Only png,jpeg,jpg allowed."
+        },
+        url: {
+            required: 'Please enter url',
+        },
+        image: {
+            required: 'Please Upload desktop-image',
+            extension: "Only png,jpeg,jpg allowed."
+        },   
+        // daterange: {
+        //     required: 'Please select start and end date',
+        // },
+    },
+});
+
+
+$("#slider-form-edit").validate({
+    rules: {
+
+         title: {
+            required: true,
+            maxlength:255
+         },
+         mobile_image: {
+            // required: true,
             extension:'png|jpeg|jpg'
          },  
           url: {
@@ -1145,18 +1196,24 @@ $("#slider-form").validate({
         title: {
             required: 'Please enter title',
         },      
-        details: {
-            required: 'Please enter detail or description',
+        mobile_image: {
+            // required: 'Please Upload mobile-image',
+            extension: "Only png,jpeg,jpg allowed."
         },
         url: {
             required: 'Please enter url',
+        },
+        image: {
+            // required: 'Please Upload desktop-image',
+            extension: "Only png,jpeg,jpg allowed."
         },   
         // daterange: {
         //     required: 'Please select start and end date',
         // },
     },
-
 });
+
+
 if($('#announcement-form input[name="daterange"]').val() != undefined){
     var start = moment().subtract(29, 'days');
     var end = moment();
