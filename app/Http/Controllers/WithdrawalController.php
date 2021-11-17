@@ -172,4 +172,20 @@ class WithdrawalController extends Controller
             Session::flash('error',trans('custom.security_password_wrong')); 
             return redirect()->route('withdrawal')->with('error',trans('custom.security_password_wrong'))->withInput($request->input());
     }
+
+    public function resendEmail(Request $request){
+        $withderawRequest = Model\WithdrawalRequest::where('usdt_verification_key',$request->id)->first();
+        if($withderawRequest){
+            $user = Auth::user();
+            $data['email'] = $user->email;
+            $routeUrl = route('withdrawlRequestVerify',$withderawRequest->usdt_verification_key);
+            \Mail::send('emails.withdrawlusdt',['routeUrl' =>$routeUrl ], function($message) use($data )  {
+                $message->to($data['email'], 'Withdrawal Verification')
+                ->subject('Vextrader Withdrawal Verification');
+            });
+            return redirect()->route('withdrawal')->with(['success'=>trans('custom.verfication_email_send')]);
+        }
+        return redirect()->route('withdrawal')->with(['error'=>trans('custom.verfication_email_error')]);
+    }
+
 }

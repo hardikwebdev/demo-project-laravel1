@@ -32,7 +32,9 @@
             @elseif($value->status == 2)
             <td class="text-danger">{{trans('custom.rejected')}}</td>
             @else
-            <td class="text-danger">{{trans('custom.verifying')}}</td>
+            <td class="text-danger">{{trans('custom.verifying')}} | 
+                <a class="m-l-xs" href="{{route('resendEmail',$value->usdt_verification_key)}}">{{trans('custom.resend_email')}}</a>
+            </td>
             @endif
             @if($value->status == 2)
             <td>

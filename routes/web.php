@@ -74,7 +74,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::get('/get-downlinePlacement', 'App\Http\Controllers\HomeController@downlinePlacement')->name('downlinePlacement');
         Route::post('/update-password', 'App\Http\Controllers\AccountController@updatePassword')->name('update-password');
         Route::post('/update-secure-password', 'App\Http\Controllers\AccountController@updateSecurePassword')->name('update-secure-password');
-        
+
         Route::get('/stacks', 'App\Http\Controllers\StackingPoolController@index')->name('stacks');
         Route::post('/stacking-pool', 'App\Http\Controllers\StackingPoolController@stacking_pool')->name('staking_pool');
         Route::get('/stack/{id}', 'App\Http\Controllers\StackingPoolController@detail')->name('stakepool');
@@ -119,6 +119,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::get('/sell_nft', 'App\Http\Controllers\HomeController@sell_nft')->name('sell_nft');
         Route::get('/withdrawal', 'App\Http\Controllers\WithdrawalController@index')->name('withdrawal');
         Route::post('/withdrawal-request', 'App\Http\Controllers\WithdrawalController@withdrawalRequest')->name('withdrawal-request');
+        Route::any('resend-email/{id}', 'App\Http\Controllers\WithdrawalController@resendEmail')->name('resendEmail');
 
         Route::get('/faq', 'App\Http\Controllers\HomeController@helpandfaq')->name('helpandfaq');
         // Route::resource('help-support', 'App\Http\Controllers\SupportTicketController')->name('help-support');
