@@ -89,7 +89,7 @@ return [
     'Ledger' => '分类账',
     'name_of_bank' => '银行名称',
     'enter_your_bank_name' => 'Enter your bank name',
-    'name_account_holder' => '银行账户持有人',
+    'name_account_holder' => 'Name of Account Holder',
     'click_to_copy' => '点击复制',
     'copy_link' => 'Copy link',
     'copied' => '已复制',
@@ -110,7 +110,7 @@ return [
     'click_here_add_points' => 'Click here to fund in your account.',
     'buy_package_message'=> 'Please buy a package to activate your account and to access all the features of the Defix',
     'click_here_add_package' => 'Click here to add package.',
-    'verify' => '验证',
+    'verify' => 'Verify',
     /*Registration*/
     'enter_details_account' => 'Enter your details to create your account',
     'sign_up' => '注册',
@@ -123,10 +123,10 @@ return [
     'personal_detail' => '个人信息',
     'enter_your_personal_detail' => 'Enter your personal details',
     'enter_your_account_details' => 'Enter your account details',
-    'login_password' => '登录密码',
-    'enter_your_password' => '输入您的密码',
-    'repeat_password' => '重复密码',
-    'enter_your_password_again' => '重复输入您的密码',
+    'login_password' => 'Login Password',
+    'enter_your_password' => 'Enter your password',
+    'repeat_password' => 'Repeat Password',
+    'enter_your_password_again' => 'Enter your password again',
     'user_agreement' => '用户协议',
     'user_agreement_desc' => '<p>Trading foreign exchange, spot precious metals and any other product carries a high level of risk to your capital and you should only trade or invest with money you can afford to lose. We encourage you to consider your investment objectives, your risk tolerance and trading experience when deciding to deal in Defix. The possibility exists that you could sustain a loss of some or all of your initial investment and therefore you should not speculate, invest or hedge with capital you cannot afford to lose, that is borrowed or urgently needed or necessary for personal or family subsistence. Foreign exchange trading may not be suitable for all investors, so please ensure that you fully understand the risks involved and seek independent advice if you have any doubts. There is no guarantee past performance will be indicative of future results. The information on this site may be accessed worldwide however it is not directed at residents in any country or jurisdiction where such distribution or use would be contrary to local law or regulation.</p>',
     'aml_policy_statement' => 'AML Policy Statement',
@@ -174,11 +174,11 @@ return [
     'amount_USD' => '金额（美元）',
     'amount_YUN' => 'Amount (YUN)',
     'security_password' => '安全密码',
-    'enter_security_password' => '输入您的安全密码',
-    'repeat_security_password' => '重复安全密码',
-    'enter_repeat_security_password' => '重复输入您的安全密码',
-    'bank_details' => '银行信息',
-    'enter_your_bank_details' => '输入您的银行信息',
+    'enter_security_password' => 'Enter you security password',
+    'repeat_security_password' => 'Repeat Security Password',
+    'enter_repeat_security_password' => 'Enter your security password again',
+    'bank_details' => 'Bank Details',
+    'enter_your_bank_details' => 'Enter your bank details',
     'upload_ank_proof' => 'Upload Bank Proof',
     'fund_top_up_history' => 'Fund Top Up History',
     'clicking_proceed_understand_payment_proof_editable_submission' => 'By clicking proceed, I hereby understand that the amount that I keyed in, and the payment Proof that I uploaded is correct and non-editable after submission',
@@ -389,7 +389,7 @@ return [
     'enter_email' =>'请输入邮箱',
     'enter_your_email_again' => '请重复输入邮箱',
     'identification_number' => '身份证',
-    'identification_number_country' => '填写身份证号码前请先选择国家',
+    'identification_number_country' => 'Please select country first before filling Identification Number',
     'enter_identification_number' => 'Enter a identification number',
     'enter_address' => 'Enter an address',
     'phone_number' => '电话号码',
@@ -416,7 +416,7 @@ return [
     'enter_swift_code' => 'Enter a swift code',
     'update_profile' => 'Update Profile',
     'account_details' => 'Account Details',
-    'profile' => '账户',
+    'profile' => 'Profile',
     'register_user' => 'Register User',
     'register_downline' => 'Register Accounts',
     'register_user_message' => 'New User Registered successfully',
@@ -643,7 +643,7 @@ return [
     'upl_ic_proof' => 'Upload IC Proof with Selfie',
     'upl_bank_proof' => 'Upload Bank Proof with Selfie',
     'upl_mt4with_proof3' => 'Upload Confirmation Form with Selfie',
-    'instructions' => '条款与条件',
+    'instructions' => 'Terms & Conditions',
     'instructions_mt4_upload_desc' => '<ul><li>All capital withdrawals will take 2-7 working days to process.</li><li>You can only withdraw amount that correspond to our package amount. Example, from a $10,000 package, you can only withdraw $5,000, $7,000, $9,000 or $10.000.</li><li>Once your withdrawal has been approved, your package will be downgraded and your requested amount will enter your Withdrawal Wallet.</li></ul>',
 
     'captcha' => 'Captcha',
@@ -658,7 +658,7 @@ return [
     'welcomedashboard' => 'Welcome to your dashboard,',
     
     'verify_sponsor'  => 'Verify Sponsor',
-    'login_password' => '登录密码',
+    'login_password' => 'Login Password',
     'r_login_Password' => 'Confirm Login Password',
     'no_package' => 'No Package',
     'source' => 'Source',
@@ -675,9 +675,9 @@ return [
     'upload_proof_residenceimg' => 'Please upload proof of residence in pdf,jpeg,jpg,png',
     'proof_residence_required' => 'Proof of residence is required',
     'bankproof_required' => 'Bank Proof is required field',
-    'fullname_required' => '全名是必填字段',
+    'fullname_required' => 'Fullname is required field',
     'opt_required_field' => 'OTP is required field',
-    'amount_required_field' => '金额是必填字段',
+    'amount_required_field' => 'Amount is required field',
     'value_less_equal_10000000' => 'Please enter a value less than or equal to 10000000.',
     'value_greater_equal_200' => 'Please enter a value greater than or equal to 200.',
     'minimum_3_character' => 'Please enter minimum 3 character',
@@ -694,7 +694,7 @@ return [
     'sopnsor_required' => 'Sopnsor username is required',
     'messages_required' => 'Messages is required',
     'identification_alread_use' => 'You can only register within your Primary account network.',
-    'enter_full_name' => '请输入全名',
+    'enter_full_name' => 'Please enter full name',
     'maximim_limit_sponsor_20_character' => 'Maximim limit of sponsor name is 20 character',
     'user_name_already_exists' => 'User name is already exists',
 
@@ -812,9 +812,9 @@ return [
     'commission_wallet_tnc' => '<ul class="dis"><li>You will receive all your weekly trading profit credited into this wallet automatically every week.</li><li>You will receive your lot rebate, lot rebate commission, leadership bonus and profit sharing credited into this wallet automatically every week if you are qualified.</li><li>You can transfer this amount to your fund wallet or withdrawal wallet.</li><li>This transfer is irreversible so please consider before submitting the request.</li></ul>', 
     'funds_type' => 'Funds Type',
     'fund_type_placeholder' => '--选择钱包类型--',
-    'select_fund_type' => '请选择钱包类型',
+    'select_fund_type' => 'Please select Funds Type',
     'trading_strategy' => 'Trading Strategy',
-    'submit'=>'提交',
+    'submit'=>'Submit',
     'transfer_to_withdrawal_wallet_txt'=>'Transfer to Withdrawal Wallet',
     'transfer_to_fund_wallet_txt'=>'Transfer to Fund Wallet',
     'lot_rebate_txt'=>'Lot Rebate',
@@ -1113,8 +1113,8 @@ return [
     'value'=>'Value',
     'sell'=>'Sell',
     'buy'=>'Buy',
-    'err_field_req' => '此字段是必填字段.',
-    'all_rights' => '版权所有',
+    'err_field_req' => 'This field is required',
+    'all_rights' => 'All Right Reserved',
     'stats' => 'Stats',
     'portfolio' => 'Portfolio',
     'chart' => 'Chart',
@@ -1132,7 +1132,7 @@ return [
     'requested_amount_transfered_stock' => 'The requested amount is transferred to Stock wallet',
     'transfer_to_stock_wallet_txt'=>'Transfer to Stock Wallet',
     'payment_through'=>'Payment With',
-    'err_field_req' => '此字段是必填字段.',
+    'err_field_req' => 'This field is required',
     'selling'=>'Selling',
     'buying'=>'Buying',
     'avg_risk_score'=>'Average Risk Score',
@@ -1465,17 +1465,17 @@ return [
     /* binary system */
     'placement_name_placeholder' => '上线用户名',
     'verify_placement_username' => '验证上线用户名',
-    'placement_username' => '上线用户名',
-    'enter_placement_username' => '输入上线用户名',
+    'placement_username' => 'Placement Username',
+    'enter_placement_username' => 'Enter Placement Username',
     'placement_user_not_found_not__valid_placement' => '未找到该上线用户名或不是有效上线用户名。请输入其他上线用户名.',
     'placement_username_verified' => '该上线用户名已经验证.',
     'upline_username_verified' => 'The upline or downline username is verified.',
     'enter_valid_placement_username' => '请输入有效的上线用户名.',
-    'verify_entered_placement' => '请验证您输入的上线信息.',
-    'please_check_placement_username_not_valid' => '请检查上线用户名无效',
-    'please_enter_placement_name' => '请输入上线用户名',
-    'verify_placement'  => '验证上线用户名',
-    'maximim_limit_placement_name_20_character' => '上线用户名的最大限制为20个字符',
+    'verify_entered_placement' => 'Please verify the entered placement details.',
+    'please_check_placement_username_not_valid' => 'Please check placement username is not valid',
+    'please_enter_placement_name' => 'Please enter placement name',
+    'verify_placement'  => 'Verify Placement',
+    'maximim_limit_placement_name_20_character' => 'Maximim limit of placement name is 20 character',
     'child_position' => 'Child Position',
     'left' => 'Left',
     'right' => 'Right',
@@ -1484,8 +1484,8 @@ return [
     'not_amember' => '非会员？',
     'forgot_password' => '忘记密码',
     'clear_signature' => '清除签名',
-    'requested_amount_transfered_crypto' => '所提交的金额已被转移到加密钱包',
-    'requested_amount_transfered_nft' => '所提交的金额已被转移到NFT钱包',
+    'requested_amount_transfered_crypto' => 'The requested amount is transferred to crypto wallet',
+    'requested_amount_transfered_nft' => 'The requested amount is transferred to NFT wallet',
     'balance' => '余额',
     'malaysia_opg' => 'MALAYSIA OPG',
     'withdrawal_fee_is_usd_10' => 'Withdrawal Fee is USD 10',
@@ -1531,13 +1531,13 @@ return [
     'balance' => '余额',
     'stake' => '质押',
     'expected_anual_rate' => '预期年度回报率',
-    'staking_history' => '质押历史记录',
+    'staking_history' => '质押历史',
     'duration' => '为期',
     'stake_amount' => '质押金额',
     'stake_now' => '立即质押',
     'duration_term' => '期限',
     'months' => '个月',
-    'staking_pool_added_successfully' => '质押池添加成功.',
+    'staking_pool_added_successfully' => 'Staking pool added successfully.',
     'invested_amount' => 'Invested <br> Amounts',
     'staking_pool' => '质押池',
     'staking_pools' => '质押池',
@@ -1546,8 +1546,8 @@ return [
     'myr_amount' => 'Amount (MYR)',
     'open_ticket' => '创建新单',
     'no_ticket_found' => 'No Ticket found',
-    'staking_popup_title' => '质押池提醒',
-    'commission_history' => '佣金钱包历史记录',
+    'staking_popup_title' => 'STAKING POOL REMINDER',
+    'commission_history' => 'Commission History',
     'antimoney-laundering' => '反洗钱政策',
     'coockie-policy' => 'Cookie政策',
     'nodes-management' => '节点管理',
@@ -1562,8 +1562,8 @@ return [
     'commissionsale' => '佣金&销售额',
     'news' => '新闻',
     'news-events' => '新闻与事件',
-    'two_decimal_message' => '不允许超过2位小数',
-    'amount-breakdown' => '金额明细',
+    'two_decimal_message' => 'No more than 2 decimal allowed',
+    'amount-breakdown' => 'Amount Breakdown',
     'apr_monthly' => 'APR（每月）',
     'balancing_commission' => '节点平衡佣金',
     'help_and_faq' => '常见问题解答',
@@ -1615,7 +1615,7 @@ return [
        /* Yield Wallet Terms & Conditions*/
 
        'yield_wallet_terms_and_conditions1' => '<ul class="text-grey">
-       <li>该钱包将自动记入您的质押回报.</li>
+       <li>该钱包将自动记入您的质押奖励.</li>
        <li>您可以在此处将余额转移到加密钱包、NFT钱包或取款钱包.</li>
      </ul>',
 
@@ -1656,7 +1656,7 @@ return [
        /* NFT Wallet Terms & Conditions*/
 
        'nft_wallet_terms_and_conditions1' => '<ul class="text-grey">
-       <li>您质押回报收益和佣金的20%将记入此钱包.</li>
+       <li>您质押奖励收益和佣金的20%将记入此钱包.</li>
        <li>NFT钱包资金可用于从市场购买NFT.</li>
      </ul>',
 
@@ -1707,7 +1707,7 @@ return [
     </div>
     <div id="collapseOne" class="collapse show" data-parent="#accordion">
     <div class="card-body">
-    <p>DefiXFinance始于2019年9月乃是由一群热爱区块链专业人士并将总部成立于俄罗斯，目标是让加密货币进入普通大众的视野.我们其目标是让区块链货币普及化并且带给众投资者们最优越的投资计划让其投资者们都能获取丰厚的利益.DefiXFinance不断茁壮成长并且在短短两年的时间里，该公司已发展成为一支庞大且多元化的专家团队，其地区包括有俄罗斯、欧洲和亚洲，为世界各地的投资者提供服务.</p>
+    <p>DefiXFinance始于2019年9月乃是由一群热爱区块链专业人士并将总部成立于俄罗斯，目标是让加密货币进入普通大众的视野。我们其目标是让区块链货币普及化并且带给众投资者们最优越的投资计划让其投资者们都能获取丰厚的利益。DefiXFinance不断茁壮成长并且在短短两年时间里面发展成为一个拥有来自全世界高达70位的专业人数团队。其地区包括有俄罗斯，欧洲以及亚洲来为我们旗下高达万名的尊贵投资们提供我们的专业服务.</p>
     </div>
     </div>
     </div>
@@ -1720,7 +1720,7 @@ return [
     </div>
     <div id="collapseTwo" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>DefiXFinance的主要产品是我们非常受欢迎的质押和流动性池制度。通过运用我们的机构和散户投资者投资的资金池，DefiXFinance能够在各种权益证明代币中进行质押，并为我们的投资者赚取数百万的质押回报.
+    <p>DefiXFinance的主要产品是我们非常受欢迎的质押和流动性池制度。通过运用我们的机构和散户投资者投资的资金池，DefiXFinance能够在各种权益证明代币中进行质押，并为我们的投资者赚取数百万的质押奖励.
     </p>
     </div>
     </div>
@@ -1743,12 +1743,12 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link text-dark" data-toggle="collapse" href="#collapsefour">
-    4. 如何计算质押回报收益率?
+    4. 如何计算质押奖励收益率?
     </a>
     </div>
     <div id="collapsefour" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p> 您的质押投资的每月回报取决于您的投资规模、购买日期、质押期限和代币价格变动。用非常基本的术语来说，投资金额越大、时间越长，随着质押回报概率的增加，回报百分比就越高.
+    <p> 您的质押投资的每月回报取决于您的投资规模、购买日期、质押期限和代币价格变动。用非常基本的术语来说，投资金额越大、时间越长，随着质押奖励概率的增加，回报百分比就越高.
     </p>
     </div>
     </div>
@@ -1788,7 +1788,7 @@ return [
     </div>
     <div id="collapseseven" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>是的！您可以将NFT艺术作品从您的NFT收藏页面转移到您自己的加密钱包.您只需要一个支持ERC的加密钱包，在我的收藏页面填写表格，您的NFT收藏就可以转移到那里.
+    <p>是的！您可以将NFT艺术作品从您的NFT收藏页面转移到您自己的加密钱包.
     </p>
     </div>
     </div>
@@ -1876,9 +1876,9 @@ return [
 
     'staking_terms' => '<ul class="text-grey"><li>您可以使用您加密钱包中的资金在这个质押网络池中进行质押.</li>
     <li>请选择所需的12个月或24个月的质押期.</li>
-    <li>所有质押回报将在质押之日起30天内发放.</li>
+    <li>所有质押奖励将在质押之日起30天内发放.</li>
     <li>每笔质押存款都将与各自的合同期限挂钩.存款之间没有重叠.</li>
-    <li>您每月的质押回报取决于存款金额和市场上代币价值的波动.</li>
+    <li>您每月的质押奖励取决于存款金额和市场上代币价值的波动.</li>
     <li>一旦您的质押合约到期，您可以选择延长合约或从Maturity钱包中提取资金.</li>
     <li>所有质押存款均为最终押金，恕不退款.</li></ul>',
     'staking_agreement' => '<ul><li>I agree that by clicking confirm below I adhere to all the terms and conditions stated.</li>
