@@ -21,13 +21,13 @@ class CommonController extends Controller
 {
     public function pairingCommission(){
         set_time_limit(0);
-        \Artisan::call('calculate:pairingcommission');
+        \Artisan::call('calculate:pairingcommissiontest');
         echo "executed";die();
     }
 
     public function referralCommission(){
         set_time_limit(0);
-        \Artisan::call('calculate:directreferral 19');
+        \Artisan::call('calculate:directreferraltest 19');
         // $a = 1;
         // $command = "php artisan calculate:directreferral ".$a." > /dev/null 2>/dev/null &";
         // shell_exec($command);
