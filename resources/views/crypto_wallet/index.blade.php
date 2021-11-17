@@ -75,6 +75,7 @@
               <div class="form-group row fund-usdt">
                  <div class="col-lg-8 form-group-sub row nopadding ">
                   @if($usdtaddress->image != '')
+
                   <div class="image-qr-dah col-lg-4">
                       <img src="{{$usdtaddress->image}}" class="center"  id="qr_image" style="width: 140px;">
                   </div>
@@ -83,6 +84,7 @@
                       {!! QrCode::size(140)->generate($qrcode); !!}
                   </div>
                   @endif
+
                   <div class="col-lg-8 row nopadding">
                           <div class="col-lg-8 form-group-sub select-bank-hide nopadding ">
                               <div class="form-group ">

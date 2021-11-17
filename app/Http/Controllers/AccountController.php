@@ -75,8 +75,8 @@ class AccountController extends Controller
         $isValid = false;
         if ($usernameExits != null) {
             $placement = User::where('username',$data['placement_username'])->where('status','active')->first();
-            $placementCount = User::where('placement_id',$placement->id)->where('status','active')->where('child_position',$data['child_position'])->count();
-            if($placementCount > 0){
+            $placementCount = User::where('placement_id',$placement->id)->where('status','active')->count();
+            if($placementCount >= 2){
                 $isValid = false;
             }
             $user = User::where('username',$data['sponsor_check'])->where('status','active')->first();
@@ -86,7 +86,7 @@ class AccountController extends Controller
 
             $isValid = false;
 
-            if($placementCount == 0 && $placement && (in_array($placement->id, $upline_ids) || empty($upline_ids) || $placement->username == $user->username)){
+            if($placementCount < 2 && $placement && (in_array($placement->id, $upline_ids) || empty($upline_ids) || $placement->username == $user->username)){
                 $isValid = true;
             }
 
@@ -120,12 +120,14 @@ class AccountController extends Controller
         $securePassword = Hash::make($data['secure_password']);
         $sponsor_id = User::where('username',$data['sponsor_username'])->where('status','active')->first();
         $placement_id = User::where('username',$data['placement_username'])->where('status','active')->first();
+        $placement = User::where('placement_id',$placement_id->id)->first();
+        $child_position = ($placement && $placement->child_position == 'left') ? 'right' : 'left';
 
         $user = User::create([
             'name' => $data['fullname'],
             'sponsor_id' => ($sponsor_id != null ) ? $sponsor_id->id : '0',
             'placement_id' => ($placement_id != null ) ? $placement_id->id : '0',
-            'child_position' => $data['child_position'],
+            'child_position' => $child_position,
             'username' => $data['username'],
             'address' => $data['address'],
             'city' => $data['city'],
@@ -293,7 +295,9 @@ class AccountController extends Controller
         $user = User::with('userbank')->where('id',Auth::user()->id)->where('status','active')->where('deleted_at', null)->first();
         $country  = Country::pluck('country_name','id')->toArray();
         $staking_pool_count = StackingPool::where('user_id', $this->user->id)->where('status', ['0', '1'])->count();
+        $poolpackages = StackingPool::where('user_id',$user->id)->where('status',1)->pluck('stacking_pool_package_id')->toArray();
         $staking_pool = StackingPoolPackage::orderBy('id','desc')
+                                            ->whereIn('id',$poolpackages)
                                             ->limit(8)
                                             ->get()
                                             ->map(function($pool) use ($user){

@@ -173,11 +173,11 @@
                                           <td>
                                             <table align="center" cellpadding="0" cellspacing="0" border="0" width="500">
                                               <tr>
-                                                <td class="size-20" align="center" style="font-weight:600; font-size:28px; color:black; font-family:Helvetica Neue; mso-line-height-rule: exactly; text-align:center; line-height:42px;">Dear {{ $user->name}}, 
+                                                <td class="size-20" align="center" style="font-weight:600; font-size:28px; color:black; font-family:Helvetica; mso-line-height-rule: exactly; text-align:center; line-height:42px;">Dear {{ $user->name}}, 
                                                   <br> Your Deposit is Approved</td>
                                                 </tr>
                                                 <tr>
-                                                  <td class="pad-B20" align="center" style="font-weight:400; font-size:14px; color:#5c5c5c; font-family:Helvetica Neue; mso-line-height-rule: exactly; line-height:26px; padding:10px 0px 10px;"> Dear {{ $user->name }}, <br/>
+                                                  <td class="pad-B20" align="center" style="font-weight:400; font-size:14px; color:#5c5c5c; font-family:Helvetica; mso-line-height-rule: exactly; line-height:26px; padding:10px 0px 10px;"> Dear {{ $user->name }}, <br/>
                                                     Your deposit made on {{ date("d-M-Y",strtotime($user->created_at)) }} of the amount {{ number_format($amount, 2)}} has been
                                                       received/approved. You will see the amount in your Crypto. You may
                                                       use this amount to invest in any staking pool network of your choice.
@@ -203,7 +203,7 @@
                                                 <table align="center" cellpadding="0" cellspacing="0" border="0" width="490">
                                                   <tr>
                                                     <td align="center" valign="top" style="padding-bottom:30px;" class="pad-B20">
-                                                      {{-- <a title="See All Features" href="" style="background-color:#ffc424; border:solid 1px #ffc424; border-radius:2px;color:#ffffff;display:inline-block;font-family:Helvetica Neue; font-weight:400; font-size:14px; line-height:56px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;mso-hide:all;outline:none;">LOGIN NOW <img src="arrow.png" alt="" style="vertical-align: middle; padding-left: 10px; width: 25px;"></a> --}}
+                                                      {{-- <a title="See All Features" href="" style="background-color:#ffc424; border:solid 1px #ffc424; border-radius:2px;color:#ffffff;display:inline-block;font-family:Helvetica; font-weight:400; font-size:14px; line-height:56px;text-align:center;text-decoration:none;width:200px;-webkit-text-size-adjust:none;mso-hide:all;outline:none;">LOGIN NOW <img src="arrow.png" alt="" style="vertical-align: middle; padding-left: 10px; width: 25px;"></a> --}}
                                                     </td>
                                                   </tr>
                                                 </table>
@@ -225,17 +225,12 @@
                                 <tr>
                                   <td align="left" valign="top">
                                     <table cellpadding="0" cellspacing="0" border="0" align="left" class="wd-auto">
-                                      <td style="font-family:Helvetica Neue;font-size:9px;color:#bcbcbc"><strong>General Advice:</strong> All information in this website is of general advise only. We strongly advise that you consider the advise in regards to your financial objectives, situation and needs.
-                                        DefiXFinance Group Limited makes no guarantee of its accuracy and completeness and is not responsible for errors of transmission of factual or analytical data. The opinions in this website
-                                        constitute the present judgment of the issuer, which is subject to change without notice.
-                                        <br>
-                                        <br>
-                                        <strong>Legal Risk Disclosure:</strong> : Please note that foreign exchange on margin carries a high level of risk, and may not be suitable for all investors. The high degree of leverage can work against you
-                                        as well as for you. Before deciding to invest in foreign exchange you should carefully consider your investment objectives, level of experience and risk appetite. The possibility exists that you
-                                        could sustain a loss of some or all of your initial investment and therefore you should not invest money that you cannot afford to lose. You should be aware of all the risks associated with
-                                        foreign exchange trading, and seek advice from an independent financial advisor.
-                                      </table>
-                                    </td>
+                                      <td style="font-family:Helvetica;font-size:9px;color:#bcbcbc"><strong>Disclaimer:</strong> DefiXFinance has made every attempt to ensure the accuracy and reliability of the information provided on this website. The information is provided “as is” without warranty of any kind. DefiXFinance makes no representations and gives no warranties of whatever nature in respect, including but not limited to the accuracy or completeness of any information, facts and/or opinions contained therein.
+                                                                <br>
+                                                                <br>
+                                                                Your use of the service is at your sole risk. The service is provided on an "As is" and "As available" basis. Except as otherwise expressly provided herein, DefiXFinance expressly disclaims all warranties of any kind, whether express, implied or statutory, including, but not limited to the implied warranties of merchantability, fitness for a particular purpose, title, and non-infringement.
+                                                        </table>
+                                                    </td>
                                   </tr>
                                 </table>
                               </td>

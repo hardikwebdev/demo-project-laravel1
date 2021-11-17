@@ -3,7 +3,7 @@
         var $this = this;
         var placement_username = $('#placement_username').val();
         var sponsor_check = $("#sponsor_check").val();
-        var child_position = $("input[name='child_position']:checked").val();
+        // var child_position = $("input[name='child_position']:checked").val();
 
         $.ajax({
             type: "POST",
@@ -13,7 +13,7 @@
                 _token: $("input[name=_token]").val(),
                 placement_username:placement_username,
                 sponsor_check:sponsor_check,
-                child_position:child_position
+                // child_position:child_position
             },
             success: function(data) {
                 var parsed_data = JSON.parse(data);

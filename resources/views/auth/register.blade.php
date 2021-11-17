@@ -114,7 +114,7 @@ $local_url = url('locale');
             </div>
         </div>
     </div>
-    <div class="col-12 text-right leftright">
+    <!-- <div class="col-12 text-right leftright">
        <label class="cus-radio">
           <input class="d-none" type="radio" name="child_position" value="left" checked>
           <span class="text-uppercase">{{trans('custom.left') }}</span>
@@ -123,7 +123,7 @@ $local_url = url('locale');
           <input class="d-none" type="radio" name="child_position" value="right">
           <span class="text-uppercase">{{trans('custom.right') }}</span>
       </label>
-  </div>
+  </div> -->
 
   <div class="col-12">
    <hr class="border border-white mt-4">
@@ -391,7 +391,7 @@ $local_url = url('locale');
    <div class="col-md-12 user-agrrement-errro">
       <label class="m-checkbox">
          <input class="chk_agreements " type="checkbox" id="antimoney_laundering" name="terms_condition[]" value="antimoney_laundering" >
-         <a href="{{asset('terms/antimoney_laundering.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.antimoney-laundering') }}</a>
+         <a href="{{asset('terms/DefiXFinance-Anti-Money-Laundering.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.antimoney-laundering') }}</a>
          <span></span><br>
          <label id="terms_condition[]-error" class="error" for="terms_condition[]"></label>
      </label>
@@ -399,28 +399,28 @@ $local_url = url('locale');
  <div class="col-md-12">
   <label class="m-checkbox">
      <input class="chk_agreements " type="checkbox" name="terms_condition[]" value="coockie_policy" id="coockie_policy" >
-     <a href="{{asset('terms/coockie_policy.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.coockie-policy') }}</a>
+     <a href="{{asset('DefiXFinance-Cookie-Policy.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.coockie-policy') }}</a>
      <span></span>
  </label>
 </div>                             
 <div class="col-md-12 ">
   <label class="m-checkbox">
      <input class="chk_agreements " type="checkbox" id="privacy_policy" name="terms_condition[]" value="privacy_policy" >
-     <a href="{{asset('terms/privacy_policy.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.privacy_policy_label') }}</a>
+     <a href="{{asset('terms/DefiXFinance-Privacy-Policy.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.privacy_policy_label') }}</a>
      <span></span>
  </label>
 </div>
 <div class="col-md-12">
   <label class="m-checkbox">
      <input class="chk_agreements " type="checkbox" id="risk_disclosure" name="terms_condition[]" value="risk_disclosure" >
-     <a href="{{asset('terms/risk_disclosure.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.risk_disclosure_statement') }}</a>
+     <a href="{{asset('terms/DefiXFinance-Risk-Disclosure.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.risk_disclosure_statement') }}</a>
      <span></span>
  </label>
 </div>
 <div class="col-md-12">
   <label class="m-checkbox">
      <input class="chk_agreements " type="checkbox" id="terms_and_condition" name="terms_condition[]" value="terms_and_condition" >
-     <a href="{{asset('terms/terms_and_condition.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.terms_and_condition') }}</a>
+     <a href="{{asset('terms/DefiXFinance-Terms-of-Use.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.terms_and_condition') }}</a>
      <span></span>
  </label>
 </div>
@@ -461,9 +461,9 @@ $( document ).ready(function() {
 
 
 
-    $(document).on("change", "input[name=child_position]", function(e) {
-        $("#placement_check").val('');
-    });
+    // $(document).on("change", "input[name=child_position]", function(e) {
+    //     $("#placement_check").val('');
+    // });
     $(document).on("click", ".verify-sponser", function(e) {
         // alert('ad');
         var $this = this;
@@ -500,7 +500,7 @@ $( document ).ready(function() {
         var $this = this;
         var placement_username = $('#placement_username').val();
         var sponsor_check = $("#sponsor_check").val();
-        var child_position = $("input[name='child_position']:checked").val();
+        // var child_position = $("input[name='child_position']:checked").val();
 
         $.ajax({
             type: "POST",
@@ -510,7 +510,7 @@ $( document ).ready(function() {
                 _token: $("input[name=_token]").val(),
                 placement_username:placement_username,
                 sponsor_check:sponsor_check,
-                child_position:child_position
+                // child_position:child_position
             },
             success: function(data) {
                 var parsed_data = JSON.parse(data);

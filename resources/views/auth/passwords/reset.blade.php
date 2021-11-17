@@ -31,8 +31,8 @@ $local_url = url('locale');
                   <input type="hidden" name="token" value="{{ $token }}">
                   <div class="row align-items-center justify-content-center login-box login-gradient rounded p-3 p-md-5">
                       <div class="col-12 text-center">
-                          <img src="{{ asset('assets/images/assets/defixfinance-logo-white.png') }}"
-                              class="img-fluid" alt="logo">
+                          <a href="https://defixfinance.com"><img src="{{ asset('assets/images/assets/defixfinance-logo-white.png') }}"
+                              class="img-fluid" alt="logo"></a>
                       </div>
                       <div class="navigation-cus">
                         <div class="cus-dropdown text-right mb-3 select-lang-de">
@@ -87,7 +87,7 @@ $local_url = url('locale');
                           <hr class="w-100 border border-white my-3" />
                       </div>
                       <div class="col-12 text-center mt-3">
-                          <h4 class="text-light-pink">{{ __('custom.not_amember') }}<a href="{{ route('register') }}"
+                          <h4 class="text-light-pink"><a href="https://app.defixfinance.com">Login</a> | <a href="{{ route('register') }}"
                                   class="text-white ml-2">{{ __('custom.sign_up') }}</a></h4>
                       </div>
                   </div>

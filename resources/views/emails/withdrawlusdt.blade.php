@@ -173,16 +173,18 @@
                                           <td>
                                             <table align="center" cellpadding="0" cellspacing="0" border="0" width="500">
                                               <tr>
-                                                <td class="size-20" align="center" style="font-weight:600; font-size:28px; color:black; font-family:'Helvetica Neue'; mso-line-height-rule: exactly; text-align:center; line-height:42px;">DefixFinance Withdrawal Verification</td>
+                                                <td class="size-20" align="center" style="font-weight:600; font-size:28px; color:black; font-family:Helvetica; mso-line-height-rule: exactly; text-align:center; line-height:42px;">DefixFinance Withdrawal Verification</td>
                                                 </tr>
                                                 <tr>
-                                                  <td class="pad-B20" align="center" style="font-weight:400; font-size:14px; color:#5c5c5c; font-family:'Helvetica Neue'; mso-line-height-rule: exactly; line-height:26px; padding:10px 0px 10px;">Dear Esteemed Client, <br/>
+                                                  <td class="pad-B20" align="center" style="font-weight:400; font-size:14px; color:#5c5c5c; font-family:Helvetica; mso-line-height-rule: exactly; line-height:26px; padding:10px 0px 10px;">Dear Esteemed Client, <br/>
+
                                                     A withdrawal request has been made on your account. If you want to
                                                     continue, please click the link below. If it is not you, please login your
                                                     account and change your password immediately</td>
                                                   </tr>
                                                   <tr>
-                                                    <td class="pad-B20" align="center" style="font-weight:bold; font-size:16px; color:black; font-family:'Helvetica Neue'; mso-line-height-rule: exactly; line-height:26px; padding:10px 0px 10px;">
+                                                    <td class="pad-B20" align="center" style="font-weight:bold; font-size:16px; color:black; font-family:Helvetica; mso-line-height-rule: exactly; line-height:26px; padding:10px 0px 10px;">
+
                                                       <a href="{{$routeUrl}}">I confirm my request to withdraw</a>
                                                     </td>
                                                     </tr>
@@ -208,17 +210,13 @@
                                 <tr>
                                   <td align="left" valign="top">
                                     <table cellpadding="0" cellspacing="0" border="0" align="left" class="wd-auto">
-                                      <td style="font-family:'Helvetica Neue';font-size:9px;color:#bcbcbc"><strong>General Advice:</strong> All information in this website is of general advise only. We strongly advise that you consider the advise in regards to your financial objectives, situation and needs.
-                                        Defix Group Limited makes no guarantee of its accuracy and completeness and is not responsible for errors of transmission of factual or analytical data. The opinions in this website
-                                        constitute the present judgment of the issuer, which is subject to change without notice.
-                                        <br>
-                                        <br>
-                                        <strong>Legal Risk Disclosure:</strong> : Please note that foreign exchange on margin carries a high level of risk, and may not be suitable for all investors. The high degree of leverage can work against you
-                                        as well as for you. Before deciding to invest in foreign exchange you should carefully consider your investment objectives, level of experience and risk appetite. The possibility exists that you
-                                        could sustain a loss of some or all of your initial investment and therefore you should not invest money that you cannot afford to lose. You should be aware of all the risks associated with
-                                        foreign exchange trading, and seek advice from an independent financial advisor.
-                                      </table>
-                                    </td>
+                                      <td style="font-family:Helvetica;font-size:9px;color:#bcbcbc"><strong>Disclaimer:</strong> DefiXFinance has made every attempt to ensure the accuracy and reliability of the information provided on this website. The information is provided “as is” without warranty of any kind. DefiXFinance makes no representations and gives no warranties of whatever nature in respect, including but not limited to the accuracy or completeness of any information, facts and/or opinions contained therein.
+                                                                <br>
+                                                                <br>
+                                                                Your use of the service is at your sole risk. The service is provided on an "As is" and "As available" basis. Except as otherwise expressly provided herein, DefiXFinance expressly disclaims all warranties of any kind, whether express, implied or statutory, including, but not limited to the implied warranties of merchantability, fitness for a particular purpose, title, and non-infringement.
+                                                        </table>
+                                                    </td>
+
                                   </tr>
                                 </table>
                               </td>

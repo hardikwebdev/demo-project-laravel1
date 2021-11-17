@@ -104,7 +104,7 @@
                                     <h3 class="text-white font-weight-bold">{{ $stakingpool->stacking_display_start }}% -
                                         {{ $stakingpool->stacking_display_end }}%</h3>
                                     <img class="stake-tokens-logo my-3" src="{{ $stakingpool->image }}"
-                                        style="width: 70px;height:70px;" />
+                                        style="max-width: 100%;" />
                                     @if ($stakingpool->investedAmount > 0)
 
                                         <div class="d-flex justify-content-around mt-2">
@@ -136,7 +136,7 @@
                                     <h3 class="text-white font-weight-bold">{{ $stakingpool->stacking_display_start }}% -
                                         {{ $stakingpool->stacking_display_end }}%</h3>
                                     <img class="stake-tokens-logo my-3" src="{{ $stakingpool->image }}"
-                                        style="width: 70px;height:70px;" />
+                                        style="max-width: 100%;" />
                                     @if ($stakingpool->investedAmount > 0)
                                         <div class="d-flex justify-content-around mt-2">
                                             <p class="text-white font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
@@ -167,7 +167,7 @@
                                     <h3 class="text-white font-weight-bold">{{ $stakingpool->stacking_display_start }}% -
                                         {{ $stakingpool->stacking_display_end }}%</h3>
                                     <img class="stake-tokens-logo my-3" src="{{ $stakingpool->image }}"
-                                        style="width: 70px;height:70px;" />
+                                        style="max-width: 100%;" />
                                     @if ($stakingpool->investedAmount > 0)
                                         <div class="d-flex justify-content-around mt-2">
                                             <p class="text-white font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
@@ -198,7 +198,7 @@
                                     <h3 class="text-blue font-weight-bold">{{ $stakingpool->stacking_display_start }}% -
                                         {{ $stakingpool->stacking_display_end }}%</h3>
                                     <img class="stake-tokens-logo my-3" src="{{ $stakingpool->image }}"
-                                        style="width: 70px;height:70px;" />
+                                        style="max-width: 100%;" />
                                     @if ($stakingpool->investedAmount > 0)
                                         <div class="d-flex justify-content-around mt-2">
                                             <p class="text-dark font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
@@ -244,6 +244,21 @@
                 </div>
             @endforeach
             <!--   <div class="col-12 col-md-6 col-lg-4">
+        <div class="bg-bullkong rounded d-flex align-items-end px-4 py-3 text-white" style="background-image:url(https://app.defixfinance.com/uploads/nft-category/1636783527_nft_category.jpg)">
+          <h3>The Legends</h3>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="bg-bullkong rounded d-flex align-items-end px-4 py-3 text-white" style="background-image:url(https://app.defixfinance.com/public/assets/images/assets/nft/car-2.gif)">
+          <h3>Cyber Autos</h3>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="bg-bullkong rounded d-flex align-items-end px-4 py-3 text-white" style="background-image:url(https://app.defixfinance.com/public/assets/images/assets/nft/Number-8.gif)">
+          <h3>Lucky Numbers</h3>
+        </div>
+
+      </div> ->
             <div class="bg-bullkong rounded d-flex align-items-end px-4 py-3 text-white" style="background-image:url(https://app.defixfinance.com/uploads/nft-category/1636783527_nft_category.jpg)">
               <h3>The Legends</h3>
             </div>
@@ -348,6 +363,53 @@
                 </div>
             </div>
         </div>
+<div class="row mt-5">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-12 col-md-6 col-xl-3">
+                    <div class="card bg-crypto-wallet">
+                        <div class="card-body text-white">
+                            <p class="mb-4">{{ __('custom.crypto_wallet') }} </p>
+                            <p class="fs-30 mb-2">
+                                ${{ $user->userwallet ? number_format($user->userwallet->crypto_wallet, 2) : '' }}</p>
+                            <p class="font-10">{{ __('custom.balance') }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-3 mt-4 mt-md-0">
+                    <div class="card bg-yield-wallet">
+                        <div class="card-body text-white">
+                            <p class="mb-4">{{ __('custom.yield_wallet') }} </p>
+                            <p class="fs-30 mb-2">
+                                ${{ $user->userwallet ? number_format($user->userwallet->yield_wallet, 2) : '' }}</p>
+                            <p class="font-10">{{ __('custom.balance') }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-3 mt-4 mt-xl-0">
+                    <div class="card bg-commission-wallet">
+                        <div class="card-body text-white">
+                            <p class="mb-4">{{ __('custom.commission_wallet') }} </p>
+                            <p class="fs-30 mb-2">
+                                ${{ $user->userwallet ? number_format($user->userwallet->commission_wallet, 2) : '' }}
+                            </p>
+                            <p class="font-10">{{ __('custom.balance') }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-3 mt-4 mt-xl-0">
+                    <div class="card bg-NFT-wallet">
+                        <div class="card-body text-white">
+                            <p class="mb-4">{{ __('custom.nft_wallet') }} </p>
+                            <p class="fs-30 mb-2">
+                                ${{ $user->userwallet ? number_format($user->userwallet->nft_wallet, 2) : '' }}</p>
+                            <p class="font-10">{{ __('custom.balance') }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
         <div class="row dashboard-news">
             <div class="col-12">
                 <div class="card">
@@ -432,54 +494,8 @@
             </div>
         </div>
     </div>
-  </div>
-    <div class="row mt-5">
-        <div class="col-12">
-            <div class="row">
-                <div class="col-12 col-md-6 col-xl-3">
-                    <div class="card bg-crypto-wallet">
-                        <div class="card-body text-white">
-                            <p class="mb-4">{{ __('custom.crypto_wallet') }} </p>
-                            <p class="fs-30 mb-2">
-                                ${{ $user->userwallet ? number_format($user->userwallet->crypto_wallet, 2) : '' }}</p>
-                            <p class="font-10">{{ __('custom.balance') }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-xl-3 mt-4 mt-md-0">
-                    <div class="card bg-yield-wallet">
-                        <div class="card-body text-white">
-                            <p class="mb-4">{{ __('custom.yield_wallet') }} </p>
-                            <p class="fs-30 mb-2">
-                                ${{ $user->userwallet ? number_format($user->userwallet->yield_wallet, 2) : '' }}</p>
-                            <p class="font-10">{{ __('custom.balance') }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-xl-3 mt-4 mt-xl-0">
-                    <div class="card bg-commission-wallet">
-                        <div class="card-body text-white">
-                            <p class="mb-4">{{ __('custom.commission_wallet') }} </p>
-                            <p class="fs-30 mb-2">
-                                ${{ $user->userwallet ? number_format($user->userwallet->commission_wallet, 2) : '' }}
-                            </p>
-                            <p class="font-10">{{ __('custom.balance') }}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-xl-3 mt-4 mt-xl-0">
-                    <div class="card bg-NFT-wallet">
-                        <div class="card-body text-white">
-                            <p class="mb-4">{{ __('custom.nft_wallet') }} </p>
-                            <p class="fs-30 mb-2">
-                                ${{ $user->userwallet ? number_format($user->userwallet->nft_wallet, 2) : '' }}</p>
-                            <p class="font-10">{{ __('custom.balance') }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+    
     <!-- content-wrapper ends -->
     @if ($planExpired)
         @foreach ($expired_stacking_pools as $stacking_pool)

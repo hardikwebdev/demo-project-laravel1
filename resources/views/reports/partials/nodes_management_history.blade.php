@@ -3,14 +3,16 @@
     <table class="table table-dark trading-table text-center table-responsive-xl">
       <thead class="table-gradient">
         <tr>
-          <th>SALES LEFT</th>
-          <th>SALES RIGHT</th>
-          <th>CARRY FORWARD LEFT</th>
-          <th>CARRY FORWARD RIGHT</th>
-          <th>DAILY LIMIT</th>
-          <th>PERCENTAGE</th>
-          <th>COMMISSION</th>
-          <th>DATE</th>
+          <th>{{trans('custom.SALES_LEFT')}}</th>
+          <th>{{trans('custom.SALES_RIGHT')}} </th>
+          <th> {{trans('custom.CARRY_FORWARD_LEFT')}}</th>
+          <th>{{trans('custom.CARRY_FORWARD_RIGHT')}}</th>
+          <th>{{trans('custom.DAILY_LIMIT')}}</th>
+          <th>{{trans('custom.PERCENTAGE')}}</th>
+          <th>{{trans('custom.COMMISSION_EARNED')}} </th>
+          <th>{{trans('custom.COMMISSION_WALLET')}} </th>
+          <th> {{trans('custom.NFT_WALLET')}}</th>
+          <th>{{trans('custom.DATE')}}</th>
         </tr>
       </thead>
       <tbody>
@@ -35,7 +37,10 @@
           </td>
           <td>{{ $value->daily_limit}}</td>
           <td>{{ $value->pairing_percent}}%</td>
+          <td>{{ '$'.$value->actual_commission_amount}}</td>
           <td>{{ '$'.$value->pairing_commission}}</td>
+          <td>{{ '$'.$value->actual_commission_amount-$value->pairing_commission}}</td>
+
           <td>{{ date("d/m/Y",strtotime($value->created_at)) }}</td>
         </tr>
         @endforeach
