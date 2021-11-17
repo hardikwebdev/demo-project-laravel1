@@ -13,7 +13,7 @@ use App\Helpers\Helper;
 use App\Models\User,Auth;
 use App\Models\StackingPool;
 use App\Models\PairingCommission;
-use DB;
+use DB,Session;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use App\Models\Setting;
@@ -166,6 +166,48 @@ class AccountController extends Controller
         // });
         return redirect('/')->with(['success' => trans('auth.success_register')]);
 
+    }
+
+     /**
+     * Update login Password
+     *
+     */
+    public function updatePassword(Request $request)
+    {
+        $userDetail = User::where('id', $this->user->id)->where('status', 'active')->first();
+        if (empty($userDetail)) {
+            Session::flash('error', 'Please Enter Password');
+            return redirect()->route('account');
+        }
+        if ($request->password && $request->password != "") {
+            $userDetail->password = Hash::make($request->password);
+        }
+        $userDetail->save();
+        Session::flash('success', 'Your Password has been changed');
+        return redirect()->route('account');
+    }
+
+    /**
+     * Update Secure Password
+     *
+     */
+    public function updateSecurePassword(Request $request)
+    {
+        // if ($request->otpverify != 1) {
+        //     Session::flash('error', 'Please Verify OTP First');
+        //     return redirect()->route('profile');
+        // }
+        $userDetail = User::where('id', $this->user->id)->where('status', 'active')->first();
+        if (empty($userDetail)) {
+            Session::flash('error', 'Please Enter Password');
+            return redirect()->route('account');
+        }
+        if ($request->password && $request->password != "") {
+            $userDetail->secure_password = Hash::make($request->password);
+        }
+        $userDetail->save();
+        Session::flash('success', 'Passwords are updated');
+        return redirect()->route('account');
     }
 
     /* network tree */
