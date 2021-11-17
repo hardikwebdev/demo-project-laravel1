@@ -32,7 +32,7 @@ $local_url = url('locale');
                 @csrf
                 <div class="row align-items-center justify-content-center login-box login-gradient rounded p-3 p-md-5">
                     <div class="col-12 text-center login-logo">
-                        <a ref="https://defixfinance.com"><img src="{{ asset('assets/images/assets/defixfinance-logo-white.png') }}" class="img-fluid"
+                        <a href="https://app.defixfinance.com"><img src="{{ asset('assets/images/assets/defixfinance-logo-white.png') }}" class="img-fluid"
                             alt="logo"></a>
                     </div>
                     <div class="navigation-cus">

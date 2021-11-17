@@ -1707,7 +1707,7 @@ return [
     </div>
     <div id="collapseOne" class="collapse show" data-parent="#accordion">
     <div class="card-body">
-    <p>Established September 2019 in Russia, DefiXFinance is launched by a group of blockchain enthusiasts with an objective to bring the opportunities of the crypto world to the general public. Since then, DefiXFinance has grown to offer keen investors a comprehensive suite of products including staking pools, liquidity pools and a private & exclusive NFT marketplace. In the short span of 2 years, the company has grown to a team of 70, based around Russia, Europe and Asia, serving more than 10,000 active investors.</p>
+    <p>Established September 2019 in Russia, DefiXFinance is launched by a group of blockchain enthusiasts with an objective to bring the opportunities of the crypto world to the general public. Since then, DefiXFinance has grown to offer keen investors a comprehensive suite of products including staking pools, liquidity pools and a private & exclusive NFT marketplace. In the short span of 2 years, the company has grown to a large and diverse team of experts, based around Russia, Europe and Asia, serving investors all over the world.</p>
     </div>
     </div>
     </div>
@@ -1788,7 +1788,7 @@ return [
     </div>
     <div id="collapseseven" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>Yes! You can transfer the NFT art from your NFT Collection page to your own crypto wallet.
+    <p>Yes! You can transfer the NFT art from your NFT Collection page to your own crypto wallet. You just need a crypto wallet that supports ERC, fill up the form at My Collection page and your NFT collections can be transferred there.
     </p>
     </div>
     </div>
