@@ -86,13 +86,13 @@ class WithdrawalController extends Controller
                 $userBank->bank_country_id = $request->bank_country_id;
                 $userBank->save();
             }
-            if($request->payment_method == 'USDT' || $request->payment_method == 'usdt'){
-                /*if($usercheck->usdt_image == ''){
+            if($request->payment_method == 'usdt_trc' || $request->payment_method == 'usdt'){
+                if($usercheck->usdt_image == ''){
                     $this->validate($request, [
                         'usdt_address' => 'required',
-                        'USDT_photo' => 'required|mimes:jpg,jpeg,png,JPG,JPEG,pdf|max:12000',
+                        'upload_proof' => 'required|mimes:jpg,jpeg,png,JPG,JPEG,pdf|max:12000',
                     ]);
-                }*/
+                }
             }
             $withdrawalRequest = new Model\WithdrawalRequest;
             $withdrawalRequest->user_id = $this->user->id;
@@ -105,10 +105,10 @@ class WithdrawalController extends Controller
 
             $withdrawalRequest->payble_amount = $request->amount - $withdrawalFee;
             $withdrawalRequest->status = 0; // Pending
-            if($request->payment_method == 'USDT' || $request->payment_method == 'usdt'){
+            if($request->payment_method == 'usdt_trc' || $request->payment_method == 'usdt'){
                     $withdrawalRequest->status = 3; // Verifying
-                    $withdrawalRequest->type = '1'; //USDT
-                    // $withdrawalRequest->payment_address = $request->usdt_address;
+                    $withdrawalRequest->type = ($request->payment_method == 'usdt_trc') ? '2' : '1'; //USDT
+                    $withdrawalRequest->payment_address = $request->usdt_address;
                     if($request->hasFile('upload_proof')){
                         $paymentProof = $request->file('upload_proof');
                         $idFilename = time() .'.'. $paymentProof->getClientOriginalExtension();              
@@ -147,7 +147,7 @@ class WithdrawalController extends Controller
                 //for minus Withdrawl request Wallet 
                 $userWallet->withdrawal_balance = $userWallet->withdrawal_balance - $request->amount;
                 $userWallet->save();
-                if($request->payment_method == 'USDT' || $request->payment_method == 'usdt'){
+                if($request->payment_method == 'usdt_trc' || $request->payment_method == 'usdt'){
                     $data['email'] = auth()->user()->email;
                     $routeUrl = route('withdrawlRequestVerify',$withdrawalRequest->usdt_verification_key);
                     \Mail::send('emails.withdrawlusdt',['routeUrl' =>$routeUrl ], function($message) use($data )  {
@@ -156,8 +156,7 @@ class WithdrawalController extends Controller
                     });
                     Session::flash('success',trans('custom.msg_with_usdt_withdraw')); 
                     return redirect()->route('withdrawal');
-                }
-                else{
+                }else{
                     $data['email'] = auth()->user()->email;
                     $routeUrl = route('withdrawlRequestVerify',$withdrawalRequest->usdt_verification_key);
                     \Mail::send('emails.withdrawlusdt',['routeUrl' =>$routeUrl ], function($message) use($data )  {

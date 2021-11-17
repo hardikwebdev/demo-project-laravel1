@@ -19,7 +19,9 @@
                 @if($value->type == 0)
                 {{trans('custom.bank')}}                    
                 @elseif($value->type == 1)
-                {{trans('custom.USDT')}}
+                {{trans('custom.usdt_erc')}}
+                @elseif($value->type == 2)
+                {{trans('custom.usdt_trc')}}
                 @endif
             </td>
             <td>{{date("d/m/Y",strtotime($value->created_at))}}</td>
