@@ -51,6 +51,9 @@ button.btn {
     height: auto;
     border-radius: 5px;
 }
+.staking-pool-indi h4 {
+    margin-left: 10px;
+}
 img#qr_image {
     width: 100%;
 }

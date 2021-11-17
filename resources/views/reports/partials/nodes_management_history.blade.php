@@ -3,16 +3,16 @@
     <table class="table table-dark trading-table text-center table-responsive-xl">
       <thead class="table-gradient">
         <tr>
-          <th>SALES LEFT</th>
-          <th>SALES RIGHT</th>
-          <th>CARRY FORWARD LEFT</th>
-          <th>CARRY FORWARD RIGHT</th>
-          <th>DAILY LIMIT</th>
-          <th>PERCENTAGE</th>
-          <th>COMMISSION EARNED</th>
-          <th>COMMISSION WALLET</th>
-          <th>NFT WALLET</th>
-          <th>DATE</th>
+          <th>{{trans('custom.SALES_LEFT')}}</th>
+          <th>{{trans('custom.SALES_RIGHT')}} </th>
+          <th> {{trans('custom.CARRY_FORWARD_LEFT')}}</th>
+          <th>{{trans('custom.CARRY_FORWARD_RIGHT')}}</th>
+          <th>{{trans('custom.DAILY_LIMIT')}}</th>
+          <th>{{trans('custom.PERCENTAGE')}}</th>
+          <th>{{trans('custom.COMMISSION_EARNED')}} </th>
+          <th>{{trans('custom.COMMISSION_WALLET')}} </th>
+          <th> {{trans('custom.NFT_WALLET')}}</th>
+          <th>{{trans('custom.DATE')}}</th>
         </tr>
       </thead>
       <tbody>

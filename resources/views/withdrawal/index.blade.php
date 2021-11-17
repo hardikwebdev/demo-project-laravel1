@@ -17,7 +17,7 @@
         </div>
     </div>
 </div>
-<div class="row justify-content-center mt-5">
+<div class="row justify-content-center mt-4">
     <div class="col-12">
         <ul class="nav nav-tabs justify-content-center account-tabs border-0">
             <li><a class="text-warning border border-warning py-3 px-5 d-block" data-toggle="tab" href="#home">{{ trans('custom.usdt')}}(ERC-20)</a></li>
@@ -25,7 +25,7 @@
             <li><a class="text-warning border border-warning py-3 px-5 d-block active" data-toggle="tab" href="#menu1">{{ trans('custom.BANK')}}</a></li>
         </ul>
     </div>
-    <div class="col-12 mt-4">
+    <div class="col-12">
         @if(Session::has('success'))
         <div class="alert alert-success alert-dismissable">
             <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>

@@ -3,13 +3,13 @@
     <table class="table table-dark trading-table text-center table-responsive-sm datas">
       <thead class="table-gradient">
         <tr>
-          <th>FROM USER</th>
-          <th>COMMISSION</th>
-          <th>STAKING POOLS</th>
-          <th>STAKING POOLS AMOUNT</th>
-          <th>COMMISSION WALLET(80%)</th>
-          <th>NFT WALLET(20%)</th>
-          <th>DATE</th>
+          <th>{{trans('custom.FROM_USER')}}</th>
+          <th>{{trans('custom.COMMISSION')}}</th>
+          <th>{{trans('custom.STAKING_POOLS')}}</th>
+          <th>{{trans('custom.STAKING_POOL_AMOUNT')}}</th>
+          <th>{{trans('custom.COMMISSION_WALLET_80')}}</th>
+          <th>{{trans('custom.NFT_WALLET_20')}}</th>
+          <th>{{trans('custom.DATE')}}</th>
         </tr>
       </thead>
       <tbody>

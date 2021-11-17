@@ -1422,6 +1422,6 @@ q_title' => 'Staking Pools+ 常见问题解答',
   'mt5_request_submited_review' => 'Your MT5 request is submitted successfully and pending for review now.',
   'mt5_wallet_tnc' => '<ul class="dis"><li>你可以从你的MT5账户中查看你的交易利润</li><li>您的交易利润可以通过从MT5余额中扣除您的套餐金额来计算</li><li>处理所有交易利润提取请求需要2-3个工作日。</li><li>一旦获得批准，70%将记入您的现金钱包，因为30%是公司交易绩效费</li><li>所有批准的提款请求均为最终请求，不能撤销</li></ul>',
   '3rd_party_payment_note' => 'Please put “IDRVT” only as the remark in your bank transfer',
->>>>>>> ab393bfd046823e7b9403c4cdfb80cfd9f91fb6a
+
 
 ];
