@@ -3,11 +3,16 @@
     <table class="table table-dark trading-table text-center table-responsive-sm datas">
       <thead class="table-gradient">
         <tr>
-          <th>AMOUNT</th>
-          <th>STAKING POOLS</th>
-          <th>DURATION</th>
-          <th>DATE</th>
-          <th>ACTION</th>
+          <th>{{trans('custom.AMOUNT')}}
+          </th>
+          <th>{{trans('custom.STAKING_POOLS')}}
+          </th>
+          <th>{{trans('custom.DURATION')}}
+          </th>
+          <th>{{trans('custom.DATE')}}
+          </th>
+          <th>{{trans('custom.ACTION')}}
+          </th>
         </tr>
       </thead>
       <tbody>

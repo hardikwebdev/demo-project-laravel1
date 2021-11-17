@@ -3,15 +3,15 @@
     <table class="table table-dark trading-table text-center table-responsive-sm datas">
       <thead class="table-gradient">
         <tr>
-          <th>YIELD AMOUNT</th>
-          <th>YIELD WALLET</th>
-          <th>NFT WALLET</th>
-          <th>YIELD</th>
-          <th>STACKING AMOUNT</th>
-          <th>STACKING POOLS</th>
-          <th>STACKING DATE</th>
-          <th>DURATION</th>
-          <th>DATE</th>
+          <th>{{trans('custom.YIELD_AMOUNT')}}</th>
+          <th>{{trans('custom.YIELD_WALLET')}}</th>
+          <th>{{trans('custom.NFT_WALLET')}}</th>
+          <th>{{trans('custom.YIELD')}}</th>
+          <th>{{trans('custom.STACKING_AMOUNT')}}</th>
+          <th>{{trans('custom.STAKING_POOLS')}}</th>
+          <th>{{trans('custom.STACKING_DATE')}}</th>
+          <th>{{trans('custom.DURATION')}}</th>
+          <th>{{trans('custom.DATE')}}</th>
         </tr>
       </thead>
       <tbody>
@@ -26,7 +26,6 @@
           <td>{{ (@$value->stacking_pool->staking_pool_package)?$value->stacking_pool->staking_pool_package->name:0 }}</td>
           <td>{{ date("d/m/Y",strtotime($value->stacking_pool->created_at)) }}</td>
           <td>{{ date("d/m/Y",strtotime($value->stacking_pool->duration)) }}{{__('custom.months')}}</td>
-
           <td>{{ date("d/m/Y",strtotime($value->created_at)) }}</td>
         </tr>
         @endforeach

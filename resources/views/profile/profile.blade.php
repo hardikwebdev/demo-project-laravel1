@@ -13,16 +13,16 @@
     <div class="col-12 col-xl-4 grid-margin stretch-card mb-0">
       <div class="card tale-bg overflow-hidden bg-white pb-3">
         <div class="bg-warning p-4 pb-5">
-          <h4 class="text-white pb-2">My profile</h4>
+          <h4 class="text-white pb-2">{{trans('custom.my_profile')}}</h4>
         </div>
         <div class="px-4 cus-my-profile-img">
           <img src="{{asset($user->profile_image)}}" class="rounded-circle img-fluid" alt="">
-          <a href="#profile-upload" data-toggle="modal" data-target="#profile-upload" class="font-10 d-block"><u>Edit Photo</u></a>
+          <a href="#profile-upload" data-toggle="modal" data-target="#profile-upload" class="font-10 d-block"><u>{{trans('custom.edit_photo')}}</u></a>
         </div>
         <div class="row px-4 mt-4">
           <div class="col-md-6">
             <h4 class="text-dark font-weight-bold mb-0">{{ @$user->name}}</h4>
-            <span class="text-secondary font-12">Full name</span>
+            <span class="text-secondary font-12">{{trans('custom.full_name')}}</span>
           </div>
           {{-- <div class="col-md-6">
             <h4 class="text-dark font-weight-bold mb-0">Gold</h4>
@@ -32,11 +32,11 @@
         <div class="row px-4 mt-4">
           <div class="col-md-6">
             <h4 class="text-secondary mb-0">{{ @$user->email}}</h4>
-            <span class="text-secondary font-12">Email</span>
+            <span class="text-secondary font-12">{{trans('custom.email')}}</span>
           </div>
           <div class="col-md-6">
             <h4 class="text-secondary mb-0">{{ @$user->phone_number}}</h4>
-            <span class="text-secondary font-12">Phone number</span>
+            <span class="text-secondary font-12">{{trans('custom.phone_number')}}</span>
           </div>
         </div>
       </div>
@@ -51,21 +51,27 @@
                   <div class="row align-iems-center justify-content-between">
                     <div class="col-12 col-md-6">
                       <h4 class="text-black mb-0 font-weight-bold">{{ Helper::defixFinanceID($user->id, date("d-m-Y",strtotime($user->created_at)))}}</h4>
-                      <span class="text-secondary font-10">DefiXFinance ID</span>
+                      <span class="text-secondary font-10">{{trans('custom.defixfinance_id')}}</span>
                     </div>
                     <div class="col-12 col-md-6">
-                      <h4 class="text-black mb-0 font-weight-bold">******{{ substr($user->phone_number, -4)}}</h4>
-                      <span class="text-secondary font-10">Phone number</span>
+                      <h4 class="text-black mb-0 font-weight-bold">
+                      @if (!empty($user->nft_wallet_address))
+                      ******{{ substr($user->nft_wallet_address, -4)}}
+                      @else
+                        -
+                      @endif
+                      </h4>
+                      <span class="text-secondary font-10">{{trans('custom.wallet_address')}}</span>
                     </div>
                   </div>
                   <div class="row align-iems-center justify-content-between mt-4">
                     <div class="col-12 col-md-6">
                       <h4 class="text-black mb-0 font-weight-bold">{{ date("d/m/Y",strtotime($user->created_at)) }}</h4>
-                      <span class="text-secondary font-10">Date Joined</span>
+                      <span class="text-secondary font-10">{{trans('custom.date_joined')}}</span>
                     </div>
                     <div class="col-12 col-md-6">
                       <h4 class="text-black mb-0 font-weight-bold">{{ $staking_pool_count}}</h4>
-                      <span class="text-secondary font-10">Total Staking Package</span>
+                      <span class="text-secondary font-10">{{trans('custom.total_staking_package')}}</span>
                     </div>
                   </div>
                 </div>
@@ -190,10 +196,10 @@
       </div>
       @endif
       <ul class="nav nav-tabs justify-content-center account-tabs border-0">
-        <li><a class="text-warning border border-warning py-3 px-5 d-block active" data-toggle="tab" href="#home">PERSONAL DETAILS</a></li>
-        <li class="mt-3 mt-md-0"><a class="text-warning border border-warning py-3 px-5 d-block" data-toggle="tab" href="#account-detail">ACCOUNT DETAILS </a></li> 
-        <li class="mt-3 mt-md-0"><a class="text-warning border border-warning py-3 px-5 d-block" data-toggle="tab" href="#menu1">BANK DETAILS</a></li>
-        <li class="mt-3 mt-xl-0"><a class="text-warning border border-warning py-3 px-5 d-block" data-toggle="tab" href="#menu2">NFT WALLET DETAILS</a></li>
+        <li><a class="text-warning border border-warning py-3 px-5 d-block active" data-toggle="tab" href="#home">{{trans('custom.PERSONAL_DETAILS')}}</a></li>
+        <li class="mt-3 mt-md-0"><a class="text-warning border border-warning py-3 px-5 d-block" data-toggle="tab" href="#account-detail">{{trans('custom.accountdetails')}}</a></li> 
+        <li class="mt-3 mt-md-0"><a class="text-warning border border-warning py-3 px-5 d-block" data-toggle="tab" href="#menu1">{{trans('custom.BANK_DETAILS')}}</a></li>
+        <li class="mt-3 mt-xl-0"><a class="text-warning border border-warning py-3 px-5 d-block" data-toggle="tab" href="#menu2">{{trans('custom.NFT_WALLET_DETAILS')}}</a></li>
       </ul>
     </div>
     <div class="col-12 mt-4">
@@ -203,16 +209,16 @@
           <div class="row">
             <div class="col-12 col-md-6">
               <input name="id" type="hidden" class="form-control blue-ph h-auto py-4" value="{{ $user->id }}">
-              <input name="fullname" type="text" class="form-control blue-ph h-auto py-4" value="{{ $user->name }}"  placeholder="Full Name">
+              <input name="fullname" type="text" class="form-control blue-ph h-auto py-4" value="{{ $user->name }}"  placeholder="{{trans('custom.full_name')}}">
             </div>
             <div class="col-12 col-md-6 mt-4 mt-md-0">
-              <input name="username" type="text" class="form-control blue-ph h-auto py-4" placeholder="Username" value="{{ $user->username }}" readonly="readonly">
+              <input name="username" type="text" class="form-control blue-ph h-auto py-4" placeholder="{{trans('custom.username')}}" value="{{ $user->username }}" readonly="readonly">
             </div>
             <div class="col-12 col-md-6 mt-4">
-              <input name="email" type="text" class="form-control blue-ph h-auto py-4" placeholder="Email" value="{{ $user->email }}" readonly="readonly">
+              <input name="email" type="text" class="form-control blue-ph h-auto py-4" placeholder="{{trans('custom.email')}}" value="{{ $user->email }}" readonly="readonly">
             </div>
             <div class="col-12 col-md-6 mt-4">
-              <input name="phone_number" type="text" class="form-control blue-ph h-auto py-4" value="{{ $user->phone_number}}" placeholder="Phone Number">
+              <input name="phone_number" type="text" class="form-control blue-ph h-auto py-4" value="{{ $user->phone_number}}" placeholder="{{trans('custom.phone_number')}}">
             </div>
             <div class="col-12 col-md-6 mt-4">
               <input id="address" name="address" type="text" class="form-control blue-ph h-auto py-4"
@@ -220,16 +226,16 @@
               placeholder="{{trans('custom.address')}}">
             </div>
             <div class="col-12 col-md-6 mt-4">
-              <input type="text" name="state" class="form-control h-auto py-4" value="{{ $user->state }}" placeholder="State">
+              <input type="text" name="state" class="form-control h-auto py-4" value="{{ $user->state }}" placeholder="{{trans('custom.state')}}">
             </div>
             <div class="col-12 col-md-6 mt-4">
-              <input type="text" name="city" class="form-control h-auto py-4" value="{{ $user->city }}" placeholder="City">
+              <input type="text" name="city" class="form-control h-auto py-4" value="{{ $user->city }}" placeholder="{{trans('custom.city')}}">
             </div>
             <div class="col-12 col-md-6 mt-4">
               {!! Form::select('country',$country,old('country_id', $user->country_id),['class'=>'form-control h-auto py-4','placeholder'=>trans('custom.select_country'),'id'=>'country_id']) !!}
             </div>
             <div class="col-12 col-md-6 col-xl-4 mt-4">
-              <button class="btn bg-warning text-white py-4 px-5 rounded-0">UPDATE PROFILE <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-4 d-inline align-middle" alt=""></button>
+              <button class="btn bg-warning text-white py-4 px-5 rounded-0">{{trans('custom.UPDATE_PROFILE')}} <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-4 d-inline align-middle" alt=""></button>
             </div>
           </div>
           {!! Form::close() !!}
@@ -245,7 +251,7 @@
               {{Form::password('confirm_password',['class' => 'form-control h-auto py-4','placeholder' => trans('custom.confirm_password')])}}
             </div>
             <div class="col-12 col-md-6 col-xl-4 mt-4">
-              <button class="btn bg-warning text-white py-4 px-5 rounded-0">{{trans('custom.update_password')}} <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-4 d-inline align-middle" alt=""></button>
+              <button class="btn bg-warning text-white py-4 px-5 rounded-0">{{trans('custom.UPDATE_PASSWORD')}} <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-4 d-inline align-middle" alt=""></button>
             </div>
           </div>
           {{Form::close()}}
@@ -260,7 +266,7 @@
               {{Form::password('confirm_password',['class' => 'form-control h-auto py-4','placeholder' => trans('custom.enter_confrim_password'),'id' => 'secure_password'])}}
             </div>
             <div class="col-12 col-md-6 col-xl-4 mt-4">
-              <button class="btn bg-warning text-white py-4 px-5 rounded-0">{{trans('custom.update_secure_password')}} <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-4 d-inline align-middle" alt=""></button>
+              <button class="btn bg-warning text-white py-4 px-5 rounded-0">{{trans('custom.UPDATE_SECURE_PASSWORD')}} <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-4 d-inline align-middle" alt=""></button>
             </div>
           </div>
           {{Form::close()}}
@@ -302,7 +308,7 @@
               {!! Form::select('bank_country_id',$country,old('bank_country_id', @$user->userbank->bank_country_id),['class'=>'form-control h-auto py-4','placeholder'=>trans('custom.select_country'),'id'=>'country_id']) !!}
             </div>
             <div class="col-12 col-md-6 col-xl-4 mt-4">
-              <button class="btn bg-warning text-white py-4 px-5 rounded-0">UPDATE ACCOUNT <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-4 d-inline align-middle" alt=""></button>
+              <button class="btn bg-warning text-white py-4 px-5 rounded-0">{{ trans('custom.UPDATE_BANK_DETAILS') }} <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-4 d-inline align-middle" alt=""></button>
             </div>
           </div>
           {!! Form::close() !!}
@@ -312,11 +318,11 @@
           <div class="row">
             <input name="id" type="hidden" class="form-control blue-ph h-auto py-4" value="{{ $user->id }}">
             <div class="col-12 col-md-6">
-              {!! Form::text('nft_wallet_address', old('nft_wallet_address', @$user->nft_wallet_address), ['class' => 'form-control blue-ph h-auto py-4', 'placeholder' => 'Enter NFT Wallet Address']) !!}
+              {!! Form::text('nft_wallet_address', old('nft_wallet_address', @$user->nft_wallet_address), ['class' => 'form-control blue-ph h-auto py-4', 'placeholder' => trans('custom.enter_nft_wallet_address')]) !!}
             </div>
             <div class="col-12 col-md-6 col-xl-4 mt-4"></div>
             <div class="col-12 col-md-6 col-xl-4 mt-4">
-              <button class="btn bg-warning text-white py-4 px-5 rounded-0">UPDATE ACCOUNT <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-4 d-inline align-middle" alt=""></button>
+              <button class="btn bg-warning text-white py-4 px-5 rounded-0">{{ trans('custom.UPDATE_NFT_WALLET_ADDRESS') }}<img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-4 d-inline align-middle" alt=""></button>
             </div>
 
           </div>
@@ -330,7 +336,7 @@
       <div class="modal-content  text-white">
         <div class="modal-header d-block ">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h5 class="modal-title mt-0">Upload Profile Image</h5>
+          <h5 class="modal-title mt-0">{{ trans('custom.upload_profile_image') }}</h5>
         </div>
         <div class="modal-body">
           <div class="row">
@@ -347,7 +353,7 @@
               </div> --}}
               <div class="fallback">
                 <input name="profile_image" type="file" class="dropify" id="profile_image"/>
-                <p>Profile extension png, jpg, jpeg</p>
+                <p>{{ trans('custom.profile_extension_png_jpg_jpeg') }}</p>
                 @error('profile_image')
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
@@ -355,7 +361,7 @@
                 @enderror
               </div>
               <label style="display:none;" id="profile_image-error" class="error" for="profile_image"></label>
-              <button class="btn btn-success  btn-sm  float-right">Submit</button>
+              <button class="btn btn-success  btn-sm  float-right">{{ trans('custom.submit') }}</button>
               {{Form::close()}}
 
             </div>
