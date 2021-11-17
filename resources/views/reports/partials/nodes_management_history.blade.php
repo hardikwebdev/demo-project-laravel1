@@ -39,7 +39,7 @@
           <td>{{ $value->pairing_percent}}%</td>
           <td>{{ '$'.$value->actual_commission_amount}}</td>
           <td>{{ '$'.$value->pairing_commission}}</td>
-          <td>{{ '$'.$value->actual_commission_amount-$value->pairing_commission}}</td>
+          <td>{{ '$'.($value->actual_commission_amount-$value->pairing_commission)}}</td>
 
           <td>{{ date("d/m/Y",strtotime($value->created_at)) }}</td>
         </tr>
