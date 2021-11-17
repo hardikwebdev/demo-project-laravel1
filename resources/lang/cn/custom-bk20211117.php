@@ -14,22 +14,22 @@ return [
     */
     // Login page
     'welcome_text' => 'Welcome to Defix',
-    'welcome_text_desc' => 'Member Login',
-    'sign_in' => 'Sign In',
+    'welcome_text_desc' => '登录您的页面',
+    'sign_in' => '登入',
     'sign_up' => 'Create Account',
-    'forgot_your_password' => 'Forgot Password?',
-    'remember_me' =>'Remember me',
+    'forgot_your_password' => '忘记密码了吗?',
+    'remember_me' =>'记住我',
     'access_login_information_access_site' => 'Please access to login information to access this site.',
     'keep_sign_in' => 'Keep me Signed in',
     // Sign up
-    'sign_up' => 'Sign Up',
+    'sign_up' => '注册',
     'sign_up_desc' => 'Enter the following to create your account',
-    'address' => 'Address',
-    'sponsor_name_placeholder' => 'Introducer Name',
+    'address' => '地址',
+    'sponsor_name_placeholder' => '推荐人用户名',
     
     //Comman label
     'wallets' => 'Wallets',
-    'approved' => 'Approved',
+    'approved' => '批准',
     'loadning' => 'Loading',
     'password' => 'Password',
     'refresh' => 'Refresh',
@@ -48,10 +48,10 @@ return [
     'select_type' => 'Select Type',
     'go' => 'Go!',
     'reset' => 'Reset',
-    'bank' => 'Bank',
+    'bank' => '银行',
     'card' => 'Card',
-    'pending' => 'Pending',
-    'approve' => 'Approve',
+    'pending' => '待定',
+    'approve' => '批准',
     'accept' => 'Accepted',
     'declined' => 'Declined',
     'rejected' => 'Rejected',
@@ -70,7 +70,7 @@ return [
     'Amount' => 'amount',
     'total' => 'Total',
     'reduced' => 'Reduced',
-    'added' => 'Added',
+    'added' => '添加',
     'admin_added' => 'Admin Added',
     'pips_amount' => 'No of Lots (x10)',
     'lots_amount' => 'No of Lots (x10)',
@@ -85,8 +85,8 @@ return [
     'max_limit_ticket' => 'You can allowed maximum :quantity quantity for this ticket',
     'file' => 'File',
     'withdrawal_fee' => 'Withdrawal Fee',
-    'withdrawals' => 'Withdrawals',
-    'Ledger' => 'Ledger',
+    'withdrawals' => '取款',
+    'Ledger' => '分类账',
     'name_of_bank' => 'Name of Bank',
     'enter_your_bank_name' => 'Enter your bank name',
     'name_account_holder' => 'Name of Account Holder',
@@ -94,7 +94,7 @@ return [
     'copy_link' => 'Copy link',
     'copied' => 'Copied',
     'scan_code' => 'Scan Code',
-    'logout' => 'Logout',
+    'logout' => '退出',
     'need_help' => 'Need Help?',
     'please_select_package' => 'Please select a package',
     'see_all_messages' => 'See All Messages',
@@ -114,11 +114,11 @@ return [
     /*Registration*/
     'enter_details_account' => 'Enter your details to create your account',
     'sign_up' => 'Sign up',
-    'verify_sponsor_username' => 'Verify Introducer Name',
+    'verify_sponsor_username' => '验证推荐人用户名',
     'sponsor_username' => 'Sponsor Username',
     'enter_sponsor_username' => 'Enter Introducer Username',
     'sponsor_user_not_found_not__valid_sponsor' => 'The introducer user is not found or not a valid sponsor. Please enter another sponsor username.',
-    'sponsor_username_verified' => 'The introducer username is verified.',
+    'sponsor_username_verified' => '该推荐人用户名已经验证.',
     'upline_username_verified' => 'The upline or downline username is verified.',
     'personal_detail' => 'Personal Detail',
     'enter_your_personal_detail' => 'Enter your personal details',
@@ -173,7 +173,7 @@ return [
     'selected_package' => 'Your Selected Trading Strategy',
     'amount_USD' => 'Amount (USD)',
     'amount_YUN' => 'Amount (YUN)',
-    'security_password' => 'Security Password',
+    'security_password' => '安全密码',
     'enter_security_password' => 'Enter you security password',
     'repeat_security_password' => 'Repeat Security Password',
     'enter_repeat_security_password' => 'Enter your security password again',
@@ -377,18 +377,18 @@ return [
     'notice' => 'Notice',
     'personal_details' => 'Personal Details',
     'current_package' => 'Current Package',
-    'available_fund' => 'Available Fund',
+    'available_fund' => '可用资金',
     'upgrade_package' => 'Upgrade Package',
     'select_package' => 'Select Package',
-    'full_name' => 'Full name',
-    'enter_full_name' => 'Enter a full name',
-    'username' => 'Username',
-    'enter_username' => 'Enter your username',
-    'email' => 'Email',
-    'repeat_email' => 'Repeat Email',
-    'enter_email' =>'Enter your email',
-    'enter_your_email_again' => 'Enter your email again',
-    'identification_number' => 'Identification Number',
+    'full_name' => '全名',
+    'enter_full_name' => '请输入全名',
+    'username' => '用户名',
+    'enter_username' => '请输入用户名',
+    'email' => '邮箱',
+    'repeat_email' => '重复邮箱',
+    'enter_email' =>'请输入邮箱',
+    'enter_your_email_again' => '请重复输入邮箱',
+    'identification_number' => '身份证',
     'identification_number_country' => 'Please select country first before filling Identification Number',
     'enter_identification_number' => 'Enter a identification number',
     'enter_address' => 'Enter an address',
@@ -464,19 +464,19 @@ return [
     'disclaimer' => '<strong>DISCLAIMER:</strong> Any views or opinions presented within this e-mail are solely those of the author and do not necessarily represent those of Defix, unless otherwise specifically stated. The content of this message does not constitute Investment Advice.',
     
     /*Help & Support*/
-    'help_support' => 'Help & Support',
-    'create_new_ticket' => 'Create New Ticket',
-    'recent_tickets' => 'Recent Ticket',
-    'all_tickets' => 'All Tickets',
-    'open' => 'Open',
-    'close' => 'Close',
-    'closed' => 'Closed',
-    'subject' => 'Subject',
-    'posted' => 'Posted',
-    'satus' => 'Status',
-    'action' => 'Action',
-    'title' => 'Title',
-    'attachment' => 'Attachment',
+    'help_support' => '客服',
+    'create_new_ticket' => '创建新单',
+    'recent_tickets' => '近期单',
+    'all_tickets' => '所有单',
+    'open' => '待定',
+    'close' => '完成',
+    'closed' => '已完成',
+    'subject' => '主题',
+    'posted' => '已发布',
+    'satus' => '状态',
+    'action' => '操作',
+    'title' => '标题',
+    'attachment' => '附件',
     'message' => 'Message',
     'save' => 'save',
     'unread' => 'Unread',
@@ -491,7 +491,7 @@ return [
     /**Dashboard */
     'please_select_country_your_bank_account' => 'Please select the country of your bank account',
     'update_bank_account_country' => 'Update Bank Account Country',
-    'dashboard' => 'Dashboard',
+    'dashboard' => '页面',
     'total_direct_downlines' => 'Total Investors',
     'total_direct_sales' => 'Total Direct Sales',
     'total_group_sales' => 'Total Group Sales',
@@ -703,13 +703,13 @@ return [
     // 'i_agree_with_above' => 'I agree with all of the above.',
     'i_agree_with_above' => 'I accept and agree to be bound by this agreement by acknowledging such acceptance during this registration process',
     'my_profile' => 'My Profile',
-    'news' => 'News',
+    'news' => '新闻',
     'news_tools' => 'News & Tools',
-    'news_events' => 'News & Events',
+    'news_events' => '新闻与事件',
     'industry_tools' => 'Industry Tools',
     'industry_tool_iframe' => 'https://www.youtube.com/embed/mXuR_SRP-XI',
     'footer_desc'=>'<p><strong>General Advice:</strong> All information in this website is of general advise only. We strongly advise that you consider the advise in regards to your financial objectives, situation and needs. Defix makes no guarantee of its accuracy and completeness and is not responsible for errors of transmission of factual or analytical data. The opinions in this website constitute the present judgment of the issuer, which is subject to change without notice.</p><p><strong>Legal Risk Disclosure:</strong> Please note that foreign exchange on margin carries a high level of risk, and may not be suitable for all investors. The high degree of leverage can work against you as well as for you. Before deciding to invest in foreign exchange you should carefully consider your investment objectives, level of experience and risk appetite. The possibility exists that you could sustain a loss of some or all of your initial investment and therefore you should not invest money that you cannot afford to lose. You should be aware of all the risks associated with foreign exchange trading, and seek advice from an independent financial advisor.</p><p><strong>Restricted Regions:</strong> Defix does not provide services for the residents of certain countries, such as Iran, Cuba, Sudan, Syria and North Korea.</p>',
-    'footer_copyrights' => 'All Rights Reserved © '.date('Y').' Defix',
+    'footer_copyrights' => '版权所有 © '.date('Y').' Defix',
     'login_footer_desc'=>'<p>General Advice: All information in this website is of general advise only. We strongly advise that you consider the advise in regards to your financial objectives, situation and needs. Defix makes no guarantee of its accuracy and completeness and is not responsible for errors of transmission of factual or analytical data. The opinions in this website constitute the present judgment of the issuer, which is subject to change without notice.<br><br>Legal Risk Disclosure: Please note that foreign exchange on margin carries a high level of risk, and may not be suitable for all investors. The high degree of leverage can work against you as well as for you. Before deciding to invest in foreign exchange you should carefully consider your investment objectives, level of experience and risk appetite. The possibility exists that you could sustain a loss of some or all of your initial investment and therefore you should not invest money that you cannot afford to lose. You should be aware of all the risks associated with foreign exchange trading, and seek advice from an independent financial advisor.<br><br>Restricted Regions: Defix does not provide services for the residents of certain countries, such as Iran, Cuba, Sudan, Syria and North Korea.</p>',
     'privacy_policy_label'=>'Privacy Policy',
     'terms_and_condition'=>'Terms Of Use',
@@ -749,15 +749,15 @@ return [
     'ranking' => 'Ranking',
     'personal_investment' => 'Your Package',
     'current_package' => 'Current Package',
-    'date_joined' => 'Date Joined',
+    'date_joined' => '加入日期',
     'see_all' => 'See All',
-    'date_joined' => 'Date Joined',
+    'date_joined' => '加入日期',
     'indivdual_group_sales' => 'Individual Group Sales',
 
     //Help and support
     'ticket_history' => 'Ticket History',
     // Withdraw wallet
-    'earnings' => 'Earnings',
+    'earnings' => '收益',
     'account_balance' => 'Account Balance',
     'withdrawal' => 'Withdrawal',
     'account_no' => 'Account No',
@@ -836,7 +836,7 @@ return [
     'notif_content'=>'<p>Dear Members,</p><p>As part of our commitment to provide you with better and more efficient services, we are pleased to inform you that we are currently upgrading our member portal’s system from 22.03.2020 till 25.03.2020. Our new system will help us to offer more features and functionality.</p><p>Please take note that our member portal shall remain operational as usual during this upgrade</p><p>For any inconvenience caused by our system upgrade is much regretted and we would like to thank you for your support and understanding which will assist in making our system upgrade process as smooth as possible.</p><p>Thank you</p>',
 
 //Help and FAQ 
-    'helptitle'=> 'Help & FAQ',
+    'helptitle'=> '常见问题解答',
     
     'helpone'=> '
     <div id="accordion">
@@ -1463,14 +1463,14 @@ return [
     '3rd_party_payment_note' => 'Please put “IDRVT” only as the remark in your bank transfer',
 
     /* binary system */
-    'placement_name_placeholder' => 'Placement Name',
-    'verify_placement_username' => 'Verify Placement Name',
+    'placement_name_placeholder' => '上线用户名',
+    'verify_placement_username' => '验证上线用户名',
     'placement_username' => 'Placement Username',
     'enter_placement_username' => 'Enter Placement Username',
-    'placement_user_not_found_not__valid_placement' => 'The placement user is not found or not a valid placement. Please enter another placement username.',
-    'placement_username_verified' => 'The placement username is verified.',
+    'placement_user_not_found_not__valid_placement' => '未找到该上线用户名或不是有效上线用户名。请输入其他上线用户名.',
+    'placement_username_verified' => '该上线用户名已经验证.',
     'upline_username_verified' => 'The upline or downline username is verified.',
-    'enter_valid_placement_username' => 'Please enter valid placement username.',
+    'enter_valid_placement_username' => '请输入有效的上线用户名.',
     'verify_entered_placement' => 'Please verify the entered placement details.',
     'please_check_placement_username_not_valid' => 'Please check placement username is not valid',
     'please_enter_placement_name' => 'Please enter placement name',
@@ -1481,9 +1481,9 @@ return [
     'right' => 'Right',
 
     /* defix new */
-    'not_amember' => 'Not a member?',
-    'forgot_password' => 'Forgot Password',
-    'clear_signature' => 'Clear Signature',
+    'not_amember' => '非会员？',
+    'forgot_password' => '忘记密码',
+    'clear_signature' => '清除签名',
     'requested_amount_transfered_crypto' => 'The requested amount is transferred to crypto wallet',
     'requested_amount_transfered_nft' => 'The requested amount is transferred to NFT wallet',
     'balance' => 'Balance',
@@ -1491,102 +1491,102 @@ return [
     'withdrawal_fee_is_usd_10' => 'Withdrawal Fee is USD 10',
     'conversion_rate_of_usd_to_usdt_is_0_95' => 'Conversion rate of USD to USDT is 0.95',
     'members_that_have_funded_in_usdt_previousl' => 'Members that have funded in USDT previously',
-    'usdt_amount' => 'USDT Amount',
-    'topup_fund_submit' => 'TOPUP FUND',
-    'crypto_wallet_history' => 'Crypto Wallet History',
-    'crypto_wallet' => 'Crypto Wallet',
-    'nft_wallet' => 'NFT Wallet',
-    'transfer_fund' => 'TRANSFER FUND',
-    'yield_wallet_history' => 'Yield Wallet History',
-    'transferred_to_crypto_wallet' => 'Transferred to Crypto Wallet.',
+    'usdt_amount' => 'USDT金额',
+    'topup_fund_submit' => '充值资金',
+    'crypto_wallet_history' => '加密钱包历史记录',
+    'crypto_wallet' => '加密钱包',
+    'nft_wallet' => 'NFT钱包',
+    'transfer_fund' => '转移金额',
+    'yield_wallet_history' => '收益钱包历史记录',
+    'transferred_to_crypto_wallet' => '转移到加密钱包.',
     'transferred_to_withdrawal_wallet' => 'Transferred to Withdrawal Wallet.',
     'transferred_to_nft_wallet' => 'Transferred to NFT Wallet.',
     'transferred_from_yield_wallet' => 'Transferred from Yield Wallet.',
     'yield_wallet' => 'Yield Wallet',
-    'BANK' => 'BANK',
-    'REQUEST_FOR_WITHDRAWAL' => 'REQUEST FOR WITHDRAWAL',
-    'node_management' => 'Node Management',
-    'accumulate_grp_sale' => 'ACCUMULATE GROUP SALES',
-    'today_grp_sale' => 'TODAY GROUP SALES',
-    'carry_forward' => 'CARRY FORWARD',
-    'daily_max_commission' => 'DAILY MAX COMMISSION',
-    'sale_left' => 'Sales Left',
-    'sale_right' => 'Sales Right',
-    'net_pairing_left' => 'NET PAIRING LEFT',
-    'net_pairing_right' => 'NET PAIRING RIGHT',
-    'commission_earned' => 'COMMISSION EARNED',
-    'wc_text' => 'Hi, #name welcome back to DefiXFinance Dashboard.',
-    'staking_network_pools' => 'Staking Network Pools',
-    'last_nfts' => 'Latest non-fungible token (NFT)',
+    'BANK' => '银行',
+    'REQUEST_FOR_WITHDRAWAL' => '请求取款',
+    'node_management' => '节点管理',
+    'accumulate_grp_sale' => '累积团体销售额',
+    'today_grp_sale' => '今日团体销售额',
+    'carry_forward' => '结转',
+    'daily_max_commission' => '每日节点平衡佣金上线',
+    'sale_left' => 'A网络销售',
+    'sale_right' => 'B网络销售',
+    'net_pairing_left' => 'A网路净平衡',
+    'net_pairing_right' => 'B网络净平衡',
+    'commission_earned' => '佣金收入',
+    'wc_text' => '您好, #name 欢迎回到DefiXFinance页面.',
+    'staking_network_pools' => '质押网络池',
+    'last_nfts' => '最新非同质化代币',
     'earning_breakdown' => 'Earnings Breakdown',
-    'direct_refferal' => 'Direct Referral',
+    'direct_refferal' => '直系推荐',
     'pairing' => 'Pairing',
-    'commission_breakdown' => 'Commission breakdown',
-    'this_month' => 'THIS MONTH',
-    'trading_news' => 'Trading News',
-    'crypto_wallet' => 'Crypto wallet',
-    'yield_wallet' => 'Yield wallet',
-    'commission_wallet' => 'Commission wallet',
-    'nft_wallet' => 'NFT Wallet',
-    'balance' => 'Balance',
-    'stake' => 'STAKE',
-    'expected_anual_rate' => 'Expected Annual Reward Rate',
-    'staking_history' => 'Staking History',
-    'duration' => 'Duration',
-    'stake_amount' => 'Stake Amount',
-    'stake_now' => 'Stake Now',
-    'duration_term' => 'Duration Term',
-    'months' => 'Months',
+    'commission_breakdown' => '佣金明细',
+    'this_month' => '这个月',
+    'trading_news' => '交易新闻',
+    'crypto_wallet' => '加密钱包',
+    'yield_wallet' => '收益钱包',
+    'commission_wallet' => '佣金钱包',
+    'nft_wallet' => 'NFT钱包',
+    'balance' => '余额',
+    'stake' => '质押',
+    'expected_anual_rate' => '预期年度奖励率',
+    'staking_history' => '质押历史',
+    'duration' => '为期',
+    'stake_amount' => '质押金额',
+    'stake_now' => '立即质押',
+    'duration_term' => '期限',
+    'months' => '个月',
     'staking_pool_added_successfully' => 'Staking pool added successfully.',
     'invested_amount' => 'Invested <br> Amounts',
-    'staking_pool' => 'Staking Pool',
-    'staking_pools' => 'Staking Pools',
+    'staking_pool' => '质押池',
+    'staking_pools' => '质押池',
     'explore' => 'EXPLORE',
     'coin_payment' => 'Coin Payment',
     'myr_amount' => 'Amount (MYR)',
-    'open_ticket' => 'OPEN TICKET',
+    'open_ticket' => '待定单',
     'no_ticket_found' => 'No Ticket found',
     'staking_popup_title' => 'STAKING POOL REMINDER',
     'commission_history' => 'Commission History',
-    'antimoney-laundering' => 'Anti-Money Laundering',
-    'coockie-policy' => 'Cookie Policy',
-    'nodes-management' => 'Nodes Management',
-    'nodes' => 'Nodes',
+    'antimoney-laundering' => '反洗钱政策',
+    'coockie-policy' => 'Cookie政策',
+    'nodes-management' => '节点管理',
+    'nodes' => '节点',
     'commission-wallet' => 'Commission  Wallet',
-    'accounts' => 'Account',
-    'my-account' => 'My Account',
-    'roi' => 'ROI',
+    'accounts' => '账户',
+    'my-account' => '我的账户',
+    'roi' => '收益',
     'referral_commission' => 'Referral Commission',
     'pairing_commission' => 'Pairing Commission',
-    'commissions' => 'Commissions',
-    'commissionsale' => 'Commission & Sales',
-    'news' => 'News',
-    'news-events' => 'News & Events',
+    'commissions' => '佣金',
+    'commissionsale' => '佣金&销售额',
+    'news' => '新闻',
+    'news-events' => '新闻与事件',
     'two_decimal_message' => 'No more than 2 decimal allowed',
     'amount-breakdown' => 'Amount Breakdown',
-    'apr_monthly' => 'APR (monthly)',
-    'balancing_commission' => 'Balancing Commission',
-    'help_and_faq' => 'Help & FAQ',
+    'apr_monthly' => 'APR（每月）',
+    'balancing_commission' => '节点平衡佣金',
+    'help_and_faq' => '常见问题解答',
 
 
      /* Crypto wallet Terms & Conditions USDT*/
 
      'crypto_wallet_terms_and_conditions1_usdt' => '<ul class="text-grey">
-       <li>Please select the type of USDT protocol.</li>
-       <li>Transfer to the stated ERC20 or TRC20 address only.</li>
-       <li>All deposits are final and no refund requests shall be entertained.</li>
+       <li>请选择USDT协议的类型.</li>
+       <li>只能转移到指定的ERC20或TRC20地址.</li>
+       <li>所有存款均为最终存款，不接受退款请求.</li>
      </ul>',
 
 
      'crypto_wallet_terms_and_conditions2_usdt' => '<ul class="text-grey">
-       <li>Input the amount you wish to deposit.</li>
-       <li>Once transfer is made, please upload payment proof that shows transaction ID.</li>
-       <li>All deposit requests will be approved within 1 working day.</li>
+       <li>输入您希望存入的金额.</li>
+       <li>转账完成后，请上传显示交易ID的付款凭证.</li>
+       <li>所有存款申请将在1个工作日内获得批准.</li>
      </ul>',
 
 
      'crypto_wallet_terms_and_conditions3_usdt' => '<ul class="text-grey">
-       <li>The conversion rate of USDT to USD will be auto calculated accordingly.</li>
+       <li>USDT兑美元的转换率将相应地自动计算.</li>
      </ul>',
 
 
@@ -1615,16 +1615,16 @@ return [
        /* Yield Wallet Terms & Conditions*/
 
        'yield_wallet_terms_and_conditions1' => '<ul class="text-grey">
-       <li>This wallet will be auto credited with your staking rewards.</li>
-       <li>You can transfer the balance here to your Crypto wallet, NFT wallet or Withdrawal wallet.</li>
+       <li>该钱包将自动记入您的质押奖励.</li>
+       <li>您可以在此处将余额转移到加密钱包、NFT钱包或取款钱包.</li>
      </ul>',
 
        'yield_wallet_terms_and_conditions2' => '<ul class="text-grey">
-       <li>80% will be deposited into this wallet and 20% of will be added to your NFT wallet.</li>
+       <li>80%将存入此钱包，20%将添加到您的NFT钱包.</li>
      </ul>',
 
        'yield_wallet_terms_and_conditions3' => '<ul class="text-grey">
-       <li>The credit period will be 30 days from your staking deposit date.</li>
+       <li>信用期为30天，从您的质押存款日期算起.</li>
      </ul>',
 
 
@@ -1635,20 +1635,20 @@ return [
 
        /* Commission Wallet Terms & Conditions*/
        'commission_wallet_terms_and_conditions1' => '<ul class="text-grey">
-       <li>You will receive your direct referral commission and balancing commission deposited into this wallet.</li>
-       <li>Balancing commission will be calculated daily (GMT +7) and credited after calculations are completed.</li>
+       <li>您将收到存入此钱包的直系推荐佣金和节点平衡佣金.</li>
+       <li>节点平衡佣金将每天（GMT +7）计算并在计算完成后记入.</li>
      </ul>',
 
 
      'commission_wallet_terms_and_conditions2' => '<ul class="text-grey">
-       <li>80% of your commission will be deposited into this wallet and 20% will be deposited into the NFT wallet.</li>
-       <li>You can transfer the balance here to your Crypto wallet, NFT wallet or Withdrawal wallet.</li>
+       <li>您80%的佣金将存入此钱包，20%的佣金将存入NFT钱包.</li>
+       <li>您可以在此处将余额转移到加密钱包、NFT钱包或取款钱包.</li>
      </ul>',
 
 
      'commission_wallet_terms_and_conditions3' => '<ul class="text-grey">
-       <li>Direct referral commission will be credited immediately upon successful staking by your referral.</li>
-       <li>An active staking investment of $1000 is required to be eligible to collect affiliate commissions.</li>
+       <li>直系推荐佣金将在您的推荐成功质押后立即记入.</li>
+       <li>需要1000 美元的活跃投资才有资格收取会员佣金.</li>
      </ul>',
 
       
@@ -1656,18 +1656,18 @@ return [
        /* NFT Wallet Terms & Conditions*/
 
        'nft_wallet_terms_and_conditions1' => '<ul class="text-grey">
-       <li>20% of your staking reward yields and commission will be credited into this wallet.</li>
-       <li>NFT wallet credits can be used to buy NFTs from the marketplace.</li>
+       <li>您质押奖励收益和佣金的20%将记入此钱包.</li>
+       <li>NFT钱包资金可用于从市场购买NFT.</li>
      </ul>',
 
 
      'nft_wallet_terms_and_conditions2' => '<ul class="text-grey">
-       <li>You can also topup directly into this wallet using USDT or payment gateway.</li>
+       <li>您也可以使用USDT或支付网关直接充值到这个钱包.</li>
      </ul>',
 
 
      'nft_wallet_terms_and_conditions3' => '<ul class="text-grey">
-       <li>All deposits are final and no refunds will be entertained.</li>
+       <li>所有存款均为最终定金，恕不退款.</li>
      </ul>',
 
 
@@ -1675,23 +1675,23 @@ return [
 
         /* Withdrawal Wallet Terms & Conditions*/
         'withdrawal_wallet_terms_and_conditions1' => '<ul class="text-grey">
-       <li>You can transfer funds from your commission and yield wallet to this wallet.</li>
-       <li>The conversion rate of USD to USDT is 1:0.95.</li>
-       <li>The conversion rate of USD to your local currency is dependent on the market rate. Please message the support team to inquire about the latest conversion rate.</li>
+       <li>您可以将佣金和收益钱包中的资金转移到此钱包.</li>
+       <li>USD 对 USDT 的兑换率为 1:0.95.</li>
+       <li>美元兑换当地货币的汇率取决于市场汇率。请向客服团队发送信息以查询最新的转换率.</li>
      </ul>',
 
 
      'withdrawal_wallet_terms_and_conditions2' => '<ul class="text-grey">
-       <li>You can withdraw the funds here to your TRC20 or ERC20 wallet.</li>
-       <li>The withdrawal window is from the 1st to 6th of each month.</li>
-       <li>All withdrawals will be processed from the 7th to 15th of each month.</li>
+       <li>您可以在此处将资金提取到您的TRC20或ERC20钱包中.</li>
+       <li>提款窗口为每月1日至6日.</li>
+       <li>所有提款将于每月7日至15日进行处理.</li>
      </ul>',
 
 
      'withdrawal_wallet_terms_and_conditions3' => '<ul class="text-grey">
-       <li>All withdrawal requests will incur a withdrawal fee of USD10.</li>
-       <li>You can withdraw the funds here to your local country bank account (where available).</li>
-       <li>All withdrawals that have been approved are final.</li>
+       <li>所有提款请求将收取10美元的提款费.</li>
+       <li>您可以在此处将资金提取到您当地的国家银行账户（如果有）.</li>
+       <li>所有已获批准的提款均为最终提款.</li>
      </ul>',
 
 
@@ -1702,12 +1702,12 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="card-link text-dark" data-toggle="collapse" href="#collapseOne" aria-expanded="true">
-    1. Who is DefiXFinance?
+    1. DefiXFinance是谁？
     </a>
     </div>
     <div id="collapseOne" class="collapse show" data-parent="#accordion">
     <div class="card-body">
-    <p>Established September 2019 in Russia, DefiXFinance is launched by a group of blockchain enthusiasts with an objective to bring the opportunities of the crypto world to the general public. Since then, DefiXFinance has grown to offer keen investors a comprehensive suite of products including staking pools, liquidity pools and a private & exclusive NFT marketplace. In the short span of 2 years, the company has grown to a large and diverse team of experts, based around Russia, Europe and Asia, serving investors all over the world.</p>
+    <p>DefiXFinance始于2019年9月乃是由一群热爱区块链专业人士并将总部成立于俄罗斯，目标是让加密货币进入普通大众的视野。我们其目标是让区块链货币普及化并且带给众投资者们最优越的投资计划让其投资者们都能获取丰厚的利益。DefiXFinance不断茁壮成长并且在短短两年时间里面发展成为一个拥有来自全世界的专业人数团队。其地区包括有俄罗斯，欧洲以及亚洲来为我们旗下高达万名的尊贵投资们提供我们的专业服务.</p>
     </div>
     </div>
     </div>
@@ -1715,12 +1715,12 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link text-dark" data-toggle="collapse" href="#collapseTwo">
-    2.  What does DefiXFinance offer?
+    2.  DefiXFinance提供什么服务?
     </a>
     </div>
     <div id="collapseTwo" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>DefiXFinance’s main offering is our immensely popular staking & liquidity pools program. By leveraging on the pool of funds invested by our institutional and retail investors, DefixFinance is able to stake across a wide variety of Proof of Stake tokens and earns millions in staking rewards for our investors.
+    <p>DefiXFinance的主要产品是我们非常受欢迎的质押和流动性池制度。通过运用我们的机构和散户投资者投资的资金池，DefiXFinance能够在各种权益证明代币中进行质押，并为我们的投资者赚取数百万的质押奖励.
     </p>
     </div>
     </div>
@@ -1729,12 +1729,12 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link text-dark" data-toggle="collapse" href="#collapseThree">
-    3. How are the staking pool networks curated?
+    3. 如何管理质押池网络?
     </a>
     </div>
     <div id="collapseThree" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p> DefiXFinance staking networks are managed daily by our team of traders to ensure the best risk-reward ratio and profits for our investors. By staking different tokens with variable risks and rewards in the same network, DefiXFinance ensures consistent & high staking rewards despite the volatility of each token.
+    <p> DefiXFinance质押网络每天由我们的交易员团队管理，以确保我们的投资者获得最佳的风险回报率和利润。通过在同一网络中以不同的风险和回报质押不同的代币，尽管每个代币都存在波动，但DefiXFinance可确保一致且高的质押回报.
     </p>
     </div>
     </div>
@@ -1743,12 +1743,12 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link text-dark" data-toggle="collapse" href="#collapsefour">
-    4. How are the staking reward yields calculated?
+    4. 如何计算质押奖励收益率?
     </a>
     </div>
     <div id="collapsefour" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p> The monthly returns on your staking investments are dependent on the size of your investment, the entry date, the staking period and the tokens price movements. In very basic terms, the larger and longer the investment amount, the higher the percentage of returns as the probability of staking rewards increases.
+    <p> 您的质押投资的每月回报取决于您的投资规模、购买日期、质押期限和代币价格变动。用非常基本的术语来说，投资金额越大、时间越长，随着质押奖励概率的增加，回报百分比就越高.
     </p>
     </div>
     </div>
@@ -1757,12 +1757,12 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link text-dark" data-toggle="collapse" href="#collapsefive">
-    5. What is the DefiXFinance NFT marketplace?
+    5. DefiXFinance NFT市场是什么?
     </a>
     </div>
     <div id="collapsefive" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>DefixFinance NFT marketplace is a platform that aims to build a new creative economy—a world where creators can value their work in entirely new ways, and build stronger connections with their supporters. art buyers and investors. DefixFinance bridges crypto and culture to foster a network of mutual support between artists, creators, and collectors.</p>
+    <p> DefixFinance NFT 市场是一个旨在建立新创意经济的平台——在这个世界中，创作者可以以全新的方式评价自己的作品，并与支持者建立更牢固的联系。艺术品买家和投资者。 DefixFinance架起了加密货币和文化的桥梁，在艺术家、创作者和收藏家之间建立了相互支持的网络.</p>
     </div>
     </div>
     </div>
@@ -1770,12 +1770,12 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link text-dark" data-toggle="collapse" href="#collapsesix">
-    6. Who creates the NFT art found at the marketplace?
+    6. 谁创造了NFT市场上的艺术作品?
     </a>
     </div>
     <div id="collapsesix" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>Since 2019, DefixFinance has worked with various artists to produce NFT art and sell them to its private investors. These NFT artists are meticulously picked by DefixFinance for their artistic expression, mass market appeal and imaginative creations. These NFT artists partners with DefixFinance so they can focus on their craft as the sale of their art through DefixFinance platform is almost guaranteed to fetch a high price.</p>
+    <p> 自 2019 年以来，DefiXFinance 与多位艺术家合作创作NFT艺术作品并将其出售给私人投资者。这些NFT艺术家因其艺术表现力、大众市场吸引力和富有想象力的创作而被DefiXFinance精心挑选。这些NFT艺术家与DefiXFinance合作，通过DefiXFinance平台销售他们的艺术品几乎可以保证获得高价，因此他们可以专注于他们的工艺品.</p>
     </div>
     </div>
     </div>
@@ -1783,12 +1783,12 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link text-dark" data-toggle="collapse" href="#collapseseven">
-    7. Can I transfer the NFT art I bought at DefiXFinance to my crypto wallet?
+    7. 我可以将在DefiXFinance购买的NFT艺术作品转移到我的加密钱包吗?
     </a>
     </div>
     <div id="collapseseven" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>Yes! You can transfer the NFT art from your NFT Collection page to your own crypto wallet. You just need a crypto wallet that supports ERC, fill up the form at My Collection page and your NFT collections can be transferred there.
+    <p>是的！您可以将NFT艺术作品从您的NFT收藏页面转移到您自己的加密钱包.您只需要一个支持 ERC 的加密钱包，在我的收藏页面填写表格，您的 NFT 收藏就可以在那里转移。
     </p>
     </div>
     </div>
@@ -1797,13 +1797,13 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link text-dark" data-toggle="collapse" href="#collapseeight">
-    8. How do I sell the NFT I have bought from the marketplace?
+    8. 如何出售我从市场上购买的 NFT?
     </a>
     </div>
     <div id="collapseeight" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>You can sell the NFT from your Collection page. You can sell it anytime and at any price. The success of the sale will depend on the current demand for the NFT art from other DefiXFinance buyers.
-    You can also choose to transfer the NFT to your crypto wallet and sell it at any public NFT marketplaces that supports the ETH protocol such as Opensea.
+    <p> 您可以从收藏页面出售NFT。你可以随时以任何价格出售它。销售的成功将取决于其他DefiXFinance买家当前对NFT艺术品的需求.
+    您还可以选择将NFT转移到加密钱包，并在任何支持ETH协议的公共NFT市场（如Opensea）出售.
     </p>
     </div>
     </div>
@@ -1812,19 +1812,19 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link text-dark" data-toggle="collapse" href="#collapsenine">
-    9. How does the DefiXFinance affiliate program work?
+    9. DefiXFinance会员推荐奖金制度如何运作?
     </a>
     </div>
     <div id="collapsenine" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>The DefiXFinance affiliate program consists of two types of payout:</p>
+    <p>DefiXFinance会员推荐奖金制度包括两种类型的支出:</p>
     <ul>
-    <li>Direct Referral</li>
-    <small>Based on the size of your investment, you are entitled to varying percentage of referral commission for all staking investments made by your referral. The commission payout is immediate.</small>  
-    <li>Balancing Commission</li>
-    <small>Based on the size of your investment, you are entitled to varying percentage of balancing commission. The balancing commission is based on the total staking investment made between the A node and B node networks in your affiliate group. It is calculated daily and the commission automatically credited into your commission wallet.</small>
+    <li>直系推荐</li>
+    <small>根据您的投资规模，您有权为您推荐的所有质押投资获得不同百分比的推荐佣金.佣金支付是即时的.</small>  
+    <li>节点平衡佣金</li>
+    <small>根据您的投资规模，您有权获得不同百分比的平衡佣金.平衡佣金基于您的团队中A节点和B节点网络之间的总投资.它每天计算一次，佣金会自动记入您的佣金钱包.</small>
     </ul>
-    <p>Take note an active investment of $1000 is required to be eligible to collect affiliate commissions.</p>
+    <p>请注意，需要 1000 美元的活跃投资才有资格收取会员佣金.</p>
     </div>
     </div>
     </div>
@@ -1832,12 +1832,12 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link text-dark" data-toggle="collapse" href="#collapseten">
-    10. How are my earnings split?
+    10. 我的收入如何分配?
     </a>
     </div>
     <div id="collapseten" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>All your earnings from staking, direct referral and nodes balancing commission are split 20/80. 80% will go into their respective wallets of Yield wallet or Commission Wallet while 20% will go into your NFT wallet. 
+    <p>您从质押、直系推荐和节点平衡佣金中获得的所有收入均按 20/80 分配. 80% 将进入各自的收益钱包或佣金钱包，而20%将进入您的NFT钱包. 
     </p>
     </div>
     </div>
@@ -1847,12 +1847,12 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link text-dark" data-toggle="collapse" href="#collapseeleven">
-    11. How do I withdraw my earnings?
+    11. 我如何提取我的收益?
     </a>
     </div>
     <div id="collapseeleven" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>You can transfer all your earnings from their respective wallets to the Withdrawal wallet. You then have options to withdraw to your local cryptocurrency wallet or local bank (where available). 
+    <p> 您可以将所有收益从各自的钱包转移到提款钱包.然后，您可以选择提款到您当地的加密货币钱包或当地银行（如果有）. 
     </p>
     </div>
     </div>
@@ -1862,25 +1862,25 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link text-dark" data-toggle="collapse" href="#collapsetwelve">
-    12. What happens after my staking contract has matured?
+    12. 我的质押合约到期后会怎么样?
     </a>
     </div>
     <div id="collapsetwelve" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>Once your staking contract has matured, you will have an option to renew your contract or withdraw your capital. If you choose to withdraw your capital, your investment will be transferred to the Maturity wallet where you can put your capital up to be purchased by other investors looking to use those credits for activities in DefiXFinance such as buying NFTs or using our other products. 
+    <p> 一旦您的质押合同到期，您将可以选择续签合同或提取资金.如果您选择提取您的资金，您的投资将被转移到Maturity钱包，您可以在那里存入您的资金，供其他希望将这些资金用于DefiXFinance活动（例如购买 NFT 或使用我们的其他产品）的投资者购买. 
     </p>
     </div>
     </div>
     </div>
     </div>',
 
-    'staking_terms' => '<ul class="text-grey"><li>You can stake in this staking pool network using funds from your Crypto wallet.</li>
-    <li>Please select the desired staking period of 12 months or 24 months.</li>
-    <li>All staking rewards will be credited 30 days from the date of staking.</li>
-    <li>Each staking deposit will be tied to its own contract period. There is no overlap between deposits.</li>
-    <li>Your monthly staking reward is dependent on the amount of deposit and the fluctuations of the token value in the market.</li>
-    <li>Once your staking contract is matured you have a choice to extend your contract or withdraw your capital from the Maturity wallet.</li>
-    <li>All staking deposits are final and no refunds will be entertained.</li></ul>',
+    'staking_terms' => '<ul class="text-grey"><li>您可以使用您加密钱包中的资金在这个质押网络池中进行质押.</li>
+    <li>请选择所需的12个月或24个月的质押期.</li>
+    <li>所有质押奖励将在质押之日起30天内发放.</li>
+    <li>每笔质押存款都将与各自的合同期限挂钩。存款之间没有重叠.</li>
+    <li>您每月的质押奖励取决于存款金额和市场上代币价值的波动.</li>
+    <li>一旦您的质押合约到期，您可以选择延长合约或从Maturity钱包中提取资金.</li>
+    <li>所有质押存款均为最终押金，恕不退款.</li></ul>',
     'staking_agreement' => '<ul><li>I agree that by clicking confirm below I adhere to all the terms and conditions stated.</li>
     <li>I agree that by proceeding my staking contract will start and no cancellation is allowed.</li>
     <li>I understand that the monthly staking rewards is dependent on the blockchain network, protocol and token value in the market.</li>
@@ -1888,67 +1888,6 @@ return [
     <li>I agree that the company has all rights to change the terms and conditions to reflect the landscape and performance of the market at any times.</li></ul>',
     'agreement_title' => 'Deposit Agreement #title',
     'accept_terms' => 'I have read and agree to the terms of service.',
-    'last_month' => 'Last Month',
+    'last_month' => '上个月',
 
-
-    'STAKING_POOLS'=>'STAKING POOLS',
-    'NODES_MANAGEMENT'=>'NODES MANAGEMENT',
-    'REFERRAL_COMMISSION'=>'REFERRAL COMMISSION',
-    'ROI'=>'ROI',
-    'FILTER_DATE'=>'FILTER DATE',
-    'AMOUNT'=>'AMOUNT',
-    'DURATION'=>'DURATION',
-    'DATE'=>'DATE',
-    'ACTION'=>'ACTION',
-
-    'SALES_LEFT'=>'SALES LEFT',
-    'SALES_RIGHT'=>'SALES RIGHT',
-    'CARRY_FORWARD_LEFT'=>'CARRY FORWARD LEFT',
-    'CARRY_FORWARD_RIGHT'=>'CARRY FORWARD RIGHT',
-    'DAILY_LIMIT'=>'DAILY LIMIT',
-    'PERCENTAGE'=>'PERCENTAGE',
-    'COMMISSION_EARNED'=>'COMMISSION EARNED',
-    'COMMISSION_WALLET'=>'COMMISSION WALLET',
-    'NFT_WALLET'=>'NFT WALLET',
-
-
-    'FROM_USER'=>'FROM USER',
-    'COMMISSION'=>'COMMISSION',
-    'STAKING_POOL_AMOUNT'=>'STAKING POOLS AMOUNT',
-    'COMMISSION_WALLET_80'=>'COMMISSION WALLET(80%)',
-    'NFT_WALLET_20'=>'NFT_WALLET(20%)',
-   
-    'STACKING_AMOUNT'=>'STACKING AMOUNT',
-    'STACKING_DATE'=>'STACKING DATE',
-    'YIELD'=>'YIELD',
-    'YIELD_AMOUNT'=>'YIELD AMOUNT',
-    'YIELD_WALLET'=>'YIELD WALLET',
-    'NFT_WALLET'=>'NFT_WALLET',
-    'TO' => 'TO',
-    'Clear' => 'Clear',
-    'EXPORT' => 'EXPORT',
-    'Filter' => 'Filter',
-    'start_date' => 'Start Date',
-    'end_date' => 'End Date',
-    'select_stacking_pool_package' => 'Select Stacking Pool Package',
-    'start_date_must_be_less_then_end_date' => 'Start Date must be less then End Date',
-    'end_date_must_be_greater_than_start_date' => 'End Date must be greater than Start Date',
-
-    'edit_photo' => 'Edit Photo',
-    'defixfinance_id' => 'DefiXFinance ID',
-    'total_staking_package' => 'Total Staking Package',
-    'PERSONAL_DETAILS' => 'PERSONAL DETAILS',
-    'BANK_DETAILS' => 'BANK DETAILS',
-    'NFT_WALLET_DETAILS' => 'NFT WALLET DETAILS',
-    'wallet_address' => 'Wallet Address',
-    'UPDATE_PROFILE' => 'UPDATE PROFILE',
-    'UPDATE_ACCOUNT' => 'UPDATE ACCOUNT',
-    'enter_nft_wallet_address' => 'Enter NFT Wallet Address',
-    'upload_profile_image' => 'Upload Profile Image',
-    'profile_extension_png_jpg_jpeg' => 'Profile extension png, jpg, jpeg',
-    'accountdetails' => 'ACCOUNT DETAILS',
-    'UPDATE_BANK_DETAILS' => 'UPDATE BANK DETAILS',
-    'UPDATE_NFT_WALLET_ADDRESS' => 'UPDATE NFT WALLET ADDRESS',
-    'UPDATE_PASSWORD' =>'UPDATE PASSWORD',
-    'UPDATE_SECURE_PASSWORD' =>'UPDATE SECURE PASSWORD'
- ];
+];

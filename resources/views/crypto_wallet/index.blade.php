@@ -22,7 +22,7 @@
       </div>
     </div>
   </div>
-  <div class="row justify-content-center mt-5">
+  <div class="row justify-content-center mt-4">
     <div class="col-12">
       <ul class="nav nav-tabs justify-content-center account-tabs border-0">
         <li><a class="text-warning border border-warning py-3 px-5 d-block fund-usdt-bank active" data-value="usdt" data-toggle="tab" href="#home">{{ trans('custom.usdt')}}</a></li>
@@ -32,7 +32,7 @@
       </ul>
     </div>
 
-    <div class="col-12 mt-4">
+    <div class="col-12">
       @if(Session::has('success'))
       <div class="alert alert-success alert-dismissable">
         <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
@@ -76,7 +76,7 @@
                  <div class="col-lg-8 form-group-sub row nopadding ">
                   @if($usdtaddress->image != '')
 
-                  <div class="image-qr-dah col-lg-4">
+                  <div style="text-align:center" class="image-qr-dah col-lg-4">
                       <img src="{{$usdtaddress->image}}" class="center"  id="qr_image" style="width: 140px;">
                   </div>
                   @else

@@ -933,7 +933,73 @@ function showbreakdown(bid)
         },
 
       });
+ //Verify update Password
 
+    $("#password-update").validate({
+        ignore: "input[type='text']:hidden",
+        rules: {
+            password: {
+                required: true,
+                minlength:8,
+                maxlength: 15
+            },
+            confirm_password: {
+                required: true,
+                equalTo: "#password"
+            },
+            // otpverify:{
+            //     required: true,
+            // }
+        },
+        messages: {
+            password: {
+                required: password_required_field,
+                minlength:please_enter_least_8_characters,
+                maxlength: please_enter_no_more_than_15
+            },
+            confirm_password: {
+                required: repeatpassword_required_field,
+                equalTo: please_enter_same_value
+            },
+            otpverify:{
+                required: opt_required_field,
+            }
+        },
+
+    });
+
+    // Secure Password
+    $("#secure-password-update").validate({
+        ignore: "input[type='text']:hidden",
+        rules: {
+            password: {
+                required: true,
+                minlength:8,
+                maxlength: 15
+            },
+            confirm_password: {
+                required: true,
+                equalTo: "#secure_password"
+            },
+            // otpverify:{
+            //     required: true,
+            // }
+        },
+        messages: {
+            password: {
+                required: password_required_field,
+                minlength:please_enter_least_8_characters,
+                maxlength: please_enter_no_more_than_15
+            },
+            confirm_password: {
+                required: repeatpassword_required_field,
+                equalTo: please_enter_same_value
+            },
+            otpverify:{
+                required: opt_required_field,
+            }
+        },
+    });
 
 //Create New Ticket Hide Error Message
 $('#new-tickets').on('hidden.bs.modal', function () {

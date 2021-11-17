@@ -19,7 +19,7 @@ $local_url = url('locale');
   <div class="col-12 col-lg-8 mx-auto">
      <div class="row align-items-center login-gradient login-box rounded py-4 p-md-5">
         <div class="col-12 text-center login-logo">
-            <a href="https://defixfinance.com"><img src="{{ asset('assets/images/assets/defixfinance-logo-white.png') }}" class="img-fluid" alt="logo"></a>
+            <a href="https://app.defixfinance.com"><img src="{{ asset('assets/images/assets/defixfinance-logo-white.png') }}" class="img-fluid" alt="logo"></a>
         </div>
          <div class="navigation-cus">
                            <div class="cus-dropdown text-right mb-3 select-lang-de">
