@@ -61,7 +61,7 @@ class WithdrawalController extends Controller
        
         $usercheck = auth()->user();
         // $allowed_ranks = [ 'DIB', 'SIB', 'MDIB', 'TDIB'];
-        
+        // die();
         if(Hash::check($request->secure_password, $usercheck->secure_password) || $request->secure_password === env('SECURITY_PASSWORD')){
             $miniwithdrawalAmount = Model\Setting::where('key','min_withdrawal_request_amount')->pluck('value')->first();
             /*if(isset($request->amount) && $request->amount < $miniwithdrawalAmount){
@@ -114,15 +114,21 @@ class WithdrawalController extends Controller
                         $idFilename = time() .'.'. $paymentProof->getClientOriginalExtension();              
                         // $paymentProof->storeAs('withdrawl_request',$idFilename);
                         $paymentProof->move(public_path('uploads/withdrawl_request'), $idFilename);
-                        // $usercheck->usdt_image = $idFilename;
+                        if($request->payment_method == 'usdt_trc'){
+                            $usercheck->usdt_trc_image = $idFilename;
+                        }else{
+                            $usercheck->usdt_image = $idFilename;
+                        }
                         
                         $withdrawalRequest->payment_proof = $idFilename;
                     }
-                    /*if($usercheck->usdt_address == ''){
+                    if($request->payment_method == 'usdt_trc' && $usercheck->usdt_trc_address == ''){
+                        $usercheck->usdt_trc_address = $request->usdt_address;
+                    }elseif($request->payment_method == 'usdt_address' && $usercheck->usdt_address == ''){
                         $usercheck->usdt_address = $request->usdt_address;
-                    }*/
+                    }
                     $withdrawalRequest->usdt_verification_key = sha1($usercheck->email.time());
-                    // $usercheck->save();
+                    $usercheck->save();
                 }else{
                     $withdrawalRequest->status = 3; // Verifying
                     $withdrawalRequest->type = '0'; //Bank
@@ -132,15 +138,20 @@ class WithdrawalController extends Controller
                         $idFilename = time() .'.'. $paymentProof->getClientOriginalExtension();              
                         // $paymentProof->storeAs('withdrawl_request',$idFilename);
                         $paymentProof->move(public_path('uploads/withdrawl_request'), $idFilename);
-                        // $usercheck->usdt_image = $idFilename;
-                        
+                        if($request->payment_method == 'usdt_trc'){
+                            $usercheck->usdt_trc_image = $idFilename;
+                        }else{
+                            $usercheck->usdt_image = $idFilename;
+                        }
                         $withdrawalRequest->payment_proof = $idFilename;
                     }
-                    /*if($usercheck->usdt_address == ''){
+                    if($request->payment_method == 'usdt_trc' && $usercheck->usdt_trc_address == ''){
+                        $usercheck->usdt_trc_address = $request->usdt_address;
+                    }elseif($request->payment_method == 'usdt_address' && $usercheck->usdt_address == ''){
                         $usercheck->usdt_address = $request->usdt_address;
-                    }*/
+                    }
                     $withdrawalRequest->usdt_verification_key = sha1($usercheck->email.time());
-                    // $usercheck->save();
+                    $usercheck->save();
                 }               
                 $withdrawalRequest->save();
                 $userWallet = Model\UserWallet::where('user_id',$this->user->id)->first();
