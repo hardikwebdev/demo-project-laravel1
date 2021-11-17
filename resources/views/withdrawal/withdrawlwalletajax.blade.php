@@ -19,7 +19,9 @@
                 @if($value->type == 0)
                 {{trans('custom.bank')}}                    
                 @elseif($value->type == 1)
-                {{trans('custom.USDT')}}
+                {{trans('custom.usdt_erc')}}
+                @elseif($value->type == 2)
+                {{trans('custom.usdt_trc')}}
                 @endif
             </td>
             <td>{{date("d/m/Y",strtotime($value->created_at))}}</td>
@@ -30,7 +32,9 @@
             @elseif($value->status == 2)
             <td class="text-danger">{{trans('custom.rejected')}}</td>
             @else
-            <td class="text-danger">{{trans('custom.verifying')}}</td>
+            <td class="text-danger">{{trans('custom.verifying')}} | 
+                <a class="m-l-xs" href="{{route('resendEmail',$value->usdt_verification_key)}}">{{trans('custom.resend_email')}}</a>
+            </td>
             @endif
             @if($value->status == 2)
             <td>

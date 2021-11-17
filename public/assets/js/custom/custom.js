@@ -90,14 +90,14 @@ $(document).ready(function(){
 });
 
 
-  $( "#datepicker1" ).datepicker({ dateFormat: 'dd-mm-yy',maxDate: 0 });
-  $( "#datepicker2" ).datepicker({ dateFormat: 'dd-mm-yy',maxDate: 0 });    
-  $( "#datepicker3" ).datepicker({ dateFormat: 'dd-mm-yy',maxDate: 0 });    
-  $( "#datepicker4" ).datepicker({ dateFormat: 'dd-mm-yy',maxDate: 0 });    
-  $( "#datepicker5" ).datepicker({ dateFormat: 'dd-mm-yy',maxDate: 0 });    
-  $( "#datepicker6" ).datepicker({ dateFormat: 'dd-mm-yy',maxDate: 0 });    
-  $( "#datepicker7" ).datepicker({ dateFormat: 'dd-mm-yy',maxDate: 0 });    
-  $( "#datepicker8" ).datepicker({ dateFormat: 'dd-mm-yy',maxDate: 0 });
+ $( "#datepicker1" ).datepicker({ dateFormat: 'dd-mm-yy',maxDate: 0 });
+ $( "#datepicker2" ).datepicker({ dateFormat: 'dd-mm-yy',maxDate: 0 });    
+ $( "#datepicker3" ).datepicker({ dateFormat: 'dd-mm-yy',maxDate: 0 });    
+ $( "#datepicker4" ).datepicker({ dateFormat: 'dd-mm-yy',maxDate: 0 });    
+ $( "#datepicker5" ).datepicker({ dateFormat: 'dd-mm-yy',maxDate: 0 });    
+ $( "#datepicker6" ).datepicker({ dateFormat: 'dd-mm-yy',maxDate: 0 });    
+ $( "#datepicker7" ).datepicker({ dateFormat: 'dd-mm-yy',maxDate: 0 });    
+ $( "#datepicker8" ).datepicker({ dateFormat: 'dd-mm-yy',maxDate: 0 });
 
 });
 
@@ -180,106 +180,106 @@ $(document).on('click', '.second-ajax-report .pagination a',function(event)
 });
 $(document).on('click', '.stackingpool-second-ajax-report .pagination a',function(event)
 {
-   event.preventDefault();
-   $('.datas').append('<div class="cus-spinner-full"><div class="sk-spinner sk-spinner-three-bounce"><div class="sk-bounce1"></div><div class="sk-bounce2"></div><div class="sk-bounce3"></div></div></div>');
-   $(this).parent('li').removeClass('active');
-   $(this).parent('li').addClass('active');
-   var myurl = $(this).attr('href');
-   var page=$(this).attr('href').split('page=')[1];
-   var htype=$('ul#ledgerreport').find('li > a.active').attr('data-type');
-   var start_date = $('#datepicker1').val();
-   var end_date = $('#datepicker2').val();
-   var stackingpoolpackage = $('#stackingpoolpackage').val();
-    $.ajax(
-   {
-     url: '?page=' + page,
-     type: "get",
-     datatype: "html",
-     cache: false,
-     data:{
-       htype: htype,
-       start_date: start_date,
-       end_date: end_date,
-       stackingpoolpackage: stackingpoolpackage
-     },
-   }).done(function(data){
-    $(".stackingpool-table-history").empty().html(data);
-    location.hash = page;
-  }).fail(function(jqXHR, ajaxOptions, thrownError){
-   alert('No response from server');   
-   $('.cus-spinner-full').hide(200);
- });
+ event.preventDefault();
+ $('.datas').append('<div class="cus-spinner-full"><div class="sk-spinner sk-spinner-three-bounce"><div class="sk-bounce1"></div><div class="sk-bounce2"></div><div class="sk-bounce3"></div></div></div>');
+ $(this).parent('li').removeClass('active');
+ $(this).parent('li').addClass('active');
+ var myurl = $(this).attr('href');
+ var page=$(this).attr('href').split('page=')[1];
+ var htype=$('ul#ledgerreport').find('li > a.active').attr('data-type');
+ var start_date = $('#datepicker1').val();
+ var end_date = $('#datepicker2').val();
+ var stackingpoolpackage = $('#stackingpoolpackage').val();
+ $.ajax(
+ {
+   url: '?page=' + page,
+   type: "get",
+   datatype: "html",
+   cache: false,
+   data:{
+     htype: htype,
+     start_date: start_date,
+     end_date: end_date,
+     stackingpoolpackage: stackingpoolpackage
+   },
+ }).done(function(data){
+  $(".stackingpool-table-history").empty().html(data);
+  location.hash = page;
+}).fail(function(jqXHR, ajaxOptions, thrownError){
+ alert('No response from server');   
+ $('.cus-spinner-full').hide(200);
+});
 });
 
 $(document).on('click', '.nodes-management-second-ajax-report .pagination a',function(event)
 {
-   event.preventDefault();
-   $('.datas').append('<div class="cus-spinner-full"><div class="sk-spinner sk-spinner-three-bounce"><div class="sk-bounce1"></div><div class="sk-bounce2"></div><div class="sk-bounce3"></div></div></div>');
-   $(this).parent('li').removeClass('active');
-   $(this).parent('li').addClass('active');
-   var myurl = $(this).attr('href');
-   var page=$(this).attr('href').split('page=')[1];
-   var htype=$('ul#ledgerreport').find('li > a.active').attr('data-type');
-   var c_start_date = $('#datepicker3').val();
-   var c_end_date = $('#datepicker4').val();
-    $.ajax(
-   {
-     url: '?page=' + page,
-     type: "get",
-     datatype: "html",
-     data:{
-       htype: htype,
-       c_start_date: c_start_date,
-       c_end_date: c_end_date,
-     },
-   }).done(function(data){
-    $(".nodes-management-table-history").empty().html(data);
-    location.hash = page;
-  }).fail(function(jqXHR, ajaxOptions, thrownError){
-   alert('No response from server');   
-   $('.cus-spinner-full').hide(200);
- });
+ event.preventDefault();
+ $('.datas').append('<div class="cus-spinner-full"><div class="sk-spinner sk-spinner-three-bounce"><div class="sk-bounce1"></div><div class="sk-bounce2"></div><div class="sk-bounce3"></div></div></div>');
+ $(this).parent('li').removeClass('active');
+ $(this).parent('li').addClass('active');
+ var myurl = $(this).attr('href');
+ var page=$(this).attr('href').split('page=')[1];
+ var htype=$('ul#ledgerreport').find('li > a.active').attr('data-type');
+ var c_start_date = $('#datepicker3').val();
+ var c_end_date = $('#datepicker4').val();
+ $.ajax(
+ {
+   url: '?page=' + page,
+   type: "get",
+   datatype: "html",
+   data:{
+     htype: htype,
+     c_start_date: c_start_date,
+     c_end_date: c_end_date,
+   },
+ }).done(function(data){
+  $(".nodes-management-table-history").empty().html(data);
+  location.hash = page;
+}).fail(function(jqXHR, ajaxOptions, thrownError){
+ alert('No response from server');   
+ $('.cus-spinner-full').hide(200);
+});
 });
 $(document).on('click', '.referral-commission-second-ajax-report .pagination a',function(event)
 {
-   event.preventDefault();
-   $('.datas').append('<div class="cus-spinner-full"><div class="sk-spinner sk-spinner-three-bounce"><div class="sk-bounce1"></div><div class="sk-bounce2"></div><div class="sk-bounce3"></div></div></div>');
-   $(this).parent('li').removeClass('active');
-   $(this).parent('li').addClass('active');
-   var myurl = $(this).attr('href');
-   var page=$(this).attr('href').split('page=')[1];
-   var htype=$('ul#ledgerreport').find('li > a.active').attr('data-type');
-   var start_date = $('#datepicker3').val();
-   var end_date = $('#datepicker4').val();
-    $.ajax(
-   {
-     url: '?page=' + page,
-     type: "get",
-     datatype: "html",
-     data:{
-       htype: htype,
-       start_date: start_date,
-       end_date: end_date,
-     },
-   }).done(function(data){
-    $(".referral-commission-table-history").empty().html(data);
-    location.hash = page;
-  }).fail(function(jqXHR, ajaxOptions, thrownError){
-   alert('No response from server');   
-   $('.cus-spinner-full').hide(200);
- });
+ event.preventDefault();
+ $('.datas').append('<div class="cus-spinner-full"><div class="sk-spinner sk-spinner-three-bounce"><div class="sk-bounce1"></div><div class="sk-bounce2"></div><div class="sk-bounce3"></div></div></div>');
+ $(this).parent('li').removeClass('active');
+ $(this).parent('li').addClass('active');
+ var myurl = $(this).attr('href');
+ var page=$(this).attr('href').split('page=')[1];
+ var htype=$('ul#ledgerreport').find('li > a.active').attr('data-type');
+ var start_date = $('#datepicker3').val();
+ var end_date = $('#datepicker4').val();
+ $.ajax(
+ {
+   url: '?page=' + page,
+   type: "get",
+   datatype: "html",
+   data:{
+     htype: htype,
+     start_date: start_date,
+     end_date: end_date,
+   },
+ }).done(function(data){
+  $(".referral-commission-table-history").empty().html(data);
+  location.hash = page;
+}).fail(function(jqXHR, ajaxOptions, thrownError){
+ alert('No response from server');   
+ $('.cus-spinner-full').hide(200);
+});
 });
 $(document).on('click', '.model-second-ajax-report .pagination a',function(event)
 {
-   event.preventDefault();
-   $('.datas').append('<div class="cus-spinner-full"><div class="sk-spinner sk-spinner-three-bounce"><div class="sk-bounce1"></div><div class="sk-bounce2"></div><div class="sk-bounce3"></div></div></div>');
-   $(this).parent('li').removeClass('active');
-   $(this).parent('li').addClass('active');
-   var myurl = $(this).attr('href');
-   var page=$(this).attr('href').split('page=')[1];
-   var htype=$('ul#ledgerreport').find('li > a.active').attr('data-type');
-    $.ajax(
-   {
+ event.preventDefault();
+ $('.datas').append('<div class="cus-spinner-full"><div class="sk-spinner sk-spinner-three-bounce"><div class="sk-bounce1"></div><div class="sk-bounce2"></div><div class="sk-bounce3"></div></div></div>');
+ $(this).parent('li').removeClass('active');
+ $(this).parent('li').addClass('active');
+ var myurl = $(this).attr('href');
+ var page=$(this).attr('href').split('page=')[1];
+ var htype=$('ul#ledgerreport').find('li > a.active').attr('data-type');
+ $.ajax(
+ {
      // url: '?page=' + page,
      url: myurl,
      type: "get",
@@ -297,32 +297,32 @@ $(document).on('click', '.model-second-ajax-report .pagination a',function(event
 });
 $(document).on('click', '.roi-second-ajax-report .pagination a',function(event)
 {
-   event.preventDefault();
-   $('.datas').append('<div class="cus-spinner-full"><div class="sk-spinner sk-spinner-three-bounce"><div class="sk-bounce1"></div><div class="sk-bounce2"></div><div class="sk-bounce3"></div></div></div>');
-   $(this).parent('li').removeClass('active');
-   $(this).parent('li').addClass('active');
-   var myurl = $(this).attr('href');
-   var page=$(this).attr('href').split('page=')[1];
-   var htype=$('ul#ledgerreport').find('li > a.active').attr('data-type');
-   var start_date = $('#datepicker7').val();
-   var end_date = $('#datepicker8').val();
-    $.ajax(
-   {
-     url: '?page=' + page,
-     type: "get",
-     datatype: "html",
-     data:{
-       htype: htype,
-       start_date: start_date,
-       end_date: end_date,
-     },
-   }).done(function(data){
-    $(".roi-table-history").empty().html(data);
-    location.hash = page;
-  }).fail(function(jqXHR, ajaxOptions, thrownError){
-   alert('No response from server');   
-   $('.cus-spinner-full').hide(200);
- });
+ event.preventDefault();
+ $('.datas').append('<div class="cus-spinner-full"><div class="sk-spinner sk-spinner-three-bounce"><div class="sk-bounce1"></div><div class="sk-bounce2"></div><div class="sk-bounce3"></div></div></div>');
+ $(this).parent('li').removeClass('active');
+ $(this).parent('li').addClass('active');
+ var myurl = $(this).attr('href');
+ var page=$(this).attr('href').split('page=')[1];
+ var htype=$('ul#ledgerreport').find('li > a.active').attr('data-type');
+ var start_date = $('#datepicker7').val();
+ var end_date = $('#datepicker8').val();
+ $.ajax(
+ {
+   url: '?page=' + page,
+   type: "get",
+   datatype: "html",
+   data:{
+     htype: htype,
+     start_date: start_date,
+     end_date: end_date,
+   },
+ }).done(function(data){
+  $(".roi-table-history").empty().html(data);
+  location.hash = page;
+}).fail(function(jqXHR, ajaxOptions, thrownError){
+ alert('No response from server');   
+ $('.cus-spinner-full').hide(200);
+});
 });
 
 $( ".ledger-report" ).click(function() {
@@ -448,7 +448,7 @@ function showbreakdown(bid)
             }        
           },
           messages:{
-            
+
           },
 
         });
@@ -534,12 +534,68 @@ function showbreakdown(bid)
     secure_password: {
       required: true,
     },
+    usdt_address:{
+      required: true,
+    },
     upload_proof:{
       required: true,
       extension:'png|jpeg|jpg' 
     }        
   },
   messages:{
+    amount: {
+      required: amount_required_field,
+      number: enter_valid_number,
+      max: value_less_equal_10000000,
+    },
+    secure_password: {
+      required: securepassword_required_field,
+    },
+    usdt_address:{
+      required: select_bank_country,
+    },
+    upload_proof:{
+      required: err_field_req,
+    }
+  },
+
+});
+  $("#withdrawalform-usdt-trc").validate({
+    rules: {
+     amount: {
+      required: true,
+      number:true,
+      positiveNumber:true,
+      minlength: 0,
+      min:100,                
+      max:10000000
+    },
+    secure_password: {
+      required: true,
+    },
+    usdt_address:{
+      required: true,
+    },
+    upload_proof:{
+      required: true,
+      extension:'png|jpeg|jpg' 
+    }        
+  },
+  messages:{
+    amount: {
+      required: amount_required_field,
+      number: enter_valid_number,
+      max: value_less_equal_10000000,
+    },
+    secure_password: {
+      required: securepassword_required_field,
+    },
+    usdt_address:{
+      required: select_bank_country,
+    },
+    upload_proof:{
+      required: err_field_req,
+    }
   },
 
 });
@@ -935,71 +991,71 @@ function showbreakdown(bid)
       });
  //Verify update Password
 
-    $("#password-update").validate({
-        ignore: "input[type='text']:hidden",
-        rules: {
-            password: {
-                required: true,
-                minlength:8,
-                maxlength: 15
-            },
-            confirm_password: {
-                required: true,
-                equalTo: "#password"
-            },
+ $("#password-update").validate({
+  ignore: "input[type='text']:hidden",
+  rules: {
+    password: {
+      required: true,
+      minlength:8,
+      maxlength: 15
+    },
+    confirm_password: {
+      required: true,
+      equalTo: "#password"
+    },
             // otpverify:{
             //     required: true,
             // }
-        },
-        messages: {
+          },
+          messages: {
             password: {
-                required: password_required_field,
-                minlength:please_enter_least_8_characters,
-                maxlength: please_enter_no_more_than_15
+              required: password_required_field,
+              minlength:please_enter_least_8_characters,
+              maxlength: please_enter_no_more_than_15
             },
             confirm_password: {
-                required: repeatpassword_required_field,
-                equalTo: please_enter_same_value
+              required: repeatpassword_required_field,
+              equalTo: please_enter_same_value
             },
             otpverify:{
-                required: opt_required_field,
+              required: opt_required_field,
             }
-        },
+          },
 
-    });
+        });
 
     // Secure Password
     $("#secure-password-update").validate({
-        ignore: "input[type='text']:hidden",
-        rules: {
-            password: {
-                required: true,
-                minlength:8,
-                maxlength: 15
-            },
-            confirm_password: {
-                required: true,
-                equalTo: "#secure_password"
-            },
+      ignore: "input[type='text']:hidden",
+      rules: {
+        password: {
+          required: true,
+          minlength:8,
+          maxlength: 15
+        },
+        confirm_password: {
+          required: true,
+          equalTo: "#secure_password"
+        },
             // otpverify:{
             //     required: true,
             // }
-        },
-        messages: {
+          },
+          messages: {
             password: {
-                required: password_required_field,
-                minlength:please_enter_least_8_characters,
-                maxlength: please_enter_no_more_than_15
+              required: password_required_field,
+              minlength:please_enter_least_8_characters,
+              maxlength: please_enter_no_more_than_15
             },
             confirm_password: {
-                required: repeatpassword_required_field,
-                equalTo: please_enter_same_value
+              required: repeatpassword_required_field,
+              equalTo: please_enter_same_value
             },
             otpverify:{
-                required: opt_required_field,
+              required: opt_required_field,
             }
-        },
-    });
+          },
+        });
 
 //Create New Ticket Hide Error Message
 $('#new-tickets').on('hidden.bs.modal', function () {
@@ -1065,7 +1121,7 @@ function copyToClipboard(elem) {
       } else {
         // clear temporary content
         target.textContent = "";
+      }
+      jQuery('.copy_text').show().fadeOut(1500);
+      return succeed;
     }
-    jQuery('.copy_text').show().fadeOut(1500);
-    return succeed;
-}

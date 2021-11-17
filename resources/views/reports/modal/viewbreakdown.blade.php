@@ -14,10 +14,11 @@
                     <table class="table table-dark trading-table text-center table-responsive-sm datas">
                         <thead class="table-gradient">
                           <tr>
-                            <th>Amount</th>
-                            <th>Percentage</th>
-                            <th>From User</th>
-                            <th>Date</th>
+                            <th>{{trans('custom.AMOUNT')}}
+                            </th>
+                            <th>{{trans('custom.PERCENTAGE')}}</th>
+                            <th>{{trans('custom.FROM_USER')}}</th>
+                            <th>{{trans('custom.DATE')}}</th>
                           </tr>
                         </thead>
                         <tbody>
