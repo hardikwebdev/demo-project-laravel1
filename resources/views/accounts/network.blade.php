@@ -4,15 +4,17 @@
 @section('css')
 <link rel="stylesheet" href="{{ asset('assets/tree/assets/css/style.css') }}"/> 
 <link rel="stylesheet" href="{{ asset('assets/tree/extensions/DataInspector.css') }}" />
+<link rel="stylesheet" href="{{ asset('assets/treanttree/css/Treant.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/treanttree/css/collapsable.css') }}">
 @endsection
 @section('content')
 <div class="content-wrapper nodes">
-    <div class="ml-2 mb-4 d-none-desk d-md-block">
-      <h2 class="text-warning font-weight-bold">@yield('page_title','Dashboard')</h2>
-      @if(Route::currentRouteName() == 'dashboard')
-      <p class="text-white">{{str_replace('#name',auth()->user()->name,__('custom.wc_text'))}}</p>
-      @endif
-    </div>
+  <div class="ml-2 mb-4 d-none-desk d-md-block">
+    <h2 class="text-warning font-weight-bold">@yield('page_title','Dashboard')</h2>
+    @if(Route::currentRouteName() == 'dashboard')
+    <p class="text-white">{{str_replace('#name',auth()->user()->name,__('custom.wc_text'))}}</p>
+    @endif
+  </div>
   <div class="row mt-3">
     <div class="col-12 col-xl-8">
       <!-- <img src="{{ asset('assets/images/assets/Node_Management/Group1055.png') }}" class="img-fluid w-100" alt="" style="height: 460px;"> -->
@@ -87,9 +89,11 @@
 <!--       <img src="{{ asset('assets/images/assets/Node_Management/Group1054.png') }}" class="img-fluid rounded-right w-100" alt="" style="height: 336px;">
 -->    </div>  
 </div>
+<div class="chart" id="collapsable-example" style="background-color:#ffffff;"></div>
+
 <div class="table-history">
-  
-@include('accounts.pairing_history')
+
+  @include('accounts.pairing_history')
 </div>
 @endsection
 @section('scripts')
@@ -102,7 +106,14 @@
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script src="{{ asset('assets/treanttree/js/raphael.js') }}"></script>
+<script src="{{ asset('assets/treanttree/js/Treant.js') }}"></script>
+<script src="{{ asset('assets/treanttree/js/jquery.min.js') }}"></script>
+<script src="{{ asset('assets/treanttree/js/jquery.easing.js') }}"></script>
+<script src="{{ asset('assets/treanttree/js/collapsable.js') }}"></script>
 <script type="text/javascript">
+  tree = new Treant( chart_config );
+
   $(document).ready(function(e){
     var users = {!! json_encode($users) !!};
     init(users,1);
@@ -123,48 +134,48 @@
         rangeDescription: ''
       },
       categories: {!! json_encode(array_values($months)) !!}
-  },
+    },
 
-  legend: {
-    layout: 'vertical',
-    align: 'right',
-    verticalAlign: 'middle'
-  },
+    legend: {
+      layout: 'vertical',
+      align: 'right',
+      verticalAlign: 'middle'
+    },
 
-  plotOptions: {
-    series: {
-      label: {
-        connectorAllowed: false
-      },
-    }
-  },
-
-  series: [{
-    name: "{{ __('custom.sale_left') }}",
-    data: {!! json_encode($graph['sale_left']) !!}
-  }, {
-    name: "{{ __('custom.sale_right') }}",
-    data: {!! json_encode($graph['sale_right']) !!}
-  }, {
-    name: "{{ __('custom.commission') }}",
-    data: {!! json_encode($graph['pairing_commission']) !!}
-  }],
-
-  responsive: {
-    rules: [{
-      condition: {
-        maxWidth: 500
-      },
-      chartOptions: {
-        legend: {
-          layout: 'horizontal',
-          align: 'center',
-          verticalAlign: 'bottom'
-        }
+    plotOptions: {
+      series: {
+        label: {
+          connectorAllowed: false
+        },
       }
-    }]
-  }
+    },
 
-});
+    series: [{
+      name: "{{ __('custom.sale_left') }}",
+      data: {!! json_encode($graph['sale_left']) !!}
+    }, {
+      name: "{{ __('custom.sale_right') }}",
+      data: {!! json_encode($graph['sale_right']) !!}
+    }, {
+      name: "{{ __('custom.commission') }}",
+      data: {!! json_encode($graph['pairing_commission']) !!}
+    }],
+
+    responsive: {
+      rules: [{
+        condition: {
+          maxWidth: 500
+        },
+        chartOptions: {
+          legend: {
+            layout: 'horizontal',
+            align: 'center',
+            verticalAlign: 'bottom'
+          }
+        }
+      }]
+    }
+
+  });
 </script>
 @endsection

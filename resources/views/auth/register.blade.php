@@ -425,7 +425,7 @@ $local_url = url('locale');
  </label>
 </div>
 </div>
- <div class="col-12 col-md-6 sigbox">
+ <!-- <div class="col-12 col-md-6 sigbox">
    <div class="card rounded-0">
       <div class="card-body">
         <label class="" for="">{{__('custom.signature')}}</label>
@@ -437,7 +437,7 @@ $local_url = url('locale');
     </div>
 </div>
 </div>
-</div>
+ --></div>
 </fieldset>
 </form> 
 </div>
@@ -628,12 +628,12 @@ $( document ).ready(function() {
       previous: '<button class="btn bg-transparent border-warning text-white py-4 px-5 mt-4 mt-md-2 font-weight-bold rounded-0 font-18 text-uppercase"><img src="{{ asset("assets/images/assets/Staking_Pools/Group179.png") }}" class="img-fluid mr-3 align-middle" alt="" style="transform: rotate(180deg);">{{trans("custom.previous")}}</button>'
   },
   onInit: function (event, current) {
-    var sigpad = $('#sigpad').signature({syncField: '#signature', syncFormat: 'PNG'});
-    $('#clear').click(function(e) {
-        e.preventDefault();
-        sigpad.signature('clear');
-        $("#signature").val('');
-    });
+    // var sigpad = $('#sigpad').signature({syncField: '#signature', syncFormat: 'PNG'});
+    // $('#clear').click(function(e) {
+    //     e.preventDefault();
+    //     sigpad.signature('clear');
+    //     $("#signature").val('');
+    // });
     $('.actions > ul > li:first-child').attr('style', 'display:none');
 },
 onStepChanging: function (event, currentIndex, newIndex)
@@ -887,10 +887,10 @@ onStepChanging: function (event, currentIndex, newIndex)
                      bank_country_id:{
                          required: true,
                      },
-                     signature:{
-                         required: true,
-                           // maxlength: 50,
-                       },
+                     // signature:{
+                     //     required: true,
+                     //       // maxlength: 50,
+                     //   },
                        // d_date:{
                        //     required: true,
                        // },
