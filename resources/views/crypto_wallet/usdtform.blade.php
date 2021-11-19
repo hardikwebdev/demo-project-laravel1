@@ -55,7 +55,7 @@
                   <animate attributeName="fill" values="#4658ac;#e7008a;#ff003a;#ff6d00;#4658ac" keyTimes="0;0.25;0.5;0.75;1" dur="1s" repeatCount="indefinite" begin="-0.16666666666666666s"></animate>
                 </rect><anximatetransform attributeName="transform" type="translate" filter="url(#lds-mask-filterid-8cd6779640b8a)" values="0 0;100 0" keyTimes="0;1" dur="1s" repeatCount="indefinite"></anximatetransform>
                 </g></g></svg></div>
-                    <p style="font-family: verdana;color: #4c4c4c;">Please wait. Do not refresh this page.</p>
+                    <p style="font-family: verdana;color: #4c4c4c;">{{ trans('custom.Please_wait_Do_not_refresh_this_page')}}</p>
                     </div>
             </div>
         </div>

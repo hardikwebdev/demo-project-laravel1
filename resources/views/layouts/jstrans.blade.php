@@ -4,6 +4,8 @@ var verify_entered_sponsor = "{{trans('custom.verify_entered_sponsor')}}";
 var enter_captach_valid = "{{trans('custom.enter_captach_valid')}}";
 var consists_letters_numbers_underscores_only = "{{trans('custom.consists_letters_numbers_underscores_only')}}";
 var consists_letters_numbers_only = "{{trans('custom.consists_letters_numbers_only')}}";
+var letters_numbers_and_underscores_only_please = "{{trans('custom.letters_numbers_and_underscores_only_please')}}";
+var please_verify_the_sponsor_id_first = "{{ trans('custom.please_verify_the_sponsor_id_first') }}"
 
 var amount_must_greater_0 = "{{trans('custom.amount_must_greater_0')}}";
 var enter_username = "{{trans('custom.enter_username')}}";
@@ -118,5 +120,19 @@ var max = {{ (isset($max_stake)) ? $max_stake : 0 }};
 var min = {{ (isset($min_stake)) ? $min_stake : 0 }};
 var two_decimal_message = '{{trans("custom.two_decimal_message")}}';
 var agreement_title = "{{trans('custom.agreement_title')}}";
+
+
+var please_enter_address = "{{ trans('custom.please_enter_address') }}";
+var please_enter_city = "{{ trans('custom.please_enter_city') }}";
+var please_enter_state = "{{ trans('custom.please_enter_state') }}";
+var Please_select_country = "{{ trans('custom.Please_select_country') }}";
+
+var Please_enter_number_only = "{{ trans('custom.Please_enter_number_only') }}";
+var Please_enter_minimum_9_character = "{{ trans('custom.Please_enter_minimum_9_character') }}";
+
+var Please_enter_nft_wallet_address = "{{ trans('custom.Please_enter_nft_wallet_address') }}";
+
+
+
 
 </script>

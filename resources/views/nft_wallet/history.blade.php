@@ -1,6 +1,6 @@
 <div class="row mt-5">
   <div class="col-12">
-    <p class="text-white pb-3">NFT Wallet History</p>
+    <p class="text-white pb-3">{{trans('custom.nft_wallet_history')}}</p>
   </div>
   <div class="col-12">
     <div class="table-responsive">

@@ -87,7 +87,7 @@ $local_url = url('locale');
                           <hr class="w-100 border border-white my-3" />
                       </div>
                       <div class="col-12 text-center mt-3">
-                          <h4 class="text-light-pink"><a href="https://app.defixfinance.com">Login</a> | <a href="{{ route('register') }}"
+                          <h4 class="text-light-pink"><a href="https://app.defixfinance.com" class="text-white ml-2">{{ __('custom.Login') }}</a> | <a href="{{ route('register') }}"
                                   class="text-white ml-2">{{ __('custom.sign_up') }}</a></h4>
                       </div>
                   </div>
@@ -120,16 +120,19 @@ $local_url = url('locale');
                       },
                       messages: {
                           email: {
-                              required: "Email is required.",
-                              email: "Please enter valid email."
+                            required: "{{trans('custom.email_is_required')}}",
+                            email: "{{trans('custom.please_enter_valid_email')}}",
                           },
                           password: {
-                              required: "Password is required.",
-                              minlength: "Your password must be at least 8 characters long.",
+                              required: "{{trans('custom.Password_is_required')}}",
+                              minlength: "{{trans('custom.Your_password_must_be_at_least_8_characters_long')}}",
+                              maxlength: "{{trans('custom.Please_enter_no_more_than_15_characters')}}",
                           },
                           password_confirmation: {
-                              required: "Confirm password is required.",
-                              equalTo: "Please enter the same password as above."
+                              required: "{{trans('custom.Confirm_password_is_required')}}",
+                              equalTo: "{{trans('custom.Please_enter_the_same_password_as_above')}}",
+                              minlength: "{{trans('custom.Your_password_must_be_at_least_8_characters_long')}}",
+                              maxlength: "{{trans('custom.Please_enter_no_more_than_15_characters')}}",
                           },
                       },
                   })

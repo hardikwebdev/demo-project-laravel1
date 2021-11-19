@@ -303,7 +303,7 @@ $local_url = url('locale');
 </div>
 </div>              
 </fieldset>
-<h1 class="text-uppercase">{{trans('custom.bank_details')}}</h1>
+<h1 class="text-uppercase">{{trans('custom.BANK_DETAILS')}}</h1>
 <fieldset>
    <div class="row justify-content-center mt-5">                     
      <div class="col-12 col-md-6 mt-2 pt-1 pr-md-0">
@@ -379,7 +379,7 @@ $local_url = url('locale');
 <h1>{{ trans('custom.user_agreement') }}</h1>
 <fieldset>
   <div class="row justify-content-center mt-5">
-   <div class="col-12 text-white">
+   {{-- <div class="col-12 text-white">
     <h4>By creating an account at DefiXFinance, you agree and comply that:</h4>
 <ul><li>All input information is accurate and true to your best knowledge;</li>
 <li>You adhere to provide additional information to prove such validity if required;</li>
@@ -392,14 +392,16 @@ $local_url = url('locale');
 
 <li>You agree that DefiXFinance, in its sole discretion and without liability to you or any third party, may suspend or terminate your use of service (or any part thereof) and remove and discard any content within the service, for any reason, including, without limitation, for lack of use or if DefiXFinance believes that you have violated or acted inconsistently with the letter or spirit of these terms of service.</li>
      </ul>
-</div>
+</div> --}}
+{!! trans('custom.user_aggrement_list') !!}
 </div>
 
 <div class="row mt-3 mb-3 ticks">
 <div class="col-12 col-md-6 form-group row">
-    <div class="col-md-12"><h4 style="color:#fff">Please tick the following the complete your registration:</h4>
+    {{-- <div class="col-md-12"><h4 style="color:#fff">Please tick the following the complete your registration:</h4>
     <p style="color:#fff">I agree I have read the following documents and adhere to the terms and conditions that has been outlined in the documents below:</p>
-    </div>
+    </div> --}}
+    {!! trans('custom.click_to_finish_registration') !!}
    <div class="col-md-12 user-agrrement-errro">
       <label class="m-checkbox">
          <input class="chk_agreements " type="checkbox" id="antimoney_laundering" name="terms_condition[]" value="antimoney_laundering" >
@@ -591,7 +593,7 @@ $( document ).ready(function() {
     } else {
         return  true;
     }
-}, "Please verify the sponsor id first.");
+}, "{{ trans('custom.please_verify_the_sponsor_id_first') }}");
    $.validator.addMethod(
     "alphanumeric1",
     function(value, element) {
@@ -936,6 +938,7 @@ onStepChanging: function (event, currentIndex, newIndex)
    },
    username: {
        required: username_required_field,
+       alphanumeric: letters_numbers_and_underscores_only_please,
        minlength: please_enter_least_3_characters,
        maxlength: please_enter_no_more_than_50,
        remote: username_already_exists,

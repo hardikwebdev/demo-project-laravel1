@@ -743,7 +743,6 @@ function showbreakdown(bid)
       },
       country: {
         required: true,
-        number: true,
       },
       phone_number: {
         required: true,
@@ -753,27 +752,30 @@ function showbreakdown(bid)
       },
     },
     messages: {
-      name: {
-        required: "Please enter full name",
-        maxlength: "Maximim limit of sponsor name is 20 character",
+      fullname: {
+        required: enter_full_name,
+        maxlength: please_enter_no_more_than_50,
       },
       address: {
-        required: "Please enter address",
+        required: please_enter_address,
+        maxlength: please_enter_no_more_than_100,
       },
       city: {
-        required: "Please enter city",
+        required: please_enter_city,
+        maxlength: please_enter_no_more_than_50,
       },
       state: {
-        required: "Please enter state",
+        required: please_enter_state,
+        maxlength: please_enter_no_more_than_50,
       },
       country: {
-        required: "PLease select country",
+        required: Please_select_country,
       },
       phone_number: {
-        required: "Please enter phone number",
-        number: "Please enter number only",
-        minlength:"Please enter minimum 9 character",
-        maxlength: "Maximim limit of username is 15 character",
+        required: phone_number_required_field,
+        number: enter_valid_number,
+        minlength:please_enter_least_10_characters,
+        maxlength: please_enter_no_more_than_15,
       },
     },
   });
@@ -844,8 +846,9 @@ function showbreakdown(bid)
       },
     },
     messages: {
-      address: {
-        required: "Please enter address",
+      nft_wallet_address: {
+        required: Please_enter_nft_wallet_address,
+        maxlength: please_enter_no_more_than_50,
       },
     },
   });

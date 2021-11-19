@@ -28,7 +28,7 @@
 <link rel="stylesheet" href="{{ asset('assets/treanttree/css/collapsable.css').'?v='.time() }}">
 </head>
     				<style type="text/css">
-    					 @font-face {font-family: "EUROSTIB";font-display: auto;font-fallback: ;font-weight: 100;src: url(https://app.defixfinance.com/public/assets/fonts/EUROSTIB.ttf) format('TrueType');} @font-				</style>
+    					 @font-face {font-family: "EUROSTIB";font-display: auto;font-fallback: ;font-weight: 100;src: url(https://app.defixfinance.com/public/assets/fonts/EUROSTIB.ttf) format('TrueType');} </style>
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->

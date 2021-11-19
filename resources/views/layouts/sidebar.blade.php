@@ -35,7 +35,7 @@
     <li class="nav-item">
       <a class="nav-link collapsed" data-toggle="collapse" href="#wallets" aria-expanded="false" aria-controls="tables">
         <img src="{{ asset('assets/images/assets/Dashboard/Group952.png') }}" class="cus-sidebar-icon" alt="">
-        <span class="menu-title">Wallets</span>
+        <span class="menu-title">{{trans('custom.wallets')}}</span>
         <i class="menu-arrow"></i>
       </a>
       <div class="collapse" id="wallets">
