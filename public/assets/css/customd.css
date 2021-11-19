@@ -5,7 +5,7 @@ p.dix.pt-3.text-white {
     font-size: smaller;
 }
 div#myDiagramDiv {
-    background-image: url(https://app.defixfinance.com/public/assets/images/assets/nodebg.jpg) !important;
+background-image: url(https://app.defixfinance.com/public/assets/images/assets/nodebg.jpg) !important;
     background-size: cover;
     border-radius:5px
 }
@@ -148,52 +148,52 @@ span.invalid-feedback {
     background-color: rgba(255,255,255,0.4) !important;
 }
 @media only screen and (min-width: 600px) {
-    .steps ul li.first a { border-radius: 5px 0px 0px 5px !important; }
-    .steps ul li.last a { border-radius: 0px 5px 5px 0px !important; }
-    .wizard > .steps > ul > li { 
-        width:33% !important;
+.steps ul li.first a { border-radius: 5px 0px 0px 5px !important; }
+.steps ul li.last a { border-radius: 0px 5px 5px 0px !important; }
+.wizard > .steps > ul > li { 
+    width:33% !important;
         margin:0px !important
-    }
+}
     .register-inner .col-12.text-right.leftright {
-        margin-top:-30px    
-    }
+margin-top:-30px    
+}
     .d-none-desk {
         display:none !important
     }
     nav.navbar .navbar-brand-wrapper {
-        height: 120px;
-    }
+    height: 120px;
+}
     nav.navbar .navbar-menu-wrapper {
-        height: 120px;
-    }
+height: 120px;
+}
 }
 @media only screen and (max-width: 600px) {
     .col-12.text-center.login-logo {
         margin-top:40px
     }
     .wallet-dashboard .col-12 .card {
-        background-size: 130%;
-    }
+    background-size: 130%;
+}
     .row.dashboard-news .bg-news {
         min-height:120px
     }
     .navbar .navbar-brand-wrapper .brand-logo-mini img {
-        width: 174%;
-        max-width: none;
-        margin: auto;
-        height: auto;
-        padding-left: 18px;
-        z-index: 99999;
-    }
+    width: 174%;
+    max-width: none;
+    margin: auto;
+    height: auto;
+    padding-left: 18px;
+    z-index: 99999;
+}
     .navbar .navbar-brand-wrapper, .navbar .navbar-menu-wrapper {
-        height: 100px !important;
-    }
+    height: 100px !important;
+}
     .text-center.navbar-brand-wrapper.d-flex.align-items-center.justify-content-center {
         z-index:999
-    }
+}
 }
 .bankc.col-12 {
-    padding-right: 16px;
+padding-right: 16px;
     padding-bottom: 1px;
 }
 .sigbox .card {
