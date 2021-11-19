@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="{{ asset('assets/css/custom/themify-icons.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/vertical-layout-light/style.css') }}">
   <link rel="stylesheet" href="{{ asset('backend/css/dropify.min.css')}}">
-    <link rel="stylesheet" href="https://app.defixfinance.com/assets/css/customd.css.'?v='.time()">
+    <link rel="stylesheet" href="https://app.defixfinance.com/assets/css/customd.css">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/index.css').'?v='.time() }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/slick.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/slick-theme.min.css') }}">
