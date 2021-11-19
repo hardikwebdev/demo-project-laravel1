@@ -89,8 +89,6 @@
 <!--       <img src="{{ asset('assets/images/assets/Node_Management/Group1054.png') }}" class="img-fluid rounded-right w-100" alt="" style="height: 336px;">
 -->    </div>  
 </div>
-<div class="chart" id="collapsable-example" style="background-color:#ffffff;"></div>
-
 <div class="table-history">
 
   @include('accounts.pairing_history')
@@ -112,8 +110,8 @@
 <script src="{{ asset('assets/treanttree/js/jquery.easing.js') }}"></script>
 <script src="{{ asset('assets/treanttree/js/collapsable.js') }}"></script>
 <script type="text/javascript">
-  tree = new Treant( chart_config );
-
+        tree = new Treant( chart_config );
+  
   $(document).ready(function(e){
     var users = {!! json_encode($users) !!};
     init(users,1);
