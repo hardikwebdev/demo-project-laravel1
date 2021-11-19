@@ -238,8 +238,8 @@
         {{Form::open(['','class' => '','id' =>'staking_agreement','class' =>'staking_agreement','enctype' => 'multipart/form-data','method'=>'POST'])}}
         <div class="font-16 text-left">
           {!!trans('custom.staking_agreement')!!}
-          <!-- <div class="col-12 col-md-12">
-           <div class="card rounded-0">
+          <div class="col-12 col-md-12">
+           <div class="card rounded-0" style="background-color:transparent;">
             <div class="card-body">
               <label class="" for="">{{__('custom.signature')}}</label>
               <br/>
@@ -249,7 +249,7 @@
               <textarea id="signature" name="signature" style="display: none"></textarea>
             </div>
           </div>
-        </div> -->
+        </div>
         <div class="col-12 align-items-center mt-3">
           <input type="checkbox" name="terms_agree" id="terms_agree"><label class="font-10 ml-2 text-coffee" for="terms_agree">{{trans('custom.accept_terms')}}</label> 
         </div>

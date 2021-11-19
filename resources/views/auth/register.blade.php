@@ -142,6 +142,18 @@ $local_url = url('locale');
  </span>
  @enderror
 </div>
+ <div class="col-12 col-md-6 sigbox">
+   <div class="card rounded-0">
+      <div class="card-body">
+        <label class="" for="">{{__('custom.signature')}}</label>
+        <br/>
+        <div id="sigpad"></div>
+        <br><br>
+        <button id="clear" class="btn btn-danger rounded-0">{{__('custom.clear_signature')}}</button>
+        <textarea id="signature" name="signature" style="display: none"></textarea>
+    </div>
+</div>
+</div>
 <div class="col-12 col-md-4 mt-2 pt-1 pr-md-0 pl-md-2">
    <input id="username" type="text" class="form-control grey-ph h-auto py-4 rounded-0 @error('username') is-invalid @enderror"
    name="username" value="{{ old('username') }}" autocomplete="username" autofocus
@@ -628,12 +640,12 @@ $( document ).ready(function() {
       previous: '<button class="btn bg-transparent border-warning text-white py-4 px-5 mt-4 mt-md-2 font-weight-bold rounded-0 font-18 text-uppercase"><img src="{{ asset("assets/images/assets/Staking_Pools/Group179.png") }}" class="img-fluid mr-3 align-middle" alt="" style="transform: rotate(180deg);">{{trans("custom.previous")}}</button>'
   },
   onInit: function (event, current) {
-    // var sigpad = $('#sigpad').signature({syncField: '#signature', syncFormat: 'PNG'});
-    // $('#clear').click(function(e) {
-    //     e.preventDefault();
-    //     sigpad.signature('clear');
-    //     $("#signature").val('');
-    // });
+    var sigpad = $('#sigpad').signature({syncField: '#signature', syncFormat: 'PNG',background: 'transparent'});
+    $('#clear').click(function(e) {
+        e.preventDefault();
+        sigpad.signature('clear');
+        $("#signature").val('');
+    });
     $('.actions > ul > li:first-child').attr('style', 'display:none');
 },
 onStepChanging: function (event, currentIndex, newIndex)

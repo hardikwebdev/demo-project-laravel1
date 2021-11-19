@@ -24,9 +24,11 @@
           <li class="nav-item"> 
             <a class="nav-link pl-0" href="{{ route('node_register') }}">{{trans('custom.register')}}</a>
           </li>
+          @if(auth()->user()->staking_history->count() > 0 ) 
           <li class="nav-item"> 
             <a class="nav-link pl-0" href="{{ route('node_management') }}">{{trans('custom.nodes')}}</a>
           </li>
+          @endif
         </ul>
       </div>
     </li>
@@ -41,6 +43,7 @@
           <li class="nav-item"> 
             <a class="nav-link pl-0" href="{{ route('crypto_wallets') }}">{{trans('custom.crypto_wallet')}}</a>
           </li>
+          @if(auth()->user()->staking_history->count() > 0 ) 
           <li class="nav-item"> 
             <a class="nav-link pl-0" href="{{ route('yield_wallet') }}">{{trans('custom.yield_wallet')}}</a>
           </li>
@@ -50,6 +53,7 @@
           <li class="nav-item"> 
             <a class="nav-link pl-0" href="{{ route('nft_wallet') }}">{{trans('custom.nft_wallet')}}</a>
           </li>
+          @endif
         </ul>
       </div>
     </li>
@@ -59,6 +63,7 @@
         <span class="menu-title">NFT Marketplace </span>
       </a>
     </li> -->
+    @if(auth()->user()->staking_history->count() > 0 ) 
     <li class="nav-item">
       <a class="nav-link" href="{{ route('withdrawal') }}">
         <img src="{{ asset('assets/images/assets/Dashboard/Group850.png') }}" class="cus-sidebar-icon" alt="">
@@ -71,7 +76,7 @@
         <span class="menu-title">{{trans('custom.Ledger')}}</span>
       </a>
     </li>
-    
+    @endif
     <li class="nav-item">
       <a class="nav-link collapsed" data-toggle="collapse" href="#account" aria-expanded="false" aria-controls="tables">
         <img src="{{ asset('assets/images/assets/Dashboard/Group851.png') }}" class="cus-sidebar-icon" alt="">
