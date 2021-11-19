@@ -9,33 +9,36 @@ body {
     
 }
 .chat-discussion .chat-message.left {
-        float: left;
-        background-color: #1dafbb;
-    }
+    float: left;
+    background-color: #1dafbb;
+}
 .chat-discussion {
-        /* background: #fe0000; */
-        border-radius: 4px;
-        display: block;
-        position: relative;
-        overflow: hidden;
-        padding: 10px;
-        margin-bottom: 20px;
-    }
-    .chat-discussion .message {
-        /* color: #121212; */
-    }
-    .chat-discussion .chat-message.right .message {
-        text-align: left;
-    }
-    .chat-discussion .chat-message.right .message-date {
-        float: right;
-    }
-    .chat-discussion .chat-message.left .message{
-            margin-left: 10px;
-        }
-        .chat-discussion .chat-message.right .message{
-            margin-right: 10px;
-        }
-        .chat-discussion .chat-message {
-            margin-bottom:15px; 
-        }    
+    /* background: #fe0000; */
+    border-radius: 4px;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.chat-discussion .message {
+    /* color: #121212; */
+}
+.chat-discussion .chat-message.right .message {
+    text-align: left;
+}
+.chat-discussion .chat-message.right .message-date {
+    float: right;
+}
+.chat-discussion .chat-message.left .message{
+    margin-left: 10px;
+}
+.chat-discussion .chat-message.right .message{
+    margin-right: 10px;
+}
+.chat-discussion .chat-message {
+    margin-bottom:15px; 
+}    
+text.highcharts-credits {
+    DISPLAY: none;
+}
