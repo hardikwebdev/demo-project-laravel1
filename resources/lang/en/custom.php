@@ -108,8 +108,8 @@ return [
     Thank you',
     'points_warning' => 'To unlock the features of your Member Login, kindly proceed for funding of account.',
     'click_here_add_points' => 'Click here to fund in your account.',
-    'buy_package_message'=> 'Please buy a package to activate your account and to access all the features of the Defix',
-    'click_here_add_package' => 'Click here to add package.',
+    'buy_package_message'=> 'Please invest in a stacking pool package to activate your account and to access all the features of the Defix',
+    'click_here_add_package' => 'Click here to add investment.',
     'verify' => 'Verify',
     /*Registration*/
     'enter_details_account' => 'Enter your details to create your account',

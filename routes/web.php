@@ -75,38 +75,14 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::post('/update-password', 'App\Http\Controllers\AccountController@updatePassword')->name('update-password');
         Route::post('/update-secure-password', 'App\Http\Controllers\AccountController@updateSecurePassword')->name('update-secure-password');
 
-        Route::get('/stacks', 'App\Http\Controllers\StackingPoolController@index')->name('stacks');
-        Route::post('/stacking-pool', 'App\Http\Controllers\StackingPoolController@stacking_pool')->name('staking_pool');
-        Route::get('/stack/{id}', 'App\Http\Controllers\StackingPoolController@detail')->name('stakepool');
-        Route::get('staking-pool/investmentperiod/{id}', 'App\Http\Controllers\StackingPoolController@investmentperiod')->name('stock-market-investment-period');
-        Route::post('/stake-plan-change/{id}', 'App\Http\Controllers\StackingPoolController@changePlan')->name('stake-plan-change');
-
-        Route::get('/node_management', 'App\Http\Controllers\AccountController@node_management')->name('node_management');
 
         Route::get('/node_register', 'App\Http\Controllers\AccountController@addmember')->name('node_register');
         Route::post('/createmember', 'App\Http\Controllers\AccountController@createMember')->name('createmember');
 
         Route::get('/crypto_wallets', 'App\Http\Controllers\WalletController@cryptoWallets')->name('crypto_wallets');
         Route::any('/crypto_wallets_form', 'App\Http\Controllers\WalletController@cryptoWalletForm')->name('cryptoWalletForm');
-        Route::get('/yield_wallet', 'App\Http\Controllers\WalletController@yieldWallet')->name('yield_wallet');
-        Route::any('/yield_wallet-request', 'App\Http\Controllers\WalletController@yieldWalletStore')->name('yield_wallet_store');
 
-        Route::get('/commission_wallet', 'App\Http\Controllers\WalletController@commission_wallet')->name('commission_wallet');
-        Route::post('/commission_wallet-request', 'App\Http\Controllers\WalletController@commissionWalletStore')->name('commission-wallet-store');
-        Route::get('/nft_wallet', 'App\Http\Controllers\WalletController@nft_wallet')->name('nft_wallet');
-        Route::get('/nft_marketplace', 'App\Http\Controllers\HomeController@nft_marketplace')->name('nft_marketplace');
-        // Route::get('/withdrawal', 'App\Http\Controllers\HomeController@withdrawal')->name('withdrawal');
-        // Ledger route
-        Route::get('/ledger', 'App\Http\Controllers\LedgerController@ledger')->name('ledger');
-        Route::post('/stackingpoolpackageajax', 'App\Http\Controllers\LedgerController@stackingpoolpackageAjax')->name('stackingpoolpackage-ajax');
-        Route::post('/pairingcommissionajax', 'App\Http\Controllers\LedgerController@pairingCommissionAjax')->name('pairingcommissionajax');
-        Route::post('/referralcommissionajax', 'App\Http\Controllers\LedgerController@referralCommissionAjax')->name('referralcommissionajax');
-        Route::post('/roiajx', 'App\Http\Controllers\LedgerController@roiAjax')->name('roiajax');
-        Route::get('/view-breakdown/{id}', 'App\Http\Controllers\LedgerController@viewbreakdown')->name('view.breakdown');
-        Route::post('/ledger/staking-export', 'App\Http\Controllers\LedgerController@stakingPoolExport')->name('reports-staking-pool-export');
-        Route::post('/ledger/pairing-commissions-export', 'App\Http\Controllers\LedgerController@pairingCommissionsExport')->name('reports-pairing-commissions-export');
-        Route::post('/ledger/referral-commissions-export', 'App\Http\Controllers\LedgerController@referralCommissionsExport')->name('referral-commissions-export');
-        Route::post('/ledger/roi-export', 'App\Http\Controllers\LedgerController@roiExport')->name('roi-export');
+
         
         Route::get('/account', 'App\Http\Controllers\AccountController@profile')->name('account');
         Route::post('/personal-detail-upadte', 'App\Http\Controllers\AccountController@updatePersonalDetail')->name('personal-detail-upadte');
@@ -117,9 +93,6 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         // Route::get('/help_support', 'App\Http\Controllers\HomeController@help_support')->name('help_support');
         Route::get('/nftproduct', 'App\Http\Controllers\HomeController@nftproduct')->name('nftproduct');
         Route::get('/sell_nft', 'App\Http\Controllers\HomeController@sell_nft')->name('sell_nft');
-        Route::get('/withdrawal', 'App\Http\Controllers\WithdrawalController@index')->name('withdrawal');
-        Route::post('/withdrawal-request', 'App\Http\Controllers\WithdrawalController@withdrawalRequest')->name('withdrawal-request');
-        Route::any('resend-email/{id}', 'App\Http\Controllers\WithdrawalController@resendEmail')->name('resendEmail');
 
         Route::get('/faq', 'App\Http\Controllers\HomeController@helpandfaq')->name('helpandfaq');
         // Route::resource('help-support', 'App\Http\Controllers\SupportTicketController')->name('help-support');
@@ -129,6 +102,39 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::post('help-support-replay-message', [SupportTicketController::class, 'supportReplayPost'])->name('supportReplayPost');
 
         Route::resource('news-and-events', NewsandEventsController::class);
+        Route::get('/stacks', 'App\Http\Controllers\StackingPoolController@index')->name('stacks');
+        Route::post('/stacking-pool', 'App\Http\Controllers\StackingPoolController@stacking_pool')->name('staking_pool');
+        Route::get('/stack/{id}', 'App\Http\Controllers\StackingPoolController@detail')->name('stakepool');
+        Route::get('staking-pool/investmentperiod/{id}', 'App\Http\Controllers\StackingPoolController@investmentperiod')->name('stock-market-investment-period');
+        Route::post('/stake-plan-change/{id}', 'App\Http\Controllers\StackingPoolController@changePlan')->name('stake-plan-change');
+        Route::middleware(['checkUserStaking'])->group(function () {
+
+            Route::get('/node_management', 'App\Http\Controllers\AccountController@node_management')->name('node_management');
+
+            Route::get('/yield_wallet', 'App\Http\Controllers\WalletController@yieldWallet')->name('yield_wallet');
+            Route::any('/yield_wallet-request', 'App\Http\Controllers\WalletController@yieldWalletStore')->name('yield_wallet_store');
+
+            Route::get('/commission_wallet', 'App\Http\Controllers\WalletController@commission_wallet')->name('commission_wallet');
+            Route::post('/commission_wallet-request', 'App\Http\Controllers\WalletController@commissionWalletStore')->name('commission-wallet-store');
+            Route::get('/nft_wallet', 'App\Http\Controllers\WalletController@nft_wallet')->name('nft_wallet');
+            Route::get('/nft_marketplace', 'App\Http\Controllers\HomeController@nft_marketplace')->name('nft_marketplace');
+        // Route::get('/withdrawal', 'App\Http\Controllers\HomeController@withdrawal')->name('withdrawal');
+        // Ledger route
+            Route::get('/ledger', 'App\Http\Controllers\LedgerController@ledger')->name('ledger');
+            Route::post('/stackingpoolpackageajax', 'App\Http\Controllers\LedgerController@stackingpoolpackageAjax')->name('stackingpoolpackage-ajax');
+            Route::post('/pairingcommissionajax', 'App\Http\Controllers\LedgerController@pairingCommissionAjax')->name('pairingcommissionajax');
+            Route::post('/referralcommissionajax', 'App\Http\Controllers\LedgerController@referralCommissionAjax')->name('referralcommissionajax');
+            Route::post('/roiajx', 'App\Http\Controllers\LedgerController@roiAjax')->name('roiajax');
+            Route::get('/view-breakdown/{id}', 'App\Http\Controllers\LedgerController@viewbreakdown')->name('view.breakdown');
+            Route::post('/ledger/staking-export', 'App\Http\Controllers\LedgerController@stakingPoolExport')->name('reports-staking-pool-export');
+            Route::post('/ledger/pairing-commissions-export', 'App\Http\Controllers\LedgerController@pairingCommissionsExport')->name('reports-pairing-commissions-export');
+            Route::post('/ledger/referral-commissions-export', 'App\Http\Controllers\LedgerController@referralCommissionsExport')->name('referral-commissions-export');
+            Route::post('/ledger/roi-export', 'App\Http\Controllers\LedgerController@roiExport')->name('roi-export');
+            Route::get('/withdrawal', 'App\Http\Controllers\WithdrawalController@index')->name('withdrawal');
+            Route::post('/withdrawal-request', 'App\Http\Controllers\WithdrawalController@withdrawalRequest')->name('withdrawal-request');
+            Route::any('resend-email/{id}', 'App\Http\Controllers\WithdrawalController@resendEmail')->name('resendEmail');
+
+        });
     });
 
 

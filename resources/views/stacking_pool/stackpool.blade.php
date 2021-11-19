@@ -239,7 +239,7 @@
         <div class="font-16 text-left">
           {!!trans('custom.staking_agreement')!!}
           <div class="col-12 col-md-12">
-           <div class="card rounded-0">
+           <div class="card rounded-0" style="background-color:transparent;">
             <div class="card-body">
               <label class="" for="">{{__('custom.signature')}}</label>
               <br/>

@@ -2,10 +2,7 @@
 @section('title', __('custom.node_management'))
 @section('page_title', __('custom.node_management'))
 @section('css')
-<link rel="stylesheet" href="{{ asset('assets/tree/assets/css/style.css') }}"/> 
-<link rel="stylesheet" href="{{ asset('assets/tree/extensions/DataInspector.css') }}" />
-<link rel="stylesheet" href="{{ asset('assets/treanttree/css/Treant.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/treanttree/css/collapsable.css') }}">
+
 @endsection
 @section('content')
 <div class="content-wrapper nodes">
@@ -18,7 +15,7 @@
   <div class="row mt-3">
     <div class="col-12 col-xl-8">
       <!-- <img src="{{ asset('assets/images/assets/Node_Management/Group1055.png') }}" class="img-fluid w-100" alt="" style="height: 460px;"> -->
-      <div id="myDiagramDiv" style="background-color: #ffffff; border: solid 1px #000000;min-height: 460px;"></div>
+      <div class="chart" id="collapsable-example" style="background-color:#ffffff;"></div>
     </div>
     <div class="col-12 col-xl-4 mt-4 mt-xl-0">
       <div class="table-responsive">
@@ -89,7 +86,6 @@
 <!--       <img src="{{ asset('assets/images/assets/Node_Management/Group1054.png') }}" class="img-fluid rounded-right w-100" alt="" style="height: 336px;">
 -->    </div>  
 </div>
-<div class="chart" id="collapsable-example" style="background-color:#ffffff;"></div>
 
 <div class="table-history">
 

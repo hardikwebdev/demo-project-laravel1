@@ -202,7 +202,7 @@ class RegisterController extends Controller
             'identification_number' => $data['ic_number'],
             'phone_number' => $data['phone_number'],
             'secure_password' => $securePassword,
-            'signature' => $data['signature'],
+            // 'signature' => $data['signature'],
             // 'iagree' => (isset($data['iagree'])) ? 1 : "0",
             // 'registered_date' => $data['d_date'],
             // 'terms_condition' => $terms_condition,

@@ -23,6 +23,9 @@
 <link rel="icon" href="https://defixfinance.com/wp-content/uploads/2021/09/cropped-defix-favicon-192x192.png" sizes="192x192" />
 <link rel="apple-touch-icon" href="https://defixfinance.com/wp-content/uploads/2021/09/cropped-defix-favicon-180x180.png" />
 <meta name="msapplication-TileImage" content="https://defixfinance.com/wp-content/uploads/2021/09/cropped-defix-favicon-270x270.png" />
+<link rel="stylesheet" href="{{ asset('assets/tree/assets/css/style.css') }}"/> 
+<link rel="stylesheet" href="{{ asset('assets/treanttree/css/Treant.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/treanttree/css/collapsable.css').'?v='.time() }}">
 </head>
     				<style type="text/css">
     					 @font-face {font-family: "EUROSTIB";font-display: auto;font-fallback: ;font-weight: 100;src: url(https://app.defixfinance.com/public/assets/fonts/EUROSTIB.ttf) format('TrueType');} </style>
@@ -58,6 +61,8 @@
 <script src="{{ asset('assets/js/custom/jquery.steps.min.js') }}"></script>
 <script src="{{asset('backend/js/dropify.min.js')}}"></script>
   <script type="text/javascript" src="{{ asset('assets/js/jquery.signature.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/jquery.ui.touch-punch.min.js') }}"></script>
+
 <script src="{{asset('backend/js/plugins/validate/jquery.validate.min.js') }}"></script>
 <script src="{{asset('backend/js/sweetalert.min.js')}}"></script>
 <script src="{{ asset('assets/js/custom/custom.js').'?v='.time() }}"></script>

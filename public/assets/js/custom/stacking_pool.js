@@ -5,7 +5,7 @@ $.validator.addMethod(
     },
     amount_must_greater_0
     );
-  var sigpad = $('#sigpad').signature({syncField: '#signature', syncFormat: 'PNG'});
+  var sigpad = $('#sigpad').signature({syncField: '#signature', syncFormat: 'PNG',color: '#ffffff',background: 'transparent'});
     $('#clear').click(function(e) {
         e.preventDefault();
         sigpad.signature('clear');
