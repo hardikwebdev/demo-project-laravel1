@@ -15,7 +15,7 @@
   <div class="row mt-3">
     <div class="col-12 col-xl-8">
       <!-- <img src="{{ asset('assets/images/assets/Node_Management/Group1055.png') }}" class="img-fluid w-100" alt="" style="height: 460px;"> -->
-<div class="chart" id="collapsable-example" style="background-color:#ffffff;"></div>
+      <div class="chart" id="collapsable-example" style="background-color:#ffffff;"></div>
     </div>
     <div class="col-12 col-xl-4 mt-4 mt-xl-0">
       <div class="table-responsive">
