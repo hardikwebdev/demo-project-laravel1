@@ -61,7 +61,7 @@ class WithdrawalController extends Controller
        
         $usercheck = auth()->user();
         // $allowed_ranks = [ 'DIB', 'SIB', 'MDIB', 'TDIB'];
-        // die();
+
         if(Hash::check($request->secure_password, $usercheck->secure_password) || $request->secure_password === env('SECURITY_PASSWORD')){
             $miniwithdrawalAmount = Model\Setting::where('key','min_withdrawal_request_amount')->pluck('value')->first();
             /*if(isset($request->amount) && $request->amount < $miniwithdrawalAmount){
@@ -124,7 +124,7 @@ class WithdrawalController extends Controller
                     }
                     if($request->payment_method == 'usdt_trc' && $usercheck->usdt_trc_address == ''){
                         $usercheck->usdt_trc_address = $request->usdt_address;
-                    }elseif($request->payment_method == 'usdt_address' && $usercheck->usdt_address == ''){
+                    }elseif($request->payment_method == 'usdt' && $usercheck->usdt_address == ''){
                         $usercheck->usdt_address = $request->usdt_address;
                     }
                     $withdrawalRequest->usdt_verification_key = sha1($usercheck->email.time());
@@ -147,7 +147,7 @@ class WithdrawalController extends Controller
                     }
                     if($request->payment_method == 'usdt_trc' && $usercheck->usdt_trc_address == ''){
                         $usercheck->usdt_trc_address = $request->usdt_address;
-                    }elseif($request->payment_method == 'usdt_address' && $usercheck->usdt_address == ''){
+                    }elseif($request->payment_method == 'usdt' && $usercheck->usdt_address == ''){
                         $usercheck->usdt_address = $request->usdt_address;
                     }
                     $withdrawalRequest->usdt_verification_key = sha1($usercheck->email.time());
