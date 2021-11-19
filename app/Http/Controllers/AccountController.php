@@ -98,7 +98,7 @@ class AccountController extends Controller
         {
             if (!$isValid)
             {
-                $validator->errors()->add('placement_username', 'Invalid placement position');
+                $validator->errors()->add('placement_username', trans('custom.Invalid_placement_position'));
             }
         });
 
@@ -183,7 +183,7 @@ class AccountController extends Controller
             $userDetail->password = Hash::make($request->password);
         }
         $userDetail->save();
-        Session::flash('success', 'Your Password has been changed');
+        Session::flash('success', trans('custom.Your_Password_has_been_changed'));
         return redirect()->route('account');
     }
 
@@ -206,7 +206,7 @@ class AccountController extends Controller
             $userDetail->secure_password = Hash::make($request->password);
         }
         $userDetail->save();
-        Session::flash('success', 'Passwords are updated');
+        Session::flash('success', trans('custom.Passwords_are_updated'));
         return redirect()->route('account');
     }
 
@@ -368,7 +368,7 @@ class AccountController extends Controller
             $user->city = $request->city;
             $user->country_id = $request->country;
             $user->save();
-            return redirect()->back()->with('success', 'User personal details updates successfully');
+            return redirect()->back()->with('success', trans('custom.user_personal_details_updates_successfully'));
         } catch (Exception $e) {
             return redirect()->back()->with(["error"=>$e->getMessage()]);
             
@@ -394,7 +394,7 @@ class AccountController extends Controller
             $user->swift_code = $request->swift_code;
             $user->bank_country_id = $request->bank_country_id;
             $user->save();
-            return redirect()->back()->with('success', 'User bank details updates successfully');
+            return redirect()->back()->with('success', trans('custom.User_bank_details_updates_successfully'));
         } catch (Exception $e) {
             return redirect()->back()->with(["error"=>$e->getMessage()]);
             
@@ -409,7 +409,7 @@ class AccountController extends Controller
             $user = User::find($request->id);
             $user->nft_wallet_address = $request->nft_wallet_address;
             $user->save();
-            return redirect()->back()->with('success', 'User NFT Wallet address updates successfully');
+            return redirect()->back()->with('success', trans('custom.User_NFT_Wallet_address_updates_successfully'));
         } catch (Exception $e) {
             return redirect()->back()->with(["error"=>$e->getMessage()]);
             
@@ -429,7 +429,7 @@ class AccountController extends Controller
 
             User::where('id',auth()->id())->update(['profile_image'=>$filename]);
 
-            return redirect()->back()->with(['success'=> 'Update Image Successfully']);
+            return redirect()->back()->with(['success'=> trans('custom.Update_Image_Successfully')]);
         }     
         return redirect()->back();
     }
