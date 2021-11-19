@@ -558,11 +558,11 @@ span.page-link, a.page-link {
         max-width: 20% !important;
     }
 }
-.centButton {
-    justify-content: center;
+/* .centButton { */
+    /* justify-content: center; */
     /*display: flex;*/
-}
-.centButton > .cpybtn {
+/* } */
+/* .centButton > .cpybtn {
     margin: 0px !important;
     border-radius: 0px !important;
 }
@@ -573,6 +573,43 @@ span.page-link, a.page-link {
     }
     .nopadding > .form-group {
         margin-bottom: 0 !important;
+    }
+} */
+
+.nopadding{
+    padding: 0 !important;
+}
+.cpybtn {
+    padding: 13px !important;
+    font-size: 12px !important;
+    font-weight: bold;
+    max-height: 45px;
+}
+.cpybtn {
+    padding: 13px !important;
+    font-size: 12px !important;
+    font-weight: bold;
+    max-height: 45px;
+}
+
+@media only screen and (max-width: 991px){
+
+    .cpybtn{
+        margin: 10px 0 10px 0;
+    }
+    .center{
+        padding: 10px 0;
+    }
+    .nopadding {
+        padding: 0 0 0 10px !important;
+    }
+}
+@media only screen and (min-width: 991px){
+    .nopadding1 {
+        padding: 0 !important;
+    }
+    .cpybtn{
+        width: 100%;
     }
 }
 /*.card-1-btn {
