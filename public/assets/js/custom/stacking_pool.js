@@ -5,12 +5,12 @@ $.validator.addMethod(
     },
     amount_must_greater_0
     );
-  var sigpad = $('#sigpad').signature({syncField: '#signature', syncFormat: 'PNG'});
-    $('#clear').click(function(e) {
-        e.preventDefault();
-        sigpad.signature('clear');
-        $("#signature").val('');
-    });
+  // var sigpad = $('#sigpad').signature({syncField: '#signature', syncFormat: 'PNG'});
+  //   $('#clear').click(function(e) {
+  //       e.preventDefault();
+  //       sigpad.signature('clear');
+  //       $("#signature").val('');
+  //   });
 $("#staking_pool").validate({
     ignore: "input[type='text']:hidden",
     rules: {
@@ -68,9 +68,9 @@ $("#staking_agreement").validate({
         terms_agree: {
             required: true,
         },
-        signature: {
-            required: true,
-        }
+        // signature: {
+        //     required: true,
+        // }
     },
     messages: {
         terms_agree: {
@@ -81,8 +81,9 @@ $("#staking_agreement").validate({
          },
     },
     submitHandler: function(form) {
+        alert()
         $('#agreement').val('confirm');
-        $('#poolsignature').val($('#signature').val());
+        $('#poolsignature').val('test');//$('#signature').val()
         $("#staking_pool").trigger('submit');
     }
 });

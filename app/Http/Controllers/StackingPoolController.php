@@ -76,7 +76,7 @@ class StackingPoolController extends Controller
             'amount' => 'required',
             'security_password' => 'required',
             'duration'=>'required',
-            'signature'=>'required'
+            // 'signature'=>'required'
         ]);
         $usercheck = $this->user;
         $isError = 0;
