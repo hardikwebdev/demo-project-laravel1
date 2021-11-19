@@ -69,7 +69,7 @@
     } else {
         return  true;
     }
-}, "Please verify the sponsor id first.");
+}, please_verify_the_sponsor_id_first);
    $.validator.addMethod(
     "alphanumeric1",
     function(value, element) {
@@ -414,6 +414,7 @@ onStepChanging: function (event, currentIndex, newIndex)
                    },
                    username: {
                        required: username_required_field,
+                       alphanumeric: letters_numbers_and_underscores_only_please,
                        minlength: please_enter_least_3_characters,
                        maxlength: please_enter_no_more_than_50,
                        remote: username_already_exists,

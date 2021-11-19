@@ -61,6 +61,9 @@ class HomeController extends Controller
                                             });
         $nft_cats = NftCategory::where('is_deleted','0')->orderBy('id','desc')->limit(3)->get();
         $locale = app()->getLocale();
+
+
+        $total_stacking = StackingPool::where('user_id', $this->user->id)->where('status','0')->orWhere('status','1')->sum('amount');
         // if ($locale == 'en' || $locale == 'ko' || $locale == 'th' || $locale == 'vi') {
         //     $locale = 'en';
         // } else {
@@ -143,7 +146,7 @@ class HomeController extends Controller
 
         // echo "<pre>";
         // print_r($commissionData);die();
-        return view('dashboard',compact('user','sliders','staking_pool','news','nft_cats','graph','months','commissionData'));
+        return view('dashboard',compact('user','sliders','staking_pool','news','nft_cats','graph','months','commissionData','total_stacking'));
     }
 
     public function crypto_wallets(){

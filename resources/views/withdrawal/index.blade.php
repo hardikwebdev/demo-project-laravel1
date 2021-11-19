@@ -65,7 +65,7 @@
                                 @if($user->usdt_address == '' || $user->usdt_address == null || $user->usdt_image == '')
                                 <div class="fallback">
                                     <input name="upload_proof" type="file" class="dropify" id="upload_proof"/>
-                                    <p>USDT Proof png, jpg, jpeg</p>
+                                    <p>{{ trans('custom.USDT_Proof_png_jpg_jpeg')}}</p>
                                     @error('upload_proof')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -115,7 +115,7 @@
                                 @if($user->usdt_trc_image == '')
                                 <div class="fallback">
                                     <input name="upload_proof" type="file" class="dropify" id="upload_proof"/>
-                                    <p>USDT Proof png, jpg, jpeg</p>
+                                    <p>{{ trans('custom.USDT_Proof_png_jpg_jpeg')}}</p>
                                     @error('upload_proof')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -156,7 +156,7 @@
                             <div class="col-12 col-md-6 mt-4 mt-md-0">
                                 <div class="fallback">
                                     <input name="upload_proof_bank" type="file" class="dropify" id="upload_proof_bank"/>
-                                    <p>Bank Proof png, jpg, jpeg</p>
+                                    <p>{{ trans('custom.Bank_Proof_png_jpg_jpeg')}}</p>
                                     @error('upload_proof_bank')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
