@@ -67,6 +67,7 @@ class NFTProductController extends Controller
             $product->price = $request->price;
             $product->description = $request->description;
             $product->status = $request->status;
+            $product->product_status = $request->product_status;
             $product->image = $primary_image_name;
             $product->save();
 
@@ -177,6 +178,7 @@ class NFTProductController extends Controller
             $product->price = $request->price;
             $product->description = $request->description;
             $product->status = $request->status;
+            $product->product_status = $request->product_status;
             if($request->image){
 
                 $path = ('uploads/nft-product');

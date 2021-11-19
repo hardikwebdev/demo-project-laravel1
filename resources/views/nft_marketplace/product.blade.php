@@ -5,7 +5,15 @@
 <div class="content-wrapper">
 	<div class="row align-items-center mt-5 pt-5">
 		<div class="col-12 col-md-6">
-			<img src="{{ asset('uploads/nft-product/'.$product->image) }}" class="img-fluid" alt="">
+			@if ($product->product_status == "Sold")
+						<div class="position-relative overflow-hidden">
+							<img src="{{ asset($product->image) }}" class="img-fluid w-100" alt="">
+							<span class="sale-label">ON SALE</span>
+						  </div>
+						@else
+						<img src="{{ asset($product->image) }}" class="img-fluid mx-auto" alt="">
+						@endif
+			{{-- <img src="{{ asset('uploads/nft-product/'.$product->image) }}" class="img-fluid" alt=""> --}}
 		</div>
 		<div class="col-12 col-md-6 text-white mt-4 mt-md-0">
 			<h2>{{ $product->name }} #{{ $product->id }}</h2>
@@ -23,25 +31,28 @@
 			  {{ Session::get('error') }}
 			</div>
 			@endif
-			@if($checkProduct == 0)
-			<form method="post" action="{{ route('purchase-product') }}" id="purchase_product">
-				@csrf
-				<div class="row justfy-content-between align-items-center mt-4">
-					<div class="col-12 col-xl-8">
-						<input type="hidden" name="product_id" value="{{ $product->id }}">
-						<input type="hidden" name="amount" value="{{ $product->price }}">
-						<input name="security_password" id="security_password" type="password" class="form-control h-auto py-4" placeholder="{{ trans('custom.security_password') }}">
-						@error('secure_password')
-						<span class="invalid-feedback" role="alert">
-						  <strong>{{ $message }}</strong>
-						</span>
-						@enderror
+			
+			@if ($product->product_status != "Sold")
+				@if($checkProduct == 0)
+				<form method="post" action="{{ route('purchase-product') }}" id="purchase_product">
+					@csrf
+					<div class="row justfy-content-between align-items-center mt-4">
+						<div class="col-12 col-xl-8">
+							<input type="hidden" name="product_id" value="{{ $product->id }}">
+							<input type="hidden" name="amount" value="{{ $product->price }}">
+							<input name="security_password" id="security_password" type="password" class="form-control h-auto py-4" placeholder="{{ trans('custom.security_password') }}">
+							@error('secure_password')
+							<span class="invalid-feedback" role="alert">
+							  <strong>{{ $message }}</strong>
+							</span>
+							@enderror
+						</div>
+						<div class="col-12 col-xl-4 mt-4 mt-lg-0">
+							<button type="submit" class="btn bg-warning text-white p-4 rounded-0">{{ trans('custom.buy_now')}} <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-2 d-inline align-middle w-25" alt=""></button>
+						</div>
 					</div>
-					<div class="col-12 col-xl-4 mt-4 mt-lg-0">
-						<button type="submit" class="btn bg-warning text-white p-4 rounded-0">{{ trans('custom.buy_now')}} <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-2 d-inline align-middle w-25" alt=""></button>
-					</div>
-				</div>
-			</form>	
+				</form>			
+				@endif
 			@endif
 			<p class="border-top border-white mt-4"></p>
 		</div>
@@ -62,22 +73,34 @@
 	</div>
 	<div class="row mt-5">
 		<div class="col-12">
-			<p class="text-white pb-3">{{ __('custom.other_collection')}}</p>
+			{{-- <p class="text-white pb-3">{{ __('custom.other_collection')}}</p> --}}
+			<p class="text-white pb-3">Other {{ $collectionname->name ?? '' }} Collection</p>
 		</div>
 		<div class="col-12">
 			<div class="bull-kong-slider">
-				@foreach($othrt_products as $value)
+				@forelse($othrt_products as $value)
 				<div>
-					<a href="{{route('nftproduct', $value->id)}}">
+					<a href="{{route('nftproduct', $value->id)}}" class="text-decoration-none">
 					<div class="bg-white p-3 rounded mx-2">
-						<img src="{{ asset('uploads/nft-product/'.$value->image) }}" class="img-fluid mx-auto" alt="">
+						@if ($value->product_status == "Sold")
+						<div class="position-relative overflow-hidden">
+							<img src="{{ asset($value->image) }}" class="img-fluid w-100" alt="">
+							<span class="sale-label">ON SALE</span>
+						  </div>
+						@else
+						<img src="{{ asset($value->image) }}" class="img-fluid mx-auto" alt="">
+						@endif
 						<div class="mt-3">
 							<h4 class="text-blue font-weight-bold">{{ $value->name }} #{{ $value->id }}</h4>
 						</div>
 					</div>
 					</a>
 				</div>
-				@endforeach
+				@empty
+                <ul>
+                  <li class="text-white mx-2">{{ trans('custom.no_products_available') }}</li>
+                </ul> 
+                @endforelse
 			</div>
 		</div>
 	</div>

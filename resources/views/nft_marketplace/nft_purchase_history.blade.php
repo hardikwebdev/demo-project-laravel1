@@ -9,7 +9,7 @@
 		@if(count($purchaseHistory) > 0)
 		@foreach($purchaseHistory as $value)
 		<tr>
-			<td>${{ number_format($value->amount, 2) }}</td>
+			<td>${{ number_format($value->purchase_amount, 2) }}</td>
 			<td>{{ date("d/m/Y",strtotime($value->created_at)) }}</td>
 		</tr>
 		@endforeach

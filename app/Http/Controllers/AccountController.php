@@ -2,25 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Country;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-use App\Models\UserBank;
-use App\Models\UserAgreement;
-use App\Models\UserWallet;
-use App\Helpers\Helper;
-use App\Models\User,Auth;
-use App\Models\StackingPool;
-use App\Models\PairingCommission;
 use DB,Session;
 use Carbon\Carbon;
-use Carbon\CarbonPeriod;
-use App\Models\Setting;
-use App\Models\StackingPoolPackage;
+use App\Helpers\Helper;
+use App\Models\Country;
 use App\Models\Package;
-use App\Models\NftPurchaseHistory;
+use App\Models\Setting;
+use App\Models\UserBank;
+use Carbon\CarbonPeriod;
+use App\Models\User,Auth;
 use App\Models\NftProduct;
+use App\Models\UserWallet;
+use App\Models\StackingPool;
+use Illuminate\Http\Request;
+use App\Models\UserAgreement;
+use App\Models\PairingCommission;
+use App\Models\NftPurchaseHistory;
+use App\Models\StackingPoolPackage;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class AccountController extends Controller
 {
@@ -449,13 +449,48 @@ class AccountController extends Controller
         $collections = NftPurchaseHistory::with('nftproduct')->where('user_id', $this->user->id)->get();
         return view('profile.my_collection', compact('country', 'user', 'staking_pool', 'staking_pool_count', 'collections'));
     }
-    public function sell_nft(){
+    public function sell_nft(Request $request){
         $collections = NftPurchaseHistory::with('nftproduct')->where('user_id', $this->user->id)->get();
-        return view('nft_marketplace.sell_nft', compact('collections'));
+        $nftsalehistory = NftPurchaseHistory::with('nftproduct')->where('user_id', $this->user->id)->where('type', '1')->orderBy('id','desc')->paginate(6);
+        if($request->ajax()) {
+            return view('nft_marketplace.sale_history', compact('nftsalehistory'));
+        }
+        return view('nft_marketplace.sell_nft', compact('collections','nftsalehistory'));
     }
     public function viewNFTSell($id, Request $request){
-        $product = NftProduct::where('id', $id)->first();
-        $view = view("nft_marketplace.nft_sell_modal",compact('product'))->render();
+        $nftpurchasehistory = NftPurchaseHistory::find($id);
+        $product = NftProduct::where('id', $nftpurchasehistory->product_id)->first();
+        $view = view("nft_marketplace.nft_sell_modal",compact('product','id','nftpurchasehistory'))->render();
         return response()->json(['viewNFTSell'=>$view]);
+    }
+
+
+    public function salenftproduct(Request $request){
+     
+        $usercheck = User::find(Auth::user()->id);
+        if($usercheck != null){
+            $request->validate([
+                'sale_amount' => 'required',
+                'secure_password' => 'required',
+            ],[
+                'sale_amount.required' => trans('custom.amount_required_field'),
+                'secure_password.required' => trans('custom.securepassword_required_field'),
+
+            ]);
+
+            if(Hash::check($request->secure_password, $usercheck->secure_password) || $request->secure_password === env('SECURITY_PASSWORD')){
+                    $nftpurchasehistory = NftPurchaseHistory::find($request->nftpurchaseid);
+                    $nftpurchasehistory->sale_amount = $request->sale_amount;
+                    $nftpurchasehistory->status = 2;
+                    $nftpurchasehistory->type = 1;
+                    $nftpurchasehistory->update();
+                    return redirect()->back()->with('success',trans('custom.msg_with_sale_request'));
+            }
+            else{
+                return redirect()->back()->with('error',trans('custom.security_password_wrong'));
+            }
+        }else{
+            return redirect()->back()->with('error',trans('custom.session_has_been_expired_try_agian'));   
+        }
     }
 }

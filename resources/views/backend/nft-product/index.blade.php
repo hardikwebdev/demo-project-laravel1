@@ -27,22 +27,24 @@
                                     <th colspan="2">Name</th>
                                     <th>Description</th>
                                     <th>Status</th>
+                                    <th>Product Status</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @if(count($products) > 0)
+                                @php
+                                $i = ($products->currentpage() - 1) * $products->perpage() + 1;
+                                @endphp
                                 @foreach($products as  $key=>$row)
                                 <tr>
-                                    @php
-                                        $index = $key+1;
-                                    @endphp
-                                    <td>{{$row->id}}</td>
+                                   
+                                    <td>{{$i++}}</td>
                                     <td colspan="2" width="30%">
                                         {{$row->name}}  
                                     </td>
                                     <td>
-                                        {{$row->description}}  
+                                        {!! \Illuminate\Support\Str::limit($row->description,50) !!} 
                                     </td>
                                     <td>
                                         @if($row->status=='active')
@@ -50,6 +52,15 @@
                                         @else
                                             <label class="label label-danger">In-active</label>   
 
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if($row->product_status=='Normal')
+                                            <label class="label label-primary">Normal</label>   
+                                        @elseif ($row->product_status=='Sold')
+                                            <label class="label label-danger">Sold</label> 
+                                        @else
+                                            <label class="label label-warning">Hidden</label>   
                                         @endif
                                     </td>
                                     <td>

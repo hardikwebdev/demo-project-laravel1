@@ -162,8 +162,14 @@
                               <span class="text-secondary font-10">{{ __('custom.defixfinance_id')}}</span>
                             </div>
                             <div class="col-12 col-md-6">
-                              <h4 class="text-black mb-0 font-weight-bold">******{{ substr($user->phone_number, -4)}}</h4>
-                              <span class="text-secondary font-10">{{ __('custom.phone_number')}}</span>
+                              <h4 class="text-black mb-0 font-weight-bold">
+                                @if (!empty($user->nft_wallet_address))
+                                ******{{ substr($user->nft_wallet_address, -4)}}
+                                @else
+                                  -
+                                @endif
+                              </h4>
+                              <span class="text-secondary font-10">{{trans('custom.wallet_address')}}</span>
                             </div>
                           </div>
                           <div class="row align-iems-center justify-content-between mt-4">
@@ -285,10 +291,10 @@
             @if(count($collections) > 0)
             @foreach($collections as $value)
             <div class="col-12 col-md-6 col-xl-3" style="padding-top: 20px;">
-              <a class="min-h-252 bg-white p-3 rounded mx-2 d-block w-100" href="{{route('nftproduct', $value->product_id)}}">
+              <a class="min-h-252 bg-white p-3 rounded mx-2 d-block w-100 text-decoration-none" href="{{route('nftproduct', $value->product_id)}}">
                 <div class="position-relative overflow-hidden">
-                  <img src="{{ asset('uploads/nft-product/'.$value->nftproduct->image) }}" class="img-fluid w-100" alt="">
-                  @if($value->status == 2)
+                  <img src="{{ asset($value->nftproduct->image) }}" class="img-fluid w-100" alt="">
+                  @if($value->type == 1)
                   <span class="sale-label">{{ __('custom.on_sale')}}</span>
                   @endif
                 </div>

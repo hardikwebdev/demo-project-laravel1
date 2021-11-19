@@ -19,4 +19,12 @@ class NftProduct extends Model
     {
         return $this->hasMany(NftProductImage::class,'product_id','id');
     }
+
+
+    public function getImageAttribute($value){
+        if(file_exists(public_path('uploads/nft-product/'.$value)) && $value){
+            return asset('uploads/nft-product/'.$value);     
+        }
+        return '';
+    }
 }

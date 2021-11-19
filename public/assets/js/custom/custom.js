@@ -1148,9 +1148,10 @@ function showNFTSell(bid)
     dataType: "json" ,
     success:function(response){
             // console.log(response);
-            $(response.viewNFTSell).insertAfter( $( "#nftsellview" ) );
-            $("#bullKongModal").modal('toggle');  
+            $(response.viewNFTSell).insertAfter( $( "#nftmodel" ) );
+            $("#bullKongModal").modal('toggle');           
           },
         });
 }
+
 

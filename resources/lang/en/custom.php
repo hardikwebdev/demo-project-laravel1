@@ -1974,5 +1974,16 @@ return [
     'UPDATE_BANK_DETAILS' => 'UPDATE BANK DETAILS',
     'UPDATE_NFT_WALLET_ADDRESS' => 'UPDATE NFT WALLET ADDRESS',
     'UPDATE_PASSWORD' =>'UPDATE PASSWORD',
-    'UPDATE_SECURE_PASSWORD' =>'UPDATE SECURE PASSWORD'
+    'UPDATE_SECURE_PASSWORD' =>'UPDATE SECURE PASSWORD',
+    'no_products_available' =>'No products available.',
+    'sufficient_balance_not_available_in_nft_wallet' => 'Sufficient balance not available in NFT wallet.',
+    'amount_required_field' => 'Amount required field.',
+    'value_must_be_greater_than_0' => 'Value must be greater than 0.',
+    'SELL_NOW' => 'SELL NOW',
+    'msg_with_sale_request' => 'Your sale request is added successfully.',
+    'NFT' => 'NFT',
+    'NAME' => 'NAME',
+    'AMOUNT' => 'AMOUNT',
+    'ORDER_ID' => 'ORDER ID',
+    'STATUS' => 'STATUS'
  ];

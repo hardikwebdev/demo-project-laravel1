@@ -16,21 +16,34 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-4 pl-0 ">
+        <div class="col-sm-6 pl-0 ">
             <div class="form-group">
-                <label>Image @if(@$product->image)- <a href="{{asset('uploads/nft-product/'.@$product->image)}}" target="_blank">{{@$product->image}}</a>@endif</label>
+                <label>Image @if(@$product->image)- <a href="{{asset(@$product->image)}}" target="_blank">{{@$product->image}}</a>@endif</label>
                 {!! Form::file('image',['class'=>'form-control','placeholder'=>'Enter url', 'accept'=>'image/*']) !!}
                 <span class="help-block text-danger">{{ $errors->first('image') }}</span>
             </div>
         </div>
-        <div class="col-sm-4 pl-0 ">
+        <div class="col-sm-6 pl-0 ">
             <div class="form-group">
                 <label>Price</label> 
                  {!! Form::number('price',old('price'),['class'=>'form-control','placeholder'=>'Enter price','min'=>'0']) !!}
                 <span class="help-block text-danger">{{ $errors->first('price') }}</span>
             </div> 
         </div>
-        <div class="col-sm-4 pl-0 ">
+    </div>
+    <div class="row">
+        <div class="col-sm-6 pl-0 ">
+            <div class="form-group">
+                <label>Product Status</label> <br>
+                <label>{!! Form::radio('product_status','Normal',@$product->product_status=='Normal'?false:true,[]) !!} Normal</label> 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label>{!! Form::radio('product_status','Sold',@$product->product_status=='Sold'?true:false,[]) !!} Sold</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label>{!! Form::radio('product_status','Hidden',@$product->product_status=='Hidden'?true:false,[]) !!} Hidden</label>
+                <span class="help-block text-danger">{{ $errors->first('product_status') }}</span>
+            </div> 
+        </div>
+        <div class="col-sm-6 pl-0 ">
             <div class="form-group">
                 <label>Status</label> <br>
                 <label>{!! Form::radio('status','active',@$product->status=='inactive'?false:true,[]) !!} Active</label> 
