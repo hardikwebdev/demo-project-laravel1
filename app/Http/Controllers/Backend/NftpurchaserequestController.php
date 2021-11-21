@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\NftPurchaseHistory;
+use Carbon\Carbon;
 
 class NftpurchaserequestController extends Controller
 {
@@ -28,7 +29,7 @@ class NftpurchaserequestController extends Controller
                 },
                 'nftproduct',
             ]);
-    
+
             if($request->ajax()){
                 if($nft_purchase_history == null && $nft_purchase_history == ""){
                     return response()->json(['status'=>'fail','message'=>"{{trans('custom.no_data_found')}}...."]);
@@ -36,8 +37,8 @@ class NftpurchaserequestController extends Controller
                 $nft_purchase_history->status = ($request->status!="")?$request->status:"0";
                 $nft_purchase_history->save();
                 return response()->json(['status'=>'success','message'=>"Nft Purchase Requests update successfully..",'data'=>$nft_purchase_history]);
-            }  
-            
+            }
+
             /* Search Functions start*/
             if($request->request_date && $request->request_date != ""){
                 $date = date('Y-m-d',strtotime($request->request_date));
@@ -52,7 +53,7 @@ class NftpurchaserequestController extends Controller
 
 
             if($request->status && $request->status != ""){
-                $status = ['Pending'=>'0','Processing'=>'3','On Sale'=>'2','Listing'=>'1']; 
+                $status = ['Pending'=>'0','Processing'=>'3','On Sale'=>'2','Listing'=>'1'];
                 $nft_purchase_history = $nft_purchase_history->where('status',$status[$request->status]);
             }else{
                 $data['status'] = 'On Sale';
@@ -64,8 +65,8 @@ class NftpurchaserequestController extends Controller
             $data['total_sales'] = $nft_purchase_history->sum('amount');
 
             /* Search Functions end*/
-            $nft_purchase_history = $nft_purchase_history->orderBy('id','desc')->paginate($this->limit)->appends($request->all()); 
-            
+            $nft_purchase_history = $nft_purchase_history->orderBy('id','desc')->paginate($this->limit)->appends($request->all());
+
             return view('backend.nft_purchase_request.index',compact('nft_purchase_history','data'));
         } catch (Exception $e) {
 
@@ -90,7 +91,7 @@ class NftpurchaserequestController extends Controller
                 },
                 'nftproduct',
             ]);
-    
+
             if($request->ajax()){
                 if($nft_purchase_history == null && $nft_purchase_history == ""){
                     return response()->json(['status'=>'fail','message'=>"{{trans('custom.no_data_found')}}...."]);
@@ -98,8 +99,8 @@ class NftpurchaserequestController extends Controller
                 $nft_purchase_history->status = ($request->status!="")?$request->status:"0";
                 $nft_purchase_history->save();
                 return response()->json(['status'=>'success','message'=>"Nft Purchase Requests update successfully..",'data'=>$nft_purchase_history]);
-            }  
-            
+            }
+
             /* Search Functions start*/
             if($request->request_date && $request->request_date != ""){
                 $date = date('Y-m-d',strtotime($request->request_date));
@@ -114,7 +115,7 @@ class NftpurchaserequestController extends Controller
 
 
             if($request->status && $request->status != ""){
-                $status = ['Pending'=>'0','Processing'=>'3','On Sale'=>'2','Listing'=>'1']; 
+                $status = ['Pending'=>'0','Processing'=>'3','On Sale'=>'2','Listing'=>'1'];
                 $nft_purchase_history = $nft_purchase_history->where('status',$status[$request->status]);
             }else{
                 $data['status'] = 'On Sale';
@@ -221,20 +222,34 @@ class NftpurchaserequestController extends Controller
     public function update(Request $request, $id)
     {
         //
-        if($request->ajax() || $request->status != ''){
-            try{
-                $change_status = NftPurchaseHistory::find($id);
-                if($change_status == null && $change_status == ""){
-                    return response()->json(['status'=>'fail','message'=>"{{trans('custom.no_data_found')}}...."]);
+        if($request->type == "counteroffer"){
+            $counteroffer = NftPurchaseHistory::find($request->request_id);
+            $counteroffer->counter_offer_amount = $request->counter_offer_amount;
+            $counteroffer->remark = $request->remark;
+            $counteroffer->counter_offer_status = 1;
+            $counteroffer->save();
+            return redirect()->route('nft_purchase_request.index')->with(['success' => 'Counter Offer request place successfully.']);
+        } else{
+            if ($request->ajax() || $request->status != '') {
+                try {
+                    $change_status = NftPurchaseHistory::find($id);
+                    if ($change_status == null && $change_status == "") {
+                        return response()->json(['status' => 'fail', 'message' => trans('custom.no_data_found')]);
+                    }
+                    if($request->status == 3){
+                        $change_status->status = ($request->status != "") ? $request->status : "0";
+                        $change_status->approve_date = Carbon::now();
+                    }else{
+                        $change_status->status = ($request->status != "") ? $request->status : "0";
+                    }
+                    $change_status->save();
+                    return response()->json(['status' => 'success', 'message' => "Crypto wallet transaction update successfully..", 'data' => $change_status]);
+                } catch (Exception $e) {
+                    return response()->json(['status' => 'fail', 'message' => "Something went wrong......"]);
                 }
-                $change_status->status = ($request->status!="")?$request->status:"0";
-                $change_status->save(); 
-                return response()->json(['status'=>'success','message'=>"Crypto wallet transaction update successfully..",'data'=>$change_status]);
-            } catch (Exception $e) {
-                return response()->json(['status'=>'fail','message'=>"Something went wrong......"]);
-            }               
-        }   
-        return response()->json($id);
+            }
+            return response()->json($id);
+        }
     }
 
     /**

@@ -63,10 +63,11 @@
                                         <th>#Id</th>
                                         <th>Username</th>
                                         <th>Product</th>
-                                        <th>Amount</th>
+                                        <th>Purchased Amount</th>
+                                        <th>Sale Amount</th>
                                         <th>Order ID</th>
                                         <th>Purchase Date</th>
-                                        <th>Sell Date</th>
+                                        {{-- <th>Sell Date</th> --}}
                                         <th>Status</th>
                                     </tr>
                                 </thead>
@@ -82,11 +83,14 @@
                                                     {{ number_format($row->amount, 2) }}
                                                 </td>
                                                 <td>
+                                                    {{ number_format($row->sale_amount, 2) }}
+                                                </td>
+                                                <td>
                                                     {{ $row->order_id ?? '' }}
                                                 </td>
-                                                <td>{{ $row->purchase_date ? $row->purchase_date : $row->created_at->format('Y-m-d H:i:s') }}
+                                                <td>{{ $row->purchase_date ? $row->purchase_date->format('Y-m-d') : $row->created_at->format('Y-m-d') }}
                                                 </td>
-                                                <td>{{ $row->sell_date ? $row->sell_date : ' ' }}</td>
+                                                {{-- <td>{{ $row->sell_date ? $row->sell_date : ' ' }}</td> --}}
                                                 <td>
                                                     @if ($row->status == '3')
                                                         <label class="label label-info">Processing</label>
@@ -94,12 +98,24 @@
                                                         {{-- <label class="label label-success">On Sale</label> --}}
                                                           {{-- @role('admin') --}}
                                                         <!-- <div class="btn-group"> -->
-                                                            <a class="btn btn-sm btn-success nftreq"
+                                                            @if ($row->counter_offer_status == '1')
+                                                                <label class="label label-info">Counter offer Processing</label>
+                                                            @else
+                                                                 <a class="btn btn-sm btn-success nftreq"
                                                             data-id="{{ $row->id }}" data-type="approve"
                                                             data-value="3" href="#">Approve</a>
 
                                                         <a class="btn btn-sm btn-danger nftreq" href="#" data-type="reject"
                                                             data-id="{{ $row->id }}"  data-value="0">Reject</a>
+
+                                                        {!! Form::open(['route' => ['nft_purchase_request.update',$row->id],'onsubmit'=>"return false;"]) !!}
+                                                            {!! Form::hidden('username',$row->user_detail->username) !!}
+                                                            {!! Form::hidden('nft_purchase_request',$row->id) !!}
+                                                            {!! Form::hidden('user_sale_amount',$row->sale_amount) !!}
+                                                            <a class="btn btn-sm btn-primary counterofferbtn" href="#" data-toggle="tooltip" data-type="counteroffer" style="margin-left:18px;margin-top: 10px;">Counter Offer</a>
+                                                        {!! Form::close() !!}
+                                                            @endif
+
 
                                                         {{-- <a class="btn btn-sm btn-primary" data-amount="{{$funds->amount}}" data-id="{{$funds->id}}" data-username="{{$funds->user_detail!=null?$funds->user_detail->username:''}}" onclick="opFundWallet(this)" >Edit</a>
                                             <a class="btn btn-sm btn-primary " data-type="remark"  data-amount="{{$funds->amount}}" data-id="{{$funds->id}}" data-username="{{$funds->user_detail!=null?$funds->user_detail->username:''}}" onclick="updateRemark(this)" >Remark</a> --}}
@@ -133,6 +149,37 @@
             </div>
         </div>
     </div>
+<div id="open_counter_offer_modal" class="modal fade open-remark-model" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            {!! Form::open(['route'=>['nft_purchase_request.update',''],'method'=>'post','class'=>'form-vertical','id'=>'counter_offer_form','autocomplete'=>'false']) !!}
+            @method('patch')
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><span class="status text-capitalize"></span> Counrter Offer of <span class="username"></span></h4>
+            </div>
+            <div class="modal-body">
+                {!! Form::hidden('request_id','') !!}
+                 {!! Form::hidden('type','') !!}
+                <div class="form-group">
+                    <label>Counter offer amount:</label>
+                    {!! Form::number('counter_offer_amount',old('counter_offer_amount'),['min'=>'0','class'=>'form-control','placeholder'=>'Enter counter offer amount']) !!}
+                    <span class="help-block text-danger">{{ $errors->first('counter_offer_amount') }}</span>
+                </div>
+                <div class="form-group">
+                    <label>Remark:</label>
+                    {!! Form::textarea('remark',old('remark'),['class'=>'form-control','placeholder'=>'Enter Note','rows'=>4,'resize'=>'false']) !!}
+                    <span class="help-block text-danger">{{ $errors->first('remark') }}</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success" >Submit</button>
+                <a  class="btn btn-danger" data-dismiss="modal">Cancel</a>
+            </div>
+            {!! Form::close() !!}
+        </div>
+    </div>
+</div>
 @endsection
 @section('scripts')
     <script type="text/javascript">

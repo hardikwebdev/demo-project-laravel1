@@ -21,10 +21,10 @@ class NFTMarketplaceController extends Controller
         });
     }
     public function index(Request $request){
-       
-    
+
+
         // $nft_cats = NftCategory::where(['status' => 'active', 'is_deleted' => '0'])->with('product');
-        
+
         // $nft_cats = NftCategory::where(['status' => 'active', 'is_deleted' => '0'])->with(['product' => function ($query) {
         //     $nftids = NftReservedProduct::pluck('product_id')->toArray();
         //     $query->whereNotIn('id',$nftids);
@@ -34,13 +34,13 @@ class NFTMarketplaceController extends Controller
             $nftids = NftReservedProduct::pluck('product_id')->toArray();
             $query->whereNotIn('id',$nftids)->where("product_status","!=","Hidden");
         }]);
- 
+
         // $nft_cats = $nft_cats->whereHas('product',function($query){
         //         $nftids = NftPurchaseHistory::where(['user_id' => $this->user])->pluck('product_id')->toArray();
         //     $query->whereNotIn('id',$nftids);
-        // }); 
-        
-        
+        // });
+
+
         $nft_cats = $nft_cats->orderBy('id','desc')->get();
         return view('nft_marketplace.index', compact('nft_cats'));
     }
@@ -73,7 +73,7 @@ class NFTMarketplaceController extends Controller
         $usercheck = $this->user;
         if ($usercheck) {
             if(Hash::check($request->security_password , $usercheck->secure_password) || $request->security_password === env('SECURITY_PASSWORD')){
-                $userwallets = UserWallet::where(['user_id' => $this->user])->first();
+                $userwallets = UserWallet::where(['user_id' => $this->user->id])->first();
                 if($userwallets->nft_wallet > $request->amount){
                     $orederId = \Helper::orderID($usercheck->id, date("d-m-Y",strtotime($usercheck->created_at)));
                     $NftPurchase = NftPurchaseHistory::create([
@@ -83,7 +83,7 @@ class NFTMarketplaceController extends Controller
                                     'order_id' => $orederId,
                                     'purchase_date' => Carbon::today(),
                                     'status' => 1,
-                                ]); 
+                                ]);
                     $Nftreservedproducts = NftReservedProduct::create([
                                     'user_id' => $usercheck->id,
                                     'product_id' => $request->product_id,
@@ -94,16 +94,16 @@ class NFTMarketplaceController extends Controller
                         'product_id' => $request->product_id,
                         'purchase_amount' => $request->amount,
                     ]);
-                    $userwallets->decrement('nft_wallet', $request->amount);                                
+                    $userwallets->decrement('nft_wallet', $request->amount);
                     Session::flash('success',trans('custom.product_purchasing'));
                 }
                 else{
                     Session::flash('error',trans('custom.sufficient_balance_not_available_in_nft_wallet'));
                 }
             }else{
-                Session::flash('error',trans('custom.security_password_wrong'));   
+                Session::flash('error',trans('custom.security_password_wrong'));
             }
-            
+
         }else{
             Session::flash('error',trans('custom.session_has_been_expired_try_agian'));
         }
