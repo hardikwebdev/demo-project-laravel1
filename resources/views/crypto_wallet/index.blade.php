@@ -77,14 +77,6 @@
               }
               ?>
               {{-- <div class="row fund-usdt"> --}}
-                <div class="row">
-                  <div class="col-12 col-md-6 col-xl-4">
-                    {!! trans('custom.crypto_wallet_terms_and_conditions1_usdt') !!}
-                  </div>
-                  <div class="col-12 col-md-6 col-xl-4">
-                    {!! trans('custom.crypto_wallet_terms_and_conditions2_usdt') !!}
-                  </div>
-                </div>
                  <div class="col-lg-8 form-group-sub row nopadding ">
                   @if($usdtaddress->image != '')
 
@@ -248,6 +240,7 @@
     $('#usdt_address').change(function(e){
         $('#copy-class-textaddress').val($(this).val());
         $('#qr_image').attr('src', image_path+'/'+e.target.selectedOptions[0].getAttribute("image"));
+        location.reload(); 
     });
   </script>
   @endsection
