@@ -93,10 +93,10 @@
 </div>
 @endsection
 @section('scripts')
-<script src="{{ asset('assets/tree/release/go.js') }}"></script>
-<script src="{{ asset('assets/tree/assets/js/goSamples.js').'?v='.time() }}"></script>
-<script src="{{ asset('assets/tree/extensions/DataInspector.js') }}"></script>
-<script src="{{ asset('assets/tree/assets/js/treejs.js').'?v='.time() }}" id="code"></script>
+<script type="text/javascript">
+  var users = {!! json_encode($users[0]) !!};
+  console.log(users);
+</script>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/series-label.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -108,11 +108,11 @@
 <script src="{{ asset('assets/treanttree/js/jquery.easing.js') }}"></script>
 <script src="{{ asset('assets/treanttree/js/collapsable.js') }}"></script>
 <script type="text/javascript">
-  // tree = new Treant( chart_config );
+  tree = new Treant( chart_config );
 
   $(document).ready(function(e){
-    var users = {!! json_encode($users) !!};
-    init(users,1);
+    // var users = {!! json_encode($users) !!};
+    // init(users,1);
   });
   Highcharts.chart('hightlinechart', {
     exporting:false,
@@ -124,7 +124,6 @@
         text: ''
       }
     },
-
     xAxis: {
       accessibility: {
         rangeDescription: ''

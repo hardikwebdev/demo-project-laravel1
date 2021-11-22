@@ -1,56 +1,22 @@
 
-    var chart_config = {
-        chart: {
-            container: "#collapsable-example",
+var chart_config = {
+    chart: {
+        container: "#collapsable-example",
 
-            animateOnInit: true,
-            
-            node: {
-                collapsable: true
-            },
-            animation: {
-                nodeAnimation: "easeOutBounce",
-                nodeSpeed: 700,
-                connectorsAnimation: "bounce",
-                connectorsSpeed: 700
-            }
+        animateOnInit: true,
+
+        node: {
+            collapsable: true
         },
-        nodeStructure: {
-            image: "img/malory.png",
-            children: [
-                {
-                    image: "img/lana.png",
-                    collapsed: true,
-                    children: [
-                        {
-                            image: "img/figgs.png"
-                        }
-                    ]
-                },
-                {
-                    image: "img/sterling.png",
-                    childrenDropLevel: 1,
-                    children: [
-                        {
-                            image: "img/woodhouse.png"
-                        }
-                    ]
-                },
-                {
-                    pseudo: true,
-                    children: [
-                        {
-                            image: "img/cheryl.png"
-                        },
-                        {
-                            image: "img/pam.png"
-                        }
-                    ]
-                },
-                
-            ]
+        animation: {
+            nodeAnimation: "easeOutBounce",
+            nodeSpeed: 700,
+            connectorsAnimation: "bounce",
+            connectorsSpeed: 700
         }
-    };
+    },
+    nodeStructure: users
+};
 
 /* Array approach
     var config = {
