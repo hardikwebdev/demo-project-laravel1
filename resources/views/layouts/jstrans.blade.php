@@ -132,7 +132,11 @@ var Please_enter_minimum_9_character = "{{ trans('custom.Please_enter_minimum_9_
 
 var Please_enter_nft_wallet_address = "{{ trans('custom.Please_enter_nft_wallet_address') }}";
 
+var Value_must_be_greater_than_0 = "{{ trans('custom.Value_must_be_greater_than_0') }}";
+var Please_enter_a_value_with_a_valid_extension_proof = "{{ trans('custom.Please_enter_a_value_with_a_valid_extension_proof') }}";
+var Please_enter_a_value_greater_than_or_equal_to_100 = "{{ trans('custom.Please_enter_a_value_greater_than_or_equal_to_100') }}";
 
+var Please_enter_a_value_with_a_valid_extension = "{{ trans('custom.Please_enter_a_value_with_a_valid_extension') }}";
 
 
 </script>
