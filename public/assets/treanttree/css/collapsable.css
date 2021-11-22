@@ -9,7 +9,7 @@ abbr,acronym { border:0; }
 
 body { background: #fff; }
 /* optional Container STYLES */
-.chart { height: 500px; margin: 5px; }
+.chart { height: 500px; margin: 5px; overflow: scroll; }
 .Treant > .node { padding: 3px; border-radius: 3px; }
 .Treant > .node img { width: 30px; max-height: 30px;     margin-left: 19%;}
 
