@@ -2,7 +2,15 @@
 var chart_config = {
     chart: {
         container: "#collapsable-example",
-
+        rootOrientation:  'NORTH', // NORTH || EAST || WEST || SOUTH
+        // levelSeparation: 30,
+        siblingSeparation:   60,
+        subTeeSeparation:    60,
+        // scrollbar: "fancy",
+        
+        connectors: {
+            type: 'step'
+        },
         animateOnInit: true,
 
         node: {
