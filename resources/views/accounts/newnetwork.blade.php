@@ -106,7 +106,7 @@
 <script src="{{ asset('assets/treanttree/js/Treant.js') }}"></script>
 <script src="{{ asset('assets/treanttree/js/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/treanttree/js/jquery.easing.js') }}"></script>
-<script src="{{ asset('assets/treanttree/js/collapsable.js') }}"></script>
+<script src="{{ asset('assets/treanttree/js/collapsable.js').'?v='.time() }}"></script>
 <script type="text/javascript">
   tree = new Treant( chart_config );
 
