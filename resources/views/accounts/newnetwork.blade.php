@@ -104,7 +104,6 @@
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 <script src="{{ asset('assets/treanttree/js/raphael.js') }}"></script>
 <script src="{{ asset('assets/treanttree/js/Treant.js') }}"></script>
-<script src="{{ asset('assets/treanttree/js/jquery.min.js') }}"></script>
 <script src="{{ asset('assets/treanttree/js/jquery.easing.js') }}"></script>
 <script src="{{ asset('assets/treanttree/js/collapsable.js').'?v='.time() }}"></script>
 <script type="text/javascript">

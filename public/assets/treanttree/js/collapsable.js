@@ -4,8 +4,8 @@ var chart_config = {
         container: "#collapsable-example",
         // rootOrientation:  'NORTH', // NORTH || EAST || WEST || SOUTH
         // // levelSeparation: 50,
-        siblingSeparation:   70,
-        subTeeSeparation:    70,
+        siblingSeparation:   90,
+        subTeeSeparation:    90,
         // scrollbar: "native",
         // nodeAlign: 'CENTER',
         connectors: {
