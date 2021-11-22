@@ -98,7 +98,7 @@ class AccountController extends Controller
         {
             if (!$isValid)
             {
-                $validator->errors()->add('placement_username', trans('custom.Invalid_placement_position'));
+                $validator->errors()->add('placement_username', 'Invalid placement position');
             }
         });
 
@@ -183,7 +183,7 @@ class AccountController extends Controller
             $userDetail->password = Hash::make($request->password);
         }
         $userDetail->save();
-        Session::flash('success', trans('custom.Your_Password_has_been_changed'));
+        Session::flash('success', 'Your Password has been changed');
         return redirect()->route('account');
     }
 
@@ -206,7 +206,7 @@ class AccountController extends Controller
             $userDetail->secure_password = Hash::make($request->password);
         }
         $userDetail->save();
-        Session::flash('success', trans('custom.Passwords_are_updated'));
+        Session::flash('success', 'Passwords are updated');
         return redirect()->route('account');
     }
 
@@ -222,49 +222,45 @@ class AccountController extends Controller
         // echo "<pre>"; print_r($referral);die();
         $referral = array_merge($referral, [$this->user->id]);
         $additionalusers = [];
-
-        // $users    = User::whereIn('id',$referral)->where('status','active')->select('id','id as key','username as name','placement_id as parent','profile_image','child_position')->orderBy('child_position','asc')
-        //       ->get()
-        //       ->map(function($query) use (&$additionalusers){
-        //             $query->sale_left = Helper::getTotalgroupsalesLeft($query);
-        //             $query->sale_right = Helper::getTotalgroupsalesRight($query);
-        //             // if(count($query->placementLeft) == 0){
-        //             //     // die();
-        //             //     $data = $query;
-        //             //     $data['name']  = 'emptynode';
-
-        //             //     $data['username']  = 'emptynode';
-        //             //     $data['parent']  = $query['id'];
-        //             //     $data['profile_image'] = 'http://localhost/defix-web/assets/images/avatar.png';
-        //             //     $data['sale_left'] = 0;
-        //             //     $data['sale_right'] = 0;
-        //             //     $additionalusers[] = $data->toArray();
-        //             // }
-        //             // if(count($query->placementRight) == 0){
-        //             //     $data = $query;
-        //             //     $data['name']  = 'emptynode';
-
-        //             //     $data['username']  = 'emptynode';
-        //             //     $data['parent']  = $query['id'];
-        //             //     $data['profile_image'] = 'http://localhost/defix-web/assets/images/avatar.png';
-        //             //     $data['sale_left'] = 0;
-        //             //     $data['sale_right'] = 0;
-        //             //     $additionalusers[] = $data->toArray();
-        //             // }
-        //             // unset($query->placementLeft);
-        //             // unset($query->placementRight);
-
-        //             return $query;
-        //       })->toArray();
         
-        $users    = User::where('id',$this->user->id)
-                            ->select('id','username','placement_id','profile_image')
-                            ->with('children')
-                            ->get();
-                            // ->map(function($query) use (&$additionalusers){
-                            //     $query->image = $query->profile_image;
-                            //     return $query;
-                            // });
+        $users    = User::whereIn('id',$referral)->where('status','active')->select('id','id as key','username as name','placement_id as parent','profile_image','child_position')->orderBy('child_position','asc')
+              ->get()
+              ->map(function($query) use (&$additionalusers){
+                    $query->sale_left = Helper::getTotalgroupsalesLeft($query);
+                    $query->sale_right = Helper::getTotalgroupsalesRight($query);
+                    // if(count($query->placementLeft) == 0){
+                    //     // die();
+                    //     $data = $query;
+                    //     $data['name']  = 'emptynode';
+
+                    //     $data['username']  = 'emptynode';
+                    //     $data['parent']  = $query['id'];
+                    //     $data['profile_image'] = 'http://localhost/defix-web/assets/images/avatar.png';
+                    //     $data['sale_left'] = 0;
+                    //     $data['sale_right'] = 0;
+                    //     $additionalusers[] = $data->toArray();
+                    // }
+                    // if(count($query->placementRight) == 0){
+                    //     $data = $query;
+                    //     $data['name']  = 'emptynode';
+
+                    //     $data['username']  = 'emptynode';
+                    //     $data['parent']  = $query['id'];
+                    //     $data['profile_image'] = 'http://localhost/defix-web/assets/images/avatar.png';
+                    //     $data['sale_left'] = 0;
+                    //     $data['sale_right'] = 0;
+                    //     $additionalusers[] = $data->toArray();
+                    // }
+                    // unset($query->placementLeft);
+                    // unset($query->placementRight);
+
+                    return $query;
+              })->toArray();
+        // $users = array_merge($users,$additionalusers);      
+
+        //  echo "<pre>";
+        // print_r($users);
+        // die();
 
         $accumulateLeftSale     = Helper::getTotalgroupsalesLeft($this->user);
         $accumulateRightSale    = Helper::getTotalgroupsalesRight($this->user);
@@ -330,12 +326,12 @@ class AccountController extends Controller
             }
         }
         // echo "<pre>";
-        // print_r($users->toArray());
+        // print_r(json_encode($saleLeft));
         // print_r(json_encode($months));
         // print_r(json_encode($graphData));
         // die();
 
-        return view('accounts.newnetwork',compact('users','accumulateLeftSale','accumulateRightSale','todaysLeftSale','todaysRightSale','todaysLeftCarryFw','todaysRightCarryFw','dailyMaxCommission','totalCommission','graph','months','pairingHistory'));
+        return view('accounts.network',compact('users','accumulateLeftSale','accumulateRightSale','todaysLeftSale','todaysRightSale','todaysLeftCarryFw','todaysRightCarryFw','dailyMaxCommission','totalCommission','graph','months','pairingHistory'));
     }
     public function profile(Request $request){
         $user = User::with('userbank')->where('id',Auth::user()->id)->where('status','active')->where('deleted_at', null)->first();
@@ -372,7 +368,7 @@ class AccountController extends Controller
             $user->city = $request->city;
             $user->country_id = $request->country;
             $user->save();
-            return redirect()->back()->with('success', trans('custom.user_personal_details_updates_successfully'));
+            return redirect()->back()->with('success', 'User personal details updates successfully');
         } catch (Exception $e) {
             return redirect()->back()->with(["error"=>$e->getMessage()]);
             
@@ -398,7 +394,7 @@ class AccountController extends Controller
             $user->swift_code = $request->swift_code;
             $user->bank_country_id = $request->bank_country_id;
             $user->save();
-            return redirect()->back()->with('success', trans('custom.User_bank_details_updates_successfully'));
+            return redirect()->back()->with('success', 'User bank details updates successfully');
         } catch (Exception $e) {
             return redirect()->back()->with(["error"=>$e->getMessage()]);
             
@@ -413,7 +409,7 @@ class AccountController extends Controller
             $user = User::find($request->id);
             $user->nft_wallet_address = $request->nft_wallet_address;
             $user->save();
-            return redirect()->back()->with('success', trans('custom.User_NFT_Wallet_address_updates_successfully'));
+            return redirect()->back()->with('success', 'User NFT Wallet address updates successfully');
         } catch (Exception $e) {
             return redirect()->back()->with(["error"=>$e->getMessage()]);
             
@@ -433,7 +429,7 @@ class AccountController extends Controller
 
             User::where('id',auth()->id())->update(['profile_image'=>$filename]);
 
-            return redirect()->back()->with(['success'=> trans('custom.Update_Image_Successfully')]);
+            return redirect()->back()->with(['success'=> 'Update Image Successfully']);
         }     
         return redirect()->back();
     }
