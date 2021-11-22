@@ -1545,11 +1545,8 @@ return [
     'myr_amount' => 'Amount (MYR)',
     'open_ticket' => '创建新单',
     'no_ticket_found' => 'No Ticket found',
-<<<<<<< HEAD
     'staking_popup_title' => '质押池提醒',
-=======
     'staking_popup_title' => 'STAKING POOL REMINDER',
->>>>>>> f307153c11d166b11a26148cef60a48161cce51a
     'commission_history' => '佣金钱包历史记录',
     'antimoney-laundering' => '反洗钱政策',
     'coockie-policy' => 'Cookie政策',
