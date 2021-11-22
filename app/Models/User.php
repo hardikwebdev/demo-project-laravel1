@@ -89,7 +89,7 @@ class User extends Authenticatable
     }
 
      public function children() {
-        return $this->hasMany(User::class, 'placement_id', 'id')->select('id',\DB::raw("CONCAT(username,'-',child_position) AS username"),'placement_id','profile_image')->with('children');
+        return $this->hasMany(User::class, 'placement_id', 'id')->select('id','username','placement_id','profile_image')->with('children'); // \DB::raw("CONCAT(username,'-',child_position) AS username")
     }
 
 
@@ -147,13 +147,15 @@ class User extends Authenticatable
         if(file_exists(public_path('uploads/user/'.$value)) && $value){
             return asset('uploads/user/'.$value);     
         }
-        return asset('assets/images/avatar.png');
+        return asset('assets/images/user-green.png');
     }
 
     public function getImageAttribute(){
         // if(file_exists(public_path('uploads/user/'.$this->profile_image)) && $this->profile_image){
         //     return asset('uploads/user/'.$this->profile_image);     
         // }
+        return asset('assets/images/user-green.png');
+        
         return $this->profile_image;
     }
     public function getCollapsedAttribute(){

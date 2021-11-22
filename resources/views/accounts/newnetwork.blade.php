@@ -108,7 +108,9 @@
 <script src="{{ asset('assets/treanttree/js/jquery.easing.js') }}"></script>
 <script src="{{ asset('assets/treanttree/js/collapsable.js').'?v='.time() }}"></script>
 <script type="text/javascript">
-  tree = new Treant( chart_config );
+  jQuery(function($){
+    tree = new Treant( chart_config );
+  });
 
   $(document).ready(function(e){
     // var users = {!! json_encode($users) !!};

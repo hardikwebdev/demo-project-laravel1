@@ -11,13 +11,33 @@ body { background: #fff; }
 /* optional Container STYLES */
 .chart { height: 500px; margin: 5px; overflow: scroll; }
 .Treant > .node { padding: 3px; border-radius: 3px; }
-.Treant > .node img { width: 30px; max-height: 30px;     margin-left: 19%;}
+/*.Treant > .node img { width: 30px; max-height: 30px;     margin-left: 19%;}*/
 
 .Treant .collapse-switch { width: 100%; height: 100%; border: none; }
-.Treant .node.collapsed { background-color: #2c2e33;color:#fff;height: auto !important; }
-.Treant .node.collapsed .collapse-switch { background: none;color:#fff; }
+.Treant .node.collapsed { background-color: none;height: auto !important; }
+.Treant .node.collapsed .collapse-switch { background: none; }
 .Treant .node{
 	/*height: 51px;*/
 	/*width: 56px;*/
 	max-width: 60px;
+}
+
+.Treant > .node {
+	text-align: center !important;
+	border: none !important;
+}
+.Treant > .node img {
+    width: 56px !important;
+    height: 56px !important;
+    float: none !important;
+}
+.Treant .node.collapsed {
+    background-color: transparent !important;
+}
+.Treant .node.collapsed:after {
+    content: "^";
+    position: absolute;
+    /*bottom: -5px;*/
+    color: red;
+    font-weight: bold;
 }
