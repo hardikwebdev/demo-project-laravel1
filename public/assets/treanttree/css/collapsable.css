@@ -21,7 +21,9 @@ body { background: #fff; }
 	/*width: 56px;*/
 	max-width: 60px;
 }
-
+.Treant .collapse-switch:hover {
+    text-decoration: none;
+}
 .Treant > .node {
 	text-align: center !important;
 	border: none !important;
