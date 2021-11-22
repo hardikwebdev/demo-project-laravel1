@@ -67,7 +67,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    protected $appends = [ 'image' ];
+    protected $appends = [ 'image','text' ];
 
     protected $dates = [ 'deleted_at' ];
     // protected $appends = [ 'sale_left','sale_right' ];
@@ -89,7 +89,7 @@ class User extends Authenticatable
     }
 
      public function children() {
-        return $this->hasMany(User::class, 'placement_id', 'id')->select('id','placement_id','profile_image')->with('children');
+        return $this->hasMany(User::class, 'placement_id', 'id')->select('id','username','placement_id','profile_image')->with('children');
     }
 
 
@@ -155,6 +155,10 @@ class User extends Authenticatable
             return asset('uploads/user/'.$this->profile_image);     
         }
         return asset('assets/images/avatar.png');
+    }
+
+    public function getTextAttribute(){
+        return ['name' => $this->username];
     }
 
     public function getTotalStake()
