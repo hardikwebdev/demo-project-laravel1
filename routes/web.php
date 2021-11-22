@@ -101,13 +101,13 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::get('help-support-close/{slug}', [SupportTicketController::class, 'supportClose'])->name('supportClose');
         Route::post('help-support-replay-message', [SupportTicketController::class, 'supportReplayPost'])->name('supportReplayPost');
 
-        Route::resource('news-and-events', NewsandEventsController::class);
         Route::get('/stacks', 'App\Http\Controllers\StackingPoolController@index')->name('stacks');
         Route::post('/stacking-pool', 'App\Http\Controllers\StackingPoolController@stacking_pool')->name('staking_pool');
         Route::get('/stack/{id}', 'App\Http\Controllers\StackingPoolController@detail')->name('stakepool');
         Route::get('staking-pool/investmentperiod/{id}', 'App\Http\Controllers\StackingPoolController@investmentperiod')->name('stock-market-investment-period');
         Route::post('/stake-plan-change/{id}', 'App\Http\Controllers\StackingPoolController@changePlan')->name('stake-plan-change');
         Route::middleware(['checkUserStaking'])->group(function () {
+            Route::resource('news-and-events', NewsandEventsController::class);
 
             Route::get('/node_management', 'App\Http\Controllers\AccountController@node_management')->name('node_management');
 
