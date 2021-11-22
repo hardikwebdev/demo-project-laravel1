@@ -54,7 +54,7 @@
               <h4>{{$coin->name}}</h4>
             </div>
             <div>
-              <!-- <h3>${{$coin->price}}</h3> -->
+              <h3>${{number_format($coin->price,2)}}</h3>
             </div>
           </div>
           <p class="border-bottom border-white"></p>
