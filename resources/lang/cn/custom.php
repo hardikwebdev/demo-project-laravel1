@@ -2019,6 +2019,8 @@ return [
 'Please_enter_number_only' => 'Please enter number only',
 'Please_enter_minimum_9_character' => 'Please enter minimum 9 character',
 'total_staking' => 'Total Stacking',
-'Please_enter_nft_wallet_address' => 'Please enter nft wallet address.'
-
+'Please_enter_nft_wallet_address' => 'Please enter nft wallet address.',
+'Please_enter_a_value_with_a_valid_extension_proof' => 'Please enter a value with a valid extension proof.',
+'Please_enter_a_value_greater_than_or_equal_to_100' => 'Please enter a value greater than or equal to 100.',
+'Please_enter_a_value_with_a_valid_extension' => 'Please enter a value with a valid extension.',
 ];
