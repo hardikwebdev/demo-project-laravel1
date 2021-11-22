@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
+use Carbon\Carbon;
+use App\Models\User;
+use App\Models\NftProduct;
 use Illuminate\Http\Request;
 use App\Models\NftPurchaseHistory;
-use Carbon\Carbon;
+use App\Http\Controllers\Controller;
+use App\Models\NftSellHistory;
 
 class NftpurchaserequestController extends Controller
 {
@@ -23,11 +26,12 @@ class NftpurchaserequestController extends Controller
         //
         try{
             $data = $request->all();
-            $nft_purchase_history = NftPurchaseHistory::with([
+            $nft_purchase_history = NftSellHistory::with([
                 'user_detail' => function ($query) {
                     $query->withTrashed();
                 },
                 'nftproduct',
+                'nftpurchasehistory'
             ]);
 
             if($request->ajax()){
@@ -52,17 +56,17 @@ class NftpurchaserequestController extends Controller
             }
 
 
-            if($request->status && $request->status != ""){
-                $status = ['Pending'=>'0','Processing'=>'3','On Sale'=>'2','Listing'=>'1'];
-                $nft_purchase_history = $nft_purchase_history->where('status',$status[$request->status]);
-            }else{
-                $data['status'] = 'On Sale';
-                $nft_purchase_history = $nft_purchase_history->where('status','2');
-            }
-
+            // if($request->status && $request->status != ""){
+            //     $status = ['Pending'=>'0','Processing'=>'3','On Sale'=>'2','Listing'=>'1'];
+            //     $nft_purchase_history = $nft_purchase_history->where('status',$status[$request->status]);
+            // }else{
+            //     $data['status'] = 'On Sale';
+            //     $nft_purchase_history = $nft_purchase_history->where('status','2');
+            // }
+            $nft_purchase_history = $nft_purchase_history->whereIn('status',[1,4]);
 
             $data['total_uploads'] = $nft_purchase_history->count();
-            $data['total_sales'] = $nft_purchase_history->sum('amount');
+            $data['total_sales'] = $nft_purchase_history->sum('sale_amount');
 
             /* Search Functions end*/
             $nft_purchase_history = $nft_purchase_history->orderBy('id','desc')->paginate($this->limit)->appends($request->all());
@@ -223,24 +227,41 @@ class NftpurchaserequestController extends Controller
     {
         //
         if($request->type == "counteroffer"){
-            $counteroffer = NftPurchaseHistory::find($request->request_id);
+            $counteroffer = NftSellHistory::find($request->request_id);
+            $user = User::find($counteroffer->user_id);
+            $product = NftProduct::find($counteroffer->product_id);
             $counteroffer->counter_offer_amount = $request->counter_offer_amount;
             $counteroffer->remark = $request->remark;
             $counteroffer->counter_offer_status = 1;
+            $counteroffer->counter_offer_verification_key = sha1($user->email.time());
             $counteroffer->save();
+
+            $data['email'] = $user->email;
+            $data['amount'] = $request->counter_offer_amount;
+            $data['product'] = $product->name;
+            $routeUrl = route('user.counterofferrequest',$counteroffer->counter_offer_verification_key);
+            
+            \Mail::send('emails.counteroffer',['routeUrl' =>$routeUrl,'data' => $data ], function($message) use($data)  {
+                $message->to($data['email'], 'Counter Offer approve or reject')
+                ->subject('Defix Counter Offer Of '.$data['product']);
+            });
+
             return redirect()->route('nft_purchase_request.index')->with(['success' => 'Counter Offer request place successfully.']);
         } else{
             if ($request->ajax() || $request->status != '') {
                 try {
-                    $change_status = NftPurchaseHistory::find($id);
+                    $change_status = NftSellHistory::find($id);
                     if ($change_status == null && $change_status == "") {
                         return response()->json(['status' => 'fail', 'message' => trans('custom.no_data_found')]);
                     }
-                    if($request->status == 3){
+                    if($request->status == 2){
                         $change_status->status = ($request->status != "") ? $request->status : "0";
-                        $change_status->approve_date = Carbon::now();
+                        // $change_status->approve_date = Carbon::now();
                     }else{
                         $change_status->status = ($request->status != "") ? $request->status : "0";
+                        $nfttype = NftPurchaseHistory::find($change_status->nft_purchase_history_id);
+                        $nfttype->type = 0;
+                        $nfttype->save();
                     }
                     $change_status->save();
                     return response()->json(['status' => 'success', 'message' => "Crypto wallet transaction update successfully..", 'data' => $change_status]);

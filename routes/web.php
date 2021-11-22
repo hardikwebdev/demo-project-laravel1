@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\Usercryptowallet;
 use App\Http\Controllers\Backend\PackageController;
 use App\Http\Controllers\Backend\SettingController;
+use App\Http\Controllers\Backend\NftOnsaleController;
 use App\Http\Controllers\Backend\NFTProductController;
 use App\Http\Controllers\Backend\NFTCategoryController;
 use App\Http\Controllers\Backend\NftpurchaseController;
@@ -58,6 +59,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
     Route::post('/email-exits', 'App\Http\Controllers\CommonController@emailExists')->name('emailExists');
     Route::post('/username-exits', 'App\Http\Controllers\CommonController@usernameExits')->name('usernameExits');
     Route::get('withdrawl-request/{key}', 'App\Http\Controllers\CommonController@withdrawlRequestVerify')->name('withdrawlRequestVerify');
+    Route::get('counter-offer-request/{key}', 'App\Http\Controllers\CommonController@counterofferrequest')->name('user.counterofferrequest');
     Route::get('calculate-pairing-commission', 'App\Http\Controllers\CommonController@pairingCommission')->name('calculate-pairing');
     Route::get('calculate-referral-commission', 'App\Http\Controllers\CommonController@referralCommission')->name('calculate-referral');
     Route::any('online-payment-response/my/{slug}', 'App\Http\Controllers\WalletController@online_payment_callback_my')->name('online-payment-my-response');
@@ -119,7 +121,9 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         // Route::get('/help_support', 'App\Http\Controllers\HomeController@help_support')->name('help_support');
         Route::get('/sell_nft', 'App\Http\Controllers\AccountController@sell_nft')->name('sell_nft');
         Route::get('/viewnftsell/{id}', 'App\Http\Controllers\AccountController@viewNFTSell')->name('view.nftsell');
+        Route::get('/viewcounteroffer/{id}', 'App\Http\Controllers\AccountController@viewcounteroffer')->name('nft.viewcounteroffer');
         Route::post('/saleproduct', 'App\Http\Controllers\AccountController@salenftproduct')->name('saleproduct');
+        Route::post('/counterofferstatus', 'App\Http\Controllers\AccountController@counterofferstatus')->name('counterofferstatus');
         Route::get('/withdrawal', 'App\Http\Controllers\WithdrawalController@index')->name('withdrawal');
         Route::post('/withdrawal-request', 'App\Http\Controllers\WithdrawalController@withdrawalRequest')->name('withdrawal-request');
         Route::any('resend-email/{id}', 'App\Http\Controllers\WithdrawalController@resendEmail')->name('resendEmail');
@@ -229,6 +233,10 @@ Route::prefix('admin')->group(function () {
 
             //usdt Address
         Route::resource('usdt_address', UsdtAddressController::class);
+
+
+        //NFT On sale Request
+        Route::resource('nft_on_sale_request', NftOnsaleController::class);
     });
 });
 

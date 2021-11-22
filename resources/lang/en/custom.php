@@ -1985,5 +1985,18 @@ return [
     'NAME' => 'NAME',
     'AMOUNT' => 'AMOUNT',
     'ORDER_ID' => 'ORDER ID',
-    'STATUS' => 'STATUS'
+    'STATUS' => 'STATUS',
+    'listingperiod' => 'This NFT Product sell request already in process.',
+    'APPROVE' => 'APPROVE',
+    'REJECT' => 'REJECT',
+    'Counter_offer_amount' => 'Counter offer amount',
+    'counter_offer_approve' => 'Counter offer approve successfully.',
+    'counter_offer_reject' => 'Counter offer reject successfully.',
+    'counter_offer_aleady' => 'Counter offer of this NFT product is already approve or reject.',
+
+    'LISTING' => 'LISTING',
+    'ON_SALE' => 'ON SALE',
+    'DECLINED' => 'DECLINED',
+    'COUNTER_OFFER_DECLINED' => 'COUNTER OFFER DECLINED',
+    'PROCESSING' => 'PROCESSING',
  ];

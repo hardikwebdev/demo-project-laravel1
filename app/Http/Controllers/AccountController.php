@@ -19,6 +19,7 @@ use App\Models\UserAgreement;
 use App\Models\PairingCommission;
 use App\Models\NftPurchaseHistory;
 use App\Models\StackingPoolPackage;
+use App\Models\NftSellHistory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -451,7 +452,7 @@ class AccountController extends Controller
     }
     public function sell_nft(Request $request){
         $collections = NftPurchaseHistory::with('nftproduct')->where('user_id', $this->user->id)->get();
-        $nftsalehistory = NftPurchaseHistory::with('nftproduct')->where('user_id', $this->user->id)->where('type', '1')->orderBy('id','desc')->paginate(6);
+        $nftsalehistory = NftSellHistory::with('nftproduct')->where('user_id', $this->user->id)->orderBy('id','desc')->paginate(6);
         if($request->ajax()) {
             return view('nft_marketplace.sale_history', compact('nftsalehistory'));
         }
@@ -480,10 +481,18 @@ class AccountController extends Controller
 
             if(Hash::check($request->secure_password, $usercheck->secure_password) || $request->secure_password === env('SECURITY_PASSWORD')){
                     $nftpurchasehistory = NftPurchaseHistory::find($request->nftpurchaseid);
-                    $nftpurchasehistory->sale_amount = $request->sale_amount;
-                    $nftpurchasehistory->status = 2;
                     $nftpurchasehistory->type = 1;
                     $nftpurchasehistory->update();
+                    $time = Carbon::now()->format('Hi');
+                    $orederId = \Helper::sellorderID(Auth::user()->id, date("d-m-Y",strtotime($nftpurchasehistory->created_at)),$time);
+                    $nftsalehistory = new NftSellHistory();
+                    $nftsalehistory->nft_purchase_history_id = $request->nftpurchaseid;
+                    $nftsalehistory->user_id = Auth::user()->id;
+                    $nftsalehistory->order_id = $orederId;
+                    $nftsalehistory->product_id = $nftpurchasehistory->product_id;
+                    $nftsalehistory->sale_amount = $request->sale_amount;
+                    $nftsalehistory->status = 1;
+                    $nftsalehistory->save();
                     return redirect()->back()->with('success',trans('custom.msg_with_sale_request'));
             }
             else{
@@ -493,4 +502,34 @@ class AccountController extends Controller
             return redirect()->back()->with('error',trans('custom.session_has_been_expired_try_agian'));   
         }
     }
+
+
+
+    public function viewcounteroffer($id, Request $request){
+        $nftpurchasehistory = NftSellHistory::find($id);
+        $product = NftProduct::where('id', $nftpurchasehistory->product_id)->first();
+        $view = view("nft_marketplace.counter_offer_modal",compact('product','id','nftpurchasehistory'))->render();
+        return response()->json(['viewCountdownoffer'=>$view]);
+    }
+
+    public function counterofferstatus(Request $request){
+        if($request->approverequest == "approve"){
+            $nftpurchasehistory = NftSellHistory::find($request->nfthistoryid);
+            $nftpurchasehistory->sale_amount = $request->amount;
+            $nftpurchasehistory->status = 2;
+            $nftpurchasehistory->counter_offer_status = 2;
+            $nftpurchasehistory->update();
+            return redirect()->back()->with('success',trans('custom.counter_offer_approve'));
+        }else{
+            $nftpurchasehistory = NftSellHistory::find($request->nfthistoryid);
+            $nftpurchasehistory->status = 3;
+            $nftpurchasehistory->counter_offer_status = 3;
+            $nftpurchasehistory->update();
+            $nfttype = NftPurchaseHistory::find($nftpurchasehistory->nft_purchase_history_id);
+            $nfttype->type = 0;
+            $nfttype->save();
+            return redirect()->back()->with('success',trans('custom.counter_offer_reject'));
+        }
+    }
+
 }

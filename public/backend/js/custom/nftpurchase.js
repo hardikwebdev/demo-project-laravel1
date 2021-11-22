@@ -53,7 +53,11 @@ $('.nftreq').on('click', function(e) {
 
                 if (type == 'approve') {
                     var text = '<label class="label label-primary" >Approved</label>';
+                    $('#statusproduct').html(" ");
+                    $('#statusproduct').html('<label class="label label-success">On Sale</label>');
                 } else {
+                    $('#statusproduct').html(" ");
+                    $('#statusproduct').html('<label class="label label-danger">Declined</label>');
                     var text = '<label class="label label-danger" >Rejected</label>';
                 }
                 th.parent().html(text);
@@ -75,7 +79,7 @@ $('.counterofferbtn').on('click', function(e) {
     var username = $(this).parent().find('input[name="username"]').val();
     var nft_purchase_request_id = $(this).parent().find('input[name="nft_purchase_request"]').val();
     var user_sale_amount = $(this).parent().find('input[name="user_sale_amount"]').val();
-
+    
     $('#open_counter_offer_modal').find('input[name="request_id"]').val(nft_purchase_request_id);
     $('#open_counter_offer_modal').find('.username').text(username);
     $('#open_counter_offer_modal').find('input[name="type"]').val(type);
@@ -105,5 +109,47 @@ $("#counter_offer_form").validate({
         remark: {
             required: 'Please enter remark.',
         }
+    }
+});
+
+
+/* fund wallet approve disapprove code*/
+$('.nftonsalereq').on('click', function(e) {
+    e.preventDefault();
+    var th = $(this);
+    if (th.hasClass('disabled')) {
+        return;
+    }
+    // alert();
+    var type = $(this).data('type');
+    var trans_id = $(this).data('id');
+    var value = $(this).data('value');
+    if (confirmDelete(this, 'Are you sure to want to ' + type + ' this request?')) {
+        th.addClass('disabled');
+        if (th.hasClass('btn-success')) {
+            th.next('a').addClass('disabled');
+        } else {
+            th.prev('a').addClass('disabled');
+        }
+
+        $.post(nft_on_url + '/' + trans_id, { _method: "patch", "status": value, 'status_type': type }, function(response) {
+            if (response.status == 'success') {
+                th.removeClass('disabled');
+
+                if (type == 'approve') {
+                    var text = '<label class="label label-primary" >Approved</label>';
+                    $('#onsaleproduct').html(" ");
+                    $('#onsaleproduct').html('<label class="label label-success">Processing</label>');
+                } else {
+                    $('#onsaleproduct').html(" ");
+                    $('#onsaleproduct').html('<label class="label label-danger">Declined</label>');
+                    var text = '<label class="label label-danger" >Rejected</label>';
+                }
+                th.parent().html(text);
+                // th.parent().parent().html(text);
+            } else {
+                alert(response.message);
+            }
+        })
     }
 });

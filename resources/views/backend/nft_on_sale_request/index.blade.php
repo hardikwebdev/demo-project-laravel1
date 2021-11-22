@@ -9,7 +9,7 @@
         <div class="col-lg-12">
             <h2>
                 {!! Form::open(['route' => 'nft_purchase_request.index', 'class' => 'form-inline', 'method' => 'get', 'id' => 'filter_data_ajax']) !!}
-                <div class="col-xs-12 col-md-6 p-0">NFT Sell Request</div>
+                <div class="col-xs-12 col-md-6 p-0">NFT On Sell Request</div>
                 <div class="col-xs-12 col-md-6 text-right">
                     {{-- @role('admin') --}}
                     {{-- <div class="pull-right">
@@ -72,9 +72,9 @@
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                                @if (isset($nft_purchase_history) && count($nft_purchase_history) > 0)
+                                @if (isset($nft_onsale_history) && count($nft_onsale_history) > 0)
                                     @php  $i = 1;  @endphp
-                                    @foreach ($nft_purchase_history as $row)
+                                    @foreach ($nft_onsale_history as $row)
                                         <tbody>
                                             <tr>
                                                 <td>{{ $i++ }}</td>
@@ -92,7 +92,7 @@
                                                 <td>{{ $row->purchase_date ? $row->purchase_date->format('Y-m-d') : $row->created_at->format('Y-m-d') }}
                                                 </td>
                                                 {{-- <td>{{ $row->sell_date ? $row->sell_date : ' ' }}</td> --}}
-                                                <td id="statusproduct">
+                                                <td id="onsaleproduct">
                                                     @if ($row->status == 1)
                                                         <label class="label label-primary">Listing</label>
                                                     @elseif ($row->status == 2)
@@ -102,55 +102,18 @@
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    {{-- @if ($row->status == '3')
-                                                        <label class="label label-info">Processing</label>
-                                                    @elseif ($row->status=='2') --}}
-                                                    {{-- <label class="label label-success">On Sale</label> --}}
-                                                    {{-- @role('admin') --}}
-                                                    <!-- <div class="btn-group"> -->
-                                                    @if ($row->counter_offer_status == '1')
-                                                        <a class="btn btn-sm btn-warning" href="#" style="margin-left:18px;"
-                                                            disabled>Counter offer Processing</a>
-                                                    @elseif ($row->counter_offer_status == '2')
-                                                     -
-                                                    @elseif ($row->counter_offer_status == '3')
-                                                     -
-                                                    @else
-                                                        <a class="btn btn-sm btn-success nftreq"
+                                                        <a class="btn btn-sm btn-success nftonsalereq"
                                                             data-id="{{ $row->id }}" data-type="approve"
-                                                            data-value="2" href="#">Approve</a>
+                                                            data-value="5" href="#">Approve</a>
 
-                                                        <a class="btn btn-sm btn-danger nftreq" href="#" data-type="reject"
+                                                        <a class="btn btn-sm btn-danger nftonsalereq" href="#" data-type="reject"
                                                             data-id="{{ $row->id }}" data-value="3">Reject</a>
-
-                                                        {!! Form::open(['route' => ['nft_purchase_request.update', $row->id], 'onsubmit' => 'return false;']) !!}
-                                                        {!! Form::hidden('username', $row->user_detail->username) !!}
-                                                        {!! Form::hidden('nft_purchase_request', $row->id) !!}
-                                                        {!! Form::hidden('user_sale_amount', $row->sale_amount) !!}
-                                                        <a class="btn btn-sm btn-primary counterofferbtn" href="#"
-                                                            data-toggle="tooltip" data-type="counteroffer"
-                                                            style="margin-left:18px;margin-top: 10px;">Counter Offer</a>
-                                                        {!! Form::close() !!}
-                                                    @endif
-
-
-                                                    {{-- <a class="btn btn-sm btn-primary" data-amount="{{$funds->amount}}" data-id="{{$funds->id}}" data-username="{{$funds->user_detail!=null?$funds->user_detail->username:''}}" onclick="opFundWallet(this)" >Edit</a>
-                                            <a class="btn btn-sm btn-primary " data-type="remark"  data-amount="{{$funds->amount}}" data-id="{{$funds->id}}" data-username="{{$funds->user_detail!=null?$funds->user_detail->username:''}}" onclick="updateRemark(this)" >Remark</a> --}}
-                                                    {{-- @else
-                                        N/A
-                                        @endrole --}}
-                                                    <!-- </div>   -->
-                                                    {{-- @elseif ($row->status=='1')
-                                                    <label class="label label-primary">Listing</label>
-                                                    @else
-                                                        <label class="label label-warning">Pending</label>
-                                                    @endif --}}
                                                 </td>
                                             </tr>
                                         </tbody>
                                     @endforeach
                                     <tr align="right">
-                                        <td colspan="9" align="right">{!! $nft_purchase_history->render('vendor.default_paginate') !!}</td>
+                                        <td colspan="9" align="right">{!! $nft_onsale_history->render('vendor.default_paginate') !!}</td>
                                     </tr>
                                 @else
                                     <tbody>
@@ -166,43 +129,10 @@
             </div>
         </div>
     </div>
-    <div id="open_counter_offer_modal" class="modal fade open-remark-model" role="dialog">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-                {!! Form::open(['route' => ['nft_purchase_request.update', ''], 'method' => 'post', 'class' => 'form-vertical', 'id' => 'counter_offer_form', 'autocomplete' => 'false']) !!}
-                @method('patch')
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title"><span class="status text-capitalize"></span> Counrter Offer of <span
-                            class="username"></span></h4>
-                </div>
-                <div class="modal-body">
-                    {!! Form::hidden('request_id', '') !!}
-                    {!! Form::hidden('type', '') !!}
-                    <div class="form-group">
-                        <label>Counter offer amount:</label>
-                        {!! Form::number('counter_offer_amount', old('counter_offer_amount'), ['min' => '0', 'class' => 'form-control', 'placeholder' => 'Enter counter offer amount']) !!}
-                        <span class="help-block text-danger">{{ $errors->first('counter_offer_amount') }}</span>
-                    </div>
-                    <div class="form-group">
-                        <label>Remark:</label>
-                        {!! Form::textarea('remark', old('remark'), ['class' => 'form-control', 'placeholder' => 'Enter Note', 'rows' => 4, 'resize' => 'false']) !!}
-                        <span class="help-block text-danger">{{ $errors->first('remark') }}</span>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-success">Submit</button>
-                    <a class="btn btn-danger" data-dismiss="modal">Cancel</a>
-                </div>
-                {!! Form::close() !!}
-            </div>
-        </div>
-    </div>
 @endsection
 @section('scripts')
     <script type="text/javascript">
-        var nft_url = "{{ route('nft_purchase_request.update', ['']) }}"
-        var export_url = "{{ route('nft_purchase_request.export') }}";
+        var nft_on_url = "{{ route('nft_on_sale_request.update', ['']) }}"
         $('.chosen-select').chosen({
             width: "100%"
         });

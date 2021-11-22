@@ -15,7 +15,8 @@
             <th>{{trans('custom.ORDER_ID')}}</th>
             <th>{{trans('custom.DATE')}}</th>
             <th>{{trans('custom.STATUS')}}</th>
-            <th></th>
+            <th>{{trans('COUNTER OFFER')}}</th>
+            {{-- <th></th> --}}
         </tr>
     </thead>
     <tbody>
@@ -34,10 +35,27 @@
             <td>${{ number_format($value->sale_amount, 2) }}</td>
             <td>{{ $value->order_id }}</td>
             <td>{{ date("d/m/Y",strtotime($value->created_at)) }}</td>
-            <td class="text-warning">SOLD</td>
+            @if ($value->status == 1)
+            <td class="text-warning">{{trans('custom.LISTING')}}</td>
+            @elseif ($value->status == 2)
+            <td class="text-info">{{trans('custom.ON_SALE')}}</td>
+            @elseif ($value->status == 3)
+            <td class="text-danger">{{trans('custom.DECLINED')}}</td>
+            @elseif ($value->status == 4)
+            <td class="text-danger">{{trans('custom.COUNTER_OFFER_DECLINED')}}</td>
+            @elseif ($value->status == 5)
+            <td class="text-success">{{trans('custom.PROCESSING')}}</td>
+            @else
+                
+            @endif
             <td>
-                <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}"
-                    class="img-fluid rounded-0 w-auto h-auto" alt="">
+                @if ($value->counter_offer_status == 1)
+                <a href="javascript:void(0)" onclick="viewcounteroffer({{ $value->id }})">{{ trans('custom.view')}}</a>
+                @else
+                    -
+                @endif
+                {{-- <img src="{{ asset('assets/images/assets/Sell_NFT/Group554.png') }}"
+                    class="img-fluid rounded-0 w-auto h-auto" alt=""> --}}
             </td>
         </tr>
 		@endforeach

@@ -1,6 +1,7 @@
 <?php
 namespace App\Helpers;
 
+use PDF;
 use Carbon\Carbon;
 use App\Models\User;
 use App\Models as Model;
@@ -10,10 +11,10 @@ use App\Models\CryptoWallet;
 use App\Models\StackingPool;
 use App\Models\UserReferral;
 use App\Models\SupportTicket;
+use App\Models\NftSellHistory;
 use App\Models\WithdrawalRequest;
 use App\Models\NftPurchaseHistory;
 use App\Models\SupportTicketMessages;
-use PDF;
 
 
 class Helper {
@@ -370,7 +371,7 @@ class Helper {
 
       // count Nft Purchase Request
     public static function getPendingNftPurchaseRequestCount(){
-        return NftPurchaseHistory::where('status','2')->count();
+        return NftSellHistory::where('status','1')->count();
      }
 
        // count  withdrawal Request
@@ -391,6 +392,11 @@ class Helper {
     public static function orderID($userId ,$date){
         $date = str_replace('-','',$date);
         $orderID = 'DEFNFT'.$userId.$date;
+        return $orderID;
+    } 
+    public static function sellorderID($userId ,$date,$time){
+        $date = str_replace('-','',$date);
+        $orderID = 'DEFNFT'.$userId.$date.$time;
         return $orderID;
     } 
 

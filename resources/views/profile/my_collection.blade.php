@@ -294,9 +294,9 @@
               <a class="min-h-252 bg-white p-3 rounded mx-2 d-block w-100 text-decoration-none" href="{{route('nftproduct', $value->product_id)}}">
                 <div class="position-relative overflow-hidden">
                   <img src="{{ asset($value->nftproduct->image) }}" class="img-fluid w-100" alt="">
-                  @if($value->type == 1)
+                  {{-- @if($value->type == 1)
                   <span class="sale-label">{{ __('custom.on_sale')}}</span>
-                  @endif
+                  @endif --}}
                 </div>
                 <div class="mt-3">
                   <h4 class="text-blue font-weight-bold">{{ $value->nftproduct->name }} #{{ $value->product_id}}</h4>

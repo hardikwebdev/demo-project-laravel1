@@ -69,6 +69,7 @@ $('.alert-danger').fadeIn().delay(4000).fadeOut();
  var placementUsernameExits = "{{route('placementUsernameExits')}}";
  var viewbrackdown = "{{ route('view.breakdown', ':id') }}";
  var viewnftsell = "{{ route('view.nftsell', ':id') }}";
+ var nftviewcounteroffer = "{{ route('nft.viewcounteroffer', ':id') }}";
  var emailExists = "{{route('emailExists')}}";
  var usernameExits = "{{route('usernameExits')}}";
 </script>

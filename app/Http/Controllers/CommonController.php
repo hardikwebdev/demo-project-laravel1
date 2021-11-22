@@ -2,19 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use Carbon\Carbon;
 use App\Models\User;
+use App\Helpers\Helper;
+use App\Models\Package;
+use App\Models\UserWallet;
+use App\Models\StackingPool;
 use App\Models\UserReferral;
 use Illuminate\Http\Request;
-use App\Helpers\Helper;
-use App\Models\WithdrawalRequest;
-use Auth;
-use App\Models\StackingPool;
-use Carbon\Carbon;
-use App\Models\Package;
-use App\Models\CommissionWalletHistory;
-use App\Models\UserWallet;
-use App\Models\ReferralCommission;
+use App\Models\NftSellHistory;
 use App\Models\PairingCommission;
+use App\Models\WithdrawalRequest;
+use App\Models\NftPurchaseHistory;
+use App\Models\ReferralCommission;
+use App\Models\CommissionWalletHistory;
 
 
 class CommonController extends Controller
@@ -545,5 +547,47 @@ class CommonController extends Controller
             return redirect()->route('withdrawal')->with(['error'=>trans('custom.withdrawl_request_not_valid')]);
         }
         return redirect()->route('login')->with(['error'=>trans('custom.login_first')]);
+    }
+
+
+     //counter offer approve or reject.
+     public function counterofferrequest(Request $request){
+        // dd($request->get('status'),$request->key);
+        $counteroffer = NftSellHistory::where('counter_offer_verification_key',$request->key)->first();
+        if($counteroffer->counter_offer_status == 1){
+            if($request->get('status') == "approve"){
+                $counteroffer->sale_amount = $counteroffer->counter_offer_amount;
+                $counteroffer->status = 2;
+                $counteroffer->counter_offer_status = 2;
+                $counteroffer->update();
+                if(Auth::check()){
+                    return redirect()->route('sell_nft')->with(['success'=>trans('custom.counter_offer_approve')]);
+                }
+                else{
+                    return redirect()->route('login')->with(['success'=>trans('custom.counter_offer_approve')]);
+                }
+            }else{
+                $counteroffer->status = 4;
+                $counteroffer->counter_offer_status = 3;
+                $counteroffer->update();
+                $nfttype = NftPurchaseHistory::find($counteroffer->nft_purchase_history_id);
+                $nfttype->type = 0;
+                $nfttype->save();
+                if(Auth::check()){
+                    return redirect()->route('sell_nft')->with(['success'=>trans('custom.counter_offer_reject')]);
+                }
+                else{
+                    return redirect()->route('login')->with(['success'=>trans('custom.counter_offer_reject')]);
+                }
+            }
+        }
+        else{
+            if(Auth::check()){
+                return redirect()->route('sell_nft')->with(['error'=>trans('custom.counter_offer_aleady')]);
+            }
+            else{
+                return redirect()->route('login')->with(['error'=>trans('custom.counter_offer_aleady')]);
+            }
+        }       
     }
 }

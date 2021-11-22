@@ -1155,3 +1155,19 @@ function showNFTSell(bid)
 }
 
 
+function viewcounteroffer(nftid)
+{
+
+  counteroffer = nftviewcounteroffer.replace(':id', nftid);
+  $.ajax({
+    url:counteroffer,
+    type:'GET',
+    dataType: "json" ,
+    success:function(response){
+            // console.log(response);
+            $(response.viewCountdownoffer).insertAfter( $( "#countdownmodelshow" ) );
+            $("#viewcountdown-Modal").modal('toggle');           
+          },
+    });
+}
+
