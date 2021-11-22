@@ -209,6 +209,6 @@ class SupportTicketController extends Controller
                 $supportAttach->save();
             }
         }
-        return redirect()->back()->with('success', 'Ticket message sent to admin.');
+        return redirect()->back()->with('success', trans('custom.Ticket_message_sent_to_admin'));
     }
 }

@@ -68,5 +68,7 @@ class Kernel extends HttpKernel
         'prevent-back-history' => \App\Http\Middleware\PreventBackHistory::class,
         'Checkuseractive' => \App\Http\Middleware\Checkuseractive::class,
         'localization' => \App\Http\Middleware\Localization::class,
+        'checkUserStaking' => \App\Http\Middleware\CheckUserStaking::class,
+        
     ];
 }

@@ -67,7 +67,7 @@ return [
     'status' => '状态',
     'no_data_found' => '没有数据',
     'close' => 'Close',
-    'Amount' => 'amount',
+    'Amount' => '金额',
     'total' => 'Total',
     'reduced' => 'Reduced',
     'added' => '添加',
@@ -375,7 +375,7 @@ return [
     <li>You may only upload 1 file at a time. (Payment proof must contain payee name and account number). You may upload another file once status is confirmed.<br><a href="javascript;" data-toggle="modal" data-target="#wallet_sample"><u>Click Here to View Sample</u></a></li></ul></li></ul>',
     /**Account Profile */
     'notice' => 'Notice',
-    'personal_details' => 'Personal Details',
+    'personal_details' => '个人信息',
     'current_package' => 'Current Package',
     'available_fund' => '可用资金',
     'upgrade_package' => 'Upgrade Package',
@@ -414,7 +414,7 @@ return [
     'enter_account_number' => 'Enter an account number',
     'swift_code' => '银行国际代码',
     'enter_swift_code' => 'Enter a swift code',
-    'update_profile' => 'Update Profile',
+    'update_profile' => '更新个人资料',
     'account_details' => 'Account Details',
     'profile' => '账户',
     'register_user' => 'Register User',
@@ -702,7 +702,7 @@ return [
     // New Lable 
     // 'i_agree_with_above' => 'I agree with all of the above.',
     'i_agree_with_above' => 'I accept and agree to be bound by this agreement by acknowledging such acceptance during this registration process',
-    'my_profile' => '我的账户',
+    'my_profile' => '我的个人资料',
     'news' => '新闻',
     'news_tools' => 'News & Tools',
     'news_events' => '新闻与事件',
@@ -751,7 +751,6 @@ return [
     'current_package' => 'Current Package',
     'date_joined' => '加入日期',
     'see_all' => 'See All',
-    'date_joined' => '加入日期',
     'indivdual_group_sales' => 'Individual Group Sales',
 
     //Help and support
@@ -1546,7 +1545,11 @@ return [
     'myr_amount' => 'Amount (MYR)',
     'open_ticket' => '创建新单',
     'no_ticket_found' => 'No Ticket found',
+<<<<<<< HEAD
     'staking_popup_title' => '质押池提醒',
+=======
+    'staking_popup_title' => 'STAKING POOL REMINDER',
+>>>>>>> f307153c11d166b11a26148cef60a48161cce51a
     'commission_history' => '佣金钱包历史记录',
     'antimoney-laundering' => '反洗钱政策',
     'coockie-policy' => 'Cookie政策',
@@ -1895,7 +1898,7 @@ return [
     'NODES_MANAGEMENT'=>'NODES MANAGEMENT',
     'REFERRAL_COMMISSION'=>'REFERRAL COMMISSION',
     'ROI'=>'ROI',
-    'FILTER_DATE'=>'FILTER DATE',
+    'FILTER_DATE'=>'筛选日期',
     'AMOUNT'=>'AMOUNT',
     'DURATION'=>'DURATION',
     'DATE'=>'DATE',
@@ -1920,36 +1923,107 @@ return [
    
     'STACKING_AMOUNT'=>'STACKING AMOUNT',
     'STACKING_DATE'=>'STACKING DATE',
-    'YIELD'=>'YIELD',
+    'YIELD'=>'收益',
     'YIELD_AMOUNT'=>'YIELD AMOUNT',
     'YIELD_WALLET'=>'YIELD WALLET',
     'NFT_WALLET'=>'NFT_WALLET',
-    'TO' => 'TO',
-    'Clear' => 'Clear',
-    'EXPORT' => 'EXPORT',
-    'Filter' => 'Filter',
-    'start_date' => 'Start Date',
-    'end_date' => 'End Date',
-    'select_stacking_pool_package' => 'Select Stacking Pool Package',
+    'TO' => '至',
+    'Clear' => '清除',
+    'EXPORT' => '导出',
+    'Filter' => '筛选',
+    'start_date' => '开始日期',
+    'end_date' => '截至日期',
+    'select_stacking_pool_package' => '选择质押池配套',
     'start_date_must_be_less_then_end_date' => 'Start Date must be less then End Date',
     'end_date_must_be_greater_than_start_date' => 'End Date must be greater than Start Date',
 
-    'edit_photo' => 'Edit Photo',
+    'edit_photo' => '编辑照片',
     'defixfinance_id' => 'DefiXFinance ID',
-    'total_staking_package' => 'Total Staking Package',
-    'PERSONAL_DETAILS' => 'PERSONAL DETAILS',
-    'BANK_DETAILS' => 'BANK DETAILS',
-    'NFT_WALLET_DETAILS' => 'NFT WALLET DETAILS',
+    'total_staking_package' => '总质押配套',
+    'PERSONAL_DETAILS' => '个人信息',
+    'BANK_DETAILS' => '银行信息',
+    'NFT_WALLET_DETAILS' => 'NFT钱包信息',
     'wallet_address' => 'Wallet Address',
-    'UPDATE_PROFILE' => 'UPDATE PROFILE',
-    'UPDATE_ACCOUNT' => 'UPDATE ACCOUNT',
-    'enter_nft_wallet_address' => 'Enter NFT Wallet Address',
+    'UPDATE_PROFILE' => '更新个人资料',
+    'UPDATE_ACCOUNT' => '更新账户',
+    'enter_nft_wallet_address' => '输入NFT钱包地址',
     'upload_profile_image' => 'Upload Profile Image',
     'profile_extension_png_jpg_jpeg' => 'Profile extension png, jpg, jpeg',
     'accountdetails' => 'ACCOUNT DETAILS',
     'UPDATE_BANK_DETAILS' => 'UPDATE BANK DETAILS',
     'UPDATE_NFT_WALLET_ADDRESS' => 'UPDATE NFT WALLET ADDRESS',
     'UPDATE_PASSWORD' =>'UPDATE PASSWORD',
-    'UPDATE_SECURE_PASSWORD' =>'UPDATE SECURE PASSWORD'
+    'UPDATE_SECURE_PASSWORD' =>'UPDATE SECURE PASSWORD',
+
+    'Login' => '登录',
+    'email_is_required' => '邮箱是必填字段.',
+    'coin_price' => '货币价格',
+    'available_fund' => '可用资金：',
+
+    'disclaimer' => '免责声明：DefiXFinance 已尽一切努力确保本网站所提供信息的准确性和可靠性。信息按“原样”提供，不提供任何形式的担保。DefiXFinance不作任何性质的陈述和保证，包括但不限于其中包含的任何信息、事实和/或意见的准确性或完整性。',
+
+    'copyright' => '©版权所有 2021 DefiXFinance。版权所有。',
+    'a_network' => 'A网络',
+    'b_Network' => 'B网络',
+    'nodes_balancing_commission' => '节点平衡佣金',
+    'referral_commission_from' => '直系推荐佣金来自',
+    'select_fund_type' => '选择类型',
+    'nft_wallet_history' => 'NFT钱包历史记录',
+    'please_enter_address' => '请输入地址',
+    'please_enter_phone_number' => '请输入电话号码',
+    'please_enter_state' => '请输入州',
+    'please_enter_city' => '请输入城市',
+    'user_personal_details_updates_successfully' => '用户个人信息更新成功.',
+    'select_title' => '选择标题',
+    'choose_files' => '选择文件',
+    'no_file_chosen' => '没有选择任何文件',
+
+    'user_aggrement_list' => '<div class="col-12 text-white">
+    <h4>通过在DefiXFinance创建帐户，您同意并遵守：</h4>
+<ul><li>尽您所知，所有输入信息都是准确和真实的；</li>
+<li>如果需要，您必须遵守或提供额外信息以证明此类有效性；</li>
+<li>您的帐户（密码）的安全是您的责任，因您的个人密码泄露而导致的任何违规行为都是您的责任；</li>
+<li>在您居住的司法管辖区内，您已成年；</li>
+<li>您对DefiXFinance产品和服务的使用不违反任何适用的法律或法规；</li>
+<li>您使用本服务的风险由您自行承担。该服务以“现状”和“可用”为基础提供。除本协议另有明确规定外，DefiXFinance明确否认任何类型的担保，无论是明示、默示或法定担保，包括但不限于适销性、特定用途适用性、所有权和非侵权的默示担保。</li>
+<li>您理解并同意，如果您与DefiXFinance就服务的任何方面（包括注册过程）发生争议，且您放弃领导或参与涉及其他人的诉讼（如集体诉讼）的权利，则上述争议程序将是您的唯一补救措施。</li>
+<li>您同意DefiXFinance可自行决定且不对您或任何第三方承担任何责任，可以出于任何原因暂停或终止您对服务（或其任何部分）的使用，并删除和丢弃服务中的任何内容，包括，限制，由于缺乏使用，或者如果 DefiXFinance 认为您违反或不符合这些服务条款的文字或精神。</li>
+     </ul>
+</div>',
+
+
+'click_to_finish_registration' => '<div class="col-md-12"><h4 style="color:#fff">请勾选以下内容以完成您的注册：</h4>
+<p style="color:#fff">本人同意已阅读以下文件，并遵守以下文件中概述的条款和条件：</p>
+</div>',
+    
+'please_verify_the_sponsor_id_first' => '请先验证推荐人ID.',
+'letters_numbers_and_underscores_only_please' => '请仅使用字母、数字和下划线.',
+'please_enter_valid_email' => 'Please enter valid email.',
+
+
+'Password_is_required' => 'Password is required.',
+'Your_password_must_be_at_least_8_characters_long' => 'Your password must be at least 8 characters long.',
+'Please_enter_no_more_than_15_characters' => 'Please enter no more than 15 characters.',
+'Please_enter_the_same_password_as_above' => 'Please enter the same password as above.',
+'Confirm_password_is_required' => 'Confirm password is required.',
+
+'Invalid_placement_position' => 'Invalid placement position',
+'Your_Password_has_been_changed' => 'Your Password has been changed',
+'Passwords_are_updated' => 'Passwords are updated',
+'User_bank_details_updates_successfully' => 'User bank details updates successfully',
+'User_NFT_Wallet_address_updates_successfully' => 'User NFT Wallet address updates successfully',
+'Update_Image_Successfully' => 'Update Image Successfully',
+'Ticket_message_sent_to_admin' => 'Ticket message sent to admin.',
+'This_field_is_required' => 'This field is required.',
+'Value_must_be_greater_than_0' => 'Value must be greater than 0',
+'USDT_Proof_extension_png_jpg_jpeg_pdf' => 'USDT Proof extension png, jpg, jpeg, pdf',
+'Please_wait_Do_not_refresh_this_page' => 'Please wait. Do not refresh this page.',
+'USDT_Proof_png_jpg_jpeg' => 'USDT Proof png, jpg, jpeg',
+'Bank_Proof_png_jpg_jpeg' => 'Bank Proof png, jpg, jpeg',
+'Please_select_country' => 'Please select country',
+'Please_enter_number_only' => 'Please enter number only',
+'Please_enter_minimum_9_character' => 'Please enter minimum 9 character',
+'total_staking' => 'Total Stacking',
+'Please_enter_nft_wallet_address' => 'Please enter nft wallet address.'
 
 ];

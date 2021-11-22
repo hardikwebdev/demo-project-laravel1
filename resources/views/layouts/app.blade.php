@@ -28,7 +28,7 @@
 <link rel="stylesheet" href="{{ asset('assets/treanttree/css/collapsable.css').'?v='.time() }}">
 </head>
     				<style type="text/css">
-    					 @font-face {font-family: "EUROSTIB";font-display: auto;font-fallback: ;font-weight: 100;src: url(https://app.defixfinance.com/public/assets/fonts/EUROSTIB.ttf) format('TrueType');} @font-				</style>
+    					 @font-face {font-family: "EUROSTIB";font-display: auto;font-fallback: ;font-weight: 100;src: url(https://app.defixfinance.com/public/assets/fonts/EUROSTIB.ttf) format('TrueType');} </style>
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
@@ -61,6 +61,8 @@
 <script src="{{ asset('assets/js/custom/jquery.steps.min.js') }}"></script>
 <script src="{{asset('backend/js/dropify.min.js')}}"></script>
   <script type="text/javascript" src="{{ asset('assets/js/jquery.signature.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/jquery.ui.touch-punch.min.js') }}"></script>
+
 <script src="{{asset('backend/js/plugins/validate/jquery.validate.min.js') }}"></script>
 <script src="{{asset('backend/js/sweetalert.min.js')}}"></script>
 <script src="{{ asset('assets/js/custom/custom.js').'?v='.time() }}"></script>

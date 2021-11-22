@@ -108,8 +108,8 @@ return [
     Thank you',
     'points_warning' => 'To unlock the features of your Member Login, kindly proceed for funding of account.',
     'click_here_add_points' => 'Click here to fund in your account.',
-    'buy_package_message'=> 'Please buy a package to activate your account and to access all the features of the Defix',
-    'click_here_add_package' => 'Click here to add package.',
+    'buy_package_message'=> 'Please invest in a stacking pool package to activate your account and to access all the features of the Defix',
+    'click_here_add_package' => 'Click here to add investment.',
     'verify' => 'Verify',
     /*Registration*/
     'enter_details_account' => 'Enter your details to create your account',
@@ -751,7 +751,6 @@ return [
     'current_package' => 'Current Package',
     'date_joined' => 'Date Joined',
     'see_all' => 'See All',
-    'date_joined' => 'Date Joined',
     'indivdual_group_sales' => 'Individual Group Sales',
 
     //Help and support
@@ -1132,7 +1131,6 @@ return [
     'requested_amount_transfered_stock' => 'The requested amount is transferred to Stock wallet',
     'transfer_to_stock_wallet_txt'=>'Transfer to Stock Wallet',
     'payment_through'=>'Payment With',
-    'err_field_req' => 'This field is required',
     'selling'=>'Selling',
     'buying'=>'Buying',
     'avg_risk_score'=>'Average Risk Score',
@@ -1950,5 +1948,80 @@ return [
     'UPDATE_BANK_DETAILS' => 'UPDATE BANK DETAILS',
     'UPDATE_NFT_WALLET_ADDRESS' => 'UPDATE NFT WALLET ADDRESS',
     'UPDATE_PASSWORD' =>'UPDATE PASSWORD',
-    'UPDATE_SECURE_PASSWORD' =>'UPDATE SECURE PASSWORD'
+    'UPDATE_SECURE_PASSWORD' =>'UPDATE SECURE PASSWORD',
+
+    'Login' => 'Login',
+    'email_is_required' => 'Email is required.',
+    'coin_price' => 'Coin Price',
+    'available_fund' => 'Available Fund:',
+
+    'disclaimer' => 'Disclaimer: DefiXFinance has made every attempt to ensure the accuracy and reliability of the information provided on this website. The information is provided “as is” without warranty of any kind. DefiXFinance makes no representations and gives no warranties of whatever nature in respect, including but not limited to the accuracy or completeness of any information, facts and/or opinions contained therein.',
+
+    'copyright' => '©Copyright 2021 DefiXFinance. All Rights Reserved.',
+
+    'a_network' => 'A Network',
+    'b_Network' => 'B Network',
+    'nodes_balancing_commission' => 'Nodes Balancing Commission',
+    'referral_commission_from' => 'Referral Commission from',
+    'select_fund_type' => 'Select Fund Type',
+    'nft_wallet_history' => 'NFT Wallet History',
+    'please_enter_address' => 'Please enter address',
+    'please_enter_phone_number' => 'Please enter phone number',
+    'please_enter_state' => 'Please enter state',
+    'please_enter_city' => 'Please enter city',
+    'user_personal_details_updates_successfully' => 'User personal details updates successfully.',
+    'select_title' => 'Select Title',
+    'choose_files' => 'Choose Files',
+    'no_file_chosen' => 'No file chosen',
+
+    'user_aggrement_list' => '<div class="col-12 text-white">
+    <h4>By creating an account at DefiXFinance, you agree and comply that:</h4>
+<ul><li>All input information is accurate and true to your best knowledge;</li>
+<li>You adhere to provide additional information to prove such validity if required;</li>
+<li>The security of your account (password) is your responsibility and any breach that stems from your personal password being leaked is your responsibility;</li>
+<li>You are of adult age in the jurisdiction in which you reside;</li>
+<li>Your use of DefiXFinance products and offerings do not violate any applicable law or regulation;</li>
+<li>Your use of the service is at your sole risk. The service is provided on an "As is" and "As available" basis. Except as otherwise expressly provided herein, defixfinance expressly disclaims all warranties of any kind, whether express, implied or statutory, including, but not limited to the implied warranties of merchantability, fitness for a particular purpose, title, and non-infringement.</li>
+
+<li>You understand and agree that the above dispute procedures shall be your sole remedy in the event of dispute between you and defixfinance regarding any aspect of the service (including the enrolment process) and that you are waiving your right to lead or participate in a lawsuit involving other persons, such as a class action.</li>
+
+<li>You agree that DefiXFinance, in its sole discretion and without liability to you or any third party, may suspend or terminate your use of service (or any part thereof) and remove and discard any content within the service, for any reason, including, without limitation, for lack of use or if DefiXFinance believes that you have violated or acted inconsistently with the letter or spirit of these terms of service.</li>
+     </ul>
+</div>',
+
+    'click_to_finish_registration' => '<div class="col-md-12"><h4 style="color:#fff">Please tick the following the complete your registration:</h4>
+    <p style="color:#fff">I agree I have read the following documents and adhere to the terms and conditions that has been outlined in the documents below:</p>
+    </div>',
+
+    'please_verify_the_sponsor_id_first' => 'Please verify the sponsor id first.',
+    'letters_numbers_and_underscores_only_please' => 'Letters, numbers, and underscores only please',
+    'please_enter_valid_email' => 'Please enter valid email.',
+
+
+
+
+    'Password_is_required' => 'Password is required.',
+    'Your_password_must_be_at_least_8_characters_long' => 'Your password must be at least 8 characters long.',
+    'Please_enter_no_more_than_15_characters' => 'Please enter no more than 15 characters.',
+    'Please_enter_the_same_password_as_above' => 'Please enter the same password as above.',
+    'Confirm_password_is_required' => 'Confirm password is required.',
+
+    'Invalid_placement_position' => 'Invalid placement position',
+    'Your_Password_has_been_changed' => 'Your Password has been changed',
+    'Passwords_are_updated' => 'Passwords are updated',
+    'User_bank_details_updates_successfully' => 'User bank details updates successfully',
+    'User_NFT_Wallet_address_updates_successfully' => 'User NFT Wallet address updates successfully',
+    'Update_Image_Successfully' => 'Update Image Successfully',
+    'Ticket_message_sent_to_admin' => 'Ticket message sent to admin.',
+    'This_field_is_required' => 'This field is required.',
+    'Value_must_be_greater_than_0' => 'Value must be greater than 0',
+    'USDT_Proof_extension_png_jpg_jpeg_pdf' => 'USDT Proof extension png, jpg, jpeg, pdf',
+    'Please_wait_Do_not_refresh_this_page' => 'Please wait. Do not refresh this page.',
+    'USDT_Proof_png_jpg_jpeg' => 'USDT Proof png, jpg, jpeg',
+    'Bank_Proof_png_jpg_jpeg' => 'Bank Proof png, jpg, jpeg',
+    'Please_select_country' => 'Please select country',
+    'Please_enter_number_only' => 'Please enter number only',
+    'Please_enter_minimum_9_character' => 'Please enter minimum 9 character',
+    'total_staking' => 'Total Stacking',
+    'Please_enter_nft_wallet_address' => 'Please enter nft wallet address.'
  ];

@@ -294,7 +294,7 @@
                                     </div>
                                 </div>
                             </fieldset>
-                            <h1 class="text-uppercase">{{ trans('custom.bank_details') }}</h1>
+                            <h1 class="text-uppercase">{{ trans('custom.BANK_DETAILS') }}</h1>
                             <fieldset>
                                 <div class="row justify-content-center mt-5">
                                     <div class="col-12">
