@@ -3,11 +3,11 @@ var chart_config = {
     chart: {
         container: "#collapsable-example",
         rootOrientation:  'NORTH', // NORTH || EAST || WEST || SOUTH
-        // levelSeparation: 30,
-        siblingSeparation:   60,
-        subTeeSeparation:    60,
-        // scrollbar: "fancy",
-        
+        // levelSeparation: 50,
+        siblingSeparation:   70,
+        subTeeSeparation:    70,
+        scrollbar: "native",
+        nodeAlign: 'CENTER',
         connectors: {
             type: 'step'
         },

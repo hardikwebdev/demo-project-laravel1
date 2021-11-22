@@ -106,8 +106,8 @@ return [
     'regi_age_msgs' => 'Notification: Age Restriction <br><br>
     The legal age to open an account with Defix shall be 18 years old and above. Any individual which is under the age of 18 years old are considered minor and is not allowed to open an account. <br><br>
     Thank you',
-    'points_warning' => 'To unlock the features of your Member Login, kindly proceed for funding of account.',
-    'click_here_add_points' => 'Click here to fund in your account.',
+    'points_warning' => 'Your DefiXFinance account will be fully activated upon successful funding.  You can fund your account',
+    'click_here_add_points' => 'here',
     'buy_package_message'=> 'Please buy a package to activate your account and to access all the features of the Defix',
     'click_here_add_package' => 'Click here to add package.',
     'verify' => '验证',

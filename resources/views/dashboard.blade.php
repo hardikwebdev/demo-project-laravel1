@@ -442,13 +442,14 @@
                     </div>
                 </div>
             </div>
+            @if(auth()->user()->staking_history->count() > 0 )
             <div class="row dashboard-news">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
                             <div class="row p-3">
                                 <div class="col-12 pb-4">
-                                    <h4>{{ __('custom.trading_news') }}</h4>
+                                    <h4>{{ __('custom.news-events') }}</h4>
                                 </div>
                                 @if ($news != null)
                                 @foreach ($news as $key => $value)
@@ -526,6 +527,7 @@
   </div>
 </div>
 </div>
+@endif
 
 @if($user->userwallet['crypto_wallet'] == 0 && $user->staking_history->count() == 0) 
 <div class="modal fade bs-example-modal-center custom-model" tabindex="-1" role="dialog" aria-labelledby="points-alert" aria-hidden="true" style="display: none;" id="points_alert">
@@ -537,7 +539,7 @@
             <div class="modal-body">
                 <div class="font-16">
                     {{trans('custom.points_warning')}}
-                    <a href="{{route('crypto_wallets')}}" class="mtext-cred">{{trans('custom.click_here_add_points')}}</a>
+                    <a href="{{route('crypto_wallets')}}" class="mtext-cred font-16">{{trans('custom.click_here_add_points')}}</a>
                 </div>
 
             </div>

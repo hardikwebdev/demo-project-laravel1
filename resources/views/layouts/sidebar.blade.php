@@ -94,7 +94,7 @@
         </ul>
       </div>
     </li>
-
+    @if(auth()->user()->staking_history->count() > 0 ) 
     <li class="nav-item">
       <a class="nav-link collapsed" data-toggle="collapse" href="#news" aria-expanded="false" aria-controls="tables">
         <img src="{{ asset('assets/images/assets/Dashboard/Group2.png') }}" class="cus-sidebar-icon-news" alt="">
@@ -112,7 +112,8 @@
         </ul>
       </div>
     </li>
-   
+    @endif
+    
     <li class="nav-item">
       <a class="nav-link" href="{{ route('help_support.index') }}">
         <img src="{{ asset('assets/images/assets/Dashboard/Path1214.png') }}" class="cus-sidebar-icon" alt="">

@@ -67,7 +67,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    protected $appends = [ 'image','text' ];
+    protected $appends = [ 'image','text','collapsed' ];
 
     protected $dates = [ 'deleted_at' ];
     // protected $appends = [ 'sale_left','sale_right' ];
@@ -156,9 +156,9 @@ class User extends Authenticatable
         // }
         return $this->profile_image;
     }
-    // public function getcollapsedAttribute(){
-    //     return true;
-    // }
+    public function getCollapsedAttribute(){
+        return true;
+    }
 
     public function getTextAttribute(){
         return ['name' => $this->username];
