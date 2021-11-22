@@ -142,18 +142,7 @@ $local_url = url('locale');
  </span>
  @enderror
 </div>
- <div class="col-12 col-md-6 sigbox">
-   <div class="card rounded-0">
-      <div class="card-body">
-        <label class="" for="">{{__('custom.signature')}}</label>
-        <br/>
-        <div id="sigpad"></div>
-        <br><br>
-        <button id="clear" class="btn btn-danger rounded-0">{{__('custom.clear_signature')}}</button>
-        <textarea id="signature" name="signature" style="display: none"></textarea>
-    </div>
-</div>
-</div>
+
 <div class="col-12 col-md-4 mt-2 pt-1 pr-md-0 pl-md-2">
    <input id="username" type="text" class="form-control grey-ph h-auto py-4 rounded-0 @error('username') is-invalid @enderror"
    name="username" value="{{ old('username') }}" autocomplete="username" autofocus
