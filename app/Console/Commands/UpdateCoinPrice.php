@@ -38,6 +38,7 @@ class UpdateCoinPrice extends Command
      */
     public function handle()
     {
+        set_time_limit(0);
         $coins = StackingPoolCoin::all();
         foreach($coins as $coin){
             if($coin->chain != ''){

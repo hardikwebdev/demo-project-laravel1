@@ -4,7 +4,7 @@
 
  @section('content')
  <div class="content-wrapper staking-pool-indi">
-     <div class="ml-2 mb-4 d-none-desk d-md-block">
+   <div class="ml-2 mb-4 d-none-desk d-md-block">
     <h2 class="text-warning font-weight-bold">@yield('page_title','Dashboard')</h2>
     @if(Route::currentRouteName() == 'dashboard')
     <p class="text-white">{{str_replace('#name',auth()->user()->name,__('custom.wc_text'))}}</p>
@@ -54,7 +54,7 @@
               <h4>{{$coin->name}}</h4>
             </div>
             <div>
-              <!-- <h3>${{number_format($coin->price,2)}}</h3> -->
+              <h3>${{number_format($coin->price,2)}}</h3>
             </div>
           </div>
           <p class="border-bottom border-white"></p>
@@ -193,7 +193,7 @@
      </select>
    </div>
    <input type="hidden" name="package" id="package" value="{{$stakingpool->name}}">
-    <input type="hidden" name="signature" id="poolsignature" value="">
+   <input type="hidden" name="signature" id="poolsignature" value="">
 
    <input type="hidden" name="agreement" id="agreement">
    <div class="col-12 mt-3">
