@@ -58,6 +58,7 @@ class UpdateCoinPrice extends Command
                     "cache-control: no-cache",
                 ),
               ));
+                
                 // $url = "https://deep-index.moralis.io/api/v2/erc20/".$coin->address."/price?chain=".$coin->chain;
                 // // echo $url;die();
                 // curl_setopt_array($curl, array(
