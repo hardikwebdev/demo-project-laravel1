@@ -5,7 +5,7 @@ $.validator.addMethod(
     },
     amount_must_greater_0
     );
-  var sigpad = $('#sigpad').signature({syncField: '#signature', syncFormat: 'PNG'});
+  var sigpad = $('#sigpad').signature({syncField: '#signature', syncFormat: 'PNG',color: '#ffffff',background: 'transparent'});
     $('#clear').click(function(e) {
         e.preventDefault();
         sigpad.signature('clear');
@@ -36,9 +36,13 @@ $("#staking_pool").validate({
             number: enter_valid_number,
             minlength: please_enter_least_1_characters,
             maxlength: please_enter_no_more_than_6,
+            positiveNumber:Value_must_be_greater_than_0,
         },
         security_password: {
             required: securepassword_required_field,
+        },
+        duration: {
+            required: err_field_req,
         },
     },
     submitHandler: function(form) {

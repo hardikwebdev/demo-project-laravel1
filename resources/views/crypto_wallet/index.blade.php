@@ -64,15 +64,19 @@
                 <div class="col-12 col-md-6 col-xl-4">
                   {!! trans('custom.crypto_wallet_terms_and_conditions3_usdt') !!}
                 </div>
-                </div>
+              </div>
+              
               {{Form::open(['route' => 'cryptoWalletForm','class' => '','id' =>'cryptowalletform','enctype' => 'multipart/form-data'])}}
+
+             
+
               @if($usdtaddress)
               <?php $qrcode = $usdtaddress->value;
               if(\Session::get('usdt')){
                   $qrcode = \Session::get('usdt');
               }
               ?>
-              <div class="form-group row fund-usdt">
+              {{-- <div class="row fund-usdt"> --}}
                  <div class="col-lg-8 form-group-sub row nopadding ">
                   @if($usdtaddress->image != '')
 
@@ -107,7 +111,10 @@
                           </div>
                       </div>
                   </div>
-              </div>
+              {{-- </div> --}}
+
+
+
               @endif
               <div class="row mt-4">
                 <div class="col-12 col-md-4 mt-4 mt-md-0">
@@ -125,7 +132,7 @@
                 <div class="col-12 col-md-6 mt-4 mt-md-0">
                   <div class="fallback">
                     <input name="upload_proof" type="file" class="dropify" id="upload_proof"/>
-                    <p>USDT Proof extension png, jpg, jpeg, pdf</p>
+                    <p>{{ trans('custom.USDT_Proof_extension_png_jpg_jpeg_pdf')}}</p>
                     @error('upload_proof')
                     <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
@@ -233,6 +240,7 @@
     $('#usdt_address').change(function(e){
         $('#copy-class-textaddress').val($(this).val());
         $('#qr_image').attr('src', image_path+'/'+e.target.selectedOptions[0].getAttribute("image"));
+        location.reload(); 
     });
   </script>
   @endsection

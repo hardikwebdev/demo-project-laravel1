@@ -135,15 +135,22 @@ $('.nftonsalereq').on('click', function(e) {
         $.post(nft_on_url + '/' + trans_id, { _method: "patch", "status": value, 'status_type': type }, function(response) {
             if (response.status == 'success') {
                 th.removeClass('disabled');
-
+                
                 if (type == 'approve') {
                     var text = '<label class="label label-primary" >Approved</label>';
                     $('#onsaleproduct').html(" ");
                     $('#onsaleproduct').html('<label class="label label-success">Processing</label>');
+                    setTimeout(function () {
+                        location.reload(); 
+                    }, 1000);
+                    
                 } else {
                     $('#onsaleproduct').html(" ");
                     $('#onsaleproduct').html('<label class="label label-danger">Declined</label>');
                     var text = '<label class="label label-danger" >Rejected</label>';
+                    setTimeout(function () {
+                        location.reload(); 
+                    }, 1000);
                 }
                 th.parent().html(text);
                 // th.parent().parent().html(text);

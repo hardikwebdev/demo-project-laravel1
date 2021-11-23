@@ -48,7 +48,29 @@
             <div class="card-body pb-xl-1 pt-xl-2">
               <div class="row align-items-center">
                 <div class="col-12 col-xl-4">
-                  <div class="row align-iems-center justify-content-between">
+                  <div class="col-12 col-md-9 mt-4">
+                    <h4 class="text-black mb-0 font-weight-bold">{{ Helper::defixFinanceID($user->id, date("d-m-Y",strtotime($user->created_at)))}}</h4>
+                    <span class="text-secondary font-10">{{trans('custom.defixfinance_id')}}</span>
+                  </div>
+                  <div class="col-12 col-md-9 mt-4">
+                    <h4 class="text-black mb-0 font-weight-bold">
+                    @if (!empty($user->nft_wallet_address))
+                    ******{{ substr($user->nft_wallet_address, -4)}}
+                    @else
+                      -
+                    @endif
+                    </h4>
+                    <span class="text-secondary font-10">{{trans('custom.wallet_address')}}</span>
+                  </div>
+                  <div class="col-12 col-md-9 mt-4">
+                    <h4 class="text-black mb-0 font-weight-bold">{{ date("d/m/Y",strtotime($user->created_at)) }}</h4>
+                    <span class="text-secondary font-10">{{trans('custom.date_joined')}}</span>
+                  </div>
+                  <div class="col-12 col-md-9 mt-4">
+                    <h4 class="text-black mb-0 font-weight-bold">{{ $staking_pool_count}}</h4>
+                    <span class="text-secondary font-10">{{trans('custom.total_staking_package')}}</span>
+                  </div>
+                  {{-- <div class="row align-iems-center justify-content-between">
                     <div class="col-12 col-md-6">
                       <h4 class="text-black mb-0 font-weight-bold">{{ Helper::defixFinanceID($user->id, date("d-m-Y",strtotime($user->created_at)))}}</h4>
                       <span class="text-secondary font-10">{{trans('custom.defixfinance_id')}}</span>
@@ -73,7 +95,7 @@
                       <h4 class="text-black mb-0 font-weight-bold">{{ $staking_pool_count}}</h4>
                       <span class="text-secondary font-10">{{trans('custom.total_staking_package')}}</span>
                     </div>
-                  </div>
+                  </div> --}}
                 </div>
                 <div class="col-12 col-xl-8">
                   <div class="collection-slider">
@@ -81,7 +103,7 @@
                     @foreach($staking_pool as $stakingpool)
                     @if($i == 1)
                     <div>
-                      <div class="bg-card-{{$i}} text-center p-4 pb-5 rounded mx-2">
+                      <div class="bg-card-{{$i}} text-center p-4 pb-5 rounded mx-2 position-relative">
                         <img src="{{asset('assets/images/assets/Dashboard/Group929.png')}}" class="img-fluid card-img-top" alt="">
                         <h4 class="text-white">{{$stakingpool->name}}</h4>
                         <p class="text-white font-12">{!! \Illuminate\Support\Str::limit($stakingpool->description,50) !!}</p>
@@ -89,11 +111,17 @@
                         <p class="text-white font-12">{{__('custom.expected_anual_rate')}}</p>
                         <h3 class="text-white font-weight-bold">{{$stakingpool->stacking_display_start}}% - {{$stakingpool->stacking_display_end}}%</h3>
                         @if($stakingpool->investedAmount > 0)
-                        <div class="d-flex justify-content-around mt-2">
+                        {{-- <div class="d-flex justify-content-around mt-2">
                           <p class="text-white font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
                           <button class="btn bg-blue text-white rounded-0 px-4">${{number_format($stakingpool->investedAmount,2)}}</button>
                         </div>
-                        <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2 card-1-btn position-absolute" href="{{ route('stakepool',$stakingpool->id) }}">{{__('custom.stake')}} <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle w-25" alt=""></a>
+                        <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2 card-1-btn position-absolute" href="{{ route('stakepool',$stakingpool->id) }}">{{__('custom.stake')}} <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle w-25" alt=""></a> --}}
+                        <div class="d-flex justify-content-around mt-2 mb-4">
+                          <p class="text-white font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
+                          <button class="btn bg-blue text-white rounded-0 px-4">${{ number_format($stakingpool->investedAmount, 2) }}</button>
+                          </div>
+                          <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2 card-4-btn" href="{{ route('stakepool', $stakingpool->id) }}">{{ __('custom.stake') }}  <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}"
+                          class="img-fluid ml-2 d-inline align-middle" alt=""></a>
                         @else
                         <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2" href="{{ route('stakepool',$stakingpool->id) }}">{{__('custom.stake')}} <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle" alt=""></a>
                         @endif
@@ -101,7 +129,7 @@
                     </div>
                     <div>
                       @elseif($i == 2)
-                      <div class="bg-card-2 text-center p-4 pb-5 rounded mx-2">
+                      <div class="bg-card-2 text-center p-4 pb-5 rounded mx-2 position-relative">
                         <img src="{{ asset('assets/images/assets/Dashboard/Group929.png') }}" class="img-fluid card-img-top" alt="">
                         <h4 class="text-white">{{$stakingpool->name}}</h4>
                         <p class="text-white font-12">{!! \Illuminate\Support\Str::limit($stakingpool->description,50) !!}</p>
@@ -109,11 +137,17 @@
                         <p class="text-white font-12">{{__('custom.expected_anual_rate')}}</p>
                         <h3 class="text-white font-weight-bold">{{$stakingpool->stacking_display_start}}% - {{$stakingpool->stacking_display_end}}%</h3>
                         @if($stakingpool->investedAmount > 0)
-                        <div class="d-flex justify-content-around mt-2">
+                        {{-- <div class="d-flex justify-content-around mt-2">
                           <p class="text-white font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
                           <button class="btn bg-blue text-white rounded-0 px-4">${{number_format($stakingpool->investedAmount,2)}}</button>
                         </div>
-                        <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2 card-2-btn position-absolute" href="{{ route('stakepool',$stakingpool->id) }}">{{__('custom.stake')}} <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle w-25" alt=""></a>
+                        <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2 card-2-btn position-absolute" href="{{ route('stakepool',$stakingpool->id) }}">{{__('custom.stake')}} <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle w-25" alt=""></a> --}}
+                        <div class="d-flex justify-content-around mt-2 mb-4">
+                          <p class="text-white font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
+                          <button class="btn bg-blue text-white rounded-0 px-4">${{ number_format($stakingpool->investedAmount, 2) }}</button>
+                          </div>
+                          <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2 card-4-btn" href="{{ route('stakepool', $stakingpool->id) }}">{{ __('custom.stake') }}  <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}"
+                          class="img-fluid ml-2 d-inline align-middle" alt=""></a>
                         @else
                         <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2" href="{{ route('stakepool',$stakingpool->id) }}">{{__('custom.stake')}} <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle" alt=""></a>
                         @endif
@@ -121,7 +155,7 @@
                     </div>
                     <div>
                       @elseif($i == 3)
-                      <div class="bg-card-3 text-center p-4 pb-5 rounded mx-2 ">
+                      <div class="bg-card-3 text-center p-4 pb-5 rounded mx-2 position-relative">
                         <img src="{{ asset('assets/images/assets/Dashboard/Group929.png') }}" class="img-fluid card-img-top" alt="">
                         <h4 class="text-white">{{$stakingpool->name}}</h4>
                         <p class="font-12 text-white">{!! \Illuminate\Support\Str::limit($stakingpool->description,50) !!}</p>
@@ -130,11 +164,17 @@
                         <h3 class="text-white font-weight-bold">{{$stakingpool->stacking_display_start}}% - {{$stakingpool->stacking_display_end}}%</h3>
 
                         @if($stakingpool->investedAmount > 0)
-                        <div class="d-flex justify-content-around mt-2">
+                        {{-- <div class="d-flex justify-content-around mt-2">
                           <p class="text-white font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
                           <button class="btn bg-blue text-white rounded-0 px-4">${{number_format($stakingpool->investedAmount,2)}}</button>
                         </div>
-                        <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2 card-3-btn position-absolute" href="{{ route('stakepool',$stakingpool->id) }}">{{__('custom.stake')}} <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle w-25" alt=""></a>
+                        <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2 card-3-btn position-absolute" href="{{ route('stakepool',$stakingpool->id) }}">{{__('custom.stake')}} <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle w-25" alt=""></a> --}}
+                        <div class="d-flex justify-content-around mt-2 mb-4">
+                          <p class="text-white font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
+                          <button class="btn bg-blue text-white rounded-0 px-4">${{ number_format($stakingpool->investedAmount, 2) }}</button>
+                          </div>
+                          <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2 card-4-btn" href="{{ route('stakepool', $stakingpool->id) }}">{{ __('custom.stake') }}  <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}"
+                          class="img-fluid ml-2 d-inline align-middle" alt=""></a>
                         @else
                         <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2" href="{{ route('stakepool',$stakingpool->id) }}">{{__('custom.stake')}} <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle" alt=""></a>
                         @endif
@@ -150,11 +190,17 @@
                         <p class="text-blue font-12">{{__('custom.expected_anual_rate')}}</p>
                         <h3 class="text-blue font-weight-bold">{{$stakingpool->stacking_display_start}}% - {{$stakingpool->stacking_display_end}}%</h3>
                         @if($stakingpool->investedAmount > 0)
-                        <div class="d-flex justify-content-around mt-2">
+                        {{-- <div class="d-flex justify-content-around mt-2">
                           <p class="text-dark font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
                           <button class="btn bg-blue text-white rounded-0 px-4">${{number_format($stakingpool->investedAmount,2)}}</button>
                         </div>
-                        <a class="btn bg-warning text-white px-3 rounded-0 font-10 mt-2 card-4-btn" href="{{ route('stakepool',$stakingpool->id) }}">{{__('custom.stake')}} <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-2 d-inline align-middle w-25" alt=""></a>
+                        <a class="btn bg-warning text-white px-3 rounded-0 font-10 mt-2 card-4-btn" href="{{ route('stakepool',$stakingpool->id) }}">{{__('custom.stake')}} <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-2 d-inline align-middle w-25" alt=""></a> --}}
+                        <div class="d-flex justify-content-around mt-2 mb-4">
+                          <p class="text-white font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
+                          <button class="btn bg-blue text-white rounded-0 px-4">${{ number_format($stakingpool->investedAmount, 2) }}</button>
+                          </div>
+                          <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2 card-4-btn" href="{{ route('stakepool', $stakingpool->id) }}">{{ __('custom.stake') }}  <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}"
+                          class="img-fluid ml-2 d-inline align-middle" alt=""></a>
                         @else
                         <a class="btn bg-warning text-white px-3 rounded-0 font-10 mt-2" href="{{ route('stakepool',$stakingpool->id) }}">{{__('custom.stake')}} <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}" class="img-fluid ml-2 d-inline align-middle" alt=""></a>
 

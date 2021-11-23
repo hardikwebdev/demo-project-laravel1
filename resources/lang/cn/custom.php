@@ -67,7 +67,7 @@ return [
     'status' => '状态',
     'no_data_found' => '没有数据',
     'close' => 'Close',
-    'Amount' => 'amount',
+    'Amount' => '金额',
     'total' => 'Total',
     'reduced' => 'Reduced',
     'added' => '添加',
@@ -89,7 +89,7 @@ return [
     'Ledger' => '分类账',
     'name_of_bank' => '银行名称',
     'enter_your_bank_name' => 'Enter your bank name',
-    'name_account_holder' => 'Name of Account Holder',
+    'name_account_holder' => '银行账户持有人',
     'click_to_copy' => '点击复制',
     'copy_link' => 'Copy link',
     'copied' => '已复制',
@@ -106,11 +106,11 @@ return [
     'regi_age_msgs' => 'Notification: Age Restriction <br><br>
     The legal age to open an account with Defix shall be 18 years old and above. Any individual which is under the age of 18 years old are considered minor and is not allowed to open an account. <br><br>
     Thank you',
-    'points_warning' => 'To unlock the features of your Member Login, kindly proceed for funding of account.',
+    'points_warning' => 'Your DefiXFinance account will be fully activated upon successful funding.  You can fund your account #here.',
     'click_here_add_points' => 'Click here to fund in your account.',
-    'buy_package_message'=> 'Please buy a package to activate your account and to access all the features of the Defix',
+    'buy_package_message'=> 'Your DefiXFinance account will be fully activated once you have invested in a staking pool.',
     'click_here_add_package' => 'Click here to add package.',
-    'verify' => 'Verify',
+    'verify' => '验证',
     /*Registration*/
     'enter_details_account' => 'Enter your details to create your account',
     'sign_up' => '注册',
@@ -123,10 +123,10 @@ return [
     'personal_detail' => '个人信息',
     'enter_your_personal_detail' => 'Enter your personal details',
     'enter_your_account_details' => 'Enter your account details',
-    'login_password' => 'Login Password',
-    'enter_your_password' => 'Enter your password',
-    'repeat_password' => 'Repeat Password',
-    'enter_your_password_again' => 'Enter your password again',
+    'login_password' => '登录密码',
+    'enter_your_password' => '输入您的密码',
+    'repeat_password' => '重复密码',
+    'enter_your_password_again' => '重复输入您的密码',
     'user_agreement' => '用户协议',
     'user_agreement_desc' => '<p>Trading foreign exchange, spot precious metals and any other product carries a high level of risk to your capital and you should only trade or invest with money you can afford to lose. We encourage you to consider your investment objectives, your risk tolerance and trading experience when deciding to deal in Defix. The possibility exists that you could sustain a loss of some or all of your initial investment and therefore you should not speculate, invest or hedge with capital you cannot afford to lose, that is borrowed or urgently needed or necessary for personal or family subsistence. Foreign exchange trading may not be suitable for all investors, so please ensure that you fully understand the risks involved and seek independent advice if you have any doubts. There is no guarantee past performance will be indicative of future results. The information on this site may be accessed worldwide however it is not directed at residents in any country or jurisdiction where such distribution or use would be contrary to local law or regulation.</p>',
     'aml_policy_statement' => 'AML Policy Statement',
@@ -174,11 +174,11 @@ return [
     'amount_USD' => '金额（美元）',
     'amount_YUN' => 'Amount (YUN)',
     'security_password' => '安全密码',
-    'enter_security_password' => 'Enter you security password',
-    'repeat_security_password' => 'Repeat Security Password',
-    'enter_repeat_security_password' => 'Enter your security password again',
-    'bank_details' => 'Bank Details',
-    'enter_your_bank_details' => 'Enter your bank details',
+    'enter_security_password' => '输入您的安全密码',
+    'repeat_security_password' => '重复安全密码',
+    'enter_repeat_security_password' => '重复输入您的安全密码',
+    'bank_details' => '银行信息',
+    'enter_your_bank_details' => '输入您的银行信息',
     'upload_ank_proof' => 'Upload Bank Proof',
     'fund_top_up_history' => 'Fund Top Up History',
     'clicking_proceed_understand_payment_proof_editable_submission' => 'By clicking proceed, I hereby understand that the amount that I keyed in, and the payment Proof that I uploaded is correct and non-editable after submission',
@@ -375,7 +375,7 @@ return [
     <li>You may only upload 1 file at a time. (Payment proof must contain payee name and account number). You may upload another file once status is confirmed.<br><a href="javascript;" data-toggle="modal" data-target="#wallet_sample"><u>Click Here to View Sample</u></a></li></ul></li></ul>',
     /**Account Profile */
     'notice' => 'Notice',
-    'personal_details' => 'Personal Details',
+    'personal_details' => '个人信息',
     'current_package' => 'Current Package',
     'available_fund' => '可用资金',
     'upgrade_package' => 'Upgrade Package',
@@ -389,7 +389,7 @@ return [
     'enter_email' =>'请输入邮箱',
     'enter_your_email_again' => '请重复输入邮箱',
     'identification_number' => '身份证',
-    'identification_number_country' => 'Please select country first before filling Identification Number',
+    'identification_number_country' => '填写身份证号码前请先选择国家',
     'enter_identification_number' => 'Enter a identification number',
     'enter_address' => 'Enter an address',
     'phone_number' => '电话号码',
@@ -414,9 +414,9 @@ return [
     'enter_account_number' => 'Enter an account number',
     'swift_code' => '银行国际代码',
     'enter_swift_code' => 'Enter a swift code',
-    'update_profile' => 'Update Profile',
+    'update_profile' => '更新个人资料',
     'account_details' => 'Account Details',
-    'profile' => 'Profile',
+    'profile' => '账户',
     'register_user' => 'Register User',
     'register_downline' => 'Register Accounts',
     'register_user_message' => 'New User Registered successfully',
@@ -643,7 +643,7 @@ return [
     'upl_ic_proof' => 'Upload IC Proof with Selfie',
     'upl_bank_proof' => 'Upload Bank Proof with Selfie',
     'upl_mt4with_proof3' => 'Upload Confirmation Form with Selfie',
-    'instructions' => 'Terms & Conditions',
+    'instructions' => '条款与条件',
     'instructions_mt4_upload_desc' => '<ul><li>All capital withdrawals will take 2-7 working days to process.</li><li>You can only withdraw amount that correspond to our package amount. Example, from a $10,000 package, you can only withdraw $5,000, $7,000, $9,000 or $10.000.</li><li>Once your withdrawal has been approved, your package will be downgraded and your requested amount will enter your Withdrawal Wallet.</li></ul>',
 
     'captcha' => 'Captcha',
@@ -658,7 +658,7 @@ return [
     'welcomedashboard' => 'Welcome to your dashboard,',
     
     'verify_sponsor'  => 'Verify Sponsor',
-    'login_password' => 'Login Password',
+    'login_password' => '登录密码',
     'r_login_Password' => 'Confirm Login Password',
     'no_package' => 'No Package',
     'source' => 'Source',
@@ -675,9 +675,9 @@ return [
     'upload_proof_residenceimg' => 'Please upload proof of residence in pdf,jpeg,jpg,png',
     'proof_residence_required' => 'Proof of residence is required',
     'bankproof_required' => 'Bank Proof is required field',
-    'fullname_required' => 'Fullname is required field',
+    'fullname_required' => '全名是必填字段',
     'opt_required_field' => 'OTP is required field',
-    'amount_required_field' => 'Amount is required field',
+    'amount_required_field' => '金额是必填字段',
     'value_less_equal_10000000' => 'Please enter a value less than or equal to 10000000.',
     'value_greater_equal_200' => 'Please enter a value greater than or equal to 200.',
     'minimum_3_character' => 'Please enter minimum 3 character',
@@ -694,7 +694,7 @@ return [
     'sopnsor_required' => 'Sopnsor username is required',
     'messages_required' => 'Messages is required',
     'identification_alread_use' => 'You can only register within your Primary account network.',
-    'enter_full_name' => 'Please enter full name',
+    'enter_full_name' => '请输入全名',
     'maximim_limit_sponsor_20_character' => 'Maximim limit of sponsor name is 20 character',
     'user_name_already_exists' => 'User name is already exists',
 
@@ -702,7 +702,7 @@ return [
     // New Lable 
     // 'i_agree_with_above' => 'I agree with all of the above.',
     'i_agree_with_above' => 'I accept and agree to be bound by this agreement by acknowledging such acceptance during this registration process',
-    'my_profile' => '我的账户',
+    'my_profile' => '我的个人资料',
     'news' => '新闻',
     'news_tools' => 'News & Tools',
     'news_events' => '新闻与事件',
@@ -751,7 +751,6 @@ return [
     'current_package' => 'Current Package',
     'date_joined' => '加入日期',
     'see_all' => 'See All',
-    'date_joined' => '加入日期',
     'indivdual_group_sales' => 'Individual Group Sales',
 
     //Help and support
@@ -812,9 +811,9 @@ return [
     'commission_wallet_tnc' => '<ul class="dis"><li>You will receive all your weekly trading profit credited into this wallet automatically every week.</li><li>You will receive your lot rebate, lot rebate commission, leadership bonus and profit sharing credited into this wallet automatically every week if you are qualified.</li><li>You can transfer this amount to your fund wallet or withdrawal wallet.</li><li>This transfer is irreversible so please consider before submitting the request.</li></ul>', 
     'funds_type' => 'Funds Type',
     'fund_type_placeholder' => '--选择钱包类型--',
-    'select_fund_type' => 'Please select Funds Type',
+    'select_fund_type' => '请选择钱包类型',
     'trading_strategy' => 'Trading Strategy',
-    'submit'=>'Submit',
+    'submit'=>'提交',
     'transfer_to_withdrawal_wallet_txt'=>'Transfer to Withdrawal Wallet',
     'transfer_to_fund_wallet_txt'=>'Transfer to Fund Wallet',
     'lot_rebate_txt'=>'Lot Rebate',
@@ -1113,8 +1112,8 @@ return [
     'value'=>'Value',
     'sell'=>'Sell',
     'buy'=>'Buy',
-    'err_field_req' => 'This field is required',
-    'all_rights' => 'All Right Reserved',
+    'err_field_req' => '此字段是必填字段.',
+    'all_rights' => '版权所有',
     'stats' => 'Stats',
     'portfolio' => 'Portfolio',
     'chart' => 'Chart',
@@ -1132,7 +1131,7 @@ return [
     'requested_amount_transfered_stock' => 'The requested amount is transferred to Stock wallet',
     'transfer_to_stock_wallet_txt'=>'Transfer to Stock Wallet',
     'payment_through'=>'Payment With',
-    'err_field_req' => 'This field is required',
+    'err_field_req' => '此字段是必填字段.',
     'selling'=>'Selling',
     'buying'=>'Buying',
     'avg_risk_score'=>'Average Risk Score',
@@ -1465,17 +1464,17 @@ return [
     /* binary system */
     'placement_name_placeholder' => '上线用户名',
     'verify_placement_username' => '验证上线用户名',
-    'placement_username' => 'Placement Username',
-    'enter_placement_username' => 'Enter Placement Username',
+    'placement_username' => '上线用户名',
+    'enter_placement_username' => '输入上线用户名',
     'placement_user_not_found_not__valid_placement' => '未找到该上线用户名或不是有效上线用户名。请输入其他上线用户名.',
     'placement_username_verified' => '该上线用户名已经验证.',
     'upline_username_verified' => 'The upline or downline username is verified.',
     'enter_valid_placement_username' => '请输入有效的上线用户名.',
-    'verify_entered_placement' => 'Please verify the entered placement details.',
-    'please_check_placement_username_not_valid' => 'Please check placement username is not valid',
-    'please_enter_placement_name' => 'Please enter placement name',
-    'verify_placement'  => 'Verify Placement',
-    'maximim_limit_placement_name_20_character' => 'Maximim limit of placement name is 20 character',
+    'verify_entered_placement' => '请验证您输入的上线信息.',
+    'please_check_placement_username_not_valid' => '请检查上线用户名无效',
+    'please_enter_placement_name' => '请输入上线用户名',
+    'verify_placement'  => '验证上线用户名',
+    'maximim_limit_placement_name_20_character' => '上线用户名的最大限制为20个字符',
     'child_position' => 'Child Position',
     'left' => 'Left',
     'right' => 'Right',
@@ -1484,8 +1483,8 @@ return [
     'not_amember' => '非会员？',
     'forgot_password' => '忘记密码',
     'clear_signature' => '清除签名',
-    'requested_amount_transfered_crypto' => 'The requested amount is transferred to crypto wallet',
-    'requested_amount_transfered_nft' => 'The requested amount is transferred to NFT wallet',
+    'requested_amount_transfered_crypto' => '所提交的金额已被转移到加密钱包',
+    'requested_amount_transfered_nft' => '所提交的金额已被转移到NFT钱包',
     'balance' => '余额',
     'malaysia_opg' => 'MALAYSIA OPG',
     'withdrawal_fee_is_usd_10' => 'Withdrawal Fee is USD 10',
@@ -1531,13 +1530,13 @@ return [
     'balance' => '余额',
     'stake' => '质押',
     'expected_anual_rate' => '预期年度回报率',
-    'staking_history' => '质押历史',
+    'staking_history' => '质押历史记录',
     'duration' => '为期',
     'stake_amount' => '质押金额',
     'stake_now' => '立即质押',
     'duration_term' => '期限',
     'months' => '个月',
-    'staking_pool_added_successfully' => 'Staking pool added successfully.',
+    'staking_pool_added_successfully' => '质押池添加成功.',
     'invested_amount' => 'Invested <br> Amounts',
     'staking_pool' => '质押池',
     'staking_pools' => '质押池',
@@ -1546,8 +1545,9 @@ return [
     'myr_amount' => 'Amount (MYR)',
     'open_ticket' => '创建新单',
     'no_ticket_found' => 'No Ticket found',
+    'staking_popup_title' => '质押池提醒',
     'staking_popup_title' => 'STAKING POOL REMINDER',
-    'commission_history' => 'Commission History',
+    'commission_history' => '佣金钱包历史记录',
     'antimoney-laundering' => '反洗钱政策',
     'coockie-policy' => 'Cookie政策',
     'nodes-management' => '节点管理',
@@ -1562,8 +1562,8 @@ return [
     'commissionsale' => '佣金&销售额',
     'news' => '新闻',
     'news-events' => '新闻与事件',
-    'two_decimal_message' => 'No more than 2 decimal allowed',
-    'amount-breakdown' => 'Amount Breakdown',
+    'two_decimal_message' => '不允许超过2位小数',
+    'amount-breakdown' => '金额明细',
     'apr_monthly' => 'APR（每月）',
     'balancing_commission' => '节点平衡佣金',
     'help_and_faq' => '常见问题解答',
@@ -1615,7 +1615,7 @@ return [
        /* Yield Wallet Terms & Conditions*/
 
        'yield_wallet_terms_and_conditions1' => '<ul class="text-grey">
-       <li>该钱包将自动记入您的质押奖励.</li>
+       <li>该钱包将自动记入您的质押回报.</li>
        <li>您可以在此处将余额转移到加密钱包、NFT钱包或取款钱包.</li>
      </ul>',
 
@@ -1656,7 +1656,7 @@ return [
        /* NFT Wallet Terms & Conditions*/
 
        'nft_wallet_terms_and_conditions1' => '<ul class="text-grey">
-       <li>您质押奖励收益和佣金的20%将记入此钱包.</li>
+       <li>您质押回报收益和佣金的20%将记入此钱包.</li>
        <li>NFT钱包资金可用于从市场购买NFT.</li>
      </ul>',
 
@@ -1707,7 +1707,7 @@ return [
     </div>
     <div id="collapseOne" class="collapse show" data-parent="#accordion">
     <div class="card-body">
-    <p>DefiXFinance始于2019年9月乃是由一群热爱区块链专业人士并将总部成立于俄罗斯，目标是让加密货币进入普通大众的视野。我们其目标是让区块链货币普及化并且带给众投资者们最优越的投资计划让其投资者们都能获取丰厚的利益。DefiXFinance不断茁壮成长并且在短短两年时间里面发展成为一个拥有来自全世界高达70位的专业人数团队。其地区包括有俄罗斯，欧洲以及亚洲来为我们旗下高达万名的尊贵投资们提供我们的专业服务.</p>
+    <p>DefiXFinance始于2019年9月乃是由一群热爱区块链专业人士并将总部成立于俄罗斯，目标是让加密货币进入普通大众的视野.我们其目标是让区块链货币普及化并且带给众投资者们最优越的投资计划让其投资者们都能获取丰厚的利益.DefiXFinance不断茁壮成长并且在短短两年的时间里，该公司已发展成为一支庞大且多元化的专家团队，其地区包括有俄罗斯、欧洲和亚洲，为世界各地的投资者提供服务.</p>
     </div>
     </div>
     </div>
@@ -1720,7 +1720,7 @@ return [
     </div>
     <div id="collapseTwo" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>DefiXFinance的主要产品是我们非常受欢迎的质押和流动性池制度。通过运用我们的机构和散户投资者投资的资金池，DefiXFinance能够在各种权益证明代币中进行质押，并为我们的投资者赚取数百万的质押奖励.
+    <p>DefiXFinance的主要产品是我们非常受欢迎的质押和流动性池制度。通过运用我们的机构和散户投资者投资的资金池，DefiXFinance能够在各种权益证明代币中进行质押，并为我们的投资者赚取数百万的质押回报.
     </p>
     </div>
     </div>
@@ -1743,12 +1743,12 @@ return [
     <div class="card">
     <div class="card-header">
     <a class="collapsed card-link text-dark" data-toggle="collapse" href="#collapsefour">
-    4. 如何计算质押奖励收益率?
+    4. 如何计算质押回报收益率?
     </a>
     </div>
     <div id="collapsefour" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p> 您的质押投资的每月回报取决于您的投资规模、购买日期、质押期限和代币价格变动。用非常基本的术语来说，投资金额越大、时间越长，随着质押奖励概率的增加，回报百分比就越高.
+    <p> 您的质押投资的每月回报取决于您的投资规模、购买日期、质押期限和代币价格变动。用非常基本的术语来说，投资金额越大、时间越长，随着质押回报概率的增加，回报百分比就越高.
     </p>
     </div>
     </div>
@@ -1788,7 +1788,7 @@ return [
     </div>
     <div id="collapseseven" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>是的！您可以将NFT艺术作品从您的NFT收藏页面转移到您自己的加密钱包.
+    <p>是的！您可以将NFT艺术作品从您的NFT收藏页面转移到您自己的加密钱包.您只需要一个支持ERC的加密钱包，在我的收藏页面填写表格，您的NFT收藏就可以转移到那里.
     </p>
     </div>
     </div>
@@ -1876,9 +1876,9 @@ return [
 
     'staking_terms' => '<ul class="text-grey"><li>您可以使用您加密钱包中的资金在这个质押网络池中进行质押.</li>
     <li>请选择所需的12个月或24个月的质押期.</li>
-    <li>所有质押奖励将在质押之日起30天内发放.</li>
+    <li>所有质押回报将在质押之日起30天内发放.</li>
     <li>每笔质押存款都将与各自的合同期限挂钩.存款之间没有重叠.</li>
-    <li>您每月的质押奖励取决于存款金额和市场上代币价值的波动.</li>
+    <li>您每月的质押回报取决于存款金额和市场上代币价值的波动.</li>
     <li>一旦您的质押合约到期，您可以选择延长合约或从Maturity钱包中提取资金.</li>
     <li>所有质押存款均为最终押金，恕不退款.</li></ul>',
     'staking_agreement' => '<ul><li>I agree that by clicking confirm below I adhere to all the terms and conditions stated.</li>
@@ -1895,7 +1895,7 @@ return [
     'NODES_MANAGEMENT'=>'NODES MANAGEMENT',
     'REFERRAL_COMMISSION'=>'REFERRAL COMMISSION',
     'ROI'=>'ROI',
-    'FILTER_DATE'=>'FILTER DATE',
+    'FILTER_DATE'=>'筛选日期',
     'AMOUNT'=>'AMOUNT',
     'DURATION'=>'DURATION',
     'DATE'=>'DATE',
@@ -1920,30 +1920,30 @@ return [
    
     'STACKING_AMOUNT'=>'STACKING AMOUNT',
     'STACKING_DATE'=>'STACKING DATE',
-    'YIELD'=>'YIELD',
+    'YIELD'=>'收益',
     'YIELD_AMOUNT'=>'YIELD AMOUNT',
     'YIELD_WALLET'=>'YIELD WALLET',
     'NFT_WALLET'=>'NFT_WALLET',
-    'TO' => 'TO',
-    'Clear' => 'Clear',
-    'EXPORT' => 'EXPORT',
-    'Filter' => 'Filter',
-    'start_date' => 'Start Date',
-    'end_date' => 'End Date',
-    'select_stacking_pool_package' => 'Select Stacking Pool Package',
+    'TO' => '至',
+    'Clear' => '清除',
+    'EXPORT' => '导出',
+    'Filter' => '筛选',
+    'start_date' => '开始日期',
+    'end_date' => '截至日期',
+    'select_stacking_pool_package' => '选择质押池配套',
     'start_date_must_be_less_then_end_date' => 'Start Date must be less then End Date',
     'end_date_must_be_greater_than_start_date' => 'End Date must be greater than Start Date',
 
-    'edit_photo' => 'Edit Photo',
+    'edit_photo' => '编辑照片',
     'defixfinance_id' => 'DefiXFinance ID',
-    'total_staking_package' => 'Total Staking Package',
-    'PERSONAL_DETAILS' => 'PERSONAL DETAILS',
-    'BANK_DETAILS' => 'BANK DETAILS',
-    'NFT_WALLET_DETAILS' => 'NFT WALLET DETAILS',
+    'total_staking_package' => '总质押配套',
+    'PERSONAL_DETAILS' => '个人信息',
+    'BANK_DETAILS' => '银行信息',
+    'NFT_WALLET_DETAILS' => 'NFT钱包信息',
     'wallet_address' => 'Wallet Address',
-    'UPDATE_PROFILE' => 'UPDATE PROFILE',
-    'UPDATE_ACCOUNT' => 'UPDATE ACCOUNT',
-    'enter_nft_wallet_address' => 'Enter NFT Wallet Address',
+    'UPDATE_PROFILE' => '更新个人资料',
+    'UPDATE_ACCOUNT' => '更新账户',
+    'enter_nft_wallet_address' => '输入NFT钱包地址',
     'upload_profile_image' => 'Upload Profile Image',
     'profile_extension_png_jpg_jpeg' => 'Profile extension png, jpg, jpeg',
     'accountdetails' => 'ACCOUNT DETAILS',
@@ -1977,4 +1977,78 @@ return [
     'PROCESSING' => 'PROCESSING',
     'COUNTER_OFFER_CREATED' => 'COUNTER OFFER CREATED',
     'SOLD' => 'SOLD',
+
+    'Login' => '登录',
+    'email_is_required' => '邮箱是必填字段.',
+    'coin_price' => '货币价格',
+    'available_fund' => '可用资金：',
+
+    'disclaimer' => '免责声明：DefiXFinance 已尽一切努力确保本网站所提供信息的准确性和可靠性。信息按“原样”提供，不提供任何形式的担保。DefiXFinance不作任何性质的陈述和保证，包括但不限于其中包含的任何信息、事实和/或意见的准确性或完整性。',
+
+    'copyright' => '©版权所有 2021 DefiXFinance。版权所有。',
+    'a_network' => 'A网络',
+    'b_Network' => 'B网络',
+    'nodes_balancing_commission' => '节点平衡佣金',
+    'referral_commission_from' => '直系推荐佣金来自',
+    'select_fund_type' => '选择类型',
+    'nft_wallet_history' => 'NFT钱包历史记录',
+    'please_enter_address' => '请输入地址',
+    'please_enter_phone_number' => '请输入电话号码',
+    'please_enter_state' => '请输入州',
+    'please_enter_city' => '请输入城市',
+    'user_personal_details_updates_successfully' => '用户个人信息更新成功.',
+    'select_title' => '选择标题',
+    'choose_files' => '选择文件',
+    'no_file_chosen' => '没有选择任何文件',
+
+    'user_aggrement_list' => '<div class="col-12 text-white">
+    <h4>通过在DefiXFinance创建帐户，您同意并遵守：</h4>
+<ul><li>尽您所知，所有输入信息都是准确和真实的；</li>
+<li>如果需要，您必须遵守或提供额外信息以证明此类有效性；</li>
+<li>您的帐户（密码）的安全是您的责任，因您的个人密码泄露而导致的任何违规行为都是您的责任；</li>
+<li>在您居住的司法管辖区内，您已成年；</li>
+<li>您对DefiXFinance产品和服务的使用不违反任何适用的法律或法规；</li>
+<li>您使用本服务的风险由您自行承担。该服务以“现状”和“可用”为基础提供。除本协议另有明确规定外，DefiXFinance明确否认任何类型的担保，无论是明示、默示或法定担保，包括但不限于适销性、特定用途适用性、所有权和非侵权的默示担保。</li>
+<li>您理解并同意，如果您与DefiXFinance就服务的任何方面（包括注册过程）发生争议，且您放弃领导或参与涉及其他人的诉讼（如集体诉讼）的权利，则上述争议程序将是您的唯一补救措施。</li>
+<li>您同意DefiXFinance可自行决定且不对您或任何第三方承担任何责任，可以出于任何原因暂停或终止您对服务（或其任何部分）的使用，并删除和丢弃服务中的任何内容，包括，限制，由于缺乏使用，或者如果 DefiXFinance 认为您违反或不符合这些服务条款的文字或精神。</li>
+     </ul>
+</div>',
+
+
+'click_to_finish_registration' => '<div class="col-md-12"><h4 style="color:#fff">请勾选以下内容以完成您的注册：</h4>
+<p style="color:#fff">本人同意已阅读以下文件，并遵守以下文件中概述的条款和条件：</p>
+</div>',
+    
+'please_verify_the_sponsor_id_first' => '请先验证推荐人ID.',
+'letters_numbers_and_underscores_only_please' => '请仅使用字母、数字和下划线.',
+'please_enter_valid_email' => 'Please enter valid email.',
+
+
+'Password_is_required' => 'Password is required.',
+'Your_password_must_be_at_least_8_characters_long' => 'Your password must be at least 8 characters long.',
+'Please_enter_no_more_than_15_characters' => 'Please enter no more than 15 characters.',
+'Please_enter_the_same_password_as_above' => 'Please enter the same password as above.',
+'Confirm_password_is_required' => 'Confirm password is required.',
+
+'Invalid_placement_position' => 'Invalid placement position',
+'Your_Password_has_been_changed' => 'Your Password has been changed',
+'Passwords_are_updated' => 'Passwords are updated',
+'User_bank_details_updates_successfully' => 'User bank details updates successfully',
+'User_NFT_Wallet_address_updates_successfully' => 'User NFT Wallet address updates successfully',
+'Update_Image_Successfully' => 'Update Image Successfully',
+'Ticket_message_sent_to_admin' => 'Ticket message sent to admin.',
+'This_field_is_required' => 'This field is required.',
+'Value_must_be_greater_than_0' => 'Value must be greater than 0',
+'USDT_Proof_extension_png_jpg_jpeg_pdf' => 'USDT Proof extension png, jpg, jpeg, pdf',
+'Please_wait_Do_not_refresh_this_page' => 'Please wait. Do not refresh this page.',
+'USDT_Proof_png_jpg_jpeg' => 'USDT Proof png, jpg, jpeg',
+'Bank_Proof_png_jpg_jpeg' => 'Bank Proof png, jpg, jpeg',
+'Please_select_country' => 'Please select country',
+'Please_enter_number_only' => 'Please enter number only',
+'Please_enter_minimum_9_character' => 'Please enter minimum 9 character',
+'total_staking' => 'Total Stacking',
+'Please_enter_nft_wallet_address' => 'Please enter nft wallet address.',
+'Please_enter_a_value_with_a_valid_extension_proof' => 'Please enter a value with a valid extension proof.',
+'Please_enter_a_value_greater_than_or_equal_to_100' => 'Please enter a value greater than or equal to 100.',
+'Please_enter_a_value_with_a_valid_extension' => 'Please enter a value with a valid extension.',
 ];

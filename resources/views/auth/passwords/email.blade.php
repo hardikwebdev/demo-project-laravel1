@@ -79,7 +79,7 @@ $local_url = url('locale');
                     </div>
                     <div class="col-12 text-center mt-3">
                         <h4 class="text-light-pink">
-                            <a href="https://app.defixfinance.com" class="text-white ml-2">Login</a>&nbsp;&nbsp; | 
+                            <a href="https://app.defixfinance.com" class="text-white ml-2">{{ __('custom.Login') }}</a>&nbsp;&nbsp; | 
                             <a href="{{ route('register') }}"
                                 class="text-white ml-2">{{ __('custom.sign_up') }}</a></h4>
                     </div>
@@ -101,8 +101,8 @@ $( document ).ready(function() {
             },
             messages: {
                 email: {
-                    required: "Email is required.",
-                    email: "Please enter valid email."
+                    required: "{{trans('custom.email_is_required')}}",
+                    email: "{{trans('custom.please_enter_valid_email')}}",
                 },
             },
         })

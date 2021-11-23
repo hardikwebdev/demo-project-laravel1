@@ -66,7 +66,7 @@
 	                            <div class="from-inner-space">
 	                                <label class="mb-2 bmd-label-static text-white">{{trans('custom.title')}}:<span
 	                                    class="text-red">*</span></label>
-	                                {!! Form::select('subject_id',$supportSubject,old('supportSubject'),['class'=>'form-control grey-ph h-auto py-4 border-0 shadow','placeholder'=>'Select Title']) !!}            
+	                                {!! Form::select('subject_id',$supportSubject,old('supportSubject'),['class'=>'form-control grey-ph h-auto py-4 border-0 shadow','placeholder'=> trans('custom.select_title')]) !!}            
 	                            </div>
 	                        </div>
 	                    </div>

@@ -44,7 +44,7 @@
     <div class="col-12 col-xl-7 text-white mt-4 mt-xl-0">
       <div class="row text-white">
         <div class="col-12">
-          <p>Coin Price</p>
+          <p>{{trans('custom.coin_price')}}</p>
         </div>
         @foreach($stakingpool->stackingpoolcoins as $coin)
         <div class="col-12 col-md-6">
@@ -54,7 +54,7 @@
               <h4>{{$coin->name}}</h4>
             </div>
             <div>
-              <!-- <h3>${{$coin->price}}</h3> -->
+              <h3>${{number_format($coin->price,2)}}</h3>
             </div>
           </div>
           <p class="border-bottom border-white"></p>
@@ -169,7 +169,7 @@
          @enderror
        </div>
        <div class="col-12 col-md-5 mt-3 mt-md-0">
-        <h3 class="font-weight-bold"><span class="font-12">Available Fund:</span> ${{($user->userwallet) ? number_format($user->userwallet->crypto_wallet,2) : '0.00' }}</h3>
+        <h3 class="font-weight-bold"><span class="font-12">{{trans('custom.available_fund')}}</span> ${{($user->userwallet) ? number_format($user->userwallet->crypto_wallet,2) : '0.00' }}</h3>
       </div>
       <div class="col-12 col-md-7 mt-3">
         <input type="hidden" name="name" id="name" value="{{$stakingpool->name}}">
@@ -239,7 +239,7 @@
         <div class="font-16 text-left">
           {!!trans('custom.staking_agreement')!!}
           <div class="col-12 col-md-12">
-           <div class="card rounded-0">
+           <div class="card rounded-0" style="background-color:transparent;">
             <div class="card-body">
               <label class="" for="">{{__('custom.signature')}}</label>
               <br/>

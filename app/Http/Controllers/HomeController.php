@@ -66,6 +66,9 @@ class HomeController extends Controller
                                             });
         $nft_cats = NftCategory::where('is_deleted','0')->orderBy('id','desc')->limit(3)->get();
         $locale = app()->getLocale();
+
+
+        $total_stacking = StackingPool::where('user_id', $this->user->id)->where('status','0')->orWhere('status','1')->sum('amount');
         // if ($locale == 'en' || $locale == 'ko' || $locale == 'th' || $locale == 'vi') {
         //     $locale = 'en';
         // } else {
@@ -148,7 +151,7 @@ class HomeController extends Controller
 
         // echo "<pre>";
         // print_r($commissionData);die();
-        return view('dashboard',compact('user','sliders','staking_pool','news','nft_cats','graph','months','commissionData'));
+        return view('dashboard',compact('user','sliders','staking_pool','news','nft_cats','graph','months','commissionData','total_stacking'));
     }
 
     public function crypto_wallets(){
@@ -176,10 +179,7 @@ class HomeController extends Controller
         return view('withdrawal.index');
     }
 
-    public function nft_marketplace(){
-        return view('nft_marketplace.index');
-    }
-
+   
     public function ledger(){
         return view('reports.index');
     }
@@ -197,14 +197,8 @@ class HomeController extends Controller
         return view('help_support.index');
     }
 
-    public function nftproduct(){
-        return view('nft_marketplace.product');
-    }
-
-    public function sell_nft(){
-        return view('nft_marketplace.sell_nft');
-    }
-
+   
+  
 
     public function downlinePlacement(Request $request){
         $downlineUser = User::where('placement_id',$request->id)->where('status','active')->where('id','!=',$request->id)->get();

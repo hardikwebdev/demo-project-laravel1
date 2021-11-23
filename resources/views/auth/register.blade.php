@@ -142,6 +142,7 @@ $local_url = url('locale');
  </span>
  @enderror
 </div>
+
 <div class="col-12 col-md-4 mt-2 pt-1 pr-md-0 pl-md-2">
    <input id="username" type="text" class="form-control grey-ph h-auto py-4 rounded-0 @error('username') is-invalid @enderror"
    name="username" value="{{ old('username') }}" autocomplete="username" autofocus
@@ -291,7 +292,7 @@ $local_url = url('locale');
 </div>
 </div>              
 </fieldset>
-<h1 class="text-uppercase">{{trans('custom.bank_details')}}</h1>
+<h1 class="text-uppercase">{{trans('custom.BANK_DETAILS')}}</h1>
 <fieldset>
    <div class="row justify-content-center mt-5">                     
      <div class="col-12 col-md-6 mt-2 pt-1 pr-md-0">
@@ -367,7 +368,7 @@ $local_url = url('locale');
 <h1>{{ trans('custom.user_agreement') }}</h1>
 <fieldset>
   <div class="row justify-content-center mt-5">
-   <div class="col-12 text-white">
+   {{-- <div class="col-12 text-white">
     <h4>By creating an account at DefiXFinance, you agree and comply that:</h4>
 <ul><li>All input information is accurate and true to your best knowledge;</li>
 <li>You adhere to provide additional information to prove such validity if required;</li>
@@ -380,14 +381,16 @@ $local_url = url('locale');
 
 <li>You agree that DefiXFinance, in its sole discretion and without liability to you or any third party, may suspend or terminate your use of service (or any part thereof) and remove and discard any content within the service, for any reason, including, without limitation, for lack of use or if DefiXFinance believes that you have violated or acted inconsistently with the letter or spirit of these terms of service.</li>
      </ul>
-</div>
+</div> --}}
+{!! trans('custom.user_aggrement_list') !!}
 </div>
 
 <div class="row mt-3 mb-3 ticks">
 <div class="col-12 col-md-6 form-group row">
-    <div class="col-md-12"><h4 style="color:#fff">Please tick the following the complete your registration:</h4>
+    {{-- <div class="col-md-12"><h4 style="color:#fff">Please tick the following the complete your registration:</h4>
     <p style="color:#fff">I agree I have read the following documents and adhere to the terms and conditions that has been outlined in the documents below:</p>
-    </div>
+    </div> --}}
+    {!! trans('custom.click_to_finish_registration') !!}
    <div class="col-md-12 user-agrrement-errro">
       <label class="m-checkbox">
          <input class="chk_agreements " type="checkbox" id="antimoney_laundering" name="terms_condition[]" value="antimoney_laundering" >
@@ -425,7 +428,7 @@ $local_url = url('locale');
  </label>
 </div>
 </div>
- <div class="col-12 col-md-6 sigbox">
+ <!-- <div class="col-12 col-md-6 sigbox">
    <div class="card rounded-0">
       <div class="card-body">
         <label class="" for="">{{__('custom.signature')}}</label>
@@ -437,7 +440,7 @@ $local_url = url('locale');
     </div>
 </div>
 </div>
-</div>
+ --></div>
 </fieldset>
 </form> 
 </div>
@@ -579,7 +582,7 @@ $( document ).ready(function() {
     } else {
         return  true;
     }
-}, "Please verify the sponsor id first.");
+}, "{{ trans('custom.please_verify_the_sponsor_id_first') }}");
    $.validator.addMethod(
     "alphanumeric1",
     function(value, element) {
@@ -628,7 +631,7 @@ $( document ).ready(function() {
       previous: '<button class="btn bg-transparent border-warning text-white py-4 px-5 mt-4 mt-md-2 font-weight-bold rounded-0 font-18 text-uppercase"><img src="{{ asset("assets/images/assets/Staking_Pools/Group179.png") }}" class="img-fluid mr-3 align-middle" alt="" style="transform: rotate(180deg);">{{trans("custom.previous")}}</button>'
   },
   onInit: function (event, current) {
-    var sigpad = $('#sigpad').signature({syncField: '#signature', syncFormat: 'PNG'});
+    var sigpad = $('#sigpad').signature({syncField: '#signature', syncFormat: 'PNG',background: 'transparent'});
     $('#clear').click(function(e) {
         e.preventDefault();
         sigpad.signature('clear');
@@ -887,10 +890,10 @@ onStepChanging: function (event, currentIndex, newIndex)
                      bank_country_id:{
                          required: true,
                      },
-                     signature:{
-                         required: true,
-                           // maxlength: 50,
-                       },
+                     // signature:{
+                     //     required: true,
+                     //       // maxlength: 50,
+                     //   },
                        // d_date:{
                        //     required: true,
                        // },
@@ -924,6 +927,7 @@ onStepChanging: function (event, currentIndex, newIndex)
    },
    username: {
        required: username_required_field,
+       alphanumeric: letters_numbers_and_underscores_only_please,
        minlength: please_enter_least_3_characters,
        maxlength: please_enter_no_more_than_50,
        remote: username_already_exists,
