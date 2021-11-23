@@ -35,18 +35,18 @@
     <div class="row">
         <div class="col-sm-6 pl-0 ">
             <div class="form-group">
-                <label>Chain</label> 
-                {!! Form::text('chain',old('chain'),['class'=>'form-control','placeholder'=>'Enter Chain']) !!}
+                <label>Coingecko ID</label> 
+                {!! Form::text('chain',old('chain'),['class'=>'form-control','placeholder'=>'Enter Coingecko ID']) !!}
                 <span class="help-block text-danger">{{ $errors->first('chain') }}</span>
             </div>
         </div>
-        <div class="col-sm-6 pl-0 ">
+        <!-- <div class="col-sm-6 pl-0 ">
             <div class="form-group">
                 <label>Address</label> 
                  {!! Form::text('address',old('address'),['class'=>'form-control','placeholder'=>'Enter Address']) !!}
                 <span class="help-block text-danger">{{ $errors->first('address') }}</span>
             </div> 
-        </div>
+        </div> -->
     </div>
 </div>
 <hr>
