@@ -19,7 +19,7 @@
     <div class="row">
         <div class="col-sm-6 pl-0 ">
             <div class="form-group">
-                <label>Icon @if(@$coin->icon)- <a href="{{asset('uploads/package_coin/'.@$coin->icon)}}" target="_blank">{{@$coin->icon}}</a>@endif</label>
+                <label>Icon @if(@$coin->icon)- <a href="{{asset(@$coin->icon)}}" target="_blank">{{basename(@$coin->icon)}}</a>@endif</label>
                 {!! Form::file('image',['class'=>'form-control','placeholder'=>'Enter url', 'accept'=>'image/*']) !!}
                 <span class="help-block text-danger">{{ $errors->first('image') }}</span>
             </div>
@@ -29,6 +29,22 @@
                 <label>Price</label> 
                  {!! Form::number('price',old('price'),['class'=>'form-control','placeholder'=>'Enter price','min'=>'0']) !!}
                 <span class="help-block text-danger">{{ $errors->first('price') }}</span>
+            </div> 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 pl-0 ">
+            <div class="form-group">
+                <label>Chain</label> 
+                {!! Form::text('chain',old('chain'),['class'=>'form-control','placeholder'=>'Enter Chain']) !!}
+                <span class="help-block text-danger">{{ $errors->first('chain') }}</span>
+            </div>
+        </div>
+        <div class="col-sm-6 pl-0 ">
+            <div class="form-group">
+                <label>Address</label> 
+                 {!! Form::text('address',old('address'),['class'=>'form-control','placeholder'=>'Enter Address']) !!}
+                <span class="help-block text-danger">{{ $errors->first('address') }}</span>
             </div> 
         </div>
     </div>
