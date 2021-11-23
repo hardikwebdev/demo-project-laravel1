@@ -60,7 +60,9 @@ class StackingpoolscoinController extends Controller
             ],
             'symbol' => 'required|string|max:30',
             'image' => 'required|mimes:jpeg,jpg,png,gif',
-            'price' => 'required',            
+            'price' => 'required', 
+            'chain' => 'required', 
+            'address' => 'required',            
         ],[
             'name.unique' => 'Coin already exists!',
         ]);
@@ -72,6 +74,8 @@ class StackingpoolscoinController extends Controller
             $package->name = $request->name;
             $package->price = $request->price;
             $package->symbol = $request->symbol;
+            $package->chain = $request->chain;
+            $package->address = $request->address;
             if($request->image){
 
                 $path = public_path('uploads/package_coin');
@@ -153,6 +157,8 @@ class StackingpoolscoinController extends Controller
             'symbol' => 'required|string|max:30',
             'image' => 'mimes:jpeg,jpg,png,gif',
             'price' => 'required',
+            'chain' => 'required', 
+            'address' => 'required',
          ],[
             'name.unique' => 'Coin already exists!',
         ]);
@@ -163,6 +169,8 @@ class StackingpoolscoinController extends Controller
             $package->name = $request->name;
             $package->price = $request->price;
             $package->symbol = $request->symbol;
+            $package->chain = $request->chain;
+            $package->address = $request->address;
             if($request->image){
 
                 $path = public_path('uploads/package_coin');

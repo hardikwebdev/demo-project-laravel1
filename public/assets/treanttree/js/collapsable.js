@@ -2,14 +2,18 @@
 var chart_config = {
     chart: {
         container: "#collapsable-example",
-        rootOrientation:  'NORTH', // NORTH || EAST || WEST || SOUTH
-        // levelSeparation: 50,
-        siblingSeparation:   70,
-        subTeeSeparation:    70,
-        scrollbar: "native",
-        nodeAlign: 'CENTER',
+        // rootOrientation:  'NORTH', // NORTH || EAST || WEST || SOUTH
+        // // levelSeparation: 50,
+        siblingSeparation:   90,
+        subTeeSeparation:    90,
+        // scrollbar: "native",
+        // nodeAlign: 'CENTER',
         connectors: {
-            type: 'step'
+            type: 'step',
+            style: {
+                "stroke-width": 2,
+                "stroke": "#000"
+            }
         },
         animateOnInit: true,
 
@@ -21,7 +25,7 @@ var chart_config = {
             nodeSpeed: 700,
             connectorsAnimation: "bounce",
             connectorsSpeed: 700
-        }
+        },
     },
     nodeStructure: users
 };

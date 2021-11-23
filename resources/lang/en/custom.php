@@ -106,10 +106,10 @@ return [
     'regi_age_msgs' => 'Notification: Age Restriction <br><br>
     The legal age to open an account with Defix shall be 18 years old and above. Any individual which is under the age of 18 years old are considered minor and is not allowed to open an account. <br><br>
     Thank you',
-    'points_warning' => 'Your DefiXFinance account will be fully activated upon successful funding.  You can fund your account',
-    'click_here_add_points' => 'here',
-    'buy_package_message'=> 'Please invest in a stacking pool package to activate your account and to access all the features of the Defix',
-    'click_here_add_package' => 'Click here to add investment.',
+    'points_warning' => 'Your DefiXFinance account will be fully activated upon successful funding. You can fund your account #here.',
+    'click_here_add_points' => 'Click here to fund in your account.',
+    'buy_package_message'=> 'Your DefiXFinance account will be fully activated once you have invested in a staking pool.',
+    'click_here_add_package' => 'Click here to start investing.',
     'verify' => 'Verify',
     /*Registration*/
     'enter_details_account' => 'Enter your details to create your account',
@@ -2027,4 +2027,5 @@ return [
     'Please_enter_a_value_with_a_valid_extension_proof' => 'Please enter a value with a valid extension proof.',
     'Please_enter_a_value_greater_than_or_equal_to_100' => 'Please enter a value greater than or equal to 100.',
     'Please_enter_a_value_with_a_valid_extension' => 'Please enter a value with a valid extension.',
+    'here' => 'here',
  ];

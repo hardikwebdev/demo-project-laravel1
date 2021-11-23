@@ -10,7 +10,7 @@ class StackingPoolPackage extends Model
     use HasFactory;
 
     protected $fillable = [
-        'is_deleted','name','price','icon','symbol'
+        'is_deleted','name','price','icon','symbol','chain','address'
     ];
 
     public function stackingpoolcoins(){
