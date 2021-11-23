@@ -40,7 +40,7 @@ class UpdateCoinPrice extends Command
     {
         $coins = StackingPoolCoin::all();
         foreach($coins as $coin){
-            if($coin->chain != 'bsc'){
+            if($coin->chain != ''){
 
                 $curl = curl_init();
                 $url = "https://api.coingecko.com/api/v3/simple/price?ids=".$coin->chain."&vs_currencies=usd";
