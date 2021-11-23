@@ -17,7 +17,7 @@
                     @if ($i == 1)
                         <div class="col-12 col-md-3 mt-5">
                             <div class="bg-card-4 text-center p-4 rounded">
-                                <img src="{{ $stackingpool->symbol }}" class="img-fluid alpha-top-img" alt="">
+                                <img src="{{ $stackingpool->symbol }}" class="img-fluid alpha-top-img stk-logo" alt="">
                                 <h4 class="text-blue font-weight-bold">{{ $stackingpool->name }}</h4>
                                 <p class="border-top border-blue mt-3 mx-auto"></p>
                                 <p class="text-secondary font-12">{{ __('custom.expected_anual_rate') }}</p>
@@ -67,7 +67,7 @@
                     @elseif($i == 2)
                         <div class="col-12 col-md-3 mt-5">
                             <div class="bg-card-2 text-center p-4 rounded">
-                                <img src="{{ $stackingpool->symbol }}" class="img-fluid alpha-top-img" alt="">
+                                <img src="{{ $stackingpool->symbol }}" class="img-fluid alpha-top-img stk-logo" alt="">
                                 <h4 class="text-white font-weight-bold">{{ $stackingpool->name }}</h4>
                                 <p class="border-top border-white mt-3 mx-auto"></p>
                                 <p class="text-white font-12">{{ __('custom.expected_anual_rate') }}</p>
@@ -116,7 +116,7 @@
                     @elseif($i == 3)
                         <div class="col-12 col-md-3 mt-5">
                             <div class="bg-card-3 text-center p-4 rounded">
-                                <img src="{{ $stackingpool->symbol }}" class="img-fluid alpha-top-img" alt="">
+                                <img src="{{ $stackingpool->symbol }}" class="img-fluid alpha-top-img stk-logo" alt="">
                                 <h4 class="text-white font-weight-bold">{{ $stackingpool->name }}</h4>
                                 <p class="border-top border-white mt-3 mx-auto"></p>
                                 <p class="text-white font-12">{{ __('custom.expected_anual_rate') }}</p>
@@ -165,7 +165,7 @@
                     @elseif($i == 4)
                         <div class="col-12 col-md-3 mt-5">
                             <div class="bg-card-1 text-center p-4 rounded">
-                                <img src="{{ $stackingpool->symbol }}" class="img-fluid alpha-top-img" alt="">
+                                <img src="{{ $stackingpool->symbol }}" class="img-fluid alpha-top-img stk-logo" alt="">
                                 <h4 class="text-white font-weight-bold">{{ $stackingpool->name }}</h4>
                                 <p class="border-top border-white mt-3 mx-auto"></p>
                                 <p class="text-white font-12">{{ __('custom.expected_anual_rate') }}</p>

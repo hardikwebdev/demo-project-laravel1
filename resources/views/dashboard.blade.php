@@ -538,8 +538,9 @@
             </div>
             <div class="modal-body">
                 <div class="font-16">
-                    {{trans('custom.points_warning')}}
-                    <a href="{{route('crypto_wallets')}}" class="mtext-cred font-16">{{trans('custom.click_here_add_points')}}</a>
+                    <?php $string = '<a href="'.route('crypto_wallets').'" class="mtext-cred font-16">'.trans('custom.here').'</a>'; ?>
+                    {!! str_replace('#here', $string, trans('custom.points_warning')) !!}
+                    <!-- <a href="{{route('crypto_wallets')}}" class="mtext-cred font-16">{{trans('custom.click_here_add_points')}}</a> -->
                 </div>
 
             </div>
