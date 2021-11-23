@@ -72,9 +72,9 @@
   $('.alert-danger').fadeIn().delay(4000).fadeOut();
   var sponsorUsernameExits = "{{route('sponsorUsernameExits')}}";
   var placementUsernameExits = "{{route('placementUsernameExits')}}";
-  var viewbrackdown = "{{ route('view.breakdown', ':id') }}";
   var emailExists = "{{route('emailExists')}}";
   var usernameExits = "{{route('usernameExits')}}";
+  var commissionbreakdown = "{{route('commissionbreakdown')}}";
 </script>
 <script type="text/javascript">
   $.ajaxSetup({
