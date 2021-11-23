@@ -2,26 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\StackingPoolPackage;
-use App\Models\Slider;
-use App\Models\User;
+use DB;
 use Auth;
-use App\Models\NftCategory;
+use Carbon\Carbon;
 use App\Models\News;
-use App\Models\StackingPool;
+use App\Models\User;
+use App\Models\Slider;
+use App\Helpers\Helper;
+use App\Models\Package;
+use App\Models\Setting;
+use Carbon\CarbonPeriod;
+use App\Models\NftProduct;
 use App\Models\UserWallet;
-use App\Models\CommissionWalletHistory;
+use App\Models\NftCategory;
+use App\Models\StackingPool;
+
+use Illuminate\Http\Request;
+use App\Models\NftPurchaseLog;
+use App\Models\NftSellHistory;
 use App\Models\PairingCommission;
+use App\Models\NftPurchaseHistory;
+use App\Models\NftReservedProduct;
 use App\Models\ReferralCommission;
 use App\Models\YieldWalletHistory;
-
-use DB;
-use Carbon\Carbon;
-use Carbon\CarbonPeriod;
-use App\Models\Setting;
-use App\Models\Package;
-use App\Helpers\Helper;
+use App\Models\StackingPoolPackage;
+use App\Models\CommissionWalletHistory;
 
 class HomeController extends Controller
 {

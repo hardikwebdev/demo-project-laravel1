@@ -31,15 +31,15 @@
             @if (count($collections) > 0)
                 @foreach ($collections as $value)
                     <div class="col-12 col-md-6 col-xl-3 mt-3" onclick="showNFTSell({{ $value->id }})">
-                        {{-- <div class="bg-white p-3 rounded mx-2" data-toggle="modal" @if ($value->status != 2) data-target="#bullKongModal{{ $value->product_id }}" @endif> --}}
+                        <div class="bg-white p-3 rounded mx-2" data-toggle="modal" @if ($value->status != 2) data-target="#bullKongModal{{ $value->product_id }}" @endif>
                           {{-- <div class="bg-white p-3 rounded mx-2" data-toggle="modal" @if ($value->type != 1) data-target="#bullKongModal{{ $value->product_id }}" @endif> --}}
-                      <div class="bg-white p-3 rounded mx-2" data-toggle="modal" data-target="#bullKongModal{{ $value->product_id }}">  
+                      {{-- <div class="bg-white p-3 rounded mx-2" data-toggle="modal" data-target="#bullKongModal{{ $value->product_id }}">   --}}
                             <div class="position-relative overflow-hidden">
                                 <img src="{{ asset($value->nftproduct->image) }}"
                                     class="img-fluid w-100" alt="">
-                                {{-- @if ($value->type == 1)
+                                @if ($value->status == 2)
                                     <span class="sale-label">{{ __('custom.on_sale') }}</span>
-                                @endif --}}
+                                @endif
                             </div>
                             <div class="mt-3">
                                 <h4 class="text-blue font-weight-bold">{{ $value->nftproduct->name }}

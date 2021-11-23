@@ -31,8 +31,11 @@
                         <span class="input-group-addon">to</span>
                         {!! Form::text('end', old('end', isset($data['end']) ? $data['end'] : ''), ['class' => 'input-sm form-control', 'placeholder' => 'End Date', 'readonly' => 'true']) !!}
                     </div>
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         {!! Form::select('status', ['1' => 'Processing', '2' => 'On Sale', '3' => 'Listing', '4' => 'Pending'], old('status', @$data['status']), ['class' => 'form-control', 'placeholder' => 'All Status']) !!}
+                    </div> --}}
+                    <div class="form-group">
+                        {!! Form::select('status', ['1' => 'Purchased', '2' => 'On Sale', '3' => 'Sold'], old('status', @$data['status']), ['class' => 'form-control', 'placeholder' => 'All Status']) !!}
                     </div>
                     <button class="btn btn-primary" type="submit"><i class="fa fa-filter"></i> Search</button>
                     <a class="btn btn-danger" href="{{ route('nft_purchase_history.index') }}">Clear</a>

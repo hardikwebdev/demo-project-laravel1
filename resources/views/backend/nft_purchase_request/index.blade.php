@@ -97,6 +97,8 @@
                                                         <label class="label label-primary">Listing</label>
                                                     @elseif ($row->status == 2)
                                                         <label class="label label-success">On Sale</label>
+                                                    @elseif ($row->status == 6)
+                                                    <label class="label label-success">Counter Offer Created</label>
                                                     @else
                                                         <label class="label label-danger">Counter Offer Reject</label>
                                                     @endif

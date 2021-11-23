@@ -105,9 +105,8 @@
                                                         <a class="btn btn-sm btn-success nftonsalereq"
                                                             data-id="{{ $row->id }}" data-type="approve"
                                                             data-value="5" href="#">Approve</a>
-
-                                                        <a class="btn btn-sm btn-danger nftonsalereq" href="#" data-type="reject"
-                                                            data-id="{{ $row->id }}" data-value="3">Reject</a>
+                                                        {{-- <a class="btn btn-sm btn-danger nftonsalereq" href="#" data-type="reject"
+                                                            data-id="{{ $row->id }}" data-value="3">Reject</a> --}}
                                                 </td>
                                             </tr>
                                         </tbody>

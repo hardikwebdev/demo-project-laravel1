@@ -447,11 +447,11 @@ class AccountController extends Controller
                                                 $pool->investedAmount = StackingPool::where('user_id',$user->id)->where('stacking_pool_package_id',$pool->id)->sum('amount');
                                                 return $pool;
                                             });
-        $collections = NftPurchaseHistory::with('nftproduct')->where('user_id', $this->user->id)->get();
+        $collections = NftPurchaseHistory::with('nftproduct')->where('user_id', $this->user->id)->whereIn('status',[1,2])->get();
         return view('profile.my_collection', compact('country', 'user', 'staking_pool', 'staking_pool_count', 'collections'));
     }
     public function sell_nft(Request $request){
-        $collections = NftPurchaseHistory::with('nftproduct')->where('user_id', $this->user->id)->get();
+        $collections = NftPurchaseHistory::with('nftproduct')->where('user_id', $this->user->id)->whereIn('status',[1,2])->get();
         $nftsalehistory = NftSellHistory::with('nftproduct')->where('user_id', $this->user->id)->orderBy('id','desc')->paginate(6);
         if($request->ajax()) {
             return view('nft_marketplace.sale_history', compact('nftsalehistory'));
@@ -513,23 +513,32 @@ class AccountController extends Controller
     }
 
     public function counterofferstatus(Request $request){
-        if($request->approverequest == "approve"){
-            $nftpurchasehistory = NftSellHistory::find($request->nfthistoryid);
-            $nftpurchasehistory->sale_amount = $request->amount;
-            $nftpurchasehistory->status = 2;
-            $nftpurchasehistory->counter_offer_status = 2;
-            $nftpurchasehistory->update();
-            return redirect()->back()->with('success',trans('custom.counter_offer_approve'));
-        }else{
-            $nftpurchasehistory = NftSellHistory::find($request->nfthistoryid);
-            $nftpurchasehistory->status = 3;
-            $nftpurchasehistory->counter_offer_status = 3;
-            $nftpurchasehistory->update();
-            $nfttype = NftPurchaseHistory::find($nftpurchasehistory->nft_purchase_history_id);
-            $nfttype->type = 0;
-            $nfttype->save();
-            return redirect()->back()->with('success',trans('custom.counter_offer_reject'));
+        $counteroffer = NftSellHistory::find($request->nfthistoryid);
+        if($counteroffer->counter_offer_status == 1){
+            if($request->approverequest == "approve"){
+                $nftpurchasehistory = NftSellHistory::find($request->nfthistoryid);
+                $nftpurchasehistory->sale_amount = $request->amount;
+                $nftpurchasehistory->status = 2;
+                $nftpurchasehistory->counter_offer_status = 2;
+                $nftpurchasehistory->approve_date = Carbon::now();
+                $nftpurchasehistory->update();
+                $nftpurchase = NftPurchaseHistory::find($nftpurchasehistory->nft_purchase_history_id);
+                $nftpurchase->status = 2;
+                $nftpurchase->update();
+                return redirect()->back()->with('success',trans('custom.counter_offer_approve'));
+            }else{
+                $nftpurchasehistory = NftSellHistory::find($request->nfthistoryid);
+                $nftpurchasehistory->status = 3;
+                $nftpurchasehistory->counter_offer_status = 3;
+                $nftpurchasehistory->update();
+                $nfttype = NftPurchaseHistory::find($nftpurchasehistory->nft_purchase_history_id);
+                $nfttype->type = 0;
+                $nfttype->save();
+                return redirect()->back()->with('success',trans('custom.counter_offer_reject'));
+            }
+        }
+        else{
+            return redirect()->back()->with(['error'=>trans('custom.counter_offer_aleady')]);
         }
     }
-
 }

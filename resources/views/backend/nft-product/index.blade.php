@@ -64,11 +64,18 @@
                                         @endif
                                     </td>
                                     <td>
+                                        @php
+                                            $product = \App\Models\NftPurchaseHistory::where(['product_id' => $row->id])->whereIn('status',[1,2])->count(); 
+                                        @endphp
+                                        @if ($product > 0)
+                                            <p>Product is purchased you can not edit or delete.</p>
+                                        @else
                                         {!! Form::open(['route' => ['nft-product.update',$row->id],'onsubmit'=>"return confirmDelete(this,'Are you sure to want delete this product ?')"]) !!}
                                         <a class="btn btn-primary btn-xs" href="{{route('nft-product.edit',[$row->id])}}"><i class="fa fa-edit"></i></a>
                                         @method('delete')
                                         <button class="btn btn-danger  btn-xs" type="submit" ><i class="fa fa-trash"></i></button>
                                         {!! Form::close() !!}
+                                        @endif
                                     </td>
                                 </tr>                                        
                                 @endforeach                            

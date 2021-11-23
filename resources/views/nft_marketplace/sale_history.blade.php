@@ -44,9 +44,13 @@
             @elseif ($value->status == 4)
             <td class="text-danger">{{trans('custom.COUNTER_OFFER_DECLINED')}}</td>
             @elseif ($value->status == 5)
-            <td class="text-success">{{trans('custom.PROCESSING')}}</td>
+            <td class="text-warning">{{trans('custom.PROCESSING')}}</td>
+            @elseif ($value->status == 6)
+            <td class="text-secondary">{{trans('custom.COUNTER_OFFER_CREATED')}}</td>
+            @elseif ($value->status == 7)
+            <td class="text-success">{{trans('custom.SOLD')}}</td>
             @else
-                
+                -
             @endif
             <td>
                 @if ($value->counter_offer_status == 1)

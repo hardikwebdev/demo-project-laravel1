@@ -55,7 +55,7 @@ class NFTMarketplaceController extends Controller
         $collectionname = NftCategory::find($product->category_id);
         $nftids = NftReservedProduct::pluck('product_id')->toArray();
         $othrt_products = NftProduct::where(['category_id' => $product->category_id, "status" => 'active', "is_deleted" => '0'])->where('id', "!=", $id)->where("product_status","!=","Hidden")->whereNotIn('id',$nftids)->get();
-        $checkProduct = NftPurchaseHistory::where('product_id', $id)->count();
+        $checkProduct = NftPurchaseHistory::where('product_id', $id)->whereIn('status',[1,2])->count();
 
 
         // $purchaseHistory = NftPurchaseHistory::where('product_id', $id)->orderBy('id','desc')->paginate(6);

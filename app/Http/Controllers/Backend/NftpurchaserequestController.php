@@ -63,7 +63,7 @@ class NftpurchaserequestController extends Controller
             //     $data['status'] = 'On Sale';
             //     $nft_purchase_history = $nft_purchase_history->where('status','2');
             // }
-            $nft_purchase_history = $nft_purchase_history->whereIn('status',[1,4]);
+            $nft_purchase_history = $nft_purchase_history->whereIn('status',[1,4,6]);
 
             $data['total_uploads'] = $nft_purchase_history->count();
             $data['total_sales'] = $nft_purchase_history->sum('sale_amount');
@@ -232,6 +232,7 @@ class NftpurchaserequestController extends Controller
             $product = NftProduct::find($counteroffer->product_id);
             $counteroffer->counter_offer_amount = $request->counter_offer_amount;
             $counteroffer->remark = $request->remark;
+            $counteroffer->status = 6;
             $counteroffer->counter_offer_status = 1;
             $counteroffer->counter_offer_verification_key = sha1($user->email.time());
             $counteroffer->save();
@@ -256,7 +257,11 @@ class NftpurchaserequestController extends Controller
                     }
                     if($request->status == 2){
                         $change_status->status = ($request->status != "") ? $request->status : "0";
-                        // $change_status->approve_date = Carbon::now();
+                        $change_status->approve_date = Carbon::now();
+                        $nftpurchase = NftPurchaseHistory::find($change_status->nft_purchase_history_id);
+                        $nftpurchase->status = 2;
+                        $nftpurchase->update();
+                       
                     }else{
                         $change_status->status = ($request->status != "") ? $request->status : "0";
                         $nfttype = NftPurchaseHistory::find($change_status->nft_purchase_history_id);

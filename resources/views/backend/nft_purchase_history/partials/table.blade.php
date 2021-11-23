@@ -26,18 +26,18 @@
                         <td>
                             {{ $row->order_id ?? '' }}
                         </td>
-                        <td>{{ $row->purchase_date ? $row->purchase_date : $row->created_at->format('Y-m-d H:i:s') }}
+                        <td>{{ $row->purchase_date ? $row->purchase_date->format('Y-m-d') : $row->created_at->format('Y-m-d') }}
                         </td>
-                        <td>{{ $row->sell_date ? $row->sell_date : ' ' }}</td>
+                        <td>{{ $row->sell_date ? $row->sell_date->format('Y-m-d') : '-' }}</td>
                         <td>
-                            @if ($row->status == '3')
-                                <label class="label label-info">Processing</label>
+                            @if ($row->status == '1')
+                                <label class="label label-info">Purchased</label>
                             @elseif ($row->status=='2')
                                 <label class="label label-success">On Sale</label>
-                            @elseif ($row->status=='1')
-                                <label class="label label-primary">Listing</label>
+                            @elseif ($row->status=='3')
+                                <label class="label label-primary">Sold</label>
                             @else
-                                <label class="label label-warning">Pending</label>
+                               -{{-- <label class="label label-warning">Pending</label> --}}
                             @endif
                         </td>
                     </tr>

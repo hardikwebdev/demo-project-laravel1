@@ -117,7 +117,7 @@ class NftOnsaleController extends Controller
                 }
                 if($request->status == 5){
                     $change_status->status = ($request->status != "") ? $request->status : "0";
-                    // $change_status->approve_date = Carbon::now();
+                    $change_status->approve_for_processing_date = Carbon::now();
                 }else{
                     $change_status->status = ($request->status != "") ? $request->status : "0";
                     $nfttype = NftPurchaseHistory::find($change_status->nft_purchase_history_id);

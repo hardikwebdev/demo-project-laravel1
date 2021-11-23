@@ -559,7 +559,13 @@ class CommonController extends Controller
                 $counteroffer->sale_amount = $counteroffer->counter_offer_amount;
                 $counteroffer->status = 2;
                 $counteroffer->counter_offer_status = 2;
+                $counteroffer->approve_date = Carbon::now();
                 $counteroffer->update();
+
+                $nftpurchase = NftPurchaseHistory::find($counteroffer->nft_purchase_history_id);
+                $nftpurchase->status = 2;
+                $nftpurchase->update();
+
                 if(Auth::check()){
                     return redirect()->route('sell_nft')->with(['success'=>trans('custom.counter_offer_approve')]);
                 }

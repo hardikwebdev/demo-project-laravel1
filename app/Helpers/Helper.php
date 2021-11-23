@@ -374,6 +374,11 @@ class Helper {
         return NftSellHistory::where('status','1')->count();
      }
 
+     // count Nft on sale Request
+     public static function getonsalerequestCount(){
+        return NftSellHistory::where('status','2')->count();
+     }
+
        // count  withdrawal Request
     public static function getwithdrawalRequestCount(){
         return WithdrawalRequest::where('status','0')->count();

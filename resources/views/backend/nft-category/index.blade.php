@@ -32,12 +32,12 @@
                             </thead>
                             <tbody>
                                 @if(count($categories) > 0)
+                                @php
+                                $i = ($categories->currentpage() - 1) * $categories->perpage() + 1;
+                                @endphp
                                 @foreach($categories as  $key=>$row)
                                 <tr>
-                                    @php
-                                        $index = $key+1;
-                                    @endphp
-                                    <td>{{$row->id}}</td>
+                                    <td>{{$i++}}</td>
                                     <td colspan="2" width="30%">
                                         {{$row->name}}  
                                     </td>

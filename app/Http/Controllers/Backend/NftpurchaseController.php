@@ -35,11 +35,35 @@ class NftpurchaseController extends Controller
             );
         }
 
+        // if ($request->status && $request->status != '') {
+        //     if ($request->status == 1) {
+        //         $nft_purchase_history = $nft_purchase_history->where(
+        //             'status',
+        //             '3'
+        //         );
+        //     } elseif ($request->status == 2) {
+        //         $nft_purchase_history = $nft_purchase_history->where(
+        //             'status',
+        //             '2'
+        //         );
+        //     } elseif ($request->status == 3) {
+        //         $nft_purchase_history = $nft_purchase_history->where(
+        //             'status',
+        //             '1'
+        //         );
+        //     } else {
+        //         $nft_purchase_history = $nft_purchase_history->where(
+        //             'status',
+        //             '0'
+        //         );
+        //     }
+        // }
+
         if ($request->status && $request->status != '') {
             if ($request->status == 1) {
                 $nft_purchase_history = $nft_purchase_history->where(
                     'status',
-                    '3'
+                    '1'
                 );
             } elseif ($request->status == 2) {
                 $nft_purchase_history = $nft_purchase_history->where(
@@ -49,7 +73,7 @@ class NftpurchaseController extends Controller
             } elseif ($request->status == 3) {
                 $nft_purchase_history = $nft_purchase_history->where(
                     'status',
-                    '1'
+                    '3'
                 );
             } else {
                 $nft_purchase_history = $nft_purchase_history->where(
@@ -105,11 +129,35 @@ class NftpurchaseController extends Controller
                 );
             }
 
+            // if ($request->status && $request->status != '') {
+            //     if ($request->status == 1) {
+            //         $nft_purchase_history = $nft_purchase_history->where(
+            //             'status',
+            //             '3'
+            //         );
+            //     } elseif ($request->status == 2) {
+            //         $nft_purchase_history = $nft_purchase_history->where(
+            //             'status',
+            //             '2'
+            //         );
+            //     } elseif ($request->status == 3) {
+            //         $nft_purchase_history = $nft_purchase_history->where(
+            //             'status',
+            //             '1'
+            //         );
+            //     } else {
+            //         $nft_purchase_history = $nft_purchase_history->where(
+            //             'status',
+            //             '0'
+            //         );
+            //     }
+            // }
+
             if ($request->status && $request->status != '') {
                 if ($request->status == 1) {
                     $nft_purchase_history = $nft_purchase_history->where(
                         'status',
-                        '3'
+                        '1'
                     );
                 } elseif ($request->status == 2) {
                     $nft_purchase_history = $nft_purchase_history->where(
@@ -119,7 +167,7 @@ class NftpurchaseController extends Controller
                 } elseif ($request->status == 3) {
                     $nft_purchase_history = $nft_purchase_history->where(
                         'status',
-                        '1'
+                        '3'
                     );
                 } else {
                     $nft_purchase_history = $nft_purchase_history->where(
@@ -128,7 +176,7 @@ class NftpurchaseController extends Controller
                     );
                 }
             }
-
+    
             if ($request->start && $request->end) {
                 $start_date = date('Y-m-d', strtotime($request->start));
                 $end_date = date('Y-m-d', strtotime($request->end));
@@ -168,18 +216,24 @@ class NftpurchaseController extends Controller
                         ),
                         'Order ID' => $nft_purchase_history->order_id ?? '',
                         'Purchase Date' => $nft_purchase_history->purchase_date
-                            ? $nft_purchase_history->purchase_date
+                            ? date_format(
+                                $nft_purchase_history->purchase_date,
+                                'Y-m-d'
+                            )
                             : date_format(
                                 $nft_purchase_history->created_at,
-                                'Y-m-d H:i:s'
+                                'Y-m-d'
                             ),
-                        'Sell Date' => $nft_purchase_history->purchase_date
-                            ? $nft_purchase_history->purchase_date
+                        'Sell Date' => $nft_purchase_history->sell_date
+                            ? date_format(
+                                $nft_purchase_history->sell_date,
+                                'Y-m-d'
+                            )
                             : date_format(
                                 $nft_purchase_history->created_at,
-                                'Y-m-d H:i:s'
+                                'Y-m-d'
                             ),
-                        'Status' => ($nft_purchase_history->status == '3') ? ('Processing') : (($nft_purchase_history->status == '2') ? ('On Sale') : (($nft_purchase_history->status == '1') ? ('Listing') : ('Pending'))),
+                        'Status' => ($nft_purchase_history->status == '1') ? ('Purchased') : (($nft_purchase_history->status == '2') ? ('On Sale') : (($nft_purchase_history->status == '3') ? ('Sold') : ('-'))),
                     ];
                 });
             } else {
