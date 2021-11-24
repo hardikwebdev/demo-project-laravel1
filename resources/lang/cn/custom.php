@@ -417,7 +417,7 @@ return [
     'update_profile' => '更新个人资料',
     'account_details' => 'Account Details',
     'profile' => '账户',
-    'register_user' => 'Register User',
+    'register_user' => '注册用户',
     'register_downline' => 'Register Accounts',
     'register_user_message' => 'New User Registered successfully',
     'register' => '注册',
@@ -1476,8 +1476,8 @@ return [
     'verify_placement'  => '验证上线用户名',
     'maximim_limit_placement_name_20_character' => '上线用户名的最大限制为20个字符',
     'child_position' => 'Child Position',
-    'left' => 'Left',
-    'right' => 'Right',
+    'left' => 'A',
+    'right' => 'B',
 
     /* defix new */
     'not_amember' => '非会员？',
@@ -1487,9 +1487,9 @@ return [
     'requested_amount_transfered_nft' => '所提交的金额已被转移到NFT钱包',
     'balance' => '余额',
     'malaysia_opg' => 'MALAYSIA OPG',
-    'withdrawal_fee_is_usd_10' => 'Withdrawal Fee is USD 10',
-    'conversion_rate_of_usd_to_usdt_is_0_95' => 'Conversion rate of USD to USDT is 0.95',
-    'members_that_have_funded_in_usdt_previousl' => 'Members that have funded in USDT previously',
+    'withdrawal_fee_is_usd_10' => '取款费用为10美金',
+    'conversion_rate_of_usd_to_usdt_is_0_95' => ' USD ：USDT 兑换率 = 0.95',
+    'members_that_have_funded_in_usdt_previousl' => '已经注资 USDT 的会员',
     'usdt_amount' => 'USDT金额',
     'topup_fund_submit' => '充值资金',
     'crypto_wallet_history' => '加密钱包历史记录',
@@ -1498,9 +1498,9 @@ return [
     'transfer_fund' => '转移金额',
     'yield_wallet_history' => '收益钱包历史记录',
     'transferred_to_crypto_wallet' => '转移到加密钱包.',
-    'transferred_to_withdrawal_wallet' => 'Transferred to Withdrawal Wallet.',
-    'transferred_to_nft_wallet' => 'Transferred to NFT Wallet.',
-    'transferred_from_yield_wallet' => 'Transferred from Yield Wallet.',
+    'transferred_to_withdrawal_wallet' => '转入取款钱包',
+    'transferred_to_nft_wallet' => '转入NFT钱包.',
+    'transferred_from_yield_wallet' => '由收益钱包转入',
     'yield_wallet' => '收益钱包',
     'BANK' => '银行',
     'REQUEST_FOR_WITHDRAWAL' => '请求取款',
@@ -1537,16 +1537,16 @@ return [
     'duration_term' => '期限',
     'months' => '个月',
     'staking_pool_added_successfully' => '质押池添加成功.',
-    'invested_amount' => 'Invested <br> Amounts',
+    'invested_amount' => '质押额',
     'staking_pool' => '质押池',
     'staking_pools' => '质押池',
     'explore' => 'EXPLORE',
-    'coin_payment' => 'Coin Payment',
-    'myr_amount' => 'Amount (MYR)',
+    'coin_payment' => 'CoinPayment',
+    'myr_amount' => '总数 (MYR)',
     'open_ticket' => '创建新单',
     'no_ticket_found' => 'No Ticket found',
     'staking_popup_title' => '质押池提醒',
-    'staking_popup_title' => 'STAKING POOL REMINDER',
+    'staking_popup_title' => '质押池提醒',
     'commission_history' => '佣金钱包历史记录',
     'antimoney-laundering' => '反洗钱政策',
     'coockie-policy' => 'Cookie政策',
@@ -1595,20 +1595,20 @@ return [
 
       /* Crypto wallet Terms & Conditions Payment Gateway*/
       'crypto_wallet_terms_and_conditions1_payment_gateway' => '<ul class="text-grey">
-       <li>Please enter the amount you want to deposit in USD.</li>
-       <li>You will be redirected to the payment gateway page to make your payment.</li>
+       <li>请输入您要存入的美元金额</li>
+       <li>您将被重定向到支付网关页面进行支付</li>
      </ul>',
 
 
      'crypto_wallet_terms_and_conditions2_payment_gateway' => '<ul class="text-grey">
-       <li>The system will auto convert the USD amount to your local fiat currency.</li>
-       <li>Once payment is confirmed the amount will be credited into this wallet.</li>
+       <li>系统将自动将美元金额转换为当地法定货币</li>
+       <li>一旦确认付款，金额将记入此钱包</li>
      </ul>',
 
 
      'crypto_wallet_terms_and_conditions3_payment_gateway' => '<ul class="text-grey">
-       <li>The local fiat currency shown is based on your registered country.</li>
-       <li>All deposits are final and no refund requests shall be entertained.</li>
+       <li>显示的当地法定货币基于您的注册国家。</li>
+       <li>所有存款均为最终存款，不接受退款请求。</li>
      </ul>',
 
 
@@ -1881,49 +1881,49 @@ return [
     <li>您每月的质押回报取决于存款金额和市场上代币价值的波动.</li>
     <li>一旦您的质押合约到期，您可以选择延长合约或从Maturity钱包中提取资金.</li>
     <li>所有质押存款均为最终押金，恕不退款.</li></ul>',
-    'staking_agreement' => '<ul><li>I agree that by clicking confirm below I adhere to all the terms and conditions stated.</li>
-    <li>I agree that by proceeding my staking contract will start and no cancellation is allowed.</li>
-    <li>I understand that the monthly staking rewards is dependent on the blockchain network, protocol and token value in the market.</li>
-    <li>I agree that by proceeding I allow the company to control my investment based on the strategies best determined by the company.</li>
-    <li>I agree that the company has all rights to change the terms and conditions to reflect the landscape and performance of the market at any times.</li></ul>',
-    'agreement_title' => 'Deposit Agreement #title',
-    'accept_terms' => 'I have read and agree to the terms of service.',
+    'staking_agreement' => '<ul><li>我同意，通过单击下面的“确认”，我遵守所述的所有条款和条件。</li>
+    <li>我同意，通过继续我的质押合同将开始，不允许取消。</li>
+    <li>我了解每月的质押奖励取决于区块链网络、协议和市场中的代币价值。</li>
+    <li>我同意，通过继续，我允许公司根据公司确定的最佳策略控制我的投资。</li>
+    <li>我同意，公司有权随时更改条款和条件，以反映市场前景和表现。</li></ul>',
+    'agreement_title' => '存款协议 #title',
+    'accept_terms' => '我已阅读并同意服务条款。',
     'last_month' => '上个月',
 
 
-    'STAKING_POOLS'=>'STAKING POOLS',
-    'NODES_MANAGEMENT'=>'NODES MANAGEMENT',
-    'REFERRAL_COMMISSION'=>'REFERRAL COMMISSION',
-    'ROI'=>'ROI',
+    'STAKING_POOLS'=>'质押池',
+    'NODES_MANAGEMENT'=>'节点平衡佣金',
+    'REFERRAL_COMMISSION'=>'直系推荐佣金',
+    'ROI'=>'收益',
     'FILTER_DATE'=>'筛选日期',
-    'AMOUNT'=>'AMOUNT',
-    'DURATION'=>'DURATION',
-    'DATE'=>'DATE',
-    'ACTION'=>'ACTION',
+    'AMOUNT'=>'额',
+    'DURATION'=>'为期',
+    'DATE'=>'日期',
+    'ACTION'=>'行动',
 
-    'SALES_LEFT'=>'SALES LEFT',
-    'SALES_RIGHT'=>'SALES RIGHT',
-    'CARRY_FORWARD_LEFT'=>'CARRY FORWARD LEFT',
-    'CARRY_FORWARD_RIGHT'=>'CARRY FORWARD RIGHT',
-    'DAILY_LIMIT'=>'DAILY LIMIT',
-    'PERCENTAGE'=>'PERCENTAGE',
-    'COMMISSION_EARNED'=>'COMMISSION EARNED',
-    'COMMISSION_WALLET'=>'COMMISSION WALLET',
-    'NFT_WALLET'=>'NFT WALLET',
+    'SALES_LEFT'=>'A网络销售',
+    'SALES_RIGHT'=>'B网络销售',
+    'CARRY_FORWARD_LEFT'=>'A网路净平衡',
+    'CARRY_FORWARD_RIGHT'=>'B网路净平衡',
+    'DAILY_LIMIT'=>'每日节点平衡佣金上线',
+    'PERCENTAGE'=>'%',
+    'COMMISSION_EARNED'=>'佣金收入',
+    'COMMISSION_WALLET'=>'佣金钱包',
+    'NFT_WALLET'=>'NFT 钱包',
 
 
-    'FROM_USER'=>'FROM USER',
-    'COMMISSION'=>'COMMISSION',
-    'STAKING_POOL_AMOUNT'=>'STAKING POOLS AMOUNT',
-    'COMMISSION_WALLET_80'=>'COMMISSION WALLET(80%)',
-    'NFT_WALLET_20'=>'NFT_WALLET(20%)',
+    'FROM_USER'=>'从用户',
+    'COMMISSION'=>'佣金',
+    'STAKING_POOL_AMOUNT'=>'质押额',
+    'COMMISSION_WALLET_80'=>'佣金钱包(80%)',
+    'NFT_WALLET_20'=>'NFT钱包(20%)',
    
-    'STACKING_AMOUNT'=>'STACKING AMOUNT',
-    'STACKING_DATE'=>'STACKING DATE',
+    'STACKING_AMOUNT'=>'质押额',
+    'STACKING_DATE'=>'质押日期',
     'YIELD'=>'收益',
-    'YIELD_AMOUNT'=>'YIELD AMOUNT',
-    'YIELD_WALLET'=>'YIELD WALLET',
-    'NFT_WALLET'=>'NFT_WALLET',
+    'YIELD_AMOUNT'=>'收益额',
+    'YIELD_WALLET'=>'收益钱包',
+    'NFT_WALLET'=>'NFT钱包',
     'TO' => '至',
     'Clear' => '清除',
     'EXPORT' => '导出',
@@ -1931,8 +1931,8 @@ return [
     'start_date' => '开始日期',
     'end_date' => '截至日期',
     'select_stacking_pool_package' => '选择质押池配套',
-    'start_date_must_be_less_then_end_date' => 'Start Date must be less then End Date',
-    'end_date_must_be_greater_than_start_date' => 'End Date must be greater than Start Date',
+    'start_date_must_be_less_then_end_date' => '开始日期必须小于结束日期',
+    'end_date_must_be_greater_than_start_date' => '结束日期必须大于开始日期',
 
     'edit_photo' => '编辑照片',
     'defixfinance_id' => 'DefiXFinance ID',
@@ -1940,17 +1940,11 @@ return [
     'PERSONAL_DETAILS' => '个人信息',
     'BANK_DETAILS' => '银行信息',
     'NFT_WALLET_DETAILS' => 'NFT钱包信息',
-    'wallet_address' => 'Wallet Address',
+    'wallet_address' => '钱包地址',
     'UPDATE_PROFILE' => '更新个人资料',
     'UPDATE_ACCOUNT' => '更新账户',
     'enter_nft_wallet_address' => '输入NFT钱包地址',
-    'upload_profile_image' => 'Upload Profile Image',
-    'profile_extension_png_jpg_jpeg' => 'Profile extension png, jpg, jpeg',
-    'accountdetails' => 'ACCOUNT DETAILS',
-    'UPDATE_BANK_DETAILS' => 'UPDATE BANK DETAILS',
-    'UPDATE_NFT_WALLET_ADDRESS' => 'UPDATE NFT WALLET ADDRESS',
-    'UPDATE_PASSWORD' =>'UPDATE PASSWORD',
-    'UPDATE_SECURE_PASSWORD' =>'UPDATE SECURE PASSWORD',
+
     'no_products_available' =>'No products available.',
     'sufficient_balance_not_available_in_nft_wallet' => 'Sufficient balance not available in NFT wallet.',
     'amount_required_field' => 'Amount required field.',
@@ -1977,6 +1971,15 @@ return [
     'PROCESSING' => 'PROCESSING',
     'COUNTER_OFFER_CREATED' => 'COUNTER OFFER CREATED',
     'SOLD' => 'SOLD',
+
+    'upload_profile_image' => '上传个人资料图片',
+    'profile_extension_png_jpg_jpeg' => '个人资料扩展 png, jpg, jpeg',
+    'accountdetails' => '账户详情',
+    'UPDATE_BANK_DETAILS' => '更新银行资料',
+    'UPDATE_NFT_WALLET_ADDRESS' => '跟新NFT钱包地址',
+    'UPDATE_PASSWORD' =>'更新密码',
+    'UPDATE_SECURE_PASSWORD' =>'更新二级密码',
+
 
     'Login' => '登录',
     'email_is_required' => '邮箱是必填字段.',
@@ -2021,35 +2024,34 @@ return [
     
 'please_verify_the_sponsor_id_first' => '请先验证推荐人ID.',
 'letters_numbers_and_underscores_only_please' => '请仅使用字母、数字和下划线.',
-'please_enter_valid_email' => 'Please enter valid email.',
+'please_enter_valid_email' => '请输入有效电子邮件',
+'Password_is_required' => '密码是必需的',
+'Your_password_must_be_at_least_8_characters_long' => '您的密码长度必须至少为8个字符',
+'Please_enter_no_more_than_15_characters' => '请输入不超过15个字符',
+'Please_enter_the_same_password_as_above' => '请输入与上面相同的密码',
+'Confirm_password_is_required' => '确认密码是必需的',
 
-
-'Password_is_required' => 'Password is required.',
-'Your_password_must_be_at_least_8_characters_long' => 'Your password must be at least 8 characters long.',
-'Please_enter_no_more_than_15_characters' => 'Please enter no more than 15 characters.',
-'Please_enter_the_same_password_as_above' => 'Please enter the same password as above.',
-'Confirm_password_is_required' => 'Confirm password is required.',
-
-'Invalid_placement_position' => 'Invalid placement position',
-'Your_Password_has_been_changed' => 'Your Password has been changed',
-'Passwords_are_updated' => 'Passwords are updated',
-'User_bank_details_updates_successfully' => 'User bank details updates successfully',
-'User_NFT_Wallet_address_updates_successfully' => 'User NFT Wallet address updates successfully',
-'Update_Image_Successfully' => 'Update Image Successfully',
-'Ticket_message_sent_to_admin' => 'Ticket message sent to admin.',
-'This_field_is_required' => 'This field is required.',
-'Value_must_be_greater_than_0' => 'Value must be greater than 0',
-'USDT_Proof_extension_png_jpg_jpeg_pdf' => 'USDT Proof extension png, jpg, jpeg, pdf',
-'Please_wait_Do_not_refresh_this_page' => 'Please wait. Do not refresh this page.',
-'USDT_Proof_png_jpg_jpeg' => 'USDT Proof png, jpg, jpeg',
-'Bank_Proof_png_jpg_jpeg' => 'Bank Proof png, jpg, jpeg',
-'Please_select_country' => 'Please select country',
-'Please_enter_number_only' => 'Please enter number only',
-'Please_enter_minimum_9_character' => 'Please enter minimum 9 character',
-'total_staking' => 'Total Stacking',
-'Please_enter_nft_wallet_address' => 'Please enter nft wallet address.',
-'Please_enter_a_value_with_a_valid_extension_proof' => 'Please enter a value with a valid extension proof.',
-'Please_enter_a_value_greater_than_or_equal_to_100' => 'Please enter a value greater than or equal to 100.',
-'Please_enter_a_value_with_a_valid_extension' => 'Please enter a value with a valid extension.',
-'PENDING' => 'PENDING'
+'Invalid_placement_position' => '无效的放置位置',
+'Your_Password_has_been_changed' => '您的密码已更改',
+'Passwords_are_updated' => '密码已更新',
+'User_bank_details_updates_successfully' => '用户银行详细信息更新成功',
+'User_NFT_Wallet_address_updates_successfully' => '用户NFT钱包地址更新成功',
+'Update_Image_Successfully' => '成功更新映像',
+'Ticket_message_sent_to_admin' => '信息已发送至管理员',
+'This_field_is_required' => '必填',
+'Value_must_be_greater_than_0' => '输入值必须大于0',
+'USDT_Proof_extension_png_jpg_jpeg_pdf' => 'USDT证明扩展 png, jpg, jpeg, pdf',
+'Please_wait_Do_not_refresh_this_page' => '请稍等。不要刷新此页面',
+'USDT_Proof_png_jpg_jpeg' => 'USDT证明 png, jpg, jpeg',
+'Bank_Proof_png_jpg_jpeg' => '银行证明 png, jpg, jpeg',
+'Please_select_country' => '请选择国家',
+'Please_enter_number_only' => '请只输入数字',
+'Please_enter_minimum_9_character' => '请输入至少9个字符',
+'total_staking' => '总质押',
+'Please_enter_nft_wallet_address' => '请输入NFT钱包地址',
+'Please_enter_a_value_with_a_valid_extension_proof' => '请输入有效扩展证明',
+'Please_enter_a_value_greater_than_or_equal_to_100' => '请输入一个大于或等于100的值',
+'Please_enter_a_value_with_a_valid_extension' => '请输入有效扩展证明',
+'PENDING' => 'PENDING',
+'here' => 'here',
 ];

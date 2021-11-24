@@ -318,30 +318,74 @@ $(document).on('click', '.roi-second-ajax-report .pagination a', function (event
     });
 });
 
-$(".ledger-report").click(function () {
-  // var htype=$('ul#ledgerreport').find('li > a.active').attr('data-type');
-  // getData(1,5);
+
+// model pagination start
+
+$(document).on('click', '.cus-model-table',function(event){
+        event.preventDefault();
+        var model =$(this).attr('data-model');
+        var id =$(this).attr('data-id');
+        var dataurl = commissionbreakdown;
+        if(model == "pipscommision"){
+            var dataurl = commissionbreakdown;
+        }
+        
+        var page=$(this).attr('href').split('page=')[1];
+        $.ajax({
+            url:  dataurl,
+            type: "get",
+            datatype: "html",
+            data:{
+                id: id,
+                model:model
+            },
+        }).done(function(data){
+            $("#mgenreal_search").val("");
+            $(".cus-model-empty").empty().html(data);
+            $('#commisionbreackdown').modal('show');
+            location.hash = page;
+        }).fail(function(jqXHR, ajaxOptions, thrownError){
+            alert('No response from server');
+            $('.cus-spinner-full').hide(200);
+        });
+    });
+
+
+ $(document).on('click', '.model-ajax-pag .pagination a',function(event)
+    {
+        event.preventDefault();
+        
+        var model = $('.cus-dat-model').attr('data-model');
+        var id = $('.cus-dat-model').attr('data-id');
+        var dataurl = commissionbreakdown;
+        if(model == 'pipscommision'){
+            var dataurl = commissionbreakdown;
+        }
+        
+        $('.cus-dat-model').append('<div class="cus-spinner-full"><div class="sk-spinner sk-spinner-three-bounce"><div class="sk-bounce1"></div><div class="sk-bounce2"></div><div class="sk-bounce3"></div></div></div>');
+        $(this).parent('li').removeClass('active');
+        $(this).parent('li').addClass('active');
+        var myurl = $(this).attr('href');
+        var page=$(this).attr('href').split('page=')[1];
+        $.ajax({
+            url:  dataurl+'?page=' + page,
+            type: "get",
+            datatype: "html",
+            data:{
+                model: model,
+                id:id,
+            },
+        }).done(function(data){
+            $(".cus-model-empty").empty().html(data);
+            location.hash = page;
+        }).fail(function(jqXHR, ajaxOptions, thrownError){
+            alert('No response from server');
+            $('.cus-spinner-full').hide(200);
+        });
 });
 
 
-
-function showbreakdown(bid) {
-
-  view = viewbrackdown.replace(':id', bid);
-  $.ajax({
-    url: view,
-    type: 'GET',
-    dataType: "json",
-    success: function (response) {
-      // console.log(response);
-      $(response.viewbreakdown).insertAfter($("#titlebar"));
-      $("#view-breakdown").modal('toggle');
-    },
-  });
-}
-
-
-
+// model pagination end
 
 // $(document).on('click', '.ledger-report,',function(event){
 //     event.preventDefault();

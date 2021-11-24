@@ -117,8 +117,12 @@ $('.verify-placement').on('click', function() {
 
 $.validator.addMethod('ge', function(value, element, param) {
       return this.optional(element) || value >= $(param).val();
-}, 'Invalid value');
+}, 'Invalid value.');
 
+
+$.validator.addMethod('noSpace', function(value, element) {
+    return value.indexOf(" ") < 0 && value != "";
+}, 'No space please.');
 
 $("#customer_register").on('submit',function(e){
 	if(!$(this).validate()){
@@ -1771,7 +1775,16 @@ $("#productcoin_create").validate({
          image:{
             required: true,
             extension: "jpg,jpeg,png,gif"
-         }        
+         },
+         chain: {
+            required: true,
+            maxlength:50
+         },
+         address: {
+            required: true,
+            maxlength:50,
+            noSpace: true,
+         },      
     },
     messages:{
         name: {
@@ -1786,6 +1799,12 @@ $("#productcoin_create").validate({
         image: {
             required: 'Please choose image.',
             extension: 'Please choose (jpg, jpeg, png, gif) file.'
+        },
+        chain: {
+            required: 'Please enter chain.',
+        },
+        address: {
+            required: 'Please enter address.',
         },
     },
 
@@ -1811,7 +1830,16 @@ $("#productcoin_edit").validate({
          image:{
             // required: true,
             extension: "jpg,jpeg,png,gif"
-         }        
+         },
+         chain: {
+            required: true,
+            maxlength:50
+         },
+         address: {
+            required: true,
+            maxlength:50,
+            noSpace: true,
+         },         
     },
     messages:{
         name: {
@@ -1826,6 +1854,12 @@ $("#productcoin_edit").validate({
         image: {
             // required: 'Please choose image.',
             extension: 'Please choose (jpg, jpeg, png, gif) file.'
+        },
+        chain: {
+            required: 'Please enter chain.',
+        },
+        address: {
+            required: 'Please enter address.',
         },
     },
 

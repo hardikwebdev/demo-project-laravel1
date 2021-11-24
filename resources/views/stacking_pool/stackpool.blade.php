@@ -4,7 +4,7 @@
 
  @section('content')
  <div class="content-wrapper staking-pool-indi">
-     <div class="ml-2 mb-4 d-none-desk d-md-block">
+   <div class="ml-2 mb-4 d-none-desk d-md-block">
     <h2 class="text-warning font-weight-bold">@yield('page_title','Dashboard')</h2>
     @if(Route::currentRouteName() == 'dashboard')
     <p class="text-white">{{str_replace('#name',auth()->user()->name,__('custom.wc_text'))}}</p>
@@ -16,7 +16,7 @@
         <div class="card-body">
           <div class="row px-md-4 py-2">
             <div class="col-12 col-md-4">
-              <h1 class="text-violate border-violate rounded-circle font-weight-bold text-center alpha-symbol"><img class="stake-logo" src="{{$stakingpool->symbol}}" class="img-fluid card-img-top" alt=""></h1>
+              <h1 class="text-violate rounded-circle font-weight-bold text-center alpha-symbol"><img class="stake-logo" src="{{$stakingpool->symbol}}" class="img-fluid card-img-top" alt=""></h1>
             </div>
             <div class="col-12 col-md-8">
               <h3 class="text-blue font-weight-bold">{{$stakingpool->name}}</h3>
@@ -50,7 +50,7 @@
         <div class="col-12 col-md-6">
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center">
-              <img src="{{$coin->icon}}" class="img-fluid w-70" alt="">
+              <img src="{{$coin->icon}}" class="img-fluid w-70 " alt="">
               <h4>{{$coin->name}}</h4>
             </div>
             <div>
@@ -193,7 +193,7 @@
      </select>
    </div>
    <input type="hidden" name="package" id="package" value="{{$stakingpool->name}}">
-    <input type="hidden" name="signature" id="poolsignature" value="">
+   <input type="hidden" name="signature" id="poolsignature" value="">
 
    <input type="hidden" name="agreement" id="agreement">
    <div class="col-12 mt-3">
@@ -270,6 +270,12 @@
 @section('scripts')
 <script src="{{ asset('assets/js/custom/stacking_pool.js').'?v='.time() }}"></script>
 <script type="text/javascript">
+  $(document).ready(function(e) {
+    $('.nav-item').removeClass('active');
+    $('.collapse').removeClass('show');
+    $('.staking').addClass('active');
+
+  })
   var plan_get = "{{route('stock-market-investment-period',':id')}}";
   @if(count($user_investments) > 0)
   @foreach($user_investments as $user_investment)

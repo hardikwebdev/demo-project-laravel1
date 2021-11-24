@@ -151,7 +151,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             Route::post('/pairingcommissionajax', 'App\Http\Controllers\LedgerController@pairingCommissionAjax')->name('pairingcommissionajax');
             Route::post('/referralcommissionajax', 'App\Http\Controllers\LedgerController@referralCommissionAjax')->name('referralcommissionajax');
             Route::post('/roiajx', 'App\Http\Controllers\LedgerController@roiAjax')->name('roiajax');
-            Route::get('/view-breakdown/{id}', 'App\Http\Controllers\LedgerController@viewbreakdown')->name('view.breakdown');
+            Route::any('ledger/commissionbreakdown', 'App\Http\Controllers\LedgerController@commissionbreakdown')->name('commissionbreakdown');
             Route::post('/ledger/staking-export', 'App\Http\Controllers\LedgerController@stakingPoolExport')->name('reports-staking-pool-export');
             Route::post('/ledger/pairing-commissions-export', 'App\Http\Controllers\LedgerController@pairingCommissionsExport')->name('reports-pairing-commissions-export');
             Route::post('/ledger/referral-commissions-export', 'App\Http\Controllers\LedgerController@referralCommissionsExport')->name('referral-commissions-export');
