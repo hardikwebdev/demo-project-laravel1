@@ -37,6 +37,16 @@ class CommonController extends Controller
         
     }
 
+    public function soldRequest(){
+        set_time_limit(0);
+        \Artisan::call('nftproduct:selltesting');
+        // $a = 1;
+        // $command = "php artisan calculate:directreferral ".$a." > /dev/null 2>/dev/null &";
+        // shell_exec($command);
+        echo "executed";die();
+        
+    }
+
     /**
      * Display a listing of the resource.
      *

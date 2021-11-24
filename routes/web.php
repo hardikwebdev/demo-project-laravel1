@@ -62,6 +62,9 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
     Route::get('counter-offer-request/{key}', 'App\Http\Controllers\CommonController@counterofferrequest')->name('user.counterofferrequest');
     Route::get('calculate-pairing-commission', 'App\Http\Controllers\CommonController@pairingCommission')->name('calculate-pairing');
     Route::get('calculate-referral-commission', 'App\Http\Controllers\CommonController@referralCommission')->name('calculate-referral');
+
+    Route::get('sold-nft-request', 'App\Http\Controllers\CommonController@soldRequest')->name('sold-request');
+
     Route::any('online-payment-response/my/{slug}', 'App\Http\Controllers\WalletController@online_payment_callback_my')->name('online-payment-my-response');
     //payment confrim usdt
     Route::any('wallets/usdt-payment-confirm', 'App\Http\Controllers\WalletController@usdtPaymnetConfirm')->name('usdtPaymnetConfirm');
