@@ -8,7 +8,7 @@
                         <img src="{{ asset($product->image) }}" class="img-fluid rounded-top" alt="">
                     </div>
                     <div class="col-12 col-lg-6 text-white mt-4 mt-lg-0">
-                        <h2>{{ $product->name }} #{{ $product->id }}</h2>
+                        <h2>{{ $product->name }} </h2>
                         <p class="font-12 w-75 mt-3 cus-lighn-height">{{ $product->description }}</p>
                         @if ($nftpurchasehistory->type == 1)
                         <h5 class="text-warning">{{trans('custom.listingperiod')}}</h5>

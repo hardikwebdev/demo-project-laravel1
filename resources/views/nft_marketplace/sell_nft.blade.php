@@ -42,8 +42,7 @@
                                 @endif
                             </div>
                             <div class="mt-3">
-                                <h4 class="text-blue font-weight-bold">{{ $value->nftproduct->name }}
-                                    #{{ $value->product_id }}</h4>
+                                <h4 class="text-blue font-weight-bold">{{ $value->nftproduct->name }}</h4>
                                 <h3 class="text-black font-weight-bold">${{ $value->amount }}</h3>
                                 <span class="text-secondary">{{ date('d/m/Y', strtotime($value->created_at)) }}</span>
                             </div>

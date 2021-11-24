@@ -20,30 +20,19 @@ class NFTMarketplaceController extends Controller
             return $next($request);
         });
     }
+
+    /* marketplace view */
     public function index(Request $request){
 
 
-        // $nft_cats = NftCategory::where(['status' => 'active', 'is_deleted' => '0'])->with('product');
-
-        // $nft_cats = NftCategory::where(['status' => 'active', 'is_deleted' => '0'])->with(['product' => function ($query) {
-        //     $nftids = NftReservedProduct::pluck('product_id')->toArray();
-        //     $query->whereNotIn('id',$nftids);
-        // }]);
-
         $nft_cats = NftCategory::where(['status' => 'active', 'is_deleted' => '0'])->with(['product' => function ($query) {
-            $nftids = NftReservedProduct::pluck('product_id')->toArray();
-            $query->whereNotIn('id',$nftids)->where("product_status","!=","Hidden");
+            $query->where("product_status","!=","Hidden")->where('is_reserved',0);
         }]);
-
-        // $nft_cats = $nft_cats->whereHas('product',function($query){
-        //         $nftids = NftPurchaseHistory::where(['user_id' => $this->user])->pluck('product_id')->toArray();
-        //     $query->whereNotIn('id',$nftids);
-        // });
-
 
         $nft_cats = $nft_cats->orderBy('id','desc')->get();
         return view('nft_marketplace.index', compact('nft_cats'));
     }
+    /* nft product detail */
     public function productDetail($id, Request $request){
 
         $product = NftProduct::find($id);
@@ -53,12 +42,9 @@ class NFTMarketplaceController extends Controller
         }
 
         $collectionname = NftCategory::find($product->category_id);
-        $nftids = NftReservedProduct::pluck('product_id')->toArray();
-        $othrt_products = NftProduct::where(['category_id' => $product->category_id, "status" => 'active', "is_deleted" => '0'])->where('id', "!=", $id)->where("product_status","!=","Hidden")->whereNotIn('id',$nftids)->get();
+        $othrt_products = NftProduct::where(['category_id' => $product->category_id, "status" => 'active', "is_deleted" => '0'])->where('id', "!=", $id)->where("product_status","!=","Hidden")->where('is_reserved',0)->get();
         $checkProduct = NftPurchaseHistory::where('product_id', $id)->whereIn('status',[1,2])->count();
 
-
-        // $purchaseHistory = NftPurchaseHistory::where('product_id', $id)->orderBy('id','desc')->paginate(6);
         $purchaseHistory = NftPurchaseLog::where('product_id', $id)->orderBy('id','desc')->paginate(6);
         if($request->ajax()) {
             return view('nft_marketplace.nft_purchase_history', compact('purchaseHistory'));
@@ -66,6 +52,8 @@ class NFTMarketplaceController extends Controller
 
         return view('nft_marketplace.product', compact('product', 'purchaseHistory', 'checkProduct', 'othrt_products','collectionname'));
     }
+
+    /* puchase product */
     public function purchaseProduct(Request $request){
         $this->validate($request, [
             'security_password' => 'required',
@@ -84,11 +72,9 @@ class NFTMarketplaceController extends Controller
                                     'purchase_date' => Carbon::today(),
                                     'status' => 1,
                                 ]);
-                    $Nftreservedproducts = NftReservedProduct::create([
-                                    'user_id' => $usercheck->id,
-                                    'product_id' => $request->product_id,
-                                ]);
-
+                    $Nftreservedproducts = NftProduct::where([
+                                    'id' => $request->product_id
+                                ])->update(['is_reserved' => 1]);
                     $Nftpurchaselog = NftPurchaseLog::create([
                         'purchase_user_type' => "user",
                         'product_id' => $request->product_id,

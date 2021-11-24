@@ -20,6 +20,7 @@ class CreateNftProductsTable extends Migration
             $table->string('image');
             $table->double('price',8,2)->default(0.00);
             $table->text('description');
+            $table->tinyInteger('is_reserved')->default(0);
             $table->timestamps();
         });
     }
