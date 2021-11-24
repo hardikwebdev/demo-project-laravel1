@@ -7,7 +7,7 @@
         <span class="menu-title">{{trans('custom.dashboard')}}</span>
       </a>
     </li>
-    <li class="nav-item {{ (Route::currentRouteName() == 'stacks' || Route::currentRouteName() == 'stakepool') ? 'active' : '' }}">
+    <li class="nav-item staking {{ (Route::currentRouteName() == 'stacks' || Route::currentRouteName() == 'stakepool') ? 'active' : '' }}">
       <a class="nav-link" href="{{ route('stacks') }}">
         <img src="{{ asset('assets/images/assets/Dashboard/Group955.png') }}" class="cus-sidebar-icon" alt="">
         <span class="menu-title">{{trans('custom.staking_pools')}}</span>

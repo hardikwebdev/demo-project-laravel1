@@ -273,6 +273,7 @@
   $(document).ready(function(e) {
     $('.nav-item').removeClass('active');
     $('.collapse').removeClass('show');
+    $('.staking').addClass('active');
 
   })
   var plan_get = "{{route('stock-market-investment-period',':id')}}";
