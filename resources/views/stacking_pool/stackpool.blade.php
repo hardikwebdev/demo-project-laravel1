@@ -270,6 +270,11 @@
 @section('scripts')
 <script src="{{ asset('assets/js/custom/stacking_pool.js').'?v='.time() }}"></script>
 <script type="text/javascript">
+  $(document).ready(function(e) {
+    $('.nav-item').removeClass('active');
+    $('.collapse').removeClass('show');
+
+  })
   var plan_get = "{{route('stock-market-investment-period',':id')}}";
   @if(count($user_investments) > 0)
   @foreach($user_investments as $user_investment)
