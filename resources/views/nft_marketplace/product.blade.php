@@ -41,6 +41,8 @@
 					<div class="col-12 col-xl-8">
 						<input type="hidden" name="product_id" value="{{ $product->id }}">
 						<input type="hidden" name="amount" value="{{ $product->price }}">
+						<input type="hidden" name="name" id="name" value="{{ $product->name }}">
+
 						<input name="security_password" id="security_password" type="password" class="form-control h-auto py-4" placeholder="{{ trans('custom.security_password') }}">
 						@error('secure_password')
 						<span class="invalid-feedback" role="alert">

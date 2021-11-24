@@ -56,14 +56,14 @@ class NftpurchaserequestController extends Controller
             }
 
 
-            // if($request->status && $request->status != ""){
+            if($request->status && $request->status != ""){
             //     $status = ['Pending'=>'0','Processing'=>'3','On Sale'=>'2','Listing'=>'1'];
             //     $nft_purchase_history = $nft_purchase_history->where('status',$status[$request->status]);
             // }else{
             //     $data['status'] = 'On Sale';
-            //     $nft_purchase_history = $nft_purchase_history->where('status','2');
-            // }
-            $nft_purchase_history = $nft_purchase_history->whereIn('status',[1,4,6]);
+                $nft_purchase_history = $nft_purchase_history->where('status',$request->status);
+            }
+            $nft_purchase_history = $nft_purchase_history->whereIn('status',[1,2,3,4,5,6,7]);
 
             $data['total_uploads'] = $nft_purchase_history->count();
             $data['total_sales'] = $nft_purchase_history->sum('sale_amount');

@@ -532,7 +532,7 @@ class AccountController extends Controller
                 return redirect()->back()->with('success',trans('custom.counter_offer_approve'));
             }else{
                 $nftpurchasehistory = NftSellHistory::find($request->nfthistoryid);
-                $nftpurchasehistory->status = 3;
+                $nftpurchasehistory->status = 4;
                 $nftpurchasehistory->counter_offer_status = 3;
                 $nftpurchasehistory->update();
                 $nfttype = NftPurchaseHistory::find($nftpurchasehistory->nft_purchase_history_id);

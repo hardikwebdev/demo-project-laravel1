@@ -13,37 +13,38 @@
                         @if ($nftpurchasehistory->type == 1)
                         <h5 class="text-warning">{{trans('custom.listingperiod')}}</h5>
                         @else
-                            <form id="salenftproduct" method="POST" autocomplete="off"
-                                action="{{ route('saleproduct') }}">
-                                @csrf
-                                <input type="hidden" class="form-control form-control-solid" name="nftpurchaseid"
-                                    id="nftpurchaseid" value="{{ $id }}" />
-                                <div class="row justfy-content-between align-items-center mt-4">
-                                    <div class="col-12 col-xl-6 pr-xl-0">
-                                        <input type="number" class="py-3 form-control grey-ph h-auto py-4"
-                                            placeholder="{{ trans('custom.amount') }}" name="sale_amount"
-                                            id="sale_amount" value="{{ $nftpurchasehistory->amount }}">
-                                        <span class="error-text" id="sale_amount_err" style="color: red;"></span>
-                                    </div>
-                                    <div class="col-12 col-xl-6 mt-4 mt-xl-0">
-                                        <input type="password" class="py-3 form-control grey-ph h-auto py-4"
-                                            placeholder="{{ trans('custom.security_password') }}" name="secure_password"
-                                            id="secure_password">
-                                        <span class="error-text" id="secure_password_err"
-                                            style="color: red;"></span>
-                                    </div>
-                                    <div class="col-12 col-xl-6 mt-4">
-                                        <button type="submit"
-                                            class="btn bg-warning text-white p-4 px-5 rounded-0">{{ trans('custom.SELL_NOW') }}</button>
-                                    </div>
-                                </div>
-                            </form>
-                        @endif
-                    </div>
+                        <form id="salenftproduct" method="POST" autocomplete="off"
+                        action="{{ route('saleproduct') }}">
+                        @csrf
+                        <input type="hidden" name="name" id="name" value="{{ $product->name }}">
+                        <input type="hidden" class="form-control form-control-solid" name="nftpurchaseid"
+                        id="nftpurchaseid" value="{{ $id }}" />
+                        <div class="row justfy-content-between align-items-center mt-4">
+                            <div class="col-12 col-xl-6 pr-xl-0">
+                                <input type="number" class="py-3 form-control grey-ph h-auto py-4"
+                                placeholder="{{ trans('custom.amount') }}" name="sale_amount"
+                                id="sale_amount" value="0">
+                                <span class="error-text" id="sale_amount_err" style="color: red;"></span>
+                            </div>
+                            <div class="col-12 col-xl-6 mt-4 mt-xl-0">
+                                <input type="password" class="py-3 form-control grey-ph h-auto py-4"
+                                placeholder="{{ trans('custom.security_password') }}" name="secure_password"
+                                id="secure_password">
+                                <span class="error-text" id="secure_password_err"
+                                style="color: red;"></span>
+                            </div>
+                            <div class="col-12 col-xl-6 mt-4">
+                                <button type="submit"
+                                class="btn bg-warning text-white p-4 px-5 rounded-0">{{ trans('custom.SELL_NOW') }}</button>
+                            </div>
+                        </div>
+                    </form>
+                    @endif
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 </div>
 <script>
@@ -53,7 +54,7 @@
             return Number(value) > 0;
         },
         '{{ trans('custom.value_must_be_greater_than_0') }}'
-    );
+        );
     if ($("#salenftproduct").length > 0) {
         $("#salenftproduct").validate({
             rules: {
@@ -73,6 +74,19 @@
                     required: "{{ trans('custom.securepassword_required_field') }}",
                 },
             },
+            submitHandler: function(form) {
+                swal({
+                    title: "Are you sure? ",
+                    text: "You want to sell "+$('#name').val()+" !",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#4B49AC",
+                    confirmButtonText: "Yes",
+                    closeOnConfirm: false
+                }, function(isConfirm){
+                    if (isConfirm) form.submit();
+                });
+            }
         })
     }
 </script>

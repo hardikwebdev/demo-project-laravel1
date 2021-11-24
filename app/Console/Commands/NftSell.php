@@ -9,7 +9,7 @@ use App\Models\NftPurchaseLog;
 use App\Models\NftSellHistory;
 use Illuminate\Console\Command;
 use App\Models\NftPurchaseHistory;
-use App\Models\NftReservedProduct;
+// use App\Models\NftReservedProduct;
 
 class NftSell extends Command
 {
@@ -45,7 +45,7 @@ class NftSell extends Command
     public function handle()
     {
         $date = Carbon::today()->subDays(3)->format('Y-m-d');
-        $changestatus = NftSellHistory::where('status','5')->whereNotNull('approve_for_processing_date')->whereDate('approve_for_processing_date','=',$date)->get();
+        $changestatus = NftSellHistory::where('status','5')->whereNotNull('approve_for_processing_date')->whereDate('approve_for_processing_date','<=',$date)->get();
         
         foreach ($changestatus as $change) {
 
@@ -67,11 +67,12 @@ class NftSell extends Command
 
             $nftproduct = NftProduct::find($change->product_id);
             $nftproduct->product_status = 'Hidden';
+            $nftproduct->is_reserved = 0;
             $nftproduct->save();
 
 
-            $product = NftReservedProduct::where('product_id',$change->product_id)->first();
-            $product->delete();
+            // $product = NftReservedProduct::where('product_id',$change->product_id)->first();
+            // $product->delete();
 
 
 

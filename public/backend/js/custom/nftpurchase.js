@@ -55,6 +55,7 @@ $('.nftreq').on('click', function(e) {
                     var text = '<label class="label label-primary" >Approved</label>';
                     $('#statusproduct').html(" ");
                     $('#statusproduct').html('<label class="label label-success">On Sale</label>');
+                    location.reload();
                 } else {
                     $('#statusproduct').html(" ");
                     $('#statusproduct').html('<label class="label label-danger">Declined</label>');
@@ -124,7 +125,7 @@ $('.nftonsalereq').on('click', function(e) {
     var type = $(this).data('type');
     var trans_id = $(this).data('id');
     var value = $(this).data('value');
-    if (confirmDelete(this, 'Are you sure to want to ' + type + ' this request?')) {
+    if (confirmDelete(this, 'Are you sure to want to mark as ' + type + ' this request?')) {
         th.addClass('disabled');
         if (th.hasClass('btn-success')) {
             th.next('a').addClass('disabled');
@@ -136,8 +137,8 @@ $('.nftonsalereq').on('click', function(e) {
             if (response.status == 'success') {
                 th.removeClass('disabled');
                 
-                if (type == 'approve') {
-                    var text = '<label class="label label-primary" >Approved</label>';
+                if (type == 'processing') {
+                    var text = '<label class="label label-primary" >Processing</label>';
                     $('#onsaleproduct').html(" ");
                     $('#onsaleproduct').html('<label class="label label-success">Processing</label>');
                     setTimeout(function () {
@@ -147,7 +148,7 @@ $('.nftonsalereq').on('click', function(e) {
                 } else {
                     $('#onsaleproduct').html(" ");
                     $('#onsaleproduct').html('<label class="label label-danger">Declined</label>');
-                    var text = '<label class="label label-danger" >Rejected</label>';
+                    var text = '<label class="label label-danger" >Processing</label>';
                     setTimeout(function () {
                         location.reload(); 
                     }, 1000);

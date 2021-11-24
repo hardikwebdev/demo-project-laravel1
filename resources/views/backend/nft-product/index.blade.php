@@ -38,7 +38,7 @@
                                 @endphp
                                 @foreach($products as  $key=>$row)
                                 <tr>
-                                   
+
                                     <td>{{$i++}}</td>
                                     <td colspan="2" width="30%">
                                         {{$row->name}}  
@@ -48,27 +48,29 @@
                                     </td>
                                     <td>
                                         @if($row->status=='active')
-                                            <label class="label label-primary">Active</label>   
+                                        <label class="label label-primary">Active</label>   
                                         @else
-                                            <label class="label label-danger">In-active</label>   
+                                        <label class="label label-danger">In-active</label>   
 
                                         @endif
                                     </td>
                                     <td>
                                         @if($row->product_status=='Normal')
-                                            <label class="label label-primary">Normal</label>   
+                                        <label class="label label-primary">Normal</label>   
                                         @elseif ($row->product_status=='Sold')
-                                            <label class="label label-danger">Sold</label> 
+                                        <label class="label label-danger">Sold</label> 
                                         @else
-                                            <label class="label label-warning">Hidden</label>   
+                                        <label class="label label-warning">Hidden</label>   
                                         @endif
                                     </td>
                                     <td>
                                         @php
-                                            $product = \App\Models\NftPurchaseHistory::where(['product_id' => $row->id])->whereIn('status',[1,2])->count(); 
+                                        $product = \App\Models\NftPurchaseHistory::where(['product_id' => $row->id])->whereIn('status',[1,2])->count(); 
+                                        $history = \App\Models\NftPurchaseHistory::where(['product_id' => $row->id])->whereIn('status',[1,2])->first(); 
+
                                         @endphp
                                         @if ($product > 0)
-                                            <p>Product is purchased you can not edit or delete.</p>
+                                        <p>Owned by {{$history->user_detail->username}}</p>
                                         @else
                                         {!! Form::open(['route' => ['nft-product.update',$row->id],'onsubmit'=>"return confirmDelete(this,'Are you sure to want delete this product ?')"]) !!}
                                         <a class="btn btn-primary btn-xs" href="{{route('nft-product.edit',[$row->id])}}"><i class="fa fa-edit"></i></a>

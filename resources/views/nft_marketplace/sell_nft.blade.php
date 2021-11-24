@@ -49,6 +49,10 @@
                         </div>
                     </div>
                 @endforeach
+            @else
+              <div class="col-12">
+                <p class="text-white font-weight-bold">{{ __('custom.no_collection_found')}}</p>
+              </div>
             @endif
         </div>
         <div id="nftmodel"><div>

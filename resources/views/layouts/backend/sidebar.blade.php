@@ -76,9 +76,9 @@
                     <li class=" @if(\Request::is('admin/nft_purchase_request')) {{'active'}} @endif">
                         <a href="{{route('nft_purchase_request.index')}}" title="Nft Sell Requests"> <span class="cus-sub-menu">NFT Sell Requests</span><span class="label label-info pull-right">{{Helper::getPendingNftPurchaseRequestCount()}}</span></a>
                     </li>
-                    <li class=" @if(\Request::is('admin/nft_on_sale_request')) {{'active'}} @endif">
+                   <!--  <li class=" @if(\Request::is('admin/nft_on_sale_request')) {{'active'}} @endif">
                         <a href="{{route('nft_on_sale_request.index')}}" title="Nft on Purchase Requests"> <span class="cus-sub-menu">NFT On Sell Requests</span><span class="label label-info pull-right">{{Helper::getonsalerequestCount()}}</span></a>
-                    </li> 
+                    </li>  -->
                     {{-- <li class=" @if(\Request::is('admin/withdrawal_request') || \Request::is('admin/withdrawal_request/*')) {{'active'}} @endif">
                         <a href="{{route('capital_request')}}" title="Capital Withdrawal Requests"> <span class="cus-sub-menu">Capital Withdrawal Requests</span></a>
                     </li> --}}

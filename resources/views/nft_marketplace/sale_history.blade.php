@@ -36,8 +36,7 @@
             <td>{{ $value->order_id }}</td>
             <td>{{ date("d/m/Y",strtotime($value->created_at)) }}</td>
             @if ($value->status == 1)
-            {{-- <td class="text-warning">{{trans('custom.LISTING')}}</td> --}}
-            <td class="text-warning">{{trans('custom.PENDING')}}</td>
+            <td class="text-warning">{{trans('custom.LISTING')}}</td> 
             @elseif ($value->status == 2)
             <td class="text-info">{{trans('custom.ON_SALE')}}</td>
             @elseif ($value->status == 3)

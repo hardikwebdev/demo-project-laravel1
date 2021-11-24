@@ -1220,6 +1220,19 @@ $("#purchase_product").validate({
         security_password: {
             required: securepassword_required_field,
         },
+    },
+     submitHandler: function(form) {
+        swal({
+            title: "Are you sure? ",
+            text: "You want to buy "+$('#name').val()+" !",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#4B49AC",
+            confirmButtonText: "Yes",
+            closeOnConfirm: false
+        }, function(isConfirm){
+            if (isConfirm) form.submit();
+        });
     }
 });
 function showNFTSell(bid)
