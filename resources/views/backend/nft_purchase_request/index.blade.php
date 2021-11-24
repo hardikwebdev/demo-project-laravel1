@@ -111,7 +111,7 @@
                                                 <label class="label label-danger">Counter Offer Reject</label>
                                                 @endif
                                             </td>
-                                            <td>
+                                            <td width="25%">
                                                 {{-- @if ($row->status == '3')
                                                 <label class="label label-info">Processing</label>
                                                 @elseif ($row->status=='2') --}}
@@ -119,38 +119,38 @@
                                                 {{-- @role('admin') --}}
                                                 <!-- <div class="btn-group"> -->
                                                     @if ($row->status == 2)
-                                                    <a class="btn btn-sm btn-success nftonsalereq"
+                                                    <a class="btn btn-success nftonsalereq"
                                                     data-id="{{ $row->id }}" data-type="processing"
                                                     data-value="5" href="#">Mark As Proccesing</a>
                                                     @elseif ($row->counter_offer_status == '1')
-                                                    <a class="btn btn-sm btn-warning" href="#" style="margin-left:18px;"
+                                                    <a class="btn btn-warning" href="#" style="margin-left:18px;"
                                                     disabled>Waiting for User Response</a>
                                                     @elseif ($row->counter_offer_status == '2')
                                                     -
                                                     @elseif ($row->counter_offer_status == '3')
                                                     -
                                                     @elseif($row->status == 1)
-                                                    <a class="btn btn-sm btn-success nftreq"
+                                                    <a class="btn btn-success nftreq"
                                                     data-id="{{ $row->id }}" data-type="approve"
                                                     data-value="2" href="#">Approve</a>
 
-                                                    <a class="btn btn-sm btn-danger nftreq" href="#" data-type="reject"
+                                                    <a class="btn btn-danger nftreq" href="#" data-type="reject"
                                                     data-id="{{ $row->id }}" data-value="3">Reject</a>
 
-                                                    {!! Form::open(['route' => ['nft_purchase_request.update', $row->id], 'onsubmit' => 'return false;']) !!}
+                                                    {!! Form::open(['route' => ['nft_purchase_request.update', $row->id], 'onsubmit' => 'return false;','style'=>"display:inline-block"]) !!}
                                                     {!! Form::hidden('username', $row->user_detail->username) !!}
                                                     {!! Form::hidden('nft_purchase_request', $row->id) !!}
                                                     {!! Form::hidden('user_sale_amount', $row->sale_amount) !!}
-                                                    <a class="btn btn-sm btn-primary counterofferbtn" href="#"
+                                                    <a class="btn btn-primary counterofferbtn" href="#"
                                                     data-toggle="tooltip" data-type="counteroffer"
-                                                    style="margin-left:18px;margin-top: 10px;">Counter Offer</a>
+                                                    >Counter Offer</a>
                                                     {!! Form::close() !!}
 
                                                     @endif
 
 
-                                                    {{-- <a class="btn btn-sm btn-primary" data-amount="{{$funds->amount}}" data-id="{{$funds->id}}" data-username="{{$funds->user_detail!=null?$funds->user_detail->username:''}}" onclick="opFundWallet(this)" >Edit</a>
-                                                    <a class="btn btn-sm btn-primary " data-type="remark"  data-amount="{{$funds->amount}}" data-id="{{$funds->id}}" data-username="{{$funds->user_detail!=null?$funds->user_detail->username:''}}" onclick="updateRemark(this)" >Remark</a> --}}
+                                                    {{-- <a class="btn btn-primary" data-amount="{{$funds->amount}}" data-id="{{$funds->id}}" data-username="{{$funds->user_detail!=null?$funds->user_detail->username:''}}" onclick="opFundWallet(this)" >Edit</a>
+                                                    <a class="btn btn-primary " data-type="remark"  data-amount="{{$funds->amount}}" data-id="{{$funds->id}}" data-username="{{$funds->user_detail!=null?$funds->user_detail->username:''}}" onclick="updateRemark(this)" >Remark</a> --}}
                                                     {{-- @else
                                                     N/A
                                                     @endrole --}}
