@@ -9,7 +9,7 @@
         </div>
         <div class="col-sm-6 pl-0 ">
             <div class="form-group">
-                <label>Image @if(@$category->image)- <a href="{{asset('uploads/nft-category/'.@$category->image)}}" target="_blank">{{@$category->image}}</a>@endif</label>
+                <label>Image @if(@$category->image)- <a href="{{asset(@$category->image)}}" target="_blank">{{basename(@$category->image)}}</a>@endif</label>
                 {!! Form::file('image',['class'=>'form-control','placeholder'=>'Enter url', 'accept'=>'image/*']) !!}
                 <span class="help-block text-danger">{{ $errors->first('image') }}</span>
             </div>

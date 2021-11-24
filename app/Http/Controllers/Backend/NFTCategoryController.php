@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models as Model;
+use Illuminate\Validation\Rule;
 
 class NFTCategoryController extends Controller
 {
@@ -42,8 +43,14 @@ class NFTCategoryController extends Controller
     {
         /* validation start */
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
+            // 'name' => 'required|string|max:255',
+            'name' => ['required','string','max:255', Rule::unique('nft_categories')->where(function ($query) {
+                return $query->where('is_deleted','0');
+              })
+             ],
             'image' => 'required|mimes:jpeg,jpg,png,gif'          
+        ],[
+            'name.unique' => 'Category name already exists!',
         ]);
         /* validation end */
         try {
@@ -104,8 +111,14 @@ class NFTCategoryController extends Controller
     {
         /* validation start */
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
+            // 'name' => 'required|string|max:255',
+            'name' => ['required','string','max:255', Rule::unique('nft_categories')->ignore($id, 'id')->where(function ($query) {
+                return $query->where('is_deleted','0');
+              })
+             ],
             'image' => 'mimes:jpeg,jpg,png,gif'
+        ],[
+            'name.unique' => 'Category name already exists!',
         ]);
         /* validation end */
         try {

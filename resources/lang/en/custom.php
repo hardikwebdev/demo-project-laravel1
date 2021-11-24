@@ -2078,4 +2078,5 @@ return [
     'Please_enter_a_value_with_a_valid_extension_proof' => 'Please enter a value with a valid extension proof.',
     'Please_enter_a_value_greater_than_or_equal_to_100' => 'Please enter a value greater than or equal to 100.',
     'Please_enter_a_value_with_a_valid_extension' => 'Please enter a value with a valid extension.',
+    'PENDING' => 'PENDING'
  ];

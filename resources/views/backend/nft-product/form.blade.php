@@ -18,7 +18,7 @@
     <div class="row">
         <div class="col-sm-6 pl-0 ">
             <div class="form-group">
-                <label>Image @if(@$product->image)- <a href="{{asset(@$product->image)}}" target="_blank">{{@$product->image}}</a>@endif</label>
+                <label>Image @if(@$product->image)- <a href="{{asset(@$product->image)}}" target="_blank">{{basename(@$product->image)}}</a>@endif</label>
                 {!! Form::file('image',['class'=>'form-control','placeholder'=>'Enter url', 'accept'=>'image/*']) !!}
                 <span class="help-block text-danger">{{ $errors->first('image') }}</span>
             </div>

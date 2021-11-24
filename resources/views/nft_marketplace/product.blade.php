@@ -16,9 +16,6 @@
 			{{-- <img src="{{ asset('uploads/nft-product/'.$product->image) }}" class="img-fluid" alt=""> --}}
 		</div>
 		<div class="col-12 col-md-6 text-white mt-4 mt-md-0">
-			<h2>{{ $product->name }} #{{ $product->id }}</h2>
-			<p class="font-12 w-75 mt-3">{{ $product->description }}</p>
-			<h3 class="mt-3">{{ $product->price }} $USD</h3>
 			@if(Session::has('success'))
 			<div class="alert alert-success alert-dismissable">
 			  {{ Session::get('success') }}
@@ -31,6 +28,10 @@
 			  {{ Session::get('error') }}
 			</div>
 			@endif
+			
+			<h2>{{ $product->name }} #{{ $product->id }}</h2>
+			<p class="font-12 w-75 mt-3">{{ $product->description }}</p>
+			<h3 class="mt-3">{{ $product->price }} $USD</h3>
 			
 			@if ($product->product_status != "Sold")
 				@if($checkProduct == 0)

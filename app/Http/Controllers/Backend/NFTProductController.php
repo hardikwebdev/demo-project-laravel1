@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models as Model;
+use Illuminate\Http\Request;
+use App\Models\NftPurchaseHistory;
+use App\Http\Controllers\Controller;
 
 class NFTProductController extends Controller
 {
@@ -140,9 +141,14 @@ class NFTProductController extends Controller
      */
     public function edit($id)
     {
-        $categories = Model\NftCategory::where(['is_deleted' => '0', 'status' => 'active'])->pluck('name', 'id');
-        $product = Model\NftProduct::with('images')->find($id);
-        return view('backend.nft-product.edit',compact('product', 'categories'));
+        $product = NftPurchaseHistory::where(['product_id' => $id])->whereIn('status',[1,2])->count();
+        if($product > 0){
+            return redirect()->route('nft-product.index')->with('error', 'Product is purchased you can not edit.');
+        }else{
+            $categories = Model\NftCategory::where(['is_deleted' => '0', 'status' => 'active'])->pluck('name', 'id');
+            $product = Model\NftProduct::with('images')->find($id);
+            return view('backend.nft-product.edit',compact('product', 'categories'));
+        }
     }
 
     /**
@@ -271,14 +277,17 @@ class NFTProductController extends Controller
     public function destroy($id)
     {
         try {
-
-            $product =  Model\NftProduct::find($id);
-            if(!$product){
-                return redirect()->back()->with(['error'=>'Product not Found']);
-            }
-            $product->update(['is_deleted'=>'1']);
-            return redirect()->route('nft-product.index')->with(['success'=>'Product delete sucessfully.']);
-
+            $product = NftPurchaseHistory::where(['product_id' => $id])->whereIn('status',[1,2])->count();
+            if($product > 0){
+                return redirect()->route('nft-product.index')->with('error', 'Product is purchased you can not edit.');
+            }else{
+                $product =  Model\NftProduct::find($id);
+                if(!$product){
+                    return redirect()->back()->with(['error'=>'Product not Found']);
+                }
+                $product->update(['is_deleted'=>'1']);
+                return redirect()->route('nft-product.index')->with(['success'=>'Product delete sucessfully.']);
+            }   
         } catch (Exception $e) {
             return redirect()->back()->with(['error'=>$e->getMessage()]);
             
