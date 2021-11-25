@@ -70,12 +70,13 @@
 
                                         @endphp
                                         @if ($product > 0)
-                                        <p>Owned by {{$history->user_detail->username}}</p>
+                                        <p>Owned by {{$history->user_detail->username}}</p><a class="btn btn-info btn-xs d-inline" href="{{route('trading-history.show',[$row->id])}}"><i class="fa fa-list"></i></a>
                                         @else
-                                        {!! Form::open(['route' => ['nft-product.update',$row->id],'onsubmit'=>"return confirmDelete(this,'Are you sure to want delete this product ?')"]) !!}
+                                        {!! Form::open(['route' => ['nft-product.update',$row->id],'onsubmit'=>"return confirmDelete(this,'Are you sure to want delete this product ?')",'class'=>'d-inline']) !!}
                                         <a class="btn btn-primary btn-xs" href="{{route('nft-product.edit',[$row->id])}}"><i class="fa fa-edit"></i></a>
                                         @method('delete')
                                         <button class="btn btn-danger  btn-xs" type="submit" ><i class="fa fa-trash"></i></button>
+                                        <a class="btn btn-info btn-xs d-inline" href="{{route('trading-history.show',[$row->id])}}"><i class="fa fa-list"></i></a>
                                         {!! Form::close() !!}
                                         @endif
                                     </td>

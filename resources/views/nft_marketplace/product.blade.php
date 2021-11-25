@@ -100,7 +100,7 @@
 							@if ($value->product_status == "Sold")
 							<div class="position-relative overflow-hidden">
 								<img src="{{ asset($value->image) }}" class="img-fluid w-100" alt="">
-								<span class="sale-label">ON SALE</span>
+								<span class="sale-label">SOLD</span>
 							</div>
 							@else
 							<img src="{{ asset($value->image) }}" class="img-fluid mx-auto" alt="">
