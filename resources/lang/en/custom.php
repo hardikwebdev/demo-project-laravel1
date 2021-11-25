@@ -2081,4 +2081,5 @@ return [
     'PENDING' => 'PENDING',
     'here' => 'here',
     'product_owned_by_you' => 'This product already owned by you',
+    'sold' => 'Sold'
  ];

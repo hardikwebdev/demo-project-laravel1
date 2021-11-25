@@ -1,4 +1,4 @@
-<table class="table table-dark trading-table text-center">
+<table class="table table-dark trading-table text-center mb-4">
 	<thead class="table-gradient">
 		<tr>
 			<th>{{ __('custom.amount')}}</th>

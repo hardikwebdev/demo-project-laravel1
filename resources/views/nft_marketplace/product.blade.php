@@ -7,8 +7,8 @@
 		<div class="col-12 col-md-6">
 			@if ($product->product_status == "Sold")
 			<div class="position-relative overflow-hidden">
-				<img src="{{ asset($product->image) }}" class="img-fluid w-100" alt="">
-				<span class="sale-label">ON SALE</span>
+				<img src="{{ asset($product->image) }}" class="img-fluid w-100" style="max-height: 360px;" alt="">
+				<span class="sale-label">SOLD</span>
 			</div>
 			@else
 			<img src="{{ asset($product->image) }}" class="img-fluid" style="max-height: 370px;" alt="">
@@ -62,6 +62,12 @@
 				</div>
 			</div>
 			@endif
+				@else
+			<div class="row justfy-content-between align-items-center mt-4">
+				<div class="col-12 col-xl-8">
+					<strong class="text-danger">{{ __('custom.sold') }}</strong>
+				</div>
+			</div>
 			@endif
 			<p class="border-top border-white mt-4"></p>
 		</div>
