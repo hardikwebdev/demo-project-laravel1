@@ -1864,3 +1864,51 @@ $("#productcoin_edit").validate({
     },
 
 });
+
+
+
+
+$("#product_trading_history_create").validate({
+    rules: {
+        purchase_amount: {
+            required: true,
+            number:true,
+            positiveNumber :true,
+         }, 
+         date: {
+            required: true,
+         },      
+    },
+    messages:{
+        purchase_amount: {
+            required: 'Please enter amount.',
+        },
+        date: {
+            required: 'Please select date.',
+        },
+    },
+
+});
+
+
+$("#product_trading_history_edit").validate({
+    rules: {
+        purchase_amount: {
+            required: true,
+            number:true,
+            positiveNumber :true,
+         }, 
+         date: {
+            required: true,
+         },      
+    },
+    messages:{
+        purchase_amount: {
+            required: 'Please enter amount.',
+        },
+        date: {
+            required: 'Please select date.',
+        },
+    },
+
+});

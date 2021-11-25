@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\Usernftwallet;
 use App\Http\Controllers\Backend\NewsController;
 use App\Http\Controllers\Backend\RankController;
-
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\NewsandEventsController;
 use App\Http\Controllers\SupportTicketController;
@@ -32,6 +31,7 @@ use App\Http\Controllers\Backend\ReferralcommissionsController;
 use App\Http\Controllers\Backend\StackingpoolhistoryController;
 use App\Http\Controllers\Backend\CryptoWalletsPaymentController;
 use App\Http\Controllers\Backend\UsercommissionwalletController;
+use App\Http\Controllers\Backend\TradingHistoryController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -219,6 +219,8 @@ Route::prefix('admin')->group(function () {
         Route::resource('nft-category', NFTCategoryController::class);
             // NFT Product
         Route::resource('nft-product', NFTProductController::class);
+             // NFT Product
+        Route::resource('trading-history', TradingHistoryController::class);
 
             // Yield Wallet History
         Route::resource('yield_wallet', YieldWalletController::class);
