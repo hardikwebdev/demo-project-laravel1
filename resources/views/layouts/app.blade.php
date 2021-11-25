@@ -11,8 +11,8 @@
   <link rel="stylesheet" href="{{ asset('assets/css/custom/themify-icons.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/vertical-layout-light/style.css') }}">
   <link rel="stylesheet" href="{{ asset('backend/css/dropify.min.css')}}">
-  <link rel="stylesheet" href="{{ asset('assets/css/customd.css').'?v='.time() }}">
-  <link rel="stylesheet" href="{{ asset('assets/css/custom/index.css').'?v='.time() }}">
+<!--   <link rel="stylesheet" href="{{ asset('assets/css/customd.css').'?v='.time() }}">
+ -->  <link rel="stylesheet" href="{{ asset('assets/css/custom/index.css').'?v='.time() }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/slick.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/slick-theme.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/jquery.steps.css') }}">
@@ -23,8 +23,8 @@
   <link rel="icon" href="https://defixfinance.com/wp-content/uploads/2021/09/cropped-defix-favicon-192x192.png" sizes="192x192" />
   <link rel="apple-touch-icon" href="https://defixfinance.com/wp-content/uploads/2021/09/cropped-defix-favicon-180x180.png" />
   <meta name="msapplication-TileImage" content="https://defixfinance.com/wp-content/uploads/2021/09/cropped-defix-favicon-270x270.png" />
-  <link rel="stylesheet" href="{{ asset('assets/tree/assets/css/style.css') }}"/> 
-  <link rel="stylesheet" href="{{ asset('assets/treanttree/css/Treant.css') }}">
+<!--   <link rel="stylesheet" href="{{ asset('assets/tree/assets/css/style.css') }}"/> 
+ -->  <link rel="stylesheet" href="{{ asset('assets/treanttree/css/Treant.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/treanttree/css/collapsable.css').'?v='.time() }}">
 </head>
 <style type="text/css">
