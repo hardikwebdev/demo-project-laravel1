@@ -34,7 +34,7 @@
 			<h3 class="mt-3">{{ $product->price }} $USD</h3>
 			
 			@if ($product->product_status != "Sold")
-			@if($checkProduct == 0)
+			@if(!$checkProduct)
 			<form method="post" action="{{ route('purchase-product') }}" id="purchase_product">
 				@csrf
 				<div class="row justfy-content-between align-items-center mt-4">
@@ -58,7 +58,7 @@
 			@else
 			<div class="row justfy-content-between align-items-center mt-4">
 				<div class="col-12 col-xl-8">
-					<strong class="text-success">{{ __('custom.product_owned_by_you') }}</strong>
+					<strong class="text-success">@if($checkProduct && $checkProduct->user_id == auth()->user()->id) {{ __('custom.product_owned_by_you') }} @else {{ str_replace('#username', $checkProduct->user_detail->username, __('custom.product_owned_by_username')) }} @endif</strong>
 				</div>
 			</div>
 			@endif

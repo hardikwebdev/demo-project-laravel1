@@ -1569,134 +1569,134 @@ return [
     'help_and_faq' => '常见问题解答',
 
 
-     /* Crypto wallet Terms & Conditions USDT*/
+    /* Crypto wallet Terms & Conditions USDT*/
 
-     'crypto_wallet_terms_and_conditions1_usdt' => '<ul class="text-grey">
-       <li>请选择USDT协议的类型.</li>
-       <li>只能转移到指定的ERC20或TRC20地址.</li>
-       <li>所有存款均为最终存款，不接受退款请求.</li>
-     </ul>',
-
-
-     'crypto_wallet_terms_and_conditions2_usdt' => '<ul class="text-grey">
-       <li>输入您希望存入的金额.</li>
-       <li>转账完成后，请上传显示交易ID的付款凭证.</li>
-       <li>所有存款申请将在1个工作日内获得批准.</li>
-     </ul>',
+    'crypto_wallet_terms_and_conditions1_usdt' => '<ul class="text-grey">
+    <li>请选择USDT协议的类型.</li>
+    <li>只能转移到指定的ERC20或TRC20地址.</li>
+    <li>所有存款均为最终存款，不接受退款请求.</li>
+    </ul>',
 
 
-     'crypto_wallet_terms_and_conditions3_usdt' => '<ul class="text-grey">
-       <li>USDT兑美元的转换率将相应地自动计算.</li>
-     </ul>',
+    'crypto_wallet_terms_and_conditions2_usdt' => '<ul class="text-grey">
+    <li>输入您希望存入的金额.</li>
+    <li>转账完成后，请上传显示交易ID的付款凭证.</li>
+    <li>所有存款申请将在1个工作日内获得批准.</li>
+    </ul>',
 
 
-     
+    'crypto_wallet_terms_and_conditions3_usdt' => '<ul class="text-grey">
+    <li>USDT兑美元的转换率将相应地自动计算.</li>
+    </ul>',
 
 
-      /* Crypto wallet Terms & Conditions Payment Gateway*/
-      'crypto_wallet_terms_and_conditions1_payment_gateway' => '<ul class="text-grey">
-       <li>请输入您要存入的美元金额</li>
-       <li>您将被重定向到支付网关页面进行支付</li>
-     </ul>',
+    
 
 
-     'crypto_wallet_terms_and_conditions2_payment_gateway' => '<ul class="text-grey">
-       <li>系统将自动将美元金额转换为当地法定货币</li>
-       <li>一旦确认付款，金额将记入此钱包</li>
-     </ul>',
+    /* Crypto wallet Terms & Conditions Payment Gateway*/
+    'crypto_wallet_terms_and_conditions1_payment_gateway' => '<ul class="text-grey">
+    <li>请输入您要存入的美元金额</li>
+    <li>您将被重定向到支付网关页面进行支付</li>
+    </ul>',
 
 
-     'crypto_wallet_terms_and_conditions3_payment_gateway' => '<ul class="text-grey">
-       <li>显示的当地法定货币基于您的注册国家。</li>
-       <li>所有存款均为最终存款，不接受退款请求。</li>
-     </ul>',
+    'crypto_wallet_terms_and_conditions2_payment_gateway' => '<ul class="text-grey">
+    <li>系统将自动将美元金额转换为当地法定货币</li>
+    <li>一旦确认付款，金额将记入此钱包</li>
+    </ul>',
 
 
-       /* Yield Wallet Terms & Conditions*/
-
-       'yield_wallet_terms_and_conditions1' => '<ul class="text-grey">
-       <li>该钱包将自动记入您的质押回报.</li>
-       <li>您可以在此处将余额转移到加密钱包、NFT钱包或取款钱包.</li>
-     </ul>',
-
-       'yield_wallet_terms_and_conditions2' => '<ul class="text-grey">
-       <li>80%将存入此钱包，20%将添加到您的NFT钱包.</li>
-     </ul>',
-
-       'yield_wallet_terms_and_conditions3' => '<ul class="text-grey">
-       <li>信用期为30天，从您的质押存款日期算起.</li>
-     </ul>',
+    'crypto_wallet_terms_and_conditions3_payment_gateway' => '<ul class="text-grey">
+    <li>显示的当地法定货币基于您的注册国家。</li>
+    <li>所有存款均为最终存款，不接受退款请求。</li>
+    </ul>',
 
 
-       
+    /* Yield Wallet Terms & Conditions*/
+
+    'yield_wallet_terms_and_conditions1' => '<ul class="text-grey">
+    <li>该钱包将自动记入您的质押回报.</li>
+    <li>您可以在此处将余额转移到加密钱包、NFT钱包或取款钱包.</li>
+    </ul>',
+
+    'yield_wallet_terms_and_conditions2' => '<ul class="text-grey">
+    <li>80%将存入此钱包，20%将添加到您的NFT钱包.</li>
+    </ul>',
+
+    'yield_wallet_terms_and_conditions3' => '<ul class="text-grey">
+    <li>信用期为30天，从您的质押存款日期算起.</li>
+    </ul>',
 
 
-
-
-       /* Commission Wallet Terms & Conditions*/
-       'commission_wallet_terms_and_conditions1' => '<ul class="text-grey">
-       <li>您将收到存入此钱包的直系推荐佣金和节点平衡佣金.</li>
-       <li>节点平衡佣金将每天（GMT +7）计算并在计算完成后记入.</li>
-     </ul>',
-
-
-     'commission_wallet_terms_and_conditions2' => '<ul class="text-grey">
-       <li>您80%的佣金将存入此钱包，20%的佣金将存入NFT钱包.</li>
-       <li>您可以在此处将余额转移到加密钱包、NFT钱包或取款钱包.</li>
-     </ul>',
-
-
-     'commission_wallet_terms_and_conditions3' => '<ul class="text-grey">
-       <li>直系推荐佣金将在您的推荐成功质押后立即记入.</li>
-       <li>需要1000 美元的活跃投资才有资格收取会员佣金.</li>
-     </ul>',
-
-      
-
-       /* NFT Wallet Terms & Conditions*/
-
-       'nft_wallet_terms_and_conditions1' => '<ul class="text-grey">
-       <li>您质押回报收益和佣金的20%将记入此钱包.</li>
-       <li>NFT钱包资金可用于从市场购买NFT.</li>
-     </ul>',
-
-
-     'nft_wallet_terms_and_conditions2' => '<ul class="text-grey">
-       <li>您也可以使用USDT或支付网关直接充值到这个钱包.</li>
-     </ul>',
-
-
-     'nft_wallet_terms_and_conditions3' => '<ul class="text-grey">
-       <li>所有存款均为最终定金，恕不退款.</li>
-     </ul>',
+    
 
 
 
 
-        /* Withdrawal Wallet Terms & Conditions*/
-        'withdrawal_wallet_terms_and_conditions1' => '<ul class="text-grey">
-       <li>您可以将佣金和收益钱包中的资金转移到此钱包.</li>
-       <li>USD 对 USDT 的兑换率为 1:0.95.</li>
-       <li>美元兑换当地货币的汇率取决于市场汇率. 请向客服团队发送信息以查询最新的转换率.</li>
-     </ul>',
+    /* Commission Wallet Terms & Conditions*/
+    'commission_wallet_terms_and_conditions1' => '<ul class="text-grey">
+    <li>您将收到存入此钱包的直系推荐佣金和节点平衡佣金.</li>
+    <li>节点平衡佣金将每天（GMT +7）计算并在计算完成后记入.</li>
+    </ul>',
 
 
-     'withdrawal_wallet_terms_and_conditions2' => '<ul class="text-grey">
-       <li>您可以在此处将资金提取到您的TRC20或ERC20钱包中.</li>
-       <li>提款窗口为每月1日至6日.</li>
-       <li>所有提款将于每月7日至15日进行处理.</li>
-     </ul>',
+    'commission_wallet_terms_and_conditions2' => '<ul class="text-grey">
+    <li>您80%的佣金将存入此钱包，20%的佣金将存入NFT钱包.</li>
+    <li>您可以在此处将余额转移到加密钱包、NFT钱包或取款钱包.</li>
+    </ul>',
 
 
-     'withdrawal_wallet_terms_and_conditions3' => '<ul class="text-grey">
-       <li>所有提款请求将收取10美元的提款费.</li>
-       <li>您可以在此处将资金提取到您当地的国家银行账户（如果有）.</li>
-       <li>所有已获批准的提款均为最终提款.</li>
-     </ul>',
+    'commission_wallet_terms_and_conditions3' => '<ul class="text-grey">
+    <li>直系推荐佣金将在您的推荐成功质押后立即记入.</li>
+    <li>需要1000 美元的活跃投资才有资格收取会员佣金.</li>
+    </ul>',
+
+    
+
+    /* NFT Wallet Terms & Conditions*/
+
+    'nft_wallet_terms_and_conditions1' => '<ul class="text-grey">
+    <li>您质押回报收益和佣金的20%将记入此钱包.</li>
+    <li>NFT钱包资金可用于从市场购买NFT.</li>
+    </ul>',
 
 
-     
-     'helpone'=> '
+    'nft_wallet_terms_and_conditions2' => '<ul class="text-grey">
+    <li>您也可以使用USDT或支付网关直接充值到这个钱包.</li>
+    </ul>',
+
+
+    'nft_wallet_terms_and_conditions3' => '<ul class="text-grey">
+    <li>所有存款均为最终定金，恕不退款.</li>
+    </ul>',
+
+
+
+
+    /* Withdrawal Wallet Terms & Conditions*/
+    'withdrawal_wallet_terms_and_conditions1' => '<ul class="text-grey">
+    <li>您可以将佣金和收益钱包中的资金转移到此钱包.</li>
+    <li>USD 对 USDT 的兑换率为 1:0.95.</li>
+    <li>美元兑换当地货币的汇率取决于市场汇率. 请向客服团队发送信息以查询最新的转换率.</li>
+    </ul>',
+
+
+    'withdrawal_wallet_terms_and_conditions2' => '<ul class="text-grey">
+    <li>您可以在此处将资金提取到您的TRC20或ERC20钱包中.</li>
+    <li>提款窗口为每月1日至6日.</li>
+    <li>所有提款将于每月7日至15日进行处理.</li>
+    </ul>',
+
+
+    'withdrawal_wallet_terms_and_conditions3' => '<ul class="text-grey">
+    <li>所有提款请求将收取10美元的提款费.</li>
+    <li>您可以在此处将资金提取到您当地的国家银行账户（如果有）.</li>
+    <li>所有已获批准的提款均为最终提款.</li>
+    </ul>',
+
+
+    
+    'helpone'=> '
     <div id="accordion">
 
     <div class="card">
@@ -1917,7 +1917,7 @@ return [
     'STAKING_POOL_AMOUNT'=>'质押额',
     'COMMISSION_WALLET_80'=>'佣金钱包(80%)',
     'NFT_WALLET_20'=>'NFT钱包(20%)',
-   
+    
     'STACKING_AMOUNT'=>'质押额',
     'STACKING_DATE'=>'质押日期',
     'YIELD'=>'收益',
@@ -2006,52 +2006,56 @@ return [
 
     'user_aggrement_list' => '<div class="col-12 text-white">
     <h4>通过在DefiXFinance创建帐户，您同意并遵守：</h4>
-<ul><li>尽您所知，所有输入信息都是准确和真实的；</li>
-<li>如果需要，您必须遵守或提供额外信息以证明此类有效性；</li>
-<li>您的帐户（密码）的安全是您的责任，因您的个人密码泄露而导致的任何违规行为都是您的责任；</li>
-<li>在您居住的司法管辖区内，您已成年；</li>
-<li>您对DefiXFinance产品和服务的使用不违反任何适用的法律或法规；</li>
-<li>您使用本服务的风险由您自行承担。该服务以“现状”和“可用”为基础提供。除本协议另有明确规定外，DefiXFinance明确否认任何类型的担保，无论是明示、默示或法定担保，包括但不限于适销性、特定用途适用性、所有权和非侵权的默示担保。</li>
-<li>您理解并同意，如果您与DefiXFinance就服务的任何方面（包括注册过程）发生争议，且您放弃领导或参与涉及其他人的诉讼（如集体诉讼）的权利，则上述争议程序将是您的唯一补救措施。</li>
-<li>您同意DefiXFinance可自行决定且不对您或任何第三方承担任何责任，可以出于任何原因暂停或终止您对服务（或其任何部分）的使用，并删除和丢弃服务中的任何内容，包括，限制，由于缺乏使用，或者如果 DefiXFinance 认为您违反或不符合这些服务条款的文字或精神。</li>
-     </ul>
-</div>',
+    <ul><li>尽您所知，所有输入信息都是准确和真实的；</li>
+    <li>如果需要，您必须遵守或提供额外信息以证明此类有效性；</li>
+    <li>您的帐户（密码）的安全是您的责任，因您的个人密码泄露而导致的任何违规行为都是您的责任；</li>
+    <li>在您居住的司法管辖区内，您已成年；</li>
+    <li>您对DefiXFinance产品和服务的使用不违反任何适用的法律或法规；</li>
+    <li>您使用本服务的风险由您自行承担。该服务以“现状”和“可用”为基础提供。除本协议另有明确规定外，DefiXFinance明确否认任何类型的担保，无论是明示、默示或法定担保，包括但不限于适销性、特定用途适用性、所有权和非侵权的默示担保。</li>
+    <li>您理解并同意，如果您与DefiXFinance就服务的任何方面（包括注册过程）发生争议，且您放弃领导或参与涉及其他人的诉讼（如集体诉讼）的权利，则上述争议程序将是您的唯一补救措施。</li>
+    <li>您同意DefiXFinance可自行决定且不对您或任何第三方承担任何责任，可以出于任何原因暂停或终止您对服务（或其任何部分）的使用，并删除和丢弃服务中的任何内容，包括，限制，由于缺乏使用，或者如果 DefiXFinance 认为您违反或不符合这些服务条款的文字或精神。</li>
+    </ul>
+    </div>',
 
 
-'click_to_finish_registration' => '<div class="col-md-12"><h4 style="color:#fff">请勾选以下内容以完成您的注册：</h4>
-<p style="color:#fff">本人同意已阅读以下文件，并遵守以下文件中概述的条款和条件：</p>
-</div>',
+    'click_to_finish_registration' => '<div class="col-md-12"><h4 style="color:#fff">请勾选以下内容以完成您的注册：</h4>
+    <p style="color:#fff">本人同意已阅读以下文件，并遵守以下文件中概述的条款和条件：</p>
+    </div>',
     
-'please_verify_the_sponsor_id_first' => '请先验证推荐人ID.',
-'letters_numbers_and_underscores_only_please' => '请仅使用字母、数字和下划线.',
-'please_enter_valid_email' => '请输入有效电子邮件',
-'Password_is_required' => '密码是必需的',
-'Your_password_must_be_at_least_8_characters_long' => '您的密码长度必须至少为8个字符',
-'Please_enter_no_more_than_15_characters' => '请输入不超过15个字符',
-'Please_enter_the_same_password_as_above' => '请输入与上面相同的密码',
-'Confirm_password_is_required' => '确认密码是必需的',
+    'please_verify_the_sponsor_id_first' => '请先验证推荐人ID.',
+    'letters_numbers_and_underscores_only_please' => '请仅使用字母、数字和下划线.',
+    'please_enter_valid_email' => '请输入有效电子邮件',
+    'Password_is_required' => '密码是必需的',
+    'Your_password_must_be_at_least_8_characters_long' => '您的密码长度必须至少为8个字符',
+    'Please_enter_no_more_than_15_characters' => '请输入不超过15个字符',
+    'Please_enter_the_same_password_as_above' => '请输入与上面相同的密码',
+    'Confirm_password_is_required' => '确认密码是必需的',
 
-'Invalid_placement_position' => '无效的放置位置',
-'Your_Password_has_been_changed' => '您的密码已更改',
-'Passwords_are_updated' => '密码已更新',
-'User_bank_details_updates_successfully' => '用户银行详细信息更新成功',
-'User_NFT_Wallet_address_updates_successfully' => '用户NFT钱包地址更新成功',
-'Update_Image_Successfully' => '成功更新映像',
-'Ticket_message_sent_to_admin' => '信息已发送至管理员',
-'This_field_is_required' => '必填',
-'Value_must_be_greater_than_0' => '输入值必须大于0',
-'USDT_Proof_extension_png_jpg_jpeg_pdf' => 'USDT证明扩展 png, jpg, jpeg, pdf',
-'Please_wait_Do_not_refresh_this_page' => '请稍等。不要刷新此页面',
-'USDT_Proof_png_jpg_jpeg' => 'USDT证明 png, jpg, jpeg',
-'Bank_Proof_png_jpg_jpeg' => '银行证明 png, jpg, jpeg',
-'Please_select_country' => '请选择国家',
-'Please_enter_number_only' => '请只输入数字',
-'Please_enter_minimum_9_character' => '请输入至少9个字符',
-'total_staking' => '总质押',
-'Please_enter_nft_wallet_address' => '请输入NFT钱包地址',
-'Please_enter_a_value_with_a_valid_extension_proof' => '请输入有效扩展证明',
-'Please_enter_a_value_greater_than_or_equal_to_100' => '请输入一个大于或等于100的值',
-'Please_enter_a_value_with_a_valid_extension' => '请输入有效扩展证明',
-'PENDING' => 'PENDING',
-'here' => 'here',
+    'Invalid_placement_position' => '无效的放置位置',
+    'Your_Password_has_been_changed' => '您的密码已更改',
+    'Passwords_are_updated' => '密码已更新',
+    'User_bank_details_updates_successfully' => '用户银行详细信息更新成功',
+    'User_NFT_Wallet_address_updates_successfully' => '用户NFT钱包地址更新成功',
+    'Update_Image_Successfully' => '成功更新映像',
+    'Ticket_message_sent_to_admin' => '信息已发送至管理员',
+    'This_field_is_required' => '必填',
+    'Value_must_be_greater_than_0' => '输入值必须大于0',
+    'USDT_Proof_extension_png_jpg_jpeg_pdf' => 'USDT证明扩展 png, jpg, jpeg, pdf',
+    'Please_wait_Do_not_refresh_this_page' => '请稍等。不要刷新此页面',
+    'USDT_Proof_png_jpg_jpeg' => 'USDT证明 png, jpg, jpeg',
+    'Bank_Proof_png_jpg_jpeg' => '银行证明 png, jpg, jpeg',
+    'Please_select_country' => '请选择国家',
+    'Please_enter_number_only' => '请只输入数字',
+    'Please_enter_minimum_9_character' => '请输入至少9个字符',
+    'total_staking' => '总质押',
+    'Please_enter_nft_wallet_address' => '请输入NFT钱包地址',
+    'Please_enter_a_value_with_a_valid_extension_proof' => '请输入有效扩展证明',
+    'Please_enter_a_value_greater_than_or_equal_to_100' => '请输入一个大于或等于100的值',
+    'Please_enter_a_value_with_a_valid_extension' => '请输入有效扩展证明',
+    'PENDING' => 'PENDING',
+    'here' => 'here',
+    'product_owned_by_you' => 'This product already owned by you',
+    'sold' => 'Sold',
+    'product_owned_by_username' => 'This product already owned by #username',
+
 ];
