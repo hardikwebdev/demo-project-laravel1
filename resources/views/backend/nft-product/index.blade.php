@@ -75,6 +75,7 @@
                                     <td>
 
                                         @if ($product > 0)
+                                        <a class="btn btn-primary btn-xs" href="{{route('nft-product.edit',[$row->id])}}"><i class="fa fa-edit"></i></a>
                                         <!-- <p>Owned by {{$history->user_detail->username}}</p> --><a class="btn btn-info btn-xs d-inline" href="{{route('trading-history.show',[$row->id])}}"><i class="fa fa-list"></i></a>
                                         @else
                                         {!! Form::open(['route' => ['nft-product.update',$row->id],'onsubmit'=>"return confirmDelete(this,'Are you sure to want delete this product ?')",'class'=>'d-inline']) !!}

@@ -142,13 +142,13 @@ class NFTProductController extends Controller
     public function edit($id)
     {
         $product = NftPurchaseHistory::where(['product_id' => $id])->whereIn('status',[1,2])->count();
-        if($product > 0){
-            return redirect()->route('nft-product.index')->with('error', 'Product is purchased you can not edit.');
-        }else{
+        // if($product > 0){
+        //     return redirect()->route('nft-product.index')->with('error', 'Product is purchased you can not edit.');
+        // }else{
             $categories = Model\NftCategory::where(['is_deleted' => '0', 'status' => 'active'])->pluck('name', 'id');
             $product = Model\NftProduct::with('images')->find($id);
             return view('backend.nft-product.edit',compact('product', 'categories'));
-        }
+        // }
     }
 
     /**

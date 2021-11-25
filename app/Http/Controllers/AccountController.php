@@ -487,6 +487,10 @@ class AccountController extends Controller
                     $nftpurchasehistory = NftPurchaseHistory::find($request->nftpurchaseid);
                     $nftpurchasehistory->type = 1;
                     $nftpurchasehistory->update();
+                    $nftproduct = NftProduct::find($nftpurchasehistory->product_id);
+                    $nftproduct->product_status = 'Hidden';
+                    $nftproduct->save();
+
                     $time = Carbon::now()->format('Hi');
                     $orederId = \Helper::sellorderID(Auth::user()->id, date("d-m-Y",strtotime($nftpurchasehistory->created_at)),$time);
                     $nftsalehistory = new NftSellHistory();

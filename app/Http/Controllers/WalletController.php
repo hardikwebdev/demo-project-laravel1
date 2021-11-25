@@ -22,7 +22,7 @@ class WalletController extends Controller
         });
     }
     public function cryptoWallets(Request $request){
-        $user = Auth::user()->get();
+        $user  = Auth::user()->get();
         $userWallet = Model\UserWallet::firstOrCreate(['user_id'=>$this->user->id]);
         $convertedRateUSDT = Model\Setting::where('key','bank_usdt_amount')->value('value');
         $query = Model\CryptoWallet::where('user_id',$this->user->id);
