@@ -25,6 +25,7 @@
                                 <tr>
                                     <th>#ID</th>
                                     <th colspan="2">Name</th>
+                                    <th>Owner</th>
                                     <th>Description</th>
                                     <th>Status</th>
                                     <th>Product Status</th>
@@ -37,11 +38,19 @@
                                 $i = ($products->currentpage() - 1) * $products->perpage() + 1;
                                 @endphp
                                 @foreach($products as  $key=>$row)
+                                @php
+                                $product = \App\Models\NftPurchaseHistory::where(['product_id' => $row->id])->whereIn('status',[1,2])->count(); 
+                                $history = \App\Models\NftPurchaseHistory::where(['product_id' => $row->id])->whereIn('status',[1,2])->first(); 
+
+                                @endphp
                                 <tr>
 
                                     <td>{{$i++}}</td>
                                     <td colspan="2" width="30%">
                                         {{$row->name}}  
+                                    </td>
+                                    <td>
+                                        @if ($product > 0) {{$history->user_detail->username}}  @else Admin @endif
                                     </td>
                                     <td>
                                         {!! \Illuminate\Support\Str::limit($row->description,50) !!} 
@@ -64,13 +73,9 @@
                                         @endif
                                     </td>
                                     <td>
-                                        @php
-                                        $product = \App\Models\NftPurchaseHistory::where(['product_id' => $row->id])->whereIn('status',[1,2])->count(); 
-                                        $history = \App\Models\NftPurchaseHistory::where(['product_id' => $row->id])->whereIn('status',[1,2])->first(); 
 
-                                        @endphp
                                         @if ($product > 0)
-                                        <p>Owned by {{$history->user_detail->username}}</p><a class="btn btn-info btn-xs d-inline" href="{{route('trading-history.show',[$row->id])}}"><i class="fa fa-list"></i></a>
+                                        <!-- <p>Owned by {{$history->user_detail->username}}</p> --><a class="btn btn-info btn-xs d-inline" href="{{route('trading-history.show',[$row->id])}}"><i class="fa fa-list"></i></a>
                                         @else
                                         {!! Form::open(['route' => ['nft-product.update',$row->id],'onsubmit'=>"return confirmDelete(this,'Are you sure to want delete this product ?')",'class'=>'d-inline']) !!}
                                         <a class="btn btn-primary btn-xs" href="{{route('nft-product.edit',[$row->id])}}"><i class="fa fa-edit"></i></a>

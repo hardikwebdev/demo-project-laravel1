@@ -66,7 +66,7 @@ class NftSellTesting extends Command
             ]);
 
             $nftproduct = NftProduct::find($change->product_id);
-            $nftproduct->product_status = 'Sold';
+            $nftproduct->product_status = 'Hidden';
             $nftproduct->is_reserved = 0;
             $nftproduct->save();
 

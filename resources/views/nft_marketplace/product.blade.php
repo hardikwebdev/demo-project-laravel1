@@ -7,11 +7,11 @@
 		<div class="col-12 col-md-6">
 			@if ($product->product_status == "Sold")
 			<div class="position-relative overflow-hidden">
-				<img src="{{ asset($product->image) }}" class="img-fluid w-100" style="max-height: 360px;" alt="">
+				<img src="{{ asset($product->image) }}" class="img-fluid w-100" alt="">
 				<span class="sale-label">SOLD</span>
 			</div>
 			@else
-			<img src="{{ asset($product->image) }}" class="img-fluid" style="max-height: 370px;" alt="">
+			<img src="{{ asset($product->image) }}" class="img-fluid" alt="">
 			@endif
 			{{-- <img src="{{ asset('uploads/nft-product/'.$product->image) }}" class="img-fluid" alt=""> --}}
 		</div>
@@ -62,7 +62,7 @@
 				</div>
 			</div>
 			@endif
-				@else
+			@else
 			<div class="row justfy-content-between align-items-center mt-4">
 				<div class="col-12 col-xl-8">
 					<strong class="text-danger">{{ __('custom.sold') }}</strong>
@@ -119,4 +119,14 @@
 			</div>
 		</div>
 	</div>
+	@endsection
+	@section('scripts')
+	<script type="text/javascript">
+		$(document).ready(function(e) {
+			$('.nav-item').removeClass('active');
+			$('.collapse').removeClass('show');
+			$('.nftproduct').addClass('active');
+
+		})
+	</script>
 	@endsection

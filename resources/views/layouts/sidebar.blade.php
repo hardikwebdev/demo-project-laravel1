@@ -57,7 +57,7 @@
         </ul>
       </div>
     </li>
-    <li class="nav-item {{(\Request::is('nft_marketplace/*')) ? 'active':''}}">
+    <li class="nav-item nftproduct {{(\Request::is('nft_marketplace/*')) ? 'active':''}}">
       <a class="nav-link" href="{{ route('nft_marketplace') }}">
         <img src="{{ asset('assets/images/assets/Dashboard/Group951.png') }}" class="cus-sidebar-icon" alt="">
         <span class="menu-title">{{ __('custom.nft_marketplace')}} </span>
