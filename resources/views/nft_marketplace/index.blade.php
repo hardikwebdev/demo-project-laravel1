@@ -28,7 +28,7 @@
                       {{-- <a class="min-h-240 bg-white p-3 rounded mx-2 d-block text-decoration-none"  href="{{route('nftproduct', $product->id)}}"> --}}
                         {{-- <img src="{{ asset('uploads/nft-product/'.$product->image) }}" class="img-fluid mx-auto" alt=""> --}}
                       @if ($product->product_status == "Sold")
-                      <a class="min-h-240 bg-white p-3 rounded mx-2 d-block text-decoration-none">
+                      <a href="{{route('nftproduct', $product->id)}}" class="min-h-240 bg-white p-3 rounded mx-2 d-block text-decoration-none">
                           <div class="position-relative overflow-hidden">
                             <img src="{{ asset($product->image) }}" class="img-fluid w-100" alt="">
                             <span class="sale-label">SOLD</span>

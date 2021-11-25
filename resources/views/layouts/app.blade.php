@@ -11,8 +11,7 @@
   <link rel="stylesheet" href="{{ asset('assets/css/custom/themify-icons.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/vertical-layout-light/style.css') }}">
   <link rel="stylesheet" href="{{ asset('backend/css/dropify.min.css')}}">
-<!--   <link rel="stylesheet" href="{{ asset('assets/css/customd.css').'?v='.time() }}">
- -->  <link rel="stylesheet" href="{{ asset('assets/css/custom/index.css').'?v='.time() }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/custom/index.css').'?v='.time() }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/slick.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/slick-theme.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/jquery.steps.css') }}">
@@ -23,12 +22,9 @@
   <link rel="icon" href="https://defixfinance.com/wp-content/uploads/2021/09/cropped-defix-favicon-192x192.png" sizes="192x192" />
   <link rel="apple-touch-icon" href="https://defixfinance.com/wp-content/uploads/2021/09/cropped-defix-favicon-180x180.png" />
   <meta name="msapplication-TileImage" content="https://defixfinance.com/wp-content/uploads/2021/09/cropped-defix-favicon-270x270.png" />
-<!--   <link rel="stylesheet" href="{{ asset('assets/tree/assets/css/style.css') }}"/> 
- -->  <link rel="stylesheet" href="{{ asset('assets/treanttree/css/Treant.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/treanttree/css/Treant.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/treanttree/css/collapsable.css').'?v='.time() }}">
 </head>
-<style type="text/css">
-@font-face {font-family: "EUROSTIB";font-display: auto;font-fallback: ;font-weight: 100;src: url("{{ asset('/assets/fonts/EUROSTIB.ttf') }}" format('TrueType');} </style>
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
@@ -62,21 +58,20 @@
 <script src="{{asset('backend/js/dropify.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/jquery.signature.js') }}"></script>
 <script type="text/javascript" src="{{ asset('assets/js/jquery.ui.touch-punch.min.js') }}"></script>
-
 <script src="{{asset('backend/js/plugins/validate/jquery.validate.min.js') }}"></script>
 <script src="{{asset('backend/js/sweetalert.min.js')}}"></script>
 <script src="{{ asset('assets/js/custom/custom.js').'?v='.time() }}"></script>
 <script src="{{asset('backend/js/plugins/validate/additional-methods.min.js')}}"></script>
 <script>
-$('.alert-success').fadeIn().delay(4000).fadeOut();
-$('.alert-danger').fadeIn().delay(4000).fadeOut();
- var sponsorUsernameExits = "{{route('sponsorUsernameExits')}}";
- var placementUsernameExits = "{{route('placementUsernameExits')}}";
- var viewnftsell = "{{ route('view.nftsell', ':id') }}";
- var nftviewcounteroffer = "{{ route('nft.viewcounteroffer', ':id') }}";
- var emailExists = "{{route('emailExists')}}";
- var usernameExits = "{{route('usernameExits')}}";
- var commissionbreakdown = "{{route('commissionbreakdown')}}";
+  $('.alert-success').fadeIn().delay(4000).fadeOut();
+  $('.alert-danger').fadeIn().delay(4000).fadeOut();
+  var sponsorUsernameExits = "{{route('sponsorUsernameExits')}}";
+  var placementUsernameExits = "{{route('placementUsernameExits')}}";
+  var viewnftsell = "{{ route('view.nftsell', ':id') }}";
+  var nftviewcounteroffer = "{{ route('nft.viewcounteroffer', ':id') }}";
+  var emailExists = "{{route('emailExists')}}";
+  var usernameExits = "{{route('usernameExits')}}";
+  var commissionbreakdown = "{{route('commissionbreakdown')}}";
 </script>
 <script type="text/javascript">
   $.ajaxSetup({
@@ -89,7 +84,6 @@ $('.alert-danger').fadeIn().delay(4000).fadeOut();
 @foreach($expired_stacking_pools as $stacking_pool)
 <script type="text/javascript">
   $('#planExpired{{$stacking_pool->id}}').modal('show');
-  
 </script>
 @endforeach
 @endif

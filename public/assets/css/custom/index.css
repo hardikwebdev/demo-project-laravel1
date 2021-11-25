@@ -1,3 +1,12 @@
+@font-face {
+    font-family: "EUROSTIB";
+    font-display: auto;
+    font-weight: 100;
+    src: url("../../fonts/EUROSTIB.ttf") format('TrueType');
+}
+.slick-list{
+    font-family: 'EUROSTIB' !important;
+}
 .sidebar .nav.sub-menu .nav-item::before {
     content: none;
 }
@@ -639,6 +648,7 @@ nav#sidebar.sidebar-offcanvas {
 }
 body {
     background-color: #16181d;
+    font-family: "Karla", Arial, Helvetica, sans-serif;
 }
 .stacking-slider .slick-list {
     padding-top: 1.5rem;
