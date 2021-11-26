@@ -14,7 +14,7 @@
     </div>
     <ul class="navbar-nav navbar-nav-right">
       <li class="nav-item nav-profile dropdown align-self-md-end">
-        <div class="ml-2 mx-5">
+        <div class="ml-2 mx-4">
           <div class="">
             <div class="navigation-cus">
                <div class="cus-dropdown text-right mb-3 select-lang-de mt-3">
