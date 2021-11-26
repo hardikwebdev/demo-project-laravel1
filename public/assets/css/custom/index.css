@@ -872,3 +872,16 @@ span.invalid-feedback {
     margin-top: -60px;
     margin-bottom: 14px;
 }
+@media only screen and (max-width: 1199px) {
+
+.bg-warning.text-white.p-5.rounded-left {
+    padding: 0;
+    border-radius: 0px;
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+}
+.npaddingbox{
+    padding-right: 15px !important; 
+    padding-left: 0px;
+}
+}

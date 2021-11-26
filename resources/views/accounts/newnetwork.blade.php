@@ -65,8 +65,8 @@
     </div>  
   </div>
   <div class="row mt-5">
-    <div class="col-12 col-xl-3 pr-0">
-      <div class="bg-warning text-white p-5 rounded-left">
+    <div class="col-12 col-xl-3 pr-0 npaddingbox">
+      <div class="bg-warning text-white p-5 rounded-left" style="min-height: 336px;">
         <div class="ml-xl-4">
           <h4 class="font-weight-bold">${{$accumulateLeftSale}}</h4>
           <span> {{ __('custom.sale_left') }}</span>
