@@ -15,6 +15,9 @@ nav#sidebar.sidebar-offcanvas {
 body {
     background-color: #16181d;
 }
+.stacking-slider h3 {
+    margin-top: 6px;
+}
 .stacking-slider .slick-list {
     padding-top: 1.5rem;
 }

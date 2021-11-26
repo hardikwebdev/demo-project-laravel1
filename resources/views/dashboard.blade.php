@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="content-wrapper">
+<div class="content-wrapper dashboard">
     <div class="ml-2 mb-4 d-none-desk d-md-block">
         <h2 class="text-warning font-weight-bold">@yield('page_title','Dashboard')</h2>
         @if (Route::currentRouteName() == 'dashboard')
