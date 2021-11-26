@@ -694,7 +694,7 @@ aria-hidden="true" style="display: none;" id="planExpired{{ $stacking_pool->id }
         plotOptions: {
             pie: {
                 dataLabels: {
-                    enabled: true,
+                    enabled: false,
                     distance: -50,
                     style: {
                         fontWeight: 'bold',
