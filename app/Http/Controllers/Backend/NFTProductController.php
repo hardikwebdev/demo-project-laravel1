@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Models as Model;
+use App\Models\NftProduct;
+use App\Models\NftCategory;
 use Illuminate\Http\Request;
 use App\Models\NftPurchaseHistory;
 use App\Http\Controllers\Controller;
@@ -17,10 +19,41 @@ class NFTProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Model\NftProduct::where('is_deleted','0')->orderBy('id','desc')->paginate($this->limit);
-        return view('backend.nft-product.index', compact('products'));
+        $products = NftProduct::with(['nftcategory','nftpurchasehistory'=> function ($query) {
+            $query->with('user_detail');
+        }]);
+
+      
+        if($request->product_status && $request->product_status != ""){
+            $products = $products->where('product_status',$request->product_status);
+        }
+
+        if($request->category && $request->category != ""){
+            $products = $products->where('category_id',$request->category);
+        }
+
+        if($request->keyword && $request->keyword != ""){
+            $products = $products->where('name', 'like', '%' . $request->keyword . '%');
+        }
+
+        if($request->owner && $request->owner != ""){
+
+            if($request->owner == "admin"){
+                $products = $products->doesntHave("nftpurchasehistory"); 
+            }else{
+                $products = $products->whereHas('nftpurchasehistory',function($query) use ($request){
+                    $query->where('user_id',$request->owner);
+                });
+            }
+        }
+
+        $data = $request->all();
+       
+        $products = $products->where('is_deleted','0')->orderBy('id','desc')->paginate($this->limit);
+     
+        return view('backend.nft-product.index', compact('products','data'));
     }
 
     /**

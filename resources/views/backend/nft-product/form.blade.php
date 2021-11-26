@@ -36,8 +36,8 @@
             <div class="form-group">
               @php
               $productCount = 0;
-              if($product){
-                  $productCount = \App\Models\NftPurchaseHistory::where(['product_id' => $product->id])->whereIn('status',[1,2])->count(); 
+              if(@$product){
+                  $productCount = \App\Models\NftPurchaseHistory::where(['product_id' => @$product->id])->whereIn('status',[1,2])->count(); 
               }
 
               @endphp
