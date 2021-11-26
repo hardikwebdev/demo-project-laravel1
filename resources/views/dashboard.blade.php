@@ -274,7 +274,6 @@
                     @endforeach
                 </div>
             </div>
-            </div>
         </div>
         <div class="row mt-5">
             <div class="col-12">
