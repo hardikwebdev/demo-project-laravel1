@@ -2083,5 +2083,48 @@ return [
     'product_owned_by_you' => 'This product already owned by you',
     'sold' => 'Sold',
     'product_owned_by_username' => 'This product already owned by #username',
+
+    /* NFT wallet Terms & Conditions USDT*/
+
+     'nft_wallet_terms_and_conditions1_usdt' => '<ul class="text-grey">
+       <li>Please select the type of USDT protocol.</li>
+       <li>Transfer to the stated ERC20 or TRC20 address only.</li>
+       <li>All deposits are final and no refund requests shall be entertained.</li>
+     </ul>',
+
+
+     'nft_wallet_terms_and_conditions2_usdt' => '<ul class="text-grey">
+       <li>Input the amount you wish to deposit.</li>
+       <li>Once transfer is made, please upload payment proof that shows transaction ID.</li>
+       <li>All deposit requests will be approved within 1 working day.</li>
+     </ul>',
+
+
+     'nft_wallet_terms_and_conditions3_usdt' => '<ul class="text-grey">
+       <li>The conversion rate of USDT to USD will be auto calculated accordingly.</li>
+     </ul>',
+
+
+     
+
+
+      /* NFT wallet Terms & Conditions Payment Gateway*/
+      'nft_wallet_terms_and_conditions1_payment_gateway' => '<ul class="text-grey">
+       <li>Please enter the amount you want to deposit in USD.</li>
+       <li>You will be redirected to the payment gateway page to make your payment.</li>
+     </ul>',
+
+
+     'nft_wallet_terms_and_conditions2_payment_gateway' => '<ul class="text-grey">
+       <li>The system will auto convert the USD amount to your local fiat currency.</li>
+       <li>Once payment is confirmed the amount will be credited into this wallet.</li>
+     </ul>',
+
+
+     'nft_wallet_terms_and_conditions3_payment_gateway' => '<ul class="text-grey">
+       <li>The local fiat currency shown is based on your registered country.</li>
+       <li>All deposits are final and no refund requests shall be entertained.</li>
+     </ul>',
+
     
  ];

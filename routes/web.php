@@ -66,6 +66,8 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
     Route::get('sold-nft-request', 'App\Http\Controllers\CommonController@soldRequest')->name('sold-request');
 
     Route::any('online-payment-response/my/{slug}', 'App\Http\Controllers\WalletController@online_payment_callback_my')->name('online-payment-my-response');
+    Route::any('online-payment-response-nft/my/{slug}', 'App\Http\Controllers\NftWalletController@online_payment_callback_my')->name('online-payment-my-response-nft');
+
     //payment confrim usdt
     Route::any('wallets/usdt-payment-confirm', 'App\Http\Controllers\WalletController@usdtPaymnetConfirm')->name('usdtPaymnetConfirm');
     //payment cancel url usdt   

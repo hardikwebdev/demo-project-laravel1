@@ -27,8 +27,9 @@
       <ul class="nav nav-tabs justify-content-center account-tabs border-0">
         <li><a class="text-warning border border-warning py-3 px-5 d-block fund-usdt-bank active" data-value="usdt" data-toggle="tab" href="#home">{{ trans('custom.usdt')}}</a></li>
         @if(\Auth::user()->country_id == 131)
-        
-        @endif
+                <li><a class="text-warning border border-warning py-3 px-5 d-block fund-usdt-bank" data-toggle="tab" data-value="myr-usdt" href="#menu1">{{ trans('custom.malaysia_opg')}}</a></li>
+                @endif
+
       </ul>
     </div>
 
@@ -154,7 +155,20 @@
         <div id="menu1" class="tab-pane">
           <div class="card">
             <div class="card-body p-md-5">
-              {{-- @include('nft_wallet.common') --}}
+              <div class="row">
+                <div class="col-12 pb-3">
+                  <h4 class="font-weight-bold">{{ trans('custom.terms_conditions')}}</h4>
+                </div>
+                <div class="col-12 col-md-6 col-xl-4">
+                  {!! trans('custom.nft_wallet_terms_and_conditions1_payment_gateway') !!}
+                </div>
+                <div class="col-12 col-md-6 col-xl-4">
+                  {!! trans('custom.nft_wallet_terms_and_conditions2_payment_gateway') !!}
+                </div>
+                <div class="col-12 col-md-6 col-xl-4">
+                  {!! trans('custom.nft_wallet_terms_and_conditions3_payment_gateway') !!}
+                </div>
+              </div>
               {{Form::open(['route' => 'nftWalletForm','class' => '','id' =>'nftwalletform-myr','enctype' => 'multipart/form-data'])}}
               <div class="row mt-4">
                 <input type="hidden" name="payment_method" value="secureautopay">

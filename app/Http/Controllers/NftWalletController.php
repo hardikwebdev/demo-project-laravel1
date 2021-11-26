@@ -88,7 +88,7 @@ class NftWalletController extends Controller
                     $fundwalletCheck = Model\NftWallet::where('user_id',$this->user->id)->where('status',0)->get();
                     if(count($fundwalletCheck) && Auth::user()->country_id != '45'){
                         Session::flash('error',trans('custom.previous_request_pending'));
-                        return redirect()->route('crypto_wallets')->withInput($request->input());
+                        return redirect()->route('nft_wallet')->withInput($request->input());
                     }
                     $fundwalletdate = Model\NftWallet::where('created_at', '>=', date('Y-m-d').' 00:00:00')->orderBy('id','DESC')->first();
                     $uniqu_no = 1;
@@ -141,8 +141,8 @@ class NftWalletController extends Controller
                         $transfer['acc_name'] = $request->account_name;
                         $transfer['acc_no'] = $request->account_no;
                         $transfer['bank_code'] = $bank->name;
-                        Model\NftWalletOnlinePayment::where(['user_id'=>$usercheck->id,'status'=>'0'])->update(['status'=>'2']);
-                        $model =  new Model\NftWalletOnlinePayment();
+                        Model\NftOnlinePayment::where(['user_id'=>$usercheck->id,'status'=>'0'])->update(['status'=>'2']);
+                        $model =  new Model\NftOnlinePayment();
                         $model->order_id = $transfer['order_id'];
                         $model->user_id = $usercheck->id;
                         $model->usd_amount = $request->amount;
@@ -152,7 +152,7 @@ class NftWalletController extends Controller
                         $model->save();
                         $model->usd_amount = $request->amount;
                         $model->save();
-                        $requestResponse = PaymentHelper::proceedPaymentMalasia($transfer);
+                        $requestResponse = PaymentHelper::proceedPaymentMalasiaNFT($transfer);
                         // print_r($requestResponse);die(); 
                         if($requestResponse == null || $requestResponse['status']=='success'){
                             Model\NftWallet::where('user_id',$this->user->id)->where(['type'=>'1','status'=>0])->delete();
@@ -179,8 +179,8 @@ class NftWalletController extends Controller
                     if($request->payment_method == 'coin-payment'){
 
                         $fundWallet = new Model\NftWallet;
-                        Model\NftWalletOnlinePayment::where(['user_id'=>$this->user->id,'status'=>'0'])->update(['status'=>'2']);
-                        $model =  new Model\NftWalletOnlinePayment();
+                        Model\NftOnlinePayment::where(['user_id'=>$this->user->id,'status'=>'0'])->update(['status'=>'2']);
+                        $model =  new Model\NftOnlinePayment();
                         $model->order_id = uniqid();
                         $model->user_id = $usercheck->id;
                         $model->usd_amount = $request->amount;
@@ -217,7 +217,7 @@ class NftWalletController extends Controller
 
                         $usdtPaymnetConfirm = route('usdtPaymnetConfirm');
                         $usdtPaymnetCancel = route('usdtPaymnetCancel',$cancelId);
-                        $paymnetIpnUrl = route('PaymnetIpn');
+                        $paymnetIpnUrl = route('PaymentIpnNft');
                         $rl_currency = 'USD';
                         $bit_currencies = 'USDT.ERC20';
 
@@ -234,8 +234,75 @@ class NftWalletController extends Controller
             Session::flash('error',trans('custom.session_has_been_expired_try_agian'));   
         }
         if($isError == 1 ){
-            return redirect()->route('crypto_wallets')->withInput($request->input());
+            return redirect()->route('nft_wallet')->withInput($request->input());
         }
-        return redirect()->route('crypto_wallets');
+        return redirect()->route('nft_wallet');
     }
+
+    public function online_payment_callback_my($slug = null,Request $request){
+
+        \Log::channel('fundlog')->info('online_payment_callback_my : '.$request);
+        
+        if(isset($_POST)) {
+            /*Receive Callback Parameters*/ 
+            try {
+               /*Create and open log file*/ 
+               if(!is_null($slug) && isset($request->status) && $request->status=='Success'){
+                $payment = Model\NftOnlinePayment::where('order_id',$slug)->where('status','0')->first();
+                // print_r($payment);die();
+                if($payment!=null){
+                    $payment->response = json_encode($request->all());
+                    $payment->status = '1';
+                    $payment->save();
+                    $funds = Model\CryptoWallet::where(['type'=>'1','status'=>'0','user_id'=>$payment->user_id])->where('order_id',$slug)->first();
+                            // dd($funds);
+                    if($funds==null){
+                        return array('receive' => 'FAIL');
+                    }else{
+                        $funds->status = 1;
+                        $funds->save();
+                    }
+                    $count = Model\CryptoWallet::where('user_id',$payment->user_id)
+                                ->where('status',1)
+                                ->count();
+
+                    Model\UserWallet::where('user_id',$payment->user_id)->increment('crypto_wallet',$payment->usd_amount);
+                    // Helper::generate_pdf($funds);
+                    // Helper::updaterankpackage($funds);
+
+                }
+                \Log::channel('fundlog')->info('success1 ');
+            }elseif(!is_null($slug) && isset($request->status) && $request->status=='Failed'){
+                $payment = Model\NftOnlinePayment::where('order_id',$slug)->where('status','0')->first();
+                if($payment!=null){
+                    $payment->response = json_encode($request->all());
+                    $payment->status = '1';
+                    $payment->save();
+                    $funds = Model\CryptoWallet::where(['type'=>'2','status'=>'0','user_id'=>$payment->user_id,'amount'=>$payment->usd_amount])->first();
+
+                        if($funds != null)
+                            $funds->type = 2; 
+                            $funds->status = 2;
+                            $funds->save();
+                        }
+
+                    }elseif(!is_null($slug) && $slug == 'success'){
+                        Session::flash('success',trans('Your Transaction Successful.'));   
+
+                        return view('thankyou');
+                    }elseif(!is_null($slug) && $slug == 'fail'){
+                        Session::flash('error',trans('Your Transaction Faild.'));   
+
+                        return view('thankyou');
+                    }
+                    \Log::channel('fundlog')->info('success2 ');
+                    return array('receive' => 'OK');
+
+                } catch (Exception $e) {
+                    Helper::createAdminLog($this->path,'online_payment'.date("Y-m-d").'.log',$request->path(),["Error==>>>>>>>>>>>>>Start",$e->getMessage()]);
+                }
+                return array('receive' => 'OK');
+            }
+            return redirect()->route('dmwallet')->with('error',trans('custom.fail_online_payment_txt'));
+        }
 }
