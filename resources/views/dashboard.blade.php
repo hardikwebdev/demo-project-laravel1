@@ -275,7 +275,7 @@
                 </div>
             </div>
         </div>
-    </div>
+        </div>
         <div class="row mt-5">
             <div class="col-12">
                 <p class="text-white mb-3" style="font-weight: 700 !important;font-size: 1.187rem;">
