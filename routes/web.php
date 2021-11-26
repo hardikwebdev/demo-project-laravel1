@@ -89,7 +89,6 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 
         Route::get('/commission_wallet', 'App\Http\Controllers\WalletController@commission_wallet')->name('commission_wallet');
         Route::post('/commission_wallet-request', 'App\Http\Controllers\WalletController@commissionWalletStore')->name('commission-wallet-store');
-        Route::get('/nft_wallet', 'App\Http\Controllers\WalletController@nft_wallet')->name('nft_wallet');
         Route::get('/nft_marketplace', 'App\Http\Controllers\NFTMarketplaceController@index')->name('nft_marketplace');
         Route::get('/nft_marketplace/{id}', 'App\Http\Controllers\NFTMarketplaceController@productDetail')->name('nftproduct');
         Route::post('/nft_marketplace/purchase-product', 'App\Http\Controllers\NFTMarketplaceController@purchaseProduct')->name('purchase-product');
@@ -146,7 +145,9 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 
             Route::get('/commission_wallet', 'App\Http\Controllers\WalletController@commission_wallet')->name('commission_wallet');
             Route::post('/commission_wallet-request', 'App\Http\Controllers\WalletController@commissionWalletStore')->name('commission-wallet-store');
-            Route::get('/nft_wallet', 'App\Http\Controllers\WalletController@nft_wallet')->name('nft_wallet');
+            Route::get('/nft_wallet', 'App\Http\Controllers\NftWalletController@index')->name('nft_wallet');
+            Route::any('/nft_wallets_form', 'App\Http\Controllers\NftWalletController@nftWalletForm')->name('nftWalletForm');
+
         // Route::get('/withdrawal', 'App\Http\Controllers\HomeController@withdrawal')->name('withdrawal');
         // Ledger route
             Route::get('/ledger', 'App\Http\Controllers\LedgerController@ledger')->name('ledger');
