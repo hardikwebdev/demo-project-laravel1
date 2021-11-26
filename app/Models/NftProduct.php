@@ -15,11 +15,15 @@ class NftProduct extends Model
     public function nftcategory(){
         return $this->belongsTo(NftCategory::class,'category_id','id');
     }
+
+    public function nftpurchasehistory(){
+        return $this->hasMany(NftPurchaseHistory::class,'product_id','id')->whereIn('status',[1,2]);
+    }
+
     public function images()
     {
         return $this->hasMany(NftProductImage::class,'product_id','id');
     }
-
 
     public function getImageAttribute($value){
         if(file_exists(public_path('uploads/nft-product/'.$value)) && $value){

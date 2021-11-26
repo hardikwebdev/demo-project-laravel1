@@ -222,7 +222,7 @@ Route::prefix('admin')->group(function () {
         Route::resource('nft-category', NFTCategoryController::class);
             // NFT Product
         Route::resource('nft-product', NFTProductController::class);
-             // NFT Product
+             // NFT Product TradingHistoryController
         Route::resource('trading-history', TradingHistoryController::class);
 
             // Yield Wallet History
