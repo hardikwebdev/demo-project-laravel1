@@ -1650,7 +1650,10 @@ $("#nft_category_create").validate({
          image:{
             required: true,
             extension: "jpg,jpeg,png,gif"
-         }        
+         },
+        //  order_id:{
+        //     required: true,
+        //  }      
     },
     messages:{
         name: {
@@ -1660,6 +1663,9 @@ $("#nft_category_create").validate({
             required: 'Please choose image.',
             extension: 'Please choose (jpg, jpeg, png, gif) file.'
         },
+        // order_id: {
+        //     required: 'Please enter arrangement sequence number.',
+        // },
     },
 
 });
@@ -1671,7 +1677,10 @@ $("#nft_category_edit").validate({
          },
          image:{
             extension: "jpg,jpeg,png,gif"
-         }        
+         },
+        //  order_id:{
+        //     required: true,
+        //  }        
     },
     messages:{
         name: {
@@ -1680,6 +1689,9 @@ $("#nft_category_edit").validate({
         image: {
             extension: 'Please choose (jpg, jpeg, png, gif) file.'
         },
+        // order_id: {
+        //     required: 'Please enter arrangement sequence number.',
+        // },
     },
 
 });

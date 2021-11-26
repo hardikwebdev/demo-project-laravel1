@@ -30,7 +30,13 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <label>{!! Form::radio('status','inactive',@$category->status=='active'?true:false,[]) !!} Inactive</label>
                 <span class="help-block text-danger">{{ $errors->first('status') }}</span>
+
             </div> 
+            <div class="form-group">
+                <label>Arrangement Sequence Number</label>
+                {!! Form::number('order_id',old('order_id'),['min'=>'0','class'=>'form-control','placeholder'=>'Enter Arrangement Sequence Number']) !!}
+                <span class="help-block text-danger">{{ $errors->first('order_id') }}</span>
+            </div>  
         </div>
     </div>    
 </div>

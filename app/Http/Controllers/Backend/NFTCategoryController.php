@@ -48,9 +48,14 @@ class NFTCategoryController extends Controller
                 return $query->where('is_deleted','0');
               })
              ],
-            'image' => 'required|mimes:jpeg,jpg,png,gif'          
+            'image' => 'required|mimes:jpeg,jpg,png,gif',
+            'order_id' => ["nullable",Rule::unique('nft_categories')->where(function ($query) {
+                return $query->where('is_deleted','0');
+              })
+             ],        
         ],[
             'name.unique' => 'Category name already exists!',
+            'order_id.unique' => 'Arrangement Sequence Number already exists!',
         ]);
         /* validation end */
         try {
@@ -58,6 +63,7 @@ class NFTCategoryController extends Controller
             $category->name = $request->name;
             $category->description = $request->description;
             $category->status = $request->status;
+            $category->order_id = $request->order_id;
             if($request->image){
 
                 $path = public_path('uploads/nft-category');
@@ -116,9 +122,14 @@ class NFTCategoryController extends Controller
                 return $query->where('is_deleted','0');
               })
              ],
-            'image' => 'mimes:jpeg,jpg,png,gif'
+            'image' => 'mimes:jpeg,jpg,png,gif',
+            'order_id' => ["nullable",Rule::unique('nft_categories')->ignore($id, 'id')->where(function ($query) {
+                return $query->where('is_deleted','0');
+              })
+             ]
         ],[
             'name.unique' => 'Category name already exists!',
+            'order_id.unique' => 'Arrangement Sequence Number already exists!',
         ]);
         /* validation end */
         try {
@@ -126,6 +137,7 @@ class NFTCategoryController extends Controller
             $category->name = $request->name;
             $category->description = $request->description;
             $category->status = $request->status;
+            $category->order_id = $request->order_id;
             if($request->image){
 
                 $path = ('uploads/nft-category');
