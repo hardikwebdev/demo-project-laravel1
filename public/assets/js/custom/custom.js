@@ -718,7 +718,88 @@ $("#cryptowalletform-coin").validate({
   },
 
 });
+$("#nftwalletform").validate({
+  rules: {
+    amount: {
+      required: true,
+      positiveNumber: true,
+      minlength: 0,
+      // maxlength: 6,
+      twoDigitDecimal: true
+    },
+    secure_password: {
+      required: true,
+    },
+    upload_proof: {
+      required: true,
+      extension: 'png|jpeg|jpg|pdf'
+    }
+  },
+  messages: {
+    amount:{
+      required:err_field_req,
+      positiveNumber:Value_must_be_greater_than_0,
+      twoDigitDecimal:two_decimal_message,
+    },
+    secure_password:{
+      required:err_field_req,
+    },
+    upload_proof:{
+      required:err_field_req,
+      extension:Please_enter_a_value_with_a_valid_extension_proof,
+    },
+  },
 
+});
+$("#nftwalletform-myr").validate({
+  rules: {
+    amount: {
+      required: true,
+      positiveNumber: true,
+      minlength: 0,
+      // maxlength: 6,
+      twoDigitDecimal: true
+    },
+    bank_id: {
+      required: true,
+    },
+    secure_password: {
+      required: true,
+    }
+  },
+  messages: {
+    amount:{
+      required:err_field_req,
+      positiveNumber:Value_must_be_greater_than_0,
+      twoDigitDecimal:two_decimal_message,
+    },
+    secure_password:{
+      required:err_field_req,
+    },
+    bank_id:{
+      required:err_field_req,
+    },
+  },
+
+});
+$("#nftwalletform-coin").validate({
+  rules: {
+    amount: {
+      required: true,
+      number: true,
+      positiveNumber: true,
+      minlength: 0,
+      min: 10,
+      max: 10000000
+    },
+    secure_password: {
+      required: true,
+    },
+  },
+  messages: {
+  },
+
+});
 /*function getData(page,htype = 0){
     $.ajax(
     {

@@ -707,7 +707,7 @@
             y: 60
             },
             tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            pointFormat: '{series.title}: <b>{point.percentage:.1f}%</b>'
             },
             accessibility: {
             point: {
@@ -717,7 +717,7 @@
             plotOptions: {
             pie: {
             dataLabels: {
-            enabled: true,
+            enabled: false,
             distance: -50,
             style: {
             fontWeight: 'bold',

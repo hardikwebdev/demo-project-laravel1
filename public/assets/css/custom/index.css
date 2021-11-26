@@ -7,6 +7,9 @@
 .slick-list{
     font-family: 'EUROSTIB' !important;
 }
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+    font-family: 'EUROSTIB' !important;
+}
 .sidebar .nav.sub-menu .nav-item::before {
     content: none;
 }
@@ -868,4 +871,17 @@ span.invalid-feedback {
     margin: 0 auto;
     margin-top: -60px;
     margin-bottom: 14px;
+}
+@media only screen and (max-width: 1199px) {
+
+.bg-warning.text-white.p-5.rounded-left {
+    padding: 0;
+    border-radius: 0px;
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+}
+.npaddingbox{
+    padding-right: 15px !important; 
+    padding-left: 0px;
+}
 }
