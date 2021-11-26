@@ -193,4 +193,16 @@
         </div>
     </div>
 </div>
+<hr class="border-white mt-5" />
+  <div class="row mt-5">
+    <div class="col-12 col-xl-12">
+      <div>
+        <p class="text-white pb-3">{{__('custom.withdrawal_history')}}</p>
+      </div>
+      <div class="table-responsive table-history1">
+        @include('withdrawal.history')
+      </div>
+
+    </div>
+    </div>
 @endsection

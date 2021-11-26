@@ -830,6 +830,7 @@ $(document).on('click', '.ticket-ajax-pag .pagination a', function (event) {
   $(this).parent('li span').addClass('bg-warning px-1');
   var myurl = $(this).attr('href');
   var page = $(this).attr('href').split('page=')[1];
+  alert();
   getData(page);
 });
 //For hepla and support 
