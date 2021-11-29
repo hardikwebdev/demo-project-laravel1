@@ -52,3 +52,10 @@
         @endif
     </tbody>
 </table>
+<div class="col-12 text-right mt-5">
+	<div class="text-secondary">
+		<div class="second-ajax-pag ">
+			@if($withdrawWallet->count() > 0){{ $withdrawWallet->render() }}@endif   
+		</div>
+	</div>
+</div>
