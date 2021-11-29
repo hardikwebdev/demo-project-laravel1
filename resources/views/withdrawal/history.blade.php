@@ -1,7 +1,7 @@
 <div class="row mt-5">
 		<div class="col-12">
 			<div class="table-responsive">
-				<table class="table table-dark trading-table text-center">
+				<table class="table table-dark withdrawal-table text-center">
 					<thead class="table-gradient">
 						<tr>
 							<th>{{ trans('custom.date')}}</th>
@@ -39,7 +39,7 @@
 	<div class="row align-items-center mt-5">
 		<div class="col-12 text-right">
 			<div class="text-secondary">
-				<div class="second-ajax-pag">
+				<div class="last-ajax-pag">
 					@if($history->count() > 0){{ $history->render() }}@endif
 				</div>
 				

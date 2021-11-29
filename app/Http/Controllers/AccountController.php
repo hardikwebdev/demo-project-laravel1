@@ -22,6 +22,7 @@ use App\Models\StackingPoolPackage;
 use App\Models\NftSellHistory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Models as Model;
 
 class AccountController extends Controller
 {
@@ -452,7 +453,13 @@ class AccountController extends Controller
                                                 return $pool;
                                             });
         $collections = NftPurchaseHistory::with('nftproduct')->where('user_id', $this->user->id)->whereIn('status',[1,2])->get();
-        return view('profile.my_collection', compact('country', 'user', 'staking_pool', 'staking_pool_count', 'collections'));
+
+         $history = Model\NftWithdrawalRequest::where('user_id',$user->id)->orderby('id','desc')->paginate(10);
+        if ($request->ajax()) {
+            return view('profile/nftwithdrawlwalletajax', compact('history'));
+        }
+
+        return view('profile.my_collection', compact('country', 'user', 'staking_pool', 'staking_pool_count', 'collections','history'));
     }
     public function sell_nft(Request $request){
         $collections = NftPurchaseHistory::with('nftproduct')->where('user_id', $this->user->id)->whereIn('status',[1,2])->get();

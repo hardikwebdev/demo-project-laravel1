@@ -2126,5 +2126,11 @@ return [
        <li>All deposits are final and no refund requests shall be entertained.</li>
      </ul>',
 
+    'transfer_history' => 'Withdrawal Wallet History',
+    'please_select_product' => 'Please select a product',
+    'requested_amount_transfered' => 'Requested amount transferred.',
+    'select_nft_products' => '-- Select Your NFT --',
+    'nft_wallet_address' => 'NFT Wallet Address',
+    'NFT_CATEGORY' => 'NFT Category',
     
  ];

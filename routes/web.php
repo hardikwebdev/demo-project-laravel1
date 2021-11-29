@@ -59,6 +59,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
     Route::post('/email-exits', 'App\Http\Controllers\CommonController@emailExists')->name('emailExists');
     Route::post('/username-exits', 'App\Http\Controllers\CommonController@usernameExits')->name('usernameExits');
     Route::get('withdrawl-request/{key}', 'App\Http\Controllers\CommonController@withdrawlRequestVerify')->name('withdrawlRequestVerify');
+    Route::get('nft-withdrawl-request/{key}', 'App\Http\Controllers\CommonController@NftWithdrawalRequest')->name('nftwithdrawlRequestVerify');
     Route::get('counter-offer-request/{key}', 'App\Http\Controllers\CommonController@counterofferrequest')->name('user.counterofferrequest');
     Route::get('calculate-pairing-commission', 'App\Http\Controllers\CommonController@pairingCommission')->name('calculate-pairing');
     Route::get('calculate-referral-commission', 'App\Http\Controllers\CommonController@referralCommission')->name('calculate-referral');
@@ -122,6 +123,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::get('/withdrawal', 'App\Http\Controllers\WithdrawalController@index')->name('withdrawal');
         Route::post('/withdrawal-request', 'App\Http\Controllers\WithdrawalController@withdrawalRequest')->name('withdrawal-request');
         Route::any('resend-email/{id}', 'App\Http\Controllers\WithdrawalController@resendEmail')->name('resendEmail');
+        Route::any('nft-resend-email/{id}', 'App\Http\Controllers\NftWalletController@nftresendEmail')->name('nftresendEmail');
        
 
 
@@ -149,6 +151,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             Route::post('/commission_wallet-request', 'App\Http\Controllers\WalletController@commissionWalletStore')->name('commission-wallet-store');
             Route::get('/nft_wallet', 'App\Http\Controllers\NftWalletController@index')->name('nft_wallet');
             Route::any('/nft_wallets_form', 'App\Http\Controllers\NftWalletController@nftWalletForm')->name('nftWalletForm');
+        Route::post('/nftwithdrawal-request', 'App\Http\Controllers\NftWalletController@withdrawalRequest')->name('nftwithdrawal-request');
 
         // Route::get('/withdrawal', 'App\Http\Controllers\HomeController@withdrawal')->name('withdrawal');
         // Ledger route

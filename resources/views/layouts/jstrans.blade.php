@@ -137,6 +137,7 @@ var Please_enter_a_value_with_a_valid_extension_proof = "{{ trans('custom.Please
 var Please_enter_a_value_greater_than_or_equal_to_100 = "{{ trans('custom.Please_enter_a_value_greater_than_or_equal_to_100') }}";
 
 var Please_enter_a_value_with_a_valid_extension = "{{ trans('custom.Please_enter_a_value_with_a_valid_extension') }}";
+var please_select_product = "{{ trans('custom.please_select_product') }}";
 
 
 </script>

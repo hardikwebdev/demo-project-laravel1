@@ -46,14 +46,14 @@ class WithdrawalController extends Controller
         if($withdrawalFee == ''){
             $withdrawalFee = 10;
         }
+        $history = Model\WithdrawalWalletHistory::where('user_id',$user->id)->where('amount','>',0)->orderby('id','desc')->orderby('id','desc')->paginate(10);
+        if($request->ajax() && $request->htype == '1'){
+            return view('withdrawal.history',compact('history'));
+        }
         if ($request->ajax()) {
             return view('withdrawal/withdrawlwalletajax', compact('withdrawWallet','withdrawalFee'));
         }
 
-        $history = Model\WithdrawalWalletHistory::where('user_id',$user->id)->where('amount','>',0)->orderby('id','desc')->orderby('id','desc')->paginate(1);
-        if($request->ajax()){
-            return view('withdrawal.history',compact('history'));
-        }
         $bankcountry = Model\Country::pluck('country_name','id');
         $allowed_ranks = [ 'DIB', 'SIB', 'MDIB', 'TDIB', 'SPECIAL'];
         $usdt_only = 'false';

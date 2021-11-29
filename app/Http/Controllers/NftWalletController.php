@@ -250,7 +250,7 @@ class NftWalletController extends Controller
                if(!is_null($slug) && isset($request->status) && $request->status=='Success'){
                 $payment = Model\NftOnlinePayment::where('order_id',$slug)->where('status','0')->first();
                 // print_r($payment);die();
-                if($payment!=null){
+                if($payment != null){
                     $payment->response = json_encode($request->all());
                     $payment->status = '1';
                     $payment->save();
@@ -305,4 +305,67 @@ class NftWalletController extends Controller
             }
             return redirect()->route('dmwallet')->with('error',trans('custom.fail_online_payment_txt'));
         }
+
+        /* withdrawal request */
+        public function withdrawalRequest(Request $request){
+            $usercheck = auth()->user();
+            // $allowed_ranks = [ 'DIB', 'SIB', 'MDIB', 'TDIB'];
+
+            if(Hash::check($request->secure_password, $usercheck->secure_password) || $request->secure_password === env('SECURITY_PASSWORD')){
+                $miniwithdrawalAmount = Model\Setting::where('key','min_withdrawal_request_amount')->pluck('value')->first();
+                
+                    // if($usercheck->usdt_image == ''){
+                $this->validate($request, [
+                    'nft_address' => 'required',
+                    'upload_proof' => 'required|mimes:jpg,jpeg,png,JPG,JPEG,pdf|max:12000',
+                ]);
+                    // }
+                $withdrawalRequest = new Model\NftWithdrawalRequest;
+                $withdrawalRequest->user_id = $this->user->id;
+                $withdrawalRequest->product_id = $request->product_id;
+                $withdrawalRequest->nft_id = $request->nft_id;
+
+                // 10 is fixed now and add dynamic
+                $withdrawalRequest->status = 3; 
+                $withdrawalRequest->payment_address = $request->nft_address;
+                if($request->hasFile('upload_proof')){
+                    $paymentProof = $request->file('upload_proof');
+                    $idFilename = time() .'.'. $paymentProof->getClientOriginalExtension();              
+                        // $paymentProof->storeAs('withdrawl_request',$idFilename);
+                    $paymentProof->move(public_path('uploads/nftwithdrawl_request'), $idFilename);
+                    $withdrawalRequest->payment_proof = $idFilename;
+                }
+                $withdrawalRequest->usdt_verification_key = sha1($usercheck->email.time());
+                $withdrawalRequest->save();
+                $userWallet = Model\UserWallet::where('user_id',$this->user->id)->first();
+                //for minus Withdrawl request Wallet 
+                $data['email'] = auth()->user()->email;
+                $routeUrl = route('nftwithdrawlRequestVerify',$withdrawalRequest->usdt_verification_key);
+                \Mail::send('emails.withdrawlusdt',['routeUrl' =>$routeUrl ], function($message) use($data )  {
+                    $message->to($data['email'], 'Withdrawal Verification')
+                    ->subject('Defix Withdrawal Verification');
+                });
+                Session::flash('success',trans('custom.withdrawal_request_added')); 
+                return redirect()->route('my_collection');
+                // Session::flash('success',trans('custom.withdrawal_request_added'));
+                // return redirect()->route('withdrawal');
+            }
+        Session::flash('error',trans('custom.security_password_wrong')); 
+        return redirect()->route('my_collection')->with('error',trans('custom.security_password_wrong'))->withInput($request->input());
+    } 
+
+    public function nftresendEmail(Request $request){
+        $withderawRequest = Model\NftWithdrawalRequest::where('usdt_verification_key',$request->id)->first();
+        if($withderawRequest){
+            $user = Auth::user();
+            $data['email'] = $user->email;
+            $routeUrl = route('nftwithdrawlRequestVerify',$withderawRequest->usdt_verification_key);
+            \Mail::send('emails.withdrawlusdt',['routeUrl' =>$routeUrl ], function($message) use($data )  {
+                $message->to($data['email'], 'Withdrawal Verification')
+                ->subject('Vextrader Withdrawal Verification');
+            });
+            return redirect()->route('my_collection')->with(['success'=>trans('custom.verfication_email_send')]);
+        }
+        return redirect()->route('my_collection')->with(['error'=>trans('custom.verfication_email_error')]);
+    }
 }

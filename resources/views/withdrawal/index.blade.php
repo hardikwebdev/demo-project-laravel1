@@ -192,7 +192,7 @@
   <div class="row mt-5">
     <div class="col-12 col-xl-12">
       <div>
-        <p class="text-white pb-3">{{__('custom.withdrawal_history')}}</p>
+        <p class="text-white pb-3">{{__('custom.transfer_history')}}</p>
       </div>
       <div class="table-responsive table-history1">
         @include('withdrawal.history')
