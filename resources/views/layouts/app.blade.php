@@ -11,8 +11,8 @@
   <link rel="stylesheet" href="{{ asset('assets/css/custom/themify-icons.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/vertical-layout-light/style.css') }}">
   <link rel="stylesheet" href="{{ asset('backend/css/dropify.min.css')}}">
-<link rel="stylesheet" href="{{ asset('assets/css/customd.css').'?v='.time() }}">
-<link rel="stylesheet" href="{{ asset('assets/css/custom/index.css').'?v='.time() }}">
+  <!-- <link rel="stylesheet" href="{{ asset('assets/css/customd.css').'?v='.time() }}"> -->
+  <link rel="stylesheet" href="{{ asset('assets/css/custom/index.css').'?v='.time() }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/slick.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/slick-theme.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/jquery.steps.css') }}">
@@ -24,12 +24,12 @@
   <link rel="apple-touch-icon" href="https://defixfinance.com/wp-content/uploads/2021/09/cropped-defix-favicon-180x180.png" />
   <meta name="msapplication-TileImage" content="https://defixfinance.com/wp-content/uploads/2021/09/cropped-defix-favicon-270x270.png" />
 <!--   <link rel="stylesheet" href="{{ asset('assets/tree/assets/css/style.css') }}"/> 
- -->  <link rel="stylesheet" href="{{ asset('assets/treanttree/css/Treant.css') }}">
-  <link rel="stylesheet" href="{{ asset('assets/treanttree/css/collapsable.css').'?v='.time() }}">
+-->  <link rel="stylesheet" href="{{ asset('assets/treanttree/css/Treant.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/treanttree/css/collapsable.css').'?v='.time() }}">
 </head>
 <style type="text/css">
 @font-face {font-family: "EUROSTIB";font-display: auto;font-fallback: ;font-weight: 100;src: url("{{ asset('/assets/fonts/EUROSTIB.ttf') }}" format('TrueType');} </style>
-    <style type="text/css">
+<style type="text/css">
 @font-face {font-family: "Dinpro";font-display: auto;font-fallback: ;font-weight: 100;src: url("{{ asset('/assets/fonts/DINPro-Regular.otf') }}" format('TrueType');} </style>
 <body>
   <div class="container-scroller">
