@@ -183,13 +183,8 @@
         <p class="text-white pb-3">{{ trans('custom.withdrawal_history')}}</p>
     </div>
     <div class="col-12">
+        <div class="table-history">
         @include('withdrawal/withdrawlwalletajax')
-    </div>
-</div>
-<div class="row align-items-center mt-5">
-    <div class="col-12 text-right">
-        <div class="text-secondary">
-            @if(isset($withdrawWallet)){{$withdrawWallet->render('vendor.default_paginate') }}@endif
         </div>
     </div>
 </div>
