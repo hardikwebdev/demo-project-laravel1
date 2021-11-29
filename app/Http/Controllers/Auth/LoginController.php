@@ -43,6 +43,7 @@ class LoginController extends Controller
 
       public function login(Request $request)
     {
+       
         // die();
         // print_r($this->username());die();
         $this->validateLogin($request);
@@ -78,6 +79,10 @@ class LoginController extends Controller
         $this->validate($request, [
             $this->username() => 'required|string',
             'password' => 'required|string',
+            'g-recaptcha-response' => 'required|captcha',
+        ],[
+            'g-recaptcha-response.required' => trans('custom.robot'),
+            'g-recaptcha-response.captcha' => trans('custom.captcha_error'),
         ]);
     }
 

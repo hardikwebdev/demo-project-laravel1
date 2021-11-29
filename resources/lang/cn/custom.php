@@ -2057,5 +2057,6 @@ return [
     'product_owned_by_you' => 'This product already owned by you',
     'sold' => 'Sold',
     'product_owned_by_username' => 'This product already owned by #username',
-
+    'robot' => 'Please verify that you are not a robot.',
+    'captcha_error' => 'Captcha error! try again later or contact site administrator.',
 ];

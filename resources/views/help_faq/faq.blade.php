@@ -15,9 +15,9 @@
                     <div id="home" class="tab-pane active">
                         <div class="card">
                             <div class="card-body p-md-5">
-                                <div class="row">
+                                {{-- <div class="row"> --}}
                                     {!! trans('custom.helpone') !!}
-                                </div>
+                                {{-- </div> --}}
                             </div>
                         </div>
                     </div>
