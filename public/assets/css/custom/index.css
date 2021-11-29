@@ -7,7 +7,7 @@
 .slick-list{
     font-family: 'EUROSTIB' !important;
 }
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6{
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, a{
     font-family: 'EUROSTIB' !important;
 }
 .sidebar .nav.sub-menu .nav-item::before {
