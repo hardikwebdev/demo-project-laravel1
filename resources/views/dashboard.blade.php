@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="content-wrapper dashboard">
-    <div class="ml-2 mb-4 d-none-desk d-md-block">
+    <div class="mb-4 d-none-desk d-md-block dashtop">
         <h2 class="text-warning font-weight-bold">@yield('page_title','Dashboard')</h2>
         @if (Route::currentRouteName() == 'dashboard')
         <p class="text-white">{{ str_replace('#name', auth()->user()->name, __('custom.wc_text')) }}</p>
@@ -24,21 +24,21 @@
             </div>
             @endif
         </div>
-        <div class="col-12 col-xl-4 grid-margin stretch-card">
+        <div class="col-12 col-xl-4 stretch-card profileb">
             <div class="card tale-bg overflow-hidden bg-white pb-3">
                 <div class="bg-warning p-4 pb-5">
-                    <h4 class="text-white pb-2">{{ __('custom.my_profile') }}</h4>
+                    <h3 class="text-white pb-2">{{ __('custom.my_profile') }}</h3>
                 </div>
                 <div class="px-4 cus-my-profile-img">
                     <img src="{{ $user->profile_image }}" class="rounded-circle img-fluid" alt="">
                 </div>
                 <div class="row px-4 mt-4">
                     <div class="col-md-6">
-                        <h4 class="text-dark font-weight-bold mb-0">{{ $user->name }}</h4>
+                        <h3 class="text-dark font-weight-bold mb-0">{{ $user->name }}</h3>
                         <span class="text-secondary font-12">{{ trans('custom.full_name') }}</span>
                     </div>
                     <div class="col-md-6">
-                        <h4 class="text-black mb-0 font-weight-bold">${{ $total_stacking ?? '0'}}</h4>
+                        <h3 class="text-black mb-0 font-weight-bold">${{ $total_stacking ?? '0'}}</h3>
                         <span class="text-secondary font-10">{{trans('custom.total_staking')}}</span>
                     </div>
                         <!--  <div class="col-md-6">
@@ -86,10 +86,10 @@
                           </div>
                       </div>
                   </div>
-                  <div class="row mt-3">
+                  <div class="row mt-5">
                     <div class="col-12">
-                        <p class="text-white" style="font-weight: 700 !important;font-size: 1.187rem;">
-                        {{ __('custom.staking_network_pools') }}</p>
+                        <h3 class="text-white">
+                        {{ __('custom.staking_network_pools') }}</h3>
                     </div>
                     <div class="col-12">
                         <div class="stacking-slider">
@@ -104,7 +104,7 @@
                                     <h4 class="text-white">{{ $stakingpool->name }}</h4>
                                     {{-- <p class="text-white font-12">{!! \Illuminate\Support\Str::limit($stakingpool->description,50) !!}</p> --}}
                                     <hr />
-                                    <p class="text-white font-12">{{ __('custom.expected_anual_rate') }}</p>
+                                    <p class="text-white font-14">{{ __('custom.expected_anual_rate') }}</p>
                                     <h3 class="text-white font-weight-bold">{{ $stakingpool->stacking_display_start }}% -
                                         {{ $stakingpool->stacking_display_end }}%</h3>
                                         <img class="stake-tokens-logo my-3" src="{{ $stakingpool->image }}"
@@ -143,7 +143,7 @@
                                         <h4 class="text-white">{{ $stakingpool->name }}</h4>
                                         {{-- <p class="text-white font-12">{!! \Illuminate\Support\Str::limit($stakingpool->description,50) !!}</p> --}}
                                         <hr />
-                                        <p class="text-white font-12">{{ __('custom.expected_anual_rate') }}</p>
+                                        <p class="text-white font-14">{{ __('custom.expected_anual_rate') }}</p>
                                         <h3 class="text-white font-weight-bold">{{ $stakingpool->stacking_display_start }}% -
                                             {{ $stakingpool->stacking_display_end }}%</h3>
                                             <img class="stake-tokens-logo my-3" src="{{ $stakingpool->image }}"
@@ -181,7 +181,7 @@
                                             <h4 class="text-white">{{ $stakingpool->name }}</h4>
                                             {{-- <p class="font-12 text-white">{!! \Illuminate\Support\Str::limit($stakingpool->description,50) !!}</p> --}}
                                             <hr />
-                                            <p class="text-white font-12">{{ __('custom.expected_anual_rate') }}</p>
+                                            <p class="text-white font-14">{{ __('custom.expected_anual_rate') }}</p>
                                             <h3 class="text-white font-weight-bold">{{ $stakingpool->stacking_display_start }}% -
                                                 {{ $stakingpool->stacking_display_end }}%</h3>
                                                 <img class="stake-tokens-logo my-3" src="{{ $stakingpool->image }}"
@@ -219,7 +219,7 @@
                                                 <h4>{{ $stakingpool->name }}</h4>
                                                 {{-- <p class="font-12">{!! \Illuminate\Support\Str::limit($stakingpool->description,50) !!}</p> --}}
                                                 <hr />
-                                                <p class="text-blue font-12">{{ __('custom.expected_anual_rate') }}</p>
+                                                <p class="text-blue font-14">{{ __('custom.expected_anual_rate') }}</p>
                                                 <h3 class="text-blue font-weight-bold">{{ $stakingpool->stacking_display_start }}% -
                                                     {{ $stakingpool->stacking_display_end }}%</h3>
                                                     <img class="stake-tokens-logo my-3" src="{{ $stakingpool->image }}"
@@ -236,8 +236,8 @@
                                                     class="img-fluid ml-2 d-inline align-middle w-25" alt=""></a> --}}
 
                                                 <div class="d-flex justify-content-around mt-2 mb-4">
-                                                    <p class="text-white font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
-                                                    <button class="btn bg-blue text-white rounded-0 px-4">${{ number_format($stakingpool->investedAmount, 2) }}</button>
+                                                    <p class="text-white font-weight-bold font-14">{!! __('custom.invested_amount') !!}</p>
+                                                    <div class="btn bg-blue text-white rounded-0 px-4">${{ number_format($stakingpool->investedAmount, 2) }}</div>
                                                     </div>
                                                     <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2 card-4-btn" href="{{ route('stakepool', $stakingpool->id) }}">{{ __('custom.stake') }}  <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}"
                                                     class="img-fluid ml-2 d-inline align-middle" alt=""></a>
@@ -262,10 +262,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row mt-5">
+                                <div class="row mt-5 nftrow">
                                     <div class="col-12">
-                                        <p class="text-white mb-3" style="font-weight: 700 !important;font-size: 1.187rem;">
-                                        {{ __('custom.last_nfts') }}</p>
+                                        <h3 class="text-white mb-4">
+                                        {{ __('custom.last_nfts') }}</h3>
                                     </div>
                                     @foreach ($nft_cats as $category)
                                     <div class="col-12 col-md-6 col-lg-4">
@@ -306,34 +306,32 @@
             </div>
         </div> -->
     </div>
-    <div class="row mt-5">
+    <div class="row mt-5 earnb">
         <div class="col-md-6 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body p-4">
-                    <div class="row pt-2">
-                        <div class="col-12 col-md-6">
-                            <h4 class="text-grey">{{ __('custom.earning_breakdown') }}</h4>
-                        </div>
-                        <div class="col-12 col-md-6 text-md-right pr-xl-5">
-                            <span
-                            class="text-grey d-flex align-items-center justify-content-end font-12">{{ __('custom.apr_monthly') }}
-                            <h4 class="font-weight-bold text-pink mb-0 ml-4">
+                    <div class="row">
+                        <div class="col-12">
+                    <h4 class="text-grey">{{ __('custom.earning_breakdown') }}</h4></div></div>
+                    <div class="row pt-4">
+                        <div class="col-12 col-md-4">
+                           <h4 class="font-weight-bold text-pink mb-0">
                                 ${{ $user->userwallet ? number_format($user->userwallet->roi, 2) : '' }}</h4>
-                            </span>
-                            <span
-                            class="text-grey d-flex align-items-center justify-content-end font-12 mt-1">{{ __('custom.direct_refferal') }}
-                            <h4 class="font-weight-bold text-violate mb-0 ml-4">
+                            <p>{{ __('custom.apr_monthly') }}</p>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <h4 class="font-weight-bold text-violate mb-0">
                                 ${{ $user->userwallet ? number_format($user->userwallet->referral_commission, 2) : '' }}
-                            </h4>
-                        </span>
-                        <span
-                        class="text-grey d-flex align-items-center justify-content-end font-12 mt-1">{{ __('custom.balancing_commission') }}
-                        <h4 class="font-weight-bold text-success mb-0 ml-4">
+                            </h4><p>{{ __('custom.direct_refferal') }}</p>
+                        </div>
+                        <div class="col-12 col-md-4">
+                        <h4 class="font-weight-bold text-success mb-0">
                             ${{ $user->userwallet ? number_format($user->userwallet->pairing_commission, 2) : '' }}
                         </h4>
-                    </span>
-                </div>
-                <div class="col-12">
+                                <p>{{ __('custom.balancing_commission') }}</p>
+                    
+                        </div>
+                <div class="col-12 mt-4">
                     <div class="" id="hightlinechart" class="img-fluid rounded-right w-100"
                     alt="" style="height: 336px;"></div>
                     <!-- <img src="{{ asset('assets/images/assets/Dashboard/Group1052.png') }}" class="img-fluid h-350" alt="logo"/> -->
@@ -395,47 +393,47 @@
     </div>
 </div>
 </div>
-<div class="row mb-5">
+<div class="row mb-5 wallets-dash">
     <div class="col-12">
         <div class="row">
             <div class="col-12 col-md-6 col-xl-3">
                 <div class="card bg-crypto-wallet">
                     <div class="card-body text-white">
-                        <p class="mb-4">{{ __('custom.crypto_wallet') }} </p>
-                        <p class="fs-30 mb-2">
-                            ${{ $user->userwallet ? number_format($user->userwallet->crypto_wallet, 2) : '' }}</p>
-                            <p class="font-10">{{ __('custom.balance') }}</p>
+                        <h4 class="mb-4">{{ __('custom.crypto_wallet') }} </h4>
+                        <h3 class="fs-30 mb-2">
+                            ${{ $user->userwallet ? number_format($user->userwallet->crypto_wallet, 2) : '' }}</h3>
+                            <h5 class="font-12">{{ __('custom.balance') }}</h5>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-md-6 col-xl-3 mt-4 mt-md-0">
                     <div class="card bg-yield-wallet">
                         <div class="card-body text-white">
-                            <p class="mb-4">{{ __('custom.yield_wallet') }} </p>
-                            <p class="fs-30 mb-2">
-                                ${{ $user->userwallet ? number_format($user->userwallet->yield_wallet, 2) : '' }}</p>
-                                <p class="font-10">{{ __('custom.balance') }}</p>
+                            <h4 class="mb-4">{{ __('custom.yield_wallet') }} </h4>
+                            <h3 class="fs-30 mb-2">
+                                ${{ $user->userwallet ? number_format($user->userwallet->yield_wallet, 2) : '' }}</h3>
+                                <h5 class="font-12">{{ __('custom.balance') }}</h5>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-xl-3 mt-4 mt-xl-0">
                         <div class="card bg-commission-wallet">
                             <div class="card-body text-white">
-                                <p class="mb-4">{{ __('custom.commission_wallet') }} </p>
-                                <p class="fs-30 mb-2">
+                                <h4 class="mb-4">{{ __('custom.commission_wallet') }} </h4>
+                                <h3 class="fs-30 mb-2">
                                     ${{ $user->userwallet ? number_format($user->userwallet->commission_wallet, 2) : '' }}
-                                </p>
-                                <p class="font-10">{{ __('custom.balance') }}</p>
+                                </h3>
+                                <h5 class="font-12">{{ __('custom.balance') }}</h5>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-xl-3 mt-4 mt-xl-0">
                         <div class="card bg-NFT-wallet">
                             <div class="card-body text-white">
-                                <p class="mb-4">{{ __('custom.nft_wallet') }} </p>
-                                <p class="fs-30 mb-2">
-                                    ${{ $user->userwallet ? number_format($user->userwallet->nft_wallet, 2) : '' }}</p>
-                                    <p class="font-10">{{ __('custom.balance') }}</p>
+                                <h4 class="mb-4">{{ __('custom.nft_wallet') }} </h4>
+                                <h3 class="fs-30 mb-2">
+                                    ${{ $user->userwallet ? number_format($user->userwallet->nft_wallet, 2) : '' }}</h3>
+                                    <h5 class="font-12">{{ __('custom.balance') }}</h5>
                                 </div>
                             </div>
                         </div>
@@ -449,7 +447,7 @@
                         <div class="card-body">
                             <div class="row p-3">
                                 <div class="col-12 pb-4">
-                                    <h4>{{ __('custom.news-events') }}</h4>
+                                    <h3>{{ __('custom.news-events') }}</h3>
                                 </div>
                                 @if ($news != null)
                                 @foreach ($news as $key => $value)
@@ -462,12 +460,11 @@
                               </a>
 
                               <div class="pt-3">
-                                  <h5>{{ __('custom.news') }}</h5>
                                   <h3><a class="text-decoration-none text-dark"
                                       href="{{ route('news-and-events.show', $value->id) }}">{!! \Illuminate\Support\Str::limit($value->title, 50) !!}</a>
                                   </h3>
-                                  <p class="font-12"><a class="text-decoration-none text-dark"
-                                      href="{{ route('news-and-events.show', $value->id) }}">{!! \Illuminate\Support\Str::limit($value->details, 100) !!}</a></p>
+                                  <p class="font-14"><a class="text-decoration-none text-dark"
+                                      href="{{ route('news-and-events.show', $value->id) }}">{!! \Illuminate\Support\Str::limit($value->details, 200) !!}</a></p>
                                   </div>
                               </div>
                               @else
@@ -475,47 +472,17 @@
                               <div class="col-12 col-xl-5 mt-4 mt-xl-0">
                                 @endif
                                 <div class="d-flex align-items-center {{ $key > 1 ? 'mt-3' : '' }}">
-                                  <div>
+                                  <div class="newsimg col-xl-6 p-0">
                                       <a href="{{ route('news-and-events.show', $value->id) }}"><img src="{{ $value->image }}" class="img-fluid" alt=""></a>
                                   </div>
                                   <div class="ml-3 border-bottom pb-3">
-                                      <p class="font-12 mb-1"><a class="text-dark text-decoration-none"
+                                      <h5 class="mb-2"><a class="text-dark text-decoration-none"
                                           href="{{ route('news-and-events.show', $value->id) }}">{!! \Illuminate\Support\Str::limit($value->title, 50) !!}</a>
-                                      </p>
-                                      <h5 class="font-weight-bold"><a class="text-dark text-decoration-none"
-                                          href="{{ route('news-and-events.show', $value->id) }}">{!! \Illuminate\Support\Str::limit($value->details, 50) !!}</a></h5>
+                                      </h5>
+                                      <p class="font-weight-bold"><a class="text-dark text-decoration-none"
+                                          href="{{ route('news-and-events.show', $value->id) }}">{!! \Illuminate\Support\Str::limit($value->details, 50) !!}</a></p>
                                       </div>
                                   </div>
-                                        <!-- <div class="d-flex align-items-center mt-3">
-                      <div>
-                        <img src="{{ asset('assets/images/assets/Dashboard/Group898.png') }}" class="img-fluid" alt="">
-                      </div>
-                      <div class="ml-3 border-bottom pb-3">
-                        <p class="font-12 mb-1">NEWS</p>
-                        <h5 class="font-weight-bold">These are the major companies that accept
-                        crypto as payment</h5>
-                      </div>
-                    </div>
-                    <div class="d-flex align-items-center mt-3">
-                      <div>
-                        <img src="{{ asset('assets/images/assets/Dashboard/Group900.png') }}" class="img-fluid" alt="">
-                      </div>
-                      <div class="ml-3 border-bottom pb-3">
-                        <p class="font-12 mb-1">NEWS</p>
-                        <h5 class="font-weight-bold">These are the major companies that accept
-                        crypto as payment</h5>
-                      </div>
-                    </div>
-                    <div class="d-flex align-items-center mt-3">
-                      <div>
-                        <img src="{{ asset('assets/images/assets/Dashboard/Group902.png') }}" class="img-fluid" alt="">
-                      </div>
-                      <div class="ml-3 border-bottom pb-3">
-                        <p class="font-12 mb-1">NEWS</p>
-                        <h5 class="font-weight-bold">These are the major companies that accept
-                        crypto as payment</h5>
-                      </div>
-                  </div> -->
                   @if ($key == count($news) - 1)
               </div>
               @endif

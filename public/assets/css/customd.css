@@ -1,8 +1,51 @@
 .navigation-cus select {
     background-color: transparent;
 }
+.dashboard-news h3 {
+    margin-bottom: 5px;
+}
 p.dix.pt-3.text-white {
     font-size: smaller;
+}
+.dashtop p.text-white {
+    margin-top: 5px;
+}
+#new-tickets .modal-content .form-group {
+    margin-bottom: 5px;
+}
+.news-main img.card-img-top {
+    border-radius: 5px;
+}
+.tab-pane li, .card-body li {
+    line-height: 1.5;
+    text-align: left;
+    margin-left: 15px;
+}
+.login-box a.btn.bg-white.text-warning {
+    border: 1px solid;
+    border-radius: 5px !important;
+}
+a.cpybtn {
+    margin: 0px 10px;
+}
+.table-history td {
+    text-align: left;
+}
+form#cryptowalletform {
+    margin-top: 25px;
+}
+.staking-main p.ear {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.stacking-slider p.text-white.font-weight-bold.font-12 {
+    font-size: 18px;
+}
+.dashboard-slider .slick-list.draggable {
+    border-radius: 15px;
+}
+.wallets-dash .row .card {
+    background-size: 105% !important;
 }
 div#myDiagramDiv {
     background-image: url(https://app.defixfinance.com/public/assets/images/assets/nodebg.jpg) !important;
@@ -115,6 +158,13 @@ a.navbar-brand.brand-logo.p-4 {
 h1,h2,h3,h4,h5,h6, a {
     font-family:'EUROSTIB' !important
 }
+p, span {
+    font-family:'Dinpro'
+}
+
+.staking-main a.btn, .stacking-slider a.btn {
+    border-radius: 5px !important;
+}
 .login-box input, .login-box input::placeholder, .login-box select, .login-box select option {
     background-color: transparent !important;
     color: #fff !important;
@@ -174,6 +224,28 @@ span.invalid-feedback {
     .col-12.text-center.login-logo {
         margin-top:40px
     }
+    .content-wrapper > div.ml-2 {
+    margin-left: 0px !important;
+    }
+.content-wrapper >div > h2 {
+    text-align: center;
+}
+    .dashboard .profileb {
+    margin-bottom: 20px;
+}
+.dashboard .dashtop {
+    text-align: center;
+}
+    .nftrow .col-12.col-md-6.col-lg-4 {
+    margin-bottom: 20px;
+}
+    .dashboard h3.text-white {
+    text-align: center;
+    margin-left: 0px !important;
+}
+    .navbar {
+    background-color: #16181d;
+    }
     .wallet-dashboard .col-12 .card {
         background-size: 130%;
     }
@@ -205,6 +277,46 @@ span.invalid-feedback {
 .registerbox a.btn {
     font-size: 15px;
     border-radius:5px !important
+}
+.nodes .col-12.col-xl-3.stretch-card.pr-0 {
+    padding-right: 15px !important;
+}
+form#staking_pool button {
+background: linear-gradient(
+90deg, rgba(195,92,216,1) 0%, rgba(63,31,183,1) 100%);
+    color: #fff !important;
+    font-size: 15px;
+    font-weight: 600;
+}
+text.highcharts-credits {
+    display: none;
+}
+.graphr .rounded-right {
+    border-radius: 10px;
+}
+.col-12.col-xl-9.pl-0.graphr {
+    padding-left: 15px !important;
+}
+.nodes .text-white.p-5.bg-warning.rounded-left.w-100 {
+    border-radius: 10px !important;
+    margin-bottom: 15px;
+}
+.indv {
+    padding-bottom: 10px;
+}
+.staking-pool-indi button.btn {
+    font-size: 23px;
+    font-weight: 500;
+}
+form#staking_pool label.error {
+    font-size: 14px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.staf input, .staf select, .staf input:focus, .staf select:focus {
+    color: #fff;
+    background-color: rgba(0,0,0,0.6) !important;
+    border: 0px !important;
 }
 .registerbox label, .wizard > .content > .body label.error {
     margin-top: 5px;

@@ -2,7 +2,7 @@
 @section('title', __('custom.news-events'))
 @section('page_title', __('custom.news-events'))
 @section('content')
-    <div class="content-wrapper">
+    <div class="content-wrapper news-main">
         <div class="ml-2 mb-4 d-none-desk d-md-block">
       <h2 class="text-warning font-weight-bold">@yield('page_title','Dashboard')</h2>
       @if(Route::currentRouteName() == 'dashboard')
@@ -11,7 +11,7 @@
     </div>
         <div class="row justify-content-center mt-3">
             <div class="col-12">
-                <div class="tab-content border-0">
+                <div class="mt-2 border-0">
                     <div id="home" class="tab-pane active">
                         <div class="card">
                             <div class="card-body p-md-5">

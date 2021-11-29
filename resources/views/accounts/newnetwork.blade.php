@@ -18,46 +18,41 @@
       <div class="chart" id="collapsable-example" style="background-color:#ffffff;"></div>
     </div>
     <div class="col-12 col-xl-4 mt-4 mt-xl-0">
-      <div class="table-responsive">
+      <div class="table-responsive nodetab">
         <table class="table table-dark trading-table text-center">
           <thead class="table-gradient">
             <tr>
-              <th class="text-uppercase" width="50%">{{__('custom.left')}}</th>
-              <th class="text-uppercase" width="50%">{{__('custom.right')}}</th>
+              <th class="text-uppercase text-center" width="50%"><h4>{{__('custom.left')}}</h4></th>
+                <th class="text-uppercase text-center" width="50%"><h4>{{__('custom.right')}}</h4></th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="text-left text-uppercase">{{__('custom.accumulate_grp_sale')}}</td>
-              <td></td>
+              <td colspan="2" class="text-center text-uppercase">{{__('custom.accumulate_grp_sale')}}</td>
             </tr>
             <tr>
               <td> ${{$accumulateLeftSale}}</td>
               <td> ${{$accumulateRightSale}}</td>
             </tr>
             <tr>
-              <td class="text-left text-uppercase">{{__('custom.today_grp_sale')}}</td>
-              <td></td>
+              <td colspan="2" class="text-center text-uppercase">{{__('custom.today_grp_sale')}}</td>
             </tr>
             <tr>
               <td> ${{$todaysLeftSale}}</td>
               <td> ${{$todaysRightSale}}</td>
             </tr>
             <tr>
-              <td class="text-left text-uppercase">{{ __('custom.carry_forward') }}</td>
-              <td></td>
+              <td colspan="2" class="text-center text-uppercase">{{ __('custom.carry_forward') }}</td>        
             </tr>
             <tr>
               <td> ${{$todaysLeftCarryFw}}</td>
               <td> ${{$todaysRightCarryFw}}</td>
             </tr>
             <tr>
-              <td class="text-left text-uppercase">{{ __('custom.daily_max_commission') }}</td>
-              <td></td>
+              <td colspan="2" class="text-center text-uppercase">{{ __('custom.daily_max_commission') }}</td>
             </tr>
             <tr>
-              <td> ${{$dailyMaxCommission}}</td>
-              <td></td>
+              <td colspan="2" class="text-center"> ${{$dailyMaxCommission}}</td>
             </tr>
           </tbody>
         </table>
@@ -65,24 +60,24 @@
     </div>  
   </div>
   <div class="row mt-5">
-    <div class="col-12 col-xl-3 pr-0">
-      <div class="bg-warning text-white p-5 rounded-left">
+    <div class="col-12 col-xl-3 stretch-card pr-0">
+      <div class="text-white p-5 bg-warning rounded-left w-100">
         <div class="ml-xl-4">
-          <h4 class="font-weight-bold">${{$accumulateLeftSale}}</h4>
+          <h3 class="font-weight-bold">${{$accumulateLeftSale}}</h4>
           <span> {{ __('custom.sale_left') }}</span>
         </div>
         <div class="mt-5 ml-xl-4">
-          <h4 class="font-weight-bold">${{$accumulateRightSale}}</h4>
+          <h3 class="font-weight-bold">${{$accumulateRightSale}}</h4>
           <span> {{ __('custom.sale_right') }}</span>
         </div>
         <div class="mt-5 ml-xl-4">
-          <h4 class="font-weight-bold">${{$totalCommission}}</h4>
+          <h3 class="font-weight-bold">${{$totalCommission}}</h4>
           <span> {{ __('custom.commission') }}</span>
         </div>
       </div>
     </div>
-    <div class="col-12 col-xl-9 pl-0">
-      <div class="" id="hightlinechart" class="img-fluid rounded-right w-100" alt="" style="height: 336px;"></div>
+    <div class="col-12 col-xl-9 pl-0 graphr">
+      <div class="p-3 rounded-right" id="hightlinechart" class="img-fluid rounded-right w-100" alt="" style="height: 336px;background-color:#fff"></div>
 <!--       <img src="{{ asset('assets/images/assets/Node_Management/Group1054.png') }}" class="img-fluid rounded-right w-100" alt="" style="height: 336px;">
 -->    </div>  
 </div>

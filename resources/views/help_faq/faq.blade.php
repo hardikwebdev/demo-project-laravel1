@@ -11,7 +11,7 @@
     </div>
         <div class="row justify-content-center">
             <div class="col-12 mt-2">
-                <div class="tab-content border-0">
+                <div class="mt-2 border-0">
                     <div id="home" class="tab-pane active">
                         <div class="card">
                             <div class="card-body p-md-5">

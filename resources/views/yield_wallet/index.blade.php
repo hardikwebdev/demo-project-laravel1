@@ -70,7 +70,7 @@
           </div>
           <div class="row mt-5">
             <div class="col-12">
-              <p class="text-white pb-3">{{ trans('custom.yield_wallet_history')}}</p>
+              <h4 class="text-white pb-3">{{ trans('custom.yield_wallet_history')}}</h4>
             </div>
             <div class="col-12">
               <div class="table-responsive">

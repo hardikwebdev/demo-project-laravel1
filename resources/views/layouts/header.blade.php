@@ -6,7 +6,7 @@
     <a class="navbar-brand brand-logo-mini" href="{{route('dashboard')}}"><img src="https://defixfinance.com/wp-content/uploads/2021/09/defix-favicon.png" alt="logo"/></a>
   </div>
   <div class="navbar-menu-wrapper d-flex align-items-end justify-content-end justify-content-md-between">
-    <div class="ml-4 d-none d-md-block">
+    <div class="d-none d-md-block">
       <h2 class="text-warning font-weight-bold">@yield('page_title','Dashboard')</h2>
       @if(Route::currentRouteName() == 'dashboard')
       <p class="text-white">{{str_replace('#name',auth()->user()->name,__('custom.wc_text'))}}</p>
@@ -14,7 +14,7 @@
     </div>
     <ul class="navbar-nav navbar-nav-right">
       <li class="nav-item nav-profile dropdown align-self-md-end">
-        <div class="ml-2 mx-5">
+        <div class="ml-4 mr-4">
           <div class="">
             <div class="navigation-cus">
                <div class="cus-dropdown text-right mb-3 select-lang-de mt-3">
@@ -30,7 +30,6 @@
         </div>
         </div>
         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-          <img src="{{auth()->user()->profile_image}}" alt="">
         </a>
         <div class="ml-2">
           <h4 class="text-warning font-weight-bold mb-0">{{auth()->user()->name}}</h4>

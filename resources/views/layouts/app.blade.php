@@ -11,8 +11,8 @@
   <link rel="stylesheet" href="{{ asset('assets/css/custom/themify-icons.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/vertical-layout-light/style.css') }}">
   <link rel="stylesheet" href="{{ asset('backend/css/dropify.min.css')}}">
-<!--   <link rel="stylesheet" href="{{ asset('assets/css/customd.css').'?v='.time() }}">
- -->  <link rel="stylesheet" href="{{ asset('assets/css/custom/index.css').'?v='.time() }}">
+<link rel="stylesheet" href="{{ asset('assets/css/customd.css').'?v='.time() }}">
+<link rel="stylesheet" href="{{ asset('assets/css/custom/index.css').'?v='.time() }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/slick.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/slick-theme.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/jquery.steps.css') }}">
@@ -29,6 +29,8 @@
 </head>
 <style type="text/css">
 @font-face {font-family: "EUROSTIB";font-display: auto;font-fallback: ;font-weight: 100;src: url("{{ asset('/assets/fonts/EUROSTIB.ttf') }}" format('TrueType');} </style>
+    <style type="text/css">
+@font-face {font-family: "Dinpro";font-display: auto;font-fallback: ;font-weight: 100;src: url("{{ asset('/assets/fonts/DINPro-Regular.otf') }}" format('TrueType');} </style>
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
