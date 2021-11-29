@@ -64,7 +64,7 @@ class HomeController extends Controller
                                                 $pool->investedAmount = StackingPool::where('user_id',$user->id)->where('stacking_pool_package_id',$pool->id)->sum('amount');
                                                 return $pool;
                                             });
-        $nft_cats = NftCategory::where('is_deleted','0')->limit(3)->orderBy('order_id', 'ASC')->orderBy('id','DESC')->get();
+        $nft_cats = NftCategory::where('is_deleted','0')->orderBy('order_id', 'ASC')->orderBy('id','DESC')->get();
         $locale = app()->getLocale();
 
 

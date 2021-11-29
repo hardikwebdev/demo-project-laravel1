@@ -97,8 +97,7 @@
                     @foreach ($staking_pool as $stakingpool)
                         @if ($i == 1)
                             <div>
-                                <div
-                                    class="bg-card-{{ $i }} text-center p-4 pb-3 rounded mx-2 position-relative">
+                                <div class="bg-card-{{ $i }} text-center p-4 pb-3 rounded mx-2 position-relative">
                                     <img class="stake-logo" src="{{ $stakingpool->symbol }}"
                                         class="img-fluid card-img-top" alt="">
 
@@ -139,8 +138,8 @@
                                     @endif
                                 </div>
                             </div>
-                            <div>
                             @elseif($i == 2)
+                            <div>
                                 <div class="bg-card-2 text-center p-4 pb-3 rounded mx-2 position-relative">
                                     <img class="stake-logo" src="{{ $stakingpool->symbol }}"
                                         class="img-fluid card-img-top" alt="">
@@ -180,8 +179,8 @@
                                     @endif
                                 </div>
                             </div>
-                            <div>
                             @elseif($i == 3)
+                            <div>
                                 <div class="bg-card-3 text-center p-4 pb-3 rounded mx-2 position-relative">
                                     <img class="stake-logo" src="{{ $stakingpool->symbol }}"
                                         class="img-fluid card-img-top">
@@ -280,14 +279,31 @@
                 <p class="text-white mb-3" style="font-weight: 700 !important;font-size: 1.187rem;">
                     {{ __('custom.last_nfts') }}</p>
             </div>
-            @foreach ($nft_cats as $category)
+            {{-- @foreach ($nft_cats as $category)
                 <div class="col-12 col-md-6 col-lg-4">
                     <a href="{{ route('nft_marketplace') }}#productsection{{ $category->id }}" class="bg-bullkong rounded d-flex align-items-end px-4 py-3 text-white text-decoration-none"
                         style="background-image:url({{ $category->image }})">
                         <h3>{{ $category->name }}</h3>
                     </a>
                 </div>
-            @endforeach
+            @endforeach --}}
+            <div class="col-12">
+                <div class="stacking-slider">
+                    @foreach ($nft_cats as $category)
+                    <div>
+                        <div class="mx-2">
+                            <a href="{{ route('nft_marketplace') }}#productsection{{ $category->id }}"
+                                class="bg-bullkong rounded d-flex align-items-end px-4 py-3 text-white text-decoration-none"
+                                style="background-image:url({{ $category->image }})">
+                                <h3>{{ $category->name }}</h3>
+                            </a>
+                        </div>
+                    </div>
+                    @endforeach
+                <div>
+            </div>
+
+
             <!--   <div class="col-12 col-md-6 col-lg-4">
             <div class="bg-bullkong rounded d-flex align-items-end px-4 py-3 text-white" style="background-image:url(https://app.defixfinance.com/uploads/nft-category/1636783527_nft_category.jpg)">
               <h3>The Legends</h3>
