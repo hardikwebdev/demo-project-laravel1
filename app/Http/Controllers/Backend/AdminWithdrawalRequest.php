@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Models\Country;
 use App\Models\UserWallet;
 use Illuminate\Http\Request;
-use App\Models\NftWithdrawalRequest;
+use App\Models\WithdrawalRequest;
 use App\Http\Controllers\Controller;
 
 
@@ -30,7 +30,7 @@ class AdminWithdrawalRequest extends Controller
     public function index(Request $request)
     {
         //
-        $withdrawal_requests  = NftWithdrawalRequest::with(['user_detail'=>function($q){
+        $withdrawal_requests  = WithdrawalRequest::with(['user_detail'=>function($q){
     		$q->with(['userbank']);
     	}])->whereHas('user_detail'); 
 
@@ -63,10 +63,11 @@ class AdminWithdrawalRequest extends Controller
             });
         }
         $countries = Country::pluck('country_name','id');
+        $total_amount = $withdrawal_requests->whereNotIn('status',['3','4'])->sum('withdrawal_amount');
 
     	$withdrawal_requests= $withdrawal_requests->whereNotIn('status',['3','4'])->orderBy('action_date','desc')->paginate($this->limit)->appends($request->all());
     	$data = $request->all();
-    	return view('backend.nft_withdrawal_request.index',compact('withdrawal_requests','data','countries'));
+    	return view('backend.withdrawal_request.index',compact('withdrawal_requests','data','countries','total_amount'));
     }
 
     /**
@@ -123,7 +124,7 @@ class AdminWithdrawalRequest extends Controller
     {
         try {
             if($id!='bulk-update'){
-        		$withdrawal_request  = NftWithdrawalRequest::where('id',$request->request_id)->with(['user_detail'=>function($q){
+        		$withdrawal_request  = WithdrawalRequest::where('id',$request->request_id)->with(['user_detail'=>function($q){
     	    		$q->with(['userbank']);
     	    	}])->first();
     	    	if($withdrawal_request){
@@ -136,29 +137,29 @@ class AdminWithdrawalRequest extends Controller
     				$withdrawal_request->status  = $request->status;
     				$withdrawal_request->remark  = $request->remark;
     				$withdrawal_request->save();
-    	    		return redirect()->route('nft_withdrawal_request.index')->with('success','Withdrawal Request update successfully.');
+    	    		return redirect()->route('withdrawal_request.index')->with('success','Withdrawal Request update successfully.');
     	    	}else{
     	    		return redirect()->back()->with('error','Withdrawal Request not found.');
     	    	}
             }else{
                 $ids = array_unique($request->withdraw_request_id);
-                NftWithdrawalRequest::whereIn('id',$ids)->update(['status'=>$request->status]);
-                $withdrawal_request  = NftWithdrawalRequest::whereIn('id',$ids)->get();
+                WithdrawalRequest::whereIn('id',$ids)->update(['status'=>$request->status]);
+                $withdrawal_request  = WithdrawalRequest::whereIn('id',$ids)->get();
                 if($request->status == '1'){
-                    return redirect()->route('nft_withdrawal_request.index')->with('success','Selected transactions are approved.');
+                    return redirect()->route('withdrawal_request.index')->with('success','Selected transactions are approved.');
                 }else{
 
                     foreach ($ids as $key => $value) {
                         if($value == null){
                             continue;
                         }
-                       $withdrawal_request_value  = NftWithdrawalRequest::where('id',$value)->first();
+                       $withdrawal_request_value  = WithdrawalRequest::where('id',$value)->first();
                        // dd($value);
                        $user_wallet = UserWallet::where('user_id',$withdrawal_request_value->user_id)->increment('withdrawal_balance',$withdrawal_request_value->withdrawal_amount);
                     }                    
-                    return redirect()->route('nft_withdrawal_request.index')->with('success','Selected transactions are rejected.');
+                    return redirect()->route('withdrawal_request.index')->with('success','Selected transactions are rejected.');
                 }
-                return redirect()->route('nft_withdrawal_request.index')->with('error','Something went wrong......');
+                return redirect()->route('withdrawal_request.index')->with('error','Something went wrong......');
             }
     	} catch (Exception $e) {
 	    		return redirect()->back()->with('error',$e->getMessage());    		
@@ -181,8 +182,8 @@ class AdminWithdrawalRequest extends Controller
     {
         if ($request->wrid && $request->wrid != '') {
             $type = $request->type?$request->type:0;
-            $proof= NftWithdrawalRequest::find($request->wrid);
-            $view = view('backend.nft_withdrawal_request.partials.bank_proof',compact('proof','type'))->render();
+            $proof= WithdrawalRequest::find($request->wrid);
+            $view = view('backend.withdrawal_request.partials.bank_proof',compact('proof','type'))->render();
             return response()->json(['status'=>'success','html'=>$view]);  
         } else {
             return response()->json(['status' => 'fail']);
@@ -194,7 +195,7 @@ class AdminWithdrawalRequest extends Controller
     {
         
         try {
-            $withdrawal_requests  = NftWithdrawalRequest::with(['user_detail'=>function($q){
+            $withdrawal_requests  = WithdrawalRequest::with(['user_detail'=>function($q){
                 $q->with(['userbank']);
             }])->whereHas('user_detail'); 
     
