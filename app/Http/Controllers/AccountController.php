@@ -34,11 +34,15 @@ class AccountController extends Controller
     }
 
     /* add member view */
-    public function addmember(){
+    public function addmember(Request $request){
         $userName = auth()->user()->username;
         $country  = Country::pluck('country_name','id')->toArray();
+        $placement = '';
+        if($request->get('placement')){
+            $placement = $request->get('placement');
+        }
 
-        return view('accounts.register',compact('userName','country'));
+        return view('accounts.register',compact('userName','country','placement'));
     }
 
     /* validate user */

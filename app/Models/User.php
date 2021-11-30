@@ -158,11 +158,22 @@ class User extends Authenticatable
         
         return $this->profile_image;
     }
+
+    // public function getLinkAttribute(){
+    //     // return $this->children->count();
+    //       if($this->children->count() < 2){
+    //         return ['href' => route('node_register').'?placement='.$this->username];     
+    //     }
+    //     return '';
+    // }
     public function getCollapsedAttribute(){
         return true;
     }
 
     public function getTextAttribute(){
+        //  if($this->children->count() < 2){
+        //     return ['name' => '+ '.$this->username];     
+        // }
         return ['name' => $this->username];
     }
 

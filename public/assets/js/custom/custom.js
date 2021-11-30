@@ -9,35 +9,35 @@ $(document).ready(function () {
   });
 
   $('.stacking-slider').slick({
-    infinite: false,
-    slidesToShow: 4,
+    infinite: true,
+    slidesToShow: 2,
     slidesToScroll: 1,
     prevArrow: '<button class="slide-arrow prev-arrow"><img src="' + arrow + '" alt=""></button>',
     nextArrow: '<button class="slide-arrow next-arrow"><img src="' + arrow + '" alt=""></button>',
-    // responsive: [
-    //   {
-    //     breakpoint: 576,
-    //     settings: {
-    //       slidesToShow: 1,
-    //       slidesToScroll: 1
-    //     }
-    //   },
-    //   {
-    //     breakpoint: 992,
-    //     settings: {
-    //       slidesToShow: 2,
-    //       slidesToScroll: 1
-    //     }
-    //   },
-    //   {
-    //     breakpoint: 1200,
-    //     settings: {
-    //       slidesToShow: 3,
-    //       slidesToScroll: 1
-    //     }
-    //   },
+    responsive: [
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1
+        }
+      },
 
-    // ]
+    ]
   });
 
   $('.collection-slider').slick({

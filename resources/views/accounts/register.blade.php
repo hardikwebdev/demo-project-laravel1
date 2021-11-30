@@ -20,7 +20,6 @@
                   <h2 class="font-weight-bold">Register Account</h2>
                   <h5 class="text-light-pink">Enter the following to create your account</h5>
                 </div> -->
-
                     <div class="col-12">
                         <form method="post" action="{{ route('createmember') }}" class="customer-register py-5"
                             id="form-wizards-register">
@@ -77,17 +76,17 @@
                                             <div class="col-12 col-lg-7 pr-lg-0">
                                                 <input id="placement_username" type="text"
                                                     class="form-control grey-ph h-auto py-4 rounded-0 @error('placement_username') is-invalid @enderror"
-                                                    id="placement_username" name="placement_username" value=""
+                                                    id="placement_username" name="placement_username" value="{{ $placement != '' ? $placement : '' }}"
                                                     autocomplete="placement_username" autofocus
-                                                    placeholder="@lang('custom.placement_name_placeholder')">
+                                                    placeholder="@lang('custom.placement_name_placeholder')" {{ $placement != '' ? 'readonly' : '' }}>
                                                 <input id="placement_check" type="hidden"
                                                     class="form-control grey-ph h-auto py-4 rounded-0 @error('placement_check') is-invalid @enderror"
-                                                    name="placement_check" value="" autocomplete="placement_check" autofocus
+                                                    name="placement_check" value="{{ $placement != '' ? $placement : '' }}" autocomplete="placement_check" autofocus
                                                     placeholder="{{ trans('custom.placement_username') }}">
                                                 <label
                                                     class="cus-error-placement">{{ trans('custom.placement_user_not_found_not__valid_placement') }}</label>
                                                 <label class="cus-success-placement sucess"
-                                                    style="display:none;">{{ trans('custom.placement_username_verified') }}</label>
+                                                    style="display:{{ $placement != '' ? 'block' : 'none' }}">{{ trans('custom.placement_username_verified') }}</label>
                                                 @error('placement_username')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>
