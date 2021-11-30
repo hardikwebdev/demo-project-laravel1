@@ -132,9 +132,8 @@
                                 </tr>
                                 @endif
                                 <tr>
-                                    <td colspan="8" align="right">{!! $products->render() !!}</td>
+                                    <td colspan="9" align="right">{!! $products->render('vendor.default_paginate') !!}</td>
                                 </tr>
-
                             </tbody>
                         </table>
                     </div>

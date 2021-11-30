@@ -1887,7 +1887,7 @@ return [
     <li>I agree that the company has all rights to change the terms and conditions to reflect the landscape and performance of the market at any times.</li></ul>',
     'agreement_title' => 'Deposit Agreement #title',
     'accept_terms' => 'I have read and agree to the terms of service.',
-    'last_month' => 'Last Month',
+    'last_month' => 'LAST MONTH',
     'nft_marketplace' => 'NFT Marketplace',
     'nft_collection' => 'NFT Collection',
     'collection' => 'COLLECTION',

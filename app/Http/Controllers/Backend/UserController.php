@@ -558,7 +558,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        // dd($id);
+     
         //
         try {
             $user = User::find($id);
@@ -569,7 +569,7 @@ class UserController extends Controller
             }
 
             // if ($user->package_id == 0 && $user->userwallet->fund_wallet <= 0 && $user->proof_status == 0 ) {
-            if ($user->userwallet->crypto_wallet <= 0) {
+            if ($user->userwallet->crypto_wallet <= 0 && $user->userwallet->yield_wallet <= 0 && $user->userwallet->commission_wallet <= 0  && $user->userwallet->nft_wallet <= 0 && $user->userwallet->withdrawal_balance <= 0 && $user->userwallet->pairing_commission <= 0 && $user->userwallet->referral_commission <= 0) {
 
                 $support_id = SupportTicket::where('user_id', $id)->pluck('id');
                 foreach($support_id as $value){

@@ -50,8 +50,7 @@ class NFTProductController extends Controller
         }
 
         $data = $request->all();
-       
-        $products = $products->where('is_deleted','0')->orderBy('id','desc')->paginate($this->limit);
+        $products = $products->where('is_deleted','0')->orderBy('id','desc')->paginate($this->limit)->appends($request->all());
      
         return view('backend.nft-product.index', compact('products','data'));
     }
