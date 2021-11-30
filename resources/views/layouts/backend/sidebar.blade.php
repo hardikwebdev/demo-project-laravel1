@@ -56,7 +56,7 @@
                     <!-- </li> -->
                 </ul>
             </li>        
-            <li class=" @if(\Request::is('admin/admin_fund_wallet') || \Request::is('admin/withdrawal_request') || \Request::is('admin/withdrawal_request/*') || \Request::is('admin/mt4-wallet-withdrawl-requests') || \Request::route()->getName() =='admin_pips_rebate.index' || \Request::route()->getName()=='admin_pips_rebate.import' || strstr(\Request::route()->getName(),'profit_sharing')) {{'active'}} @endif">
+            <li class=" @if(\Request::is('admin/admin_fund_wallet') || \Request::is('admin/withdrawal_request') || \Request::is('admin/withdrawal_request/*') || \Request::is('admin/mt4-wallet-withdrawl-requests') || \Request::route()->getName() =='admin_pips_rebate.index' || \Request::route()->getName()=='admin_pips_rebate.import' || strstr(\Request::route()->getName(),'profit_sharing') || strstr(\Request::route()->getName(),'nft_withdrawal_request.index')) {{'active'}} @endif">
                 <a href="#">
                     <img src="{{asset('/assets/images/assets/Dashboard/Group952.png')}}" class="side-icon-size" style="width: 20px;">
                     <span class="nav-label">Wallet</span><span class="fa arrow"></span>
@@ -84,6 +84,9 @@
                     </li> --}}
                     <li class=" @if(\Request::is('admin/withdrawal_request') || \Request::is('admin/withdrawal_request/*')) {{'active'}} @endif">
                         <a href="{{route('withdrawal_request.index')}}" title="Withdrawal Requests"> <span class="cus-sub-menu">Withdrawal Requests</span><span class="label label-info pull-right">{{Helper::getwithdrawalRequestCount()}}</span></a>
+                    </li>
+                      <li class=" @if(\Request::is('admin/nft_withdrawal_request') || \Request::is('admin/nft_withdrawal_request/*')) {{'active'}} @endif">
+                        <a href="{{route('nft_withdrawal_request.index')}}" title="Withdrawal Requests"> <span class="cus-sub-menu">NFT Withdrawal Requests</span><span class="label label-info pull-right">{{Helper::getnftwithdrawalRequestCount()}}</span></a>
                     </li>
                     <li class=" @if(\Request::is('admin/yield_wallet') || \Request::is('admin/yield_wallet/*')) {{'active'}} @endif">
                         <a href="{{route('yield_wallet.index')}}" title="Yield Wallet"> <span class="cus-sub-menu">Yield Wallet</span></a>

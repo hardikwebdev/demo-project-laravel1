@@ -15,7 +15,7 @@ use App\Models\NftSellHistory;
 use App\Models\WithdrawalRequest;
 use App\Models\NftPurchaseHistory;
 use App\Models\SupportTicketMessages;
-
+use App\Models\NftWithdrawalRequest;
 
 class Helper {
     
@@ -382,6 +382,10 @@ class Helper {
        // count  withdrawal Request
     public static function getwithdrawalRequestCount(){
         return WithdrawalRequest::where('status','0')->count();
+     }
+           // count  withdrawal Request
+    public static function getnftwithdrawalRequestCount(){
+        return NftWithdrawalRequest::where('status','0')->count();
      }
     public static function defixFinanceID($userId ,$date){
         $date = str_replace('-','',$date);

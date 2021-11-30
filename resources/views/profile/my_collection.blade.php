@@ -388,7 +388,7 @@
               <option value="{{$value->product_id}}" data-value="{{$value->id}}">{{$value->nftproduct->name}}</option>
               @endforeach
             </select>
-            <input type="hidden" name="nft_id" value="">
+            <input type="hidden" name="nft_id" value="" id="nft_id"> 
           </div>
           <div class="col-12 col-md-6 mt-4 mt-md-0">
             <input type="password" name="secure_password" class="form-control grey-ph h-auto py-4 border-0 shadow" placeholder="{{ trans('custom.security_password')}}">

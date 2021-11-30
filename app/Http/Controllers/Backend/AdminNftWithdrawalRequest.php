@@ -72,6 +72,8 @@ class AdminNftWithdrawalRequest extends Controller
                     $withdrawal_request->status  = $request->status;
                     $withdrawal_request->remark  = $request->remark;
                     $withdrawal_request->save();
+                    $withdrawal_request->nftproduct->product_status = 'Withdrawn';
+                    $withdrawal_request->nftproduct->save();
                     return redirect()->route('nft_withdrawal_request.index')->with('success','Withdrawal Request update successfully.');
                 }else{
                     return redirect()->back()->with('error','Withdrawal Request not found.');
@@ -89,6 +91,8 @@ class AdminNftWithdrawalRequest extends Controller
                             continue;
                         }
                        $withdrawal_request_value  = NftWithdrawalRequest::where('id',$value)->first();
+                       $withdrawal_request_value->nftproduct->product_status = 'Withdrawn';
+                    $withdrawal_request_value->nftproduct->save();
                        // dd($value);
                        $user_wallet = UserWallet::where('user_id',$withdrawal_request_value->user_id)->increment('withdrawal_balance',$withdrawal_request_value->withdrawal_amount);
                     }                    
