@@ -10,7 +10,7 @@ $(document).ready(function () {
 
   $('.stacking-slider').slick({
     infinite: true,
-    slidesToShow: 2,
+    slidesToShow: 4,
     slidesToScroll: 1,
     prevArrow: '<button class="slide-arrow prev-arrow"><img src="' + arrow + '" alt=""></button>',
     nextArrow: '<button class="slide-arrow next-arrow"><img src="' + arrow + '" alt=""></button>',
