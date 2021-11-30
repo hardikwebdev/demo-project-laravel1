@@ -2133,4 +2133,29 @@ return [
     'nft_wallet_address' => 'NFT Wallet Address',
     'NFT_CATEGORY' => 'NFT Category',
     
+    'robot' => 'Please verify that you are not a robot.',
+    'captcha_error' => 'Captcha error! try again later or contact site administrator.', 
+
+     /* Withdrawal Wallet Terms & Conditions*/
+        'nft_withdrawal_wallet_terms_and_conditions1' => '<ul class="text-grey">
+       <li>You can transfer funds from your commission and yield wallet to this wallet.</li>
+       <li>The conversion rate of USD to USDT is 1:0.95.</li>
+       <li>The conversion rate of USD to your local currency is dependent on the market rate. Please message the support team to inquire about the latest conversion rate.</li>
+     </ul>',
+
+
+     'nft_withdrawal_wallet_terms_and_conditions2' => '<ul class="text-grey">
+       <li>You can withdraw the funds here to your TRC20 or ERC20 wallet.</li>
+       <li>The withdrawal window is from the 1st to 6th of each month.</li>
+       <li>All withdrawals will be processed from the 7th to 15th of each month.</li>
+     </ul>',
+
+
+     'nft_withdrawal_wallet_terms_and_conditions3' => '<ul class="text-grey">
+       <li>All withdrawal requests will incur a withdrawal fee of USD10.</li>
+       <li>You can withdraw the funds here to your local country bank account (where available).</li>
+       <li>All withdrawals that have been approved are final.</li>
+     </ul>',
+    'nft_withdrawal' => 'NFT Withdrawal',
+
  ];

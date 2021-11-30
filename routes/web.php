@@ -21,6 +21,8 @@ use App\Http\Controllers\Backend\UsdtAddressController;
 use App\Http\Controllers\Backend\YieldWalletController;
 use App\Http\Controllers\Backend\AdminSupportController;
 use App\Http\Controllers\Backend\AdminWithdrawalRequest;
+use App\Http\Controllers\Backend\AdminNftWithdrawalRequest;
+
 use App\Http\Controllers\Backend\UseryieldwalletController;
 use App\Http\Controllers\Backend\NftcreditrequestController;
 use App\Http\Controllers\Backend\NftWalletsPaymentController;
@@ -218,6 +220,9 @@ Route::prefix('admin')->group(function () {
         Route::post('bankproof',  [AdminWithdrawalRequest::class, 'bank_proofs'])->name('user.bank_proofs');
         Route::any('withdrawal-request-export',[AdminWithdrawalRequest::class, 'exportData'])->name('withdrawal_request.export');
 
+        Route::resource('nft_withdrawal_request', AdminNftWithdrawalRequest::class);
+        Route::post('nft/bankproof',  [AdminNftWithdrawalRequest::class, 'bank_proofs'])->name('nft_withdrawal_request.bank_proofs');
+        Route::any('nft/withdrawal-request-export',[AdminNftWithdrawalRequest::class, 'exportData'])->name('nft_withdrawal_request.export');
             // package crud
         Route::resource('packages', PackageController::class);
         Route::resource('pool-packages', PoolPackageController::class);

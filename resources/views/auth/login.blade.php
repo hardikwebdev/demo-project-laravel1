@@ -48,11 +48,12 @@ $local_url = url('locale');
                         </div>
                     </div>
                     @csrf
+                    {!! app('captcha')->render(); !!}
                     <div class="col-12 mt-3">
                         <input id="username" type="username"
                             class="form-control grey-ph h-auto py-4 rounded-0 @error('username') is-invalid @enderror"
-                            placeholder="{{ __('custom.username') }}" name="username" value="{{ old('username') }}"
-                            required autocomplete="username" autofocus>
+                            required placeholder="{{ __('custom.username') }}" name="username" value="{{ old('username') }}"
+                             autocomplete="username" autofocus>
 
                         @error('username')
                             <span class="invalid-feedback" role="alert">
@@ -63,7 +64,7 @@ $local_url = url('locale');
                     <div class="col-12 mt-3">
                         <input id="password" type="password"
                             class="form-control grey-ph h-auto py-4 rounded-0 @error('password') is-invalid @enderror"
-                            placeholder="{{ __('custom.password') }}" name="password" required
+                            required placeholder="{{ __('custom.password') }}" name="password"
                             autocomplete="current-password">
 
                         @error('password')
