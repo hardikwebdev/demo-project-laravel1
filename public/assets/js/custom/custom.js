@@ -603,6 +603,11 @@ if ($('.dropify').length) {
     }
   });
 }
+$('#product').on('change',function(e){
+  // alert($(this).find(':selected').attr('data-value'));
+  var nft_id = $(this).find(':selected').attr('data-value');
+  $('#nft_id').val(nft_id);
+});
 $("#nftwithdrawalform").validate({
   rules: {
     product_id: {
@@ -622,7 +627,6 @@ $("#nftwithdrawalform").validate({
   messages: {
     amount: {
       product_id: amount_required_field,
-     
     },
     secure_password: {
       required: securepassword_required_field,
