@@ -26,7 +26,7 @@ class NFTMarketplaceController extends Controller
 
 
         $nft_cats = NftCategory::where(['status' => 'active', 'is_deleted' => '0'])->with(['product' => function ($query) {
-            $query->where("product_status","!=","Hidden");
+            $query->whereNotIn("product_status",["Hidden","Withdrawn"]);
         }]);
 
         $nft_cats = $nft_cats->orderBy('id','desc')->get();
@@ -42,7 +42,7 @@ class NFTMarketplaceController extends Controller
         }
 
         $collectionname = NftCategory::find($product->category_id);
-        $othrt_products = NftProduct::where(['category_id' => $product->category_id, "status" => 'active', "is_deleted" => '0'])->where('id', "!=", $id)->where("product_status","!=","Hidden")->where('is_reserved',0)->get();
+        $othrt_products = NftProduct::where(['category_id' => $product->category_id, "status" => 'active', "is_deleted" => '0'])->where('id', "!=", $id)->whereNotIn("product_status",["Hidden","Withdrawn"])->where('is_reserved',0)->get();
         $checkProduct = NftPurchaseHistory::where('product_id', $id)->whereIn('status',[1,2])->first();
 
         $purchaseHistory = NftPurchaseLog::where('product_id', $id)->orderBy('created_at','desc')->paginate(6);

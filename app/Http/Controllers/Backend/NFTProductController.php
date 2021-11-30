@@ -173,12 +173,16 @@ class NFTProductController extends Controller
      */
     public function edit($id)
     {
-        $product = NftPurchaseHistory::where(['product_id' => $id])->whereIn('status',[1,2])->count();
+        // $product = NftPurchaseHistory::where(['product_id' => $id])->whereIn('status',[1,2])->count();
+        $product = Model\NftProduct::with('images')->find($id);
+
+        if($product->product_status == 'Withdrawn'){
+           return redirect()->route('nft-product.index')->with('error', 'You have not access to edit this product.');
+        }
         // if($product > 0){
         //     return redirect()->route('nft-product.index')->with('error', 'Product is purchased you can not edit.');
         // }else{
             $categories = Model\NftCategory::where(['is_deleted' => '0', 'status' => 'active'])->pluck('name', 'id');
-            $product = Model\NftProduct::with('images')->find($id);
             return view('backend.nft-product.edit',compact('product', 'categories'));
         // }
     }
@@ -202,6 +206,10 @@ class NFTProductController extends Controller
         /* validation end */
         try {
             $data = $request->all();
+            $product = Model\NftProduct::find($id);
+            if($product->product_status == 'Withdrawn'){
+                return redirect()->route('nft-product.index')->with(["success"=>"You have not access to update this product"]);
+            }
             if (isset($data['remove_img']) && $data['remove_img'] != '') 
             {
                 $removeImage = explode(",", $data['remove_img']);
@@ -210,7 +218,6 @@ class NFTProductController extends Controller
                     Model\NftProductImage::find($image)->delete();
                 }
             }
-            $product = Model\NftProduct::find($id);
             $product->category_id = $request->category;
             $product->name = $request->name;
             $product->price = $request->price;

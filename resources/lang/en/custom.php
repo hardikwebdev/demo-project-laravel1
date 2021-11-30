@@ -2083,6 +2083,79 @@ return [
     'product_owned_by_you' => 'This product already owned by you',
     'sold' => 'Sold',
     'product_owned_by_username' => 'This product already owned by #username',
+
+    /* NFT wallet Terms & Conditions USDT*/
+
+     'nft_wallet_terms_and_conditions1_usdt' => '<ul class="text-grey">
+       <li>Please select the type of USDT protocol.</li>
+       <li>Transfer to the stated ERC20 or TRC20 address only.</li>
+       <li>All deposits are final and no refund requests shall be entertained.</li>
+     </ul>',
+
+
+     'nft_wallet_terms_and_conditions2_usdt' => '<ul class="text-grey">
+       <li>Input the amount you wish to deposit.</li>
+       <li>Once transfer is made, please upload payment proof that shows transaction ID.</li>
+       <li>All deposit requests will be approved within 1 working day.</li>
+     </ul>',
+
+
+     'nft_wallet_terms_and_conditions3_usdt' => '<ul class="text-grey">
+       <li>The conversion rate of USDT to USD will be auto calculated accordingly.</li>
+     </ul>',
+
+
+     
+
+
+      /* NFT wallet Terms & Conditions Payment Gateway*/
+      'nft_wallet_terms_and_conditions1_payment_gateway' => '<ul class="text-grey">
+       <li>Please enter the amount you want to deposit in USD.</li>
+       <li>You will be redirected to the payment gateway page to make your payment.</li>
+     </ul>',
+
+
+     'nft_wallet_terms_and_conditions2_payment_gateway' => '<ul class="text-grey">
+       <li>The system will auto convert the USD amount to your local fiat currency.</li>
+       <li>Once payment is confirmed the amount will be credited into this wallet.</li>
+     </ul>',
+
+
+     'nft_wallet_terms_and_conditions3_payment_gateway' => '<ul class="text-grey">
+       <li>The local fiat currency shown is based on your registered country.</li>
+       <li>All deposits are final and no refund requests shall be entertained.</li>
+     </ul>',
+
+    'transfer_history' => 'Withdrawal Wallet History',
+    'please_select_product' => 'Please select a product',
+    'requested_amount_transfered' => 'Requested amount transferred.',
+    'select_nft_products' => '-- Select Your NFT --',
+    'nft_wallet_address' => 'NFT Wallet Address',
+    'NFT_CATEGORY' => 'NFT Category',
+    
     'robot' => 'Please verify that you are not a robot.',
     'captcha_error' => 'Captcha error! try again later or contact site administrator.', 
+
+     /* Withdrawal Wallet Terms & Conditions*/
+        'nft_withdrawal_wallet_terms_and_conditions1' => '<ul class="text-grey">
+       <li>You can transfer funds from your commission and yield wallet to this wallet.</li>
+       <li>The conversion rate of USD to USDT is 1:0.95.</li>
+       <li>The conversion rate of USD to your local currency is dependent on the market rate. Please message the support team to inquire about the latest conversion rate.</li>
+     </ul>',
+
+
+     'nft_withdrawal_wallet_terms_and_conditions2' => '<ul class="text-grey">
+       <li>You can withdraw the funds here to your TRC20 or ERC20 wallet.</li>
+       <li>The withdrawal window is from the 1st to 6th of each month.</li>
+       <li>All withdrawals will be processed from the 7th to 15th of each month.</li>
+     </ul>',
+
+
+     'nft_withdrawal_wallet_terms_and_conditions3' => '<ul class="text-grey">
+       <li>All withdrawal requests will incur a withdrawal fee of USD10.</li>
+       <li>You can withdraw the funds here to your local country bank account (where available).</li>
+       <li>All withdrawals that have been approved are final.</li>
+     </ul>',
+    'nft_withdrawal' => 'NFT Withdrawal',
+
  ];

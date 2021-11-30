@@ -104,7 +104,6 @@ $(document).ready(function () {
 
 $(document).on('click', '.second-ajax-pag .pagination a', function (event) {
   event.preventDefault();
-
   $('.datas').append('<div class="cus-spinner-full"><div class="sk-spinner sk-spinner-three-bounce"><div class="sk-bounce1"></div><div class="sk-bounce2"></div><div class="sk-bounce3"></div></div></div>');
   $(this).parent('li').removeClass('active');
   $(this).parent('li').addClass('active');
@@ -120,6 +119,30 @@ $(document).on('click', '.second-ajax-pag .pagination a', function (event) {
       },
     }).done(function (data) {
       $(".table-history").empty().html(data);
+      location.hash = page;
+    }).fail(function (jqXHR, ajaxOptions, thrownError) {
+      alert('No response from server');
+      $('.cus-spinner-full').hide(200);
+    });
+});
+
+$(document).on('click', '.last-ajax-pag .pagination a', function (event) {
+  event.preventDefault();
+  $('.datas').append('<div class="cus-spinner-full"><div class="sk-spinner sk-spinner-three-bounce"><div class="sk-bounce1"></div><div class="sk-bounce2"></div><div class="sk-bounce3"></div></div></div>');
+  $(this).parent('li').removeClass('active');
+  $(this).parent('li').addClass('active');
+  var myurl = $(this).attr('href');
+  var page = $(this).attr('href').split('page=')[1];
+  $.ajax(
+    {
+      url: '?page=' + page,
+      type: "get",
+      datatype: "html",
+      data: {
+        htype: 1,
+      },
+    }).done(function (data) {
+      $(".table-history1").empty().html(data);
       location.hash = page;
     }).fail(function (jqXHR, ajaxOptions, thrownError) {
       alert('No response from server');
@@ -580,6 +603,40 @@ if ($('.dropify').length) {
     }
   });
 }
+$("#nftwithdrawalform").validate({
+  rules: {
+    product_id: {
+      required: true,
+    },
+    secure_password: {
+      required: true,
+    },
+    nft_address: {
+      required: true,
+    },
+    upload_proof: {
+      required: true,
+      extension: 'png|jpeg|jpg'
+    }
+  },
+  messages: {
+    amount: {
+      product_id: amount_required_field,
+     
+    },
+    secure_password: {
+      required: securepassword_required_field,
+    },
+    nft_address: {
+      required: select_bank_country,
+    },
+    upload_proof: {
+      required: err_field_req,
+      extension:Please_enter_a_value_with_a_valid_extension_proof,
+    }
+  },
+
+});
 $("#withdrawalform-usdt").validate({
   rules: {
     amount: {
@@ -830,6 +887,7 @@ $(document).on('click', '.ticket-ajax-pag .pagination a', function (event) {
   $(this).parent('li span').addClass('bg-warning px-1');
   var myurl = $(this).attr('href');
   var page = $(this).attr('href').split('page=')[1];
+  alert();
   getData(page);
 });
 //For hepla and support 

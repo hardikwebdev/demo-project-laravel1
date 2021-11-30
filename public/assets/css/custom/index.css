@@ -885,3 +885,7 @@ span.invalid-feedback {
     padding-left: 0px;
 }
 }
+
+.table thead th, .jsgrid .jsgrid-table thead th {
+    text-align: center;
+}

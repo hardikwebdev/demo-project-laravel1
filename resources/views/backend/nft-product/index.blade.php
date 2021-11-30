@@ -106,6 +106,8 @@
                                         <label class="label label-primary">Normal</label>   
                                         @elseif ($row->product_status=='Sold')
                                         <label class="label label-danger">Sold</label> 
+                                        @elseif ($row->product_status=='Withdrawn')
+                                        <label class="label label-danger">Withdrawn</label> 
                                         @else
                                         <label class="label label-warning">Hidden</label>   
                                         @endif
@@ -113,8 +115,11 @@
                                     <td>
 
                                         @if ($product > 0)
+                                        @if($row->product_status!='Withdrawn')
                                         <a class="btn btn-primary btn-xs" href="{{route('nft-product.edit',[$row->id])}}"><i class="fa fa-edit"></i></a>
-                                        <!-- <p>Owned by {{$history->user_detail->username}}</p> --><a class="btn btn-info btn-xs d-inline" href="{{route('trading-history.show',[$row->id])}}"><i class="fa fa-list"></i></a>
+                                        <!-- <p>Owned by {{$history->user_detail->username}}</p> -->
+                                        <a class="btn btn-info btn-xs d-inline" href="{{route('trading-history.show',[$row->id])}}"><i class="fa fa-list"></i></a>
+                                        @endif
                                         @else
                                         {!! Form::open(['route' => ['nft-product.update',$row->id],'onsubmit'=>"return confirmDelete(this,'Are you sure to want delete this product ?')",'class'=>'d-inline']) !!}
                                         <a class="btn btn-primary btn-xs" href="{{route('nft-product.edit',[$row->id])}}"><i class="fa fa-edit"></i></a>

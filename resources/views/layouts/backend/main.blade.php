@@ -7,7 +7,7 @@
 	{{-- <link rel="shortcut icon" href="{{asset('new-customer/images/favicon.ico')}}" /> --}}
 	<link href="{{asset('backend/css/bootstrap.min.css')}}" rel="stylesheet">
 	<link href="{{asset('backend/css/lib/font-awesome5/css/all.min.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="https://app.defixfinance.com/assets/css/customd.css">
+    <!-- <link rel="stylesheet" href="https://app.defixfinance.com/assets/css/customd.css"> -->
 	<link href="{{asset('backend/css/animate.css')}}" rel="stylesheet">
 	<link href="{{asset('backend/css/style.css')}}" rel="stylesheet">
 

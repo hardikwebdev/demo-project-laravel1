@@ -10,6 +10,7 @@ use App\Models\NftSellHistory;
 use Illuminate\Console\Command;
 use App\Models\NftPurchaseHistory;
 // use App\Models\NftReservedProduct;
+use App\Models as Model;
 
 class NftSellTesting extends Command
 {
@@ -74,7 +75,13 @@ class NftSellTesting extends Command
             // $product = NftReservedProduct::where('product_id',$change->product_id)->first();
             // $product->delete();
 
-
+            $withdrawal = new Model\WithdrawalWalletHistory;
+            $withdrawal->user_id = $purchasechangestatus->user_id;
+            $withdrawal->amount = $purchasechangestatus->amount;
+            $withdrawal->description = 'NFT '.$nftproduct->name.' Sold';
+            $withdrawal->type = '1';
+            $withdrawal->save();
+            Model\UserWallet::where('user_id',$purchasechangestatus->user_id)->increment('withdrawal_balance',round($purchasechangestatus->amount,2));
 
             $change->status = 7;
             $change->save();

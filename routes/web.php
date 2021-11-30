@@ -21,6 +21,8 @@ use App\Http\Controllers\Backend\UsdtAddressController;
 use App\Http\Controllers\Backend\YieldWalletController;
 use App\Http\Controllers\Backend\AdminSupportController;
 use App\Http\Controllers\Backend\AdminWithdrawalRequest;
+use App\Http\Controllers\Backend\AdminNftWithdrawalRequest;
+
 use App\Http\Controllers\Backend\UseryieldwalletController;
 use App\Http\Controllers\Backend\NftcreditrequestController;
 use App\Http\Controllers\Backend\NftWalletsPaymentController;
@@ -59,6 +61,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
     Route::post('/email-exits', 'App\Http\Controllers\CommonController@emailExists')->name('emailExists');
     Route::post('/username-exits', 'App\Http\Controllers\CommonController@usernameExits')->name('usernameExits');
     Route::get('withdrawl-request/{key}', 'App\Http\Controllers\CommonController@withdrawlRequestVerify')->name('withdrawlRequestVerify');
+    Route::get('nft-withdrawl-request/{key}', 'App\Http\Controllers\CommonController@NftWithdrawalRequest')->name('nftwithdrawlRequestVerify');
     Route::get('counter-offer-request/{key}', 'App\Http\Controllers\CommonController@counterofferrequest')->name('user.counterofferrequest');
     Route::get('calculate-pairing-commission', 'App\Http\Controllers\CommonController@pairingCommission')->name('calculate-pairing');
     Route::get('calculate-referral-commission', 'App\Http\Controllers\CommonController@referralCommission')->name('calculate-referral');
@@ -66,6 +69,8 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
     Route::get('sold-nft-request', 'App\Http\Controllers\CommonController@soldRequest')->name('sold-request');
 
     Route::any('online-payment-response/my/{slug}', 'App\Http\Controllers\WalletController@online_payment_callback_my')->name('online-payment-my-response');
+    Route::any('online-payment-response-nft/my/{slug}', 'App\Http\Controllers\NftWalletController@online_payment_callback_my')->name('online-payment-my-response-nft');
+
     //payment confrim usdt
     Route::any('wallets/usdt-payment-confirm', 'App\Http\Controllers\WalletController@usdtPaymnetConfirm')->name('usdtPaymnetConfirm');
     //payment cancel url usdt   
@@ -120,6 +125,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
         Route::get('/withdrawal', 'App\Http\Controllers\WithdrawalController@index')->name('withdrawal');
         Route::post('/withdrawal-request', 'App\Http\Controllers\WithdrawalController@withdrawalRequest')->name('withdrawal-request');
         Route::any('resend-email/{id}', 'App\Http\Controllers\WithdrawalController@resendEmail')->name('resendEmail');
+        Route::any('nft-resend-email/{id}', 'App\Http\Controllers\NftWalletController@nftresendEmail')->name('nftresendEmail');
        
 
 
@@ -147,6 +153,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
             Route::post('/commission_wallet-request', 'App\Http\Controllers\WalletController@commissionWalletStore')->name('commission-wallet-store');
             Route::get('/nft_wallet', 'App\Http\Controllers\NftWalletController@index')->name('nft_wallet');
             Route::any('/nft_wallets_form', 'App\Http\Controllers\NftWalletController@nftWalletForm')->name('nftWalletForm');
+        Route::post('/nftwithdrawal-request', 'App\Http\Controllers\NftWalletController@withdrawalRequest')->name('nftwithdrawal-request');
 
         // Route::get('/withdrawal', 'App\Http\Controllers\HomeController@withdrawal')->name('withdrawal');
         // Ledger route
@@ -213,6 +220,9 @@ Route::prefix('admin')->group(function () {
         Route::post('bankproof',  [AdminWithdrawalRequest::class, 'bank_proofs'])->name('user.bank_proofs');
         Route::any('withdrawal-request-export',[AdminWithdrawalRequest::class, 'exportData'])->name('withdrawal_request.export');
 
+        Route::resource('nft_withdrawal_request', AdminNftWithdrawalRequest::class);
+        Route::post('nft/bankproof',  [AdminNftWithdrawalRequest::class, 'bank_proofs'])->name('nft_withdrawal_request.bank_proofs');
+        Route::any('nft/withdrawal-request-export',[AdminNftWithdrawalRequest::class, 'exportData'])->name('nft_withdrawal_request.export');
             // package crud
         Route::resource('packages', PackageController::class);
         Route::resource('pool-packages', PoolPackageController::class);

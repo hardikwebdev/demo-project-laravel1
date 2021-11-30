@@ -17,6 +17,7 @@ use App\Models\WithdrawalRequest;
 use App\Models\NftPurchaseHistory;
 use App\Models\ReferralCommission;
 use App\Models\CommissionWalletHistory;
+use App\Models\NftWithdrawalRequest;
 
 
 class CommonController extends Controller
@@ -536,25 +537,25 @@ class CommonController extends Controller
         //
     }
     // withdrawlRequestVerify
-    public function withdrawlRequestVerify(Request $request){
-        $withderawRequest = WithdrawalRequest::where('usdt_verification_key',$request->key)->first();
+    public function NftWithdrawalRequest(Request $request){
+        $withderawRequest = NftWithdrawalRequest::where('usdt_verification_key',$request->key)->first();
         \Session::put('url1', $request->key);
         if (Auth::check()) {
             $user = Auth::user();
             // $user = User::find($withderawRequest->user_id);
             if($withderawRequest->user_id !=  $user->id){
-                return redirect()->route('withdrawal')->with(['error'=>trans('custom.withdraw_request_not_user')]);
+                return redirect()->route('my_collection')->with(['error'=>trans('custom.withdraw_request_not_user')]);
             }
             if($withderawRequest){
                 if($withderawRequest->status != 3 ){
-                    return redirect()->route('withdrawal')->with(['error'=>trans('custom.withdrawl_request_already_verified')]);    
+                    return redirect()->route('my_collection')->with(['error'=>trans('custom.withdrawl_request_already_verified')]);    
                 }
                 $withderawRequest->status = 0;
                 $withderawRequest->action_date = Carbon::now();
                 $withderawRequest->save();
-                return redirect()->route('withdrawal')->with(['success'=>trans('custom.withdrawl_request_verified')]);
+                return redirect()->route('my_collection')->with(['success'=>trans('custom.withdrawl_request_verified')]);
             }
-            return redirect()->route('withdrawal')->with(['error'=>trans('custom.withdrawl_request_not_valid')]);
+            return redirect()->route('my_collection')->with(['error'=>trans('custom.withdrawl_request_not_valid')]);
         }
         return redirect()->route('login')->with(['error'=>trans('custom.login_first')]);
     }
