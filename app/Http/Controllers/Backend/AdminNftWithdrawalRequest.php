@@ -50,7 +50,7 @@ class AdminNftWithdrawalRequest extends Controller
         }
         $countries = Country::pluck('country_name','id');
 
-        $withdrawal_requests= $withdrawal_requests->whereNotIn('status',['3','4'])->orderBy('action_date','desc')->paginate($this->limit)->appends($request->all());
+        $withdrawal_requests= $withdrawal_requests->whereNotIn('status',['3','4'])->orderBy('action_date','desc')->orderBy('created_at','desc')->paginate($this->limit)->appends($request->all());
         $data = $request->all();
         return view('backend.nft_withdrawal_request.index',compact('withdrawal_requests','data','countries'));
     }
@@ -65,6 +65,8 @@ class AdminNftWithdrawalRequest extends Controller
                 if($withdrawal_request){
                     if($request->status == 1 && $request->transaction_id && $request->transaction_id !=""){
                         $withdrawal_request->transaction_id  = $request->transaction_id;
+                        $withdrawal_request->nftproduct->product_status = 'Withdrawn';
+                        $withdrawal_request->nftproduct->save();
                     }
                     if($request->status == 2 || $request->status == '2' ){
                         // $user_wallet = UserWallet::where('user_id',$withdrawal_request->user_id)->increment('withdrawal_balance',$withdrawal_request->withdrawal_amount);
@@ -72,8 +74,6 @@ class AdminNftWithdrawalRequest extends Controller
                     $withdrawal_request->status  = $request->status;
                     $withdrawal_request->remark  = $request->remark;
                     $withdrawal_request->save();
-                    $withdrawal_request->nftproduct->product_status = 'Withdrawn';
-                    $withdrawal_request->nftproduct->save();
                     return redirect()->route('nft_withdrawal_request.index')->with('success','Withdrawal Request update successfully.');
                 }else{
                     return redirect()->back()->with('error','Withdrawal Request not found.');
@@ -83,6 +83,16 @@ class AdminNftWithdrawalRequest extends Controller
                 NftWithdrawalRequest::whereIn('id',$ids)->update(['status'=>$request->status]);
                 $withdrawal_request  = NftWithdrawalRequest::whereIn('id',$ids)->get();
                 if($request->status == '1'){
+                     foreach ($ids as $key => $value) {
+                        if($value == null){
+                            continue;
+                        }
+                        $withdrawal_request_value  = NftWithdrawalRequest::where('id',$value)->first();
+                        $withdrawal_request_value->nftproduct->product_status = 'Withdrawn';
+                        $withdrawal_request_value->nftproduct->save();
+                       // dd($value);
+                       // $user_wallet = UserWallet::where('user_id',$withdrawal_request_value->user_id)->increment('withdrawal_balance',$withdrawal_request_value->withdrawal_amount);
+                    }     
                     return redirect()->route('nft_withdrawal_request.index')->with('success','Selected transactions are approved.');
                 }else{
 
@@ -91,10 +101,8 @@ class AdminNftWithdrawalRequest extends Controller
                             continue;
                         }
                        $withdrawal_request_value  = NftWithdrawalRequest::where('id',$value)->first();
-                       $withdrawal_request_value->nftproduct->product_status = 'Withdrawn';
-                    $withdrawal_request_value->nftproduct->save();
                        // dd($value);
-                       $user_wallet = UserWallet::where('user_id',$withdrawal_request_value->user_id)->increment('withdrawal_balance',$withdrawal_request_value->withdrawal_amount);
+                       // $user_wallet = UserWallet::where('user_id',$withdrawal_request_value->user_id)->increment('withdrawal_balance',$withdrawal_request_value->withdrawal_amount);
                     }                    
                     return redirect()->route('nft_withdrawal_request.index')->with('success','Selected transactions are rejected.');
                 }

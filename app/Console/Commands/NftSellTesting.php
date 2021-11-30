@@ -57,7 +57,7 @@ class NftSellTesting extends Command
 
 
             $userwallet = UserWallet::where('user_id',$change->user_id)->first();
-            $userwallet->increment('nft_wallet',$change->sale_amount);
+            // $userwallet->increment('nft_wallet',$change->sale_amount);
 
             
             $Nftpurchaselog = NftPurchaseLog::create([
@@ -77,11 +77,11 @@ class NftSellTesting extends Command
 
             $withdrawal = new Model\WithdrawalWalletHistory;
             $withdrawal->user_id = $purchasechangestatus->user_id;
-            $withdrawal->amount = $purchasechangestatus->amount;
+            $withdrawal->amount = $change->sale_amount;
             $withdrawal->description = 'NFT '.$nftproduct->name.' Sold';
             $withdrawal->type = '1';
             $withdrawal->save();
-            Model\UserWallet::where('user_id',$purchasechangestatus->user_id)->increment('withdrawal_balance',round($purchasechangestatus->amount,2));
+            Model\UserWallet::where('user_id',$purchasechangestatus->user_id)->increment('withdrawal_balance',round($change->sale_amount,2));
 
             $change->status = 7;
             $change->save();

@@ -468,8 +468,12 @@ class AccountController extends Controller
         return view('profile.my_collection', compact('country', 'user', 'staking_pool', 'staking_pool_count', 'collections','history'));
     }
     public function sell_nft(Request $request){
-        $collections = NftPurchaseHistory::with('nftproduct')->where('user_id', $this->user->id)->whereIn('status',[1,2])->get();
-        $nftsalehistory = NftSellHistory::with('nftproduct')->where('user_id', $this->user->id)->orderBy('id','desc')->paginate(6);
+        $collections = NftPurchaseHistory::with('nftproduct')->whereHas('nftproduct',function($query){
+            $query->whereNotIn("product_status",["Withdrawn"]);
+        })->where('user_id', $this->user->id)->whereIn('status',[1,2])->get();
+        $nftsalehistory = NftSellHistory::with('nftproduct')->whereHas('nftproduct',function($query){
+            $query->whereNotIn("product_status",["Withdrawn"]);
+        })->where('user_id', $this->user->id)->orderBy('id','desc')->paginate(6);
         if($request->ajax()) {
             return view('nft_marketplace.sale_history', compact('nftsalehistory'));
         }

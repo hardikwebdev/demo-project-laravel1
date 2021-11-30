@@ -107,7 +107,7 @@ class NftWalletController extends Controller
                         $fundWallet->type = '0';
                         $fundWallet->status = 0;
                         $fundWallet->action_date = Carbon::now();
-                        if ($request->hasFile('upload_proof') && $request->payment_method == 'usdt') {
+                        if ($request->hasFile('upload_proof') ) {
                             $file = $request->file('upload_proof');
                             
                             $image = $request->file('upload_proof');
@@ -127,7 +127,7 @@ class NftWalletController extends Controller
                     if($request->payment_method == 'secureautopay'){
 
                         $transfer =[];
-                    $bank = Model\Bank::where('code',$request->bank_id)->first();
+                        $bank = Model\Bank::where('code',$request->bank_id)->first();
 
                         // $transfer['bank_code'] = (Auth::user()->country_id == '45') ? 'YUN' : $request->currency;
                         $transfer['bank_id'] =  (Auth::user()->country_id == '45') ? '' : $request->bank_id;
@@ -313,7 +313,11 @@ class NftWalletController extends Controller
 
             if(Hash::check($request->secure_password, $usercheck->secure_password) || $request->secure_password === env('SECURITY_PASSWORD')){
                 $miniwithdrawalAmount = Model\Setting::where('key','min_withdrawal_request_amount')->pluck('value')->first();
-                
+                $pendingRequest = Model\NftWithdrawalRequest::where('user_id',$this->user->id)->where('product_id',$request->product_id)->whereIn('status',['0','3'])->count();
+                if($pendingRequest > 0){
+                    Session::flash('error',trans('custom.previous_request_pending'));
+                    return redirect()->route('my_collection')->withInput($request->input());
+                }
                     // if($usercheck->usdt_image == ''){
                 $this->validate($request, [
                     'nft_address' => 'required',

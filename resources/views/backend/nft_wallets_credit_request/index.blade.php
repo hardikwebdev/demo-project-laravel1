@@ -89,8 +89,8 @@
 
                                     <td>
                                         @if($funds->trans_slip != "")
-                                        <a class="blueimp-link" href="{{($funds->trans_slip)}}" data-gallery="" target="_blank" title='{{str_replace("-", "", $funds->created_at->format("d-m-y"))}}-{{sprintf("%04d", $funds->unique_no)}}'>
-                                             <img onerror="this.src='{{asset('backend/media/no_found.png')}}'" src="{{($funds->trans_slip)}}" width="auto" height="50px">
+                                        <a class="blueimp-link" href="{{asset('uploads/upload_bank_proof/'.$funds->trans_slip)}}" data-gallery="" target="_blank" title='{{str_replace("-", "", $funds->created_at->format("d-m-y"))}}-{{sprintf("%04d", $funds->unique_no)}}'>
+                                             <img onerror="this.src='{{asset('backend/media/no_found.png')}}'" src="{{asset('uploads/upload_bank_proof/'.$funds->trans_slip)}}" width="auto" height="50px">
                                         </a>
                                         @endif
                                     </td>
