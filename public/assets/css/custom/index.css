@@ -681,8 +681,8 @@ button.btn {
 }
 .login-box .navigation-cus {
     position: absolute;
-    right: 15px;
-    top: 15px;
+    right: -26px;
+    top: -26px;
 }
 .news-indi #newsimg {
     width: 100%;
@@ -825,6 +825,12 @@ span.invalid-feedback {
     }
     .text-center.navbar-brand-wrapper.d-flex.align-items-center.justify-content-center {
         z-index:999
+    }
+
+    .login-box .navigation-cus {
+        position: absolute;
+        right: 8px;
+        top: -40px;
     }
 }
 .bankc.col-12 {
