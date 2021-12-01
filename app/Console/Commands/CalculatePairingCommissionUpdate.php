@@ -167,7 +167,7 @@ class CalculatePairingCommissionUpdate extends Command
                 $history_data["user_id"] = $user->id;
                 $history_data["from_user_id"] = $user->id;
                 $history_data["commission_type"] = 'pairing';
-                $history_data["description"] = 'Pairing commission';
+                $history_data["description"] = 'Nodes Balancing Commission';
                 $history_data["final_amount"] = $commission_wallet->commission_wallet + $pairing_commission;
 
                 CommissionWalletHistory::create($history_data);
