@@ -1893,15 +1893,10 @@ return [
     'collection' => 'COLLECTION',
     'buy_now' => 'BUY NOW',
     'trading_history' => 'Trading History',
-    'nft_marketplace_tc' => '<ul class="text-secondary mt-4">
-                <li class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua.</li>
-                <li class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua.</li>
-                <li class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua.</li>
-                <li class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua.</li>
+    'nft_marketplace_tc' => '<p class=" text-white">Purchasing Agreement</p><ul class="text-secondary mt-4">
+                <li class="mt-3">By buying this NFT you agree that the sale is final and no refund requests will be entertained</li>
+                <li class="mt-3">You understand by buying this NFT the ownership has been transferred to your DefiXFinance account and not your personal crypto wallet</li>
+                <li class="mt-3"> You understand you are able to transfer your NFT to your crypto wallet by going to the My Collection page</li>
             </ul>',
     'other_collection' => 'Other Collection',
     'product_not_found' => 'Product not found',
@@ -2157,5 +2152,6 @@ return [
        <li>All withdrawals that have been approved are final.</li>
      </ul>',
     'nft_withdrawal' => 'NFT Withdrawal',
+    'nft_terms' => 'Buy NFT T&C',
 
  ];

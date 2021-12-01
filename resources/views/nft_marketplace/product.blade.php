@@ -82,7 +82,7 @@
 			</div>
 		</div>
 		<div class="col-12 col-md-6 mt-4 mt-md-0">
-			<h4 class=" text-white">{{ trans('custom.terms_conditions')}}</h4>
+			<h4 class=" text-white">{{ trans('custom.nft_terms')}}</h4>
 			{!!__('custom.nft_marketplace_tc')!!}
 		</div>
 	</div>
