@@ -19,7 +19,7 @@ class NFTCategoryController extends Controller
      */
     public function index()
     {
-        $categories = Model\NftCategory::where('is_deleted','0')->orderBy('id','desc')->paginate($this->limit);
+        $categories = Model\NftCategory::where('is_deleted','0')->where('status','active')->orderBy('id','desc')->paginate($this->limit);
         return view('backend.nft-category.index',compact('categories'));
     }
 
