@@ -30,7 +30,7 @@
                                     <div class="col-12 col-xl-6">
                                         <div class="row">
                                             <div class="col-12">
-                                                <h4 class="text-white">{{ trans('custom.verify_sponsor_username') }}
+                                                <h4 class="text-white mb-2">{{ trans('custom.verify_sponsor_username') }}
                                                 </h4>
                                             </div>
                                             <div
@@ -69,7 +69,7 @@
                                     <div class="col-12 col-xl-6 mt-5 mt-xl-0">
                                         <div class="row">
                                             <div class="col-12">
-                                                <h4 class="text-white">
+                                                <h4 class="text-white mb-2">
                                                     {{ trans('custom.verify_placement_username') }}
                                                 </h4>
                                             </div>

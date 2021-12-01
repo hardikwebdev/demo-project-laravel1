@@ -478,7 +478,7 @@ return [
     'title' => 'Title',
     'attachment' => 'Attachment',
     'message' => 'Message',
-    'save' => 'save',
+    'save' => 'Submit Ticket',
     'unread' => 'Unread',
     'read' => 'Read',
     'replay' => 'Reply',
@@ -1170,7 +1170,7 @@ return [
     'investment_expiry' => 'Investment Expiry',
     'close_investment_popup' => 'Your investment plan is still valid, you are not eligible to withdraw any investment profit.',
     'stock_popup_title' => 'DefSTOCKS+ REMINDER',
-    'investment_desc' => 'Your Stacking Pool Investment is expiring Within 7 days peirlod, you may continue your current investment with new plan or close your inestment ',
+    'investment_desc' => 'Your Staking Pool Investment is expiring Within 7 days peirlod, you may continue your current investment with new plan or close your inestment ',
     'change_plan_txt' => 'Continue investment with new duration:',
     'close_investment' => 'Close Investment',
     'capital_investment_desc' => 'Your have active DefStocks+ Investment. Please close all your investment befor you may proceed with full capital withdrawal.<br><a href="#link" style="text-decoration:underline;">Click here to return to DefStocks+ Investment</a>',
@@ -1475,8 +1475,8 @@ return [
     'verify_placement'  => 'Verify Placement',
     'maximim_limit_placement_name_20_character' => 'Maximim limit of placement name is 20 character',
     'child_position' => 'Child Position',
-    'left' => 'A',
-    'right' => 'B',
+    'left' => 'A Node',
+    'right' => 'B Node',
 
     /* defix new */
     'not_amember' => 'Not a member?',
@@ -1508,14 +1508,14 @@ return [
     'today_grp_sale' => 'TODAY GROUP SALES',
     'carry_forward' => 'CARRY FORWARD',
     'daily_max_commission' => 'DAILY MAX COMMISSION',
-    'sale_left' => 'Sales A',
-    'sale_right' => 'Sales B',
+    'sale_left' => 'Sales A Today',
+    'sale_right' => 'Sales B Today',
     'net_pairing_left' => 'NET PAIRING A',
     'net_pairing_right' => 'NET PAIRING B',
     'commission_earned' => 'COMMISSION EARNED',
     'wc_text' => 'Hi, #name welcome back to DefiXFinance Dashboard.',
     'staking_network_pools' => 'Staking Network Pools',
-    'last_nfts' => 'Latest non-fungible token (NFT)',
+    'last_nfts' => 'Latest Non-Fungible Tokens (NFT)',
     'earning_breakdown' => 'Earnings Breakdown',
     'direct_refferal' => 'Direct Referral',
     'pairing' => 'Pairing',
@@ -1536,7 +1536,7 @@ return [
     'duration_term' => 'Duration Term',
     'months' => 'Months',
     'staking_pool_added_successfully' => 'Staking pool added successfully.',
-    'invested_amount' => 'Invested <br> Amounts',
+    'invested_amount' => 'Invested <br> Amount',
     'staking_pool' => 'Staking Pool',
     'staking_pools' => 'Staking Pools',
     'explore' => 'EXPLORE',
@@ -1851,7 +1851,7 @@ return [
     </div>
     <div id="collapseeleven" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>You can transfer all your earnings from their respective wallets to the Withdrawal wallet. You then have options to withdraw to your local cryptocurrency wallet or local bank (where available). 
+    <p>You can transfer all your earnings from their respective wallets to the Withdrawal wallet. You then have options to withdraw to your local cryptocurrency wallet. 
     </p>
     </div>
     </div>
@@ -1940,8 +1940,8 @@ return [
     'COMMISSION_WALLET_80'=>'COMMISSION WALLET(80%)',
     'NFT_WALLET_20'=>'NFT WALLET(20%)',
    
-    'STACKING_AMOUNT'=>'STACKING AMOUNT',
-    'STACKING_DATE'=>'STACKING DATE',
+    'STACKING_AMOUNT'=>'STAKING AMOUNT',
+    'STACKING_DATE'=>'STAKING DATE',
     'YIELD'=>'YIELD',
     'YIELD_AMOUNT'=>'YIELD AMOUNT',
     'YIELD_WALLET'=>'YIELD WALLET',
@@ -1952,7 +1952,7 @@ return [
     'Filter' => 'Filter',
     'start_date' => 'Start Date',
     'end_date' => 'End Date',
-    'select_stacking_pool_package' => 'Select Stacking Pool Package',
+    'select_stacking_pool_package' => 'Select Staking Pool Package',
     'start_date_must_be_less_then_end_date' => 'Start Date must be less then End Date',
     'end_date_must_be_greater_than_start_date' => 'End Date must be greater than Start Date',
 
@@ -2073,7 +2073,7 @@ return [
     'Please_select_country' => 'Please select country',
     'Please_enter_number_only' => 'Please enter number only',
     'Please_enter_minimum_9_character' => 'Please enter minimum 9 character',
-    'total_staking' => 'Total Stacking',
+    'total_staking' => 'Total Staking',
     'Please_enter_nft_wallet_address' => 'Please enter nft wallet address.',
     'Please_enter_a_value_with_a_valid_extension_proof' => 'Please enter a value with a valid extension proof.',
     'Please_enter_a_value_greater_than_or_equal_to_100' => 'Please enter a value greater than or equal to 100.',

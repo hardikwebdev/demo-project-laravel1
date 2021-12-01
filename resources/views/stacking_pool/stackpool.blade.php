@@ -41,14 +41,11 @@
         </div>
       </div>
     </div>
-    <div class="col-12 col-xl-7 text-white mt-4 mt-xl-0">
+    <div class="col-12 tokenp col-xl-7 text-white mt-4 mt-xl-0">
       <div class="row text-white">
-        <div class="col-12">
-          <p>{{trans('custom.coin_price')}}</p>
-        </div>
         @foreach($stakingpool->stackingpoolcoins as $coin)
         <div class="col-12 col-md-6">
-          <div class="d-flex justify-content-between align-items-center">
+          <div class="indv d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center">
               <img src="{{$coin->icon}}" class="img-fluid w-70 " alt="">
               <h4>{{$coin->name}}</h4>
@@ -57,69 +54,8 @@
               <h3>${{number_format($coin->price,2)}}</h3>
             </div>
           </div>
-          <p class="border-bottom border-white"></p>
         </div>
         @endforeach
-        <!-- <div class="col-12 col-md-6">
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="d-flex align-items-center">
-              <img src="{{ asset('images/assets/Artboard2_copy5/Rectangle385.png') }}" class="img-fluid w-70" alt="">
-              <h4>COIN ONE</h4>
-            </div>
-            <div>
-              <h3>13.21%</h3>
-            </div>
-          </div>
-          <p class="border-bottom border-white"></p>
-        </div>
-        <div class="col-12 col-md-6">
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="d-flex align-items-center">
-              <img src="{{ asset('images/assets/Artboard2_copy5/Rectangle385.png') }}" class="img-fluid w-70" alt="">
-              <h4>COIN ONE</h4>
-            </div>
-            <div>
-              <h3>13.21%</h3>
-            </div>
-          </div>
-          <p class="border-bottom border-white"></p>
-        </div>
-        <div class="col-12 col-md-6">
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="d-flex align-items-center">
-              <img src="{{ asset('images/assets/Artboard2_copy5/Rectangle385.png') }}" class="img-fluid w-70" alt="">
-              <h4>COIN ONE</h4>
-            </div>
-            <div>
-              <h3>13.21%</h3>
-            </div>
-          </div>
-          <p class="border-bottom border-white"></p>
-        </div>
-        <div class="col-12 col-md-6">
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="d-flex align-items-center">
-              <img src="{{ asset('images/assets/Artboard2_copy5/Rectangle385.png') }}" class="img-fluid w-70" alt="">
-              <h4>COIN ONE</h4>
-            </div>
-            <div>
-              <h3>13.21%</h3>
-            </div>
-          </div>
-          <p class="border-bottom border-white"></p>
-        </div>
-        <div class="col-12 col-md-6">
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="d-flex align-items-center">
-              <img src="{{ asset('images/assets/Artboard2_copy5/Rectangle385.png') }}" class="img-fluid w-70" alt="">
-              <h4>COIN ONE</h4>
-            </div>
-            <div>
-              <h3>13.21%</h3>
-            </div>
-          </div>
-          <p class="border-bottom border-white"></p>
-        </div> -->
       </div>
     </div>
   </div>
@@ -127,20 +63,20 @@
   <div class="row mt-5">
     <div class="col-12 col-xl-4">
       <div>
-        <p class="text-white pb-3">{{__('custom.staking_history')}}</p>
+        <h3 class="text-white pb-3">{{__('custom.staking_history')}}</h3>
       </div>
       <div class="table-responsive table-history">
         @include('stacking_pool.stack_history')
       </div>
 
     </div>
-    <div class="col-12 col-xl-8 mt-4 mt-xl-0 pl-xl-5">
+    <div class="col-12 col-xl-8 mt-4 mt-xl-0 pl-xl-5 staf">
       <div>
-        <p class="text-white pb-3">{{__('custom.terms_conditions')}}</p>
+        <h3 class="text-white pb-3">{{__('custom.terms_conditions')}}</h3>
       </div>
       {!!__('custom.staking_terms')!!}
       <div>
-        <p class="text-white pb-3">{{__('custom.stake_now')}}</p>
+        <h3 class="text-white pb-3 mt-4">{{__('custom.stake_now')}}</h3>
       </div>
       <form method="post" action="{{ route('staking_pool') }}" id="staking_pool">
         @csrf

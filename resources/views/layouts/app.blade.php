@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="{{ asset('assets/treanttree/css/Treant.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/treanttree/css/collapsable.css').'?v='.time() }}">
 </head>
+
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->

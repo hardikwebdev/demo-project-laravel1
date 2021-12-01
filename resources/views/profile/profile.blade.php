@@ -44,7 +44,7 @@
     <div class="col-12 col-xl-8 mt-4 mt-xl-0">
       <div class="row">
         <div class="col-12">
-          <div class="card" style="padding: 20px;min-height: 306px;">
+          <div class="card" style="min-height: 306px;">
             <div class="card-body pb-xl-1 pt-xl-2">
               <div class="row align-items-center">
                 <div class="col-12 col-xl-4">
@@ -116,7 +116,7 @@
                           <button class="btn bg-blue text-white rounded-0 px-4">${{number_format($stakingpool->investedAmount,2)}}</button>
                         </div>
                         <a class="btn bg-white text-warning px-3 rounded-0 font-10 mt-2 card-1-btn position-absolute" href="{{ route('stakepool',$stakingpool->id) }}">{{__('custom.stake')}} <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}" class="img-fluid ml-2 d-inline align-middle w-25" alt=""></a> --}}
-                        <div class="d-flex justify-content-around mt-2 mb-4">
+                        <div class="d-flex justify-content-around mt-2">
                           <p class="text-white font-weight-bold font-12">{!! __('custom.invested_amount') !!}</p>
                           <button class="btn bg-blue text-white rounded-0 px-4">${{ number_format($stakingpool->investedAmount, 2) }}</button>
                           </div>

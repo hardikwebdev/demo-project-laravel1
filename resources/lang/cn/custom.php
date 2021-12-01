@@ -1852,7 +1852,7 @@ return [
     </div>
     <div id="collapseeleven" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p> 您可以将所有收益从各自的钱包转移到提款钱包.然后，您可以选择提款到您当地的加密货币钱包或当地银行（如果有）. 
+    <p> 您可以将所有收益从各自的钱包转移到提款钱包.然后，您可以选择提款到您当地的加密货币钱包. 
     </p>
     </div>
     </div>
