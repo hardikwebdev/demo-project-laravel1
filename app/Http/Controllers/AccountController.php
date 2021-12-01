@@ -464,17 +464,26 @@ class AccountController extends Controller
                                 ->whereIn('status',[1,2])
                                 ->get();
 
+        $withdrawncollections = NftPurchaseHistory::with('nftproduct')
+                                ->whereHas('nftproduct',function($query){
+                                    $query->where("product_status",'!=',"Withdrawn")->whereDoesntHave('opennftpurchasehistory');
+                                })
+                                ->where('user_id', $this->user->id)
+                                ->whereIn('status',[1,2])
+                                ->get();
+
+
         $history = Model\NftWithdrawalRequest::where('user_id',$user->id)->orderby('id','desc')->paginate(10);
         if ($request->ajax()) {
             return view('profile/nftwithdrawlwalletajax', compact('history'));
         }
 
-        return view('profile.my_collection', compact('country', 'user', 'staking_pool', 'staking_pool_count', 'collections','history'));
+        return view('profile.my_collection', compact('country', 'user', 'staking_pool', 'staking_pool_count', 'collections','history','withdrawncollections'));
     }
     public function sell_nft(Request $request){
         $collections = NftPurchaseHistory::with('nftproduct')->whereHas('nftproduct',function($query){
             $query->whereNotIn("product_status",["Withdrawn"]);
-        })->where('user_id', $this->user->id)->whereIn('status',[1,2])->get();
+        })->where('user_id', $this->user->id)->whereIn('status',[1,2])->whereDoesntHave('withdrawal')->get();
         $nftsalehistory = NftSellHistory::with('nftproduct')->whereHas('nftproduct',function($query){
             $query->whereNotIn("product_status",["Withdrawn"]);
         })->where('user_id', $this->user->id)->orderBy('id','desc')->paginate(6);

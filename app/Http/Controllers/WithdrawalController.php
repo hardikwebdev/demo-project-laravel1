@@ -197,7 +197,7 @@ class WithdrawalController extends Controller
             $routeUrl = route('withdrawlRequestVerify',$withderawRequest->usdt_verification_key);
             \Mail::send('emails.withdrawlusdt',['routeUrl' =>$routeUrl ], function($message) use($data )  {
                 $message->to($data['email'], 'Withdrawal Verification')
-                ->subject('Vextrader Withdrawal Verification');
+                ->subject('DefixFinanace Withdrawal Verification');
             });
             return redirect()->route('withdrawal')->with(['success'=>trans('custom.verfication_email_send')]);
         }

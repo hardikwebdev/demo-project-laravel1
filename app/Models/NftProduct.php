@@ -20,6 +20,10 @@ class NftProduct extends Model
         return $this->hasMany(NftPurchaseHistory::class,'product_id','id')->whereIn('status',[1,2]);
     }
 
+    public function opennftpurchasehistory(){
+        return $this->hasMany(NftPurchaseHistory::class,'product_id','id')->whereIn('status',[1,2])->where('type',1);
+    }
+
     public function images()
     {
         return $this->hasMany(NftProductImage::class,'product_id','id');

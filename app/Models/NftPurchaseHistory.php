@@ -21,4 +21,8 @@ class NftPurchaseHistory extends Model
     public function nftproduct(){
         return $this->belongsTo(NftProduct::class,'product_id','id');
     }
+
+    public function withdrawal(){
+        return $this->hasMany(NftWithdrawalRequest::class,'nft_id')->where('status','!=','2');
+    }
 }

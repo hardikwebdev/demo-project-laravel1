@@ -219,7 +219,7 @@
             <input type="hidden" name="payment_method" value="usdt">
             <select name="product_id" class="form-control text-grey font-weight-bold h-auto py-4 rounded-0" id="product">
               <option value="">{{ __('custom.select_nft_products') }}</option>
-              @foreach($collections as $value)
+              @foreach($withdrawncollections as $value)
               <option value="{{$value->product_id}}" data-value="{{$value->id}}">{{$value->nftproduct->name}}</option>
               @endforeach
             </select>

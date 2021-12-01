@@ -76,6 +76,8 @@
                                 <th>NFT</th>
                                 <th>Title</th>
                                 <th>NFT Category</th>
+                                <th>NFT Address</th>
+                                <th>Submitted date</th>
                                 <th>Updated date</th>
                                 <th>Status</th>
                                 <th>Actions</th>
@@ -104,8 +106,11 @@
                                 
                                 <td>{{ $row->nftproduct->name }}</td>
                                 <td>{{ $row->nftproduct->nftcategory->name }}</td>
+                                <td>{{ $row->payment_address }}</td>
 
-                                <td>{{$row->action_date ?? ""}}</td>
+                                <td>{{$row->created_at ? $row->created_at : ""}}</td>
+
+                                <td>{{$row->action_date ? $row->action_date : ""}}</td>
                                 <td>
                                     @if($row->status=='1')
                                     <label class="label label-primary">Approved</label>
@@ -136,11 +141,11 @@
                             @endforeach                            
                             @else
                             <tr>
-                                <td colspan="9">Oops! No Record Found.</td>
+                                <td colspan="10">Oops! No Record Found.</td>
                             </tr>
                             @endif
                             <tr>
-                                <td colspan="9" align="right">{!! $withdrawal_requests->render('vendor.default_paginate') !!}</td>
+                                <td colspan="10" align="right">{!! $withdrawal_requests->render('vendor.default_paginate') !!}</td>
                             </tr>
 
                         </tbody>

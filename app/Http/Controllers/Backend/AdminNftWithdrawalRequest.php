@@ -50,7 +50,7 @@ class AdminNftWithdrawalRequest extends Controller
         }
         $countries = Country::pluck('country_name','id');
 
-        $withdrawal_requests= $withdrawal_requests->whereNotIn('status',['3','4'])->orderBy('action_date','desc')->orderBy('created_at','desc')->paginate($this->limit)->appends($request->all());
+        $withdrawal_requests= $withdrawal_requests->whereNotIn('status',['3','4'])->orderBy('created_at','desc')->paginate($this->limit)->appends($request->all());
         $data = $request->all();
         return view('backend.nft_withdrawal_request.index',compact('withdrawal_requests','data','countries'));
     }
