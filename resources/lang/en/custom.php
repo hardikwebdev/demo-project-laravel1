@@ -1850,7 +1850,7 @@ return [
     </div>
     <div id="collapseeleven" class="collapse" data-parent="#accordion">
     <div class="card-body">
-    <p>You can transfer all your earnings from their respective wallets to the Withdrawal wallet. You then have options to withdraw to your local cryptocurrency wallet or local bank (where available). 
+    <p>You can transfer all your earnings from their respective wallets to the Withdrawal wallet. You then have options to withdraw to your local cryptocurrency wallet. 
     </p>
     </div>
     </div>
