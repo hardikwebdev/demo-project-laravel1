@@ -466,7 +466,7 @@ class AccountController extends Controller
 
         $withdrawncollections = NftPurchaseHistory::with('nftproduct')
                                 ->whereHas('nftproduct',function($query){
-                                    $query->where("product_status",'!=',"Withdrawn")->whereDoesntHave('opennftpurchasehistory');
+                                    $query->where("product_status",'!=',"Withdrawn");
                                 })
                                 ->where('user_id', $this->user->id)
                                 ->whereIn('status',[1,2])
