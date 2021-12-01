@@ -143,6 +143,7 @@ class CalculatePairingCommission extends Command
                 $history_data["amount"] = $nft_commission_amount;
                 $history_data["user_id"] = $user->id;
                 $history_data["description"] = 'Nodes Balancing Commission';
+                $history_data["description_cn"] = '节点平衡佣金';
                 $history_data["final_amount"] = $commission_wallet->nft_wallet + $nft_commission_amount;
 
                 NftWalletHistory::create($history_data);
@@ -168,6 +169,7 @@ class CalculatePairingCommission extends Command
                 $history_data["from_user_id"] = $user->id;
                 $history_data["commission_type"] = 'pairing';
                 $history_data["description"] = 'Nodes Balancing Commission';
+                $history_data["description_cn"] = '节点平衡佣金';
                 $history_data["final_amount"] = $commission_wallet->commission_wallet + $pairing_commission;
 
                 CommissionWalletHistory::create($history_data);

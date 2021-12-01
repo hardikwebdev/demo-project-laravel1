@@ -381,18 +381,23 @@ class WalletController extends Controller
                  }
 
                  $description = "";
+                 $description_cn = "";
                  if($request->fund_type == '0'){
                      $description = 'Transferred to Crypto Wallet';
+                     $description_cn = '转移至加密钱包';
                  }elseif($request->fund_type == '1'){
-                     $description = 'Transferred to Withdrawal Wallet';                    
+                     $description = 'Transferred to Withdrawal Wallet'; 
+                     $description_cn = '转移至取款钱包';                   
                  }else{
-                    $description = 'Transferred to NFT Wallet';    
+                    $description = 'Transferred to NFT Wallet';  
+                    $description_cn = '转移至NFT钱包';  
                  }
                  $yieldwalle = new Model\YieldWalletHistory();
                  $yieldwalle->user_id = auth()->id();
                  $yieldwalle->amount = $request->amount;
                  $yieldwalle->final_amount = $usercheck->userwallet['yield_wallet'] - $request->amount;
                  $yieldwalle->description = $description;
+                 $yieldwalle->description_cn = $description_cn;
                  $yieldwalle->stacking_pool_id = 0;
                  $yieldwalle->type = '0';
                  $yieldwalle->save();
@@ -464,18 +469,23 @@ class WalletController extends Controller
                 }
 
                 $description = "";
+                $description_cn = "";
                 if($request->fund_type == '0'){
                     $description = 'Transferred to Crypto Wallet';
+                    $description_cn = '转移至加密钱包';
                 }elseif($request->fund_type == '1'){
-                    $description = 'Transferred to Withdrawal Wallet';                    
+                    $description = 'Transferred to Withdrawal Wallet';  
+                    $description_cn = '转移至取款钱包';                  
                 }else{
-                   $description = 'Transferred to NFT Wallet';    
+                   $description = 'Transferred to NFT Wallet'; 
+                   $description_cn = '转移至NFT钱包';   
                 }
                 $yieldwalle = new Model\CommissionWalletHistory();
                 $yieldwalle->user_id = auth()->id();
                 $yieldwalle->amount = $request->amount;
                 $yieldwalle->final_amount = $usercheck->userwallet['commission_wallet'] - $request->amount;
                 $yieldwalle->description = $description;
+                $yieldwalle->description_cn = $description_cn;
                 $yieldwalle->type = '0';
                 $yieldwalle->save();
 

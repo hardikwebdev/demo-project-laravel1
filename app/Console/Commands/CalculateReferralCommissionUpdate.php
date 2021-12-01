@@ -109,6 +109,7 @@ class CalculateReferralCommissionUpdate extends Command
                     $history_data["amount"] = $nft_commission_amount;
                     $history_data["user_id"] = $value->id;
                     $history_data["description"] = 'Referral commission from '.$stakingpool->user_detail->username;
+                    $history_data["description_cn"] = '直系推荐佣金从 '.$stakingpool->user_detail->username;
                     $history_data["final_amount"] = $commission_wallet->nft_wallet + $nft_commission_amount;
 
                     NftWalletHistory::create($history_data);
@@ -120,6 +121,7 @@ class CalculateReferralCommissionUpdate extends Command
                     $history_data["from_user_id"] = $stakingpool->user_id;
                     $history_data["commission_type"] = 'referral';
                     $history_data["description"] = 'Referral commission from '.$stakingpool->user_detail->username;
+                    $history_data["description_cn"] = '直系推荐佣金从 '.$stakingpool->user_detail->username;
                     $history_data["final_amount"] = $commission_wallet->commission_wallet + $commission_amount_actual;
 
                     CommissionWalletHistory::create($history_data);
@@ -133,6 +135,7 @@ class CalculateReferralCommissionUpdate extends Command
                     $data["from_user_id"] = $stakingpool->user_id;
                     $data["stacking_pool_id"] = $stakingpool->id;
                     $data["description"] = 'Referral commission from '.$stakingpool->user_detail->username;
+                    $data["description_cn"] = '直系推荐佣金从 '.$stakingpool->user_detail->username;
                     $data["actual_percent"] = $level_commission_percent;
                     $data["percent"] = $package_detail->direct_refferal;
 
