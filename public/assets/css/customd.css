@@ -1,8 +1,23 @@
 .navigation-cus select {
     background-color: transparent;
 }
+.nftrow .stacking-slider h3 {
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 100%);
+    margin: 0px;
+    text-align:center;
+    width:100%
+}
 .dashboard-news h3 {
     margin-bottom: 5px;
+}
+.title-bg-nft h2 {
+    text-shadow: 1px 1px 10px #222;
+}
+.title-bg-nft {
+    text-align: center;
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 100%);
+    width: 100% !important;
+    padding-top: 25px;
 }
 p.dix.pt-3.text-white {
     font-size: smaller;
@@ -38,7 +53,7 @@ form#cryptowalletform {
     margin-top: 10px;
     margin-bottom: 5px;
 }
-.stacking-slider p.text-white.font-weight-bold.font-12 {
+.stack-row .stacking-slider p.text-white.font-weight-bold.font-12 {
     font-size: 18px;
 }
 .dashboard-slider .slick-list.draggable {
@@ -58,10 +73,10 @@ nav#sidebar.sidebar-offcanvas {
 body {
     background-color: #16181d;
 }
-.stacking-slider h3 {
+.stack-row .stacking-slider h3 {
     margin-top: 6px;
 }
-.stacking-slider .slick-list {
+.stack-row .stacking-slider .slick-list {
     padding-top: 1.5rem;
 }
 .container-fluid.page-body-wrapper {
@@ -78,7 +93,7 @@ button.btn {
     font-size: 25px !important;
     font-weight: 600;
 }
-.stacking-slider .slick-slide a.btn {
+.stack-row .stacking-slider .slick-slide a.btn {
     font-size: 15px;
 }
 .dashboard-news img.img-fluid {
@@ -149,20 +164,35 @@ a.navbar-brand.brand-logo.p-4 {
 }.main-panel .content-wrapper {
     padding-top:0px
 }
+.nftrow .stacking-slider .slick-list {
+    padding-top: 0px;
+}
+.indi-nft button.btn {
+    font-weight: 800;
+}
+.stack-row .stacking-slider .slick-slide a.btn.bg-warning {
+    background-color: #fff !important;
+    color: #ffc113 !important;
+    border: 2px solid #ffc113;
+}
+.indi-nft input#security_password {
+    background-color: transparent;
+    color: #fff;
+}
 .dashboard-news .d-flex.align-items-center.mt-3:last-child {
     display: none !important;
 }
 .login-box select.form-control.cus-bg-tra-b {
     background-color: transparent;
 }
-h1,h2,h3,h4,h5,h6, a {
+h1,h2,h3,h4,h5,h6,button {
     font-family:'EUROSTIB' !important
 }
-p, span {
+p,a, span, .row li {
     font-family:'Dinpro'
 }
 
-.staking-main a.btn, .stacking-slider a.btn {
+.staking-main a.btn, .stack-row .stacking-slider a.btn {
     border-radius: 5px !important;
 }
 .login-box input, .login-box input::placeholder, .login-box select, .login-box select option {

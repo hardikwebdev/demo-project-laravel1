@@ -2,8 +2,14 @@
 @section('title', __('custom.nft_marketplace'))
 @section('page_title', __('custom.nft_marketplace'))
 @section('content')
-<div class="content-wrapper">
-	<div class="row align-items-center mt-5 pt-5">
+<div class="content-wrapper indi-nft">
+    <div class="ml-2 mb-4 d-none-desk d-md-block">
+      <h2 class="text-warning font-weight-bold">@yield('page_title','Dashboard')</h2>
+      @if(Route::currentRouteName() == 'dashboard')
+      <p class="text-white">{{str_replace('#name',auth()->user()->name,__('custom.wc_text'))}}</p>
+      @endif
+    </div>
+	<div class="row align-items-center mt-3">
 		<div class="col-12 col-md-6">
 			@if ($product->product_status == "Sold")
 			<div class="position-relative overflow-hidden">
@@ -31,7 +37,7 @@
 			
 			<h2>{{ $product->name }}</h2>
 			<p class="font-12 w-75 mt-3">{{ $product->description }}</p>
-			<h3 class="mt-3">{{ $product->price }} $USD</h3>
+			<h2 class="mt-3 nft-price">$ {{ $product->price }}</h2>
 			
 			@if ($product->product_status != "Sold")
 			@if(!$checkProduct)
@@ -73,10 +79,8 @@
 		</div>
 	</div>
 	<div class="row mt-5">
-		<div class="col-12">
-			<p class="text-white pb-3">{{ trans('custom.trading_history')}}</p>
-		</div>
 		<div class="col-12 col-md-6">
+            <h4 class="text-white pb-3">{{ trans('custom.trading_history')}}</h4>
 			<div class="table-responsive table-history">
 				@include('nft_marketplace.nft_purchase_history')
 			</div>
@@ -89,7 +93,7 @@
 	<div class="row mt-5">
 		<div class="col-12">
 			{{-- <p class="text-white pb-3">{{ __('custom.other_collection')}}</p> --}}
-			<p class="text-white pb-3">Other {{ $collectionname->name ?? '' }} Collection</p>
+			<h4 class="text-white pb-3">Other {{ $collectionname->name ?? '' }} Collection</h4>
 		</div>
 		<div class="col-12">
 			<div class="bull-kong-slider">

@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="{{ asset('assets/css/custom/slick-theme.min.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/jquery.steps.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/jquery-ui.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/customd.css').'?v='.time() }}">
   <link rel="stylesheet" href="{{ asset('backend/css/sweetalert.css')}}">
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/jquery.signature.css') }}">
   <link rel="icon" href="https://defixfinance.com/wp-content/uploads/2021/09/cropped-defix-favicon-32x32.png" sizes="32x32" />

@@ -1889,24 +1889,24 @@ return [
     'agreement_title' => '存款协议 #title',
     'accept_terms' => '我已阅读并同意服务条款。',
     'last_month' => '上个月',
-    'nft_marketplace' => 'NFT Marketplace',
-    'nft_collection' => 'NFT Collection',
-    'collection' => 'COLLECTION',
-    'buy_now' => 'BUY NOW',
-    'trading_history' => 'Trading History',
-    'nft_marketplace_tc' => '<p class=" text-white">Purchasing Agreement</p><ul class="text-secondary mt-4">
-    <li class="mt-3">By buying this NFT you agree that the sale is final and no refund requests will be entertained</li>
-    <li class="mt-3">You understand by buying this NFT the ownership has been transferred to your DefiXFinance account and not your personal crypto wallet</li>
-    <li class="mt-3"> You understand you are able to transfer your NFT to your crypto wallet by going to the My Collection page</li>
+    'nft_marketplace' => 'NFT 市场',
+    'nft_collection' => 'NFT收藏',
+    'collection' => '收藏系列',
+    'buy_now' => '购买',
+    'trading_history' => '交易历史',
+    'nft_marketplace_tc' => '<p class=" text-white">采购协议</p><ul class="text-secondary mt-4">
+    <li class="mt-3">购买此NFT即表示您同意此销售为最终销售，不接受退款请求</li>
+    <li class="mt-3">您知道，通过购买此NFT，所有权已转移到您的DefiXFinance帐户，而不是您的个人加密钱包</li>
+    <li class="mt-3"> 您知道您可以通过进入“我的收藏”页面将NFT转移到加密钱包</li>
     </ul>',
-    'other_collection' => 'Other Collection',
-    'product_not_found' => 'Product not found',
-    'no_collection_found' => 'No Collection Found',
-    'my_collection' => 'My Collection',
+    'other_collection' => '其他收藏',
+    'product_not_found' => '找不到产品',
+    'no_collection_found' => '找不到收藏',
+    'my_collection' => '我的收藏',
     'defixfinance_id' => 'DefiXFinance ID',
-    'total_staking_package' => 'Total Staking Package',
-    'on_sale' => 'ON SALE',
-    'sell_nft' => 'Sell NFT',
+    'total_staking_package' => '总质押',
+    'on_sale' => '出售',
+    'sell_nft' => 'NFT出售',
 
     'STAKING_POOLS'=>'质押池',
     'NODES_MANAGEMENT'=>'节点平衡佣金',
@@ -1962,32 +1962,32 @@ return [
     'UPDATE_ACCOUNT' => '更新账户',
     'enter_nft_wallet_address' => '输入NFT钱包地址',
 
-    'no_products_available' =>'No products available.',
-    'sufficient_balance_not_available_in_nft_wallet' => 'Sufficient balance not available in NFT wallet.',
-    'amount_required_field' => 'Amount required field.',
-    'value_must_be_greater_than_0' => 'Value must be greater than 0.',
-    'SELL_NOW' => 'SELL NOW',
-    'msg_with_sale_request' => 'Your sale request is added successfully.',
+    'no_products_available' =>'无产品',
+    'sufficient_balance_not_available_in_nft_wallet' => 'NFT钱包中没有足够的余额。',
+    'amount_required_field' => '必填金额',
+    'value_must_be_greater_than_0' => '值必须大于 0.',
+    'SELL_NOW' => '出售',
+    'msg_with_sale_request' => '您的销售请求已成功添加',
     'NFT' => 'NFT',
-    'NAME' => 'NAME',
-    'AMOUNT' => 'AMOUNT',
-    'ORDER_ID' => 'ORDER ID',
-    'STATUS' => 'STATUS',
-    'listingperiod' => 'This NFT Product sell request already in process.',
-    'APPROVE' => 'APPROVE',
-    'REJECT' => 'REJECT',
-    'Counter_offer_amount' => 'Counter offer amount',
-    'counter_offer_approve' => 'Counter offer approve successfully.',
-    'counter_offer_reject' => 'Counter offer reject successfully.',
-    'counter_offer_aleady' => 'Counter offer of this NFT product is already approve or reject.',
+    'NAME' => '名称',
+    'AMOUNT' => '金额',
+    'ORDER_ID' => '订单号',
+    'STATUS' => '状态',
+    'listingperiod' => '此NFT产品销售请求已在处理中',
+    'APPROVE' => '批准',
+    'REJECT' => '拒绝',
+    'Counter_offer_amount' => '还盘金额',
+    'counter_offer_approve' => '还盘成功批准',
+    'counter_offer_reject' => '还盘成功拒绝',
+    'counter_offer_aleady' => '此NFT产品的还盘已被批准或拒绝',
 
-    'LISTING' => 'LISTING',
-    'ON_SALE' => 'ON SALE',
-    'DECLINED' => 'DECLINED',
-    'COUNTER_OFFER_DECLINED' => 'COUNTER OFFER DECLINED',
-    'PROCESSING' => 'PROCESSING',
-    'COUNTER_OFFER_CREATED' => 'COUNTER OFFER CREATED',
-    'SOLD' => 'SOLD',
+    'LISTING' => '列表',
+    'ON_SALE' => '出售',
+    'DECLINED' => '拒绝',
+    'COUNTER_OFFER_DECLINED' => '还盘被拒',
+    'PROCESSING' => '处理中',
+    'COUNTER_OFFER_CREATED' => '创建还盘',
+    'SOLD' => '已出售',
 
     'upload_profile_image' => '上传个人资料图片',
     'profile_extension_png_jpg_jpeg' => '个人资料扩展 png, jpg, jpeg',
@@ -2069,32 +2069,32 @@ return [
     'Please_enter_a_value_with_a_valid_extension_proof' => '请输入有效扩展证明',
     'Please_enter_a_value_greater_than_or_equal_to_100' => '请输入一个大于或等于100的值',
     'Please_enter_a_value_with_a_valid_extension' => '请输入有效扩展证明',
-    'PENDING' => 'PENDING',
-    'here' => 'here',
-    'product_owned_by_you' => 'This product already owned by you',
-    'sold' => 'Sold',
-    'product_owned_by_username' => 'This product already owned by #username',
-    'robot' => 'Please verify that you are not a robot.',
-    'captcha_error' => 'Captcha error! try again later or contact site administrator.',
+    'PENDING' => '待定',
+    'here' => '这',
+    'product_owned_by_you' => '此产品已归您所有',
+    'sold' => '已出售',
+    'product_owned_by_username' => '此产品已归 #username',
+    'robot' => '请确认您不是机器人',
+    'captcha_error' => '验证码错误！请稍后再试，或与管理员联系',
 
     /* NFT wallet Terms & Conditions USDT*/
 
     'nft_wallet_terms_and_conditions1_usdt' => '<ul class="text-grey">
-    <li>Please select the type of USDT protocol.</li>
-    <li>Transfer to the stated ERC20 or TRC20 address only.</li>
-    <li>All deposits are final and no refund requests shall be entertained.</li>
+    <li>请选择USDT协议的类型</li>
+    <li>仅传送至规定的ERC20或TRC20地址</li>
+    <li>所有存款均为最终存款，不接受退款请求</li>
     </ul>',
 
 
     'nft_wallet_terms_and_conditions2_usdt' => '<ul class="text-grey">
-    <li>Input the amount you wish to deposit.</li>
-    <li>Once transfer is made, please upload payment proof that shows transaction ID.</li>
-    <li>All deposit requests will be approved within 1 working day.</li>
+    <li>输入您要存入的金额</li>
+    <li>转账完成后，请上传显示交易ID的付款凭证</li>
+    <li>所有存款申请将在1个工作日内获得批准</li>
     </ul>',
 
 
     'nft_wallet_terms_and_conditions3_usdt' => '<ul class="text-grey">
-    <li>The conversion rate of USDT to USD will be auto calculated accordingly.</li>
+    <li>美元兑美元的转换率将相应自动计算</li>
     </ul>',
 
 
@@ -2103,52 +2103,52 @@ return [
 
     /* NFT wallet Terms & Conditions Payment Gateway*/
     'nft_wallet_terms_and_conditions1_payment_gateway' => '<ul class="text-grey">
-    <li>Please enter the amount you want to deposit in USD.</li>
-    <li>You will be redirected to the payment gateway page to make your payment.</li>
+    <li>请输入您要存入的美元金额</li>
+    <li>您将被重定向到支付网关页面进行支付</li>
     </ul>',
 
 
     'nft_wallet_terms_and_conditions2_payment_gateway' => '<ul class="text-grey">
-    <li>The system will auto convert the USD amount to your local fiat currency.</li>
-    <li>Once payment is confirmed the amount will be credited into this wallet.</li>
+    <li>系统将自动将美元金额转换为当地法定货币</li>
+    <li>一旦确认付款，金额将记入此钱包</li>
     </ul>',
 
 
     'nft_wallet_terms_and_conditions3_payment_gateway' => '<ul class="text-grey">
-    <li>The local fiat currency shown is based on your registered country.</li>
-    <li>All deposits are final and no refund requests shall be entertained.</li>
+    <li>显示的当地法定货币基于您的注册国家</li>
+    <li>所有存款均为最终存款，不接受退款请求</li>
     </ul>',
 
-    'transfer_history' => 'Withdrawal Wallet History',
-    'please_select_product' => 'Please select a product',
-    'requested_amount_transfered' => 'Requested amount transferred.',
-    'select_nft_products' => '-- Select Your NFT --',
-    'nft_wallet_address' => 'NFT Wallet Address',
-    'NFT_CATEGORY' => 'NFT Category',
+    'transfer_history' => '取款钱包历史记录',
+    'please_select_product' => '请选择一个产品',
+    'requested_amount_transfered' => '请求转移的金额',
+    'select_nft_products' => '-- 选择您的NFT --',
+    'nft_wallet_address' => 'NFT钱包地址',
+    'NFT_CATEGORY' => 'NFT类别',
     
-    'robot' => 'Please verify that you are not a robot.',
-    'captcha_error' => 'Captcha error! try again later or contact site administrator.', 
+    'robot' => '请确认您不是机器人',
+    'captcha_error' => '验证码错误！请稍后再试，或与管理员联系', 
 
     /* Withdrawal Wallet Terms & Conditions*/
     'nft_withdrawal_wallet_terms_and_conditions1' => '<ul class="text-grey">
-    <li>You can transfer funds from your commission and yield wallet to this wallet.</li>
-    <li>The conversion rate of USD to USDT is 1:0.95.</li>
-    <li>The conversion rate of USD to your local currency is dependent on the market rate. Please message the support team to inquire about the latest conversion rate.</li>
+    <li>您可以从您的佣金和收益钱包中转账到该钱包</li>
+    <li>美元对USDT的兑换率为 1:0.95.</li>
+    <li>美元与当地货币的兑换率取决于市场汇率。请向支持团队发送消息，询问最新的转换率</li>
     </ul>',
 
 
     'nft_withdrawal_wallet_terms_and_conditions2' => '<ul class="text-grey">
-    <li>You can withdraw the funds here to your TRC20 or ERC20 wallet.</li>
-    <li>The withdrawal window is from the 1st to 6th of each month.</li>
-    <li>All withdrawals will be processed from the 7th to 15th of each month.</li>
+    <li>您可以在此处将资金提取到您的TRC20或ERC20钱包中</li>
+    <li>提款窗口为每月1日至6日</li>
+    <li>所有提款将于每月7日至15日进行处理</li>
     </ul>',
 
 
     'nft_withdrawal_wallet_terms_and_conditions3' => '<ul class="text-grey">
-    <li>All withdrawal requests will incur a withdrawal fee of USD10.</li>
-    <li>You can withdraw the funds here to your local country bank account (where available).</li>
-    <li>All withdrawals that have been approved are final.</li>
+    <li>所有提款请求将产生10美元的提款费</li>
+    <li>您可以在此处将资金提取到您当地的国家银行账户（如有）</li>
+    <li>所有已批准的提款均为最终提款</li>
     </ul>',
-    'nft_withdrawal' => 'NFT Withdrawal',
-    'nft_terms' => 'Buy NFT T&C',
+    'nft_withdrawal' => 'NFT 提取',
+    'nft_terms' => '购买NFT条款和条件',
 ];
