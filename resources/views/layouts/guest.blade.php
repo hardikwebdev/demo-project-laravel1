@@ -17,6 +17,7 @@
 <meta name="msapplication-TileImage" content="https://defixfinance.com/wp-content/uploads/2021/09/cropped-defix-favicon-270x270.png" />
   <link rel="stylesheet" href="{{ asset('assets/css/custom/index.css') }}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/jquery.steps.css') }}">
+  <link rel="stylesheet" href="{{ asset('backend/css/sweetalert.css')}}">
   <link rel="stylesheet" href="{{ asset('assets/css/custom/jquery-ui.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/jquery.signature.css') }}">
   <style>
@@ -51,6 +52,7 @@
   <script src="{{ asset('assets/js/custom/slick.min.js') }}"></script>
   <script src="{{asset('backend/js/plugins/validate/jquery.validate.min.js') }}"></script>
   <script src="{{asset('backend/js/plugins/validate/additional-methods.min.js')}}"></script>
+  <script src="{{asset('backend/js/sweetalert.min.js')}}"></script>
   <script>
    var sponsorUsernameExits = "{{route('sponsorUsernameExits')}}";
    var placementUsernameExits = "{{route('placementUsernameExits')}}";

@@ -2153,5 +2153,6 @@ return [
      </ul>',
     'nft_withdrawal' => 'NFT Withdrawal',
     'nft_terms' => 'NFT Marketplace Terms and Conditions',
+    "please_confirm_captcha_to_proceed" => "Please confirm captcha to proceed"
 
  ];

@@ -2151,4 +2151,5 @@ return [
     </ul>',
     'nft_withdrawal' => 'NFT 提取',
     'nft_terms' => '购买NFT条款和条件',
+    "please_confirm_captcha_to_proceed" => "Please confirm captcha to proceed"
 ];
