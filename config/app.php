@@ -169,7 +169,8 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         Jenssegers\Agent\AgentServiceProvider::class,
-        AlbertCht\InvisibleReCaptcha\InvisibleReCaptchaServiceProvider::class,
+        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -238,6 +239,8 @@ return [
         'Helper' => App\Helpers\Helper::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Agent' => Jenssegers\Agent\Facades\Agent::class,
+        'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
+
     ],
 
 ];

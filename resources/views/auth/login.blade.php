@@ -3,6 +3,19 @@
 @php
 $local_url = url('locale');
 @endphp
+<style>
+    .g-recaptcha {
+    transform:scale(0.87);
+    transform-origin:0 0;
+    /* transform: scaleX(1.18); */
+    }
+    @media only screen and (max-width: 500px) {
+    .g-recaptcha {
+    transform:scale(0.70);
+    transform-origin:0 0;
+    }
+    }
+</style>
 @section('content')
     <div class="row w-100 mx-0">
         <div class="col-12 col-lg-4 mx-auto">
@@ -49,7 +62,6 @@ $local_url = url('locale');
                         </div>
                     </div>
                     @csrf
-                    {!! app('captcha')->render(); !!}
                     <div class="col-12 mt-3">
                         <input id="username" type="username"
                             class="form-control grey-ph h-auto py-4 rounded-0 @error('username') is-invalid @enderror"
@@ -74,6 +86,15 @@ $local_url = url('locale');
                             </span>
                         @enderror
                     </div>
+                    <div class="col-12 mt-3">
+                        {!! NoCaptcha::renderJs() !!}
+                        {!! NoCaptcha::display() !!}
+                    </div>
+                    @if ($errors->has('g-recaptcha-response'))
+                        <span class="help-block">
+                            <strong style="color: #fff !important;text-align: center;font-size:80%;">{{ $errors->first('g-recaptcha-response') }}</strong>
+                        </span>
+                    @endif
                     <div class="col-12 mt-3">
                         <button type="submit"
                             class="btn bg-warning text-white py-4 font-weight-bold rounded-0 w-100 text-uppercase">{{ __('custom.sign_in') }}
