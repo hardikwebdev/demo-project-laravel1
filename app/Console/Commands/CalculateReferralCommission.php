@@ -65,7 +65,7 @@ class CalculateReferralCommission extends Command
                     }
                     $todaysPool = ReferralCommission::where(["user_id" => $value->id, "from_user_id" => $stakingpool->user_id,'stacking_pool_id' => $stakingpool->id])->whereDate('created_at',$result_date)->count();
                     if($todaysPool > 0){
-                        // continue;
+                        continue;
                     }
 
                     $package_detail = Package::where('amount','<=',$value->userwallet->stacking_pool)->orderBy('amount','desc')->first();
