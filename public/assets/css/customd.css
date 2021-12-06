@@ -170,6 +170,21 @@ a.navbar-brand.brand-logo.p-4 {
 .indi-nft button.btn {
     font-weight: 800;
 }
+.nft-market .slick-list h4{
+    font-size:21px !important
+}
+.nft-market .title-bg-nft h2 {
+    font-size:28px !important
+}
+.nft-market .title-bg-nft h4.mb-3 {
+    font-size: 18px;
+}
+.nft-market .slick-slide img {
+    border-radius:5px
+}
+.nft-market h3.text-black  {
+    font-size:20px !important
+}
 .stack-row .stacking-slider .slick-slide a.btn.bg-warning {
     background-color: #fff !important;
     color: #ffc113 !important;
