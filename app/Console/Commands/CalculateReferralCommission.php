@@ -83,7 +83,6 @@ class CalculateReferralCommission extends Command
                     if($value->level == '1'){
                         $level_commission_percent = $package_detail->direct_refferal;
                     }else if($value->level!= '1'){
-
                         $level_commission_percent = $package_detail->direct_refferal - $sum_rank_percent;
                     }   
                     
