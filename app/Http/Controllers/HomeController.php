@@ -70,7 +70,7 @@ class HomeController extends Controller
 
         $total_stacking = StackingPool::where('user_id', $this->user->id)
                                         ->where(function($q){
-                                            $q->where('status','0')->orWhere('status','1')
+                                            $q->where('status','0')->orWhere('status','1');
                                         })
                                         ->sum('amount');
         // if ($locale == 'en' || $locale == 'ko' || $locale == 'th' || $locale == 'vi') {
