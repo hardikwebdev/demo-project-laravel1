@@ -4,6 +4,8 @@
     font-weight: 100;
     src: url("../../fonts/EUROSTIB.ttf") format('TrueType');
 }
+@font-face {font-family: "Dinpro";font-display: auto;font-fallback: ;font-weight: 100;src: url("../../fonts/DINPro-Regular.otf") format('TrueType');} </style>
+
 .slick-list{
     font-family: 'EUROSTIB' !important;
 }

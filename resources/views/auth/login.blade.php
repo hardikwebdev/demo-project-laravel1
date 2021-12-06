@@ -3,6 +3,19 @@
 @php
 $local_url = url('locale');
 @endphp
+<style>
+    .g-recaptcha {
+    transform:scale(0.87);
+    transform-origin:0 0;
+    transform: scaleX(1.15);
+    }
+    @media only screen and (max-width: 500px) {
+    .g-recaptcha {
+    transform:scale(0.70);
+    transform-origin:0 0;
+    }
+    }
+</style>
 @section('content')
     <div class="row w-100 mx-0">
         <div class="col-12 col-lg-4 mx-auto">
@@ -18,7 +31,7 @@ $local_url = url('locale');
                     {{ Session::get('error') }}
                 </div>
             @endif
-            <form method="POST" action="{{ route('login') }}">
+            <form method="POST" action="{{ route('login') }}" id="loginform">
                 <div class="row align-items-center justify-content-center login-box login-gradient rounded p-3 p-md-5">
                     <div class="col-12 text-center login-logo">
                         <a href="https://defixfinance.com">
@@ -49,11 +62,10 @@ $local_url = url('locale');
                         </div>
                     </div>
                     @csrf
-                    {!! app('captcha')->render(); !!}
                     <div class="col-12 mt-3">
                         <input id="username" type="username"
                             class="form-control grey-ph h-auto py-4 rounded-0 @error('username') is-invalid @enderror"
-                            required placeholder="{{ __('custom.username') }}" name="username" value="{{ old('username') }}"
+                             placeholder="{{ __('custom.username') }}" name="username" value="{{ old('username') }}"
                              autocomplete="username" autofocus>
 
                         @error('username')
@@ -65,7 +77,7 @@ $local_url = url('locale');
                     <div class="col-12 mt-3">
                         <input id="password" type="password"
                             class="form-control grey-ph h-auto py-4 rounded-0 @error('password') is-invalid @enderror"
-                            required placeholder="{{ __('custom.password') }}" name="password"
+                             placeholder="{{ __('custom.password') }}" name="password"
                             autocomplete="current-password">
 
                         @error('password')
@@ -74,6 +86,15 @@ $local_url = url('locale');
                             </span>
                         @enderror
                     </div>
+                    <div class="col-12 mt-3">
+                        {!! NoCaptcha::renderJs() !!}
+                        {!! NoCaptcha::display() !!}
+                    </div>
+                    @if ($errors->has('g-recaptcha-response'))
+                        <span class="help-block">
+                            <strong style="color: #fff !important;text-align: center;font-size:80%;">{{ $errors->first('g-recaptcha-response') }}</strong>
+                        </span>
+                    @endif
                     <div class="col-12 mt-3">
                         <button type="submit"
                             class="btn bg-warning text-white py-4 font-weight-bold rounded-0 w-100 text-uppercase">{{ __('custom.sign_in') }}
@@ -106,4 +127,44 @@ $local_url = url('locale');
         </div>
     </div>
 
+@endsection
+@section('scripts')
+<script type="text/javascript">
+ 
+$( document ).ready(function() {
+    if ($("#loginform").length > 0) {
+        $("#loginform").validate({
+            rules: {
+                username: {
+                    required: true,
+                },
+                password: {
+                    required: true,
+                },
+            },
+            messages: {
+                username: {
+                    required: "{{trans('custom.enter_username')}}",
+                },
+                password: {
+                    required: "{{trans('custom.please_enter_password')}}",
+                },
+            },
+            submitHandler: function(form) {
+                if (grecaptcha.getResponse()) {
+                    form.submit();
+                } else {
+                    swal({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: "{{trans('custom.please_confirm_captcha_to_proceed')}}",
+                        footer: '<a href="">Why do I have this issue?</a>'
+                    })
+                }
+            }
+        })
+    }
+});
+
+</script>   
 @endsection

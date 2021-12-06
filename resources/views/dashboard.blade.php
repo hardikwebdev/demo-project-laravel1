@@ -91,7 +91,7 @@
                         <h3 class="text-white">
                         {{ __('custom.staking_network_pools') }}</h3>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 stack-row">
                         <div class="stacking-slider">
                             <?php $i = 1; ?>
                             @foreach ($staking_pool as $stakingpool)
@@ -232,7 +232,7 @@
                                                     </div>
                                                     <a class="btn bg-warning text-white px-3 rounded-0 font-10 mt-2 card-4-btn"
                                                     href="{{ route('stakepool', $stakingpool->id) }}">{{ __('custom.stake') }}
-                                                    <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}"
+                                                    <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}"
                                                     class="img-fluid ml-2 d-inline align-middle w-25" alt=""></a> --}}
 
                                                 <div class="d-flex justify-content-around mt-2 mb-4">
@@ -244,7 +244,7 @@
                                                     @else
                                                     <a class="btn bg-warning text-white px-3 rounded-0 font-10 mt-2"
                                                     href="{{ route('stakepool', $stakingpool->id) }}">{{ __('custom.stake') }}
-                                                    <img src="{{ asset('assets/images/assets/Staking_Pools/Group179.png') }}"
+                                                    <img src="{{ asset('assets/images/assets/Dashboard/Group930.png') }}"
                                                     class="img-fluid ml-2 d-inline align-middle" alt=""></a>
 
                                                     @endif
@@ -264,8 +264,8 @@
                                 </div>
                                 <div class="row mt-5 nftrow">
                                      <div class="col-12">
-                                        <p class="text-white mb-3" style="font-weight: 700 !important;font-size: 1.187rem;">
-                                        {{ __('custom.last_nfts') }}</p>
+                                        <h3 class="text-white">
+                                        {{ __('custom.last_nfts') }}</h3>
                                     </div>
                                     <div class="col-12">
                                         <div class="stacking-slider">
@@ -273,9 +273,9 @@
                                             <div>
                                                 <div class="mx-2">
                                                     <a href="{{ route('nft_marketplace') }}#productsection{{ $category->id }}"
-                                                        class="bg-bullkong rounded d-flex align-items-end px-4 py-3 text-white text-decoration-none"
+                                                        class="bg-bullkong rounded d-flex align-items-end text-white text-decoration-none"
                                                         style="background-image:url({{ $category->image }})">
-                                                        <h3>{{ $category->name }}</h3>
+                                                        <h3 class="px-4 pt-5 pb-3">{{ $category->name }}</h3>
                                                     </a>
                                                 </div>
                                             </div>

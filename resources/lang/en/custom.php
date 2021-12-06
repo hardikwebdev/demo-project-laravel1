@@ -1893,10 +1893,10 @@ return [
     'collection' => 'COLLECTION',
     'buy_now' => 'BUY NOW',
     'trading_history' => 'Trading History',
-    'nft_marketplace_tc' => '<p class=" text-white">Purchasing Agreement</p><ul class="text-secondary mt-4">
-                <li class="mt-3">By buying this NFT you agree that the sale is final and no refund requests will be entertained</li>
-                <li class="mt-3">You understand by buying this NFT the ownership has been transferred to your DefiXFinance account and not your personal crypto wallet</li>
-                <li class="mt-3"> You understand you are able to transfer your NFT to your crypto wallet by going to the My Collection page</li>
+    'nft_marketplace_tc' => '<p class=" text-white">By taking part in the trading of DefiXFinance NFT Marketplace, you agree to the following purchasing conditions:</p><ul class="text-white mt-4">
+                <li class="mt-1">By buying this NFT you agree that the sale is final and no refund requests will be entertained</li>
+                <li class="mt-1">You understand by buying this NFT the ownership has been transferred to your DefiXFinance account and not your personal crypto wallet</li>
+                <li class="mt-1"> You understand you are able to transfer your NFT to your crypto wallet by going to the My Collection page</li>
             </ul>',
     'other_collection' => 'Other Collection',
     'product_not_found' => 'Product not found',
@@ -2152,6 +2152,7 @@ return [
        <li>All withdrawals that have been approved are final.</li>
      </ul>',
     'nft_withdrawal' => 'NFT Withdrawal',
-    'nft_terms' => 'Buy NFT T&C',
+    'nft_terms' => 'NFT Marketplace Terms and Conditions',
+    "please_confirm_captcha_to_proceed" => "Please confirm captcha to proceed"
 
  ];
