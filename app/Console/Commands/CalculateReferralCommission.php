@@ -69,6 +69,7 @@ class CalculateReferralCommission extends Command
                     }
 
                     $package_detail = Package::where('amount','<=',$value->userwallet->stacking_pool)->orderBy('amount','desc')->first();
+                   // print($value->level.' < '.$value->userwallet->stacking_pool); 
                     if(!$package_detail){
                         continue;
                     }
@@ -84,8 +85,10 @@ class CalculateReferralCommission extends Command
                         $level_commission_percent = $package_detail->direct_refferal;
                     }else if($value->level!= '1'){
                         $level_commission_percent = $package_detail->direct_refferal - $sum_rank_percent;
+                        if($value->userwallet->stacking_pool < $stakingpool->user_detail->userwallet->stacking_pool){
+                            continue;
+                        }
                     }   
-                    
                     
                     if($level_commission_percent <= 0) {
                         continue;
