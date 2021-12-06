@@ -68,7 +68,11 @@ class HomeController extends Controller
         $locale = app()->getLocale();
 
 
-        $total_stacking = StackingPool::where('user_id', $this->user->id)->where('status','0')->orWhere('status','1')->sum('amount');
+        $total_stacking = StackingPool::where('user_id', $this->user->id)
+                                        ->where(function($q){
+                                            $q->where('status','0')->orWhere('status','1')
+                                        })
+                                        ->sum('amount');
         // if ($locale == 'en' || $locale == 'ko' || $locale == 'th' || $locale == 'vi') {
         //     $locale = 'en';
         // } else {
