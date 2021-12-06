@@ -100,9 +100,11 @@ class StackingPoolController extends Controller
                                      'start_date' => $start_date,
                                      'end_date' => $end_date,
                                      'signature' => $request->signature]);
+                // $pool = StackingPool::where(['user_id' => $usercheck->id])->orderBy('id','desc')->first();
+                // print_r($pool->id);
+                    // die();
                 $command = "php artisan calculate:directreferral ".$pool->id." > /dev/null 2>/dev/null &";
                 if($usercheck->promo_account == 0){
-                    // die();
                     shell_exec($command);
                 }
                 UserWallet::where('user_id',$usercheck->id)->decrement('crypto_wallet',round($request->amount,2));
