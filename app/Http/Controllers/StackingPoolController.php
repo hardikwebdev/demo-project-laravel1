@@ -100,12 +100,13 @@ class StackingPoolController extends Controller
                                      'end_date' => $end_date,
                                      'signature' => $request->signature]);
                 
-                UserWallet::where('user_id',$usercheck->id)->decrement('crypto_wallet',round($request->amount,2));
-                UserWallet::where('user_id',$usercheck->id)->increment('stacking_pool',round($request->amount,2));
+               
                 $command = "php artisan calculate:directreferral ".$pool->id." > /dev/null 2>/dev/null &";
                 if($usercheck->promo_account == 0){
-                    shell_exec($command);
+                    \Artisan::call("php artisan calculate:directreferral ".$pool->id);
                 }
+                 UserWallet::where('user_id',$usercheck->id)->decrement('crypto_wallet',round($request->amount,2));
+                UserWallet::where('user_id',$usercheck->id)->increment('stacking_pool',round($request->amount,2));
 
                 Session::flash('success',trans('custom.staking_pool_added_successfully'));
 
