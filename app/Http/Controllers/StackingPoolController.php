@@ -170,3 +170,4 @@ class StackingPoolController extends Controller
         return redirect()->route('stakepool',$user_investment->stacking_pool_package_id)->withInput($request->input());
     }
 }
+

@@ -7,6 +7,9 @@
     text-align:center;
     width:100%
 }
+.bg-card-4 p.text-white {
+    color: #000 !important;
+}
 .dashboard-news h3 {
     margin-bottom: 5px;
 }
@@ -245,6 +248,9 @@ span.invalid-feedback {
 .customer-register.wizard > .steps .disabled a {
     background-color: rgba(255,255,255,0.4) !important;
 }
+.navigation-cus select.cus-bg-tra-b {
+    min-width:100px
+}
 @media only screen and (min-width: 600px) {
     .steps ul li.first a { border-radius: 5px 0px 0px 5px !important; }
     .steps ul li.last a { border-radius: 0px 5px 5px 0px !important; }
@@ -268,6 +274,9 @@ span.invalid-feedback {
 @media only screen and (max-width: 600px) {
     .col-12.text-center.login-logo {
         margin-top:40px
+    }
+    .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-profile img {
+        display:none
     }
     .content-wrapper > div.ml-2 {
     margin-left: 0px !important;
@@ -298,7 +307,7 @@ span.invalid-feedback {
         min-height:120px
     }
     .navbar .navbar-brand-wrapper .brand-logo-mini img {
-        width: 174%;
+        width: 150%;
         max-width: none;
         margin: auto;
         height: auto;
