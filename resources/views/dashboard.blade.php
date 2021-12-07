@@ -613,13 +613,13 @@ aria-hidden="true" style="display: none;" id="planExpired{{ $stacking_pool->id }
 
         series: [{
             name: "{{ __('custom.apr_monthly') }}",
-            data: {!! json_encode(isset($graph['roi_commission']) ? $graph['roi_commission'] : []) !!}
+            data: {!! json_encode(isset($graph['roi_commission']) ? array_values($graph['roi_commission']) : []) !!}
         }, {
             name: "{{ __('custom.referral_commission') }}",
-            data: {!! json_encode(isset($graph['referral_commission']) ? $graph['referral_commission'] : []) !!}
+            data: {!! json_encode(isset($graph['referral_commission']) ? array_values($graph['referral_commission']) : []) !!}
         }, {
             name: "{{ __('custom.balancing_commission') }}",
-            data: {!! json_encode(isset($graph['pairing_commission']) ? $graph['pairing_commission'] : []) !!}
+            data: {!! json_encode(isset($graph['pairing_commission']) ? array_values($graph['pairing_commission']) : []) !!}
         }],
 
         responsive: {

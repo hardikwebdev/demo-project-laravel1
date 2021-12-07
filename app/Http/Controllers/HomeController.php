@@ -103,25 +103,25 @@ class HomeController extends Controller
         foreach ($months as $key => $month) {
             foreach($referral_commissions as $sale){
                 if($sale['year'] == $month){
-                    $graph['referral_commission'][] = $sale['amount'];
+                    $graph['referral_commission'][$month] = $sale['amount'];
                 }else{
-                    $graph['referral_commission'][] = 0;
+                    $graph['referral_commission'][$month] = 0;
                 }
             }
 
             foreach($roi_commissions as $sale){
                 if($sale['year'] == $month){
-                    $graph['roi_commission'][] = $sale['amount'];
+                    $graph['roi_commission'][$month] = $sale['amount'];
                 }else{
-                    $graph['roi_commission'][] = 0;
+                    $graph['roi_commission'][$month] = 0;
                 }
             }
 
             foreach($pairing_commissions as $sale){
                 if($sale['year'] == $month){
-                    $graph['pairing_commission'][] = $sale['amount'];
+                    $graph['pairing_commission'][$month] = $sale['amount'];
                 }else{
-                    $graph['pairing_commission'][] = 0;
+                    $graph['pairing_commission'][$month] = 0;
                 }
             }
         }

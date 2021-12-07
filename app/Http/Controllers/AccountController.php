@@ -317,23 +317,23 @@ class AccountController extends Controller
         foreach ($months as $key => $month) {
             foreach($saleLeft as $sale){
                 if($sale['year'] == $month){
-                    $graph['sale_left'][] = $sale['amount'];
+                    $graph['sale_left'][$month] = $sale['amount'];
                 }else{
-                    $graph['sale_left'][] = 0;
+                    $graph['sale_left'][$month] = 0;
                 }
             }
             foreach($saleRight as $sale){
                 if($sale['year'] == $month){
-                    $graph['sale_right'][] = $sale['amount'];
+                    $graph['sale_right'][$month] = $sale['amount'];
                 }else{
-                    $graph['sale_right'][] = 0;
+                    $graph['sale_right'][$month] = 0;
                 }
             }
             foreach($graphData as $sale){
                 if($sale['year'] == $month){
-                    $graph['pairing_commission'][] = $sale['amount'];
+                    $graph['pairing_commission'][$month] = $sale['amount'];
                 }else{
-                    $graph['pairing_commission'][] = 0;
+                    $graph['pairing_commission'][$month] = 0;
                 }
             }
         }

@@ -143,13 +143,13 @@
 
     series: [{
       name: "{{ __('custom.sale_left') }}",
-      data: {!! json_encode($graph['sale_left']) !!}
+      data: {!! json_encode(array_values($graph['sale_left'])) !!}
     }, {
       name: "{{ __('custom.sale_right') }}",
-      data: {!! json_encode($graph['sale_right']) !!}
+      data: {!! json_encode(array_values($graph['sale_right'])) !!}
     }, {
       name: "{{ __('custom.commission') }}",
-      data: {!! json_encode($graph['pairing_commission']) !!}
+      data: {!! json_encode(array_values($graph['pairing_commission'])) !!}
     }],
 
     responsive: {
