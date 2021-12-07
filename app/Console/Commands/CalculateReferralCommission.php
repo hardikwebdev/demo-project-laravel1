@@ -70,10 +70,11 @@ class CalculateReferralCommission extends Command
 
                     $package_detail = Package::where('amount','<=',$value->userwallet->stacking_pool)->orderBy('amount','desc')->first();
                    // print($value->level.' < '.$value->userwallet->stacking_pool); 
+                    // echo $value->username.' '.$value->level.'~';
+                    // echo $value->userwallet->stacking_pool;
                     if(!$package_detail){
                         continue;
                     }
-
 
                     $level_commission_percent = 0;
                     $total_commission = $package_detail->direct_refferal; //$value->package_detail->direct_refferal;
@@ -95,9 +96,6 @@ class CalculateReferralCommission extends Command
                     }
                     $sum_rank_percent = $sum_rank_percent + $level_commission_percent; 
                     $commission_percent = $level_commission_percent / 100;
-                    // echo $stakingpool->user_detail->username.' '.$value->level;
-                    // echo "<pre><br>";
-                    // echo $value->username."=".$sum_rank_percent."---".$level_commission_percent; 
 
                     $commission_amount = round($stakingpool->amount * $commission_percent,2); 
                     $commission_wallet = UserWallet::where('user_id',$value->id)->first();
@@ -106,6 +104,9 @@ class CalculateReferralCommission extends Command
                     $nft_commission_amount = $commission_amount * $nft_commission;
                     $commission_amount_actual = $commission_amount - $nft_commission_amount;
                     
+                    // echo "=".$sum_rank_percent."---".$level_commission_percent.' '.$commission_amount; 
+                    // echo "<pre><br>";
+
                     $history_data["type"] = "1";
                     $history_data["amount"] = $nft_commission_amount;
                     $history_data["user_id"] = $value->id;
