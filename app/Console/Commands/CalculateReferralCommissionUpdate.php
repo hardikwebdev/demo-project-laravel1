@@ -21,7 +21,7 @@ class CalculateReferralCommissionUpdate extends Command
      *
      * @var string
      */
-    protected $signature = 'calculate:directreferral {pool_id}';
+    protected $signature = 'calculate:directreferralupdate {pool_id}';
 
     /**
      * The console command description.
