@@ -49,7 +49,7 @@ class StackingPool extends Model
 
     public function getStartDateWeekAttribute(){
         if($this->start_date){
-           if($this->stacking_period == '24'){
+            if($this->stacking_period == '24'){
                 $weekday = Carbon::createFromFormat('Y-m-d',$this->start_date)->setTimeFromTimeString('00:00:00')->addDays(730);
             }else{
                 $weekday = Carbon::createFromFormat('Y-m-d',$this->start_date)->setTimeFromTimeString('00:00:00')->addDays(365);

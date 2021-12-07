@@ -30,7 +30,7 @@ class AdminLoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin/dashboard';
+    protected $redirectTo = '/admin-defix-portal/dashboard';
 
     /**
      * Create a new controller instance.
