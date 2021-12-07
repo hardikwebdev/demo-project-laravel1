@@ -81,11 +81,25 @@
       'X-CSRF-TOKEN': "{{csrf_token()}}"
     }
   });
+    $(document).ready(function () {
+    
+    const timeout = 900000;  // 900000 ms = 15 minutes
+    var idleTimer = null;
+    $('*').bind('mousemove click mouseup mousedown keydown keypress keyup submit change mouseenter scroll resize dblclick', function () {
+        clearTimeout(idleTimer);
+        idleTimer = setTimeout(function () {
+          alert('timeout');
+            document.getElementById('logout-form').submit();
+        }, timeout);
+    });
+    $("body").trigger("mousemove");
+});
 </script>
 @if($planExpired)
 @foreach($expired_stacking_pools as $stacking_pool)
 <script type="text/javascript">
   $('#planExpired{{$stacking_pool->id}}').modal('show');
+
 </script>
 @endforeach
 @endif

@@ -20,6 +20,16 @@
                   <h2 class="font-weight-bold">Register Account</h2>
                   <h5 class="text-light-pink">Enter the following to create your account</h5>
                 </div> -->
+       <!--          @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+            </ul>
+        </div>
+    @endif -->
                     <div class="col-12">
                         <form method="post" action="{{ route('createmember') }}" class="customer-register py-5"
                             id="form-wizards-register">

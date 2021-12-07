@@ -38,7 +38,7 @@ use App\Http\Controllers\Backend\TradingHistoryController;
 //     return view('welcome');
 // });
 
-Route::get('/admin', function(){
+Route::get('/admin-defix-portal', function(){
     return redirect()->route('admin.login');
 });
 
@@ -176,7 +176,7 @@ Route::group(['middleware' => 'prevent-back-history'],function(){
 
 
     //Admin
-Route::prefix('admin')->group(function () {
+Route::prefix('admin-defix-portal')->group(function () {
 
     Route::get('login', [App\Http\Controllers\Backend\AdminLoginController::class, 'showLoginForm'])->name('admin.login');
     Route::post('login', [App\Http\Controllers\Backend\AdminLoginController::class, 'login']);

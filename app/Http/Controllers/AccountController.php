@@ -69,7 +69,7 @@ class AccountController extends Controller
             'bank_branch' => 'required',
             'acc_number' => 'required',
             'bank_country_id' => 'required',
-            'child_position' => 'required',
+            // 'child_position' => 'required',
 
             // 'terms_condition' => 'required|array|min:4',
             // 'iagree' => 'required',
