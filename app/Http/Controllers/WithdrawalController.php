@@ -168,7 +168,7 @@ class WithdrawalController extends Controller
                     $routeUrl = route('withdrawlRequestVerify',$withdrawalRequest->usdt_verification_key);
                     \Mail::send('emails.withdrawlusdt',['routeUrl' =>$routeUrl ], function($message) use($data )  {
                         $message->to($data['email'], 'Withdrawal Verification')
-                        ->subject('Defix Withdrawal Verification');
+                        ->subject('Demo  Withdrawal Verification');
                     });
                     Session::flash('success',trans('custom.msg_with_usdt_withdraw')); 
                     return redirect()->route('withdrawal');
@@ -177,7 +177,7 @@ class WithdrawalController extends Controller
                     $routeUrl = route('withdrawlRequestVerify',$withdrawalRequest->usdt_verification_key);
                     \Mail::send('emails.withdrawlusdt',['routeUrl' =>$routeUrl ], function($message) use($data )  {
                         $message->to($data['email'], 'Withdrawal Verification')
-                        ->subject('Defix Withdrawal Verification');
+                        ->subject('Demo  Withdrawal Verification');
                     });
                     Session::flash('success',trans('custom.msg_with_usdt_withdraw')); 
                     return redirect()->route('withdrawal');
@@ -197,7 +197,7 @@ class WithdrawalController extends Controller
             $routeUrl = route('withdrawlRequestVerify',$withderawRequest->usdt_verification_key);
             \Mail::send('emails.withdrawlusdt',['routeUrl' =>$routeUrl ], function($message) use($data )  {
                 $message->to($data['email'], 'Withdrawal Verification')
-                ->subject('DefixFinanace Withdrawal Verification');
+                ->subject('Demo Finanace Withdrawal Verification');
             });
             return redirect()->route('withdrawal')->with(['success'=>trans('custom.verfication_email_send')]);
         }

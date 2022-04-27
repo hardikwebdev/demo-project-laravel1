@@ -4,7 +4,7 @@
 <head>
     <meta content="width=device-width,initial-scale=1" name="viewport">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Welcome to Defix</title>
+    <title>Welcome to Demo</title>
     <link href='http://fonts.cdnfonts.com/css/helvetica-neue-9' rel='stylesheet' type='text/css'>
     <style type="text/css">
         @import url('http://fonts.cdnfonts.com/css/helvetica-neue-9');
@@ -210,8 +210,8 @@
                             <table cellpadding="0" cellspacing="0" border="0" width="800" align="center">
                                 <tr>
                                     <td align="center" style="padding:45px 0px;" class="td-pad-20">
-                                        <a style="text-decoration:none; outline:none;" href="#" title="Defix">
-                                            <img src="{{ asset('images/email/defixfinance-logo-white.png') }}"
+                                        <a style="text-decoration:none; outline:none;" href="#" title="Demo">
+                                            <img src="{{ asset('images/email/Demofinance-logo-white.png') }}"
                                                 width="350" style="display:block;" />
                                         </a>
                                     </td>
@@ -222,7 +222,7 @@
                             <table cellpadding="0" cellspacing="0" border="0" width="800" align="center">
                                 <tr>
                                     <td align="center">
-                                        <a style="text-decoration:none; outline:none;" href="#" title="Defix">
+                                        <a style="text-decoration:none; outline:none;" href="#" title="Demo">
                                             <img src="{{ asset('images/email/banner.jpg') }}" width="100%"
                                                 style="display:block;" />
                                         </a>
@@ -259,7 +259,7 @@
                                                         <tr>
                                                             <td class="size-20" align="center"
                                                                 style="font-weight:600; font-size:28px; color:black; font-family:Helvetica; mso-line-height-rule: exactly; text-align:center; line-height:42px;">
-                                                                DefixFinance Counter Offer Approve Or Reject</td>
+                                                                DemoFinance Counter Offer Approve Or Reject</td>
                                                         </tr>
 
                                                         <tr>
@@ -317,10 +317,10 @@
                                                     <table cellpadding="0" cellspacing="0" border="0" align="left"
                                                         class="wd-auto">
                                                         <td style="font-family:Helvetica;font-size:9px;color:#bcbcbc">
-                                                            <strong>Disclaimer:</strong> DefiXFinance has made every
+                                                            <strong>Disclaimer:</strong> DemoFinance has made every
                                                             attempt to ensure the accuracy and reliability of the
                                                             information provided on this website. The information is
-                                                            provided “as is” without warranty of any kind. DefiXFinance
+                                                            provided “as is” without warranty of any kind. DemoFinance
                                                             makes no representations and gives no warranties of whatever
                                                             nature in respect, including but not limited to the accuracy
                                                             or completeness of any information, facts and/or opinions
@@ -329,7 +329,7 @@
                                                             <br>
                                                             Your use of the service is at your sole risk. The service is
                                                             provided on an "As is" and "As available" basis. Except as
-                                                            otherwise expressly provided herein, DefiXFinance expressly
+                                                            otherwise expressly provided herein, DemoFinance expressly
                                                             disclaims all warranties of any kind, whether express,
                                                             implied or statutory, including, but not limited to the
                                                             implied warranties of merchantability, fitness for a

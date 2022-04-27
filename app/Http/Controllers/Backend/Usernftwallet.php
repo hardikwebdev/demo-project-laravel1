@@ -89,13 +89,7 @@ class Usernftwallet extends Controller
                     $fundWallet->status = 1;
                     $fundWallet->unique_no = $uniqu_no;
                     $fundWallet->save();
-                    
-                    // Helper::generate_pdf($fundWallet);
-
-                        // $pdf->stream('payment_invoice_'.time());
-                        // if($count == 0){
-                    // Helper::gw_send_sms("APIKHW9E4Z5SP", "APIKHW9E4Z5SPKHW9E", "Defix", $fundWallet->user_detail->phone_number, "Welcome ".$fundWallet->user_detail->name." to Defix, Taking You Higher. Login now and start your journey today!");
-                }
+                                    }
             }else{
                 $fund_wallet_amount = $request->amount; 
                 $text = "No changes updated on user nft wallet";

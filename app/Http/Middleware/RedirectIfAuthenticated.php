@@ -22,7 +22,7 @@ class RedirectIfAuthenticated
       switch ($guard) {
             case 'admin' :
                 if (Auth::guard($guard)->check()) {
-                    return redirect('admin-defix-portal/dashboard');
+                    return redirect('admin-demo-portal/dashboard');
                 }
                 break;
             default:
@@ -31,14 +31,6 @@ class RedirectIfAuthenticated
                 }
                 break;
         }
-
-       /* if ($guard == "admin" && Auth::guard($guard)->check()) {
-            return redirect('admin-defix-portal/dashboard');
-        }
-        if (Auth::guard($guard)->check()) {
-            return redirect('/');
-        }*/
-        
         return $next($request);
     }
 }

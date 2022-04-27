@@ -17,7 +17,7 @@
                     <input type="hidden" name="cmd" value="_pay_simple">
                     <input type="hidden" name="reset" value="1">
                     <input type="hidden" name="merchant" value="{{$merchant_key}}">
-                    <input type="hidden" name="item_name" value="DefiXFinance USDT Fund">
+                    <input type="hidden" name="item_name" value="Demo USDT Fund">
                     <input type="hidden" name="item_number" value="{{$fundWallet->order_id}}">
                     <input type="hidden" name="currency" value="{{$rl_currency}}">
                     <input type="hidden" name="allow_currencies" value="{{$bit_currencies}}">

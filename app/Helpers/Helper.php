@@ -387,10 +387,10 @@ class Helper {
     public static function getnftwithdrawalRequestCount(){
         return NftWithdrawalRequest::where('status','0')->count();
      }
-    public static function defixFinanceID($userId ,$date){
+    public static function demoID($userId ,$date){
         $date = str_replace('-','',$date);
-        $defixFinanceID = 'DEF'.$userId.$date;
-        return $defixFinanceID;
+        $demo = 'ABC'.$userId.$date;
+        return $demo;
     }
     public static function sendMail($user, $amount){
         \Mail::send('emails.deposit-approved',['user' => $user, 'amount' => $amount], function($message) use($user)  {
@@ -428,9 +428,4 @@ class Helper {
         $pdf->save(public_path().'/uploads/pdf/'.$fund_wallet->certificate_id.'.pdf');           
    }
 
-   public static function certificateId($certificateId = 'DEFIXFINANCE29072020821' ,$date){
-    $date = str_replace('-','',$date);
-    $certificatId = 'DEFIXFINANCE'.$date.$certificateId;
-    return $certificatId;
-  }
 }

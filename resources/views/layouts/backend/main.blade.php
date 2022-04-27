@@ -7,14 +7,9 @@
 	{{-- <link rel="shortcut icon" href="{{asset('new-customer/images/favicon.ico')}}" /> --}}
 	<link href="{{asset('backend/css/bootstrap.min.css')}}" rel="stylesheet">
 	<link href="{{asset('backend/css/lib/font-awesome5/css/all.min.css')}}" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="https://app.defixfinance.com/assets/css/customd.css"> -->
 	<link href="{{asset('backend/css/animate.css')}}" rel="stylesheet">
 	<link href="{{asset('backend/css/style.css')}}" rel="stylesheet">
 
-	<link rel="icon" href="https://defixfinance.com/wp-content/uploads/2021/09/cropped-defix-favicon-32x32.png" sizes="32x32" />
-	<link rel="icon" href="https://defixfinance.com/wp-content/uploads/2021/09/cropped-defix-favicon-192x192.png" sizes="192x192" />
-	<link rel="apple-touch-icon" href="https://defixfinance.com/wp-content/uploads/2021/09/cropped-defix-favicon-180x180.png" />
-	<meta name="msapplication-TileImage" content="https://defixfinance.com/wp-content/uploads/2021/09/cropped-defix-favicon-270x270.png" />
 
 	
 	<!-- Jasny css -->

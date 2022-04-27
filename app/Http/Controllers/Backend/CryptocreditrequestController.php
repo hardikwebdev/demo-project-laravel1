@@ -207,11 +207,6 @@ class CryptocreditrequestController extends Controller
                         $user = User::find($fund_wallet->user_id);
 
                         \Helper::generate_pdf($fund_wallet);
-                        // $pdf->stream('payment_invoice_'.time());
-                        // if($count == 0){
-                        // Helper::gw_send_sms("APIKHW9E4Z5SP", "APIKHW9E4Z5SPKHW9E", "Defix", $fund_wallet->user_detail->phone_number, "Welcome ".$fund_wallet->user_detail->name." to Defix, Taking You Higher. Login now and start your journey today!");
-                        // }
-                        // $date = Carbon::now();
                         $amount = $fund_wallet->amount;
                         \Helper::sendMail($user, $amount);
                         $user_wallet = UserWallet::where('user_id',$fund_wallet->user_id)->increment('crypto_wallet',$fund_wallet->amount);

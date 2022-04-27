@@ -169,9 +169,7 @@ class AccountController extends Controller
     public function createMember(Request $request){
         $this->validator($request->all())->validate();
         $user = $this->create($request->all());
-        // \Mail::send('emails.welcome-email', ['user'=>(object)$input,'title'=>"Welcome to DefiXFinance"], function($message) use($user)  {
-        //     $message->to($user->email,"DefiXFinance")->subject("Welcome to DefiXFinance");                      
-        // });
+        
         return redirect('/')->with(['success' => trans('auth.success_register')]);
 
     }
@@ -231,40 +229,6 @@ class AccountController extends Controller
         $referral = array_merge($referral, [$this->user->id]);
         $additionalusers = [];
 
-        // $users    = User::whereIn('id',$referral)->where('status','active')->select('id','id as key','username as name','placement_id as parent','profile_image','child_position')->orderBy('child_position','asc')
-        //       ->get()
-        //       ->map(function($query) use (&$additionalusers){
-        //             $query->sale_left = Helper::getTotalgroupsalesLeft($query);
-        //             $query->sale_right = Helper::getTotalgroupsalesRight($query);
-        //             // if(count($query->placementLeft) == 0){
-        //             //     // die();
-        //             //     $data = $query;
-        //             //     $data['name']  = 'emptynode';
-
-        //             //     $data['username']  = 'emptynode';
-        //             //     $data['parent']  = $query['id'];
-        //             //     $data['profile_image'] = 'http://localhost/defix-web/assets/images/avatar.png';
-        //             //     $data['sale_left'] = 0;
-        //             //     $data['sale_right'] = 0;
-        //             //     $additionalusers[] = $data->toArray();
-        //             // }
-        //             // if(count($query->placementRight) == 0){
-        //             //     $data = $query;
-        //             //     $data['name']  = 'emptynode';
-
-        //             //     $data['username']  = 'emptynode';
-        //             //     $data['parent']  = $query['id'];
-        //             //     $data['profile_image'] = 'http://localhost/defix-web/assets/images/avatar.png';
-        //             //     $data['sale_left'] = 0;
-        //             //     $data['sale_right'] = 0;
-        //             //     $additionalusers[] = $data->toArray();
-        //             // }
-        //             // unset($query->placementLeft);
-        //             // unset($query->placementRight);
-
-        //             return $query;
-        //       })->toArray();
-        
         $users    = User::where('id',$this->user->id)
                             ->select('id','username','placement_id','profile_image')
                             ->with('children')

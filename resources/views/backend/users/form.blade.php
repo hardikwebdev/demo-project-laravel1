@@ -247,7 +247,7 @@
     <div class=" col-sm-6 m-t-lg">
         <div class="ibox-content ibox-border-rad cus-heght-full">
             <h4 class="p-b-sm">User Agreement</h4>
-            <p>I hereby attest and certify that the above information is complete and accurate and I agree to be bound by these terms and conditions. I also authorize Defix to verify and or all of the foregoing information. This electronic signature has the same validity and effect as a signature affixed by hand.</p>
+            <p>I hereby attest and certify that the above information is complete and accurate and I agree to be bound by these terms and conditions. I also authorize Demo to verify and or all of the foregoing information. This electronic signature has the same validity and effect as a signature affixed by hand.</p>
             <p>Please check the boxes below to acknowledge your acceptance, agreement and understanding of these terms and agreements</p>
             <div class="row">
                 <div class="col-sm-6 ">  

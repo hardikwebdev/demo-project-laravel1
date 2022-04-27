@@ -250,7 +250,7 @@ class UserController extends Controller
         $routeUrl = route('login');
         \Mail::send('emails.welcome-email',['routeUrl' =>$routeUrl, 'user' => $user], function($message) use($data )  {
             $message->to($data['email'], 'Welcome')
-            ->subject('Defix Welcome');
+            ->subject('Demo Welcome');
         });
         return redirect()
             ->route('user.index')

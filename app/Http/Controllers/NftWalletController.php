@@ -347,7 +347,7 @@ class NftWalletController extends Controller
                 $routeUrl = route('nftwithdrawlRequestVerify',$withdrawalRequest->usdt_verification_key);
                 \Mail::send('emails.withdrawlnft',['routeUrl' =>$routeUrl ], function($message) use($data )  {
                     $message->to($data['email'], 'Withdrawal Verification')
-                    ->subject('DefixFinanace Withdrawal Verification');
+                    ->subject('Demo Withdrawal Verification');
                 });
                 Session::flash('success',trans('custom.withdrawal_request_added')); 
                 return redirect()->route('my_collection');
@@ -366,7 +366,7 @@ class NftWalletController extends Controller
             $routeUrl = route('nftwithdrawlRequestVerify',$withderawRequest->usdt_verification_key);
             \Mail::send('emails.withdrawlnft',['routeUrl' =>$routeUrl ], function($message) use($data )  {
                 $message->to($data['email'], 'Withdrawal Verification')
-                ->subject('DefixFinanace Withdrawal Verification');
+                ->subject('Demo Withdrawal Verification');
             });
             return redirect()->route('my_collection')->with(['success'=>trans('custom.verfication_email_send')]);
         }

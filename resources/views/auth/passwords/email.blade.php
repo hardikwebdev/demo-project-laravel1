@@ -32,7 +32,7 @@ $local_url = url('locale');
                 @csrf
                 <div class="row align-items-center justify-content-center login-box login-gradient rounded p-3 p-md-5">
                     <div class="col-12 text-center login-logo">
-                        <a href="https://app.defixfinance.com"><img src="{{ asset('assets/images/assets/defixfinance-logo-white.png') }}" class="img-fluid"
+                        <a href="#"><img src="{{ asset('assets/images/assets/logo-white.png') }}" class="img-fluid"
                             alt="logo"></a>
                         <div class="navigation-cus">
                             <div class="cus-dropdown text-right mb-3 select-lang-de">
@@ -80,7 +80,7 @@ $local_url = url('locale');
                     </div>
                     <div class="col-12 text-center mt-3">
                         <h4 class="text-light-pink">
-                            <a href="https://app.defixfinance.com" class="text-white ml-2">{{ __('custom.Login') }}</a>&nbsp;&nbsp; | 
+                            <a href="#" class="text-white ml-2">{{ __('custom.Login') }}</a>&nbsp;&nbsp; | 
                             <a href="{{ route('register') }}"
                                 class="text-white ml-2">{{ __('custom.sign_up') }}</a></h4>
                     </div>

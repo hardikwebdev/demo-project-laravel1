@@ -19,7 +19,7 @@ $local_url = url('locale');
   <div class="col-12 col-lg-8 mx-auto">
      <div class="row align-items-center login-gradient login-box rounded py-4 p-md-5">
         <div class="col-12 text-center login-logo">
-            <a href="https://app.defixfinance.com"><img src="{{ asset('assets/images/assets/defixfinance-logo-white.png') }}" class="img-fluid" alt="logo"></a>
+            <a href="https://app.demo.com"><img src="{{ asset('assets/images/assets/demo-logo-white.png') }}" class="img-fluid" alt="logo"></a>
             <div class="navigation-cus">
                 <div class="cus-dropdown text-right mb-3 select-lang-de">
                    <select style=" height:35px;" class="form-control cus-bg-tra-b" data-width="fit"
@@ -370,17 +370,17 @@ $local_url = url('locale');
 <fieldset>
   <div class="row justify-content-center mt-5">
    {{-- <div class="col-12 text-white">
-    <h4>By creating an account at DefiXFinance, you agree and comply that:</h4>
+    <h4>By creating an account at demo, you agree and comply that:</h4>
 <ul><li>All input information is accurate and true to your best knowledge;</li>
 <li>You adhere to provide additional information to prove such validity if required;</li>
 <li>The security of your account (password) is your responsibility and any breach that stems from your personal password being leaked is your responsibility;</li>
 <li>You are of adult age in the jurisdiction in which you reside;</li>
-<li>Your use of DefiXFinance products and offerings do not violate any applicable law or regulation;</li>
-<li>Your use of the service is at your sole risk. The service is provided on an "As is" and "As available" basis. Except as otherwise expressly provided herein, defixfinance expressly disclaims all warranties of any kind, whether express, implied or statutory, including, but not limited to the implied warranties of merchantability, fitness for a particular purpose, title, and non-infringement.</li>
+<li>Your use of demo products and offerings do not violate any applicable law or regulation;</li>
+<li>Your use of the service is at your sole risk. The service is provided on an "As is" and "As available" basis. Except as otherwise expressly provided herein, demo expressly disclaims all warranties of any kind, whether express, implied or statutory, including, but not limited to the implied warranties of merchantability, fitness for a particular purpose, title, and non-infringement.</li>
 
-<li>You understand and agree that the above dispute procedures shall be your sole remedy in the event of dispute between you and defixfinance regarding any aspect of the service (including the enrolment process) and that you are waiving your right to lead or participate in a lawsuit involving other persons, such as a class action.</li>
+<li>You understand and agree that the above dispute procedures shall be your sole remedy in the event of dispute between you and demo regarding any aspect of the service (including the enrolment process) and that you are waiving your right to lead or participate in a lawsuit involving other persons, such as a class action.</li>
 
-<li>You agree that DefiXFinance, in its sole discretion and without liability to you or any third party, may suspend or terminate your use of service (or any part thereof) and remove and discard any content within the service, for any reason, including, without limitation, for lack of use or if DefiXFinance believes that you have violated or acted inconsistently with the letter or spirit of these terms of service.</li>
+<li>You agree that demo, in its sole discretion and without liability to you or any third party, may suspend or terminate your use of service (or any part thereof) and remove and discard any content within the service, for any reason, including, without limitation, for lack of use or if demo believes that you have violated or acted inconsistently with the letter or spirit of these terms of service.</li>
      </ul>
 </div> --}}
 {!! trans('custom.user_aggrement_list') !!}
@@ -395,7 +395,7 @@ $local_url = url('locale');
    <div class="col-md-12 user-agrrement-errro">
       <label class="m-checkbox">
          <input class="chk_agreements " type="checkbox" id="antimoney_laundering" name="terms_condition[]" value="antimoney_laundering" >
-         <a href="{{asset('terms/DefiXFinance-Anti-Money-Laundering.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.antimoney-laundering') }}</a>
+         <a href="{{asset('terms/demo-Anti-Money-Laundering.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.antimoney-laundering') }}</a>
          <span></span><br>
          <label id="terms_condition[]-error" class="error" for="terms_condition[]"></label>
      </label>
@@ -403,28 +403,28 @@ $local_url = url('locale');
  <div class="col-md-12">
   <label class="m-checkbox">
      <input class="chk_agreements " type="checkbox" name="terms_condition[]" value="coockie_policy" id="coockie_policy" >
-     <a href="{{asset('DefiXFinance-Cookie-Policy.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.coockie-policy') }}</a>
+     <a href="{{asset('demo-Cookie-Policy.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.coockie-policy') }}</a>
      <span></span>
  </label>
 </div>                             
 <div class="col-md-12 ">
   <label class="m-checkbox">
      <input class="chk_agreements " type="checkbox" id="privacy_policy" name="terms_condition[]" value="privacy_policy" >
-     <a href="{{asset('terms/DefiXFinance-Privacy-Policy.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.privacy_policy_label') }}</a>
+     <a href="{{asset('terms/demo-Privacy-Policy.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.privacy_policy_label') }}</a>
      <span></span>
  </label>
 </div>
 <div class="col-md-12">
   <label class="m-checkbox">
      <input class="chk_agreements " type="checkbox" id="risk_disclosure" name="terms_condition[]" value="risk_disclosure" >
-     <a href="{{asset('terms/DefiXFinance-Risk-Disclosure.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.risk_disclosure_statement') }}</a>
+     <a href="{{asset('terms/demo-Risk-Disclosure.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.risk_disclosure_statement') }}</a>
      <span></span>
  </label>
 </div>
 <div class="col-md-12">
   <label class="m-checkbox">
      <input class="chk_agreements " type="checkbox" id="terms_and_condition" name="terms_condition[]" value="terms_and_condition" >
-     <a href="{{asset('terms/DefiXFinance-Terms-of-Use.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.terms_and_condition') }}</a>
+     <a href="{{asset('terms/demo-Terms-of-Use.pdf')}}" target="_blank" class="font-regular text-white">{{ trans('custom.terms_and_condition') }}</a>
      <span></span>
  </label>
 </div>

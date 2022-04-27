@@ -244,7 +244,7 @@ class NftpurchaserequestController extends Controller
             
             \Mail::send('emails.counteroffer',['routeUrl' =>$routeUrl,'data' => $data ], function($message) use($data)  {
                 $message->to($data['email'], 'Counter Offer approve or reject')
-                ->subject('Defix Counter Offer Of '.$data['product']);
+                ->subject('Demo Counter Offer Of '.$data['product']);
             });
 
             return redirect()->route('nft_purchase_request.index')->with(['success' => 'Counter Offer request place successfully.']);

@@ -282,36 +282,7 @@
                                             @endforeach
                                         </div>
                                     </div>
-            <!--   <div class="col-12 col-md-6 col-lg-4">
-        <div class="bg-bullkong rounded d-flex align-items-end px-4 py-3 text-white" style="background-image:url(https://app.defixfinance.com/uploads/nft-category/1636783527_nft_category.jpg)">
-          <h3>The Legends</h3>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="bg-bullkong rounded d-flex align-items-end px-4 py-3 text-white" style="background-image:url(https://app.defixfinance.com/public/assets/images/assets/nft/car-2.gif)">
-          <h3>Cyber Autos</h3>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="bg-bullkong rounded d-flex align-items-end px-4 py-3 text-white" style="background-image:url(https://app.defixfinance.com/public/assets/images/assets/nft/Number-8.gif)">
-          <h3>Lucky Numbers</h3>
-        </div>
-
-      </div> ->
-            <div class="bg-bullkong rounded d-flex align-items-end px-4 py-3 text-white" style="background-image:url(https://app.defixfinance.com/uploads/nft-category/1636783527_nft_category.jpg)">
-              <h3>The Legends</h3>
-            </div>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4">
-            <div class="bg-bullkong rounded d-flex align-items-end px-4 py-3 text-white" style="background-image:url(https://app.defixfinance.com/public/assets/images/assets/nft/car-2.gif)">
-              <h3>Cyber Autos</h3>
-            </div>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4">
-            <div class="bg-bullkong rounded d-flex align-items-end px-4 py-3 text-white" style="background-image:url(https://app.defixfinance.com/public/assets/images/assets/nft/Number-8.gif)">
-              <h3>Lucky Numbers</h3>
-            </div>
-        </div> -->
+            
     </div>
     <div class="row mt-5 earnb">
         <div class="col-md-6 grid-margin stretch-card">

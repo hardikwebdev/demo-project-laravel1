@@ -262,7 +262,7 @@ class RegisterController extends Controller
             function ($message) use ($data) {
                 $message
                     ->to($data['email'], 'Welcome')
-                    ->subject('Defix Welcome');
+                    ->subject('Demo Welcome');
             }
         );
         return $user;
